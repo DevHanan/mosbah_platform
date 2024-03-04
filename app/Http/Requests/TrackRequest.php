@@ -26,13 +26,13 @@ class TrackRequest extends FormRequest
       $rules = [
             'name' => [
                 'required',
-                Rule::unique('Courseks', 'name')->ignore($this->Coursek)
+                Rule::unique('tracks', 'name')->ignore($this->Coursek)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     
         if ($this->getMethod() == 'PUT') {
-            $rules += ['id' => 'required|exists:Courseks,id',
+            $rules += ['id' => 'required|exists:tracks,id',
         ];
         }
     

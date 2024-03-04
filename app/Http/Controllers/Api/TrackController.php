@@ -20,8 +20,9 @@ class TrackController extends Controller
         return $this->okApiResponse(TrackResource::collection($tracks), __('Tracks loaded'));
     }
 
-    public function store(TrackRequest $request)
+    public function store(Request $request)
     {
+        return $request->all();
         $track = Track::create($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';

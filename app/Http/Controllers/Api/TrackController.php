@@ -37,6 +37,7 @@ class TrackController extends Controller
     public function update(Request $request)
     {
         $track = Track::find($request->id);
+        return $request->all();
         $track->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';

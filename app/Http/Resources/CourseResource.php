@@ -24,8 +24,10 @@ class CourseResource extends JsonResource
             "description"=> $this->description,
             "goals"=> $this->goals,
             "directedTo"=> $this->directedTo,
-            'image' => 'public/uploads/coursers/main/'.$this->image,
-            'background_image' =>'public/uploads/coursers/backgroundImg/'.$this->background_image,
+            "instructor"  => new InstructorResource($this->instructor) ?? '' ,
+            "track"  => new TrackResource($this->track) ?? '' ,
+            'image' =>  $this->image ? 'public/uploads/coursers/main/'.$this->image : "",
+            'background_image' => $this->background_image ? 'public/uploads/coursers/backgroundImg/'.$this->background_image : "",
         
         ];
     }

@@ -7,6 +7,7 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\InstructorResource;
 use App\Http\Requests\InstructorRequest;
+use App\Http\Requests\UpdateInstructorRequest;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,9 @@ class InstructorController extends Controller
         return $this->okApiResponse(new InstructorResource($instructor), __('instructor add successfully'));
     }
 
-    public function update(InstructorRequest $request,Instructor $instructor)
+    public function update(UpdateInstructorRequest $request)
     {
+        $instructor = Instructor::find($request->id);
         $instructor->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'instructors';

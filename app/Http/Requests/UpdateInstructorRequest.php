@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class InstructorRequest extends FormRequest
+class UpdateInstructorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +23,21 @@ class InstructorRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'required|exists:instructors,id',
             'first_name' => 'required',
             'last_name' => 'required',
-            'email'        => 'required|unique:instructors,email',
-            'password' => 'required|confirmed',
-            'userName'        => 'required|unique:instructors,userName',
-            'track_id' => 'required|exists:tracks,id',
+            'email' => [
+                'required',
+                Rule::unique('instructors', 'email')->ignore($this->id)
+            ],
+            'password' => 'confirmed',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'userName' => [
+                'required',
+                Rule::unique('instructors', 'userName')->ignore($this->id)
+            ],
+            'track_id' => 'required|exists:tracks,id',
+
 
 
         ];

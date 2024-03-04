@@ -21,7 +21,10 @@ class InstructorResource extends JsonResource
             "phone"=> $this->phone,
             "email"=> $this->email,
             "userName"=> $this->userName,
-            'image' => 'public/uploads/instructors/'.$this->image
+            "track"  => new TrackResource($this->track) ?? '' ,
+            "qualifications"  => $this->qualifications,
+            "about"  => $this->about_teacher,
+            'image' => $this->image ? 'public/uploads/instructors/'.$this->image : ""
         ];
     }
 }

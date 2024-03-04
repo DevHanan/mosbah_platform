@@ -8,6 +8,8 @@ use App\Traits\FileUploader;
 use App\Http\Resources\TrackResource;
 use App\Http\Requests\TrackRequest;
 use App\Models\Track;
+use Illuminate\Http\Request;
+
 
 class TrackController extends Controller
 {
@@ -32,9 +34,9 @@ class TrackController extends Controller
         return $this->okApiResponse(new TrackResource($track), __('Track add successfully'));
     }
 
-    public function update(TrackRequest $request,Track $track)
+    public function update(Request $request)
     {
-        return $request->all();
+        $track = Track::find($request->id);
         $track->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';

@@ -32,9 +32,10 @@ class TrackController extends Controller
         return $this->okApiResponse(new TrackResource($track), __('Track add successfully'));
     }
 
-    public function update(TrackRequest $request,Track $track)
+    public function update(TrackRequest $request)
     {
         return $request->all();
+        $track= Track::find($request->id);
         $track->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';

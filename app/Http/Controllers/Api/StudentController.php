@@ -7,8 +7,10 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\StudentResource;
 use App\Http\Requests\StudentRequest;
+use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Bcrypt;
 
 class StudentController extends Controller
 {
@@ -30,16 +32,25 @@ class StudentController extends Controller
             $student->image = $this->uploadMedia($request,$attach, $directory);
             $student->save();
         }
+
+        $student->password = Bcrypt($request->password);
+        $student->save();
+
         return $this->okApiResponse(new StudentResource($student), __('Student add successfully'));
     }
 
-    public function update(StudentRequest $request,Student $student)
+    public function update(UpdateStudentRequest $request)
     {
-        $student->update($request->except('image'));
+        $student = Student::find($request->id);
+        $student->update($request->except(['image','password']));
         if ($request->hasFile('image')) {
             $directory = 'students';
             $attach = 'image';
             $student->image = $this->uploadMedia($request,$attach, $directory);
+            $student->save();
+        }
+        if($request->password){
+            $student->password = Bcrypt($request->password);
             $student->save();
         }
         return $this->okApiResponse(new StudentResource($student), __('Student updated successfully'));
@@ -47,7 +58,10 @@ class StudentController extends Controller
 
     public function delete(Request $request)
     {
-        Student::find($request->id)->delete();
+
+        $student = Student::find($request->id);
+        if($student)
+        $student->delete();
         return $this->okApiResponse('', __('Student deleted successfully'));
     }
 }

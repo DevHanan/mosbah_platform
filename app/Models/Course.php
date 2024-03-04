@@ -19,4 +19,15 @@ class Course extends Model
     {
         return $query->where('active', '1');
     }
+ 
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class);
+    }
+
+
+    public function track()
+    {
+        return $this->belongsTo(Track::class);
+    }
 }

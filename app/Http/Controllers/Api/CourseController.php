@@ -7,6 +7,7 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\CourseResource;
 use App\Http\Requests\CourseRequest;
+use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
 
 class CourseController extends Controller
@@ -40,8 +41,9 @@ class CourseController extends Controller
         return $this->okApiResponse(new CourseResource($course), __('Course add successfully'));
     }
 
-    public function update(CourseRequest $request,Course $course)
+    public function update(UpdateCourseRequest $request)
     {
+        $course = Course::find($request->id);
         $course->update($request->except(['image','background_image']));
         if ($request->hasFile('image')) {
             $directory = 'courses';
@@ -60,7 +62,9 @@ class CourseController extends Controller
 
     public function delete(Request $request)
     {
-        Course::find($request->id)->delete();
+        $course = Course::find($request->id);
+        if($course)
+        $course->delete();
         return $this->okApiResponse('', __('Course deleted successfully'));
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CourseRequest extends FormRequest
+class UpdateCourseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,11 @@ class CourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'   => 'required|unique:courses,name',
+            'id' => 'required|exists:courses,id',
+            'name' => [
+                'required',
+                Rule::unique('courses', 'name')->ignore($this->id)
+            ],
             'price' => 'required',
             'course_type_id' => 'required|exists:course_types,id',
             'track_id' => 'required|exists:tracks,id',

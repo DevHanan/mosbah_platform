@@ -10,6 +10,7 @@ use App\Http\Requests\InstructorRequest;
 use App\Http\Requests\UpdateInstructorRequest;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
+use Bcrypt;
 
 
 class InstructorController extends Controller
@@ -32,6 +33,11 @@ class InstructorController extends Controller
             $instructor->image = $this->uploadMedia($request,$attach, $directory);
             $instructor->save();
         }
+
+        if($request->password){
+            $instructor->password = Bcrypt($request->password);
+            $instructor->save();
+        }
         return $this->okApiResponse(new InstructorResource($instructor), __('instructor add successfully'));
     }
 
@@ -43,6 +49,11 @@ class InstructorController extends Controller
             $directory = 'instructors';
             $attach = 'image';
             $instructor->image = $this->uploadMedia($request,$attach, $directory);
+            $instructor->save();
+        }
+
+        if($request->password){
+            $instructor->password = Bcrypt($request->password);
             $instructor->save();
         }
         return $this->okApiResponse(new InstructorResource($instructor), __('instructor updated successfully'));

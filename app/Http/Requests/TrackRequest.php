@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class TrackRequest extends FormRequest
+class CoursekRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,7 +18,7 @@ class TrackRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\ConCoursets\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -26,13 +26,13 @@ class TrackRequest extends FormRequest
       $rules = [
             'name' => [
                 'required',
-                Rule::unique('tracks', 'name')->ignore($this->track)
+                Rule::unique('Courseks', 'name')->ignore($this->Coursek)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     
         if ($this->getMethod() == 'PUT') {
-            $rules += ['id' => 'nullable|exists:tracks,id',
+            $rules += ['id' => 'required|exists:Courseks,id',
         ];
         }
     

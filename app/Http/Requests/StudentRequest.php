@@ -28,6 +28,7 @@ class StudentRequest extends FormRequest
             'email' =>'required',
             'password' =>'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            "userName"=> "required"
 
         ];
     }

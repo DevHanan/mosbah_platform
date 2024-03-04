@@ -20,9 +20,8 @@ class TrackController extends Controller
         return $this->okApiResponse(TrackResource::collection($tracks), __('Tracks loaded'));
     }
 
-    public function store(Request $request)
+    public function store(TrackRequest $request)
     {
-        return $request->all();
         $track = Track::create($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';
@@ -33,8 +32,10 @@ class TrackController extends Controller
         return $this->okApiResponse(new TrackResource($track), __('Track add successfully'));
     }
 
-    public function update(TrackRequest $request)
+    public function update(Request $request)
     {
+        return $request->all();
+
         $track= Track::find($request->id);
         $track->update($request->except('image'));
         if ($request->hasFile('image')) {

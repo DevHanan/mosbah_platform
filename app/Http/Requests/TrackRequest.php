@@ -22,14 +22,20 @@ class TrackRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'id' => 'nullable|exists:tracks,id',
+      
+      $rules = [
             'name' => [
                 'required',
                 Rule::unique('tracks', 'name')->ignore($this->track)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
         ];
+    
+        if ($this->getMethod() == 'PUT') {
+            $rules += ['id' => 'nullable|exists:tracks,id',
+        ];
+        }
+    
+        return $rules;
     }
 }

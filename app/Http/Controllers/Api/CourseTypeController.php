@@ -8,6 +8,7 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\CourseTypeResource;
 use App\Http\Requests\CourseTypeRequest;
+use App\Http\Requests\UpdateCourseTypeRequest;
 use App\Models\CourseType;
 
 class CourseTypeController extends Controller
@@ -27,7 +28,7 @@ class CourseTypeController extends Controller
         return $this->okApiResponse(new CourseTypeResource($country), __('Course Type add successfully'));
     }
 
-    public function update(CourseTypeRequest $request,CourseType $type)
+    public function update(UpdateCourseTypeRequest $request,CourseType $type)
     {
         $type->update($request->all());
         return $this->okApiResponse(new CourseTypeResource($type), __('Type updated successfully'));

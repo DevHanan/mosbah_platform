@@ -61,7 +61,7 @@ Route::group(['prefix' => 'courses'], function () {
 Route::group(['prefix' => 'tracks'], function () {
      Route::get('/', [TrackController::class, 'list']);
     Route::post('/store', [TrackController::class,'store']);
-    Route::patch('/update', [TrackController::class,'update']);
+    Route::put('/update', [TrackController::class,'update']);
     Route::delete('/delete', [TrackController::class,'delete']);
     Route::post('/change-status', [TrackController::class,'toggoleStatus']);
 

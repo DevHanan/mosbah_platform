@@ -28,7 +28,7 @@ class TrackRequest extends FormRequest
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     
-        if ($this->getMethod() == 'PUT') {
+        if ($this->getMethod() == 'patch') {
             $rules += ['id' => 'required|exists:tracks,id', "name" => [
                 Rule::unique('tracks', 'name')->ignore($this->id)
 

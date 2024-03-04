@@ -26,9 +26,13 @@ class StudentRequest extends FormRequest
             'first_name' =>'required',
             'last_name' =>'required',
             'email' =>'required',
-            'password' =>'required',
+            'password' =>'required|confirmed',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "userName"=> "required"
+            "userName"=> "required",
+            'country_id' => 'required|exists:countries,id',
+            'track_id' => 'required|exists:tracks,id',
+
+
 
         ];
     }

@@ -8,6 +8,7 @@ use App\Traits\FileUploader;
 use App\Http\Resources\StudentResource;
 use App\Http\Requests\StudentRequest;
 use App\Models\Student;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -22,7 +23,7 @@ class StudentController extends Controller
 
     public function store(StudentRequest $request)
     {
-        $student = Student::create($request->except('image'));
+        $student = Student::create($request->except(['image','password']));
         if ($request->hasFile('image')) {
             $directory = 'students';
             $attach = 'image';

@@ -8,6 +8,8 @@ use App\Traits\FileUploader;
 use App\Http\Resources\InstructorResource;
 use App\Http\Requests\InstructorRequest;
 use App\Models\Instructor;
+use Illuminate\Http\Request;
+
 
 class InstructorController extends Controller
 {

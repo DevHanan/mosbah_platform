@@ -11,6 +11,7 @@ use App\Http\Requests\CourseTypeRequest;
 use App\Http\Requests\UpdateCourseTypeRequest;
 use App\Models\CourseType;
 
+
 class CourseTypeController extends Controller
 {
     use ApiResponse, FileUploader;

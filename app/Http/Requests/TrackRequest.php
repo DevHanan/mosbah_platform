@@ -26,7 +26,7 @@ class TrackRequest extends FormRequest
       $rules = [
             'name' => [
                 'required',
-                Rule::unique('tracks', 'name')->ignore($this->Coursek)
+                Rule::unique('tracks', 'name')->ignore($this->track)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];

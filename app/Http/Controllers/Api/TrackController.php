@@ -29,7 +29,7 @@ class TrackController extends Controller
         if ($request->hasFile('image')) {
             $directory = 'tracks';
             $attach = 'image';
-            $track->image = $this->uploadMedia($request,$attach, $directory);
+            $track->image = $this->uploadMedia($request, $attach, $directory);
             $track->save();
         }
         return $this->okApiResponse(new TrackResource($track), __('Track add successfully'));
@@ -37,12 +37,12 @@ class TrackController extends Controller
 
     public function update(UpdateTrackRequest $request)
     {
-        $track= Track::find($request->id);
+        $track = Track::find($request->id);
         $track->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';
             $attach = 'image';
-            $track->image = $this->uploadMedia($request,$attach, $directory);
+            $track->image = $this->uploadMedia($request, $attach, $directory);
             $track->save();
         }
         return $this->okApiResponse(new TrackResource($track), __('Track updated successfully'));
@@ -50,7 +50,10 @@ class TrackController extends Controller
 
     public function delete(Request $request)
     {
-        Track::find($request->id)->delete();
+        $track = Track::find($request->id);
+        if ($track)
+            $track->delete();
+
         return $this->okApiResponse('', __('Track deleted successfully'));
     }
 }

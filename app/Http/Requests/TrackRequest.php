@@ -25,7 +25,6 @@ class TrackRequest extends FormRequest
         return [
             'name' =>
             'required|unique:tracks,name',
-
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ];

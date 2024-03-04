@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Track;
+use App\Models\Country;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class StudentResource extends JsonResource
@@ -22,8 +23,8 @@ class StudentResource extends JsonResource
             "phone"=> $this->phone,
             "email"=> $this->email,
             "userName"=> $this->userName,
-            "country"  =>  CountryResource::collection($this->country_id),
-            "track" =>  TrackResource::collection($this->track_id),
+            "country"  =>  CountryResource::collection(Country::find($this->country_id)),
+            "track" =>  TrackResource::collection(Track::find($this->track_id)),
             "qualifications"  => $this->qualifications,
             "about"  => $this->about_student,
             'image' =>  $this->image ? 'public/uploads/students/'.$this->image : ""

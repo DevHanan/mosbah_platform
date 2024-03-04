@@ -23,8 +23,8 @@ class StudentResource extends JsonResource
             "phone"=> $this->phone,
             "email"=> $this->email,
             "userName"=> $this->userName,
-            "country"  => new CountryResource($this->country_id) ?? '' ,
-            "track"  => new TrackResource($this->track_id) ?? '' ,
+            "country"  => new CountryResource($this->country) ?? '' ,
+            "track"  => new TrackResource($this->track) ?? '' ,
             "qualifications"  => $this->qualifications,
             "about"  => $this->about_student,
             'image' =>  $this->image ? 'public/uploads/students/'.$this->image : ""

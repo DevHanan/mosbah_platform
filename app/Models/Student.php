@@ -11,12 +11,24 @@ class Student extends Model
     protected $table = 'students';
     public $timestamps = true;
 
-    protected $fillable = array('first_name','last_name','email','userName','phone','active',
-                                'country_id','track_id','qualifications','about_student'
-                               );
+    protected $fillable = array(
+        'first_name', 'last_name', 'email', 'userName', 'phone', 'active',
+        'country_id', 'track_id', 'qualifications', 'about_student'
+    );
 
     public function scopeActive($query)
     {
         return $query->where('active', '1');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+
+    public function track()
+    {
+        return $this->belongsTo(Country::class);
     }
 }

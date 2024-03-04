@@ -23,6 +23,7 @@ class TrackRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'nullable|exists:tracks,id',
             'name' => [
                 'required',
                 Rule::unique('tracks', 'name')->ignore($this->track)

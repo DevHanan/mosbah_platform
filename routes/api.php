@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\Api\TrackController;
+use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\CourseTypeController;
+use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\InstructorController;
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -24,27 +30,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['namespace'=>'Api' ], function () {
 
 Route::group(['prefix' => 'students'], function () {
-    Route::get('/', 'StudentController@list');
-    Route::post('/store', 'StudentController@store');
-    Route::post('/update', 'StudentController@update');
-    Route::delete('/delete', 'StudentController@delete');
-    Route::get('/excel', 'StudentController@exportExcelStudents');
+  
+    Route::get('/', [StudentController::class, 'list']);
+    Route::post('/store', [StudentController::class,'store']);
+    Route::post('/update', [StudentController::class,'update']);
+    Route::delete('/delete', [StudentController::class,'delete']);
+    Route::post('/change-status', [StudentController::class,'toggoleStatus']);
 });
 
 Route::group(['prefix' => 'instructors'], function () {
-    Route::get('/', 'InstructorController@list');
-    Route::post('/store', 'InstructorController@store');
-    Route::post('/update', 'InstructorController@update');
-    Route::delete('/delete', 'InstructorController@delete');
-    Route::get('/excel', 'InstructorController@exportExcelInstructors');
+    Route::get('/', [InstructorController::class, 'list']);
+    Route::post('/store', [InstructorController::class,'store']);
+    Route::post('/update', [InstructorController::class,'update']);
+    Route::delete('/delete', [InstructorController::class,'delete']);
+    Route::post('/change-status', [InstructorController::class,'toggoleStatus']);
 });
 
 Route::group(['prefix' => 'courses'], function () {
-    Route::get('/', 'CourseController@list');
-    Route::post('/store', 'CourseController@store');
-    Route::post('/update', 'CourseController@update');
-    Route::delete('/delete', 'CourseController@delete');
-    Route::get('/excel', 'CourseController@exportExcelCourses');
+
+    Route::get('/', [CourseController::class, 'list']);
+    Route::post('/store', [CourseController::class,'store']);
+    Route::post('/update', [CourseController::class,'update']);
+    Route::delete('/delete', [CourseController::class,'delete']);
+    Route::post('/change-status', [CourseController::class,'toggoleStatus']);
+  
 });
 
 
@@ -60,18 +69,21 @@ Route::group(['prefix' => 'tracks'], function () {
 
 
 Route::group(['prefix' => 'countries'], function () {
-    Route::get('/', 'CountryController@list');
-    Route::post('/store', 'CountryController@store');
-    Route::post('/update', 'CountryController@update');
-    Route::delete('/delete', 'CountryController@delete');
+    Route::get('/', [CountryController::class, 'list']);
+    Route::post('/store', [CountryController::class,'store']);
+    Route::post('/update', [CountryController::class,'update']);
+    Route::delete('/delete', [CountryController::class,'delete']);
+    Route::post('/change-status', [CountryController::class,'toggoleStatus']);
 });
 
 
 Route::group(['prefix' => 'courseTypes'], function () {
-    Route::get('/', 'CourseTypeController@list');
-    Route::post('/store', 'CourseTypeController@store');
-    Route::post('/update', 'CourseTypeController@update');
-    Route::delete('/delete', 'CourseTypeController@delete');
+
+    Route::get('/', [CourseTypeController::class, 'list']);
+    Route::post('/store', [CourseTypeController::class,'store']);
+    Route::post('/update', [CourseTypeController::class,'update']);
+    Route::delete('/delete', [CourseTypeController::class,'delete']);
+    Route::post('/change-status', [CourseTypeController::class,'toggoleStatus']);
 });
 
 

@@ -8,6 +8,7 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\CountryResource;
 use App\Http\Requests\CountryRequest;
+use App\Http\Requests\UpdateCountryRequest;
 use App\Models\Country;
 
 class CountryController extends Controller
@@ -33,8 +34,9 @@ class CountryController extends Controller
         return $this->okApiResponse(new CountryResource($country), __('Country add successfully'));
     }
 
-    public function update(CountryRequest $request,Country $country)
+    public function update(UpdateCountryRequest $request)
     {
+        $country = Country::find($request->id);
         $country->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'countries';
@@ -47,7 +49,9 @@ class CountryController extends Controller
 
     public function delete(Request $request)
     {
-        Country::find($request->id)->delete();
+       $country =  Country::find($request->id);
+       if($country)
+       $country->delete();
         return $this->okApiResponse('', __('Country deleted successfully'));
     }
 }

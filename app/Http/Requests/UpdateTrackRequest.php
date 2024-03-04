@@ -23,19 +23,14 @@ class UpdateTrackRequest extends FormRequest
     public function rules(): array
     {
       
-      $rules = [
-            'name' => 'required|unique:tracks,name',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ];
-    
-        if ($this->getMethod() == 'patch') {
-            $rules += ['id' => 'required|exists:tracks,id', "name" => [
+        return [
+            'id' => 'required|exists:tracks,id',
+            'name' => [
+                'required',
                 Rule::unique('tracks', 'name')->ignore($this->id)
+            ],
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-            ]
         ];
-        }
-    
-        return $rules;
     }
 }

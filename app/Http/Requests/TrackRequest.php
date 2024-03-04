@@ -18,17 +18,16 @@ class TrackRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\ConCoursets\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
-      
-      $rules = [
-            'name' => 'required|unique:tracks,name',
+        return [
+            'name' =>
+            'required|unique:tracks,name',
+
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ];
-    
-    
-        return $rules;
     }
 }

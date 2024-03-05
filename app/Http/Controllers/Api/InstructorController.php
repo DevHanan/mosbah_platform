@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exports\InstructorsExport;
 use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
@@ -11,6 +12,7 @@ use App\Http\Requests\UpdateInstructorRequest;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
 use Bcrypt;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class InstructorController extends Controller
@@ -73,6 +75,13 @@ class InstructorController extends Controller
         if($instructor)
         $instructor->delete();
         return $this->okApiResponse('', __('instructor deleted successfully'));
+    }
+
+
+    public function ExportToExcel(Request $request){
+
+        return Excel::download(new InstructorsExport, 'students.xlsx');
+
     }
 
 }

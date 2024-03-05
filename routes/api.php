@@ -33,20 +33,20 @@ Route::group(['namespace'=>'Api' ], function () {
 Route::group(['prefix' => 'students'], function () {
   
     Route::get('/', [StudentController::class, 'list']);
+    Route::get('/export-sto-excel', [StudentController::class,'ExportToExcel']);
     Route::post('/store', [StudentController::class,'store']);
     Route::post('/update', [StudentController::class,'update']);
     Route::get('/{id}', [StudentController::class,'show']);
     Route::post('/delete', [StudentController::class,'delete']);
-     Route::get('/export-sto-excel', [StudentController::class,'ExportToExcel']);
 });
 
 Route::group(['prefix' => 'instructors'], function () {
     Route::get('/', [InstructorController::class, 'list']);
+    Route::get('/export-to-excel', [InstructorController::class,'ExportToExcel']);
     Route::post('/store', [InstructorController::class,'store']);
     Route::post('/update', [InstructorController::class,'update']);
     Route::get('/{id}', [InstructorController::class,'show']);
     Route::post('/delete', [InstructorController::class,'delete']);
-   Route::get('/export-to-excel', [InstructorController::class,'ExportToExcel']);
 
     
 });

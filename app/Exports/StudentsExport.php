@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\Student;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -9,21 +10,14 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 
 class StudentsExport implements FromCollection, WithHeadings, WithMapping
 {
-    protected $users;
-    protected $currency;
-
-    public function __construct($users)
-    {
-        $this->users = $users;
-        $this->currency = currencySign();
-    }
+    
 
     /**
      * @return Collection
      */
     public function collection()
     {
-        return $this->users;
+        return Student::all(); // replace with your query to get the table data
     }
 
     /**
@@ -33,15 +27,10 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             'ID',
-            'Name',
-            'Mobile',
-            'Email',
-            'Classes',
-            'Appointments',
-            'Wallet Charge',
-            'User Group',
-            'Register Date',
-            'Status',
+            'First Name',
+            'Last Name',
+            'Phone',
+            'Email'
         ];
     }
 
@@ -52,15 +41,10 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             $user->id,
-            $user->full_name,
-            $user->mobile,
-            $user->email,
-            $user->classesPurchasedsCount . '(' . $this->currency . $user->classesPurchasedsSum . ')',
-            $user->meetingsPurchasedsCount . '(' . $this->currency . $user->meetingsPurchasedsSum . ')',
-            $this->currency . $user->getAccountingBalance(),
-            !empty($user->userGroup) ? $user->userGroup->group->name : '',
-            dateTimeFormat($user->created_at, 'j M Y - H:i'),
-            $user->status,
+            $user->first_name,
+            $user->last_name,
+            $user->phone,
+            $user->email
         ];
     }
 }

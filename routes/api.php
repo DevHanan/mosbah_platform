@@ -35,7 +35,7 @@ Route::group(['prefix' => 'students'], function () {
     Route::post('/store', [StudentController::class,'store']);
     Route::post('/update', [StudentController::class,'update']);
     Route::post('/delete', [StudentController::class,'delete']);
-    Route::post('/change-status', [StudentController::class,'toggoleStatus']);
+    Route::get('/export-to-excel', [StudentController::class,'ExportToExcel']);
 });
 
 Route::group(['prefix' => 'instructors'], function () {

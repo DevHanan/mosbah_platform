@@ -10,6 +10,9 @@ use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 use Bcrypt;
 
 class StudentController extends Controller
@@ -71,5 +74,11 @@ class StudentController extends Controller
         if($student)
         $student->delete();
         return $this->okApiResponse('', __('Student deleted successfully'));
+    }
+
+    public function ExportToExcel(Request $request){
+
+        return Excel::download(new StudentsExport, 'students.xlsx');
+
     }
 }

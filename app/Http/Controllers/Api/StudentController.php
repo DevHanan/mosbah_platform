@@ -47,7 +47,7 @@ class StudentController extends Controller
         $student->password = Bcrypt($request->password);
         $student->save();
 
-        return $this->okApiResponse(new StudentResource($student), __('Student add successfully'));
+        return $this->okApiResponse(new StudentResource($student->load(['track','country'])), __('Student add successfully'));
     }
 
     public function show($id){

@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\CourseTypeController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\InstructorController;
+use App\Http\Controllers\Api\CouponController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -93,6 +94,16 @@ Route::group(['prefix' => 'courseTypes'], function () {
     Route::get('/{id}', [CourseTypeController::class,'show']);
     Route::post('/delete', [CourseTypeController::class,'delete']);
     Route::post('/change-status', [CourseTypeController::class,'toggoleStatus']);
+});
+
+
+Route::group(['prefix' => 'coupons'], function () {
+
+    Route::get('/', [CouponController::class, 'list']);
+    Route::post('/store', [CouponController::class,'store']);
+    Route::post('/update', [CouponController::class,'update']);
+    Route::get('/{id}', [CouponController::class,'show']);
+    Route::post('/delete', [CouponController::class,'delete']);
 });
 
 

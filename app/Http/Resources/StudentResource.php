@@ -27,7 +27,7 @@ class StudentResource extends JsonResource
             "track"  => new TrackResource($this->track) ?? '' ,
             "qualifications"  => $this->qualifications,
             "about"  => $this->about_student,
-            'image' =>  $this->image ? 'public/uploads/students/'.$this->image : ""
+            'image' =>  $this->image ?  asset('uploads/students/'.$this->image) : ""
         ];
     }
 }

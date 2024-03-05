@@ -80,7 +80,7 @@ class InstructorController extends Controller
 
     public function ExportToExcel(Request $request){
 
-        return Excel::download(new InstructorsExport, 'students.xlsx');
+        return Excel::download(new InstructorsExport, 'Instructors.xlsx');
 
     }
 

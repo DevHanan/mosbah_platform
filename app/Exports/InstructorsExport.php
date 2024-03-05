@@ -61,4 +61,4 @@ class InstructorsExport implements FromCollection, WithHeadings, WithMapping
         }
         
     }
-}
+

@@ -17,7 +17,7 @@ class TrackResource extends JsonResource
         return [
             "id"=> $this->id,
             "name"=> $this->name,
-            'image' =>  $this->image ? public_path('public/uploads/tracks/'.$this->image) : ""
+            'image' =>  $this->image ? base_path('public/uploads/tracks/'.$this->image) : ""
         ];
     }
 }

@@ -54,11 +54,11 @@ Route::group(['prefix' => 'instructors'], function () {
 Route::group(['prefix' => 'courses'], function () {
 
     Route::get('/', [CourseController::class, 'list']);
+    Route::get('/export-to-excel', [CourseController::class,'ExportToExcel']);
     Route::post('/store', [CourseController::class,'store']);
     Route::post('/update', [CourseController::class,'update']);
     Route::get('/{id}', [CourseController::class,'show']);
     Route::post('/delete', [CourseController::class,'delete']);
-     Route::get('/export-to-excel', [CourseController::class,'ExportToExcel']);
 
   
 });

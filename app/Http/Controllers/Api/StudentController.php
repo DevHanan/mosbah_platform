@@ -87,7 +87,7 @@ class StudentController extends Controller
 
     public function ExportToExcel(Request $request){
 
-        return "here";
+        return $this->okApiResponse('', __('Student deleted successfully'));
         return Excel::download(new StudentsExport, 'students.xlsx');
 
     }

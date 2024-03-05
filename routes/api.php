@@ -37,7 +37,7 @@ Route::group(['prefix' => 'students'], function () {
     Route::post('/update', [StudentController::class,'update']);
     Route::get('/{id}', [StudentController::class,'show']);
     Route::post('/delete', [StudentController::class,'delete']);
-    Route::get('/export-to-excel', [StudentController::class,'ExportToExcel']);
+    Route::get('/to-excel', [StudentController::class,'ExportToExcel']);
 });
 
 Route::group(['prefix' => 'instructors'], function () {

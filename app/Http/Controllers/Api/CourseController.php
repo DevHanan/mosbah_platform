@@ -84,7 +84,7 @@ class CourseController extends Controller
 
     public function ExportToExcel(Request $request){
 
-        return Excel::download(new CourseExport, 'Instructors.xlsx');
+        return Excel::download(new CourseExport, 'courses.xlsx');
 
     }
 }

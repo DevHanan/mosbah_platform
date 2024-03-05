@@ -32,6 +32,16 @@ class CourseTypeController extends Controller
         return $this->okApiResponse(new CourseTypeResource($country), __('Course Type add successfully'));
     }
 
+
+    public function show($id){
+        $type = CourseType::find($id);
+        if($type)
+        return $this->okApiResponse(new CourseTypeResource($type), __('Course Type loades successfully'));
+        else
+        return $this->notFoundApiResponse([],__('Data Not Found'));
+
+    }
+
     public function update(UpdateCourseTypeRequest $request)
     {
         $type = CourseType::find($request->id);

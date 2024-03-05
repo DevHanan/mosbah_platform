@@ -37,6 +37,15 @@ class CountryController extends Controller
         return $this->okApiResponse(new CountryResource($country), __('Country add successfully'));
     }
 
+    public function show($id){
+        $country = Country::find($id);
+        if($country)
+        return $this->okApiResponse(new CountryResource($country), __('Country loades successfully'));
+        else
+        return $this->notFoundApiResponse([],__('Data Not Found'));
+
+    }
+
     public function update(UpdateCountryRequest $request)
     {
         $country = Country::find($request->id);

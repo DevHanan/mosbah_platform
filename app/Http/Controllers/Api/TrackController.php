@@ -38,6 +38,16 @@ class TrackController extends Controller
         return $this->okApiResponse(new TrackResource($track), __('Track add successfully'));
     }
 
+
+    public function show($id){
+        $track = Track::find($id);
+        if($track)
+        return $this->okApiResponse(new TrackResource($track), __('Track loades successfully'));
+        else
+        return $this->notFoundApiResponse([],__('Data Not Found'));
+
+    }
+
     public function update(UpdateTrackRequest $request)
     {
         $track = Track::find($request->id);

@@ -68,6 +68,7 @@ Route::group(['prefix' => 'tracks'], function () {
      Route::get('/', [TrackController::class, 'list']);
     Route::post('/store', [TrackController::class,'store']);
     Route::post('/update', [TrackController::class,'update']);
+    Route::get('/{id}', [TrackController::class,'show']);
     Route::post('/delete', [TrackController::class,'delete']);
     Route::post('/change-status', [TrackController::class,'toggoleStatus']);
 
@@ -78,6 +79,7 @@ Route::group(['prefix' => 'countries'], function () {
     Route::get('/', [CountryController::class, 'list']);
     Route::post('/store', [CountryController::class,'store']);
     Route::post('/update', [CountryController::class,'update']);
+    Route::get('/{id}', [CountryController::class,'show']);
     Route::post('/delete', [CountryController::class,'delete']);
     Route::post('/change-status', [CountryController::class,'toggoleStatus']);
 });
@@ -88,6 +90,7 @@ Route::group(['prefix' => 'courseTypes'], function () {
     Route::get('/', [CourseTypeController::class, 'list']);
     Route::post('/store', [CourseTypeController::class,'store']);
     Route::post('/update', [CourseTypeController::class,'update']);
+    Route::get('/{id}', [CourseTypeController::class,'show']);
     Route::post('/delete', [CourseTypeController::class,'delete']);
     Route::post('/change-status', [CourseTypeController::class,'toggoleStatus']);
 });

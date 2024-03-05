@@ -86,9 +86,15 @@ class StudentController extends Controller
     }
 
     public function ExportToExcel(){
+        $data = Student::all(); // Replace this with your data query
 
-        // return "success";
-        // return $this->okApiResponse('', __('Student deleted successfully'));
+        if ($data->isEmpty()) {
+            return response()->json([
+                'message' => 'No data found For Student',
+                'status_code' => 404,
+                'errors' => []
+            ], 404);
+        }
 
          return Excel::download(new StudentsExport, 'students.xlsx');
 

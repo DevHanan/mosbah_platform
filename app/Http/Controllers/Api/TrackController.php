@@ -17,9 +17,12 @@ class TrackController extends Controller
     use ApiResponse, FileUploader;
 
 
-    public function list()
+    public function list(Request $request)
     {
-        $tracks = Track::active()->get();
+        $tracks = Track::active()->where(function($q)use($request){
+            if ($request->name)
+            $q->Where('name', 'like', '%' . $request->name  . '%');
+        })->get();
         return $this->okApiResponse(TrackResource::collection($tracks), __('Tracks loaded'));
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
+use Illuminate\Http\Request;
 use App\Traits\FileUploader;
 use App\Http\Resources\CourseResource;
 use App\Http\Requests\CourseRequest;
@@ -16,26 +17,35 @@ class CourseController extends Controller
     use  FileUploader;
 
 
-    public function list()
+    public function list(Request $request)
     {
-        $courses = Course::active()->get();
+        $courses = Course::active()->where(function ($q) use ($request) {
+            if ($request->name)
+                $q->Where('name', 'like', '%' . $request->name  . '%');
+            if ($request->instructor_id)
+                $q->where('instructor_id', $request->instructor_id);
+            if ($request->track_id)
+                $q->where('track_id', $request->track_id);
+                if ($request->course_type)
+                $q->where('course_type_id', $request->course_type);
+        })->get();
         return $this->okApiResponse(CourseResource::collection($courses), __('courses loaded'));
     }
 
     public function store(CourseRequest $request)
     {
-        $course = Course::create($request->except(['image','background_image']));
+        $course = Course::create($request->except(['image', 'background_image']));
         if ($request->hasFile('image')) {
             $directory = 'courses/main';
             $attach = 'image';
-            $course->image = $this->uploadMedia($request,$attach, $directory);
+            $course->image = $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
 
         if ($request->hasFile('background_image')) {
             $directory = 'courses/backgroundImg';
             $attach = 'image';
-            $course->background_image = $this->uploadMedia($request,$attach, $directory);
+            $course->background_image = $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
         return $this->okApiResponse(new CourseResource($course), __('Course add successfully'));
@@ -44,17 +54,17 @@ class CourseController extends Controller
     public function update(UpdateCourseRequest $request)
     {
         $course = Course::find($request->id);
-        $course->update($request->except(['image','background_image']));
+        $course->update($request->except(['image', 'background_image']));
         if ($request->hasFile('image')) {
             $directory = 'courses';
             $attach = 'image';
-            $course->image = $this->uploadMedia($request,$attach, $directory);
+            $course->image = $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
         if ($request->hasFile('background_image')) {
             $directory = 'courses/backgroundImg';
             $attach = 'image';
-            $course->background_image = $this->uploadMedia($request,$attach, $directory);
+            $course->background_image = $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
         return $this->okApiResponse(new CourseResource($course), __('Course updated successfully'));
@@ -63,8 +73,8 @@ class CourseController extends Controller
     public function delete(Request $request)
     {
         $course = Course::find($request->id);
-        if($course)
-        $course->delete();
+        if ($course)
+            $course->delete();
         return $this->okApiResponse('', __('Course deleted successfully'));
     }
 }

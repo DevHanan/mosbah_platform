@@ -17,9 +17,17 @@ class StudentController extends Controller
     use ApiResponse, FileUploader;
 
 
-    public function list()
+    public function list(Request $request)
     {
-        $students = Student::active()->get();
+        $students = Student::active()->where(function($q)use($request){
+            if ($request->name)
+            $q->Where('first_name', 'like', '%' . $request->name  . '%')
+           ->orWhere('last_name', 'like', '%' . $request->name  . '%');
+           if ($request->phone)
+           $q->Where('phone', $request->phone);
+           if ($request->email)
+           $q->Where('email', $request->email);
+        })->get();
         return $this->okApiResponse(StudentResource::collection($students), __('students loaded'));
     }
 

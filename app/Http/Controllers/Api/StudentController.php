@@ -86,17 +86,9 @@ class StudentController extends Controller
     }
 
     public function ExportToExcel(){
-        $data = Student::all(); // Replace this with your data query
-
-        if ($data->isEmpty()) {
-            return response()->json([
-                'message' => 'No data found For Student',
-                'status_code' => 404,
-                'errors' => []
-            ], 404);
-        }
-
-         return Excel::download(new StudentsExport, 'students.xlsx');
+        return "success";
+     
+        // return Excel::download(new StudentsExport, 'students.xlsx');
 
     }
 }

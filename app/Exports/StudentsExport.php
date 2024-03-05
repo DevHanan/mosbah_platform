@@ -51,8 +51,8 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
             $student->userName,
             $student->phone,
             $student->email,
-            $student->country->name,
-            $student->track->name,
+            $student->country ? $student->country->name : "",
+           $student->track ?  $student->track->name :"",
             $student->qualifications,
             $student->about_student
         ];

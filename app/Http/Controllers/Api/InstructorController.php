@@ -57,7 +57,7 @@ class InstructorController extends Controller
         if($instructor)
         return $this->okApiResponse(new InstructorResource($instructor), __('instructor loades successfully'));
         else
-        return $this->notFoundApiResponse(Null,__('Data Not Found'));
+        return $this->notFoundApiResponse([],__('Data Not Found'));
 
     }
 

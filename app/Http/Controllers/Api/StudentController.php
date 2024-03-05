@@ -55,7 +55,7 @@ class StudentController extends Controller
         if($student)
         return $this->okApiResponse(new StudentResource($student), __('Student loades successfully'));
         else
-        return $this->notFoundApiResponse(Null,__('Data Not Found'));
+        return $this->notFoundApiResponse([],__('Data Not Found'));
 
     }
 

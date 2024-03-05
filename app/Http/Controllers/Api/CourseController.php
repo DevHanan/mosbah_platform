@@ -60,7 +60,7 @@ class CourseController extends Controller
         if($course)
         return $this->okApiResponse(new CourseResource($course), __('course loades successfully'));
         else
-        return $this->notFoundApiResponse(Null,__('Data Not Found'));
+        return $this->notFoundApiResponse([],__('Data Not Found'));
 
     }
 

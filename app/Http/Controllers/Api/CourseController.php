@@ -10,6 +10,9 @@ use App\Http\Resources\CourseResource;
 use App\Http\Requests\CourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CourseExport;
+
 
 class CourseController extends Controller
 {
@@ -76,5 +79,12 @@ class CourseController extends Controller
         if ($course)
             $course->delete();
         return $this->okApiResponse('', __('Course deleted successfully'));
+    }
+
+
+    public function ExportToExcel(Request $request){
+
+        return Excel::download(new CourseExport, 'Instructors.xlsx');
+
     }
 }

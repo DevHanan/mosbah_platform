@@ -54,7 +54,8 @@ Route::group(['prefix' => 'courses'], function () {
     Route::post('/store', [CourseController::class,'store']);
     Route::post('/update', [CourseController::class,'update']);
     Route::post('/delete', [CourseController::class,'delete']);
-    Route::post('/change-status', [CourseController::class,'toggoleStatus']);
+    Route::get('/export-to-excel', [CourseController::class,'ExportToExcel']);
+
   
 });
 

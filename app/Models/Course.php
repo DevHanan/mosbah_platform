@@ -30,4 +30,9 @@ class Course extends Model
     {
         return $this->belongsTo(Track::class);
     }
+
+    public function courseType()
+    {
+        return $this->belongsTo(CourseType::class);
+    }
 }

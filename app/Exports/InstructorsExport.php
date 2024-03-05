@@ -43,19 +43,19 @@ class InstructorsExport implements FromCollection, WithHeadings, WithMapping
         /**
          * @inheritDoc
          */
-        public function map($student): array
+        public function map($instructor): array
         {
             return [
-                $student->id,
-                $student->first_name,
-                $student->last_name,
-                $student->userName,
-                $student->phone,
-                $student->email,
-                optional($student->track)->name,
-                $student->qualifications,
-                $student->about_teacher,
-                $student->bank_account
+                $instructor->id,
+                $instructor->first_name,
+                $instructor->last_name,
+                $instructor->userName,
+                $instructor->phone,
+                $instructor->email,
+                optional($instructor->track)->name,
+                $instructor->qualifications,
+                $instructor->about_teacher,
+                $instructor->bank_account
             ];
         }
         

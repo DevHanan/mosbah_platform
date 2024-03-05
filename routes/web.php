@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use Illuminate\Support\Facades\Artisan;
+
 
 Route::get('/', function () {
-    return view('welcome');
+    Artisan::call('optimize:clear');
 });

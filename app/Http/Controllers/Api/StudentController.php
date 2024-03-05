@@ -85,10 +85,9 @@ class StudentController extends Controller
         return $this->okApiResponse('', __('Student deleted successfully'));
     }
 
-    public function ExportToExcel(Request $request){
+    public function ExportToExcel(){
 
-        return $this->okApiResponse('', __('Student deleted successfully'));
-        // return Excel::download(new StudentsExport, 'students.xlsx');
+        return Excel::download(new StudentsExport, 'students.xlsx');
 
     }
 }

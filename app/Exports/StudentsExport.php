@@ -29,22 +29,32 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
             'ID',
             'First Name',
             'Last Name',
+            'userName',
             'Phone',
-            'Email'
+            'Email',
+            'country',
+            'track',
+            'qualifications',
+            'About Student'
         ];
     }
 
     /**
      * @inheritDoc
      */
-    public function map($user): array
+    public function map($student): array
     {
         return [
-            $user->id,
-            $user->first_name,
-            $user->last_name,
-            $user->phone,
-            $user->email
+            $student->id,
+            $student->first_name,
+            $student->last_name,
+            $student->userName,
+            $student->phone,
+            $student->email,
+            $student->country->name,
+            $student->track->name,
+            $student->qualifications,
+            $student->about_student
         ];
     }
 }

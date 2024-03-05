@@ -23,6 +23,7 @@ class InstructorResource extends JsonResource
             "userName"=> $this->userName,
             "track"  => new TrackResource($this->track) ?? '' ,
             "qualifications"  => $this->qualifications,
+            "coursesNumber" => $this->courses()->count(),
             "about"  => $this->about_teacher,
             'image' => $this->image ? 'public/uploads/instructors/'.$this->image : ""
         ];

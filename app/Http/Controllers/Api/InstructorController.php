@@ -61,7 +61,10 @@ class InstructorController extends Controller
 
     public function delete(Request $request)
     {
-        Instructor::find($request->id)->delete();
+        return $request->all();
+        $instructor = Instructor::find($request->id);
+        if($instructor)
+        $instructor->delete();
         return $this->okApiResponse('', __('instructor deleted successfully'));
     }
 

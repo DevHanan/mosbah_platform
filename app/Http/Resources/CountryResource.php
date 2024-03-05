@@ -18,7 +18,7 @@ class CountryResource extends JsonResource
             "id"=> $this->id,
             "name"=> $this->name,
             "code"=> $this->code,
-            'image' => $this->image ? 'public/uploads/countries/'.$this->image  : ""
+            'image' => $this->image ? public_path('public/uploads/countries/'.$this->image)  : ""
         ];
     }
 }

@@ -52,8 +52,7 @@ class InstructorsExport implements FromCollection, WithHeadings, WithMapping
                 $student->userName,
                 $student->phone,
                 $student->email,
-                $student->country->name,
-                $student->track->name,
+                optional($student->track)->name,
                 $student->qualifications,
                 $student->about_teacher,
                 $student->bank_account

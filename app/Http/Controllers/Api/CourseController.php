@@ -54,6 +54,16 @@ class CourseController extends Controller
         return $this->okApiResponse(new CourseResource($course), __('Course add successfully'));
     }
 
+
+    public function show($id){
+        $course = Course::find($id);
+        if($course)
+        return $this->okApiResponse(new CourseResource($course), __('course loades successfully'));
+        else
+        return $this->notFoundApiResponse(Null,__('Data Not Found'));
+
+    }
+
     public function update(UpdateCourseRequest $request)
     {
         $course = Course::find($request->id);

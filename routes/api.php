@@ -34,6 +34,7 @@ Route::group(['prefix' => 'students'], function () {
     Route::get('/', [StudentController::class, 'list']);
     Route::post('/store', [StudentController::class,'store']);
     Route::post('/update', [StudentController::class,'update']);
+    Route::get('/{id}', [StudentController::class,'show']);
     Route::post('/delete', [StudentController::class,'delete']);
     Route::get('/export-to-excel', [StudentController::class,'ExportToExcel']);
 });
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'instructors'], function () {
     Route::get('/', [InstructorController::class, 'list']);
     Route::post('/store', [InstructorController::class,'store']);
     Route::post('/update', [InstructorController::class,'update']);
+    Route::get('/{id}', [InstructorController::class,'show']);
     Route::post('/delete', [InstructorController::class,'delete']);
     Route::get('/export-to-excel', [InstructorController::class,'ExportToExcel']);
 
@@ -53,6 +55,7 @@ Route::group(['prefix' => 'courses'], function () {
     Route::get('/', [CourseController::class, 'list']);
     Route::post('/store', [CourseController::class,'store']);
     Route::post('/update', [CourseController::class,'update']);
+    Route::get('/{id}', [CourseController::class,'show']);
     Route::post('/delete', [CourseController::class,'delete']);
     Route::get('/export-to-excel', [CourseController::class,'ExportToExcel']);
 

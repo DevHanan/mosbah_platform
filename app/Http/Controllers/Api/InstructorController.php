@@ -51,6 +51,16 @@ class InstructorController extends Controller
         return $this->okApiResponse(new InstructorResource($instructor), __('instructor add successfully'));
     }
 
+
+    public function show($id){
+        $instructor = Instructor::find($id);
+        if($instructor)
+        return $this->okApiResponse(new InstructorResource($instructor), __('instructor loades successfully'));
+        else
+        return $this->notFoundApiResponse(Null,__('Data Not Found'));
+
+    }
+
     public function update(UpdateInstructorRequest $request)
     {
         $instructor = Instructor::find($request->id);

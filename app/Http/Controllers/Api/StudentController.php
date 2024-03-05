@@ -50,6 +50,15 @@ class StudentController extends Controller
         return $this->okApiResponse(new StudentResource($student), __('Student add successfully'));
     }
 
+    public function show($id){
+        $student = Student::find($id);
+        if($student)
+        return $this->okApiResponse(new StudentResource($student), __('Student loades successfully'));
+        else
+        return $this->notFoundApiResponse(Null,__('Data Not Found'));
+
+    }
+
     public function update(UpdateStudentRequest $request)
     {
         $student = Student::find($request->id);

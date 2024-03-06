@@ -22,7 +22,7 @@ class Instructor extends Model
 
     public function track()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Track::class);
     }
 
     public function courses()

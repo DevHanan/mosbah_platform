@@ -33,7 +33,7 @@ Route::group(['namespace'=>'Api' ], function () {
 Route::group(['prefix' => 'students'], function () {
   
     Route::get('/', [StudentController::class, 'list']);
-    Route::get('/export-excel', [StudentController::class,'ExportToExcel']);
+    Route::get('/export-to-excel', [StudentController::class,'ExportToExcel']);
     Route::post('/store', [StudentController::class,'store']);
     Route::post('/update', [StudentController::class,'update']);
     Route::get('/{id}', [StudentController::class,'show']);

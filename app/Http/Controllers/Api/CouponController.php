@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\CountryResource;
-use App\Http\Requests\CountryRequest;
-use App\Http\Requests\UpdateCountryRequest;
-use App\Models\Country;
+use App\Http\Requests\CouponRequest;
+use App\Http\Requests\UpdateCouponRequest;
+use App\Models\Coupon;
 
 class CouponController extends Controller
 {
@@ -18,52 +18,41 @@ class CouponController extends Controller
 
     public function list(Request $request)
     {
-        $countries = Country::active()->where(function($q)use($request){
+        $coupons = Coupon::active()->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->get();
-        return $this->okApiResponse(CountryResource::collection($countries), __('countries loaded'));
+        return $this->okApiResponse($coupons, __('Coupones loaded'));
     }
 
-    public function store(CountryRequest $request)
+    public function store(CouponRequest $request)
     {
-        $country = Country::create($request->except('image'));
-        if ($request->hasFile('image')) {
-            $directory = 'Countrys';
-            $attach = 'image';
-            $country->image = $this->uploadMedia($request,$attach, $directory);
-            $country->save();
-        }
-        return $this->okApiResponse(new CountryResource($country), __('Country add successfully'));
+        $coupon = Coupon::create($request->all());
+     
+        return $this->okApiResponse($coupon, __('coupon add successfully'));
     }
 
     public function show($id){
-        $country = Country::find($id);
-        if($country)
-        return $this->okApiResponse(new CountryResource($country), __('Country loades successfully'));
+        $coupon = Coupon::find($id);
+        if($coupon)
+        return $this->okApiResponse($coupon, __('coupon loades successfully'));
         else
         return $this->notFoundApiResponse([],__('Data Not Found'));
 
     }
 
-    public function update(UpdateCountryRequest $request)
+    public function update(UpdateCouponRequest $request)
     {
-        $country = Country::find($request->id);
-        $country->update($request->except('image'));
-        if ($request->hasFile('image')) {
-            $directory = 'countries';
-            $attach = 'image';
-            $country->image = $this->uploadMedia($request,$attach, $directory);
-            $country->save();
-        }
-        return $this->okApiResponse(new CountryResource($country), __('Country updated successfully'));
+        $coupon = Coupon::find($request->id);
+        $coupon->update($request->all());
+        return $this->okApiResponse($coupon, __('coupon updated successfully'));
     }
 
     public function delete(Request $request)
     {
-       $country =  Country::find($request->id);
-       if($country)
-       $country->delete();
-        return $this->okApiResponse('', __('Country deleted successfully'));
+       $coupon =  Coupon::find($request->id);
+       if($coupon)
+       $coupon->delete();
+        return $this->okApiResponse('', __('coupon deleted successfully'));
     }
 }

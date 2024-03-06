@@ -10,6 +10,7 @@ class Coupon extends Model
     use HasFactory;
     protected $table = 'coupons';
     public $timestamps = true;
+    protected $with = ['course'];
 
     protected $fillable = array('code','active','start_date','end_date','discount','course_id');
 

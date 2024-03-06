@@ -24,13 +24,13 @@ class UpdateCouponRequest extends FormRequest
     {
       
         return [
-            'id' => 'required|exists:coupones,id',
+            'id' => 'required|exists:coupons,id',
             'discount' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'code' => [
                 'required',
-                Rule::unique('coupones', 'code')->ignore($this->id)
+                Rule::unique('coupons', 'code')->ignore($this->id)
             ],
 
         ];

@@ -47,7 +47,7 @@ class CourseController extends Controller
 
         if ($request->hasFile('background_image')) {
             $directory = 'courses/backgroundImg';
-            $attach = 'image';
+            $attach = 'background_image';
             $course->background_image = $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }

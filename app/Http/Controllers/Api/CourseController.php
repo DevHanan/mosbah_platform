@@ -41,14 +41,14 @@ class CourseController extends Controller
         if ($request->hasFile('image')) {
             $directory = 'courses/main';
             $attach = 'image';
-            $course->image = $this->uploadMedia($request, $attach, $directory);
+            $course->image = 'uploads/coursers/main/'.$this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
 
         if ($request->hasFile('background_image')) {
             $directory = 'courses/backgroundImg';
             $attach = 'background_image';
-            $course->background_image = $this->uploadMedia($request, $attach, $directory);
+            $course->background_image ='uploads/coursers/backgroundImg/'. $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
         return $this->okApiResponse(new CourseResource($course), __('Course add successfully'));

@@ -25,7 +25,12 @@ class InstructorResource extends JsonResource
             "qualifications"  => $this->qualifications,
             "coursesNumber" => $this->courses()->count(),
             "about"  => $this->about_teacher,
-            'image' => $this->image ?  asset('uploads/instructors/'.$this->image) : ""
+            'image' => $this->image ?  asset('uploads/instructors/'.$this->image) : "",
+            'courseNumber' => $this->courses()->count(),
+            'joinTime' => $this->created_at,
+            'bank_account' => $this->bank_account,
+            'total_profit'  => 0,
+            'current balance' => 0
         ];
     }
 }

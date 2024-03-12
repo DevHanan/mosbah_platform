@@ -17,7 +17,9 @@ class TrackResource extends JsonResource
         return [
             "id"=> $this->id,
             "name"=> $this->name,
-            'image' =>  $this->image ? asset('uploads/tracks/'.$this->image) : ""
+            'image' =>  $this->image ? asset('uploads/tracks/'.$this->image) : "",
+            'active'  => $this->active,
+            'created_at'  => $this->created_at
         ];
     }
 }

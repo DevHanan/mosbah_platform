@@ -22,6 +22,7 @@ use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\PaymentTypeController;
+use App\Http\Controllers\Api\SubscriptionController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -110,5 +111,15 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/update', [CouponController::class, 'update']);
         Route::get('/{id}', [CouponController::class, 'show']);
         Route::post('/delete', [CouponController::class, 'delete']);
+    });
+
+
+    Route::group(['prefix' => 'subscriptions'], function () {
+
+        Route::get('/', [SubscriptionController::class, 'list']);
+        Route::post('/store', [SubscriptionController::class, 'store']);
+        Route::post('/update', [SubscriptionController::class, 'update']);
+        Route::get('/{id}', [SubscriptionController::class, 'show']);
+        Route::post('/delete', [SubscriptionController::class, 'delete']);
     });
 });

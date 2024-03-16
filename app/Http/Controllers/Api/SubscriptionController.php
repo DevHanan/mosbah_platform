@@ -18,7 +18,7 @@ class SubscriptionController extends Controller
 
     public function list(Request $request)
     {
-        $coupons = Subscription::active()->where(function($q)use($request){
+        $coupons = Subscription::where(function($q)use($request){
             if ($request->student_id)
             $q->Where('student_id',  $request->student_id );
             if ($request->course_id)

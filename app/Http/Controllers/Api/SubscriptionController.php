@@ -18,7 +18,6 @@ class SubscriptionController extends Controller
 
     public function list(Request $request)
     {
-        return "hh";
         $subscriptions = Subscription::where(function($q)use($request){
             if ($request->student_id)
             $q->Where('student_id',  $request->student_id );

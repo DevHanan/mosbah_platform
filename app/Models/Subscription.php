@@ -9,7 +9,7 @@ class Subscription extends Model
 {
     use HasFactory;
     use HasFactory;
-    protected $table = 'students';
+    protected $table = 'subscriptions';
     public $timestamps = true;
 
     protected $fillable = array(

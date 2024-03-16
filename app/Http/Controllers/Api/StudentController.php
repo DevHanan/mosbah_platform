@@ -11,7 +11,6 @@ use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Exports\StudentsExport;
-use Maatwebsite\Excel\Facades\Excel;
 
 use Bcrypt;
 

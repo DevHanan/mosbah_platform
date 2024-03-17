@@ -58,7 +58,7 @@ class SubscriptionController extends Controller
         if ($request->hasFile('payment_attachment')) {
             $directory = 'subscriptions';
             $attach = 'payment_attachment';
-            $subscription->payment_attachment = $this->uploadMedia($request,$attach, $directory);
+            $subscription->payment_attachment = $directory .'/'.$this->uploadMedia($request,$attach, $directory);
             $subscription->save();
         }
         return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription updated successfully'));

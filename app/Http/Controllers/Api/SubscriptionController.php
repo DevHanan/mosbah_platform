@@ -31,7 +31,13 @@ class SubscriptionController extends Controller
 
     public function store(SubscriptionRequest $request)
     {
-        $subscription= Subscription::create($request->all());
+        $subscription= Subscription::create($request->except('payment_attachment'));
+        if ($request->hasFile('payment_attachment')) {
+            $directory = 'subscriptions';
+            $attach = 'payment_attachment';
+            $subscription->payment_attachment = $this->uploadMedia($request,$attach, $directory);
+            $subscription->save();
+        }
      
         return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription add successfully'));
     }
@@ -48,7 +54,13 @@ class SubscriptionController extends Controller
     public function update(SubscriptionRequest $request)
     {
         $subscription= Subscription::find($request->id);
-        $subscription->update($request->all());
+        $subscription->update($request->except('payment_attachment'));
+        if ($request->hasFile('payment_attachment')) {
+            $directory = 'subscriptions';
+            $attach = 'payment_attachment';
+            $subscription->payment_attachment = $this->uploadMedia($request,$attach, $directory);
+            $subscription->save();
+        }
         return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription updated successfully'));
     }
 

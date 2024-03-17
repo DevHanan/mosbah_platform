@@ -18,7 +18,7 @@ class SubscriptionResource extends JsonResource
     {
         return [
             "id"=> $this->id,
-            "student"  => new StudentResource($this->country) ?? '' ,
+            "student"  => new StudentResource($this->student) ?? '' ,
             "track"  => new TrackResource($this->track) ?? '' ,
             'payment_type' => $this->paymentType ? $this->paymentType->name  :''
         ];

@@ -8,7 +8,7 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\CountryResource;
 use App\Http\Requests\SubscriptionRequest;
-use App\Http\Requests\UpdateSubscriptionRequest;
+use App\Http\Resources\SubscriptionResource;
 use App\Models\Subscription;
 
 class SubscriptionController extends Controller
@@ -26,37 +26,37 @@ class SubscriptionController extends Controller
             if ($request->track_id)
             $q->Where('track_id',  $request->track_id );
         })->get();
-        return $this->okApiResponse($subscriptions, __('Subscriptions loaded'));
+        return $this->okApiResponse(SubscriptionResource::collection($subscriptions), __('Subscriptions loaded'));
     }
 
     public function store(SubscriptionRequest $request)
     {
-        $coupon = Subscription::create($request->all());
+        $subscription= Subscription::create($request->all());
      
-        return $this->okApiResponse($coupon, __('Subscription add successfully'));
+        return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription add successfully'));
     }
 
     public function show($id){
-        $coupon = Subscription::find($id);
-        if($coupon)
-        return $this->okApiResponse($coupon, __('Subscription loades successfully'));
+        $subscription= Subscription::find($id);
+        if($subscription)
+        return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription loades successfully'));
         else
         return $this->notFoundApiResponse([],__('Data Not Found'));
 
     }
 
-    public function update(UpdateSubscriptionRequest $request)
+    public function update(SubscriptionRequest $request)
     {
-        $coupon = Subscription::find($request->id);
-        $coupon->update($request->all());
-        return $this->okApiResponse($coupon, __('Subscription updated successfully'));
+        $subscription= Subscription::find($request->id);
+        $subscription->update($request->all());
+        return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription updated successfully'));
     }
 
     public function delete(Request $request)
     {
-       $coupon =  Subscription::find($request->id);
-       if($coupon)
-       $coupon->delete();
+       $subscription=  Subscription::find($request->id);
+       if($subscription)
+       $subscription->delete();
         return $this->okApiResponse('', __('Subscription deleted successfully'));
     }
 }

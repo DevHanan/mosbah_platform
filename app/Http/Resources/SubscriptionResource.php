@@ -20,7 +20,9 @@ class SubscriptionResource extends JsonResource
             "id"=> $this->id,
             "student"  => new StudentResource($this->student) ?? '' ,
             "track"  => new TrackResource($this->track) ?? '' ,
-            'payment_type' => $this->paymentType ? $this->paymentType->name  :''
+            'payment_type' => $this->paymentType ? $this->paymentType->name  :'',
+            'payment_attachment' =>  $this->payment_attachment ?  asset($this->payment_attachment) : "",
+
         ];
     }
 }

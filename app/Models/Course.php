@@ -15,6 +15,18 @@ class Course extends Model
                                 'instructor_id','promo_url','level','description','goals','directedTo'
                                );
 
+
+    protected $appends = ['SubscriptionCount','Totalsubscription'] ;   
+    
+    
+    public function getSubscriptionCountAttribute(){
+     return $this->subscriptions()->count();   
+    }
+
+    public function getTotalsubscriptionAttribute(){
+        return $this->subscriptions()->count() * $this->price;   
+    }
+
     public function scopeActive($query)
     {
         return $query->where('active', '1');
@@ -25,7 +37,6 @@ class Course extends Model
         return $this->belongsTo(Instructor::class);
     }
 
-
     public function track()
     {
         return $this->belongsTo(Track::class);
@@ -34,5 +45,11 @@ class Course extends Model
     public function courseType()
     {
         return $this->belongsTo(CourseType::class);
+    }
+
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
     }
 }

@@ -40,6 +40,24 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'instructors' => [
+            'driver' => 'session',
+            'provider' => 'instructors',
+        ],
+        'instructors-login' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+        'students' => [
+            'driver' => 'token',
+            'provider' => 'students',
+        ],
+        'students-login' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
+
     ],
 
     /*
@@ -65,10 +83,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'instructors' => [
+            'driver' => 'database',
+            'model' => App\Models\Instructor::class,
+        ],
+
+        'students' => [
+            'driver' => 'database',
+            'model' => App\Models\Student::class,
+        ],
     ],
 
     /*

@@ -10,9 +10,6 @@ use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Exports\StudentsExport;
-
-use Bcrypt;
 
 class StudentController extends Controller
 {

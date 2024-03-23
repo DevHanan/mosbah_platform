@@ -18,7 +18,7 @@ use App\Http\Controllers\Api\TrackController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\CourseTypeController;
 use App\Http\Controllers\Api\CourseController;
-use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\Admin\StudentController;
 use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\PaymentTypeController;

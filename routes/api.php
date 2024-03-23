@@ -18,7 +18,6 @@ use App\Http\Controllers\Api\TrackController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\CourseTypeController;
 use App\Http\Controllers\Api\CourseController;
-use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\PaymentTypeController;
@@ -34,7 +33,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['namespace' => 'Api','prefix'=>'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Api\Admin','prefix'=>'admin'], function () {
 
     Route::group(['prefix' => 'students'], function () {
 

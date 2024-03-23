@@ -18,10 +18,12 @@ use App\Http\Controllers\Api\TrackController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\CourseTypeController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\PaymentTypeController;
 use App\Http\Controllers\Api\SubscriptionController;
+
 use App\Http\Controllers\Api\Instructor\HomeController;
 use App\Http\Controllers\Api\Instructor\WithdrawalController;
 use App\Http\Controllers\Api\Instructor\ProfitController;
@@ -32,16 +34,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['prefix'=>'admin'], function () {
+Route::group(['namespace' => 'Api','prefix'=>'admin'], function () {
 
     Route::group(['prefix' => 'students'], function () {
 
-        Route::get('/', 'App\Http\Controllers\Api\Admin\StudentController@list');
-        Route::get('/export-to-excel', 'App\Http\Controllers\Api\Admin\StudentControlle@ExportToExcel');
-        Route::post('/store',  'App\Http\Controllers\Api\Admin\StudentControlle@store');
-        Route::post('/update',  'App\Http\Controllers\Api\Admin\StudentControlle@update');
-        Route::get('/{id}',  'App\Http\Controllers\Api\Admin\StudentControlle@show');
-        Route::post('/delete',  'App\Http\Controllers\Api\Admin\StudentControlle@delete');
+        Route::get('/', [StudentController::class, 'list']);
+        Route::get('/export-to-excel', [StudentController::class, 'ExportToExcel']);
+        Route::post('/store', [StudentController::class, 'store']);
+        Route::post('/update', [StudentController::class, 'update']);
+        Route::get('/{id}', [StudentController::class, 'show']);
+        Route::post('/delete', [StudentController::class, 'delete']);
     });
 
     Route::group(['prefix' => 'instructors'], function () {
@@ -138,7 +140,7 @@ Route::group(['namespace' => 'Api\Instructor','prefix'=>'instructor'], function 
     Route::get('course/{id}', [CourseController::class, 'show']);
 
 
-    Route::get('list-students',  'list']);
+    Route::get('list-students', [StudentController::class, 'list']);
 
     Route::get('profits', [ProfitController::class, 'list']);
 

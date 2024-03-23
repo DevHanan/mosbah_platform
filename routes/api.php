@@ -28,6 +28,10 @@ use App\Http\Controllers\Api\Instructor\HomeController;
 use App\Http\Controllers\Api\Instructor\WithdrawalController;
 use App\Http\Controllers\Api\Instructor\ProfitController;
 
+use App\Http\Controllers\Api\Student\HomeController as StudentHomeController;
+use App\Http\Controllers\Api\Student\CourseController as StudentCourseController;
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -149,8 +153,8 @@ Route::group(['namespace' => 'Api\Instructor','prefix'=>'instructor'], function 
 
 Route::group(['namespace' => 'Api\Student','prefix'=>'student'], function () {
 
-    Route::get('/home', [HomeController::class, 'list']);
-    Route::get('list-courses', [CourseController::class, 'list']);
-    Route::get('course/{id}', [CourseController::class, 'show']);
+    Route::get('/home', [StudentHomeController::class, 'list']);
+    Route::get('list-courses', [StudentCourseController::class, 'list']);
+    Route::get('course/{id}', [StudentCourseController::class, 'show']);
 
 });

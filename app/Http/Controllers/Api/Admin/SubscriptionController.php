@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
-use App\Http\Resources\CountryResource;
 use App\Http\Requests\SubscriptionRequest;
 use App\Http\Resources\SubscriptionResource;
 use App\Models\Subscription;

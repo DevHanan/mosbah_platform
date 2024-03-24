@@ -30,7 +30,9 @@ class InstructorResource extends JsonResource
             'joinTime' => $this->created_at,
             'bank_account' => $this->bank_account,
             'total_profit'  => 0,
-            'current balance' => 0
+            'current balance' => 0,
+            'api_token' => $this->when(auth()->guard('instructors-login')->check(), $this->api_token),
+
         ];
     }
 }

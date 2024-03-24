@@ -29,7 +29,9 @@ class StudentResource extends JsonResource
             "about"  => $this->about_student,
             'image' =>  $this->image ?  asset('uploads/students/'.$this->image) : "",
             'JoinTime' => $this->created_at,
-            'participant_courses' => 0
+            'participant_courses' => 0,
+            'api_token' => $this->when(auth()->guard('students-login')->check(), $this->api_token),
+
         ];
     }
 }

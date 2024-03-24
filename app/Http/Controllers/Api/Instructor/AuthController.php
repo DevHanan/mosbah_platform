@@ -11,7 +11,7 @@ use App\Http\Resources\InstructorResource;
 use App\Models\Instructor;
 use Bcrypt;
 
-class TeacherAuthController extends Controller
+class AuthController extends Controller
 {
 
     use ApiResponse;

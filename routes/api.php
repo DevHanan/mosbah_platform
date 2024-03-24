@@ -29,20 +29,25 @@ use App\Http\Controllers\Api\Admin\AuthController;
 use App\Http\Controllers\Api\Instructor\HomeController;
 use App\Http\Controllers\Api\Instructor\WithdrawalController;
 use App\Http\Controllers\Api\Instructor\ProfitController;
+use App\Http\Controllers\Api\Instructor\AuthController as InstructorAuthController;
+
 
 use App\Http\Controllers\Api\Student\HomeController as StudentHomeController;
 use App\Http\Controllers\Api\Student\CourseController as StudentCourseController;
+use App\Http\Controllers\Api\Student\AuthController as StudentAuthController;
 
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/admin/login', [AuthController::class, 'login']);
+Route::post('/student/login', [StudentAuthController::class, 'login']);
+Route::post('/instructor/login', [InstructorAuthController::class, 'login']);
 
 
 Route::group(['prefix'=>'admin'], function () {
 
-    Route::post('/login', [AuthController::class, 'login']);
 
     Route::middleware('auth:api')->group(function () {
 
@@ -141,7 +146,7 @@ Route::group(['prefix'=>'admin'], function () {
 
 });
 
-Route::group(['namespace' => 'Api\Instructor','prefix'=>'instructor'], function () {
+Route::group(['middleware' => 'auth:instructors','prefix'=>'instructor'], function () {
 
     Route::get('/home', [HomeController::class, 'list']);
     Route::get('withdrawal', [WithdrawalController::class, 'list']);
@@ -158,7 +163,7 @@ Route::group(['namespace' => 'Api\Instructor','prefix'=>'instructor'], function 
 });
 
 
-Route::group(['namespace' => 'Api\Student','prefix'=>'student'], function () {
+Route::group(['middleware' => 'auth:students','prefix'=>'student'], function () {
 
     Route::get('/home', [StudentHomeController::class, 'list']);
     Route::get('list-courses', [StudentCourseController::class, 'list']);

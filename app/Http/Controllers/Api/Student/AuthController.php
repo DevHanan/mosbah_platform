@@ -9,7 +9,7 @@ use App\Http\Requests\PasswordUpdateRequest;
 use App\Models\Student;
 use Hash;
 
-class StudentAuthController extends Controller
+class AuthController extends Controller
 {
 
     use ApiResponse;

@@ -49,7 +49,7 @@ Route::post('/instructor/login', [InstructorAuthController::class, 'login']);
 Route::group(['prefix'=>'admin'], function () {
 
 
-    Route::middleware('auth:api')->group(function () {
+    Route::middleware('auth:sanctum')->group(function () {
 
     Route::group(['prefix' => 'students'], function () {
 

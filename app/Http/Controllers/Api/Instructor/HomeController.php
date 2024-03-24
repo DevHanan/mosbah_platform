@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function list(Request $request)
     {
-        $login_id = auth()->user()->guard('instructor')->id;
+        $login_id = auth()->user()->guard('instructors-login')->id;
         $courses = Course::where('instructor_id',$login_id)->get();
         $data['courseCount'] = $courses->count();
         $data['studentsCount'] = Subscription::where('course_id',$courses->pluck('id')->ToArray())->count();

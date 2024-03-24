@@ -19,9 +19,9 @@ class AuthController extends Controller
 
     use ApiResponse;
 
-    // login step 1
     public function login(Request $request)
     {
+        return "here";
          $request->validate([
         'email' => 'required|email|exists:users,email',
            'password' => 'required'

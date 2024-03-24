@@ -44,6 +44,7 @@ Route::group(['prefix'=>'admin'], function () {
 
     Route::post('/login', [AuthController::class, 'login']);
 
+    Route::middleware('auth:api')->group(function () {
 
     Route::group(['prefix' => 'students'], function () {
 
@@ -135,6 +136,7 @@ Route::group(['prefix'=>'admin'], function () {
         Route::post('/delete', [SubscriptionController::class, 'delete']);
     });
 
+});
 
 
 });

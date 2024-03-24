@@ -85,16 +85,22 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            'table' => 'users', // ensure the table is set correctly
+
         ],
 
         'instructors' => [
             'driver' => 'database',
             'model' => App\Models\Instructor::class,
+            'table' => 'instructors', // ensure the table is set correctly
+
         ],
 
         'students' => [
             'driver' => 'database',
             'model' => App\Models\Student::class,
+            'table' => 'students', // ensure the table is set correctly
+
         ],
     ],
 

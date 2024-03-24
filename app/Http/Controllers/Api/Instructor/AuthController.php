@@ -39,7 +39,7 @@ class AuthController extends Controller
                 } 
                 else{ 
                     $user = Instructor::where('email',$request->email)->first();
-                    if($user->status == 0 )
+                    if($user->active == 0 )
                     return $this->errorApiResponse([],401,__('auth_login_account_bloacked')); 
                     else
                    return $this->errorApiResponse([],401,__('auth_login_failed')); 

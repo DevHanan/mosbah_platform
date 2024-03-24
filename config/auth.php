@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-            'driver' => 'session',
+            'driver' => 'token',
             'provider' => 'users',
         ],
 
@@ -49,9 +49,19 @@ return [
             'driver' => 'session',
             'provider' => 'instructors',
         ],
+
+        
+        'instructors' => [
+            'driver' => 'token',
+            'provider' => 'instructors',
+        ],
        
         'students-login' => [
             'driver' => 'session',
+            'provider' => 'students',
+        ],
+        'students' => [
+            'driver' => 'token',
             'provider' => 'students',
         ],
 

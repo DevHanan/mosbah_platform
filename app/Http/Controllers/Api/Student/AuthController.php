@@ -31,7 +31,7 @@ class AuthController extends Controller
              $token = $instructor->createToken('apiToken')->plainTextToken;
              $instructor->api_token = $token;
              $instructor->save();
-            return $this->okApiResponse($instructor,__("instructor information"));
+            return $this->okApiResponse($instructor,__("Student information"));
                 } 
                 else{ 
                     $user = Student::where('email',$request->email)->first();

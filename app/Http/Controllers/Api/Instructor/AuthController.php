@@ -35,7 +35,7 @@ class AuthController extends Controller
              $user = auth::guard('instructors-login')->user();
              $user->api_token= $token;
              $user->save();
-            return $this->okApiResponse(new InstructorResource($user),__("User information"));
+            return $this->okApiResponse(new InstructorResource($user),__("Instructor information"));
                 } 
                 else{ 
                     $user = Instructor::where('email',$request->email)->first();

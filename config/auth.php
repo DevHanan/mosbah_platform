@@ -83,14 +83,14 @@ return [
         ],
 
         'instructors' => [
-            'driver' => 'database',
+            'driver' => 'eloquent',
             'model' => App\Models\Instructor::class,
             'table' => 'instructors', // ensure the table is set correctly
 
         ],
 
         'students' => [
-            'driver' => 'database',
+            'driver' => 'eloquent',
             'model' => App\Models\Student::class,
             'table' => 'students', // ensure the table is set correctly
 

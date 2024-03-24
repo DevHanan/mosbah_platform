@@ -46,12 +46,12 @@ return [
         ],
 
         'instructors' => [
-            'driver' => 'session',
+            'driver' => 'token',
             'provider' => 'instructors',
         ],
         'instructors-login' => [
             'driver' => 'session',
-            'provider' => 'clients',
+            'provider' => 'instructors',
         ],
         'students' => [
             'driver' => 'token',

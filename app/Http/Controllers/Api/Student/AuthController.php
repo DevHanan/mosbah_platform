@@ -26,7 +26,7 @@ class AuthController extends Controller
         'password.required' => 'A password is required',
     ]);
         
-         if(auth()->guard('students-login')->attempt(['email' =>$request->email ,'password' =>$request->password,'status'=>'1'])){ 
+         if(auth()->guard('students-login')->attempt(['email' =>$request->email ,'password' =>$request->password,'active'=>'1'])){ 
              $instructor = auth()->guard('students-login')->user();
              $token = $instructor->createToken('apiToken')->plainTextToken;
              $instructor->api_token = $token;

@@ -30,7 +30,7 @@ class AuthController extends Controller
     ]);
 
 
-         if(Auth::guard('instructors-login')->attempt(['email' =>$request->email ,'password' =>$request->password,'status'=>'1'])){ 
+         if(Auth::guard('instructors-login')->attempt(['email' =>$request->email ,'password' =>$request->password,'active'=>'1'])){ 
              $token = auth::guard('instructors-login')->user()->createToken('apiToken')->plainTextToken;
              $user = auth::guard('instructors-login')->user();
              $user->api_token= $token;

@@ -41,7 +41,7 @@ use App\Http\Controllers\Api\Student\AuthController as StudentAuthController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/admin/login', [AuthController::class, 'login']);
+Route::post('/admin/login', [AuthController::class, 'login'])->name('login');
 Route::post('/student/login', [StudentAuthController::class, 'login']);
 Route::post('/instructor/login', [InstructorAuthController::class, 'login']);
 
@@ -49,7 +49,7 @@ Route::post('/instructor/login', [InstructorAuthController::class, 'login']);
 Route::group(['prefix'=>'admin'], function () {
 
 
-    Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware('auth:api')->group(function () {
 
     Route::group(['prefix' => 'students'], function () {
 

@@ -23,6 +23,8 @@ use App\Http\Controllers\Api\Admin\InstructorController;
 use App\Http\Controllers\Api\Admin\CouponController;
 use App\Http\Controllers\Api\Admin\PaymentTypeController;
 use App\Http\Controllers\Api\Admin\SubscriptionController;
+use App\Http\Controllers\Api\Admin\AuthController;
+
 
 use App\Http\Controllers\Api\Instructor\HomeController;
 use App\Http\Controllers\Api\Instructor\WithdrawalController;
@@ -39,6 +41,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group(['prefix'=>'admin'], function () {
+
+    Route::post('/login', [AuthController::class, 'login']);
+
 
     Route::group(['prefix' => 'students'], function () {
 

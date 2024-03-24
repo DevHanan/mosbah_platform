@@ -41,17 +41,17 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-            'driver' => 'sanctum',
+            'driver' => 'token',
             'provider' => 'users',
         ],
 
         'instructors-login' => [
-            'driver' => 'sanctum',
+            'driver' => 'token',
             'provider' => 'instructors',
         ],
        
         'students-login' => [
-            'driver' => 'sanctum',
+            'driver' => 'token',
             'provider' => 'students',
         ],
 

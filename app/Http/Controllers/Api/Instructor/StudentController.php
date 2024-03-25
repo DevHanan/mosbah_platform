@@ -19,7 +19,7 @@ class StudentController extends Controller
 
     public function list(Request $request)
     {
-        $login_id = auth()->user()->guard('instructor')->id;
+        $login_id = auth()->guard('instructors')->user()->id;
         $courses = Course::where('instructor_id',$login_id)->pluck('id')->ToArray();
         $subscriptions = Subscription::with(['student','course'])->whereIn('course_id',$courses)->get();
         return $this->okApiResponse($subscriptions, __('data loaded'));

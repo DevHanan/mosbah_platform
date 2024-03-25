@@ -23,6 +23,7 @@ class StudentResource extends JsonResource
             "phone"=> $this->phone,
             "email"=> $this->email,
             "userName"=> $this->userName,
+            'api_token' => $this->when(auth()->guard('students')->check(), $this->api_token),
             "country"  => new CountryResource($this->country) ?? '' ,
             "track"  => new TrackResource($this->track) ?? '' ,
             "qualifications"  => $this->qualifications,
@@ -30,7 +31,6 @@ class StudentResource extends JsonResource
             'image' =>  $this->image ?  asset('uploads/students/'.$this->image) : "",
             'JoinTime' => $this->created_at,
             'participant_courses' => 0,
-            'api_token' => $this->when(auth()->guard('students-login')->check(), $this->api_token),
 
         ];
     }

@@ -21,6 +21,7 @@ class InstructorResource extends JsonResource
             "phone"=> $this->phone,
             "email"=> $this->email,
             "userName"=> $this->userName,
+            'api_token' => $this->when(auth()->guard('instructors')->check(), $this->api_token),
             "track"  => new TrackResource($this->track) ?? '' ,
             "qualifications"  => $this->qualifications,
             "coursesNumber" => $this->courses()->count(),
@@ -31,7 +32,6 @@ class InstructorResource extends JsonResource
             'bank_account' => $this->bank_account,
             'total_profit'  => 0,
             'current balance' => 0,
-            'api_token' => $this->when(auth()->guard('instructors-login')->check(), $this->api_token),
 
         ];
     }

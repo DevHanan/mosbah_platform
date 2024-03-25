@@ -23,7 +23,6 @@ class CourseController extends Controller
     public function list(Request $request)
     {
         $login_id = auth()->guard('instructors')->user()->id;
-        return $login_id;
         $courses = Course::where('instructor_id',$login_id)->where(function ($q) use ($request) {
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');

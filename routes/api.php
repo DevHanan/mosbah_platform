@@ -29,6 +29,7 @@ use App\Http\Controllers\Api\Admin\AuthController;
 use App\Http\Controllers\Api\Instructor\HomeController;
 use App\Http\Controllers\Api\Instructor\WithdrawalController;
 use App\Http\Controllers\Api\Instructor\ProfitController;
+use App\Http\Controllers\Api\Instructor\CourseController as InstructorCourseController;
 use App\Http\Controllers\Api\Instructor\AuthController as InstructorAuthController;
 
 
@@ -152,8 +153,8 @@ Route::group(['middleware' => 'auth:instructors','prefix'=>'instructor'], functi
     Route::get('withdrawal', [WithdrawalController::class, 'list']);
     Route::post('/add-withdrawal', [WithdrawalController::class, 'store']);
 
-    Route::get('list-courses', [CourseController::class, 'list']);
-    Route::get('course/{id}', [CourseController::class, 'show']);
+    Route::get('list-courses', [InstructorCourseController::class, 'list']);
+    Route::get('course/{id}', [InstructorCourseController::class, 'show']);
 
 
     Route::get('list-students', [StudentController::class, 'list']);

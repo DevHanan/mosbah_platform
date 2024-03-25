@@ -23,7 +23,8 @@ class CourseController extends Controller
     public function list(Request $request)
     {
         $login_id = auth()->guard('instructors')->user()->id;
-        $courses = Course::active()->where(function ($q) use ($request) {
+        return $login_id;
+        $courses = Course::where('instructor_id',$login_id)->where(function ($q) use ($request) {
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)
@@ -32,7 +33,7 @@ class CourseController extends Controller
                 $q->where('track_id', $request->track_id);
                 if ($request->course_type)
                 $q->where('course_type_id', $request->course_type);
-        })->where('instructor_id',$login_id)->get();
+        })->get();
         return $this->okApiResponse(CourseResource::collection($courses), __('courses loaded'));
     }
 

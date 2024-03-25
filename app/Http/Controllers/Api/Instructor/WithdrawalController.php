@@ -18,7 +18,7 @@ class WithdrawalController extends Controller
     public function list(Request $request)
     {
         $login_id = auth()->guard('instructors')->user()->id;
-        $data = Withdrawal::where('course_id',$login_id)->get();
+        $data = Withdrawal::where('instructor_id',$login_id)->get();
         return $this->okApiResponse($data, __('data loaded'));
     }
 

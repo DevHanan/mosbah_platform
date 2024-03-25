@@ -17,7 +17,7 @@ class WithdrawalController extends Controller
 
     public function list(Request $request)
     {
-        $login_id = auth()->user()->guard('instructor')->id;
+        $login_id = auth()->guard('instructors')->user()->id;
         $data = Withdrawal::where('course_id',$login_id)->get();
         return $this->okApiResponse($data, __('data loaded'));
     }
@@ -25,7 +25,7 @@ class WithdrawalController extends Controller
 
     public function store(Request $request)
     {
-        $request->merge(['instructor_id'=> auth()->user()->guard('instructor')->id ,'date'=> Carbon::today(),'status'=>'1']) ;
+        $request->merge(['instructor_id'=> auth()->guard('instructors')->user()->id ,'date'=> Carbon::today(),'status'=>'1']) ;
         $data = Withdrawal::create($request->all());
         return $this->okApiResponse($data, __('data loaded'));
     }

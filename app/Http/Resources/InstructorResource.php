@@ -22,7 +22,7 @@ class InstructorResource extends JsonResource
             "email"=> $this->email,
             "userName"=> $this->userName,
             // 'api_token' => $this->when(auth()->guard('instructors')->check(), $this->api_token),
-            'api_token'  => $this->token,
+            'api_token'  => $this->api_token,
             "track"  => new TrackResource($this->track) ?? '' ,
             "qualifications"  => $this->qualifications,
             "coursesNumber" => $this->courses()->count(),

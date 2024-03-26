@@ -16,6 +16,7 @@ class Student extends Authenticatable
         'first_name', 'last_name', 'email', 'userName', 'phone', 'active',
         'country_id', 'track_id', 'qualifications', 'about_student'
     );
+    protected $hidden = ['password'];
 
     public function scopeActive($query)
     {

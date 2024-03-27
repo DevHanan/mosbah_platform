@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
@@ -21,34 +22,33 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-         $request->validate([
-        'email' => 'required|email|exists:users,email',
-           'password' => 'required'
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required'
         ], [
-        'email.required' => 'A email is required',
-        'password.required' => 'A password is required',
-    ]);
-        
-         if(auth()->guard()->attempt(['email' =>$request->email ,'password' =>$request->password,'status'=>'1'])){ 
-             $user = auth()->guard()->user();
-             $token = $user->createToken('apiToken')->plainTextToken;
-             $user->api_token = $token;
-             $user->save();
-            return $this->okApiResponse($user,__("USer information"));
-                } else{ 
-                    $user = User::where('email',$request->email)->first();
-                    if($user->status == 0 )
-                    return $this->errorApiResponse([],401,__('auth_login_account_bloacked')); 
-                    else
-                   return $this->errorApiResponse([],401,__('auth_login_failed')); 
-                } 
+            'email.required' => 'A email is required',
+            'password.required' => 'A password is required',
+        ]);
 
+        if (auth()->guard()->attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1'])) {
+            $user = auth()->guard()->user();
+            $token = $user->createToken('apiToken')->plainTextToken;
+            $user->api_token = $token;
+            $user->save();
+            return $this->okApiResponse($user, __("USer information"));
+        } else {
+            $user = User::where('email', $request->email)->first();
+            if ($user->status == 0)
+                return $this->errorApiResponse([], 401, __('auth_login_account_bloacked'));
+            else
+                return $this->errorApiResponse([], 401, __('auth_login_failed'));
+        }
     }
 
-  
 
 
- 
+
+
     private function generateToken($user)
     {
         $user->tokens()->delete();
@@ -60,7 +60,7 @@ class AuthController extends Controller
     {
         request()->files->remove('link');
 
-        $fileName = time() . rand(10,99).$file->getClientOriginalName();
+        $fileName = time() . rand(10, 99) . $file->getClientOriginalName();
         $dest = public_path('/uploads/' . $folder);
         $file->move($dest, $fileName);
 
@@ -73,31 +73,30 @@ class AuthController extends Controller
     {
         // Revoke a specific user token
         auth()->guard('api')->user()->tokens()->delete();
-        return $this->okApiResponse([],__("Logged out successfully"));
+        return $this->okApiResponse([], __("Logged out successfully"));
     }
-    
-     public function updateToken(Request $request){
-    try{
-        $user = User::find($request->user_id);
-        $user->fcm_token=$request->token;
+
+    public function updateToken(Request $request)
+    {
+        try {
+            $user = User::find($request->user_id);
+            $user->fcm_token = $request->token;
+            $user->save();
+            return $this->okApiResponse([], __("Update token success"));
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json([
+                'success' => false
+            ], 500);
+        }
+    }
+
+    public function updatePassword(PasswordUpdateRequest $request)
+    {
+
+        $user = auth()->user();
+        $user->password = Bcrypt($request->password);
         $user->save();
-        return $this->okApiResponse([],__("Update token success"));
-
-    }catch(\Exception $e){
-        report($e);
-        return response()->json([
-            'success'=>false
-        ],500);
+        return $this->createdApiResponse($user, __("Password Updated Successfully"));
     }
-} 
-
-public function updatePassword(PasswordUpdateRequest $request) {
-        
-    $user = auth()->user();
-    $user->password = Bcrypt($request->password);
-    $user->save();
-    return $this->createdApiResponse($user,__("Password Updated Successfully"));
-
-}
-
 }

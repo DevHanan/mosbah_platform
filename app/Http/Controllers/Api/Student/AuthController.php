@@ -6,6 +6,7 @@ use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use function auth;
 use App\Http\Requests\PasswordUpdateRequest;
+use App\Http\Requests\StudentRequest;
 use App\Models\Student;
 use Hash;
 
@@ -41,6 +42,19 @@ class AuthController extends Controller
                    return $this->errorApiResponse([],401,__('auth_login_failed')); 
                 } 
 
+    }
+
+    public function register(StudentRequest $request)
+    {
+
+        
+        $user = Student::create($request->except('password'));
+        $token =$this->generateToken($user);
+        $user->api_token = $token->plainTextToken;
+        $user->password = Bcrypt($request->password);
+        $user->active = '0';
+        $user->save();
+        return $this->createdApiResponse($user,__("Account Created Successfully"));
     }
 
 

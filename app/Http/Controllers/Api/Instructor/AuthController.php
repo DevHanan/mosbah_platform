@@ -51,8 +51,6 @@ class AuthController extends Controller
 
         
         $user = Instructor::create($request->except('password'));
-        $token =$this->generateToken($user);
-        $user->api_token = $token->plainTextToken;
         $user->password = Bcrypt($request->password);
         $user->active = '0';
         $user->save();

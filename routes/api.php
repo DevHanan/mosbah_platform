@@ -52,7 +52,7 @@ Route::post('/instructor/register', [InstructorAuthController::class, 'register'
 Route::group(['prefix' => 'admin'], function () {
 
 
-    Route::middleware('auth:api')->group(function () {
+    Route::middleware(['auth:api','cors'])->group(function () {
 
         Route::group(['prefix' => 'students'], function () {
 
@@ -146,7 +146,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
-Route::group(['middleware' => 'auth:instructors', 'prefix' => 'instructor'], function () {
+Route::group(['middleware' => ['auth:instructors','cors'], 'prefix' => 'instructor'], function () {
 
     Route::get('/home', [HomeController::class, 'list']);
     Route::get('withdrawal', [WithdrawalController::class, 'list']);
@@ -162,7 +162,7 @@ Route::group(['middleware' => 'auth:instructors', 'prefix' => 'instructor'], fun
 });
 
 
-Route::group(['middleware' => 'auth:students', 'prefix' => 'student'], function () {
+Route::group(['middleware' => ['auth:students','cors'], 'prefix' => 'student'], function () {
 
     Route::get('/home', [StudentHomeController::class, 'list']);
     Route::get('list-courses', [StudentCourseController::class, 'list']);

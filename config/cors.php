@@ -32,7 +32,7 @@ return [
     // 'supports_credentials' => false,
 
     'paths' => ['api/*'],
-    'allowed_origins' => ['https://dwafeer.vercel.app'],
+    'allowed_origins' => ['*'],
     'allowed_methods' => ['*'],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],

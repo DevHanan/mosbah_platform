@@ -1,0 +1,93 @@
+@extends('admin.layouts.master')
+@section('title', $title)
+@section('content')
+
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                    Overview
+                </div>
+                <h2 class="page-title">
+                    Combo layout
+                </h2>
+            </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+
+                    <div class="card-header">
+                        <div class="card-block">
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-md-12">
+
+
+    <form class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="card-body">
+
+            <!-- Form Start -->
+            <div class="form-group">
+                <label class="form-label" for="name">{{ __('field_title') }} <span>*</span></label>
+                <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+
+                @error('name')
+                <div class="invalid-feedback">
+                    {{ $message  }}
+                </div>
+                @enderror
+            </div>
+
+
+            @php
+            $separation = '0';
+            @endphp
+
+            @foreach($permission as $value)
+
+            @if($separation != $value->group)
+            <hr />
+            <h6 class="mt-4 text-primary">{{ $value->group }}</h6>
+            @endif
+
+            <div class="form-group d-inline" style="margin-right: 40px;">
+                <div class="checkbox d-inline m-r-10">
+                    <input type="checkbox" id="checkbox-{{ $value->id }}" name="permission[]" value="{{ $value->id }}" checked>
+
+                    <label class="form-label" for="checkbox-{{ $value->id }}" class="cr">{{ $value->title }}</label>
+                </div>
+            </div>
+
+            @php
+            $separation = $value->group;
+            @endphp
+
+            @endforeach
+            <!-- Form End -->
+
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+        </div>
+    </form>
+</div>
+        </div>
+    </div>
+
+
+@endsection

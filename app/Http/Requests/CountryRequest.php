@@ -24,8 +24,7 @@ class CountryRequest extends FormRequest
     {
         return [
             'name' => [
-                'required',
-                Rule::unique('countries', 'name')->ignore($this->country)
+                'required'
             ],
             'code' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',

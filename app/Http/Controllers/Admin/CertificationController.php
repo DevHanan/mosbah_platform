@@ -54,7 +54,7 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
-        $certificate = Certification::create($request->except('image'));
+        $certificate = Certificate::create($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'certifications';
             $attach = 'image';

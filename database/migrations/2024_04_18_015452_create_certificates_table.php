@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('student_id')->unsigned();
             $table->integer('course_id')->unsigned()->nullable();
             $table->string('date')->nullable();
-            $table->boolean('accepted')->default(0);
+            $table->boolean('status')->default(0);
             $table->string('authority')->nullable();
             $table->string('file')->nullable();
 

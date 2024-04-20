@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 use App\Models\Setting;
+use App\Models\Course;
+
 use View;
 
 
 use Illuminate\Support\ServiceProvider;
+use PHPUnit\Framework\Constraint\Count;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +26,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $setting = Setting::where('status', '1')->first();
-        View::share(['setting'=>$setting]);
+        $courses = Course::get();
+      
+
+        View::share(['setting'=>$setting,'courses'=>$courses]);
 
     }
 }

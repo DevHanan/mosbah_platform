@@ -9,8 +9,9 @@ class Certificate extends Model
 {
     use HasFactory;
     protected $table = "certificates";
-    public $timestamps = false;
+    public $timestamps = true;
     protected $guarded = ['id'];
+    protected $fillable = array('name','active','code');
 
    
 

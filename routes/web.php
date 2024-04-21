@@ -31,7 +31,8 @@ use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\LectureController;
 
 Route::get('/', function () {
-    Artisan::call('route:clear');
+    return view('front.index');
+    // Artisan::call('route:clear');
 });
 
 

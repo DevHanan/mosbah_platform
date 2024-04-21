@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwafeer</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/select2.min.css">
+    <link rel="stylesheet" href="../css/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/media.css">
+</head>
+<body>
+    <div class="nav-hero">
+        <div class="container-fluid">
+          <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
+            <div class="header-info d-flex align-items-center">
+              <a href="signup.html" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> اشترك الان مجانا </a>
+              <a href="login.html" class="mx-3 p-2 text-decoration-none text-dark"> تسجيل الدخول <i class="fa-solid fa-lock mx-2"></i> </a>
+            </div>
+            <div>
+              <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-row align-items-center">
+                <li class="nav-item px-2">
+                  <a class="nav-link position-relative" aria-current="page" href="course-cart.html">
+                      <i class="fa-solid fa-cart-shopping primary-color fa-lg"></i>
+                      <span class="position-absolute bg-white fw-bold rounded-pill">1</span>
+                  </a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link primary-color" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link primary-color" href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link primary-color" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link primary-color" href="#"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link primary-color" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </li>
+              </ul>  
+            </div>
+          </div> 
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light primary-bg sec-nav shadow-sm">
+        <div class="container-fluid nav_content">
+            <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+				<a class="nav-link" href="../index.html">الرئيسية</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="about.html">من نحن</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="courses.html">دوراتنا</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="blogs.html">المدونة</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">حساب التنسيق</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">تحقق من الشهادة</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">صانع CV</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="policies.html">سياساتنا</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="contact.html">تواصل معنا</a>
+				</li>
+				<li class="nav-item">
+					  <div class="header-info d-flex align-items-center">
+					  <a href="books.html" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none">متجر الكتب</a>
+					  </div>
+				</li>
+            </div>
+        </div>
+    </nav>
+
+    <section class="cartPage my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 right-class">
+                    <h5 class="fw-bold">تفاصيل الدفع</h5>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="pay_methods shadow my-3 p-3 px-2 d-flex justify-content-around align-items-center flex-wrap">
+                                <div class="d-flex mb-1">
+                                    <input type="radio" name="pay_method" value="a"  id="visa" onclick="showForm('visaForm')" checked>
+                                    <label for="visa" class="p-2 rounded shadow-sm border py-2 px-4 me-2 ">
+                                        <img src="../img/icons/visa-logo.png" alt="">
+                                    </label>
+                                </div>
+        
+                                <div class="d-flex mb-1">
+                                    <input type="radio" name="pay_method" value="a"  id="paypal" onclick="showForm('paypalForm')">
+                                    <label for="paypal" class="p-2 rounded shadow-sm border py-2 px-4 me-2 ">
+                                        <img src="../img/icons/paypal.png" alt="">
+                                    </label>
+                                </div>
+        
+                                <div class="d-flex">
+                                    <input type="radio" name="pay_method" value="a"  id="yandex" onclick="showForm('cashForm')">
+                                    <label for="yandex" class="p-2 rounded shadow-sm border py-2 px-4 me-2 text-center">
+                                        <img src="../img/icons/Yandex.png" alt="">
+                                        <p style="font-size: 10px;" class="m-0 secondary-color">موبايل كاش</p>
+                                    </label>
+                                </div>
+                                
+                                <div class="d-flex mb-1">
+                                    <input type="radio" name="pay_method" value="a"  id="external" onclick="showForm('externalForm')">
+                                    <label for="external" class="p-2 rounded shadow-sm border py-2 px-4 me-2 text-center" style="cursor: pointer;">
+                                        <img src="../img/icons/add-square.png" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
+                    <form action="" class="paypalForm d-none">
+                        <div class="payment shadow-sm border p-4 my-3">
+                            <h5 class="fw-bold">الدفع</h5>
+                            <hr>
+                            <p>يمكنك الدفع مباشرة من خلال حسابك على باي بال، اضغط زر الدفع لاتمام العملية
+                                اخفاء زر الدفع واظهار زر دفع بواسطة باي بال كالآتي
+                            </p>
+                            <div class="d-flex justify-content-center">
+                                <div class="p-2">
+                                    <a href="#" class="btn px-5 d-flex justify-content-center align-items-center" style="height: 50px;;background-color: rgb(241, 185, 44);">
+                                        <img src="../img/icons/paypal.svg" class="img-fluid" alt=""> Pay with 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="" class="cashForm d-none">
+                        <div class="payment shadow-sm border p-4 my-3">
+                            <h5 class="fw-bold">الدفع</h5>
+                            <hr>
+                            <label class="fw-bold mb-3">رقم الموبايل ( رقم المحفظة الالكترونية )</label>
+                            <input type="text" class="form-control mb-3" placeholder="012345678910">
+                            <label class="fw-bold mb-3">عنوان إرسال الفواتير</label>
+                            <select class="form-control select2 p-4 py-5">
+                                <option selected="selected">مصر</option>
+                                <option>Alaska</option>
+                            </select>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <label class="fw-bold mb-3">المدينة</label>
+                                    <input type="text" class="form-control mb-3" placeholder="مثال : الجيزة">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="fw-bold mb-3"> الرمز البريدي </label>
+                                    <input type="text" class="form-control mb-3" placeholder="مثال : 77889">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                    </form>
+                    <form action="" class="visaForm">
+                        <div class="payment shadow-sm border p-4 my-3">
+                            <h5 class="fw-bold">الدفع</h5>
+                            <hr>
+                            <label class="fw-bold mb-3">طرق الدفع المحفوظة</label>
+                            <div class=" mb-4 mx-1 d-flex flex-wrap justify-content-around">
+                                <div class="position-relative my-1">
+                                    <input type="radio" class="position-absolute" style="top: 9px;left:10px" name="visa-type" id="visaType1">
+                                    <label for="visaType1" class="shadow-sm border rounded p-2 px-3 h-100 d-flex align-items-center" onclick="showFormInsert('viseExistForm')">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="img"><img src="../img/icons/visa-logo.png" alt=""></div>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="fw-bold mb-0"> 1234 ****</p>
+                                                <a href="#" class="text-decoration-none">تعديل . visa</a>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="position-relative my-1">
+                                    <input type="radio" class="position-absolute" style="top: 9px;left:10px" name="visa-type" id="visaType2">
+                                    <label for="visaType2" class="shadow-sm border rounded p-2 px-3 h-100 d-flex align-items-center" onclick="showFormInsert('viseExistForm')">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="img"><img src="../img/icons/visa-logo.png" alt=""></div>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="fw-bold mb-0"> 1234 ****</p>
+                                                <a href="#" class="text-decoration-none">تعديل . visa</a>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="position-relative my-1">
+                                    <input type="radio" class="position-absolute" style="top: 9px;left:10px" name="visa-type" id="newVisa" checked>
+                                    <label for="newVisa" class="shadow-sm border rounded p-2 px-3 h-100 d-flex align-items-center" onclick="showFormInsert('newVisaForm')">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <div class="img"> <img src="../img/icons/add-square.png" alt=""> </div>
+                                            </div>
+                                            <div class="col-10">
+                                                <span class="primary-color" style="font-size: 12px;">اضف بطاقة جديدة </span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <form action="" class="newVisaForm d-none">
+                                <label class="fw-bold mb-3">رقم البطاقة</label>
+                                <input type="text" class="form-control mb-3" placeholder="1234  5678  9101 1121">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3">تاريخ الانتهاء</label>
+                                        <input type="text" class="form-control mb-3" placeholder="شهر / سنة">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3">الرقم السري ( CVV )</label>
+                                        <input type="text" class="form-control mb-3" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-check mb-3 d-flex">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label mx-5" for="flexCheckChecked">
+                                        حفظ بيانات البطاقة
+                                    </label>
+                                </div>
+                                <label class="fw-bold mb-3">عنوان إرسال الفواتير</label>
+                                <select class="form-control select2 p-4 py-5">
+                                    <option selected="selected">مصر</option>
+                                    <option>Alaska</option>
+                                </select>
+                                <div class="row mt-3">
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3">المدينة</label>
+                                        <input type="text" class="form-control mb-3" placeholder="مثال : الجيزة">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3"> الرمز البريدي </label>
+                                        <input type="text" class="form-control mb-3" placeholder="مثال : 77889">
+                                    </div>
+                                </div>
+                                <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                            </form>
+
+                            <form action="" class="viseExistForm d-none">
+                                <label class="fw-bold mb-3" for="">اسم حامل البطاقة</label>
+                                <input type="text" class="form-control mb-3" placeholder="مثال : محمد سامح">
+                                <label class="fw-bold mb-3" for="">رقم البطاقة </label>
+                                <input type="text" class="form-control mb-3">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3" for="">  تاريخ انتهاء الصلاحية </label>
+                                        <input type="text" class="form-control mb-3"  placeholder="شهر / سنة">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3">الرقم السري ( CVV )</label>
+                                        <input type="text" class="form-control mb-3" placeholder="123">
+                                    </div>
+                                </div>
+                                <label class="fw-bold mb-3">عنوان إرسال الفواتير</label>
+                                <select class="form-control select2 p-4 py-5">
+                                    <option selected="selected">مصر</option>
+                                    <option>Alaska</option>
+                                </select>
+                                <div class="row mt-3">
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3">المدينة</label>
+                                        <input type="text" class="form-control mb-3" placeholder="مثال : الجيزة">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="fw-bold mb-3"> الرمز البريدي </label>
+                                        <input type="text" class="form-control mb-3" placeholder="مثال : 77889">
+                                    </div>
+                                </div>
+                                <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                            </form>
+                        </div>
+                    </form>
+                    <form action="" class="externalForm d-none">
+                        <div class="payment shadow-sm border p-4 my-3">
+                            <h5 class="fw-bold">تحويل خارجي</h5>
+                            <hr>
+                            <p class="fw-bold mb-3" for="">يمكنك ارسال المبلغ من خلال الوسايل التالية</p>
+                           
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <label class="mb-3 fw-bold">رقم محفظة للتحويل</label>
+                                    <div class="d-flex align-items-baseline justify-content-center mb-3">
+                                    <p class="fw-bold m-0">0123456789</p> <i class="fa-regular fa-copy mx-3 fa-lg primary-color" style="cursor: pointer;"></i>
+                                    </div>    
+                                </div>
+    
+                                <div>
+                                    <label class="mb-3 fw-bold">رقم حساب فوري</label>
+                                    <div class="d-flex align-items-baseline justify-content-center mb-3">
+                                    <p class="fw-bold m-0">0123456789</p> <i class="fa-regular fa-copy mx-3 fa-lg primary-color" style="cursor: pointer;"></i>
+                                    </div>
+                                </div>
+    
+                                <div>
+                                    <label class="mb-3 fw-bold">رابط حساب باي بال</label>
+                                    <div class="d-flex align-items-baseline justify-content-center mb-3">
+                                    <p class="fw-bold m-0">paypal.link.com</p>  <i class="fa-regular fa-copy mx-3 fa-lg primary-color" style="cursor: pointer;"></i>
+                                    </div>
+                                </div>    
+                            </div>
+
+                            <label class="fw-bold mb-3">رقم العملية</label>
+                            <input type="text" class="form-control mb-3" placeholder="يمكنك ادخال رقم العملية (اختياري)">
+
+                            <div class="px-5 d-flex flex-column align-items-center">
+                                <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
+                                    <p> اسحب صورة الفاتورة هنا <img src="../img/icons/upload.png" alt=""></p>
+                                </div>
+                                <div class="choose_img position-relative d-flex justify-content-center my-3">
+                                    <input type="file" class="position-absolute" id="fileInput">
+                                    <div class="btn secondary-bg text-white py-2 px-4 text-center rounded">اختر الملف</div>
+                                </div>                            
+                            </div>
+                            
+                            <label class="fw-bold mb-3">عنوان إرسال الفواتير</label>
+                            <select class="form-control select2 p-4 py-5">
+                                <option selected="selected">مصر</option>
+                                <option>Alaska</option>
+                            </select>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <label class="fw-bold mb-3">المدينة</label>
+                                    <input type="text" class="form-control mb-3" placeholder="مثال : الجيزة">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="fw-bold mb-3"> الرمز البريدي </label>
+                                    <input type="text" class="form-control mb-3" placeholder="مثال : 77889">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                    </form>
+                    <p class="text-center">من خلال إكمال عملية الشراء ، فإنك توافق على <a href="#" class="text-decoration-none secondary-color">شروط الخدمة</a> هذه.</p>
+                </div>
+
+                <div class="col-lg-4 left-class">
+                    <h5 class="fw-bold">تفاصيل الطلب</h5>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6">
+                            <div class="course_content shadow-sm border my-4 p-2">
+                                <div class="img"><img src="../img/Book.svg" class="img-fluid w-100" alt=""></div>
+                                <div class="info mt-4 px-4">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <p class="fw-bold" style="color: #1B3764;font-size: 20px;">Atomic One’s</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="mx-3 secondary-color fw-bold">$ 210</p>
+                                        </div>
+                                    </div>
+                                    <p class="desc" style="color: #969AA0;">
+                                        مطبوع ورقي أو نسخة رقمية pdf
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <div class="course_price shadow-sm border my-4 p-2">
+                                <div class="info mt-4 px-4">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <p class="fw-bold">السعر الاساسي :</p>
+                                        </div>
+                                        <div class="col-5">
+                                            <p class="mx-3 fw-bold">$ 210 </p>
+                                        </div>
+                                    </div>
+                                    <p class="fw-bold">كوبون خصم</p>
+                                     <div class="row">
+                                        <div class="col-6">
+                                            <input type="text" class="form-control mb-3" placeholder="57CTWAY">
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn secondary-bg rounded text-white">تطبيق الخصم</button>
+                                        </div>
+                                     </div>                           
+                                    <div class="row mt-3">
+                                        <div class="col-7">
+                                            <p class="fw-bold">تخفيض :</p>
+                                        </div>
+                                        <div class="col-5">
+                                            <p class="mx-3 fw-bold">$ 10- </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <p class="fw-bold">الأجمالي :</p>
+                                        </div>
+                                        <div class="col-5">
+                                            <p class="mx-3 fw-bold">$ 210 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="primary-bg pt-5 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="subscribe w-75">
+                        <h4 class="text-white"> اشترك فى نشرتنا الاخبارية </h4>
+                        <p class="text-white py-3"> سجل ايميلك ليصلك كل ما هو جديد عن دورات وتخفيضات دوافير </p>
+                        <form action="">
+                            <input type="email" class="form-control p-3" placeholder="البريد الألكتروني" required>
+                            <div>
+                                <button type="submit" class="btn rounded-pill secondary-bg text-white my-4">اشترك الان</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-6">
+                    <div class="footer_categories">
+                        <h4 class="text-white">المسارات النشطة</h4>
+                        <ul class="list-unstyled p-0">
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">التصميم</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">تطوير</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">تسويق</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">تجارة و اعمال</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">اسلوب الحياه</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">التصوير</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">موسيقي</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer_categories">
+                        <h4 class="text-white">اكتشف</h4>
+                        <ul class="list-unstyled p-0">
+                            <li class="py-2"><a href="../index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+                            <li class="py-2"><a href="about.html" class="text-white text-decoration-none">من نحن</a></li>
+                            <li class="py-2"><a href="courses.html" class="text-white text-decoration-none">الدورات</a></li>
+                            <li class="py-2"><a href="books.html" class="text-white text-decoration-none">متجر الكتب</a></li>
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">المدونة</a></li>
+                            <li class="py-2"><a href="contact.html" class="text-white text-decoration-none">تواصل معنا</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12">
+                    <div class="contact text-white">
+                        <div class="logo"><a href="../index.html"><img src="../img/logo.png" alt=""></a></div>
+                        <h4 class="text-white pb-2">تواصل معنا</h4>
+                        <p>
+                            <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> 0227537567 </a>
+                        </p>
+                        <p>
+                            <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> 01287848630 </a>
+                        </p>
+                        <p class="mt-1"><i class="fa fa-envelope ms-2"></i> example@mail.com</p>
+
+                        <div class="social">
+                            <ul class="list-unstyled d-flex w-100 m-0 p-0">
+                                <li>
+                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                        <i class="fa-brands fa-facebook-f fa-lg primary-color"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                        <i class="fa-brands fa-whatsapp fa-lg primary-color"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                        <i class="fa-brands fa-instagram fa-lg primary-color"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                        <i class="fa-brands fa-youtube fa-lg primary-color"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                        <i class="fa-brands fa-x-twitter fa-lg primary-color"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>  
+    <script src="../js/bootstrap.bundle.min.js"></script>  
+    <script src="../js/swiper-bundle.min.js"></script>  
+    <script src="../js/select2.full.min.js"></script>
+    <script src="../js/pagination.js"></script> 
+    <script src="../js/main.js"></script> 
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>  
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const imgBox = document.querySelector('.img_box');
+                    imgBox.innerHTML = ''; // Clear previous content
+                    const img = document.createElement('img');
+                    img.src = reader.result;
+                    img.alt = 'Selected Image';
+                    img.className = 'img-fluid rounded-circle';
+                    img.style.cssText = 'width: 100%; height: 100%;';
+                    imgBox.style.cssText = 'background: transparent; width:213px;height:200px;padding: 0';
+                    imgBox.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        });        
+    </script>
+    <script>
+        function showForm(formId) {
+            var forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.classList.add('d-none');
+            });
+            // Show the selected form
+            document.querySelector('.' + formId).classList.remove('d-none');
+        }
+    </script>   
+</body>
+</html>

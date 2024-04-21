@@ -32,7 +32,9 @@ use App\Http\Controllers\Admin\LectureController;
 
 Route::get('/', function () {
     return view('front.index');
-    // Artisan::call('route:clear');
+});
+Route::get('/about-us', function () {
+    return view('front.pages.about');
 });
 
 Route::get('/clear-cache', function () {

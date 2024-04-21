@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\RoleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Toastr;
@@ -20,7 +21,7 @@ class RoleController extends Controller
     function __construct()
     {
         // Module Data
-        $this->title     = trans_choice('module_role', 1);
+        $this->title     = trans('admin.roles.title');
         $this->route     = 'admin.roles';
         $this->view      = 'admin.roles';
         $this->path      = 'role';
@@ -73,14 +74,9 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        // Field Validation
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
-        ]);
-
+       
 
         // Insert Data
          DB::beginTransaction();
@@ -91,7 +87,7 @@ class RoleController extends Controller
          DB::commit();
 
         
-        Toastr::success(__('msg_created_successfully'), __('msg_success'));
+        Toastr::success(__('msg_created_successfully'), __('admin.msg_success'));
 
         return redirect()->route($this->route.'.index');
     }
@@ -147,13 +143,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
-        // Field Validation
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
-        ]);
+       
 
         // Update Data
         DB::beginTransaction();
@@ -165,7 +157,7 @@ class RoleController extends Controller
         DB::commit();
 
 
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
 
         return redirect()->back();
     }

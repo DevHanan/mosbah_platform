@@ -37,86 +37,84 @@
       <div class="col-md-12">
 
 
-        <form class="card"  action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
+        <form class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
 
-            <h3 style="display:none;">{{ __('tab_profile_info') }}</h3>
-            <content class="form-step">
-                <!-- Form Start -->
-                <div class="card-body">
-                    <fieldset class="row scheduler-border">
-
-
-                        <div class="form-group col-md-6">
-                            <label class="form-label" for="name"> {{ __('field_name') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="name" value="{{ $row->name }}" required>
-
-                            @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group col-md-6">
-                                <label class="form-label" for="role">{{ __('field_role') }} <span>*</span></label>
-                                <select class="form-control" name="roles[]" id="role" required>
-                                    <option value="">{{ __('select') }}</option>
-                                    @foreach( $roles as $role )
-                                    <option value="{{ $role->id }}"
-                                        @foreach($userRoles as $userRole)
-                                            @if($userRole->id == $role->id) selected @endif
-                                        @endforeach
-                                    >{{ $role->name }}</option>
-                                    @endforeach
-                                </select>
-
-                                @error('roles')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        <div class="form-group col-md-6">
-                            <label class="form-label" for="email">{{ __('field_email') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="email" id="email" value="{{ $row->email }}" required>
-
-                            @error('email')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+          <h3 style="display:none;">{{ __('tab_profile_info') }}</h3>
+          <content class="form-step">
+            <!-- Form Start -->
+            <div class="card-body">
+              <fieldset class="row scheduler-border">
 
 
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="name"> {{ __('admin.users.field_name') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="name" id="name" value="{{ $row->name }}" required>
 
-                        <div class="form-group col-md-6">
-                            <label class="form-label" for="phone">{{ __('phone_number') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="phone" id="phone" value="{{ $row->phone }}">
-
-                            @error('phone')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-
-                    </fieldset>
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary"> حفظ</button>
-
-                    </div>
-
+                  @error('name')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
-                <!-- Form End -->
-            </content>
+
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="role">{{ __('admin.users.role') }} <span>*</span></label>
+                  <select class="form-control" name="roles[]" id="role" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach( $roles as $role )
+                    <option value="{{ $role->id }}" @foreach($userRoles as $userRole) @if($userRole->id == $role->id) selected @endif
+                      @endforeach
+                      >{{ $role->name }}</option>
+                    @endforeach
+                  </select>
+
+                  @error('roles')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="email">{{ __('admin.users.field_email') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="email" id="email" value="{{ $row->email }}" required>
+
+                  @error('email')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+
+
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="phone">{{ __('admin.users.phone_number') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="phone" id="phone" value="{{ $row->phone }}">
+
+                  @error('phone')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+
+              </fieldset>
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary"> حفظ</button>
+
+              </div>
+
+            </div>
+            <!-- Form End -->
+          </content>
 
         </form>
-    </div>
+      </div>
 
-</div>
+    </div>
   </div>
 </div>
 

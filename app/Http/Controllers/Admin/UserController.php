@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use App\Traits\FileUploader;
@@ -28,7 +29,7 @@ class UserController extends Controller
     public function __construct () 
     {
         // Module Data
-        $this->title     = trans_choice('module_staff', 1);
+        $this->title     =  trans('admin.users.list');
         $this->route     = 'admin.users';
         $this->view      = 'admin.users';
         $this->path      = 'admins';
@@ -78,21 +79,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
 
-        $this->validate($request, [
-            'name' => 'required|string',
-            'email' => 'required|unique:users,email',
-            'password' => 'required'
-
-        ], [
-            'name.required' => __('name_required'),
-            'email.unique' => __('email_unique'),
-            'password.required' => __('password_required'),
-            'password.confirmed'  => __('password_conirm_not_match')
-        ]);
-        // Store data
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -146,14 +135,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        // Field Validation
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users,email,'.$id
-        ]);
-
+       
         
         // Update data
         $user = User::find($id);
@@ -189,7 +173,7 @@ class UserController extends Controller
         $user->delete();
         DB::commit();
 
-        Toastr::success(__('msg_deleted_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
 
         return redirect()->back();
     }

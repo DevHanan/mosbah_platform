@@ -33,4 +33,8 @@
   body {
     font-feature-settings: "cv03", "cv04", "cv11";
   }
+  .invalid-feedback{
+    display: block;
+    padding: 10px;
+  }
 </style>

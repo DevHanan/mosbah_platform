@@ -6,7 +6,7 @@
                 @csrf
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel"> تعديل كلمة المرور</h5>
+                    <h5 class="modal-title" id="myModalLabel">   {{ __('admin.edit_password')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -14,7 +14,7 @@
                     <input type="hidden" name="staff_id" value="{{ $row->id }}">
 
                     <div class="form-group">
-                        <label for="password" class="form-label">{{ __('field_password') }} <span>*</span></label>
+                        <label for="password" class="form-label">{{ __('admin.users.field_password') }} <span>*</span></label>
                         <input type="password" class="form-control" name="password" id="password" value="" required autocomplete="new-password">
 
                             @error('password')
@@ -26,8 +26,7 @@
 
                     <div class="form-group">
                         <label for="password-confirm" class="form-label">
-                            تأكيد كلمة المرور
-                             <span>*</span></label>
+                        {{ __('admin.users.field_password_confirmation') }}                             <span>*</span></label>
                         <input type="password" class="form-control" name="password_confirmation" id="password-confirm" value="" required autocomplete="new-password">
 
                         @error('password_confirmation')
@@ -39,7 +38,7 @@
                     <!-- Form End -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('btn_close') }}</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('admin.btn_close') }}</button>
                     <button type="submit" class="btn btn-success">حفظ</button>
                 </div>
 

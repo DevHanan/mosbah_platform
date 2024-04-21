@@ -1,4 +1,7 @@
 <?php
 return [
-    "Home" =>"Home"
+    "Home" =>"Home",
+    'users' => "Users",
+    "user_managment" => " User Managment",
+    "roles" => "Roles",
 ];

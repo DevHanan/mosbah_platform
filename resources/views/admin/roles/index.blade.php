@@ -24,7 +24,7 @@
                             <path d="M12 5l0 14" />
                             <path d="M5 12l14 0" />
                         </svg>
-                        {{ __('btn_add_new') }}
+                        {{ __('admin.btn_add_new') }}
                     </a>
 
                 </div>
@@ -42,8 +42,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ __('field_title') }}</th>
-                            <th>{{ __('field_action') }}</th>
+                            <th>{{ __('admin.roles.field_title') }}</th>
+                            <th>{{ __('admin.roles.field_action') }}</th>
                         </tr>
                     </thead>
                     <tbody>

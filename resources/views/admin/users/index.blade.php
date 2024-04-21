@@ -2,36 +2,40 @@
 @section('title', $title)
 @section('content')
 <div class="page-header d-print-none">
-          <div class="container-xl">
-            <div class="row g-2 align-items-center">
-              <div class="col">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                  Overview
+                    Overview
                 </div>
                 <h2 class="page-title">
-                  Combo layout
+                    Combo layout
                 </h2>
-              </div>
-              <!-- Page title actions -->
-              <div class="col-auto ms-auto d-print-none">
-                <div class="btn-list">
-                  
-                  <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block" >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                            {{ __('btn_add_new') }}
-                    </a>
-                
-                </div>
-              </div>
             </div>
-          </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+
+                    <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                        </svg>
+                        {{ __('admin.btn_add_new') }}
+                    </a>
+
+                </div>
+            </div>
         </div>
-    <div class="page-body">
+    </div>
+</div>
+<div class="page-body">
     <div class="container-xl">
         <div class="row row-deck row-cards">
 
-          
+
 
             <div class="col-sm-12">
                 <div class="card">
@@ -43,16 +47,16 @@
                                     <tr>
                                         <th>#</th>
 
-                                        <th>{{ __('field_name') }}</th>
+                                        <th>{{ __('admin.users.field_name') }}</th>
 
-                                        <th>{{ __('field_email') }}</th>
-                                        <th>الصلاحية</th>
+                                        <th>{{ __('admin.users.field_email') }}</th>
+                                        <th>{{ __('admin.users.role') }}</th>
 
 
-                                        <th>{{ __('phone_number') }}</th>
-                                        <th>{{ __('field_status') }}</th>
+                                        <th>{{ __('admin.users.phone_number') }}</th>
+                                        <th>{{ __('admin.users.field_status') }}</th>
 
-                                        <th>{{ __('field_action') }}</th>
+                                        <th>{{ __('admin.users.field_action') }}</th>
 
 
                                     </tr>
@@ -73,10 +77,10 @@
                                         <td>
 
 
-                                        @if( $row->status == 1 )
-                                            <span class="badge bg-green text-green-fg">{{ __('status_active') }}</span>
+                                            @if( $row->status == 1 )
+                                            <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
                                             @else
-                                            <span class="badge bg-red text-red-fg">{{ __('status_inactive') }}</span>
+                                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
                                             @endif
                                         </td>
                                         <td>
@@ -87,13 +91,13 @@
 
 
                                             <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                            <i class="fa-solid fa-lock-open"></i>                                                
+                                                <i class="fa-solid fa-lock-open"></i>
                                             </button>
                                             @else
                                             <button class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                            <i class="fa fa-window-close" aria-hidden="true"></i>
+                                                <i class="fa fa-window-close" aria-hidden="true"></i>
                                             </button>
-                                                @endif
+                                            @endif
 
                                             <!-- Include Password Change modal -->
                                             @include('admin.users.change-status')
@@ -131,7 +135,7 @@
             </div>
         </div>
     </div>
-    </div>
-        
+</div>
+
 
 @endsection

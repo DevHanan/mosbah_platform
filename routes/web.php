@@ -35,6 +35,10 @@ Route::get('/', function () {
     // Artisan::call('route:clear');
 });
 
+Route::get('/clear-cache', function () {
+    Artisan::call('optimize:clear');
+});
+
 
 
 Route::get('language/{language}', function ($language) {

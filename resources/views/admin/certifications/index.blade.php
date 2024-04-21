@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'عرض الفئات')
+@section('title', $title)
 @section('content')
 
     <div class="page-header d-print-none">

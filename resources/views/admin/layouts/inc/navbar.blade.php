@@ -182,6 +182,78 @@
             </span>
           </a>
         </li>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
+            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M4 13m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M14 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M14 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+              </svg>
+            </span>
+            <span class="nav-link-title">
+              {{ __('navbar.courses.title') }}
+            </span>
+          </a>
+          <div class="dropdown-menu show">
+            <div class="dropdown-menu-columns">
+              <div class="dropdown-menu-column">
+                @foreach($courseTypes as $type)
+                <a class="dropdown-item" href="{{ url('admin/courses?type='. $type->id)}}">
+                  {{ $type->name }}
+
+                </a>
+                @endforeach
+                <a class="dropdown-item" href="{{ url('admin/courses/create')}}">
+                  {{ __('navbar.courses.add_course') }}
+
+                </a>
+                <a class="dropdown-item" href="{{ url('admin/levels')}}">
+                  {{ __('navbar.courses.list_levels') }}
+
+                </a>
+                <a class="dropdown-item" href="{{ url('admin/levels/create')}}">
+                  {{ __('navbar.courses.add_level') }}
+
+                </a>
+                <a class="dropdown-item" href="{{ url('admin/lectures')}}">
+                  {{ __('navbar.courses.list_lectures') }}
+
+                </a>
+                <a class="dropdown-item" href="{{ url('admin/lectures/create')}}">
+                  {{ __('navbar.courses.add_lecture') }}
+
+                </a>
+
+
+
+                <a class="dropdown-item" href="{{ url('admin/tracks')}}">
+                  {{ __('navbar.courses.list_tracks') }}
+
+                </a>
+                <a class="dropdown-item" href="{{ url('admin/tracks/create')}}">
+                  {{ __('navbar.courses.add_track') }}
+
+                </a>
+
+                <a class="dropdown-item" href="{{ url('admin/course-types')}}">
+                  {{ __('navbar.courses.list_course_types') }}
+
+                </a>
+                <a class="dropdown-item" href="{{ url('admin/course-types/create')}}">
+                  {{ __('navbar.courses.add_course_types') }}
+
+                </a>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
@@ -242,6 +314,14 @@
                   {{ __('navbar.students.add') }}
                 </a>
 
+                <a class="dropdown-item" href="{{url('/admin/subscriptions')}}">
+                  {{ __('navbar.subscriptions.list') }}
+                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                </a>
+                <a class="dropdown-item" href="{{url('/admin/subscriptions/create')}}">
+                  {{ __('navbar.subscriptions.add') }}
+                </a>
+
               </div>
             </div>
           </div>
@@ -278,6 +358,104 @@
             </div>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                <path d="M12 12l8 -4.5" />
+                <path d="M12 12l0 9" />
+                <path d="M12 12l-8 -4.5" />
+                <path d="M16 5.25l-8 4.5" />
+              </svg>
+            </span>
+            <span class="nav-link-title">
+              {{ __('navbar.coupons.coupons_management') }}
+            </span>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-columns">
+              <div class="dropdown-menu-column">
+                <a class="dropdown-item" href="{{url('/admin/coupons')}}">
+                  {{ __('navbar.coupons.list') }}
+                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                </a>
+                <a class="dropdown-item" href="{{url('/admin/coupons/create')}}">
+                  {{ __('navbar.coupons.add') }}
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                <path d="M12 12l8 -4.5" />
+                <path d="M12 12l0 9" />
+                <path d="M12 12l-8 -4.5" />
+                <path d="M16 5.25l-8 4.5" />
+              </svg>
+            </span>
+            <span class="nav-link-title">
+              {{ __('navbar.certifications.certifications_management') }}
+            </span>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-columns">
+              <div class="dropdown-menu-column">
+                <a class="dropdown-item" href="{{url('/admin/certifications')}}">
+                  {{ __('navbar.certifications.list') }}
+                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                </a>
+                <a class="dropdown-item" href="{{url('/admin/student-certifications')}}">
+                  {{ __('navbar.certifications.student_certifications') }}
+                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                </a>
+                <a class="dropdown-item" href="{{url('/admin/certifications/create')}}">
+                  {{ __('navbar.certifications.add') }}
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                <path d="M12 12l8 -4.5" />
+                <path d="M12 12l0 9" />
+                <path d="M12 12l-8 -4.5" />
+                <path d="M16 5.25l-8 4.5" />
+              </svg>
+            </span>
+            <span class="nav-link-title">
+              {{ __('navbar.tickets.tickets_management') }}
+            </span>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-columns">
+              <div class="dropdown-menu-column">
+                <a class="dropdown-item" href="{{url('/admin/instructors-tickets')}}">
+                  {{ __('navbar.tickets.instrutor_msg') }}
+                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                </a>
+                <a class="dropdown-item" href="{{url('/admin/students-tickets')}}">
+                  {{ __('navbar.tickets.student_msg') }}
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -306,71 +484,8 @@
             </div>
           </div>
         </li>
-        <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
-            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M4 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                <path d="M4 13m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                <path d="M14 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                <path d="M14 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-              </svg>
-            </span>
-            <span class="nav-link-title">
-              Layout
-            </span>
-          </a>
-          <div class="dropdown-menu show">
-            <div class="dropdown-menu-columns">
-              <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="./layout-horizontal.html">
-                  Horizontal
-                </a>
-                <a class="dropdown-item" href="./layout-boxed.html">
-                  Boxed
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                </a>
-                <a class="dropdown-item" href="./layout-vertical.html">
-                  Vertical
-                </a>
-                <a class="dropdown-item" href="./layout-vertical-transparent.html">
-                  Vertical transparent
-                </a>
-                <a class="dropdown-item active" href="./layout-vertical-right.html">
-                  Right vertical
-                </a>
-                <a class="dropdown-item" href="./layout-condensed.html">
-                  Condensed
-                </a>
-                <a class="dropdown-item" href="./layout-combo.html">
-                  Combined
-                </a>
-              </div>
-              <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="./layout-navbar-dark.html">
-                  Navbar dark
-                </a>
-                <a class="dropdown-item" href="./layout-navbar-sticky.html">
-                  Navbar sticky
-                </a>
-                <a class="dropdown-item" href="./layout-navbar-overlap.html">
-                  Navbar overlap
-                </a>
-                <a class="dropdown-item" href="./layout-rtl.html">
-                  RTL mode
-                </a>
-                <a class="dropdown-item" href="./layout-fluid.html">
-                  Fluid
-                </a>
-                <a class="dropdown-item" href="./layout-fluid-vertical.html">
-                  Fluid vertical
-                </a>
-              </div>
-            </div>
-          </div>
-        </li>
-       
+     
+
       </ul>
     </div>
   </div>

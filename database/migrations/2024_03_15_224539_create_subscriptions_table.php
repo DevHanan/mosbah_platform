@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('student_id');
             $table->integer('track_id');
             $table->integer('payment_type_id');
-            $table->integer('payment_attachment');
+            $table->string('payment_attachment');
             $table->timestamps();
         });
     }

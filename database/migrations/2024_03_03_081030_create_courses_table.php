@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('instructor_id');
             $table->string('image')->nullable();
             $table->string('background_image')->nullable();
+            $table->string('thumbinal_image')->nullable();
             $table->string('promo_url')->nullable();
             $table->string('level')->nullable();
             $table->text('description')->nullable();

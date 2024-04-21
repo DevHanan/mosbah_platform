@@ -30,10 +30,10 @@ class CourseController extends Controller
         $this->view = 'admin.courses';
         $this->path = 'courses';
         $this->access = 'courses';
-        // $this->middleware('permission:products-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:products-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:products-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:products-delete',   ['only' => ['delete']]);
+        // $this->middleware('permission:courses-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:courses-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:courses-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:courses-delete',   ['only' => ['delete']]);
 
     }
 
@@ -46,7 +46,7 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
-        $data['rows'] = Course::active()->where(function ($q) use ($request) {
+        $data['rows'] = Course::where(function ($q) use ($request) {
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)

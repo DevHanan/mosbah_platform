@@ -77,5 +77,43 @@ return [
         'field_photo' => 'photo',
         "userName" => "userName"
     ],
+    'subscriptions' => [
+        'title'  => 'Subscriptions',
+        "list" => "List Subscriptions",
+        "add"  => "New Subscription",
+        "field_name" => "Name",
+        "field_course"  => "Course",
+        "field_email" => "Email",
+        "field_track" => "Track",
+        "phone_number" => "Phone",
+        "field_status" => "Status",
+        "field_action" => "Action",
+        "student" => "student",
+        "field_paymenttype"  => "Payment Attachment"
+
+    ],
+    "courses"=>[
+        "name"  => "Course Name",
+        "track"  => "Track",
+        "instructor" => "instructor",
+        "student_number"  => "Student In Course",
+        "price" => "price",
+        "course_type" => "Course Type",
+        "level" => "Level",
+        "actions"  => "actions",
+        "field_published_at" => "published_at",
+        "period_type" => "Period Type",
+        "period" => "period",
+        "start_date" => "Start Date",
+        "end_date" => "end date",
+        "image" => "Course Image",
+        "promo_url" => "promo url",
+        "background_image" => "background Image",
+        "descriptions"  => "descriptions",
+        "directedTo"  => "directedTo",
+        "goals" => "goals",
+        "thumbinal_image" => "Thumbinal Image"
+
+    ]
   
 ];

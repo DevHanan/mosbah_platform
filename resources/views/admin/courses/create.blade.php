@@ -1,302 +1,281 @@
 @extends('admin.layouts.master')
-@section('title', 'إاضافة منتج')
+@section('title', trans('module_staff'))
+
 @section('content')
-<div class="container-xl">
-  <div class="row row-cards">
-    <div class="card">
-      <div class="card-block">
-        <div class="card-header">
-          <div class="card-block">
-            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-info">{{ __('btn_back') }}</a>
-          </div>
+
+<div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        <!-- Page pre-title -->
+        <div class="page-pretitle">
+          Overview
         </div>
-        <form action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data" autocomplete="off">
+        <h2 class="page-title">
+          Combo layout
+        </h2>
+      </div>
+      <!-- Page title actions -->
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+
+          <div class="card-header">
+            <div class="card-block">
+              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-cards">
+      <div class="col-md-12">
+
+        <form autocomplete="off" class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
           @csrf
 
 
-          <div class=" row card-block">
-            <div class="form-group col-md-6">
-              <label class="form-label" for="name" class="form-label" required>إسم المنتج <span>*</span></label>
-              <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+          <div class="card-body">
+            <div class="row ">
+              <div class="col-md-6">
 
-              @error('name')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
+                <div class="mb-3">
+                  <label class="form-label" for="name"> {{ __('admin.courses.name') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
 
-            <div class="form-group col-md-6">
-              <label class="form-label" for="company_id">الشركة <span>*</span></label>
-              <select class="form-control select2" name="company_id" id="company_id">
-                <option value="">{{ __('select') }}</option>
-                @foreach( $companies as $company )
-                <option value="{{ $company->id }}" @if(old('company_id')==$company->id) selected @endif>{{ $company->name }}</option>
-                @endforeach
-              </select>
-
-              @error('company_id')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-
-            <div class="form-group col-md-6">
-              <label class="form-label" for="section">القسم <span>*</span></label>
-              <select class="form-control select2-multiple sectionobj" name="section_id" id="section" required>
-                <option value="">{{ __('select') }}</option>
-                @foreach( $sections as $section )
-                <option value="{{ $section->id }}" @if(old('section')==$section->id) selected @endif>{{ $section->title }}</option>
-                @endforeach
-              </select>
-
-              @error('section_id')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
+                  @error('name')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
-            <div class="form-group col-md-6">
-              <label class="form-label" for="category">الفئة <span>*</span></label>
-              <select class="form-control select2-multiple categoryObj" name="category_id" id="category_id" required>
+                <div class="mb-3">
+                  <label class="form-label" for="course_type_id">{{ __('admin.courses.course_type') }} <span>*</span></label>
+                  <select class="form-control" name="course_type_id" id="course_type_id" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($courseTypes as $type)
+                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
 
-              </select>
+                    @endforeach
+                  </select>
 
-              @error('category_id')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
+                  @error('course_type_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
-            <div class="form-group col-md-6">
-              <label class="form-label" for="main_unit" class="form-label" required>
-أكبر وحدة بيع 
-              </label>
-            <select name="main_unit"  class="form-control select2-multiple " id="main_unit">
-                          @foreach( $units as $unit )
-                          <option value="{{ $unit->id }}">{{ $unit->name }}</option>
-                          @endforeach
-                        </select>
-            </div>
+                <div class="mb-3">
+                  <label class="form-label" for="start_date">{{ __('admin.courses.start_date') }} <span>*</span></label>
+                  <input type="date" class="form-control" name="start_date" id="start_date" value="{{ old('start_date') }}">
+
+                  @error('start_date')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
 
 
-            <div class="form-group col-md-6">
-              <label class="form-label" for="product_price" class="form-label" required>
-                السعر  {{ $setting->currency}}
-              </label>
-              <input type="number" class="form-control" name="product_price" min="1" value="{{ old('price') }}" required="required">
-              @error('product_price')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
 
-            <div class="form-group col-md-6">
-              <label class="form-label" for="discount" class="form-label"
-              > {{ $setting->currency}} السعر بعد الخصم أن وجد </label>
-              <input type="number" class="form-control" min="0" name="discount" id="discount" value="{{ old('discount') }}" required="required">
-
-              @error('discount')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-
-            <div class="form-group col-md-6">
-              <label class="form-label" for="quantity" class="form-label">
-                الكمية المتاحة بالمخزن
-              </label>
-              <input type="number" class="form-control" min="1" name="quantity" id="quantity" value="{{ old('quantity') }}" required="required">
-
-              @error('quantity')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-
-           
-
-            <div class="form-group col-md-6">
-              <label class="form-label" for="supplier_price" class="form-label">
-                السعر من المورد {{ $setting->currency}}
-              </label>
-              <input type="text" class="form-control" min="0" name="supplier_price" id="supplier_price" value="{{ old('supplier_price') }}">
-
-              @error('supplier_price')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
+                <div class="mb-3 ">
 
 
-            
 
-           
+                  <label for="logo">{{ __('admin.courses.image') }}</label>
+                  <input type="file" class="form-control" name="image" id="logo">
 
-            <div class="form-group col-md-6">
-              <label class="form-label" for="max_order_quantity" class="form-label">
-                أقصى كمية للطلب
-              </label>
-              <input type="number" class="form-control" min="1" name="max_order_quantity" id="max_order_quantity" value="{{ old('max_order_quantity') }}" required="required">
+                  @error('img')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+                <div class="mb-3 ">
 
 
-              @error('max_order_quantity')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
 
-            <div class="form-group col-md-6">
-              <label for="status" class="form-label">{{ __('select_status') }}</label>
-              <div>
-                <label class="form-check form-check-inline">
-                  <input class="form-check-input" value="1" type="radio" name="status">
-                  <span class="form-check-label"> {{ __('status_active')}}</span>
-                </label>
-                <label class="form-check form-check-inline">
-                  <input class="form-check-input" value="0" type="radio" name="status">
-                  <span class="form-check-label"> {{ __('status_inactive' )}}</span>
-                </label>
+                  <label for="logo">{{ __('admin.courses.background_image') }}</label>
+                  <input type="file" class="form-control" name="background_image" id="logo">
+
+                  @error('background_image')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
+                  <select class="form-control" name="track_id" id="track_id" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($tracks as $track)
+                    <option value="{{ $track->id }}"> {{ $track->name }}</option>
+
+                    @endforeach
+                  </select>
+
+                  @error('track_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="level_id">{{ __('admin.courses.level') }} <span>*</span></label>
+                  <select class="form-control" name="level_id" id="level_id" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($levels as $level)
+                    <option value="{{ $level->id }}"> {{ $level->name }}</option>
+
+                    @endforeach
+                  </select>
+
+                  @error('level_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
               </div>
-            </div>
-            <div class="form-group col-md-6">
-                  <label for="recommend" class="form-label">{{ __('status_recommend') }}</label>
+              <div class="col-md-6">
+
+
+
+                <div class="mb-3">
+                  <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
+
+                  @error('price')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+
+                <div class="mb-3">
+                  <label class="form-label" for="published_at">{{ __('admin.courses.field_published_at') }} <span>*</span></label>
+                  <input type="date" class="form-control" name="published_at" id="published_at" value="{{ old('published_at') }}" required>
+
+                  @error('published_at')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="start_date">{{ __('admin.courses.end_date') }} <span>*</span></label>
+                  <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date') }}" required>
+
+                  @error('start_date')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                   <div>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="1"  type="radio" name="recommend" >
-                      <span class="form-check-label"> {{ __('yes')}}</span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="0"  type="radio" name="recommend" >
-                      <span class="form-check-label"> {{ __('no' )}}</span>
-                    </label>
+                  <select class="form-control" name="active" id="active" required>
+                    <option value="">{{ __('select') }}</option>
+                    <option value="1"> {{ __('admin.active')}}</option>
+                    <option value=""> {{ __('admin.inactive')}}</option>
+
+                  </select>
+                 
 
                   </div>
                 </div>
+                <div class="mb-3 ">
 
-                <div class="form-group col-md-6">
-                  <label for="best_seller" class="form-label">{{ __('status_best_seller') }}</label>
-                  <div>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="1"  type="radio" name="best_seller" >
-                      <span class="form-check-label"> {{ __('yes')}}</span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="0"  type="radio" name="best_seller" >
-                      <span class="form-check-label"> {{ __('no' )}}</span>
-                    </label>
 
+
+                  <label for="logo">{{ __('admin.courses.thumbinal_image') }}</label>
+                  <input type="file" class="form-control" name="thumbinal_image" id="logo">
+
+                  @error('thumbinal_image')
+                  <div class="invalid-feedback">
+                    {{ $message }}
                   </div>
+                  @enderror
                 </div>
 
-                <div class="form-group col-md-6">
-                  <label for="highest_rated" class="form-label">{{ __('status_highest_rated') }}</label>
-                  <div>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="1"  type="radio" name="highest_rated" >
-                      <span class="form-check-label"> {{ __('yes')}}</span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="0"  type="radio" name="highest_rated" >
-                      <span class="form-check-label"> {{ __('no' )}}</span>
-                    </label>
+                <div class="mb-3">
+                  <label class="form-label" for="promo_url"> {{ __('admin.courses.promo_url') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ old('promo_url') }}" required>
 
+                  @error('promo_url')
+                  <div class="invalid-feedback">
+                    {{ $message }}
                   </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
+                  <select class="form-control" name="instructor_id" id="instructor_id" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($instructors as $instructor)
+                    <option value="{{ $instructor->id }}"> {{ $instructor->name }}</option>
+
+                    @endforeach
+                  </select>
+
+                  @error('instructor_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
 
-            <div class="form-group col-md-12">
-              <label class="form-label" for="about">وصف المنتج </label>
-              <textarea class="form-control texteditor" name="description" id="description">{{ old('description') }}</textarea>
-
-              @error('description')
-              <div class="invalid-feedback">
-                {{ $message }}
               </div>
-              @enderror
-            </div>
-
-
-            <div class="form-group col-md-12">
-
-
-              <label class="form-label" for="logo">الصورة الأساسية للمنتج </label>
-              <input type="file" class="form-control" name="img" id="img">
-
-              @error('img')
-              <div class="invalid-feedback">
-                {{ $message }}
+              <div class="mb-3">
+              <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
+                                <textarea class="form-control" name="descriptions" rows="6" placeholder="Content.."></textarea>
               </div>
-              @enderror
-            </div>
 
-            <div class="form-group col-md-12">
-              <label class="form-label" for="photos">صور المتج </label>
-              <input type="file" class="form-control" name="photos[]" id="photos" multiple>
-
-              @error('image')
-              <div class="invalid-feedback">
-                {{ $message }}
+              <div class="mb-3">
+              <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
+                                <textarea class="form-control" name="directedTo" rows="6" placeholder="Content.."></textarea>
               </div>
-              @enderror
-            </div>
 
-            <div class="card" style="margin-top: 20px;">
-              <div class="card-header">
-                <h3> إضافة وحدات فرعية للمنتج </h3>
+              <div class="mb-3">
+              <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
+                                <textarea class="form-control" name="goals" rows="6" placeholder="Content.."></textarea>
               </div>
-              <div class="card-body">
-                <table class="friends-list table table-bordered width100" id="dynamicTable" style="margin-top:20px;">
 
-                  <thead>
-                    <tr class="filters">
-                      <th>الوحدة</th>
-                      <th>الكمية من الوحدة الأساسية </th>
-                      <th>سعر الوحدة</th>
-                      <th>#</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr role="row">
-                      <td><select name="unit" id="unit">
-                          @foreach( $units as $unit )
-                          <option value="{{ $unit->id }}">{{ $unit->name }}</option>
-                          @endforeach
-                        </select></td>
-                      <td><input type="number" id="qty" value="1" min="1" name="qty" required></td>
-                      <td><input type="number" id="price" value="1" min="1" required></td>
-                      <td><button type="button" onclick="addRow()">إضافة</button></td>
-
-
-                    </tr>
-                  </tbody>
-
-
-                </table>
-              </div>
-            </div>
-
-
-            <div class="card-footer">
-              <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+             
             </div>
           </div>
+          <div class="card-footer text-end">
+            <div class="d-flex">
+              <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
+            </div>
+          </div>
+
+          <!-- Form End -->
+
+
         </form>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 
 @endsection

@@ -1,10 +1,17 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\Setting;
 use App\Models\Course;
 use App\Models\Country;
+use App\Models\CourseType;
+use App\Models\Student;
 use App\Models\Track;
+use App\Models\PaymentType;
+use App\Models\Level;
+use App\Models\Instructor;
+
 use View;
 
 
@@ -28,9 +35,19 @@ class AppServiceProvider extends ServiceProvider
     {
         $setting = Setting::where('status', '1')->first();
         $courses = Course::get();
+        $courseTypes = CourseType::get();
         $countries = Country::active()->get();
         $tracks = Track::active()->get();
-        View::share(['setting'=>$setting,'courses'=>$courses ,'tracks'=>$tracks,'countries'=>$countries]);
+        $paymenttypes = PaymentType::get();
+        $students = Student::get();
+        $levels = Level::get();
+        $instructors = Instructor::get();
 
+        View::share(['setting' => $setting, 'courses' => $courses, 
+        'tracks' => $tracks, 'countries' => $countries,
+        'paymenttypes' => $paymenttypes, 'students' => $students,
+        'courseTypes' => $courseTypes,'levels' => $levels , 'instructors'=>$instructors
+
+    ]);
     }
 }

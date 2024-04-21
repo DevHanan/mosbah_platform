@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-block">
-                        <a href="{{ route($route.'.create') }}" class="btn btn-rounded btn-info"> {{ __('btn_add') }} </a>
-                        <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-info">{{ __('btn_refresh') }}</a>
+                        <a href="{{ route($route.'.create') }}" class="btn btn-rounded btn-info"> {{ __('admin.btn_add_new') }} </a>
+                        <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_refresh') }}</a>
 
                     </div>
                 </div>
@@ -20,37 +20,30 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th> إسم المنتج </th>
-                                    <th> صورة أساسية</th>
-                                    <th> الكمية بالمخزن</th>
-                                    <th>لسعر</th>
-                                    <th>السعر بعد الخصم</th>
+                                    <th> {{__('admin.courses.name')}}</th>
+                                    <th> {{__('admin.courses.track')}}</th>
+                                    <th> {{__('admin.courses.instructor')}}</th>
+                                    <th> {{__('admin.courses.student_number')}}</th>
+                                    <th> {{__('admin.courses.price')}}</th>
+                                    <th> {{__('admin.courses.course_type')}}</th>
+                                    <th> {{__('admin.courses.level')}}</th>
+                                    <th> {{__('admin.courses.actions')}}</th>
 
-                                    <!-- <th> الشركة</th>
-                                        <th> القسم</th>
-                                        <th> الفئة</th> -->
-                                    <th>حالة </th>
-                                    <th>موصى به</th>
-                                    <th>الأحداث</th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach( $rows as $key => $row )
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $row->name }}</td>
+                                    <td>{{ optional($row->track)->name }}</td>
+                                    <td>{{ optional($row->instructor)->name }}</td>
+                                    <td> 0</td>
+                                    <td>{{ optional($row->courseType)->name }}</td>
+                                    <td>{{ optional($row->level)->name }}</td>
 
-                                    <td><img src="{{asset($row->main_img)}}" style="width:40px"></td>
-
-                                    <td>{{ $row->quantity}}</td>
-                                    <td>{{ $row->price}} {{ $setting->currency }}</td>
-                                    <td>{{ $row->discount}} {{ $setting->currency }}</td>
-
-
-                                    <!-- <td> {{ optional($row->company)->name }}</td>
-                                        <td> {{ optional($row->section)->title }}</td>
-                                        <td> {{ optional($row->category)->title }}</td> -->
-
+                                  
                                     <td>
                                         @if( $row->status == 1 )
                                         <span class="badge bg-green text-green-fg">{{ __('status_active') }}</span>
@@ -76,9 +69,7 @@
                                     </td>
 
                                     <td>
-                                        <!-- <a href="{{ url('admin/orders/'. $row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-eye"></i>
-                                            </a> -->
+                                   
 
                                         <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm"> <i class="far fa-edit"></i>
                                         </a>

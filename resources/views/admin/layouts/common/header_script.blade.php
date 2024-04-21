@@ -37,4 +37,19 @@
     display: block;
     padding: 10px;
   }
+
 </style>
+@if(App::getLocale() == 'ar')
+<style>
+  .page{
+    direction: rtl !important;
+  }
+  .navbar-vertical.navbar-expand-lg .navbar-collapse .dropdown-menu .dropdown-item {
+    min-width: 0;
+    display: flex;
+    width: auto;
+    padding-right: calc(calc(calc(var(--tblr-page-padding) * 2)/ 2) + 1.75rem);
+    color: inherit;
+}
+</style>
+@endif

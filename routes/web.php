@@ -25,6 +25,10 @@ use App\Http\Controllers\Admin\CertificationController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\InstructorController;
+use App\Http\Controllers\Admin\SubscriptionController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\LevelController;
+use App\Http\Controllers\Admin\LectureController;
 
 Route::get('/', function () {
     Artisan::call('route:clear');
@@ -54,22 +58,29 @@ Route::group(
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
-            Route::resource('course-types', CourseTypeController::class);
             Route::resource('levels', CourseController::class);
             Route::resource('lectures', CourseController::class);
+
             Route::resource('tracks', TrackController::class);
-            
+            Route::resource('course-types', CourseTypeController::class);
+            Route::resource('levels', LevelController::class);
+            Route::resource('lectures', LectureController::class);
+
+
            
 
             Route::resource('certifications', CertificationController::class);
-            Route::get('student-certifications', [CertificationController::class, 'studentCertificate']);
+            Route::get('students-certifications', [CertificationController::class, 'studentCertificate']);
 
-            Route::resource('tickets', TicketController::class);
-            Route::resource('subscriptions', CourseController::class);
+            Route::get('instructors-tickets', [TicketController::class,'listInstructorMsg']);
+            Route::get('instructors-tickets', [TicketController::class,'listStudentMsg']);
 
+
+            Route::resource('coupons', CouponController::class);
 
             Route::resource('students', StudentController::class);
             Route::get('student-status/{id}', [StudentController::class, 'status'])->name('users.status');
+            Route::resource('subscriptions', SubscriptionController::class);
 
             Route::resource('instructors', InstructorController::class);
 

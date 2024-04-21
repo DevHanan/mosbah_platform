@@ -56,7 +56,7 @@ class CountryController extends Controller
             $country->image = 'uploads/countries/'.$this->uploadMedia($request, $attach, $directory);
             $country->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.countries.index');
     }
 
@@ -88,8 +88,9 @@ class CountryController extends Controller
             $country->image = 'uploads/countries/'.$this->uploadMedia($request, $attach, $directory);
             $country->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
-        return redirect()->route('admin.countries.index');    }
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.countries.index');    
+    }
 
     public function destroy (Request $request)
     {
@@ -97,7 +98,7 @@ class CountryController extends Controller
         if ($country)
             $country->delete();
 
-            Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+            Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
 }

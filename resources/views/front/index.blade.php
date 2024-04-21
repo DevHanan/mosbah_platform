@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dwafeer</title>
-    <link rel="stylesheet" href="front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!--animation-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="front/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="front/css/custom.css">
-    <link rel="stylesheet" href="front/css/media.css">
+    <link rel="stylesheet" href="public/front/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="public/front/css/custom.css">
+    <link rel="stylesheet" href="public/front/css/media.css">
 </head>
 <body>
     <div class="nav-hero">
@@ -50,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light primary-bg sec-nav shadow-sm">
     <div class="container-fluid nav_content">
-        <a class="navbar-brand" href="index.html"><img src="front/img/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="index.html"><img src="public/front/img/logo.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -92,14 +92,14 @@
     </div>
     </nav>
 
-    <img src="front/img/bg-header.svg" class="position-absolute header_layout" alt="">
+    <img src="public/front/img/bg-header.svg" class="position-absolute header_layout" alt="">
 
     <div class="hero_sec pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="front/img/index-header.svg" class="img-fluid" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="public/front/img/index-header.svg" class="img-fluid" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -107,9 +107,9 @@
                         <h4 class="title py-3 pb-1 fw-bold secondary-color">ابدأ بالنجاح</h4>
                         <p class="desc fw-bold text-white">
                            يمكنك الوصول إلى
-                            <span class="position-relative">5000+ <img src="front/img/text-line1.svg" class="img-fluid img-line position-absolute" alt=""></span>
+                            <span class="position-relative">5000+ <img src="public/front/img/text-line1.svg" class="img-fluid img-line position-absolute" alt=""></span>
                             دورة
-                            مع <span class="position-relative">300 <img src="front/img/text-line2.svg" class="img-fluid img-line position-absolute" alt=""></span> من المدربين 
+                            مع <span class="position-relative">300 <img src="public/front/img/text-line2.svg" class="img-fluid img-line position-absolute" alt=""></span> من المدربين 
                             والمؤسسات
                         </p>
                         <div class="content my-5">منصة دوافير التعليمية متوافقة مع شروط ومعايير المركز الوطني للتعليم الالكتروني</div>
@@ -128,7 +128,7 @@
             <div class="row">
                 <div class="col-lg-3 col-6">
                     <div class="d-flex justify-content-center my-2">
-                        <div class="img"><img src="front/img/courses.svg" class="img-fluid" alt=""></div>
+                        <div class="img"><img src="public/front/img/courses.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
                             <h4 class="count fw-bold" data-target="300">0</h4>
                             <p class="fw-bold">دورات</p>
@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="d-flex justify-content-center my-2">
-                        <div class="img"><img src="front/img/video.svg" class="img-fluid" alt=""></div>
+                        <div class="img"><img src="public/front/img/video.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
                             <h4 class="count fw-bold" data-target="5000">0</h4>
                             <p class="fw-bold">محاضرات</p>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="d-flex justify-content-center my-2">
-                        <div class="img"><img src="front/img/students.svg" class="img-fluid" alt=""></div>
+                        <div class="img"><img src="public/front/img/students.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
                             <h4 class="count fw-bold" data-target="1000">0</h4>
                             <p class="fw-bold">طلاب</p>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="d-flex justify-content-center my-2">
-                        <div class="img"><img src="front/img/graduation.svg" class="img-fluid" alt=""></div>
+                        <div class="img"><img src="public/front/img/graduation.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
                             <h4 class="count fw-bold" data-target="50">0</h4>
                             <p class="fw-bold">مدربين</p>
@@ -180,7 +180,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="pages/course-content.html">
                                 <div class="card__image p-2">
-                                    <img src="front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                    <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1">الاعمال</div>
                                     <div class="card__shadow"></div>
                                 </div>
@@ -194,11 +194,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -214,7 +214,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="pages/course-content.html">
                                 <div class="card__image p-2">
-                                    <img src="front/img/work.svg" alt="image" class="card__img img-fluid w-100">
+                                    <img src="public/front/img/work.svg" alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1">الاعمال</div>
                                     <div class="card__shadow"></div>
                                 </div>
@@ -228,11 +228,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -248,7 +248,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="pages/course-content.html">
                                 <div class="card__image p-2">
-                                    <img src="front/img/design.svg" alt="image" class="card__img img-fluid w-100">
+                                    <img src="public/front/img/design.svg" alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1">التصميم</div>
                                     <div class="card__shadow"></div>
                                 </div>
@@ -262,11 +262,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -282,7 +282,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="pages/course-content.html">
                                 <div class="card__image p-2">
-                                    <img src="front/img/html.svg" alt="image" class="card__img img-fluid w-100">
+                                    <img src="public/front/img/html.svg" alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1">برمجة وتطوير</div>
                                     <div class="card__shadow"></div>
                                 </div>
@@ -296,11 +296,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
-                                    <img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -336,7 +336,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                         <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                            <div> <img src="front/img/icons/Briefcase.svg" class="mx-2" alt=""> الاعمال</div>
+                            <div> <img src="public/front/img/icons/Briefcase.svg" class="mx-2" alt=""> الاعمال</div>
                             <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                         </div>
                     </a>
@@ -346,7 +346,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                         <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                            <div> <img src="front/img/icons/Briefcase.svg" class="mx-2" alt=""> الاعمال</div>
+                            <div> <img src="public/front/img/icons/Briefcase.svg" class="mx-2" alt=""> الاعمال</div>
                             <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                         </div>
                     </a>
@@ -355,7 +355,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                         <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                            <div> <img src="front/img/icons/MicrophoneStage.svg" class="mx-2" alt=""> تسويق</div>
+                            <div> <img src="public/front/img/icons/MicrophoneStage.svg" class="mx-2" alt=""> تسويق</div>
                             <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                         </div>
                     </a>
@@ -364,7 +364,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/FileHtml.svg" class="mx-2" alt=""> تطوير</div>
+                        <div> <img src="public/front/img/icons/FileHtml.svg" class="mx-2" alt=""> تطوير</div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -374,7 +374,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/PenNib.svg" class="mx-2" alt=""> تصميم</div>
+                        <div> <img src="public/front/img/icons/PenNib.svg" class="mx-2" alt=""> تصميم</div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -383,7 +383,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/Database.svg" class="mx-2" alt=""> علم البيانات </div>
+                        <div> <img src="public/front/img/icons/Database.svg" class="mx-2" alt=""> علم البيانات </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -392,7 +392,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/MusicNote.svg" class="mx-2" alt=""> موسيقى </div>
+                        <div> <img src="public/front/img/icons/MusicNote.svg" class="mx-2" alt=""> موسيقى </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -401,7 +401,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/Camera.svg" class="mx-2" alt=""> تصوير </div>
+                        <div> <img src="public/front/img/icons/Camera.svg" class="mx-2" alt=""> تصوير </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -410,7 +410,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/SunHorizon.svg" class="mx-2" alt="">  اسلوب الحياه </div>
+                        <div> <img src="public/front/img/icons/SunHorizon.svg" class="mx-2" alt="">  اسلوب الحياه </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -419,7 +419,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/Detective.svg" class="mx-2" alt=""> تدريس </div>
+                        <div> <img src="public/front/img/icons/Detective.svg" class="mx-2" alt=""> تدريس </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -428,7 +428,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/Graph.svg" class="mx-2" alt=""> الشؤون الماليه </div>
+                        <div> <img src="public/front/img/icons/Graph.svg" class="mx-2" alt=""> الشؤون الماليه </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -437,7 +437,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/Heartbeat.svg" class="mx-2" alt=""> صحة واللياقة البدنية </div>
+                        <div> <img src="public/front/img/icons/Heartbeat.svg" class="mx-2" alt=""> صحة واللياقة البدنية </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -446,7 +446,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <a href="pages/courses.html" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="front/img/icons/Lightbulb.svg" class="mx-2" alt="">  تطوير الشخصية </div>
+                        <div> <img src="public/front/img/icons/Lightbulb.svg" class="mx-2" alt="">  تطوير الشخصية </div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                     </a>
@@ -470,7 +470,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="#">
                                 <div class="card__image p-2">
-                                <img src="front/img/photography.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/photography.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
                                 <div class="card__shadow"></div>
                                 </div>
@@ -485,7 +485,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="#">
                                 <div class="card__image p-2">
-                                <img src="front/img/business.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/business.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
                                 <div class="card__shadow"></div>
                                 </div>
@@ -500,7 +500,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="#">
                                 <div class="card__image p-2">
-                                <img src="front/img/social.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/social.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
                                 <div class="card__shadow"></div>
                                 </div>
@@ -515,7 +515,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="#">
                                 <div class="card__image p-2">
-                                <img src="front/img/ui-ux.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/ui-ux.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
                                 <div class="card__shadow"></div>
                                 </div>
@@ -556,7 +556,7 @@
                         <article class="card__article swiper-slide bg-white shadow">
                         <a href="pages/course-content.html">
                             <div class="card__image p-2">
-                                <img src="front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">الاعمال</div>
                                 <div class="card__shadow"></div>
                             </div>
@@ -570,11 +570,11 @@
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">(102)</span>
 								<span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                <img src="front/img/grayStar.svg" alt="">
-                                <img src="front/img/Star.svg" alt="">
-                                <img src="front/img/Star.svg" alt="">
-                                <img src="front/img/Star.svg" alt="">
-                                <img src="front/img/Star.svg" alt="">
+                                <img src="public/front/img/grayStar.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
@@ -590,7 +590,7 @@
                         <article class="card__article swiper-slide bg-white shadow">
                             <a href="pages/course-content.html">
                             <div class="card__image p-2">
-                                <img src="front/img/work.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/work.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">الاعمال</div>
                                 <div class="card__shadow"></div>
                             </div>
@@ -604,11 +604,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
 									<span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -624,7 +624,7 @@
                         <article class="card__article swiper-slide bg-white shadow">
                             <a href="pages/course-content.html">
                             <div class="card__image p-2">
-                                <img src="front/img/design.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/design.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">التصميم</div>
                                 <div class="card__shadow"></div>
                             </div>
@@ -638,11 +638,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
 									<span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -658,7 +658,7 @@
                         <article class="card__article swiper-slide bg-white shadow">
                             <a href="pages/course-content.html">
                             <div class="card__image p-2">
-                                <img src="front/img/html.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="public/front/img/html.svg" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">Html</div>
                                 <div class="card__shadow"></div>
                             </div>
@@ -672,11 +672,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">(102)</span>
 									<span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="front/img/grayStar.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
-									<img src="front/img/Star.svg" alt="">
+                                    <img src="public/front/img/grayStar.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
+									<img src="public/front/img/Star.svg" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -704,11 +704,11 @@
         </div>
 
 
-        <img src="front/img/icons/pencil.svg" class="pencil d-none d-lg-block position-absolute" alt="">
-        <img src="front/img/icons/loop.svg" class="loop d-none d-md-block position-absolute" alt="">
-        <img src="front/img/icons/lamp.svg" class="lamp position-absolute" alt="">
-        <img src="front/img/icons/pc.svg" class="pc position-absolute" alt="">
-        <img src="front/img/icons/map.svg" class="map position-absolute" alt="">
+        <img src="public/front/img/icons/pencil.svg" class="pencil d-none d-lg-block position-absolute" alt="">
+        <img src="public/front/img/icons/loop.svg" class="loop d-none d-md-block position-absolute" alt="">
+        <img src="public/front/img/icons/lamp.svg" class="lamp position-absolute" alt="">
+        <img src="public/front/img/icons/pc.svg" class="pc position-absolute" alt="">
+        <img src="public/front/img/icons/map.svg" class="map position-absolute" alt="">
     </div>
 
 
@@ -725,12 +725,12 @@
                     <div class="swiper-wrapper">
                         <article class="card__article swiper-slide shadow">
                             <div class="d-flex align-items-center justify-content-end position-relative px-3 pt-3">
-                                <img src="front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
+                                <img src="public/front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
                                 <div class="person_info text-start mx-2">
                                     <p class="fw-bold m-0">Guy Hawkins</p>
                                     <p class="m-0">UI-UX Designer</p>
                                 </div>
-                                <div class="img"><img src="front/img/person1.svg" class="img-fluid rounded-circle" alt=""></div>
+                                <div class="img"><img src="public/front/img/person1.svg" class="img-fluid rounded-circle" alt=""></div>
                             </div>
                             <div class="card__data p-3">
                                 <p class="card__description my-3"> لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . </p>
@@ -739,12 +739,12 @@
 
                         <article class="card__article swiper-slide shadow">
                             <div class="d-flex align-items-center justify-content-end position-relative px-3 pt-3">
-                                <img src="front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
+                                <img src="public/front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
                                 <div class="person_info text-start mx-2">
                                     <p class="fw-bold m-0">Guy Hawkins</p>
                                     <p class="m-0">UI-UX Designer</p>
                                 </div>
-                                <div class="img"><img src="front/img/person2.svg" class="img-fluid rounded-circle" alt=""></div>
+                                <div class="img"><img src="public/front/img/person2.svg" class="img-fluid rounded-circle" alt=""></div>
                             </div>
                             <div class="card__data p-3">
                                 <p class="card__description my-3"> لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . </p>
@@ -753,12 +753,12 @@
 
                         <article class="card__article swiper-slide shadow">
                             <div class="d-flex align-items-center justify-content-end position-relative px-3 pt-3">
-                                <img src="front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
+                                <img src="public/front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
                                 <div class="person_info text-start mx-2">
                                     <p class="fw-bold m-0">Guy Hawkins</p>
                                     <p class="m-0">UI-UX Designer</p>
                                 </div>
-                                <div class="img"><img src="front/img/person3.svg" class="img-fluid rounded-circle" alt=""></div>
+                                <div class="img"><img src="public/front/img/person3.svg" class="img-fluid rounded-circle" alt=""></div>
                             </div>
                             <div class="card__data p-3">
                                 <p class="card__description my-3"> لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . </p>
@@ -786,7 +786,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="img">
-                        <img src="front/img/join.svg" class="img-fluid" alt="">
+                        <img src="public/front/img/join.svg" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -849,7 +849,7 @@
 
                 <div class="col-lg-3 col-12">
                     <div class="contact text-white">
-                        <div class="logo"><a href="/"><img src="front/img/logo.png" alt=""></a></div>
+                        <div class="logo"><a href="/"><img src="public/front/img/logo.png" alt=""></a></div>
                         <h4 class="text-white pb-2">تواصل معنا</h4>
                         <p>
                             <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> 0227537567 </a>
@@ -895,14 +895,14 @@
         </div>
     </footer>
 
-    <script src="front/js/jquery.min.js"></script>  
-    <script src="front/js/bootstrap.bundle.min.js"></script>  
-    <script src="front/js/swiper-bundle.min.js"></script>  
+    <script src="public/front/js/jquery.min.js"></script>  
+    <script src="public/front/js/bootstrap.bundle.min.js"></script>  
+    <script src="public/front/js/swiper-bundle.min.js"></script>  
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!--animation-->
     <script>
         AOS.init();
       </script>
-    <script src="front/js/main.js"></script>  
+    <script src="public/front/js/main.js"></script>  
 
     <script>
         // counter

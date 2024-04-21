@@ -3,7 +3,8 @@
 namespace App\Providers;
 use App\Models\Setting;
 use App\Models\Course;
-
+use App\Models\Country;
+use App\Models\Track;
 use View;
 
 
@@ -27,9 +28,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $setting = Setting::where('status', '1')->first();
         $courses = Course::get();
-      
-
-        View::share(['setting'=>$setting,'courses'=>$courses]);
+        $countries = Country::active()->get();
+        $tracks = Track::active()->get();
+        View::share(['setting'=>$setting,'courses'=>$courses ,'tracks'=>$tracks,'countries'=>$countries]);
 
     }
 }

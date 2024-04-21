@@ -16,6 +16,8 @@ return [
     "btn_refresh" => 'referesh',
     "modal_are_you_sure"  => "Are You Sure To Continue ?",
     "delete_model_msg" => "By deleting This item we cannot recovery again .",
+    "master_data" => "Master Data",
+    "select_status" => "Select Status",
     'modal' => [
         'active_confirm_title' => 'Confirm Active',
         'active_confirm_msg' => 'Are You Sure To Active Account?',
@@ -37,6 +39,43 @@ return [
         'title' => 'Roles & Permissions',
         'field_title'  => "Title",
         'field_action' => 'Actions'
-    ]
+    ],
+    "paymenttypes" => [
+        "title" => "List Payment Types",
+        "name"  => "Name",
+        "field_action" => "Actions",
+        "status"  => "Status",
+
+    ],
+    "countries" =>[
+        "title" => "List Countries",
+        "name"  => "Name",
+        "code" => "Code",
+        "field_action" => "Actions",
+        "status"  => "Status",
+        "field_photo" => "Photo"
+    ],
+    "students" =>[
+        "list" => "List Students",
+        "field_photo" => "Photo",
+        "field_country" => "Country",
+        "field_join_date" => "Join Date",
+        "field_first_name"  => "First Name",
+        "field_last_name" => "Last Name",
+        "field_name" => "Name",
+        "field_course_number"  => "Course Number",
+        "field_email" => "Email",
+        "phone_number" => "Phone",
+        "field_status" => "Status",
+        "field_action" => "Action",
+        "field_password" => "Password",
+        "field_password_confirmation" => "Password Confirmation",
+        'country_id'  => 'Country',
+        'track' =>'Track',
+        "qualifications" => "Qualifications",
+        'about' => "About Student",
+        'field_photo' => 'photo',
+        "userName" => "userName"
+    ],
   
 ];

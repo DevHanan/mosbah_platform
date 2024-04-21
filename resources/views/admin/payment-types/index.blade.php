@@ -20,7 +20,7 @@
                   
                   <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block" >
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                            {{ __('btn_add_new') }}
+                            {{ __('admin.btn_add_new') }}
                     </a>
                 
                 </div>
@@ -38,10 +38,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th> {{__('name')}}</th>
-                        <th> {{__('status')}}</th>
+                        <th> {{__('admin.paymenttypes.name')}}</th>
+                        <th> {{__('admin.paymenttypes.status')}}</th>
 
-                        <th>{{ __('control') }}</th>
+                        <th>{{ __('admin.paymenttypes.field_action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,9 +51,9 @@
                         <td>{{$row->name}}</td>
                         <td>
                             @if( $row->active == 1 )
-                            <span class="badge bg-green text-green-fg">{{ __('status_active') }}</span>
+                            <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
                             @else
-                            <span class="badge bg-red text-red-fg">{{ __('status_inactive') }}</span>
+                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
                             @endif
                         </td>
 

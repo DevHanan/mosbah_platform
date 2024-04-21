@@ -26,7 +26,7 @@
                             <path d="M12 5l0 14" />
                             <path d="M5 12l14 0" />
                         </svg>
-                        {{__('New Country')}} </a>
+                        {{__('admin.btn_add_new')}} </a>
 
                 </div>
             </div>
@@ -43,12 +43,12 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th> {{__('name')}}</th>
-                            <th> {{__('code')}}</th>
-                            <th> {{__('status')}}</th>
-                            <th>{{ __('field_photo') }}</th>
+                            <th> {{__('admin.countries.name')}}</th>
+                            <th> {{__('admin.countries.code')}}</th>
+                            <th> {{__('admin.countries.status')}}</th>
+                            <th>{{ __('admin.countries.field_photo') }}</th>
 
-                            <th>{{ __('control') }}</th>
+                            <th>{{ __('admin.countries.field_action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,9 +59,9 @@
                             <td>{{$row->code}}</td>
                             <td>
                                 @if( $row->active == 1 )
-                                <span class="badge bg-green text-green-fg">{{ __('status_active') }}</span>
+                                <span class="badge bg-green text-green-fg">{{ __('active') }}</span>
                                 @else
-                                <span class="badge bg-red text-red-fg">{{ __('status_inactive') }}</span>
+                                <span class="badge bg-red text-red-fg">{{ __('inactive') }}</span>
                                 @endif
                             </td>
                             <td><img src="{{asset($row->image)}}" style="width:40px"></td>

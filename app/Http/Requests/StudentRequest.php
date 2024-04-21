@@ -27,10 +27,10 @@ class StudentRequest extends FormRequest
             'last_name' => 'required',
             'email'        => 'required|unique:students,email',
             'password' => 'required|confirmed',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'userName'        => 'required|unique:students,userName',
-            'country_id' => 'required|exists:countries,id',
-            'track_id' => 'required|exists:tracks,id',
+            // 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'userName'        => 'required|unique:students,userName',
+            // 'country_id' => 'required|exists:countries,id',
+            // 'track_id' => 'required|exists:tracks,id',
 
 
 

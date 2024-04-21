@@ -42,21 +42,22 @@
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
-                        <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
+                            <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>
 
-                                        <th>{{ __('admin.users.field_name') }}</th>
+                                        <th>{{ __('admin.students.field_name') }}</th>
+                                        <th>{{ __('admin.students.field_photo') }}</th>
+                                        <th>{{ __('admin.students.phone_number') }}</th>
+                                        <th>{{ __('admin.students.field_email') }}</th>
+                                        <th>{{ __('admin.students.field_country') }}</th>
+                                        <th>{{ __('admin.students.field_join_date') }}</th>
 
-                                        <th>{{ __('admin.users.field_email') }}</th>
-                                        <th>{{ __('admin.users.role') }}</th>
+                                        <th>{{ __('admin.students.field_course_number') }}</th>
+                                        <th>{{ __('admin.students.field_status') }}</th>
 
-
-                                        <th>{{ __('admin.users.phone_number') }}</th>
-                                        <th>{{ __('admin.users.field_status') }}</th>
-
-                                        <th>{{ __('admin.users.field_action') }}</th>
+                                        <th>{{ __('admin.students.field_action') }}</th>
 
 
                                     </tr>
@@ -66,10 +67,13 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ $row->name }}</td>
-                                        <td>{{ $row->email }}</td>
-                                        <td>@foreach($row->roles as $role) {{ $role->name ?? '' }} @endforeach</td>
+                                        <td>{{ $row->first_name }}</td>
+                                        <td><img src="{{asset($row->image)}}" style="width:40px"></td>
                                         <td>{{ $row->phone }}</td>
+                                        <td>{{ $row->email }}</td>
+                                        <td>{{ optional($row->country)->name }}</td>
+                                        <td>{{ $row->created_at }}</td>
+                                        <td> 0 </td>
 
 
 
@@ -77,7 +81,7 @@
                                         <td>
 
 
-                                            @if( $row->status == 1 )
+                                            @if( $row->active == 1 )
                                             <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
                                             @else
                                             <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
@@ -85,7 +89,6 @@
                                         </td>
                                         <td>
 
-                                            @if($loop->iteration != $loop->last)
 
                                             @if($row->status == 0)
 
@@ -100,7 +103,7 @@
                                             @endif
 
                                             <!-- Include Password Change modal -->
-                                            @include('admin.users.change-status')
+                                            @include('admin.students.change-status')
 
 
 
@@ -113,14 +116,8 @@
                                             </button>
                                             <!-- Include Delete modal -->
                                             @include('admin.layouts.inc.delete')
-                                            @endif
 
-                                            <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changePasswordModal-{{ $row->id }}">
-                                                <i class="fas fa-key"></i>
-                                            </button>
-
-                                            <!-- Include Password Change modal -->
-                                            @include('admin.users.password-change')
+                                         
 
 
                                         </td>

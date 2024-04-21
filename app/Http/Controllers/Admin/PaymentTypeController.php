@@ -57,7 +57,7 @@ class PaymentTypeController extends Controller
             $paymentType->image = $this->uploadMedia($request, $attach, $directory);
             $paymentType->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.payment-types.index');
     }
 
@@ -89,7 +89,7 @@ class PaymentTypeController extends Controller
             $paymentType->image = $this->uploadMedia($request, $attach, $directory);
             $paymentType->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.payment-types.index');    }
 
     public function destroy (Request $request)
@@ -98,7 +98,7 @@ class PaymentTypeController extends Controller
         if ($paymentType)
             $paymentType->delete();
 
-            Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+            Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
 }

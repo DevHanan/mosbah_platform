@@ -1,0 +1,128 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Exports\InstructorsExport;
+use App\Http\Controllers\Controller;
+use App\Traits\ApiResponse;
+use App\Traits\FileUploader;
+use App\Http\Resources\InstructorResource;
+use App\Http\Requests\InstructorRequest;
+use App\Http\Requests\UpdateInstructorRequest;
+use App\Models\Instructor;
+use Illuminate\Http\Request;
+use Bcrypt;
+use Toastr;
+
+use Maatwebsite\Excel\Facades\Excel;
+
+
+class InstructorController extends Controller
+{
+ use ApiResponse, FileUploader;
+
+ public function __construct()
+    {
+        $this->title = 'list instructors';
+        $this->route = 'admin.instructors';
+        $this->view = 'admin.instructors';
+        $this->path = 'instructors';
+        $this->access = 'instructors';
+        // $this->middleware('permission:instructors-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:instructors-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:instructors-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:instructors-delete',   ['only' => ['delete']]);
+    }
+
+
+    public function index(Request $request)
+    {
+        $data['route'] = $this->route;
+        $data['title'] = $this->title;
+        $data['rows'] = Instructor::where(function($q)use($request){
+            if ($request->name)
+            $q->Where('first_name', 'like', '%' . $request->name  . '%')
+           ->orWhere('last_name', 'like', '%' . $request->name  . '%');
+           if ($request->phone)
+           $q->Where('phone', $request->phone);
+           if ($request->email)
+           $q->Where('email', $request->email);
+        })->get();
+        return view($this->view.'.index', $data);    }
+
+
+        public function create(Instructor $instructor)
+        {
+            $data['title'] = 'Add Instructor ';
+            $data['route'] = $this->route;
+            return view($this->view .'.create',$data);
+        }
+    public function store(InstructorRequest $request)
+    {
+        $instructor = Instructor::create($request->except('image'));
+        if ($request->hasFile('image')) {
+            $directory = 'instructors';
+            $attach = 'image';
+            $instructor->image =  'uploads/instructors/'.$this->uploadMedia($request,$attach, $directory);
+            $instructor->save();
+        }
+
+        if($request->password){
+            $instructor->password = Bcrypt($request->password);
+            $instructor->save();
+        }
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.instructors.index');      }
+
+
+    public function show($id){
+        $instructor = Instructor::find($id);
+        if($instructor)
+        return $this->okApiResponse(new InstructorResource($instructor), __('instructor loades successfully'));
+        else
+        return $this->notFoundApiResponse([],__('Data Not Found'));
+
+    }
+
+    public function update(UpdateInstructorRequest $request)
+    {
+        $instructor = Instructor::find($request->id);
+        $instructor->update($request->except('image'));
+        if ($request->hasFile('image')) {
+            $directory = 'instructors';
+            $attach = 'image';
+            $instructor->image = $this->uploadMedia($request,$attach, $directory);
+            $instructor->save();
+        }
+
+        if($request->password){
+            $instructor->password = Bcrypt($request->password);
+            $instructor->save();
+        }
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.countries.index'); 
+        }   
+    public function edit($id)
+    {   
+        $data['row'] = Instructor::find($id);
+        $data['route'] = $this->route;
+        $data['title'] = 'edit Instructor';
+        return view($this->view.'.edit',$data);
+    }
+
+    public function destory(Request $request)
+    {
+        $instructor = Instructor::find($request->id);
+        if($instructor)
+        $instructor->delete();
+        Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
+        return redirect()->route($this->route.'.index');    }
+
+
+    public function ExportToExcel(Request $request){
+
+        return Excel::download(new InstructorsExport, 'Instructors.xlsx');
+
+    }
+
+}

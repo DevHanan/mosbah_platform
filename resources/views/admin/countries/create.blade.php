@@ -19,7 +19,7 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
                         </div>
                     </div>
@@ -41,7 +41,7 @@
 
 
                         <div class="col-md-12">
-                            <label class="form-label" for="title"> {{__('country name')}} <span>*</span></label>
+                            <label class="form-label" class="form-label" for="title"> {{__('admin.countries.name')}} <span>*</span></label>
                             <input type="text" class="form-control" name="name" id="title" value="{{ old('title') }}" required>
 
                             @error('name')
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <label class="form-label" for="title"> {{__('country code')}} <span>*</span></label>
+                            <label class="form-label" class="form-label" for="title"> {{__('admin.countries.code')}} <span>*</span></label>
                             <input type="text" class="form-control" name="code" id="code" value="{{ old('title') }}" required>
 
                             @error('code')
@@ -64,26 +64,26 @@
 
 
 
-                        
-                        <hr/>
 
-<div class="form-group col-md-6">
+                        <hr />
+
+                        <div class="form-group col-md-6">
 
 
-    <label for="logo">{{ __('image') }}</label>
-    <input type="file" class="form-control" name="image" id="logo">
+                            <label class="form-label" for="logo">{{ __('admin.countries.field_photo') }}</label>
+                            <input type="file" class="form-control" name="image" id="logo">
 
-    @error('image')
-    <div class="invalid-feedback">
-      {{ $message }}
-    </div>
-    @enderror
-</div>
+                            @error('image')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
 
                         <!-- Form End -->
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
                     </div>
                 </form>
             </div>

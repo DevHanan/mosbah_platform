@@ -23,8 +23,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CertificationController;
 use App\Http\Controllers\Admin\TicketController;
-
-
+use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\InstructorController;
 
 Route::get('/', function () {
     Artisan::call('route:clear');
@@ -57,20 +57,24 @@ Route::group(
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('levels', CourseController::class);
             Route::resource('lectures', CourseController::class);
-
             Route::resource('tracks', TrackController::class);
-            Route::resource('countries', CountryController::class);
-            Route::resource('payment-types', PaymentTypeController::class);
+            
+           
 
             Route::resource('certifications', CertificationController::class);
             Route::get('student-certifications', [CertificationController::class, 'studentCertificate']);
 
             Route::resource('tickets', TicketController::class);
-
-            Route::resource('students', CourseController::class);
             Route::resource('subscriptions', CourseController::class);
 
-            Route::resource('instructors', CourseController::class);
+
+            Route::resource('students', StudentController::class);
+            Route::get('student-status/{id}', [StudentController::class, 'status'])->name('users.status');
+
+            Route::resource('instructors', InstructorController::class);
+
+            Route::resource('countries', CountryController::class);
+            Route::resource('payment-types', PaymentTypeController::class);
 
             Route::resource('users', UserController::class);
             Route::resource('roles', RoleController::class);

@@ -169,6 +169,13 @@ return [
         "goals" => "goals",
         "thumbinal_image" => "Thumbinal Image"
 
+    ],
+    'dashboard' => [
+        'student_number' => 'Student count',
+        'tickets_number'  => 'Tickets count',
+        'course_number'  => 'Course count',
+        'instructor_number'  => 'instructor count'
+
     ]
   
 ];

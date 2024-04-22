@@ -25,7 +25,7 @@
                         </svg>
                         {{ __('admin.btn_add_new') }}
                     </a>
-                    <p> print_r (LaravelLocalization::getSupportedLocales())
+                    <p> {{ print_r (LaravelLocalization::getSupportedLocales()) }}
                     </p>
 
                 </div>

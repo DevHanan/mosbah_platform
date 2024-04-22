@@ -33,6 +33,14 @@ use App\Http\Controllers\Admin\LectureController;
 Route::get('/', function () {
     return view('front.index');
 });
+Route::get('/about-us', function () {
+    return view('front.pages.about');
+});
+
+Route::get('/clear-cache', function () {
+    Artisan::call('optimize:clear');
+});
+
 
 
 Route::get('language/{language}', function ($language) {
@@ -49,10 +57,9 @@ Route::get('language/{language}', function ($language) {
 
 Route::group(
     [
-        //LaravelLocalization::setLocale() 
-        'prefix' =>  '/admin',
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
-        'name' => 'admin.'
+        //LaravelLocalization::setLocale()
+        'prefix' => '/admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
         Route::name('admin.')->group(function () {

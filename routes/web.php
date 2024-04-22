@@ -54,6 +54,7 @@ Route::get('language/{language}', function ($language) {
         $newUrl  = str_replace('/en/', '/ar/', $thisUrl);
     }
     session()->put('locale', $language);
+    App()->setLocale($language);
     return redirect($newUrl);
 })->name('language');
 

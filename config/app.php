@@ -85,6 +85,8 @@ return [
 
     'locale' => 'ar',
     'supported_locales' => ['ar', 'en'], // Supported locales
+    'locales' => ['ar', 'en'], // Supported locales
+
 
     /*
     |--------------------------------------------------------------------------

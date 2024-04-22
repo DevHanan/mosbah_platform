@@ -39,6 +39,8 @@ Route::get('/about-us', function () {
 
 Route::get('/clear-cache', function () {
     Artisan::call('optimize:clear');
+    Artisan::call('cache:clear');
+
 });
 
 

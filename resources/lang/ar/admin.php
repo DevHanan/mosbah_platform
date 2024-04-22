@@ -141,6 +141,13 @@ return [
         "goals" => "أهداف الدورة",
         "thumbinal_image" => "صورة "
 
+    ],
+    'dashboard' => [
+        'student_number' => 'عدد الطلاب',
+        'tickets_number'  => 'عدد التذاكر',
+        'course_number'  => 'عدد الدورات',
+        'instructor_number'  => 'عدد المحاضرين'
+
     ]
   
 ];

@@ -183,7 +183,7 @@
           </a>
         </li>
         <li class="nav-item  dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
+          <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -458,7 +458,8 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  @if ( Request::is('admin/countries*')  
+                || Request::is('admin/payment-types*') ) show  @endif" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -469,13 +470,18 @@
               {{ __('navbar.master_data')}}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu @if ( Request::is('admin/countries')  
+                || Request::is('admin/payment-types') ) show  @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('admin/countries')}}">
+              @if ( Request::is('admin/countries') )
+                <a class="dropdown-item active " href="{{url('admin/countries')}}">
+                  @else
+                  <a class="dropdown-item  " href="{{url('admin/countries')}}">
+                  @endif
                   {{ __('navbar.countries') }}
                 </a>
-                <a class="dropdown-item" href="{{url('admin/payment-types')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.payment-types.*'))  active @endif" href="{{url('admin/payment-types')}}">
                   {{ __('navbar.paymenttypes') }}
                 </a>
 

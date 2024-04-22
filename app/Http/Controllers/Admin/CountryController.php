@@ -43,7 +43,7 @@ class CountryController extends Controller
 
     public function create(Country $country)
     {
-        $data['title'] =trans('admin.countries.add')
+        $data['title'] = trans('admin.countries.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -74,7 +74,7 @@ class CountryController extends Controller
     {   
         $data['row'] = Country::find($id);
         $data['route'] = $this->route;
-        $data['title'] = trans('admin.countries.edit')
+        $data['title'] = trans('admin.countries.edit');
         return view($this->view.'.edit',$data);
     }
 

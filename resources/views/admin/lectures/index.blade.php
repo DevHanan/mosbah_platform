@@ -1,13 +1,23 @@
 @extends('admin.layouts.master')
 @section('title', $title)
 @section('content')
+
+
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
         @include('admin.layouts.inc.breadcrumb')
-      
-    </div>
+        <!-- Page pre-title
+                <div class="page-pretitle">
+                    {{ $setting->title }}
+                </div>
+                <h2 class="page-title">
+                    @if(isset($title))
+                    {{ $title }}
+                    @endif
+                </h2> -->
+      </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
@@ -61,16 +71,14 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.courses.name')}}</th>
-                  <th> {{__('admin.courses.image')}}</th>
-                  <th> {{__('admin.courses.type')}}</th>
-                  <th>{{ __('admin.courses.price') }}</th>
+                  <th> {{__('admin.lectures.title')}}</th>
+                  <th> {{__('admin.lectures.course')}}</th>
+                  <th>{{ __('admin.lectures.level') }}</th>
 
-                  <th>{{ __('admin.courses.track') }}</th>
-                  <th>{{ __('admin.courses.status') }}</th>
+                  <th>{{ __('admin.lectures.type') }}</th>
 
 
-                  <th>{{ __('admin.courses.actions') }}</th>
+                  <th>{{ __('admin.lectures.actions') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,20 +87,11 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$row->id}}</span></td>
-                  <td>{{$row->name}}</td>
-                  <td><img src="{{asset($row->image)}}" style="width:40px"></td>
-                  <td>{{optional($row->coursetype)->name}}</td>
-                  <td>{{$row->price}}</td>
-                  <td>{{optional($row->track)->name}}</td>
+                  <td>{{$row->title}}</td>
+                  <td>{{optional($row->course)->name}}</td>
+                  <td>{{optional($row->level)->name}}</td>
+                  <td>{{$row->type}}</td>
 
-
-                  <td>
-                    @if( $row->active == 1 )
-                    <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                    @else
-                    <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                    @endif
-                  </td>
 
 
                   <td style="width: 270px;">

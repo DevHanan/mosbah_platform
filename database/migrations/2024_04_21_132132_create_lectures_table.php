@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
+            $table->string('level_id');
+            $table->string('course_id');
             $table->text('short_description')->nullable();
             $table->text('description')->nullable();
             $table->string('type');

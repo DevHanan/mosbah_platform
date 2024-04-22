@@ -20,7 +20,7 @@ class CountryController extends Controller
     
     public function __construct()
     {
-        $this->title = 'list countries';
+        $this->title = trans('admin.countries.title');
         $this->route = 'admin.countries';
         $this->view = 'admin.countries';
         $this->path = 'countries';
@@ -37,13 +37,13 @@ class CountryController extends Controller
         $data['rows'] = Country::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
+        })->paginate(10);
         return view($this->view.'.index', $data);
     }
 
     public function create(Country $country)
     {
-        $data['title'] = 'Add countries ';
+        $data['title'] =trans('admin.countries.add')
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -74,7 +74,7 @@ class CountryController extends Controller
     {   
         $data['row'] = Country::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit Country';
+        $data['title'] = trans('admin.countries.edit')
         return view($this->view.'.edit',$data);
     }
 
@@ -98,7 +98,7 @@ class CountryController extends Controller
         if ($country)
             $country->delete();
 
-            Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
+            Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
 }

@@ -15,7 +15,7 @@ class CourseTypeController extends Controller
 
     public function __construct()
     {
-        $this->title = __('admin.course_types') ;
+        $this->title = trans('admin.coursetypes.title') ;
         $this->route = 'admin.course-types';
         $this->view = 'admin.course-types';
         $this->path = 'course-types';
@@ -53,7 +53,7 @@ class CourseTypeController extends Controller
      */
     public function create(CourseType $couretype)
     {
-        $title = ' ';
+        $title = trans('admin.coursetypes.add');
         return view('admin.course-types.create',compact('title'));
     }
 
@@ -97,7 +97,7 @@ class CourseTypeController extends Controller
     public function edit($id)
     {   
         $coursetype = CourseType::find($id);
-        $title = 'edit-course-type';
+        $title = trans('admin.coursetypes.edit');
         return view('admin.course-types.edit',compact('title','coursetype'));
     }
 

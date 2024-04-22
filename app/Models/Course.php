@@ -12,7 +12,7 @@ class Course extends Model
     public $timestamps = true;
 
     protected $fillable = array('name','price','course_type_id','published_at','track_id','active',
-                                'instructor_id','promo_url','level','description','goals','directedTo'
+                                'instructor_id','promo_url','level_id','description','goals','directedTo'
                                );
 
 

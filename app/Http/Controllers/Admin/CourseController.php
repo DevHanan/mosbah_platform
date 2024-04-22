@@ -55,7 +55,7 @@ class CourseController extends Controller
                 $q->where('track_id', $request->track_id);
                 if ($request->course_type)
                 $q->where('course_type_id', $request->course_type);
-        })->get();
+        })->paginate(10);
         
         return view($this->view.'.index', $data);
     }
@@ -77,17 +77,26 @@ class CourseController extends Controller
         if ($request->hasFile('image')) {
             $directory = 'courses/main';
             $attach = 'image';
-            $course->image = 'uploads/coursers/main/'.$this->uploadMedia($request, $attach, $directory);
+            $course->image = 'public/uploads/coursers/main/'.$this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
 
         if ($request->hasFile('background_image')) {
             $directory = 'courses/backgroundImg';
             $attach = 'background_image';
-            $course->background_image ='uploads/coursers/backgroundImg/'. $this->uploadMedia($request, $attach, $directory);
+            $course->background_image ='public/uploads/coursers/backgroundImg/'. $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
-        return $this->okApiResponse(new CourseResource($course), __('Course add successfully'));
+        if ($request->hasFile('thumbinal_image')) {
+            $directory = 'courses/thumbinal_image';
+            $attach = 'thumbinal_image';
+            $course->background_image ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
+            $course->save();
+        }
+
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.courses.index');
+
     }
 
 
@@ -107,7 +116,7 @@ class CourseController extends Controller
         $data['view'] = $this->view;
         $data['path'] = $this->path;
         $data['access'] = $this->access;
-        $data['row'] = Course::with('photos')->find($id);
+        $data['row'] = Course::find($id);
 
       return view($this->view.'.edit', $data);
 
@@ -117,27 +126,28 @@ class CourseController extends Controller
         $course = Course::find($request->id);
         $course->update($request->except(['image', 'background_image']));
         if ($request->hasFile('image')) {
-            $directory = 'courses';
+            $directory = 'courses/main';
             $attach = 'image';
-            $course->image = $this->uploadMedia($request, $attach, $directory);
+            $course->image = 'public/uploads/coursers/main/'.$this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
+
         if ($request->hasFile('background_image')) {
             $directory = 'courses/backgroundImg';
-            $attach = 'image';
-            $course->background_image = $this->uploadMedia($request, $attach, $directory);
+            $attach = 'background_image';
+            $course->background_image ='public/uploads/coursers/backgroundImg/'. $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
-        return $this->okApiResponse(new CourseResource($course), __('Course updated successfully'));
+        if ($request->hasFile('thumbinal_image')) {
+            $directory = 'courses/thumbinal_image';
+            $attach = 'thumbinal_image';
+            $course->background_image ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
+            $course->save();
+        }
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.courses.index');
     }
-
-    public function delete(Request $request)
-    {
-        $course = Course::find($request->id);
-        if ($course)
-            $course->delete();
-        return $this->okApiResponse('', __('Course deleted successfully'));
-    }
+    
 
 
     public function ExportToExcel(Request $request){
@@ -145,4 +155,13 @@ class CourseController extends Controller
         return Excel::download(new CourseExport, 'courses.xlsx');
 
     }
+
+    public function destroy(Request $request)
+    {
+        $course = Course::find($request->id);
+        if ($course)
+            $course->delete();
+
+            Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
+            return redirect()->route($this->route.'.index');    }
 }

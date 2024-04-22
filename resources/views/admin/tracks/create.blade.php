@@ -19,7 +19,7 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <div class="form-group col-md-6">
 
 
-                            <label for="logo">{{ __('image') }}</label>
+                            <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
                             <input type="file" class="form-control" name="image" id="logo">
 
                             @error('image')
@@ -71,7 +71,7 @@
                         <!-- Form End -->
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
                     </div>
                 </form>
             </div>

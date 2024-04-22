@@ -38,7 +38,10 @@ return [
     'tickets' => [
         "tickets_management"  => "tickets Managment",
         "list" => "List tickets",
-        "add"   => "New tickets"
+        "add"   => "New tickets",
+        "instrutor_msg" => "instrutor message",
+        "student_msg" => "student message"
+
     ],
     "courses" => [
         "title"  => "Courses",

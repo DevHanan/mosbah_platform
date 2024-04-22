@@ -19,9 +19,9 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route('admin.course-types.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+                            <a href="{{ route('admin.course-types.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
-                            <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('btn_refresh') }}</a>
+                            <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_refresh') }}</a>
                         </div>
                     </div>
 
@@ -45,7 +45,7 @@
 
 
             <div class="form-group col-md-12">
-             <label class="form-label" for="name"> {{__('course_type_name')}} <span>*</span></label>
+             <label class="form-label" for="name"> {{__('admin.coursetypes.name')}} <span>*</span></label>
               <input type="text" class="form-control" name="name" id="name" value="{{ old('name',$coursetype) }}" required>
 
               @error('name')
@@ -60,15 +60,15 @@
 
 
             <div class="form-group col-md-12">
-             <label class="form-label" for="active" class="form-label">{{ __('select_active') }}</label>
+             <label class="form-label" for="active" class="form-label">{{ __('admin.coursetypes.status') }}</label>
               <div>
                <label class="form-check form-check-inline">
                   <input class="form-check-input" value="1" @if($coursetype->active ==1) checked="checked" @endif type="radio" name="active" >
-                  <span class="form-check-label"> {{ __('status_active')}}</span>
+                  <span class="form-check-label"> {{ __('admin.active')}}</span>
                 </label>
                <label  class="form-check form-check-inline">
                   <input class="form-check-input" value="0" @if($coursetype->active == 0) checked="checked" @endif type="radio" name="active" >
-                  <span class="form-check-label"> {{ __('status_inactive' )}}</span>
+                  <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
                 </label>
 
               </div>
@@ -81,7 +81,7 @@
           <!-- Form End -->
         </div>
         <div class="card-footer">
-          <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+          <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
         </div>
       </form>
     </div>

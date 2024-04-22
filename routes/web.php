@@ -65,8 +65,6 @@ Route::group(
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
-            Route::resource('levels', CourseController::class);
-            Route::resource('lectures', CourseController::class);
 
             Route::resource('tracks', TrackController::class);
             Route::resource('course-types', CourseTypeController::class);

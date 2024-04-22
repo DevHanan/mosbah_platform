@@ -21,7 +21,7 @@ class PaymentTypeController extends Controller
     
     public function __construct()
     {
-        $this->title = 'list payment-types';
+        $this->title = trans('admin.paymenttypes.title');
         $this->route = 'admin.payment-types';
         $this->view = 'admin.payment-types';
         $this->path = 'payment-types';
@@ -38,13 +38,14 @@ class PaymentTypeController extends Controller
         $data['rows'] = PaymentType::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
+        })->paginate(10);
         return view($this->view.'.index', $data);
     }
 
     public function create(PaymentType $paymentType)
     {
-        $data['title'] = 'Add payment-types ';
+        $data['title'] = trans('admin.paymenttypes.add');
+        ;
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -57,7 +58,7 @@ class PaymentTypeController extends Controller
             $paymentType->image = $this->uploadMedia($request, $attach, $directory);
             $paymentType->save();
         }
-        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.payment-types.index');
     }
 
@@ -75,7 +76,7 @@ class PaymentTypeController extends Controller
     {   
         $data['row'] = PaymentType::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit PaymentType';
+        $data['title'] = trans('admin.paymenttypes.edit');
         return view($this->view.'.edit',$data);
     }
 
@@ -98,7 +99,7 @@ class PaymentTypeController extends Controller
         if ($paymentType)
             $paymentType->delete();
 
-            Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
+            Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
 }

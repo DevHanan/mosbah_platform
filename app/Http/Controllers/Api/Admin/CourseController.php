@@ -83,7 +83,7 @@ class CourseController extends Controller
         return $this->okApiResponse(new CourseResource($course), __('Course updated successfully'));
     }
 
-    public function delete(Request $request)
+    public function destory(Request $request)
     {
         $course = Course::find($request->id);
         if ($course)

@@ -189,13 +189,13 @@
                 <div class="form-group col-md-12">
                   <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                   <div>
-                  <select class="form-control" name="active" id="active" required>
-                    <option value="">{{ __('select') }}</option>
-                    <option value="1"> {{ __('admin.active')}}</option>
-                    <option value=""> {{ __('admin.inactive')}}</option>
+                    <select class="form-control" name="active" id="active" required>
+                      <option value="">{{ __('select') }}</option>
+                      <option value="1"> {{ __('admin.active')}}</option>
+                      <option value=""> {{ __('admin.inactive')}}</option>
 
-                  </select>
-                 
+                    </select>
+
 
                   </div>
                 </div>
@@ -242,21 +242,21 @@
 
               </div>
               <div class="mb-3">
-              <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="descriptions" rows="6" placeholder="Content.."></textarea>
+                <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
+                <textarea class="form-control" name="descriptions" rows="6" placeholder="Content.."></textarea>
               </div>
 
               <div class="mb-3">
-              <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="directedTo" rows="6" placeholder="Content.."></textarea>
+                <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
+                <textarea class="form-control" name="directedTo" rows="6" placeholder="Content.."></textarea>
               </div>
 
               <div class="mb-3">
-              <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="goals" rows="6" placeholder="Content.."></textarea>
+                <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
+                <textarea class="form-control" name="goals" rows="6" placeholder="Content.."></textarea>
               </div>
 
-             
+
             </div>
           </div>
           <div class="card-footer text-end">

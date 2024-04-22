@@ -1,4 +1,4 @@
-<aside class="navbar navbar-vertical @if(app()->getLocale() == 'ar') navbar-right @else   navbar-transparent
+<aside class="navbar navbar-vertical @if(app()->getLocale() == 'ar') navbar-right @else 
  @endif navbar-expand-lg">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -182,7 +182,7 @@
             </span>
           </a>
         </li>
-        <li class="nav-item active dropdown">
+        <li class="nav-item  dropdown">
           <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -197,7 +197,7 @@
               {{ __('navbar.courses.title') }}
             </span>
           </a>
-          <div class="dropdown-menu show">
+          <div class="dropdown-menu ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 @foreach($courseTypes as $type)

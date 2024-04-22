@@ -40,11 +40,62 @@ return [
         'field_title'  => "Title",
         'field_action' => 'Actions'
     ],
+
+    "coursetypes" =>[
+        'title' => 'Course Types',
+        'add' => 'New Type',
+        'edit' => 'Edit type',
+        'name'  => "Name",
+        'status' => 'status',
+        'actions' => 'Actions'
+    ],
+
+    "tracks" =>[
+        'title' => 'Tracks',
+        'add' => 'New Track',
+        'edit' => 'Edit Track',
+        'name'  => "Name",
+        'status' => 'status',
+        'actions' => 'Actions',
+        'field_photo' => 'Photo'
+    ],
+    "levels" =>[
+        'title' => 'Levels',
+        'add' => 'New Level',
+        'edit' => 'Edit Level',
+        'name'  => "Name",
+        'status' => 'status',
+        'actions' => 'Actions',
+        'course' => 'course',
+        'start_date' => 'Start Date',
+        'period' => 'period',
+        'period_type' => 'period type',
+        'month' => "Month",
+        'day' => 'Day',
+        'hour' => 'Hour'
+    ],
+    "lectures" =>[
+        'title' => 'Lectures',
+        'add' => 'New Lecture',
+        'edit' => 'Edit Lecture',
+        'field_title'  => "Title",
+        'status' => 'status',
+        'actions' => 'Actions',
+        'course' => 'course',
+        'level' => 'Level',
+        'descriptions' => 'Description',
+        'short_description' => 'Short description',
+        'type' => 'Type',
+        'viedo' => 'Video',
+        'metting' => 'Metting'
+    ],
     "paymenttypes" => [
         "title" => "List Payment Types",
         "name"  => "Name",
         "field_action" => "Actions",
         "status"  => "Status",
+        'add'  => 'New  Type',
+        'edit'  => 'Edit  Type'
 
     ],
     "countries" =>[
@@ -53,7 +104,9 @@ return [
         "code" => "Code",
         "field_action" => "Actions",
         "status"  => "Status",
-        "field_photo" => "Photo"
+        "field_photo" => "Photo",
+        'add'  => 'New  Country',
+        'edit'  => 'Edit  Country'
     ],
     "students" =>[
         "list" => "List Students",
@@ -93,6 +146,8 @@ return [
 
     ],
     "courses"=>[
+        "type" => 'Type',
+        'status' => 'Status',
         "name"  => "Course Name",
         "track"  => "Track",
         "instructor" => "instructor",

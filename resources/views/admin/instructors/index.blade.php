@@ -51,10 +51,6 @@
                                         <th>{{ __('admin.students.field_photo') }}</th>
                                         <th>{{ __('admin.students.phone_number') }}</th>
                                         <th>{{ __('admin.students.field_email') }}</th>
-                                        <th>{{ __('admin.students.field_country') }}</th>
-                                        <th>{{ __('admin.students.field_join_date') }}</th>
-
-                                        <th>{{ __('admin.students.field_course_number') }}</th>
                                         <th>{{ __('admin.students.field_status') }}</th>
 
                                         <th>{{ __('admin.students.field_action') }}</th>
@@ -71,9 +67,6 @@
                                         <td><img src="{{asset($row->image)}}" style="width:40px"></td>
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->email }}</td>
-                                        <td>{{ optional($row->country)->name }}</td>
-                                        <td>{{ $row->created_at }}</td>
-                                        <td> 0 </td>
 
 
 

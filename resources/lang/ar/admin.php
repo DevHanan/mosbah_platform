@@ -40,11 +40,36 @@ return [
         'field_title'  => "العنوان",
         'field_action' => 'الحدث'
     ],
+    "coursetypes" =>[
+        'title' => 'أنواع الدورات',
+        'add' => 'إضافة جديد',
+        'edit' => 'تعديل نوع',
+        'name'  => "الإسم",
+        'status' => 'الحالة',
+        'actions' => 'الحدث'
+    ],
+    "levels" =>[
+        'title' => 'مستويات الدورة',
+        'add' => 'مستوى جديد',
+        'edit' => 'تعديل مستوى',
+        'name'  => "الإسم",
+        'status' => 'الحالة',
+        'actions' => 'الحدث',
+        'course' => 'الدورة',
+        'start_date' => 'تاريخ البدايه',
+        'period' => 'المدة',
+        'period_type' => 'نوع المدة',
+        'month' => "شهر",
+        'day' => 'يوم',
+        'hour' => 'ساعه'
+    ],
     "paymenttypes" => [
         "title" => "عرض أنواع الدفع",
         "name"  => "الإسم",
         "field_action" => "الحدث",
         "status"  => "الحالة",
+        'add'  => 'إضافة جديد',
+        'edit'  => 'تعديل بيانات '
 
     ],
     "countries" =>[
@@ -53,7 +78,9 @@ return [
         "code" => "الكود",
         "field_action" => "الحدث",
         "status"  => "الحالة",
-        "field_photo" => "الصورة"
+        "field_photo" => "الصورة",
+        'add'  => 'إضافة دولة',
+        'edit'  => 'تعديل دولة'
     ],
     "students" =>[
         "list" => "عرض الطلاب",

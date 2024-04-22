@@ -21,7 +21,7 @@ class TrackController extends Controller
     
     public function __construct()
     {
-        $this->title = 'list tracks';
+        $this->title = trans('admin.tracks.title');
         $this->route = 'admin.tracks';
         $this->view = 'admin.tracks';
         $this->path = 'tracks';
@@ -38,13 +38,13 @@ class TrackController extends Controller
         $data['rows'] = Track::active()->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
+        })->paginate(10);
         return view($this->view.'.index', $data);
     }
 
     public function create(Track $track)
     {
-        $data['title'] = 'Add Tracks ';
+        $data['title'] = trans('admin.tracks.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -54,10 +54,10 @@ class TrackController extends Controller
         if ($request->hasFile('image')) {
             $directory = 'tracks';
             $attach = 'image';
-            $track->image = $this->uploadMedia($request, $attach, $directory);
+            $track->image =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
             $track->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.tracks.index');
     }
 
@@ -75,7 +75,7 @@ class TrackController extends Controller
     {   
         $data['row'] = Track::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit track';
+        $data['title'] = trans('admin.tracks.edit');
         return view($this->view.'.edit',$data);
     }
 
@@ -86,10 +86,10 @@ class TrackController extends Controller
         if ($request->hasFile('image')) {
             $directory = 'tracks';
             $attach = 'image';
-            $track->image = $this->uploadMedia($request, $attach, $directory);
+            $track->image = 'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
             $track->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.tracks.index');    }
 
     public function destroy (Request $request)
@@ -98,7 +98,7 @@ class TrackController extends Controller
         if ($track)
             $track->delete();
 
-            Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+            Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
 }

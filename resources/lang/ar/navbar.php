@@ -38,7 +38,9 @@ return [
     'tickets' => [
         "tickets_management"  => "إدارة الدعم",
         "list" => "عرض الدعم الفنى",
-        "add"   => "New tickets"
+        "add"   => "",
+        "instrutor_msg" => "رسائل المحاضرين",
+        "student_msg" => "رسائل الطلاب"
     ],
     "courses" => [
         "title"  => "الدورات التدريبية",

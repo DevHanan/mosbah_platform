@@ -19,9 +19,9 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route('admin.course-types.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+                            <a href="{{ route('admin.course-types.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
-                            <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('btn_refresh') }}</a>
+                            <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_refresh') }}</a>
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
 
 
                         <div class="col-md-12">
-                            <label class="form-label" for="title"> {{__('course_type_name')}} <span>*</span></label>
+                            <label class="form-label" for="title"> {{__('admin.coursetypes.name')}} <span>*</span></label>
                             <input type="text" class="form-control" name="name" id="title" value="{{ old('title') }}" required>
 
                             @error('name')
@@ -56,7 +56,7 @@
                         <!-- Form End -->
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
                     </div>
                 </form>
             </div>

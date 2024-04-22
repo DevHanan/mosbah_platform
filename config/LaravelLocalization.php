@@ -7,9 +7,6 @@ return [
     // Regional languages are sorted by their base language, so "British English" sorts as "English, British"
     'supportedLocales' => [
         'ar'          => ['name' => 'Arabic',                   'script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB'],
-        'Ar'          => ['name' => 'Arabic',                   'script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB'],
-
-        'AR'          => ['name' => 'Arabic',                   'script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB'],
         //'ace'         => ['name' => 'Achinese',               'script' => 'Latn', 'native' => 'Aceh', 'regional' => ''],
         //'af'          => ['name' => 'Afrikaans',              'script' => 'Latn', 'native' => 'Afrikaans', 'regional' => 'af_ZA'],
         //'agq'         => ['name' => 'Aghem',                  'script' => 'Latn', 'native' => 'Aghem', 'regional' => ''],

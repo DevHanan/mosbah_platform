@@ -57,9 +57,9 @@ Route::get('language/{language}', function ($language) {
 
 Route::group(
     [
-        //LaravelLocalization::setLocale()
-        'prefix' => '/admin',
-        // 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+        'prefix' => LaravelLocalization::setLocale().'/admin',        
+
+         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
         Route::name('admin.')->group(function () {

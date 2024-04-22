@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
+use Session;
+use Redirect;
 
 class LangController extends Controller
 {
@@ -11,9 +14,12 @@ class LangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function changeLanguage($lang)
     {
-        return view('lang.index');
+        App::setLocale($lang);
+        \LaravelLocalization::setLocale($lang);
+        $url = \LaravelLocalization::getLocalizedURL(App::getLocale(), \URL::previous());
+       return Redirect::to($url); 
     }
 
     /**

@@ -25,8 +25,7 @@
                         </svg>
                         {{ __('admin.btn_add_new') }}
                     </a>
-                    <p> {{ App::getLocale() }}
-                    </p>
+                
 
                 </div>
             </div>

@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\SubscriptionController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\LectureController;
+use App\Http\Controllers\LangController;
 
 Route::get('/', function () {
     return view('front.index');
@@ -40,29 +41,16 @@ Route::get('/about-us', function () {
 Route::get('/clear-cache', function () {
     Artisan::call('optimize:clear');
     Artisan::call('cache:clear');
-
 });
 
 
 
-Route::get('language/{language}', function ($language) {
-    $thisUrl = str_replace(url('/'), '', url()->previous())  .'/';
-    if ($language == 'en') {
-        $newUrl  = str_replace('/ar/', '/en/', $thisUrl);
-    }else{
-
-        $newUrl  = str_replace('/en/', '/ar/', $thisUrl);
-    }
-    session()->put('locale', $language);
-    App()->setLocale($language);
-    return redirect($newUrl);
-})->name('language');
-
+Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale().'/admin',        
+        'prefix' => LaravelLocalization::setLocale() . '/admin',
 
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
         Route::name('admin.')->group(function () {
@@ -76,13 +64,13 @@ Route::group(
             Route::resource('lectures', LectureController::class);
 
 
-           
+
 
             Route::resource('certifications', CertificationController::class);
             Route::get('students-certifications', [CertificationController::class, 'studentCertificate']);
 
-            Route::get('instructors-tickets', [TicketController::class,'listInstructorMsg']);
-            Route::get('instructors-tickets', [TicketController::class,'listStudentMsg']);
+            Route::get('instructors-tickets', [TicketController::class, 'listInstructorMsg']);
+            Route::get('instructors-tickets', [TicketController::class, 'listStudentMsg']);
 
 
             Route::resource('coupons', CouponController::class);

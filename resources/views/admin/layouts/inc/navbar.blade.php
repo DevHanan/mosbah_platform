@@ -1,4 +1,4 @@
-<aside class="navbar navbar-vertical @if(app()->getLocale() == 'ar') navbar-right @else 
+<aside class="navbar navbar-vertical @if(App::getLocale() == 'ar') navbar-right @else 
  @endif navbar-expand-lg">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -497,16 +497,17 @@
     </button>
     <div class="navbar-nav flex-row order-md-last">
       <div class="d-none d-md-flex">
-        @if(App::getLocale() == 'ar')
+      
+        @if(app()->getLocale() == 'en')
+        <li style="padding: 14px;">
+          <a href="{{ url('language/ar') }}"><i class="fa fa-language"></i> AR</a>
+        </li>
+        @else
         <li style="padding: 14px;">
           <a href="{{ url('language/en') }}"><i class="fa fa-language"></i> EN</a>
         </li>
         @endif
-        @if(App::getLocale() == 'en')
-        <li style="padding: 14px;">
-          <a href="{{ url('language/ar') }}"><i class="fa fa-language"></i> AR</a>
-        </li>
-        @endif
+      
 
 
       </div>

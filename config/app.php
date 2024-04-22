@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'ar',
+    'locale' => 'en',
     'supported_locales' => ['ar', 'en'], // Supported locales
     'locales' => ['ar', 'en'], // Supported locales
 
@@ -99,7 +99,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------

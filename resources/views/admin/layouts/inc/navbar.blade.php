@@ -275,7 +275,7 @@
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.users.*')) active @endif" href="{{url('admin/users')}}">
                   {{ __('navbar.users') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.roles.*')) active @endif" href="{{url('admin/roles')}}">
                   {{ __('navbar.roles') }}
@@ -308,7 +308,7 @@
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.students')) active @endif" href="{{url('/admin/students')}}">
                   {{ __('navbar.students.list') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.students.create')) active @endif" href="{{url('/admin/students/create')}}">
                   {{ __('navbar.students.add') }}
@@ -316,7 +316,7 @@
 
                 <a class="dropdown-item @if(request()->routeIs('admin.subscriptions')) active @endif" href="{{url('/admin/subscriptions')}}">
                   {{ __('navbar.subscriptions.list') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.subscriptions.create')) active @endif" href="{{url('/admin/subscriptions/create')}}">
                   {{ __('navbar.subscriptions.add') }}
@@ -348,7 +348,7 @@
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.instructors')) active @endif" href="{{url('/admin/instructors')}}">
                   {{ __('navbar.instructors.list') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.instructors.create')) active @endif" href="{{url('/admin/instructors/create')}}">
                   {{ __('navbar.instructors.add') }}
@@ -379,7 +379,7 @@
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.coupons')) active @endif" href="{{url('/admin/coupons')}}">
                   {{ __('navbar.coupons.list') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.coupons.create')) active @endif" href="{{url('/admin/coupons/create')}}">
                   {{ __('navbar.coupons.add') }}
@@ -411,11 +411,11 @@
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications'])) active @endif" href="{{url('/admin/certifications')}}">
                   {{ __('navbar.certifications.list') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="{{url('/admin/student-certifications')}}">
                   {{ __('navbar.certifications.student_certifications') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('/admin/certifications/create')}}">
                   {{ __('navbar.certifications.add') }}
@@ -446,7 +446,7 @@
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.instructors-tickets'))  active @endif" href="{{url('/admin/instructors-tickets')}}">
                   {{ __('navbar.tickets.instrutor_msg') }}
-                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="{{url('/admin/students-tickets')}}">
                   {{ __('navbar.tickets.student_msg') }}

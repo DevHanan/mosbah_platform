@@ -30,13 +30,31 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\LectureController;
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\Front\HomeController;
 
-Route::get('/', function () {
-    return view('front.index');
-});
-Route::get('/about-us', function () {
-    return view('front.pages.about');
-});
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about-us', [HomeController::class, 'about']);
+Route::get('/courses', [HomeController::class, 'courses']);
+Route::get('/blogs', [HomeController::class, 'blogs']);
+Route::get('/policies', [HomeController::class, 'policy']);
+Route::get('/contactus', [HomeController::class, 'contactus']);
+Route::get('/books', [HomeController::class, 'books']);
+Route::get('/book', [HomeController::class, 'book']);
+Route::get('/blog', [HomeController::class, 'blog']);
+Route::get('/course', [HomeController::class, 'course']);
+Route::get('/signin', [HomeController::class, 'signin']);
+Route::get('/signup', [HomeController::class, 'signup']);
+Route::get('/cart', [HomeController::class, 'cart']);
+Route::get('/sign_step1', [HomeController::class, 'signstep1']);
+Route::get('/sign_step2', [HomeController::class, 'signstep2']);
+Route::get('/sign_step3', [HomeController::class, 'signstep3']);
+Route::get('/sign-verify', [HomeController::class, 'signVerify']);
+Route::get('/sign-complete', [HomeController::class, 'signcomplete']);
+
+Route::get('/questions', [HomeController::class, 'questions']);
+
+
 
 Route::get('/clear-cache', function () {
     Artisan::call('optimize:clear');

@@ -70,7 +70,7 @@ Route::group(
             Route::get('students-certifications', [CertificationController::class, 'studentCertificate']);
 
             Route::get('instructors-tickets', [TicketController::class, 'listInstructorMsg']);
-            Route::get('instructors-tickets', [TicketController::class, 'listStudentMsg']);
+            Route::get('students-tickets', [TicketController::class, 'listStudentMsg']);
 
 
             Route::resource('coupons', CouponController::class);

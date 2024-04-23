@@ -167,8 +167,8 @@
     </div>
     <div class="collapse navbar-collapse" id="sidebar-menu">
       <ul class="navbar-nav pt-lg-3">
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('admin/dashboard')}}">
+        <li class="nav-item @if(request()->routeIs('admin.dashboard.*')) active @endif">
+          <a class="nav-link @if(request()->routeIs('admin.dashboard.*')) active @endif" href="{{url('admin/dashboard')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -183,7 +183,7 @@
           </a>
         </li>
         <li class="nav-item  dropdown">
-          <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif" href="" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -197,7 +197,7 @@
               {{ __('navbar.courses.title') }}
             </span>
           </a>
-          <div class="dropdown-menu ">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*',''admin.course-types.*'])) show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 @foreach($courseTypes as $type)
@@ -206,43 +206,43 @@
 
                 </a>
                 @endforeach
-                <a class="dropdown-item" href="{{ url('admin/courses/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.courses.create')) active @endif" href="{{ url('admin/courses/create')}}">
                   {{ __('navbar.courses.add_course') }}
 
                 </a>
-                <a class="dropdown-item" href="{{ url('admin/levels')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.levels.*')) active @endif" href="{{ url('admin/levels')}}">
                   {{ __('navbar.courses.list_levels') }}
 
                 </a>
-                <a class="dropdown-item" href="{{ url('admin/levels/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.levels.create')) active @endif" href="{{ url('admin/levels/create')}}">
                   {{ __('navbar.courses.add_level') }}
 
                 </a>
-                <a class="dropdown-item" href="{{ url('admin/lectures')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.lectures.*')) active @endif" href="{{ url('admin/lectures')}}">
                   {{ __('navbar.courses.list_lectures') }}
 
                 </a>
-                <a class="dropdown-item" href="{{ url('admin/lectures/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.lectures.create')) active @endif" href="{{ url('admin/lectures/create')}}">
                   {{ __('navbar.courses.add_lecture') }}
 
                 </a>
 
 
 
-                <a class="dropdown-item" href="{{ url('admin/tracks')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.tracks.*')) active @endif" href="{{ url('admin/tracks')}}">
                   {{ __('navbar.courses.list_tracks') }}
 
                 </a>
-                <a class="dropdown-item" href="{{ url('admin/tracks/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.tracks.create')) active @endif" href="{{ url('admin/tracks/create')}}">
                   {{ __('navbar.courses.add_track') }}
 
                 </a>
 
-                <a class="dropdown-item" href="{{ url('admin/course-types')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.course-types.*')) active @endif" href="{{ url('admin/course-types')}}">
                   {{ __('navbar.courses.list_course_types') }}
 
                 </a>
-                <a class="dropdown-item" href="{{ url('admin/course-types/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.course-types.create')) active @endif" href="{{ url('admin/course-types/create')}}">
                   {{ __('navbar.courses.add_course_types') }}
 
                 </a>
@@ -255,7 +255,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -270,14 +270,14 @@
               {{ __('navbar.user_managment') }}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('/admin/users')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.users.*')) active @endif" href="{{url('admin/users')}}">
                   {{ __('navbar.users') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/roles')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.roles.*')) active @endif" href="{{url('admin/roles')}}">
                   {{ __('navbar.roles') }}
                 </a>
 
@@ -288,7 +288,7 @@
 
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.subscriptions.*','admin.students.*'])) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -303,22 +303,22 @@
               {{ __('navbar.students.student_managment') }}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.subscriptions.*','admin.students.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('/admin/students')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.students')) active @endif" href="{{url('/admin/students')}}">
                   {{ __('navbar.students.list') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/students/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.students.create')) active @endif" href="{{url('/admin/students/create')}}">
                   {{ __('navbar.students.add') }}
                 </a>
 
-                <a class="dropdown-item" href="{{url('/admin/subscriptions')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.subscriptions')) active @endif" href="{{url('/admin/subscriptions')}}">
                   {{ __('navbar.subscriptions.list') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/subscriptions/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.subscriptions.create')) active @endif" href="{{url('/admin/subscriptions/create')}}">
                   {{ __('navbar.subscriptions.add') }}
                 </a>
 
@@ -328,7 +328,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.instructors.*')) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -343,14 +343,14 @@
               {{ __('navbar.instructors.instructor_management') }}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu @if(request()->routeIs('admin.instructors.*')) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('/admin/instructors')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.instructors')) active @endif" href="{{url('/admin/instructors')}}">
                   {{ __('navbar.instructors.list') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/instructors/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.instructors.create')) active @endif" href="{{url('/admin/instructors/create')}}">
                   {{ __('navbar.instructors.add') }}
                 </a>
 
@@ -359,7 +359,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.coupons.*')) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -374,14 +374,14 @@
               {{ __('navbar.coupons.coupons_management') }}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu @if(request()->routeIs('admin.coupons.*')) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('/admin/coupons')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.coupons')) active @endif" href="{{url('/admin/coupons')}}">
                   {{ __('navbar.coupons.list') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/coupons/create')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.coupons.create')) active @endif" href="{{url('/admin/coupons/create')}}">
                   {{ __('navbar.coupons.add') }}
                 </a>
 
@@ -391,7 +391,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -406,18 +406,18 @@
               {{ __('navbar.certifications.certifications_management') }}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('/admin/certifications')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.certifications'])) active @endif" href="{{url('/admin/certifications')}}">
                   {{ __('navbar.certifications.list') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/student-certifications')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="{{url('/admin/student-certifications')}}">
                   {{ __('navbar.certifications.student_certifications') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/certifications/create')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('/admin/certifications/create')}}">
                   {{ __('navbar.certifications.add') }}
                 </a>
 
@@ -426,7 +426,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets'])) show @endif " href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -441,14 +441,14 @@
               {{ __('navbar.tickets.tickets_management') }}
             </span>
           </a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item" href="{{url('/admin/instructors-tickets')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.instructors-tickets'))  active @endif" href="{{url('/admin/instructors-tickets')}}">
                   {{ __('navbar.tickets.instrutor_msg') }}
                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                 </a>
-                <a class="dropdown-item" href="{{url('/admin/students-tickets')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="{{url('/admin/students-tickets')}}">
                   {{ __('navbar.tickets.student_msg') }}
                 </a>
 
@@ -458,8 +458,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle  @if ( Request::is('admin/countries*')  
-                || Request::is('admin/payment-types*') ) show  @endif" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.payment-types.*','admin.countries.*']))  show @endif " href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -470,18 +469,14 @@
               {{ __('navbar.master_data')}}
             </span>
           </a>
-          <div class="dropdown-menu @if ( Request::is('admin/countries')  
-                || Request::is('admin/payment-types') ) show  @endif">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.payment-types.*','admin.countries.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-              @if ( Request::is('admin/countries') )
-                <a class="dropdown-item active " href="{{url('admin/countries')}}">
-                  @else
-                  <a class="dropdown-item  " href="{{url('admin/countries')}}">
-                  @endif
+                <a class="dropdown-item  @if(request()->routeIs('admin.countries.*')) active @endif " href="{{url('admin/countries')}}">
+                 
                   {{ __('navbar.countries') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.payment-types.*'))  active @endif" href="{{url('admin/payment-types')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.payment-types.*'))  active @endif " href="{{url('admin/payment-types')}}">
                   {{ __('navbar.paymenttypes') }}
                 </a>
 

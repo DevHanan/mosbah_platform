@@ -72,7 +72,7 @@
               <label class="form-label" for="course_id">Course <span>*</span></label>
               <select class="form-control select2" name="course_id" id="course_id">
                 <option value="">{{ __('select') }}</option>
-                @foreach( $courses as $courses )
+                @foreach( $courses as $course )
                 <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif>{{ $course->name }}</option>
                 @endforeach
               </select>

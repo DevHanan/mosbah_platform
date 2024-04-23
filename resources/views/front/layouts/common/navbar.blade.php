@@ -58,11 +58,11 @@
             <a class="nav-link" href="#">حساب التنسيق</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">تحقق من الشهادة</a>
+            <!-- <a class="nav-link" href="#">تحقق من الشهادة</a>
             </li>
 			<li class="nav-item">
             <a class="nav-link" href="#">صانع CV</a>
-            </li>
+            </li> -->
 			<li class="nav-item">
             <a class="nav-link" href="{{ url('/policies') }}">سياساتنا</a>
             </li>

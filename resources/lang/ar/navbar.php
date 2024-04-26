@@ -26,7 +26,7 @@ return [
     ],
     'coupons' => [
         "coupons_management"  => "إدارة الكوبونات",
-        "list" => "عر الكوبات",
+        "list" => "عرض الكوبونات",
         "add"   => "إضافة كوبون"
     ],
     'certifications' => [
@@ -55,5 +55,9 @@ return [
         "add_course"  => "إضافة دوره"
 
 
+    ],
+    'settings' => [
+        'general_settings' => 'إعدادت عامة ',
+        'policies' => 'السياسات والشروط',  
     ]
 ];

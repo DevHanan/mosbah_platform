@@ -5,13 +5,8 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+            @include('admin.layouts.inc.breadcrumb')
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -48,11 +43,11 @@
                                         <th>#</th>
 
                                         <th>{{ __('admin.coupons.code') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_course') }}</th>
-                                        <th>{{ __('admin.subscriptions.create_date') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_status') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_discount') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_action') }}</th>
+                                        <th>{{ __('admin.coupons.course') }}</th>
+                                        <th>{{ __('admin.coupons.start_date') }}</th>
+                                        <th>{{ __('admin.coupons.status') }}</th>
+                                        <th>{{ __('admin.coupons.discount') }}</th>
+                                        <th>{{ __('admin.coupons.action') }}</th>
 
 
                                     </tr>
@@ -95,7 +90,7 @@
                                             @endif
 
                                             <!-- Include Password Change modal -->
-                                            @include('admin.subscriptions.change-status')
+                                            @include('admin.coupons.change-status')
 
 
 

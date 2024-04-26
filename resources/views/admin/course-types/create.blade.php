@@ -5,13 +5,8 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+            @include('admin.layouts.inc.breadcrumb')
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -21,7 +16,7 @@
                         <div class="card-block">
                             <a href="{{ route('admin.course-types.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
-                            <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_refresh') }}</a>
+                            <!-- <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_refresh') }}</a> -->
                         </div>
                     </div>
 

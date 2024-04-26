@@ -17,10 +17,7 @@ return new class extends Migration
             $table->text('logo_path')->nullable();
             $table->text('favicon_path')->nullable();
             $table->string('phone')->nullable();
-            $table->string('phone2')->nullable();
-            $table->string('phone3')->nullable();
             $table->string('email')->nullable();
-            $table->string('currency')->nullable();
             $table->text('address')->nullable();
             $table->text('copyright_text')->nullable();
             $table->boolean('status')->default('1');

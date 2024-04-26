@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('course_type_id');
             $table->date('published_at');
             $table->boolean('active')->default(1);
+            $table->boolean('recommend')->default(0);
             $table->integer('track_id');
             $table->integer('instructor_id');
             $table->string('image')->nullable();

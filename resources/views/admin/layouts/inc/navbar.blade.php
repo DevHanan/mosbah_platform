@@ -1,7 +1,7 @@
-<aside class="navbar navbar-vertical @if(App::getLocale() == 'ar') navbar-right @else 
+<aside class="navbar navbar-vertical @if(App::getLocale() == 'ar') navbar-right 
  @endif navbar-expand-lg">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" href="#navbar-layout" data-bs-toggle="dropdown"="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1 class="navbar-brand navbar-brand-autodark">
@@ -31,14 +31,14 @@
         </div>
       </div>
       <div class="d-none d-lg-flex">
-        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" href="#navbar-layout" data-bs-toggle="dropdown"="tooltip" data-bs-placement="bottom">
           <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
           </svg>
         </a>
-        <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+        <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" href="#navbar-layout" data-bs-toggle="dropdown"="tooltip" data-bs-placement="bottom">
           <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -47,7 +47,7 @@
           </svg>
         </a>
         <div class="nav-item dropdown d-none d-md-flex me-3">
-          <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
+          <a href="#" class="nav-link px-0" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" tabindex="-1" aria-label="Show notifications">
             <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -148,7 +148,7 @@
         </div>
       </div>
       <div class="nav-item dropdown">
-        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" aria-label="Open user menu">
           <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
           <div class="d-none d-xl-block ps-2">
             <div>Paweł Kuna</div>
@@ -167,8 +167,8 @@
     </div>
     <div class="collapse navbar-collapse" id="sidebar-menu">
       <ul class="navbar-nav pt-lg-3">
-        <li class="nav-item @if(request()->routeIs('admin.dashboard.*')) active @endif">
-          <a class="nav-link @if(request()->routeIs('admin.dashboard.*')) active @endif" href="{{url('admin/dashboard')}}">
+        <li class="nav-item @if(request()->routeIs('admin.dashboard')) active @endif">
+          <a class="nav-link @if(request()->routeIs('admin.dashboard')) active @endif" href="{{url('admin/dashboard')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -183,7 +183,7 @@
           </a>
         </li>
         <li class="nav-item  dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif" href="" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif" href="" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -197,9 +197,25 @@
               {{ __('navbar.courses.title') }}
             </span>
           </a>
-          <div class="dropdown-menu @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*',''admin.course-types.*'])) show @endif ">
-            <div class="dropdown-menu-columns">
-              <div class="dropdown-menu-column">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif">
+            <div class="dropdown-menu-columns ">
+              <div class="dropdown-menu-column ">
+                <a class="dropdown-item @if(request()->routeIs(['admin.tracks.index','admin.tracks.edit'])) active @endif" href="{{ url('admin/tracks')}}">
+                  {{ __('navbar.courses.list_tracks') }}
+
+                </a>
+                <a class="dropdown-item @if(request()->routeIs('admin.tracks.create')) active @endif" href="{{ url('admin/tracks/create')}}">
+                  {{ __('navbar.courses.add_track') }}
+
+                </a>
+                <a class="dropdown-item @if(request()->routeIs(['admin.course-types.index','admin.course-types.edit'])) active @endif" href="{{ url('admin/course-types')}}">
+                  {{ __('navbar.courses.list_course_types') }}
+
+                </a>
+                <a class="dropdown-item @if(request()->routeIs('admin.course-types.create')) active @endif" href="{{ url('admin/course-types/create')}}">
+                  {{ __('navbar.courses.add_course_types') }}
+
+                </a>
                 @foreach($courseTypes as $type)
                 <a class="dropdown-item" href="{{ url('admin/courses?type='. $type->id)}}">
                   {{ $type->name }}
@@ -210,7 +226,7 @@
                   {{ __('navbar.courses.add_course') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.levels.*')) active @endif" href="{{ url('admin/levels')}}">
+                <!-- <a class="dropdown-item @if(request()->routeIs('admin.levels.*')) active @endif" href="{{ url('admin/levels')}}">
                   {{ __('navbar.courses.list_levels') }}
 
                 </a>
@@ -225,27 +241,13 @@
                 <a class="dropdown-item @if(request()->routeIs('admin.lectures.create')) active @endif" href="{{ url('admin/lectures/create')}}">
                   {{ __('navbar.courses.add_lecture') }}
 
-                </a>
+                </a> -->
 
 
 
-                <a class="dropdown-item @if(request()->routeIs('admin.tracks.*')) active @endif" href="{{ url('admin/tracks')}}">
-                  {{ __('navbar.courses.list_tracks') }}
 
-                </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.tracks.create')) active @endif" href="{{ url('admin/tracks/create')}}">
-                  {{ __('navbar.courses.add_track') }}
 
-                </a>
 
-                <a class="dropdown-item @if(request()->routeIs('admin.course-types.*')) active @endif" href="{{ url('admin/course-types')}}">
-                  {{ __('navbar.courses.list_course_types') }}
-
-                </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.course-types.create')) active @endif" href="{{ url('admin/course-types/create')}}">
-                  {{ __('navbar.courses.add_course_types') }}
-
-                </a>
 
 
 
@@ -255,7 +257,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -285,10 +287,8 @@
             </div>
           </div>
         </li>
-
-
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.subscriptions.*','admin.students.*'])) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.subscriptions.*','admin.students.*'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -326,9 +326,8 @@
             </div>
           </div>
         </li>
-
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.instructors.*')) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.instructors.*')) show @endif" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -359,7 +358,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.coupons.*')) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.coupons.*')) show @endif" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -389,10 +388,9 @@
             </div>
           </div>
         </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
-            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif"  href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+            <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
@@ -424,10 +422,10 @@
               </div>
             </div>
           </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets'])) show @endif " href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
-            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+        </li> -->
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets'])) show @endif "  href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+            <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
@@ -455,10 +453,10 @@
               </div>
             </div>
           </div>
-        </li>
+        </li> -->
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.payment-types.*','admin.countries.*']))  show @endif " href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.payment-types.*','admin.countries.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -472,8 +470,16 @@
           <div class="dropdown-menu @if(request()->routeIs(['admin.payment-types.*','admin.countries.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+                <a class="dropdown-item  @if(request()->routeIs('admin.setting')) active @endif " href="{{url('admin/setting')}}">
+
+                  {{ __('navbar.settings.general_settings') }}
+                </a>
+                <a class="dropdown-item  @if(request()->routeIs('admin.policies.*')) active @endif " href="{{url('admin/policies')}}">
+
+                  {{ __('navbar.settings.policies') }}
+                </a>
                 <a class="dropdown-item  @if(request()->routeIs('admin.countries.*')) active @endif " href="{{url('admin/countries')}}">
-                 
+
                   {{ __('navbar.countries') }}
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.payment-types.*'))  active @endif " href="{{url('admin/payment-types')}}">
@@ -485,7 +491,7 @@
             </div>
           </div>
         </li>
-     
+
 
       </ul>
     </div>
@@ -493,12 +499,14 @@
 </aside>
 <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none">
   <div class="container-xl">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" href="#navbar-layout" data-bs-toggle="dropdown"="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-nav flex-row order-md-last">
       <div class="d-none d-md-flex">
-      
+
+
+
         @if(app()->getLocale() == 'en')
         <li style="padding: 14px;">
           <a href="{{ url('language/ar') }}"><i class="fa fa-language"></i> AR</a>
@@ -508,19 +516,19 @@
           <a href="{{ url('language/en') }}"><i class="fa fa-language"></i> EN</a>
         </li>
         @endif
-      
+
 
 
       </div>
       <div class="d-none d-md-flex">
-        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" href="#navbar-layout" data-bs-toggle="dropdown"="tooltip" data-bs-placement="bottom">
           <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
           </svg>
         </a>
-        <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+        <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" href="#navbar-layout" data-bs-toggle="dropdown"="tooltip" data-bs-placement="bottom">
           <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -529,7 +537,7 @@
           </svg>
         </a>
         <div class="nav-item dropdown d-none d-md-flex me-3">
-          <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
+          <a href="#" class="nav-link px-0" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" tabindex="-1" aria-label="Show notifications">
             <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -630,7 +638,7 @@
         </div>
       </div>
       <div class="nav-item dropdown">
-        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" aria-label="Open user menu">
           <span class="avatar avatar-sm" style="background-image: asset(dist/static/avatars/000m.jpg)"></span>
           <div class="d-none d-xl-block ps-2">
             <div>Paweł Kuna</div>
@@ -638,12 +646,17 @@
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-          <a href="#" class="dropdown-item">Status</a>
           <a href="./profile.html" class="dropdown-item">Profile</a>
-          <a href="#" class="dropdown-item">Feedback</a>
           <div class="dropdown-divider"></div>
-          <a href="./settings.html" class="dropdown-item">Settings</a>
-          <a href="./sign-in.html" class="dropdown-item">Logout</a>
+          <a href="javascript:void(0);" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+
+            {{ __('admin.logout')}}
+          </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+          </form>
         </div>
       </div>
 

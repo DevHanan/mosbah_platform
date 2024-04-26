@@ -48,7 +48,7 @@ class LevelController extends Controller
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
-    public function store(TrackRequest $request)
+    public function store(Request $request)
     {
        $level = Level::create($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

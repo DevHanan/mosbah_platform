@@ -73,7 +73,7 @@ class CourseTypeController extends Controller
             "name"=>$request->name,
         ]);
         
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.course-types.index');
     }
 
@@ -108,8 +108,10 @@ class CourseTypeController extends Controller
      * @param  \App\Models\Category  $couretype
      * @return \Illuminate\Http\Response
      */
-    public function update(CourseTypeRequest $request, CourseType $couretype)
+    public function update(Request $request)
     {
+        $couretype = CourseType::find($request->id);
+        
          $request->merge([
             'slug'=> $request->name 
         ]);
@@ -119,7 +121,7 @@ class CourseTypeController extends Controller
             'active' => $request->active
 
             ]);
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.course-types.index');
     }
 
@@ -133,7 +135,7 @@ class CourseTypeController extends Controller
     {
         $couretype = CourseType::find($request->id);
         $couretype->delete();
-        Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.course-types.index');
     }
 }

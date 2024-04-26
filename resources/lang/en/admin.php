@@ -146,6 +146,7 @@ return [
 
     ],
     "courses"=>[
+        "title"  => "Courses",
         "type" => 'Type',
         'status' => 'Status',
         "name"  => "Course Name",
@@ -167,8 +168,9 @@ return [
         "descriptions"  => "descriptions",
         "directedTo"  => "directedTo",
         "goals" => "goals",
-        "thumbinal_image" => "Thumbinal Image"
-
+        "thumbinal_image" => "Thumbinal Image",
+        'add' => 'New course - Step1 Basic Information',
+       
     ],
     'dashboard' => [
         'student_number' => 'Student count',
@@ -176,6 +178,27 @@ return [
         'course_number'  => 'Course count',
         'instructor_number'  => 'instructor count'
 
+    ],
+    'auth_login'         => "Cpanel Login",
+    "login"  => "Login",
+    "logout"  => "Logout",
+    "auth_logged_out"   => "Logout done successfully",
+    'home'  => 'Home',
+    'recommend'  => 'Recommend',
+    'inrecommend' => 'Inrecommend',
+    'select_recommend' => 'Is Recommended',
+    "coupons"  => [
+        "code" => "Code" , 
+        'discount'  => 'discount ',
+        'start_date'  => 'start date',
+        'end_date'  => 'End date',
+        'list'  => 'list coupons',
+        'add'  => 'New Coupon',
+        'edit'  => 'Edit Coupon',
+        'course'  => 'Course',
+        'status' => 'Status',
+        'action' => 'Action'
     ]
+
   
 ];

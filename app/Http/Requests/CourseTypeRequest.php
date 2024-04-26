@@ -23,10 +23,8 @@ class CourseTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                Rule::unique('course_types', 'name')->ignore($this->type)
-            ],
+            'name' => 
+                'required'
 
         ];
     }

@@ -20,6 +20,9 @@
               </div>
           </div>
           <div class="row">
+             
+          @if($policies)
+          @foreach($policies as $policy)
               <div class="col-lg-6">
                   <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                       <div>
@@ -31,83 +34,12 @@
                       </div>
                   </div>
               </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                      <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
-                      </div>
-                      <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
-                      </div>
-                  </div>
-              </div>
+              @endforeach
+              @else
+
+<p>  {{ __('admin.no_data_found')}}</p>
+              @endif
+             
           </div>
       </section>
 @endsection

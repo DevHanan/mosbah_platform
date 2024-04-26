@@ -19,7 +19,7 @@ class CouponController extends Controller
 
     public function __construct()
     {
-        $this->title = 'list coupons';
+        $this->title = trans('admin.coupons.list');
         $this->route = 'admin.coupons';
         $this->view = 'admin.coupons';
         $this->path = 'coupons';
@@ -42,7 +42,7 @@ class CouponController extends Controller
 
     public function create(Coupon $coupon)
     {
-        $data['title'] = 'Add coupons ';
+        $data['title'] = trans('admin.coupons.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -61,7 +61,7 @@ class CouponController extends Controller
     {   
         $data['row'] = Coupon::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit Coupon';
+        $data['title'] = trans('admin.coupons.edit');
         return view($this->view.'.edit',$data);
     }
 

@@ -25,7 +25,7 @@ class CourseController extends Controller
     public function __construct()
     {
         // Module Data
-        $this->title = 'courses';
+        $this->title = trans('admin.courses.title');
         $this->route = 'admin.courses';
         $this->view = 'admin.courses';
         $this->path = 'courses';
@@ -47,6 +47,8 @@ class CourseController extends Controller
         $data['access'] = $this->access;
 
         $data['rows'] = Course::where(function ($q) use ($request) {
+            if ($request->type)
+            $q->where('course_type_id', $request->type);
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)
@@ -62,7 +64,7 @@ class CourseController extends Controller
 
     public function create()
     {
-        $data['title'] = $this->title;
+        $data['title'] = trans('admin.courses.add');
         $data['route'] = $this->route;
         $data['view'] = $this->view;
         $data['path'] = $this->path;
@@ -95,7 +97,7 @@ class CourseController extends Controller
         }
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.courses.index');
+        return redirect()->route('admin.courses.levels');
 
     }
 

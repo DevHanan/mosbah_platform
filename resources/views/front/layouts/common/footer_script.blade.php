@@ -18,13 +18,9 @@
                     <div class="footer_categories">
                         <h4 class="text-white">المسارات النشطة</h4>
                         <ul class="list-unstyled p-0">
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">التصميم</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">تطوير</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">تسويق</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">تجارة و اعمال</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">اسلوب الحياه</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">التصوير</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">موسيقي</a></li>
+                            @foreach($tracks as $track)
+                            <li class="py-2"><a href="#" class="text-white text-decoration-none">{{ $track->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

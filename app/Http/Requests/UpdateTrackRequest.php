@@ -24,10 +24,9 @@ class UpdateTrackRequest extends FormRequest
     {
       
         return [
-            'id' => 'required|exists:tracks,id',
             'name' => [
                 'required',
-                Rule::unique('tracks', 'name')->ignore($this->id)
+                Rule::unique('tracks', 'name')->ignore($this->track)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 

@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', trans('module_staff'))
+@section('title', $title)
 
 @section('content')
 
@@ -7,13 +7,8 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        <!-- Page pre-title -->
-        <div class="page-pretitle">
-          Overview
-        </div>
-        <h2 class="page-title">
-          Combo layout
-        </h2>
+      @include('admin.layouts.inc.breadcrumb')
+
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
@@ -132,16 +127,16 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="level_id">{{ __('admin.courses.level') }} <span>*</span></label>
-                  <select class="form-control" name="level_id" id="level_id" required>
+                  <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
+                  <select class="form-control" name="instructor_id" id="instructor_id" required>
                     <option value="">{{ __('select') }}</option>
-                    @foreach($levels as $level)
-                    <option value="{{ $level->id }}"> {{ $level->name }}</option>
+                    @foreach($instructors as $instructor)
+                    <option value="{{ $instructor->id }}"> {{ $instructor->name }}</option>
 
                     @endforeach
                   </select>
 
-                  @error('level_id')
+                  @error('instructor_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -155,7 +150,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
+                  <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
 
                   @error('price')
                   <div class="invalid-feedback">
@@ -192,13 +187,29 @@
                     <select class="form-control" name="active" id="active" required>
                       <option value="">{{ __('select') }}</option>
                       <option value="1"> {{ __('admin.active')}}</option>
-                      <option value=""> {{ __('admin.inactive')}}</option>
+                      <option value="0"> {{ __('admin.inactive')}}</option>
 
                     </select>
 
 
                   </div>
                 </div>
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="recommend" class="form-label">{{ __('admin.select_recommend') }}</label>
+                  <div>
+                    <select class="form-control" name="recommend" id="recommend" required>
+                      <option value="">{{ __('select') }}</option>
+                      <option value="1"> {{ __('admin.recommend')}}</option>
+                      <option value="0"> {{ __('admin.inrecommend')}}</option>
+
+                    </select>
+
+
+                  </div>
+                </div>
+
+                
                 <div class="mb-3 ">
 
 
@@ -223,22 +234,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3">
-                  <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
-                  <select class="form-control" name="instructor_id" id="instructor_id" required>
-                    <option value="">{{ __('select') }}</option>
-                    @foreach($instructors as $instructor)
-                    <option value="{{ $instructor->id }}"> {{ $instructor->name }}</option>
-
-                    @endforeach
-                  </select>
-
-                  @error('instructor_id')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
+                
 
               </div>
               <div class="mb-3">

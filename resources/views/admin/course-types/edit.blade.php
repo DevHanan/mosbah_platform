@@ -5,13 +5,8 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+            @include('admin.layouts.inc.breadcrumb')
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -55,7 +50,8 @@
               @enderror
             </div>
 
-        
+            <input type="text" class="form-control" name="id"  value="{{ old('id',$coursetype) }}" required>
+
 
 
 

@@ -35,7 +35,7 @@ class TrackController extends Controller
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
-        $data['rows'] = Track::active()->where(function($q)use($request){
+        $data['rows'] = Track::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->paginate(10);
@@ -79,9 +79,8 @@ class TrackController extends Controller
         return view($this->view.'.edit',$data);
     }
 
-    public function update(UpdateTrackRequest $request)
+    public function update(UpdateTrackRequest $request,Track $track)
     {
-        $track = Track::find($request->id);
         $track->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'tracks';

@@ -1,5 +1,5 @@
     @extends('admin.layouts.master')
-    @section('title', 'تعديل بيانات المنتج')
+    @section('title', $title)
     @section('content')
     <div class="container-xl">
       <div class="row row-cards">
@@ -138,7 +138,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="price" id="price" value="{{ $row->price }}" required>
+                  <input type="number" class="form-control" name="price" id="price" value="{{ $row->price }}" required>
 
                   @error('price')
                   <div class="invalid-feedback">

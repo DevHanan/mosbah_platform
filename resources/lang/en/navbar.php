@@ -56,5 +56,9 @@ return [
         "add_course"  => "Add Course"
 
 
+    ],
+    'settings' => [
+        'general_settings' => 'General Setting',
+        'policies' => 'Policies',  
     ]
 ];

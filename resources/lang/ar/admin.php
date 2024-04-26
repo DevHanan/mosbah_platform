@@ -48,6 +48,16 @@ return [
         'status' => 'الحالة',
         'actions' => 'الحدث'
     ],
+    
+    "tracks" =>[
+        'title' => 'المسارات',
+        'add' => 'إضافة مسار',
+        'edit' => 'تعديل مسار',
+        'name'  => "الاسم",
+        'status' => 'الحالة',
+        'actions' => 'الحدث',
+        'field_photo' => 'الصورة'
+    ],
     "levels" =>[
         'title' => 'مستويات الدورة',
         'add' => 'مستوى جديد',
@@ -120,7 +130,10 @@ return [
 
     ],
     "courses"=>[
+        "title"  => "الدورات",
         "name"  => "إسم الدورة",
+        "type"  => 'نوع الدورة',
+        'status'  => 'الحالة',
         "track"  => "المسار",
         "instructor" => "المحاضر",
         "student_number"  => "عدد الطلاب المشتركين",
@@ -139,7 +152,9 @@ return [
         "descriptions"  => "وصف الدورة",
         "directedTo"  => "الدورة موجه إلى",
         "goals" => "أهداف الدورة",
-        "thumbinal_image" => "صورة "
+        "thumbinal_image" => "صورة ",
+        'add' => 'إضافة دورة جديدة - الخطوة الأولى البيانات الأساسية',
+
 
     ],
     'dashboard' => [
@@ -148,6 +163,45 @@ return [
         'course_number'  => 'عدد الدورات',
         'instructor_number'  => 'عدد المحاضرين'
 
-    ]
+    ],
+    'auth_login'         => "تسجيل دخول لوحة التحكم",
+    "login"  => "تسجيل الدخول",
+    "logout"  => "تسجيل الخروج",
+    "auth_logged_out"   => "تم تسجيل الخروج بنجاح",
+    'home'  => 'الصفحة الرئيسية',
+    'recommend'  => 'مرشح',
+    'inrecommend' => 'غير مرشح',
+    'select_recommend' => 'هل الدورة مرشحة',
+    "coupons"  => [
+        "code" => "الكود" , 
+        'discount'  => 'الخصم ',
+        'start_date'  => 'تاريخ البداية',
+        'end_date'  => 'تاريخ الإنتهاء',
+        'list'  => 'عرض الكوبونات',
+        'add'  => 'إضافة كوبون',
+        'edit'  => 'تعديل كوبون',
+        'course'  => 'الدورة',
+        'status' => 'الحالة',
+        'action' => 'الحدث'
+    ],
+    'settings' => [
+        'title'  => 'الاعدادت',
+        'general_setting' => 'إعدادات عامة',
+        'field_site_title' => 'إسم الموقع',
+        'field_phone'  => 'رقم الهاتف',
+        'field_email' => 'البريد الإلكترونى',
+        'field_address'  => 'العنوان',
+        'field_site_favicon'  => 'ايقونه الموقع',
+        'field_site_logo' => 'لوجو الموقع',
+        'field_instgram_url' => 'رابط حساب الانستجرام',
+        'field_youtube_url'  => 'رابط قناة اليوتيوب',
+        'field_twitter_url' => 'رابط حساب تويتر',
+        'field_facebook_url' => 'رابط حساب الفيس بوك',
+        'field_currency' => 'العملة',
+        'about_settings' => 'من نحن',
+        'policy_settings' => 'السياسات والشروط',
+        'policies'  => 'السياسات والشروط'
+    ],
+    'no_data_found'  => 'لا توجد بيانات للعرض'
   
 ];

@@ -1,22 +1,24 @@
 <!-- Libs JS -->
-<script src="{{asset('public/dist/libs/apexcharts/dist/apexcharts.min.js?1692870487')}}" defer></script>
-    <script src="{{asset('public/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487')}}" defer></script>
-    <script src="{{asset('public/dist/libs/jsvectormap/dist/maps/world.js?1692870487')}}" defer></script>
-    <script src="{{asset('public/dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
+<script src="{{asset('dist/libs/apexcharts/dist/apexcharts.min.js?1692870487')}}" defer></script>
+    <script src="{{asset('dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487')}}" defer></script>
+    <script src="{{asset('dist/libs/jsvectormap/dist/maps/world.js?1692870487')}}" defer></script>
+    <script src="{{asset('dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
     <!-- Tabler Core -->
-    <script src="{{asset('public/dist/js/tabler.min.js?1692870487')}}" defer></script>
-    <script src="{{asset('public/dist/js/demo.min.js?1692870487')}}" defer></script>
-	<script src="{{asset('public/front/js/jquery.min.js')}}"></script>  
-    <script src="{{asset('public/front/js/bootstrap.bundle.min.js')}}"></script>  
-    <script src="{{asset('public/front/js/swiper-bundle.min.js')}}"></script>  
-    <script src="{{asset('public/front/js/select2.full.min.js')}}"></script>
+   
+	<script src="{{asset('front/js/jquery.min.js')}}"></script>  
+    <!-- <script src="{{asset('front/js/bootstrap.bundle.min.js')}}"></script>   -->
+    <script src="{{asset('front/js/swiper-bundle.min.js')}}"></script>  
+    <script src="{{asset('front/js/select2.full.min.js')}}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js')}}"></script> <!--animation-->
     <script>
         AOS.init();
       </script>
-    <script src="{{asset('public/front/js/price_filter.js')}}"></script> 
-    <script src="{{asset('public/front/js/pagination.js')}}"></script> 
-    <script src="{{asset('public/front/js/main.js')}}"></script> 
+    <!-- <script src="{{asset('front/js/price_filter.js')}}"></script>  -->
+    <!-- <script src="{{asset('front/js/pagination.js')}}"></script> 
+    <script src="{{asset('front/js/main.js')}}"></script>  -->
+
+	<script src="{{asset('dist/js/tabler.min.js?1692870487')}}" defer></script>
+    <script src="{{asset('dist/js/demo.min.js?1692870487')}}" defer></script>
 
     <script>
       // @formatter:off
@@ -693,3 +695,19 @@
     </script> 
 
 
+<script>
+    const passwordInput = document.querySelector("#password");
+const eye = document.querySelector("#eye");
+
+eye.addEventListener("click", function() {
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eye.classList.remove("fa-eye");
+    eye.classList.add("fa-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    eye.classList.remove("fa-eye-slash");
+    eye.classList.add("fa-eye");
+  }
+});
+</script>

@@ -31,6 +31,8 @@ use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\LectureController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\PolicyController;
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -64,22 +66,34 @@ Route::get('/clear-cache', function () {
 
 
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale() . '/admin',
 
-        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
+        'middleware' => [ 'localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-        Route::name('admin.')->group(function () {
+        
+    Auth::routes([
+        'login'    => true,
+        'logout'   => true,
+        'register' => false,
+        'reset'    => false,   // for resetting passwords
+        'confirm'  => false,  // for additional password confirmations
+        'verify'   => false,  // for email verification
+    ]);
+
+        Route::name('admin.')->middleware('auth:web')->group(function () {
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
 
             Route::resource('tracks', TrackController::class);
             Route::resource('course-types', CourseTypeController::class);
-            Route::resource('levels', LevelController::class);
-            Route::resource('lectures', LectureController::class);
+            Route::resource('courses', CourseController::class);
+            Route::resource('courses.levels', LevelController::class);
+            Route::resource('courses.levels.lectures', LectureController::class);
 
 
 
@@ -101,12 +115,20 @@ Route::group(
 
             Route::resource('countries', CountryController::class);
             Route::resource('payment-types', PaymentTypeController::class);
+            Route::resource('policies', PolicyController::class);
 
             Route::resource('users', UserController::class);
             Route::resource('roles', RoleController::class);
             Route::get('user-status/{id}', [UserController::class, 'status'])->name('users.status');
             Route::post('user-send-password/{id}', [UserController::class, 'sendPassword'])->name('users.send-password');
             Route::post('user-password-change', [UserController::class, 'passwordChange'])->name('users-password-change');
+            /** Setting Route  */
+            Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+            Route::post('siteinfo', [SettingController::class, 'siteinfo'])->name('setting.siteinfo');
+
         });
     }
 );
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

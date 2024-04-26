@@ -26,11 +26,11 @@
               <div class="col-lg-6">
                   <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                       <div>
-                          <h3>سياسات التبرع</h2>
-                          <p class="mt-4">وصف عن تلك السياسات</p>
+                          <h3> {{ $policy->title }}</h2>
+                          <p class="mt-4">  {{ $policy->description }}</p>
                       </div>
                       <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
+                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="{{ asset($policy->file )}}" alt=""> تنزيل </a>
                       </div>
                   </div>
               </div>

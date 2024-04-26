@@ -35,32 +35,41 @@
 
 
                         <div class="col-md-12">
-                            <label class="form-label" for="title"> {{__('admin.tracks.name')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="title" value="{{ old('title') }}" required>
+                            <label class="form-label" for="title"> {{__('admin.policies.field_title')}} <span>*</span></label>
+                            <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
 
-                            @error('name')
+                            @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
 
+                        
+                        <div class="form-check form-switch" style="margin:10px">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="active">
+                            <label class="form-check-label form-label" for="flexSwitchCheckDefault">{{ __('admin.policies.status') }}</label>
+                        </div>
 
+                        <div class="mb-3">
+                            <label class="form-label">{{ __('admin.policies.descriptions') }} <span class="form-label-description"></span></label>
+                            <textarea class="form-control" name="description" rows="6" placeholder="Content.."></textarea>
+                        </div>
 
-                        <hr />
 
                         <div class="form-group col-md-6">
 
 
-                            <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
-                            <input type="file" class="form-control" name="image" id="logo">
+                            <label for="logo">{{ __('admin.policies.field_file') }}</label>
+                            <input type="file" class="form-control" name="file" id="logo">
 
-                            @error('image')
+                            @error('file')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
+
 
                         <!-- Form End -->
                     </div>

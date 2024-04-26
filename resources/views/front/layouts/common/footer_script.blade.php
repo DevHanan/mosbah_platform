@@ -29,52 +29,53 @@
                     <div class="footer_categories">
                         <h4 class="text-white">اكتشف</h4>
                         <ul class="list-unstyled p-0">
-                            <li class="py-2"><a href="/" class="text-white text-decoration-none">الرئيسية</a></li>
-                            <li class="py-2"><a href="pages/about.html" class="text-white text-decoration-none">من نحن</a></li>
-                            <li class="py-2"><a href="pages/courses.html" class="text-white text-decoration-none">الدورات</a></li>
-                            <li class="py-2"><a href="pages/books.html" class="text-white text-decoration-none">متجر الكتب</a></li>
-                            <li class="py-2"><a href="#" class="text-white text-decoration-none">المدونة</a></li>
-                            <li class="py-2"><a href="pages/contact.html" class="text-white text-decoration-none">تواصل معنا</a></li>
+                            <li class="py-2"><a href="{{ url('/') }}" class="text-white text-decoration-none">الرئيسية</a></li>
+                            <li class="py-2"><a href="{{ url('/about') }}" class="text-white text-decoration-none">من نحن</a></li>
+                            <li class="py-2"><a href="{{ url('courses') }}" class="text-white text-decoration-none">الدورات</a></li>
+                            <li class="py-2"><a href="{{ url('books')}}" class="text-white text-decoration-none">متجر الكتب</a></li>
+                            <li class="py-2"><a href=" {{ url('/blogs') }}" class="text-white text-decoration-none">المدونة</a></li>
+                            <li class="py-2"><a href="{{ url('/contactus') }}" class="text-white text-decoration-none">تواصل معنا</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-12">
                     <div class="contact text-white">
-                        <div class="logo"><a href="/"><img src="public/front/img/logo.png" alt=""></a></div>
+                        <div class="logo"><a href="{{ url('/')}}"><img src="
+  {{ asset( 'public/'.$setting->logo_path) }}" alt=""></a></div>
                         <h4 class="text-white pb-2">تواصل معنا</h4>
                         <p>
-                            <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> 0227537567 </a>
+                            <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> {{ $setting->phone }} </a>
                         </p>
                         <p>
-                            <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> 01287848630 </a>
+                            <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $setting->whatsapp }} </a>
                         </p>
-                        <p class="mt-1"><i class="fa fa-envelope ms-2"></i> example@mail.com</p>
+                        <p class="mt-1"><i class="fa fa-envelope ms-2"></i> {{  $setting->email }}</p>
 
                         <div class="social">
                             <ul class="list-unstyled d-flex w-100 m-0 p-0">
                                 <li>
-                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                    <a href="{{ $setting->facebook_url}}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                         <i class="fa-brands fa-facebook-f fa-lg primary-color"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                    <a href="{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                         <i class="fa-brands fa-whatsapp fa-lg primary-color"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                    <a href="{{ $setting->instagram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                         <i class="fa-brands fa-instagram fa-lg primary-color"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                    <a href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                         <i class="fa-brands fa-youtube fa-lg primary-color"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                    <a href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                         <i class="fa-brands fa-x-twitter fa-lg primary-color"></i>
                                     </a>
                                 </li>

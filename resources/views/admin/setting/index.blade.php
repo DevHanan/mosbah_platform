@@ -98,6 +98,17 @@
                                   @enderror
                                 </div>
 
+                                <div class="form-group col-md-12">
+                                  <label class="form-label" for="whatsapp">{{ __('admin.settings.field_whatsapp') }} <span>*</span></label>
+                                  <input type="text" class="form-control" name="whatsapp" id="whatsapp" value="{{ isset($row->whatsapp)?$row->whatsapp:'' }}">
+
+                                  @error('whatsapp')
+                                  <div class="invalid-feedback">
+                                    {{ $message }}
+                                  </div>
+                                  @enderror
+                                </div>
+
 
 
                             

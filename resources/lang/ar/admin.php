@@ -200,8 +200,20 @@ return [
         'field_currency' => 'العملة',
         'about_settings' => 'من نحن',
         'policy_settings' => 'السياسات والشروط',
-        'policies'  => 'السياسات والشروط'
+        'policies'  => 'السياسات والشروط',
+        'field_whatsapp'  => 'رقم الواتساب'
     ],
-    'no_data_found'  => 'لا توجد بيانات للعرض'
+    'policies' =>[
+        'title' => 'السياسات والشروط',
+        'add'  => 'سياسة جديدة',
+        'edit'  => 'تعديل بيانات سياسة',
+        'descriptions' => 'الوصف',
+        'field_file' => 'الملف الملحق',
+        'field_title'  => 'عنوان',
+        'status' => 'الحالة',
+        'actions'  => 'الحدث'
+    ],
+    'no_data_found'  => 'لا توجد بيانات للعرض',
+
   
 ];

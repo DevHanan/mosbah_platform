@@ -242,124 +242,19 @@
             <h2 class="section_title fw-bold">المسارات</h2>
             <p class="fw-bold mt-3">مسارات تعليمية وتدريبية متعددة تضم عددا كبيرا من الدورات المتنوعة ذات مادة علمية دسمة .</p>
             <div class="row">
+                @if($tracks)
+                @foreach($tracks as $track)
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
+                    <a href="{{ url('courses')}}" class="text-decoration-none text-dark">
                         <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                            <div> <img src="public/front/img/icons/Briefcase.svg" class="mx-2" alt=""> الاعمال</div>
+                            <div> <img src="{{ asset('public/'. $track->image )}}" class="mx-2" alt=""> {{ $track->name}}</div>
                             <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                         </div>
                     </a>
                 </div>
+                @endforeach
+                @endif
 
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                        <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                            <div> <img src="public/front/img/icons/Briefcase.svg" class="mx-2" alt=""> الاعمال</div>
-                            <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                        <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                            <div> <img src="public/front/img/icons/MicrophoneStage.svg" class="mx-2" alt=""> تسويق</div>
-                            <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/FileHtml.svg" class="mx-2" alt=""> تطوير</div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/PenNib.svg" class="mx-2" alt=""> تصميم</div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/Database.svg" class="mx-2" alt=""> علم البيانات </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/MusicNote.svg" class="mx-2" alt=""> موسيقى </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/Camera.svg" class="mx-2" alt=""> تصوير </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/SunHorizon.svg" class="mx-2" alt="">  اسلوب الحياه </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/Detective.svg" class="mx-2" alt=""> تدريس </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/Graph.svg" class="mx-2" alt=""> الشؤون الماليه </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/Heartbeat.svg" class="mx-2" alt=""> صحة واللياقة البدنية </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="pages/courses.html" class="text-decoration-none text-dark">
-                    <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="public/front/img/icons/Lightbulb.svg" class="mx-2" alt="">  تطوير الشخصية </div>
-                        <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
-                    </div>
-                    </a>
-                </div>
             </div>
         </div>
     </div>

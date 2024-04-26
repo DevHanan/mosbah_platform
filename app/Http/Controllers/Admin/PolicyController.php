@@ -42,18 +42,20 @@ class PolicyController extends Controller
         return view($this->view.'.index', $data);
     }
 
-    public function create(Track $policy)
+    public function create(Policy $policy)
     {
         $data['title'] = trans('admin.policies.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
-    public function store(TrackRequest $request)
+    public function store(Request $request)
     {
-        $policy = Policy::create($request->except('image'));
-        if ($request->hasFile('image')) {
+        if($request->active)
+        $request->merge (['active'=>'1']) ;
+        $policy = Policy::create($request->except('file'));
+        if ($request->hasFile('file')) {
             $directory = 'policies';
-            $attach = 'image';
+            $attach = 'file';
             $policy->image =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
             $policy->save();
         }

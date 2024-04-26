@@ -56,7 +56,7 @@ class PolicyController extends Controller
         if ($request->hasFile('file')) {
             $directory = 'policies';
             $attach = 'file';
-            $policy->image =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $policy->file =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
             $policy->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -81,13 +81,18 @@ class PolicyController extends Controller
         return view($this->view.'.edit',$data);
     }
 
-    public function update(UpdateTrackRequest $request,Track $policy)
+    public function update(Request $request,Policy $policy)
     {
+        if($request->active)
+        $request->merge (['active'=>'1']) ;
+    else
+    $request->merge (['active'=>'0']) ;
+
         $policy->update($request->except('image'));
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('file')) {
             $directory = 'policies';
-            $attach = 'image';
-            $policy->image = 'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $attach = 'file';
+            $policy->file = 'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
             $policy->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

@@ -30,7 +30,9 @@
                           <p class="mt-4">  {{ $policy->description }}</p>
                       </div>
                       <div>
-                          <a href="#" class="btn btn-success primary-bg" download=""> <img src="{{ asset($policy->file )}}" alt=""> تنزيل </a>
+                          <a href="{{ asset($policy->file )}}" class="btn btn-success primary-bg" download="{{ asset($policy->file )}}">
+                             <!-- <img src="{{ asset($policy->file )}}" alt=""> -->
+                              تنزيل </a>
                       </div>
                   </div>
               </div>

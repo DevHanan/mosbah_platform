@@ -44,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
         $students = Student::get();
         $levels = Level::get();
         $instructors = Instructor::get();
+        $tickets = Ticket::get();
 
         $policies = Policy::active()->get();
 
@@ -51,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
         'tracks' => $tracks, 'countries' => $countries,
         'paymenttypes' => $paymenttypes, 'students' => $students,
         'courseTypes' => $courseTypes,'levels' => $levels , 'instructors'=>$instructors,
-        'policies'=>$policies
+        'policies'=>$policies , 'tickets'=>$tickets
 
     ]);
     }

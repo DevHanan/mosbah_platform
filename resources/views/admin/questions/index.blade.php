@@ -5,8 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                @include('admin.layouts.inc.breadcrumb')
+            @include('admin.layouts.inc.breadcrumb')
 
             </div>
             <!-- Page title actions -->
@@ -43,17 +42,11 @@
                                     <tr>
                                         <th>#</th>
 
-                                        <th>{{ __('admin.students.field_name') }}</th>
-                                        <th>{{ __('admin.students.field_photo') }}</th>
-                                        <th>{{ __('admin.students.phone_number') }}</th>
-                                        <th>{{ __('admin.students.field_email') }}</th>
-                                        <th>{{ __('admin.students.field_country') }}</th>
-                                        <th>{{ __('admin.students.field_join_date') }}</th>
+                                        <th>{{ __('admin.questions.question') }}</th>
+                                        <th>{{ __('admin.questions.answer') }}</th>
+                                        <th>{{ __('admin.questions.status') }}</th>
 
-                                        <th>{{ __('admin.students.field_course_number') }}</th>
-                                        <th>{{ __('admin.students.field_status') }}</th>
-
-                                        <th>{{ __('admin.students.field_action') }}</th>
+                                        <th>{{ __('admin.questions.action') }}</th>
 
 
                                     </tr>
@@ -63,19 +56,11 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ $row->first_name }}</td>
-                                        <td><img src="{{asset($row->image)}}" style="width:40px"></td>
-                                        <td>{{ $row->phone }}</td>
-                                        <td>{{ $row->email }}</td>
-                                        <td>{{ optional($row->country)->name }}</td>
-                                        <td>{{ $row->created_at }}</td>
-                                        <td> 0 </td>
-
-
-
+                                        <td>{{ $row->question }}</td>
+                                        <td>{{ $row->answer }}</td>
+                                      
 
                                         <td>
-
 
                                         <div class="form-check form-switch md-3" style="margin:10px">
 
@@ -85,20 +70,9 @@
                                         <td>
 
 
-                                            @if($row->active == 0)
-
-
-                                            <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa-solid fa-lock-open"></i>
-                                            </button>
-                                            @else
-                                            <button class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa fa-window-close" aria-hidden="true"></i>
-                                            </button>
-                                            @endif
+                                           
 
                                             <!-- Include Password Change modal -->
-                                            @include('admin.students.change-status')
 
 
 

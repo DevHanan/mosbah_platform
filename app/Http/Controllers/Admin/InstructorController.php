@@ -23,7 +23,7 @@ class InstructorController extends Controller
 
  public function __construct()
     {
-        $this->title = 'list instructors';
+        $this->title = trans('admin.instructors.list');
         $this->route = 'admin.instructors';
         $this->view = 'admin.instructors';
         $this->path = 'instructors';
@@ -53,7 +53,7 @@ class InstructorController extends Controller
 
         public function create(Instructor $instructor)
         {
-            $data['title'] = 'Add Instructor ';
+            $data['title'] = trans('admin.instructors.add');
             $data['route'] = $this->route;
             return view($this->view .'.create',$data);
         }
@@ -100,17 +100,17 @@ class InstructorController extends Controller
             $instructor->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.countries.index'); 
+        return redirect()->route('admin.instructors.index'); 
         }   
     public function edit($id)
     {   
         $data['row'] = Instructor::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit Instructor';
+        $data['title'] = trans('admin.instructors.edit');
         return view($this->view.'.edit',$data);
     }
 
-    public function destory(Request $request)
+    public function destroy (Request $request)
     {
         $instructor = Instructor::find($request->id);
         if($instructor)
@@ -123,6 +123,17 @@ class InstructorController extends Controller
 
         return Excel::download(new InstructorsExport, 'Instructors.xlsx');
 
+    }
+
+    public function status($id)
+    {   
+        // Set Status
+        $user = Instructor::where('id', $id)->firstOrFail();
+        $user->active = $user->active == 0 ? 1:0;
+        $user->save();
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+
+        return redirect()->route('admin.instructors.index');  
     }
 
 }

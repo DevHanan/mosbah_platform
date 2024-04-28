@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="{{ asset($setting->background_image)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="{{ asset('public/'.$setting->background_image)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -17,8 +17,8 @@
                         <img src="public/front/img/completed-bg.svg" class="position-absolute img-fluid" alt="">
                         <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $setting-> title}} </h4>
                         <div class="content fw-bold text-white">
-{{ $setting->description }}
-                    </div>
+                            {{ $setting->description }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,61 +95,21 @@
 
                 <div class="card__content">
                     <div class="swiper-wrapper">
+                        @foreach($teams as $team)
                         <article class="card__article swiper-slide shadow bg-white">
                             <a href="#">
                                 <div class="card__image p-2">
-                                    <img src="public/front/img/photography.svg" alt="image" class="card__img img-fluid w-100">
+                                    <img src="{{ asset('public/'.$team->image)}}" alt="image" class="card__img img-fluid w-100">
                                     <div class="card__shadow"></div>
                                 </div>
                             </a>
 
                             <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> Photograpy Expart </p>
+                                <p class="card__description fw-bold text-center m-0 mb-2"> {{ $team->name }} </p>
+                                <p class="card__description text-center m-0"> {{ $team->job }} </p>
                             </div>
                         </article>
-
-                        <article class="card__article swiper-slide shadow bg-white">
-                            <a href="#">
-                                <div class="card__image p-2">
-                                    <img src="public/front/img/business.svg" alt="image" class="card__img img-fluid w-100">
-                                    <div class="card__shadow"></div>
-                                </div>
-                            </a>
-
-                            <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> Business Idea Expart </p>
-                            </div>
-                        </article>
-
-                        <article class="card__article swiper-slide shadow bg-white">
-                            <a href="#">
-                                <div class="card__image p-2">
-                                    <img src="public/front/img/social.svg" alt="image" class="card__img img-fluid w-100">
-                                    <div class="card__shadow"></div>
-                                </div>
-                            </a>
-
-                            <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> Social Media Expart </p>
-                            </div>
-                        </article>
-
-                        <article class="card__article swiper-slide shadow bg-white">
-                            <a href="#">
-                                <div class="card__image p-2">
-                                    <img src="public/front/img/ui-ux.svg" alt="image" class="card__img img-fluid w-100">
-                                    <div class="card__shadow"></div>
-                                </div>
-                            </a>
-
-                            <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> UI-UX Design Expart </p>
-                            </div>
-                        </article>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -172,16 +132,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="h-100 d-flex flex-column justify-content-center">
-                        <h2 class="position-relative"> {{ $setting->mission_title }} <img src="public/front/img/text-line2.svg" class="position-absolute" alt=""></h2>
-                        <h5 class="my-5 mb-5 "> 
-                        {{ $setting->mission_description }}                         </h5>
+                        <h2 class="position-relative"> {{ $setting->mission_title }}
+                            <img src="public/front/img/text-line2.svg" class="position-absolute" alt="">
+                        </h2>
+                        <h5 class="my-5 mb-5 ">
+                            {{ $setting->mission_description }}
+                        </h5>
                         <div>
                             <a href="{{url('signup')}}" class="btn rounded-pill secondary-bg text-white my-4">اشترك الآن مجانا وابدأ رحلتك التعليمية</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="img"><img src="{{ asset($setting->mission_image )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
+                    <div class="img"><img src="{{ asset( 'public/'.$setting->mission_image )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
                 </div>
             </div>
 
@@ -200,33 +163,33 @@
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="{{ asset($setting->msg_image1s)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <img src="{{ asset('public/'.$setting->msg_image1)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title1 }}</h5>
-                                     <p> {{ $setting->msg_desc1 }}</p>   
+                                    <p> {{ $setting->msg_desc1 }}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="public/front/img/icons/presentaion.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <img src="{{ asset('public/'.$setting->msg_image2) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title2 }}</h5>
-                                     <p> {{ $setting->msg_desc2 }}</p> 
+                                    <p> {{ $setting->msg_desc2 }}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="public/front/img/icons/hierarchy.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <img src="{{ asset('public/'.$setting->msg_image3) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title3 }}</h5>
-                                     <p> {{ $setting->msg_desc3 }}</p> 
+                                    <p> {{ $setting->msg_desc3 }}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="public/front/img/icons/open_book.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <img src="{{ asset('public/'.$setting->msg_image4) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title4 }}</h5>
-                                     <p> {{ $setting->msg_desc4 }}</p> 
+                                    <p> {{ $setting->msg_desc4 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -247,30 +210,13 @@
             <div class="container">
                 <div class="card__content">
                     <div class="swiper-wrapper">
-                        <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img src="public/front/img/partner1.webp" class="img-fluid" alt="">
-                            <div class="fw-bold mt-3">Partner name</div>
-                        </article>
+                        @foreach($parteners as $partener)
 
                         <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img src="public/front/img/partner2.webp" class="img-fluid" alt="">
-                            <div class="fw-bold mt-3">Partner name</div>
+                            <img src="{{ asset('public/'.$partener->image )}}" class="img-fluid" alt="">
+                            <div class="fw-bold mt-3">{{ $partener->name }}</div>
                         </article>
-
-                        <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img src="public/front/img/partner3.webp" class="img-fluid" alt="">
-                            <div class="fw-bold mt-3">Partner name</div>
-                        </article>
-
-                        <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img src="public/front/img/partner4.webp" class="img-fluid" alt="">
-                            <div class="fw-bold mt-3">Partner name</div>
-                        </article>
-
-                        <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img src="public/front/img/partner5.webp" class="img-fluid" alt="">
-                            <div class="fw-bold mt-3">Partner name</div>
-                        </article>
+                        @endforeach
                     </div>
                 </div>
             </div>

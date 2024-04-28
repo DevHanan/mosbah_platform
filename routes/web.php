@@ -36,6 +36,7 @@ use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\PartenerController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\QuestionController;
 
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 
@@ -111,12 +112,14 @@ Route::group(
 
 
             Route::resource('coupons', CouponController::class);
+            Route::resource('questions', QuestionController::class);
 
             Route::resource('students', StudentController::class);
             Route::get('student-status/{id}', [StudentController::class, 'status'])->name('users.status');
             Route::resource('subscriptions', SubscriptionController::class);
 
             Route::resource('instructors', InstructorController::class);
+            Route::get('instructors-status/{id}', [InstructorController::class, 'status'])->name('users.status');
 
             Route::resource('countries', CountryController::class);
             Route::resource('payment-types', PaymentTypeController::class);

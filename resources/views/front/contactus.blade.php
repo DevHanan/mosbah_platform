@@ -13,21 +13,21 @@
                             <div><img src="public/front/img/icons/home.svg" class="p-2 rounded" alt=""></div>
                             <div class="info mx-3">
                                 <p class="fw-bold m-0">تفضل بزيارتنا :</p>
-                                <p class="mb-0">No: 09a, Downtown, San Dieago, USA.</p>
+                                <p class="mb-0"> {{ $setting->address }}</p>
                             </div>
                         </div>
                         <div class="icons mb-4 d-flex align-items-center">
                             <div><img src="public/front/img/icons/mail.svg" class="p-2 rounded" alt=""></div>
                             <div class="info mx-3">
                                 <p class="fw-bold m-0"> ارسل لنا :</p>
-                                <p class="mb-0">support@pages.com</p>
+                                <p class="mb-0">{{ $setting->email }}</p>
                             </div>
                         </div>
                         <div class="icons mb-4 d-flex align-items-center">
                             <div><img src="public/front/img/icons/phone-call.svg" class="p-2 rounded" alt=""></div>
                             <div class="info mx-3">
                                 <p class="fw-bold m-0">تليفون ارضي :</p>
-                                <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: 1-800-123-9999</a>
+                                <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: {{ $setting->phone }}</a>
                             </div>
                         </div>
 
@@ -35,7 +35,7 @@
                             <div><img src="public/front/img/icons/mobile.svg" width="48" class="p-2 rounded" alt=""></div>
                             <div class="info mx-3">
                                 <p class="fw-bold m-0">هاتف محمول :</p>
-                                <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: 1-800-123-9999</a>
+                                <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: {{ $setting->whatsapp }}</a>
                             </div>
                         </div>
 
@@ -115,152 +115,46 @@
                 <h2 class="text-center mb-5">أسئلة متكررة؟</h2>
                 <div class="d-flex justify-content-between">
                     <div class="w-100">
+                    @foreach($questions as $item)
+                        @if($loop->odd)
                         <ul>
                             <li>
                                 <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right1" role="button" aria-expanded="false" aria-controls="collapse_right1">
-                                        هل تقدمون خصومات للتعليم؟
-                                    </a>
+                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right_{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_right1">
+                                    {{ $item->question }}  
+                                </a>
                                 </p>
-                                <div class="collapse" id="collapse_right1">
+                                <div class="collapse" id="collapse_right_{{$item->id}}">
                                     <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                                    {{ $item->answer }}  
                                     </div>
                                 </div>
                             </li>
                         </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right2" role="button" aria-expanded="false" aria-controls="collapse_right2">
-                                        هل كتاب Hack Producivity متاح في المتاجر الواحدة؟
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_right2">
-                                    <div class="card card-body bg-transparent border-0">
-                                        تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن لوريم إيبسوم كنص نموذجي افتراضي ، وتكشف الزاوية عن العديد من مواقع الويب التي لا تزال في مهدها.
-                                        <br>
-                                        هناك العديد من الاختلافات في لوريم إيبسوم المتاحة.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right3" role="button" aria-expanded="false" aria-controls="collapse_right3">
-                                        ما هو كتاب هاك الإنتاجية؟
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_right3">
-                                    <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right4" role="button" aria-expanded="false" aria-controls="collapse_right4">
-                                        ما هو كتاب هاك الإنتاجية؟
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_right4">
-                                    <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right5" role="button" aria-expanded="false" aria-controls="collapse_right5">
-                                        أين يمكنني الحصول على كتاب هاك الإنتاجية?
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_right5">
-                                    <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        @endif
+                        @endforeach
+                       
                     </div>
                     <div class="w-100">
+                        @foreach($questions as $item)
+                        @if($loop->even)
                         <ul>
                             <li>
                                 <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left1" role="button" aria-expanded="false" aria-controls="collapse_left1">
-                                        هل تقدمون خصومات للتعليم؟
+                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_left1">
+                                    {{ $item->question }}  
                                     </a>
                                 </p>
-                                <div class="collapse" id="collapse_left1">
+                                <div class="collapse" id="collapse_left{{$item->id}}">
                                     <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                                    {{ $item->answer }}  
                                     </div>
                                 </div>
                             </li>
                         </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left2" role="button" aria-expanded="false" aria-controls="collapse_left2">
-                                        هل كتاب Hack Producivity متاح في المتاجر الواحدة؟
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_left2">
-                                    <div class="card card-body bg-transparent border-0">
-                                        تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن لوريم إيبسوم كنص نموذجي افتراضي ، وتكشف الزاوية عن العديد من مواقع الويب التي لا تزال في مهدها.
-                                        <br>
-                                        هناك العديد من الاختلافات في لوريم إيبسوم المتاحة.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left3" role="button" aria-expanded="false" aria-controls="collapse_left3">
-                                        ما هو كتاب هاك الإنتاجية؟
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_left3">
-                                    <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left4" role="button" aria-expanded="false" aria-controls="collapse_left4">
-                                        ما هو كتاب هاك الإنتاجية؟
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_left4">
-                                    <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left5" role="button" aria-expanded="false" aria-controls="collapse_left5">
-                                        أين يمكنني الحصول على كتاب هاك الإنتاجية?
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_left5">
-                                    <div class="card card-body bg-transparent border-0">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        @endif
+                        @endforeach
+                        
                     </div>
                 </div>
                 

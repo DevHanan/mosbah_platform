@@ -13,7 +13,7 @@ class Instructor extends Authenticatable
     use HasApiTokens, HasFactory,Notifiable;
     protected $table = 'instructors';
     public $timestamps = true;
-    protected $appends = ['name'];
+    protected $appends = ['name','courseNumer'];
 
     protected $fillable = array('first_name','last_name','email','userName','phone','active'
                                 ,'track_id','qualifications','about_teacher','bank_account'
@@ -22,6 +22,10 @@ class Instructor extends Authenticatable
 
    protected function getNameAttribute(){
     return $this->first_name . ' ' . $this->last_name;
+   }
+
+   protected function getcourseNumberAttribute(){
+    return $this->courses()->count();
    }
     public function scopeActive($query)
     {

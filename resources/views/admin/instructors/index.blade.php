@@ -5,13 +5,8 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+            @include('admin.layouts.inc.breadcrumb')
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -74,16 +69,15 @@
                                         <td>
 
 
-                                            @if( $row->status == 1 )
-                                            <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                                            @else
-                                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                                            @endif
+                                        <div class="form-check form-switch md-3" style="margin:10px">
+
+<input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+</div>
                                         </td>
                                         <td>
 
 
-                                            @if($row->status == 0)
+                                            @if($row->active == 0)
 
 
                                             <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">

@@ -97,6 +97,8 @@ return [
     ],
     "students" =>[
         "list" => "عرض الطلاب",
+        'add' => 'إضافة طالب جديد',
+        'edit' => 'تعديل بيانات طالب',
         "field_photo" => "الصورة",
         "field_country" => "الدولة",
         "field_join_date" => "تاريخ الانضمام",
@@ -114,6 +116,31 @@ return [
         'track' =>'المسار',
         "qualifications" => "المؤهلات",
         'about' => "عن الطالب",
+        'field_photo' => 'الصورة',
+        "userName" => "إسم المستخدم"
+    ],
+    "instructors" =>[
+        "list" => "عرض المحاضرين",
+        'add' => 'إضافة محاضر جديد',
+        'edit' => 'تعديل بيانات محاضر',
+        'bank_account' => 'رقم حساب بنكى',
+        "field_photo" => "الصورة",
+        "field_country" => "الدولة",
+        "field_join_date" => "تاريخ الانضمام",
+        "field_first_name"  => "الإسم الأول",
+        "field_last_name" => "الإسم الأخير",
+        "field_name" => "الإسم",
+        "field_course_number"  => "عدد الكورسات",
+        "field_email" => "البريد الإلكترونى",
+        "phone_number" => "الهاتف",
+        "field_status" => "الحالة",
+        "field_action" => "الحدث",
+        "field_password" => "كلمة المرور",
+        "field_password_confirmation" => "تأكيد كلمة المرور",
+        'country_id'  => 'الدولة',
+        'track' =>'المسار',
+        "qualifications" => "المؤهلات",
+        'about' => "عن المحاضر",
         'field_photo' => 'الصورة',
         "userName" => "إسم المستخدم"
     ],
@@ -185,6 +212,16 @@ return [
         'edit'  => 'تعديل كوبون',
         'course'  => 'الدورة',
         'status' => 'الحالة',
+        'action' => 'الحدث'
+    ],
+
+    "questions"  => [
+        "list" => "الأسئلة الشائعة" , 
+        'add'  => 'إضافة سؤال',
+        'edit'  => 'تعديل سؤال',
+        'status' => 'الحالة',
+        'question' => 'سؤال',
+        'answer' => 'الإجابة',
         'action' => 'الحدث'
     ],
     'settings' => [

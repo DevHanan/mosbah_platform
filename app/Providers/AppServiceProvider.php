@@ -15,6 +15,7 @@ use App\Models\Instructor;
 use App\Models\Partener;
 use App\Models\Ticket;
 use App\Models\Policy;
+use App\Models\Question;
 use App\Models\Team;
 use View;
 
@@ -47,16 +48,21 @@ class AppServiceProvider extends ServiceProvider
         $levels = Level::get();
         $instructors = Instructor::get();
         $tickets = Ticket::get();
-      
+        $teams = Team::active()->get();
+        $about = AboutSetting::first();
+        $questions = Question::active()->get();
+
         $policies = Policy::active()->get();
 
-        View::share(['setting' => $setting, 'courses' => $courses, 
-        'tracks' => $tracks, 'countries' => $countries,
-        'paymenttypes' => $paymenttypes, 'students' => $students,
-        'courseTypes' => $courseTypes,'levels' => $levels , 'instructors'=>$instructors,
-        'policies'=>$policies , 'tickets'=>$tickets
-        
+        View::share([
+            'setting' => $setting, 'courses' => $courses,
+            'tracks' => $tracks, 'countries' => $countries,
+            'paymenttypes' => $paymenttypes, 'students' => $students,
+            'courseTypes' => $courseTypes, 'levels' => $levels, 'instructors' => $instructors,
+            'policies' => $policies, 'tickets' => $tickets, 'teams' => $teams,
+            'about' => $about ,'questions'=> $questions
 
-    ]);
+
+        ]);
     }
 }

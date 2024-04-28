@@ -1,7 +1,6 @@
 @extends('front.layouts.master')
 @section('title', '')
 @section('content')
-  
 @include('front.layouts.common.navbar')
     <div class="hero_sec pb-5">
         <div class="container">
@@ -39,7 +38,7 @@
                     <div class="d-flex justify-content-center my-2">
                         <div class="img"><img src="public/front/img/courses.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
-                            <h4 class="count fw-bold" data-target="300">0</h4>
+                            <h4 class="count fw-bold" data-target="{{ $about->course_number}}"> 0</h4>
                             <p class="fw-bold">دورات</p>
                         </div>
                     </div>
@@ -48,7 +47,7 @@
                     <div class="d-flex justify-content-center my-2">
                         <div class="img"><img src="public/front/img/video.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
-                            <h4 class="count fw-bold" data-target="5000">0</h4>
+                            <h4 class="count fw-bold" data-target="{{ $about->lecture_number}}">0</h4>
                             <p class="fw-bold">محاضرات</p>
                         </div>
                     </div>
@@ -57,7 +56,7 @@
                     <div class="d-flex justify-content-center my-2">
                         <div class="img"><img src="public/front/img/students.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
-                            <h4 class="count fw-bold" data-target="1000">0</h4>
+                            <h4 class="count fw-bold" data-target="{{ $about->student_number}}">0</h4>
                             <p class="fw-bold">طلاب</p>
                         </div>
                     </div>
@@ -66,7 +65,7 @@
                     <div class="d-flex justify-content-center my-2">
                         <div class="img"><img src="public/front/img/graduation.svg" class="img-fluid" alt=""></div>
                         <div class="info d-flex flex-column mx-3">
-                            <h4 class="count fw-bold" data-target="50">0</h4>
+                            <h4 class="count fw-bold" data-target="{{ $about->instructor_number}}">0</h4>
                             <p class="fw-bold">مدربين</p>
                         </div>
                     </div>
@@ -271,65 +270,24 @@
 
                 <div class="card__content">
                     <div class="swiper-wrapper">
+                        @foreach($instructors as $instructor)
                         <article class="card__article swiper-slide shadow">
                             <a href="#">
                                 <div class="card__image p-2">
-                                <img src="public/front/img/photography.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
+                                <img src="{{ asset('public/'.$instructor->image)}}" alt="image" class="card__img img-fluid w-100">
+                                <div class="card_category position-absolute rounded text-dark px-2 py-1">{{ $instructor->courseNumber }} دورات</div>
                                 <div class="card__shadow"></div>
                                 </div>
                             </a>
                 
                             <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> Photograpy Expart </p>
+                                <p class="card__description fw-bold text-center m-0 mb-2"> {{ $instructor->name }} </p>
+                                <p class="card__description text-center m-0"> {{ $instructor->job }} </p>
                             </div>
                         </article>
+                        @endforeach
 
-                        <article class="card__article swiper-slide shadow">
-                            <a href="#">
-                                <div class="card__image p-2">
-                                <img src="public/front/img/business.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
-                                <div class="card__shadow"></div>
-                                </div>
-                            </a>
-                
-                            <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> Business Idea Expart </p>
-                            </div>
-                        </article>
-
-                        <article class="card__article swiper-slide shadow">
-                            <a href="#">
-                                <div class="card__image p-2">
-                                <img src="public/front/img/social.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
-                                <div class="card__shadow"></div>
-                                </div>
-                            </a>
-                
-                            <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> Social Media Expart </p>
-                            </div>
-                        </article>
-
-                        <article class="card__article swiper-slide shadow">
-                            <a href="#">
-                                <div class="card__image p-2">
-                                <img src="public/front/img/ui-ux.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1">3 دورات</div>
-                                <div class="card__shadow"></div>
-                                </div>
-                            </a>
-                
-                            <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
-                                <p class="card__description text-center m-0"> UI-UX Design Expart </p>
-                            </div>
-                        </article>
+                    
                     </div>
                 </div>
             </div>

@@ -42,7 +42,7 @@
                 <div class="col-lg-3 col-12">
                     <div class="contact text-white">
                         <div class="logo"><a href="{{ url('/')}}"><img src="
-  {{ asset( 'public/'.$setting->logo_path) }}" alt=""></a></div>
+  {{ asset('public/'.$setting->logo_path) }}" alt=""></a></div>
                         <h4 class="text-white pb-2">تواصل معنا</h4>
                         <p>
                             <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> {{ $setting->phone }} </a>

@@ -5,8 +5,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1 class="navbar-brand navbar-brand-autodark">
-      <a href=".">
-        <img src="{{ asset($setting->logo_path)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+      <a href="{{url('/')}}">
+        <img src="{{ asset('public/'.$setting->logo_path)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
       </a>
     </h1>
     <div class="navbar-nav flex-row d-lg-none">
@@ -376,7 +376,7 @@
           <div class="dropdown-menu @if(request()->routeIs('admin.coupons.*')) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item @if(request()->routeIs('admin.coupons')) active @endif" href="{{url('/admin/coupons')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.coupons.index','admin.coupons.edit'])) active @endif" href="{{url('/admin/coupons')}}">
                   {{ __('navbar.coupons.list') }}
 
                 </a>
@@ -456,7 +456,7 @@
         </li> -->
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -467,7 +467,7 @@
               {{ __('navbar.master_data')}}
             </span>
           </a>
-          <div class="dropdown-menu @if(request()->routeIs(['admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="{{url('admin/setting')}}">
@@ -480,18 +480,22 @@
                 </a>
                 <a class="dropdown-item  @if(request()->routeIs('admin.settings.aboutUSSetting')) active @endif " href="{{url('admin/about-us-settings')}}">
 
-{{ __('navbar.settings.about_us_settings') }}
-</a>
+                  {{ __('navbar.settings.about_us_settings') }}
+                </a>
 
-<a class="dropdown-item  @if(request()->routeIs('admin.parteners.*')) active @endif " href="{{url('admin/parteners')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin.parteners.*')) active @endif " href="{{url('admin/parteners')}}">
 
-{{ __('navbar.settings.parteners') }}
-</a>
-<a class="dropdown-item  @if(request()->routeIs('admin.teams.*')) active @endif " href="{{url('admin/teams')}}">
+                  {{ __('navbar.settings.parteners') }}
+                </a>
+                <a class="dropdown-item  @if(request()->routeIs('admin.teams.*')) active @endif " href="{{url('admin/teams')}}">
 
-{{ __('navbar.settings.teams') }}
-</a>
-             
+                  {{ __('navbar.settings.teams') }}
+                </a>
+                <a class="dropdown-item  @if(request()->routeIs('admin.questions.*')) active @endif " href="{{url('admin/questions')}}">
+
+                  {{ __('navbar.settings.questions') }}
+                </a>
+
                 <a class="dropdown-item  @if(request()->routeIs('admin.countries.*')) active @endif " href="{{url('admin/countries')}}">
 
                   {{ __('navbar.countries') }}

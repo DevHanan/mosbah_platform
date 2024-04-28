@@ -7,14 +7,9 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
-            </div>
+
+            @include('admin.layouts.inc.breadcrumb')
+        </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
@@ -45,7 +40,7 @@
                             <div class="col-md-6">
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="first_name"> {{ __('admin.students.field_first_name') }} <span>*</span></label>
+                                    <label class="form-label" for="first_name"> {{ __('admin.instructors.field_first_name') }} <span>*</span></label>
                                     <input type="text" class="form-control" name="first_name" id="first_name" value="{{ old('first_name') }}" required>
 
                                     @error('first_name')
@@ -57,7 +52,7 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="phone">{{ __('admin.students.phone_number') }} <span>*</span></label>
+                                    <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
                                     <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}">
 
                                     @error('phone')
@@ -69,7 +64,7 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="password">{{ __('admin.students.field_password') }} <span>*</span></label>
+                                    <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
                                     <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}" required>
 
                                     @error('password')
@@ -80,7 +75,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
+                                    <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
@@ -99,7 +94,7 @@
                                 <div class="mb-3">
 
 
-<label class="form-label" for="logo">{{ __('admin.students.field_photo') }}</label>
+<label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
 <input type="file" class="form-control" name="image" id="logo">
 
 @error('image')
@@ -115,7 +110,7 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="last_name"> {{ __('admin.students.field_last_name') }} <span>*</span></label>
+                                    <label class="form-label" for="last_name"> {{ __('admin.instructors.field_last_name') }} <span>*</span></label>
                                     <input type="text" class="form-control" name="last_name" id="last_name" value="{{ old('last_name') }}" required>
 
                                     @error('last_name')
@@ -127,7 +122,7 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="email">{{ __('admin.students.field_email') }} <span>*</span></label>
+                                    <label class="form-label" for="email">{{ __('admin.instructors.field_email') }} <span>*</span></label>
                                     <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}" required>
 
                                     @error('email')
@@ -138,7 +133,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="password">{{ __('admin.students.field_password_confirmation') }} <span>*</span></label>
+                                    <label class="form-label" for="password">{{ __('admin.instructors.field_password_confirmation') }} <span>*</span></label>
                                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" value="{{ old('password_confirmation') }}" required>
 
                                     @error('password')
@@ -149,8 +144,8 @@
                                 </div>
 
                                  <div class="mb-3">
-                                    <label class="form-label" for="userName">{{ __('admin.students.userName') }} <span>*</span></label>
-                                    <input type="userName" class="form-control" name="userName" id="userName" value="{{ old('password_confirmation') }}" required>
+                                    <label class="form-label" for="userName">{{ __('admin.instructors.userName') }} <span>*</span></label>
+                                    <input type="userName" class="form-control" name="userName" id="userName" value="{{ old('userName') }}" required>
 
                                     @error('userName')
                                     <div class="invalid-feedback">
@@ -160,16 +155,11 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control" name="country_id" id="country_id" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($countries as $country)
-                                        <option value="{{ $country->id }}"> {{ $country->name }}</option>
+                                    <label class="form-label" for="bank_account">{{ __('admin.instructors.bank_account') }} <span>*</span></label>
+                                    <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ old('bank_account') }}" required>
 
-                                        @endforeach
-                                    </select>
 
-                                    @error('country_id')
+                                    @error('bank_account')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -183,11 +173,11 @@
                             </div>
                            
                             <div class="col-md-12">
-                              <label class="form-label">{{ __('admin.students.about') }} <span class="form-label-description"></span></label>
-                              <textarea class="form-control" name="about_student" rows="6" placeholder="Content.."></textarea>
+                              <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
+                              <textarea class="form-control" name="about_teacher" rows="6" placeholder="Content.."></textarea>
                             </div>
                             <div class="col-md-12">
-                              <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
+                              <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
                               <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>
                             </div>
                         </div>

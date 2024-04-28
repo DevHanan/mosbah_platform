@@ -8,12 +8,8 @@
     <div class="row g-2 align-items-center">
       <div class="col">
         <!-- Page pre-title -->
-        <div class="page-pretitle">
-          Overview
-        </div>
-        <h2 class="page-title">
-          Combo layout
-        </h2>
+        @include('admin.layouts.inc.breadcrumb')
+
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
@@ -40,6 +36,7 @@
         <form class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
           @csrf
           @method('PUT')
+          <input type="hidden" name="id" value="{{$row->id}}">
 
           <div class="card-body">
                         <div class="row ">
@@ -70,10 +67,10 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="password">{{ __('admin.students.field_password') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}" required>
+                                    <label class="form-label" for="userName">{{ __('admin.students.userName') }} <span>*</span></label>
+                                    <input type="userName" class="form-control" name="userName" id="userName" value="{{ $row->userName }}" required>
 
-                                    @error('password')
+                                    @error('userName')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -85,7 +82,7 @@
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
-                                        <option value="{{ $track->id }}"> {{ $track->name }}</option>
+                                        <option value="{{ $track->id }}" @if($row->track_id == $track->id) selected="selected" @endif> {{ $track->name }}</option>
 
                                         @endforeach
                                     </select>
@@ -103,6 +100,12 @@
                                     <label class="form-label" for="logo">{{ __('admin.students.field_photo') }}</label>
                                     <input type="file" class="form-control" name="image" id="logo">
 
+                                    @if(isset($row->image))
+                @if(is_file($row->image))
+                <img src="{{ asset($row->image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                <div class="clearfix"></div>
+                @endif
+                @endif
                                     @error('image')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -145,7 +148,7 @@
                                     <select class="form-control" name="country_id" id="country_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
-                                        <option value="{{ $country->id }}"> {{ $country->name }}</option>
+                                        <option value="{{ $country->id }}"  @if($row->country_id == $country->id) selected="selected" @endif> {{ $country->name }}</option>
 
                                         @endforeach
                                     </select>
@@ -165,11 +168,11 @@
 
                             <div class="col-md-12">
                                 <label class="form-label">{{ __('admin.students.about') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="about_student" rows="6" placeholder="Content.."></textarea>
+                                <textarea class="form-control" name="about_student" rows="6" placeholder="Content.."> {{ $row->about_student }}</textarea>
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>
+                                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>
                             </div>
                         </div>
                     </div>

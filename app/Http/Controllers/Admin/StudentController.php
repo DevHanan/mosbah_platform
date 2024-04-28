@@ -20,7 +20,7 @@ class StudentController extends Controller
 
     public function __construct()
     {
-        $this->title = 'list students';
+        $this->title = trans('admin.students.list');
         $this->route = 'admin.students';
         $this->view = 'admin.students';
         $this->path = 'students';
@@ -48,7 +48,7 @@ class StudentController extends Controller
 
     public function create(Student $student)
     {
-        $data['title'] = 'Add student ';
+        $data['title'] = trans('admin.students.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -84,10 +84,10 @@ class StudentController extends Controller
     {   
         $data['row'] = Student::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit Country';
+        $data['title'] = trans('admin.students.edit');
         return view($this->view.'.edit',$data);
     }
-    public function update(UpdateStudentRequest $request)
+    public function update(UpdateStudentRequest $request ,Student $student)
     {
         $student = Student::find($request->id);
         $student->update($request->except(['image', 'password']));
@@ -102,7 +102,7 @@ class StudentController extends Controller
             $student->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.countries.index');  
+        return redirect()->route('admin.students.index');  
         }
 
 
@@ -110,12 +110,11 @@ class StudentController extends Controller
         {   
             // Set Status
             $user = Student::where('id', $id)->firstOrFail();
-            return $user;
-            $user->active = $user->status == 0 ? 1:0;
+            $user->active = $user->active == 0 ? 1:0;
             $user->save();
             Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
     
-            return redirect()->back();
+            return redirect()->route('admin.students.index');  
         }
     
     public function destroy(Request $request)

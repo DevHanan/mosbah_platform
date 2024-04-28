@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutSetting;
 use App\Models\Partener;
 use App\Models\Team;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {

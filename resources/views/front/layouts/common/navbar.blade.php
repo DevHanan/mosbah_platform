@@ -36,7 +36,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light primary-bg sec-nav shadow-sm">
     <div class="container-fluid nav_content">
-        <a class="navbar-brand" href="{{url('/')}}"><img src="{{ asset('public/'.$setting->logo_path) }}" alt="logo"></a>
+        <a class="navbar-brand" href="{{url('/')}}">
+          <img src="{{asset('public/'.$setting->logo_path)}}" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -78,4 +79,4 @@
     </div>
     </nav>
 
-    <img src="public/front/img/bg-header.svg" class="position-absolute header_layout" alt="">
+    <img src="#" class="position-absolute header_layout" alt="">

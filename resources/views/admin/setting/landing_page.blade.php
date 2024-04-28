@@ -207,7 +207,7 @@
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label class="form-label">{{ __('admin.aboutus.mission_descriptions') }} <span class="form-label-description"></span></label>
-                            <textarea class="form-control" name="mission_description" rows="6" placeholder="Content.."> {{ $row->mission_descriptions }}</textarea>
+                            <textarea class="form-control" name="mission_description" rows="6" placeholder="Content.."> {{ $row->mission_description }}</textarea>
                           </div>
 
 

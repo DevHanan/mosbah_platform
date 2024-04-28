@@ -35,23 +35,7 @@
                   <div class="card-header">
                     <h3 class="card-title">{{ $title }}</h3>
                   </div>
-                  <div class="card-body border-bottom py-3">
-                    <div class="d-flex">
-                      <div class="text-secondary">
-                        Show
-                        <div class="mx-2 d-inline-block">
-                          <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
-                        </div>
-                        entries
-                      </div>
-                      <div class="ms-auto text-secondary">
-                        Search:
-                        <div class="ms-2 d-inline-block">
-                          <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
                   <div class="table-responsive">
                     <table class="table card-table table-vcenter text-nowrap datatable">
                       <thead>
@@ -60,7 +44,7 @@
                           <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 15l6 -6l6 6"></path></svg>
                           </th>
-                          <th> {{__('admin.policies.title')}}</th>
+                          <th> {{__('admin.policies.field_title')}}</th>
                         <th> {{__('admin.policies.status')}}</th>
                         <th>{{ __('admin.policies.field_file') }}</th>
 
@@ -75,14 +59,19 @@
                           <td><span class="text-secondary">{{$row->id}}</span></td>
                           <td>{{$row->title}}</td>
                         <td>
-                            @if( $row->active == 1 )
-                            <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                            @else
-                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                            @endif
-                        </td>
-                        <td><img src="{{asset($row->image)}}" style="width:40px"></td>					
+                           
+                            <div class="form-check form-switch md-3" style="margin:10px">
 
+                            <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                            </div>
+                        </td>
+                        <td>
+                          @if($row->file)
+                        <a href="{{ asset($row->file) }}" target="_blank"> {{ __('admin.show') }}</a>                        </td>					
+                        @else
+                        {{ __('admin.no_file')}}
+
+                        @endif
                       
                         <td style="width: 270px;">
 

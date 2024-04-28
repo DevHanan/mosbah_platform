@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
-
+use App\Models\AboutSetting;
+use App\Models\Partener;
+use App\Models\Team;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,10 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('front.about');
+        $setting = AboutSetting::find(1);
+        $teams = Team::active()->get();
+        $parteners = Partener::active()->get();
+        return view('front.about',compact(['setting','teams','parteners']));
     }
 
     public function courses()

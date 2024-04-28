@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\AboutSetting;
 use App\Models\Setting;
 use App\Models\Course;
 use App\Models\Country;
@@ -11,9 +12,10 @@ use App\Models\Track;
 use App\Models\PaymentType;
 use App\Models\Level;
 use App\Models\Instructor;
+use App\Models\Partener;
 use App\Models\Ticket;
 use App\Models\Policy;
-
+use App\Models\Team;
 use View;
 
 
@@ -45,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
         $levels = Level::get();
         $instructors = Instructor::get();
         $tickets = Ticket::get();
-
+      
         $policies = Policy::active()->get();
 
         View::share(['setting' => $setting, 'courses' => $courses, 
@@ -53,6 +55,7 @@ class AppServiceProvider extends ServiceProvider
         'paymenttypes' => $paymenttypes, 'students' => $students,
         'courseTypes' => $courseTypes,'levels' => $levels , 'instructors'=>$instructors,
         'policies'=>$policies , 'tickets'=>$tickets
+        
 
     ]);
     }

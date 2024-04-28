@@ -5,7 +5,7 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-      @include('admin.layouts.inc.breadcrumb')
+        @include('admin.layouts.inc.breadcrumb')
 
       </div>
       <!-- Page title actions -->
@@ -34,48 +34,51 @@
           @csrf
           @method("PUT")
           <div class="card-body">
-                        <!-- Form Start -->
+            <!-- Form Start -->
+            <div class="row">
 
 
-                        <div class="col-md-12">
-                            <label class="form-label" for="title"> {{__('admin.policies.field_title')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="title" id="title" value="{{ $row->title }}" required>
+            <div class="col-md-12">
+              <label class="form-label" for="title"> {{__('admin.policies.field_title')}} <span>*</span></label>
+              <input type="text" class="form-control" name="title" id="title" value="{{ $row->title }}" required>
 
-                            @error('title')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        
-                        <div class="form-check form-switch" style="margin:10px">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="active" @if($row->active==1) checked @endif>
-                            <label class="form-check-label form-label" for="flexSwitchCheckDefault"  >{{ __('admin.policies.status') }}</label>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">{{ __('admin.policies.descriptions') }} <span class="form-label-description"></span></label>
-                            <textarea class="form-control" name="description" rows="6" placeholder="Content.."> {{ $row->description }}</textarea>
-                        </div>
+              @error('title')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
+            </div>
 
 
-                        <div class="form-group col-md-6">
+            <div class="mb-3">
+              <label class="form-label">{{ __('admin.policies.descriptions') }} <span class="form-label-description"></span></label>
+              <textarea class="form-control" name="description" rows="6" placeholder="Content.."> {{ $row->description }}</textarea>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-check form-switch md-3" style="margin:10px">
+                <label class="form-check-label form-label" for="flexSwitchCheckDefault">{{ __('admin.policies.status') }}</label>
+                <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class=" md-3">
 
 
-                            <label for="logo">{{ __('admin.policies.field_file') }}</label>
-                            <input type="file" class="form-control" name="file" id="logo">
+                <label for="logo form-label">{{ __('admin.policies.field_file') }}</label>
+                <input type="file" class="form-control" name="file" id="logo">
 
-                            @error('file')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+                @error('file')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+            </div>
 
-
-                        <!-- Form End -->
-                    </div>
+            </div>
+            <!-- Form End -->
+          </div>
           <div class="card-footer">
             <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
           </div>

@@ -33,6 +33,11 @@ use App\Http\Controllers\LangController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PolicyController;
+use App\Http\Controllers\Admin\PartenerController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\FileController;
+
+Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -125,6 +130,11 @@ Route::group(
             /** Setting Route  */
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
             Route::post('siteinfo', [SettingController::class, 'siteinfo'])->name('setting.siteinfo');
+            Route::get('about-us-settings', [SettingController::class, 'aboutUSSetting'])->name('settings.aboutUSSetting');
+            Route::post('about-us-settings', [SettingController::class, 'saveAboutSetting'])->name('setting.saveAboutSetting');
+            Route::resource('teams', TeamController::class);
+            Route::resource('parteners', PartenerController::class);
+
 
         });
     }

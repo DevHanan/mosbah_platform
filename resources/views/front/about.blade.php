@@ -9,16 +9,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="public/front/img/about.svg" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="{{ asset($setting->background_image)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="info position-relative py-5">
                         <img src="public/front/img/completed-bg.svg" class="position-absolute img-fluid" alt="">
-                        <h4 class="title py-5 pb-1 fw-bold secondary-color">من نحن </h4>
+                        <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $setting-> title}} </h4>
                         <div class="content fw-bold text-white">
-                            منصة تعليمية تقدم دورات تدريبية عن بعد تهدف إلى نشر العلم وخدمة المجتمع وإكساب الطلاب مهارات وقدرات تؤهلهم لسوق العمل، منصة تعليمية متوافقة مع شروط ومعايير المركز الوطني للتعليم الالكتروني
-                        </div>
+{{ $setting->description }}
+                    </div>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #E9F8F3;"><img src="public/front/img/icons/GraduationCap.svg" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="300">0</h3>
+                                        <h3 class="fw-bold count" data-target="300"> {{ $setting->course_number}}</h3>
                                         <p class="fw-bold">دورات</p>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFFAF5;"><img src="public/front/img/icons/VideoCamera.svg" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="5000">0</h3>
+                                        <h3 class="fw-bold count" data-target="5000">{{ $setting->lecture_number}}</h3>
                                         <p class="fw-bold">محاضرات</p>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #F0F7FF;"><img src="public/front/img/icons/UsersThree.svg" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="50">0</h3>
+                                        <h3 class="fw-bold count" data-target="50">{{ $setting->instructor_number}}</h3>
                                         <p class="fw-bold">مدربين</p>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFEEF0;"><img src="public/front/img/icons/GraduationCap2.svg" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="1000">0</h3>
+                                        <h3 class="fw-bold count" data-target="1000">{{ $setting->student_number}}</h3>
                                         <p class="fw-bold">طلاب</p>
                                     </div>
                                 </div>
@@ -172,15 +172,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="h-100 d-flex flex-column justify-content-center">
-                        <h2 class="position-relative"> مهمتنا <img src="public/front/img/text-line2.svg" class="position-absolute" alt=""></h2>
-                        <h5 class="my-5 mb-5 "> نعمل جاهدين على توفير دورات تدريبية متعددة فى مجالات متنوعة بحيث تساعد الطلاب على اكتساب مهارات تؤهلهم للعمل وتزيد المعرفة لديهم </h5>
+                        <h2 class="position-relative"> {{ $setting->mission_title }} <img src="public/front/img/text-line2.svg" class="position-absolute" alt=""></h2>
+                        <h5 class="my-5 mb-5 "> 
+                        {{ $setting->mission_description }}                         </h5>
                         <div>
-                            <a href="signup.html" class="btn rounded-pill secondary-bg text-white my-4">اشترك الآن مجانا وابدأ رحلتك التعليمية</a>
+                            <a href="{{url('signup')}}" class="btn rounded-pill secondary-bg text-white my-4">اشترك الآن مجانا وابدأ رحلتك التعليمية</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="img"><img src="public/front/img/aim.svg" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
+                    <div class="img"><img src="{{ asset($setting->mission_image )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
                 </div>
             </div>
 
@@ -199,33 +200,33 @@
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="public/front/img/icons/Outline.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5>التعليم الهادف</h5>
-                                    <p>العديد من مدارس أكاديمية كونيكشنز لدينا لديها اعتمادات إضافية.</p>
+                                    <img src="{{ asset($setting->msg_image1s)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <h5> {{$setting->msg_title1 }}</h5>
+                                     <p> {{ $setting->msg_desc1 }}</p>   
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
                                     <img src="public/front/img/icons/presentaion.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5>التعلم الافتراضي</h5>
-                                    <p>التكاليف الوحيدة هي اللوازم المدرسية القياسية والرحلات الميدانية الطوعية.</p>
+                                    <h5> {{$setting->msg_title2 }}</h5>
+                                     <p> {{ $setting->msg_desc2 }}</p> 
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
                                     <img src="public/front/img/icons/hierarchy.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5>التفاعل الاجتماعي</h5>
-                                    <p>يتعاون الطلاب في أكاديمية “علمني” في المشاريع معا.</p>
+                                    <h5> {{$setting->msg_title3 }}</h5>
+                                     <p> {{ $setting->msg_desc3 }}</p> 
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
                                     <img src="public/front/img/icons/open_book.svg" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5>المناهج الدراسية عبر الإنترنت</h5>
-                                    <p>يعد منهجنا الطلاب للذهاب إلى أبعد من ذلك في الحياة من خلال منحهم الدعم.</p>
+                                    <h5> {{$setting->msg_title4 }}</h5>
+                                     <p> {{ $setting->msg_desc4 }}</p> 
                                 </div>
                             </div>
                         </div>

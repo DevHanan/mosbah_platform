@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutSetting;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use Toastr;
@@ -116,38 +117,74 @@ class SettingController extends Controller
     }
 
 
-    public function landingSetting(){
-        $data['title'] = 'إعدادت الصفحة الرئيسية  ';
-        $data['row'] = Setting::where('status', 1)->first();
+    public function aboutUSSetting(){
+        $data['title'] = trans('admin.aboutus.title');
+        $data['row'] = AboutSetting::first();
         return view($this->view.'.landing_page', $data);   
     }
 
-    public function saveLandingSetting(Request $request){
-        $data = Setting::where('id',1)->first();
-        if($data){
-              $data->update($request->except(['section1_image','section2_image']));
+
+    public function saveAboutSetting(Request $request){
+        $data = AboutSetting::first();
+        if(!$data)
+        $data = new AboutSetting();
+
+        $data->update($request->except(['background_image','mission_image','msg_image1',
+        'msg_image2','msg_image3','msg_image4' ]));
+        if($request->hasFile('background_image')){
               
-        }else{
-             $data = new Setting();
-             $data->create($request->all(['section1_image','section2_image']));
-        }
-        if($request->hasFile('section1_image')){
-              
-           $thumbnail = $request->section1_image;
+            $thumbnail = $request->background_image;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->section1_image ='public/uploads/settings/'.$filename;
+            $data->background_image ='uploads/settings/'.$filename;
             $data->save();
         }
-        if($request->hasFile('section2_image')){
-          
-            $thumbnail = $request->section2_image;
+
+        if($request->hasFile('mission_image')){
+              
+            $thumbnail = $request->mission_image;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->section2_image ='public/uploads/settings/'.$filename;
+            $data->mission_image ='uploads/settings/'.$filename;
             $data->save();
-        } 
-        Toastr::success(__('msg_send_successfully'), __('msg_success'));
-        return redirect()->back(); 
+        }
+        if($request->hasFile('msg_image1')){
+              
+            $thumbnail = $request->msg_image1;
+           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/settings/'),$filename);
+            $data->msg_image1 ='uploads/settings/'.$filename;
+            $data->save();
+        }
+        if($request->hasFile('msg_image2')){
+              
+            $thumbnail = $request->msg_image2;
+           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/settings/'),$filename);
+            $data->msg_image2 ='uploads/settings/'.$filename;
+            $data->save();
+        }
+
+        if($request->hasFile('msg_image3')){
+              
+            $thumbnail = $request->msg_image3;
+           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/settings/'),$filename);
+            $data->msg_image3 ='uploads/settings/'.$filename;
+            $data->save();
+        }
+        if($request->hasFile('msg_image4')){
+              
+            $thumbnail = $request->msg_image4;
+           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/settings/'),$filename);
+            $data->msg_image4 ='uploads/settings/'.$filename;
+            $data->save();
+        }
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->back();
+
     }
+
+    
 }

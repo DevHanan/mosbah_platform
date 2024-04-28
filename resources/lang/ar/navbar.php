@@ -59,5 +59,10 @@ return [
     'settings' => [
         'general_settings' => 'إعدادت عامة ',
         'policies' => 'السياسات والشروط',  
+        'about_us_settings' => 'من نحن',
+
+        'teams' => 'فريقنا ',
+        'parteners' => 'شركاء النجاح '
+
     ]
 ];

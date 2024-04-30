@@ -50,7 +50,7 @@
             <a class="nav-link @if(Request::is('about-us')) active @endif" href="{{ url('/about-us')}}">من نحن</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link  @if(Request::is('courses')) active @endif" href="{{url('/courses')}}">دوراتنا</a>
+            <a class="nav-link  @if(Request::is(['courses','course/*']) ) active @endif" href="{{url('/courses')}}">دوراتنا</a>
             </li>
             <li class="nav-item">
             <a class="nav-link  @if(Request::is('blogs')) active @endif" href="{{url('/blogs')}}">المدونة</a>

@@ -145,7 +145,7 @@
             @if($tracks)
             @foreach($tracks as $track)
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="{{ url('courses')}}" class="text-decoration-none text-dark">
+                <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
                         <div> <img src="{{ asset('public/'. $track->image )}}" class="mx-2" alt=""> {{ $track->name}}</div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
@@ -358,7 +358,7 @@
                     <p class="title fw-bold"> انضم الى <span class="primary-color"> منصة دوافير التعليمية</span> اختيارك الأفضل اليوم، متوافقة مع شروط ومعايير المركز الوطني للتعليم الالكتروني</p>
                     <p>بين يديك عدد كبير من الدورات التدريبية فى مسارات متعددة تكسبك مهارات تؤهلك لسوق العمل أو تمنحك خبرات ومعارف تجعل حياتك أفضل</p>
                     <div>
-                        <a href="pages/signup.html" class="btn rounded-pill secondary-bg text-white mt-4">سجل الآن مجانا وابدأ التعلم</a>
+                        <a href="{{ url('signup')}}" class="btn rounded-pill secondary-bg text-white mt-4">سجل الآن مجانا وابدأ التعلم</a>
                     </div>
                 </div>
             </div>

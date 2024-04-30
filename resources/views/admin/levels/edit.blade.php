@@ -19,7 +19,7 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+                            <a href="{{ route($route.'.index',$course_id) }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
                         </div>
                     </div>
@@ -35,7 +35,7 @@
         <div class="col-md-12">
 
 
-      <form class="card" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
+      <form class="card" novalidate action="{{ route($route.'.update',$course_id,$row) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <div class="card-body">

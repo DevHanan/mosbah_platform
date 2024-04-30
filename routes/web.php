@@ -99,7 +99,7 @@ Route::group(
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
             Route::resource('courses.levels', LevelController::class);
-            Route::resource('levels.lectures', LectureController::class);
+            Route::resource('courses.levels.lectures', LectureController::class);
 
 
 

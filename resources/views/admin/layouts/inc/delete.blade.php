@@ -3,8 +3,12 @@
 <div id="deleteModal-{{ $row->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-        <form action="{{ route($route.'.destroy', [$row->id]) }}" method="post" class="delete-form">
-                @csrf
+          @if($course->id)
+        <form action="{{ route($route.'.destroy', [$course->id,$row->id]) }}" method="post" class="delete-form">
+            @else
+            <form action="{{ route($route.'.destroy', [$row->id]) }}" method="post" class="delete-form">
+            @endif 
+            @csrf
                 @method('DELETE')
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           <div class="modal-status bg-danger"></div>

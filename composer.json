@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "bayareawebpro/laravel-multistep-forms": "^1.2",
         "guzzlehttp/guzzle": "^7.2",
         "josiasmontag/laravel-localization": "^1.0",
         "laravel/framework": "^10.10",

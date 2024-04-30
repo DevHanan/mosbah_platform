@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '6f11d05afde6731d7f56cb0d72e786e6f1076ca8',
+        'reference' => '11db0d79bda30e4d29698dbe8f6285fec0ca0f03',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'bayareawebpro/laravel-multistep-forms' => array(
+            'pretty_version' => 'v1.2.0',
+            'version' => '1.2.0.0',
+            'reference' => '2ba021c2b13a504405e046789067448129754295',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bayareawebpro/laravel-multistep-forms',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.11.0',
             'version' => '0.11.0.0',
@@ -418,7 +427,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '6f11d05afde6731d7f56cb0d72e786e6f1076ca8',
+            'reference' => '11db0d79bda30e4d29698dbe8f6285fec0ca0f03',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -99,7 +99,7 @@ class CourseController extends Controller
         }
         $course_id = $course;
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.courses',compact('course_id'));
+        return redirect('admin/courses/'.$course->id .'/levels');
 
     }
 
@@ -150,6 +150,8 @@ class CourseController extends Controller
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.courses.index');
+        return redirect('admin/courses/'.$course->id .'/levels');
+
     }
     
 

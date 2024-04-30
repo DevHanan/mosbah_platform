@@ -198,6 +198,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'BayAreaWebPro\\MultiStepForms\\' => 29,
         ),
         'A' => 
         array (
@@ -611,6 +612,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'BayAreaWebPro\\MultiStepForms\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bayareawebpro/laravel-multistep-forms/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -647,14 +652,19 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\Admin\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseController.php',
         'App\\Http\\Controllers\\Admin\\CourseTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseTypeController.php',
         'App\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardController.php',
+        'App\\Http\\Controllers\\Admin\\FileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FileController.php',
         'App\\Http\\Controllers\\Admin\\InstructorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/InstructorController.php',
         'App\\Http\\Controllers\\Admin\\LectureController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LectureController.php',
         'App\\Http\\Controllers\\Admin\\LevelController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LevelController.php',
+        'App\\Http\\Controllers\\Admin\\PartenerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PartenerController.php',
         'App\\Http\\Controllers\\Admin\\PaymentTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PaymentTypeController.php',
+        'App\\Http\\Controllers\\Admin\\PolicyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PolicyController.php',
+        'App\\Http\\Controllers\\Admin\\QuestionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/QuestionController.php',
         'App\\Http\\Controllers\\Admin\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RoleController.php',
         'App\\Http\\Controllers\\Admin\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SettingController.php',
         'App\\Http\\Controllers\\Admin\\StudentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/StudentController.php',
         'App\\Http\\Controllers\\Admin\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubscriptionController.php',
+        'App\\Http\\Controllers\\Admin\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TeamController.php',
         'App\\Http\\Controllers\\Admin\\TicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TicketController.php',
         'App\\Http\\Controllers\\Admin\\TrackController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TrackController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
@@ -724,6 +734,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Resources\\StudentResource' => __DIR__ . '/../..' . '/app/Http/Resources/StudentResource.php',
         'App\\Http\\Resources\\SubscriptionResource' => __DIR__ . '/../..' . '/app/Http/Resources/SubscriptionResource.php',
         'App\\Http\\Resources\\TrackResource' => __DIR__ . '/../..' . '/app/Http/Resources/TrackResource.php',
+        'App\\Models\\AboutSetting' => __DIR__ . '/../..' . '/app/Models/AboutSetting.php',
         'App\\Models\\Certificate' => __DIR__ . '/../..' . '/app/Models/Certificate.php',
         'App\\Models\\Country' => __DIR__ . '/../..' . '/app/Models/Country.php',
         'App\\Models\\Coupon' => __DIR__ . '/../..' . '/app/Models/Coupon.php',
@@ -732,10 +743,14 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\Instructor' => __DIR__ . '/../..' . '/app/Models/Instructor.php',
         'App\\Models\\Lecture' => __DIR__ . '/../..' . '/app/Models/Lecture.php',
         'App\\Models\\Level' => __DIR__ . '/../..' . '/app/Models/Level.php',
+        'App\\Models\\Partener' => __DIR__ . '/../..' . '/app/Models/Partener.php',
         'App\\Models\\PaymentType' => __DIR__ . '/../..' . '/app/Models/PaymentType.php',
+        'App\\Models\\Policy' => __DIR__ . '/../..' . '/app/Models/Policy.php',
+        'App\\Models\\Question' => __DIR__ . '/../..' . '/app/Models/Question.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
         'App\\Models\\Student' => __DIR__ . '/../..' . '/app/Models/Student.php',
         'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',
+        'App\\Models\\Team' => __DIR__ . '/../..' . '/app/Models/Team.php',
         'App\\Models\\Ticket' => __DIR__ . '/../..' . '/app/Models/Ticket.php',
         'App\\Models\\Track' => __DIR__ . '/../..' . '/app/Models/Track.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
@@ -750,6 +765,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Traits\\SMSSender' => __DIR__ . '/../..' . '/app/Traits/SMSSender.php',
         'App\\Traits\\SummernoteEditor' => __DIR__ . '/../..' . '/app/Traits/SummernoteEditor.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'BayAreaWebPro\\MultiStepForms\\MultiStepForm' => __DIR__ . '/..' . '/bayareawebpro/laravel-multistep-forms/src/MultiStepForm.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

@@ -8,6 +8,7 @@ use App\Traits\FileUploader;
 use App\Http\Resources\TrackResource;
 use App\Http\Requests\TrackRequest;
 use App\Http\Requests\UpdateTrackRequest;
+use App\Models\Course;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use Toastr;
@@ -22,7 +23,7 @@ class LevelController extends Controller
     public function __construct()
     {
         $this->title = trans('admin.levels.title');
-        $this->route = 'admin.levels';
+        $this->route = 'admin.courses.levels';
         $this->view = 'admin.levels';
         $this->path = 'levels';
         $this->access = 'levels';
@@ -35,6 +36,7 @@ class LevelController extends Controller
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
+        $data['course'] = Course::find($course_id);
         $data['rows'] = Level::active()->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
@@ -46,14 +48,14 @@ class LevelController extends Controller
     {
         $data['title'] = trans('admin.levels.add');
         $data['route'] = $this->route;
-        $data['course_id'] = $course_id;
+        $data['course'] = Course::find($course_id);
         return view($this->view .'.create',$data);
     }
     public function store(Request $request)
     {
        $level = Level::create($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.levels.index');
+        return redirect("admin/courses/$request->course_id/levels");
     }
 
 
@@ -66,15 +68,16 @@ class LevelController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit($course_id,$id)
     {   
         $data['row'] = Level::find($id);
         $data['route'] = $this->route;
+        $data['course'] = Course::find($course_id);
         $data['title'] = trans('admin.levels.edit');
         return view($this->view.'.edit',$data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request,$course_id)
     {
        $level = Level::find($request->id);
        $level->update($request->all());
@@ -82,7 +85,7 @@ class LevelController extends Controller
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.levels.index');    }
 
-    public function destroy (Request $request)
+    public function destroy (Request $request ,$course_id)
     {
        $level = Level::find($request->id);
         if ($level)

@@ -22,7 +22,7 @@
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
-          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+          <a href="{{ route($route.'.create',$course->id) }}" class="btn btn-primary d-none d-sm-inline-block">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M12 5l0 14" />
@@ -107,14 +107,13 @@
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ route($route.'.edit',[$course->id,$row->id]) }}" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
 
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
-                    <!-- Include Delete modal -->
                     @include('admin.layouts.inc.delete')
                   </td>
                 </tr>

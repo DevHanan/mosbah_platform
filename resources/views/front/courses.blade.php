@@ -46,69 +46,15 @@
                                 <p class="m-0 mx-2">الكل</p>
                             </li>
 
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="leaning-academy">
-                                <label for="leaning-academy" class="d-flex">
-                                    <p class="m-0 mx-2">التعليم الأكاديمي</p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="computer-science">
-                                <label for="computer-science" class="d-flex">
-                                    <p class="m-0 mx-2">علوم الكمبيوتر </p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="design">
-                                <label for="design" class="d-flex">
-                                    <p class="m-0 mx-2"> الفن الرقمي والتصميم </p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="develope">
-                                <label for="develope" class="d-flex">
-                                    <p class="m-0 mx-2"> تطوير الذات</p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="marketing">
-                                <label for="marketing" class="d-flex">
-                                    <p class="m-0 mx-2"> التسويق والإعلان</p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="art">
-                                <label for="art" class="d-flex">
-                                    <p class="m-0 mx-2">فنون جميلة </p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="money-work">
-                                <label for="money-work" class="d-flex">
-                                    <p class="m-0 mx-2">مال وأعمال </p>
-                                    <span>(25)</span>
-                                </label>
-                            </li>
-
+                            @foreach($tracks as $track)
                             <li class="my-2 d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="img-videos" id="">
                                 <label for="img-videos" class="d-flex">
-                                    <p class="m-0 mx-2"> صور وفيديو</p>
+                                    <p class="m-0 mx-2"> {{ $track->name }}</p>
                                     <span>(25)</span>
                                 </label>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
 

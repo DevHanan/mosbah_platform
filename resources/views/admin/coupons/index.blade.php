@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            @include('admin.layouts.inc.breadcrumb')
+                @include('admin.layouts.inc.breadcrumb')
 
             </div>
             <!-- Page title actions -->
@@ -45,6 +45,7 @@
                                         <th>{{ __('admin.coupons.code') }}</th>
                                         <th>{{ __('admin.coupons.course') }}</th>
                                         <th>{{ __('admin.coupons.start_date') }}</th>
+                                        <th>{{ __('admin.coupons.end_date') }}</th>
                                         <th>{{ __('admin.coupons.status') }}</th>
                                         <th>{{ __('admin.coupons.discount') }}</th>
                                         <th>{{ __('admin.coupons.action') }}</th>
@@ -59,39 +60,17 @@
 
                                         <td>{{ $row->code }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td>{{ $row->created_at }}</td>
-                                        <td>{{ $row->status }}</td>
                                         <td>{{ $row->start_date }}</td>
 
                                         <td>{{ $row->end_date }}</td>
+                                        <td>{{ $row->status }}</td>
+                                        <td>{{ $row->discount }}</td>
+
 
                                         <td>
 
 
-                                            @if( $row->active == 1 )
-                                            <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                                            @else
-                                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                                            @endif
-                                        </td>
-                                        <td>
-
-
-                                            @if($row->status == 0)
-
-
-                                            <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa-solid fa-lock-open"></i>
-                                            </button>
-                                            @else
-                                            <button class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa fa-window-close" aria-hidden="true"></i>
-                                            </button>
-                                            @endif
-
-                                            <!-- Include Password Change modal -->
-                                            @include('admin.coupons.change-status')
-
+                                           
 
 
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
@@ -104,7 +83,7 @@
                                             <!-- Include Delete modal -->
                                             @include('admin.layouts.inc.delete')
 
-                                         
+
 
 
                                         </td>

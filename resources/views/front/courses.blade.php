@@ -48,7 +48,7 @@
 
                             @foreach($tracks as $track)
                             <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="img-videos" id="">
+                                <input class="form-check-input" type="checkbox" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif id="">
                                 <label for="img-videos" class="d-flex">
                                     <p class="m-0 mx-2"> {{ $track->name }}</p>
                                     <span>(25)</span>

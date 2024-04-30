@@ -68,34 +68,14 @@
                                 <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('coursesFilter')">
                                 <p class="m-0 mx-2">الكل</p>
                             </li>
-
+@foreach($courseTypes as $type)
                             <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="register-courses">
-                                <label for="register-courses">
-                                    <p class="m-0 mx-2"> دورات مسجلة </p>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="direct-courses">
-                                <label for="direct-courses">
-                                    <p class="m-0 mx-2"> دورات مباشرة </p>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="company-courses">
-                                <label for="company-courses">
-                                    <p class="m-0 mx-2"> دورات من المقر </p>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="combine-courses" id="">
+                                <input class="form-check-input" type="checkbox" value="{{$type->id}}" id="">
                                 <label for="combine-courses">
-                                    <p class="m-0 mx-2"> دورات مدمجة </p>
+                                    <p class="m-0 mx-2">  {{ $type->name }} </p>
                                 </label>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -109,40 +89,14 @@
                                 <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('trainers')">
                                 <p class="m-0 mx-2">الكل</p>
                             </li>
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="teacher1">
-                                <label for="teacher1">
-                                    <p class="m-0 mx-2">John Hope Dio</p>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="teacher2">
-                                <label for="teacher2">
-                                    <p class="m-0 mx-2">John Hope Dio</p>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="teacher3">
-                                <label for="teacher3">
-                                    <p class="m-0 mx-2">John Hope Dio</p>
-                                </label>
-                            </li>
-
-                            <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="teacher4">
-                                <label for="teacher4">
-                                    <p class="m-0 mx-2">John Hope Dio</p>
-                                </label>
-                            </li>
-
+                  @foreach($instructors as $instructor)
                             <li class="my-2 d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="" id="teacher5">
                                 <label for="teacher5">
-                                    <p class="m-0 mx-2">John Hope Dio</p>
+                                    <p class="m-0 mx-2">{{ $instructor->name  }}</p>
                                 </label>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
 

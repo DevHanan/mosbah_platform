@@ -6,7 +6,7 @@
     </button>
     <h1 class="navbar-brand navbar-brand-autodark">
       <a href="{{url('/')}}">
-        <img src="{{ asset('public/'.$setting->logo_path)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+        <img src="{{ asset($setting->logo_path)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
       </a>
     </h1>
     <div class="navbar-nav flex-row d-lg-none">
@@ -222,6 +222,11 @@
 
                 </a>
                 @endforeach
+                <a class="dropdown-item" href="{{ url('admin/courses?recommend=1')}}">
+                  
+                {{ __('navbar.courses.recommened_courses') }}
+
+                </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.courses.create')) active @endif" href="{{ url('admin/courses/create')}}">
                   {{ __('navbar.courses.add_course') }}
 

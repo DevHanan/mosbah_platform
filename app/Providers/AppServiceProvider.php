@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $setting = Setting::where('status', '1')->first();
-        $courses = Course::get();
+        $courses = Course::latest()->get();
         $courseTypes = CourseType::get();
         $countries = Country::active()->get();
         $tracks = Track::active()->get();
@@ -51,6 +51,8 @@ class AppServiceProvider extends ServiceProvider
         $teams = Team::active()->get();
         $about = AboutSetting::first();
         $questions = Question::active()->get();
+        $most_required = Course::latest()->get();
+
 
         $policies = Policy::active()->get();
 
@@ -60,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
             'paymenttypes' => $paymenttypes, 'students' => $students,
             'courseTypes' => $courseTypes, 'levels' => $levels, 'instructors' => $instructors,
             'policies' => $policies, 'tickets' => $tickets, 'teams' => $teams,
-            'about' => $about ,'questions'=> $questions
+            'about' => $about ,'questions'=> $questions,'most_required'=>$most_required
 
 
         ]);

@@ -49,6 +49,8 @@ class CourseController extends Controller
         $data['rows'] = Course::where(function ($q) use ($request) {
             if ($request->type)
             $q->where('course_type_id', $request->type);
+            if ($request->recommend)
+            $q->where('recommend', $request->recommend);
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)
@@ -95,9 +97,9 @@ class CourseController extends Controller
             $course->background_image ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
             $course->save();
         }
-
+        $course_id = $course;
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.courses.levels');
+        return redirect()->route('admin.courses',compact('course_id'));
 
     }
 

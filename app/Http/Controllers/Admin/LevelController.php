@@ -31,21 +31,22 @@ class LevelController extends Controller
         // $this->middleware('permission:levels-edit',   ['only' => ['edit','update']]);
         // $this->middleware('permission:levels-delete',   ['only' => ['delete']]);
     }
-    public function index(Request $request)
+    public function index(Request $request,$course_id)
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
         $data['rows'] = Level::active()->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->paginate(10);
+        })->where('course_id',$course_id)->paginate(10);
         return view($this->view.'.index', $data);
     }
 
-    public function create(Level $level)
+    public function create(Level $level,$course_id)
     {
         $data['title'] = trans('admin.levels.add');
         $data['route'] = $this->route;
+        $data['course_id'] = $course_id;
         return view($this->view .'.create',$data);
     }
     public function store(Request $request)

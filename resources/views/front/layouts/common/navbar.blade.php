@@ -44,16 +44,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" href="{{url('/')}}">الرئيسية</a>
+            <a class="nav-link  @if(Request::is('/')) active @endif" href="{{url('/')}}">الرئيسية</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{ url('/about-us')}}">من نحن</a>
+            <a class="nav-link @if(Request::is('about-us')) active @endif" href="{{ url('/about-us')}}">من نحن</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{url('/courses')}}">دوراتنا</a>
+            <a class="nav-link  @if(Request::is('courses')) active @endif" href="{{url('/courses')}}">دوراتنا</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{url('/blogs')}}">المدونة</a>
+            <a class="nav-link  @if(Request::is('blogs')) active @endif" href="{{url('/blogs')}}">المدونة</a>
             </li>
 			<li class="nav-item">
             <a class="nav-link" href="#">حساب التنسيق</a>
@@ -65,10 +65,10 @@
             <a class="nav-link" href="#">صانع CV</a>
             </li> -->
 			<li class="nav-item">
-            <a class="nav-link" href="{{ url('/policies') }}">سياساتنا</a>
+            <a class="nav-link  @if(Request::is('policies')) active @endif" href="{{ url('/policies') }}">سياساتنا</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{url('/contactus')}}">تواصل معنا</a>
+            <a class="nav-link  @if(Request::is('contact-us')) active @endif" href="{{url('/contactus')}}">تواصل معنا</a>
             </li>
 			<li class="nav-item">
 				  <div class="header-info d-flex align-items-center">

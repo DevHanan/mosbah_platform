@@ -50,7 +50,7 @@ Route::get('/contactus', [HomeController::class, 'contactus']);
 Route::get('/books', [HomeController::class, 'books']);
 Route::get('/book', [HomeController::class, 'book']);
 Route::get('/blog', [HomeController::class, 'blog']);
-Route::get('/course', [HomeController::class, 'course']);
+Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart', [HomeController::class, 'cart']);
@@ -99,7 +99,7 @@ Route::group(
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
             Route::resource('courses.levels', LevelController::class);
-            Route::resource('courses.levels.lectures', LectureController::class);
+            Route::resource('levels.lectures', LectureController::class);
 
 
 

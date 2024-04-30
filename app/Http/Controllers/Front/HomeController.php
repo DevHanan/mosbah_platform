@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\AboutSetting;
+use App\Models\Course;
 use App\Models\Partener;
 use App\Models\Team;
 use App\Models\Setting;
@@ -11,7 +12,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $latest  = Course::latest()->take(6)->get();
+        return view('front.index',compact(['latest']));
+
     }
 
     public function about()
@@ -53,9 +56,10 @@ class HomeController extends Controller
     {
         return view('front.blog');
     }
-    public function course()
+    public function course($id)
     {
-        return view('front.course');
+        $course = Course::find($id);
+        return view('front.course',compact('course'));
     }
     public function signin()
     {

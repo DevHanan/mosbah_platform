@@ -52,7 +52,8 @@ return [
         "add_lecture" => " إضافه محاضره",
         "list_levels" => "عرض المستويات",
         "add_level" => "إضافه مستوي",
-        "add_course"  => "إضافة دوره"
+        "add_course"  => "إضافة دوره",
+        'recommened_courses' => 'دورات مرشحة'
 
 
     ],

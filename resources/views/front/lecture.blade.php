@@ -34,7 +34,14 @@
                                         <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> المرحلة  :     {{ optional($lecture->level)->name }}                             </span></p>
                                         <p> <img src="../img/icons/fi-rr-calendar.png" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at }}  </span></p>
                                         <p> <img src="../img/icons/fi-rr-time-quarter-to.svg" class="ms-2" width="20" alt=""> <span> 2 ساعة </span></p>
-                                        <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> نوع المحاضرة : فيدبو مسجلة / ميتنج مباشر / حضور من المقر </span></p>
+                                        <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> 
+                                            نوع المحاضرة :
+                                            @if($lecture->type == 1)
+                                            {{ __('admin.lectures.viedo')}}
+                                            @else
+                                            {{ __('admin.lectures.metting')}}
+                                            @endif
+                                        </span></p>
                                     </div>
                                 </div>
                             </div>

@@ -104,6 +104,11 @@
                       <span class="far fa-edit "></span>
                     </a>
 
+                    <a href="{{ url('admin/courses/'.$row->id .'/levels') }}" class="btn btn-icon btn-primary btn-sm">
+                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                    </a>
+
+
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>

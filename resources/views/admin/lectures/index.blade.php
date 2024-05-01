@@ -7,22 +7,29 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        @include('admin.layouts.inc.breadcrumb')
-        <!-- Page pre-title
-                <div class="page-pretitle">
-                    {{ $setting->title }}
-                </div>
-                <h2 class="page-title">
-                    @if(isset($title))
-                    {{ $title }}
-                    @endif
-                </h2> -->
+      @if( app()->getLocale() == 'ar')
+<style>
+  .breadcrumb-item+.breadcrumb-item::before {
+    float: right;
+    padding-left: var(--tblr-breadcrumb-item-padding-x);
+}
+</style>
+@endif
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  optional($level->course)->name }}</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/admin/courses/'.optional($level->course)->id.'/levels')}}">{{ $level->name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
+  </ol>
+</nav>       
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
-          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+          <a href="{{ route($route.'.create',[$level->id]) }}" class="btn btn-primary d-none d-sm-inline-block">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M12 5l0 14" />
@@ -90,7 +97,12 @@
                   <td>{{$row->title}}</td>
                   <td>{{optional($row->course)->name}}</td>
                   <td>{{optional($row->level)->name}}</td>
-                  <td>{{$row->type}}</td>
+                  <td>
+                    @if($row->type == 1)
+                    {{ __('admin.lectures.viedo')}}
+                    @else
+                    {{ __('admin.lectures.metting')}}
+                    @endif
 
 
 
@@ -98,15 +110,11 @@
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ route($route.'.edit',[$level->id,$row->id]) }}" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
 
-                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <!-- Include Delete modal -->
-                    @include('admin.layouts.inc.delete')
+                   
                   </td>
                 </tr>
                 @endforeach

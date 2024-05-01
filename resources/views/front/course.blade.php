@@ -15,9 +15,9 @@
             <div class="col-md-6 position-relative">
                 <img src="{{ asset('public/front/img/completed-bg.svg')}}" class="position-absolute img-fluid" alt="">
                 <div class="info position-relative py-5">
-                    <h2 class="title py-3 pb-1 fw-bold secondary-color text-center"> محاسبة مالية </h2>
+                    <h2 class="title py-3 pb-1 fw-bold secondary-color text-center">  {{ $course->name }} </h2>
                     <h3 class="fw-bold text-center mb-4">
-                        <a href="courses.html" class="text-decoration-none text-white">الأختبارات</a>
+                        <a href="{{url('/courses')}}" class="text-decoration-none text-white">الأختبارات</a>
                     </h3>
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="persons mx-3">
@@ -40,7 +40,7 @@
                             </ul>
                         </div>
                         <div class="followers_number mx-3">
-                            <p class="text-white mb-1">5 طلاب  </p>
+                            <p class="text-white mb-1"> طلاب  {{ $course->SubscriptionCount}} </p>
                             <p class="text-white mb-0">يتابعون هذه الدورة </p>
                         </div>
                     </div>
@@ -56,10 +56,10 @@
                     </div>
                     <div class="date text-center">
                         <i class="fa fa-calendar" style="color: #374957;"></i>
-                        <span class="fw-bold mx-2">12 سبتمبر , 2023</span>
+                        <span class="fw-bold mx-2">{{ $course->start_date  }}</span>
                     </div>
                     <div class="d-flex justify-content-center mb-3">
-                        <a href="course-cart.html" class="btn secondary-bg text-white mt-4 px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
+                        <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                     </div>
                     
                     <div class="form-check d-flex justify-content-center p-0" style="font-size: 14px;">
@@ -598,7 +598,7 @@
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> 80 ساعة </span></p>
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span>مستوى متقدم </span></p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="course-cart.html" class="btn secondary-bg text-white px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
+                                <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                             </div>
                         </div>
                     </div>
@@ -607,10 +607,9 @@
                     <div class="shadow-sm border my-4 p-4 py-5 d-flex flex-column align-items-center" style="border-radius: 24px;">
                         <p class="fw-bold" style="font-size: 18px;">دورات ذات صلة</p>
                         <ul class="">
-                            <li class="py-1"><a href="#" class="text-decoration-none">تطوير تطبيقات الموبايل</a></li>
-                            <li class="py-1"><a href="#" class="text-decoration-none">تطوير الويب</a></li>
-                            <li class="py-1"><a href="#" class="text-decoration-none">طب</a></li>
-                            <li class="py-1"><a href="#" class="text-decoration-none">تنمية بشرية</a></li>
+                            @foreach($related_courses as $item)
+                            <li class="py-1"><a href="{{url('course/'.$item->id)}}" class="text-decoration-none">  {{ $item->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

@@ -83,7 +83,9 @@ class LevelController extends Controller
        $level->update($request->all());
     
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.levels.index');    }
+        return redirect("admin/courses/$course_id/levels");
+    
+    }
 
     public function destroy (Request $request ,$course_id)
     {

@@ -6,8 +6,22 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-    @include('admin.layouts.inc.breadcrumb')
+    @if( app()->getLocale() == 'ar')
+<style>
+  .breadcrumb-item+.breadcrumb-item::before {
+    float: right;
+    padding-left: var(--tblr-breadcrumb-item-padding-x);
+}
+</style>
+@endif
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  $course->name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
+  </ol>
+</nav> 
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">

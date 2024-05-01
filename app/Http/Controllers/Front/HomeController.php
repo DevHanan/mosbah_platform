@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\Cors;
 use App\Models\AboutSetting;
 use App\Models\Course;
 use App\Models\Partener;
@@ -59,7 +60,8 @@ class HomeController extends Controller
     public function course($id)
     {
         $course = Course::find($id);
-        return view('front.course',compact('course'));
+        $related_courses = Course::where('track_id',$course->track_id)->get();
+        return view('front.course',compact('course','related_courses'));
     }
     public function signin()
     {
@@ -69,9 +71,10 @@ class HomeController extends Controller
     {
         return view('front.signup');
     }
-    public function cart()
+    public function cart($id)
     {
-        return view('front.course_cart');
+        $course = Course::find($id);
+        return view('front.course_cart',compact('course'));
     }
 
     public function Questions()

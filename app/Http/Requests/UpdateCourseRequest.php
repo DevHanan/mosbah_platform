@@ -25,8 +25,7 @@ class UpdateCourseRequest extends FormRequest
         return [
             'id' => 'required|exists:courses,id',
             'name' => [
-                'required',
-                Rule::unique('courses', 'name')->ignore($this->id)
+                'required'
             ],
             'price' => 'required',
             'course_type_id' => 'required|exists:course_types,id',

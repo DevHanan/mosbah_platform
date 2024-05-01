@@ -53,7 +53,7 @@ Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
-Route::get('/cart', [HomeController::class, 'cart']);
+Route::get('/cart/{id}', [HomeController::class, 'cart']);
 Route::get('/sign_step1', [HomeController::class, 'signstep1']);
 Route::get('/sign_step2', [HomeController::class, 'signstep2']);
 Route::get('/sign_step3', [HomeController::class, 'signstep3']);
@@ -99,10 +99,7 @@ Route::group(
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
             Route::resource('courses.levels', LevelController::class);
-            Route::resource('courses.levels.lectures', LectureController::class);
-
-
-
+            Route::resource('levels.lectures', LectureController::class);
 
             Route::resource('certifications', CertificationController::class);
             Route::get('students-certifications', [CertificationController::class, 'studentCertificate']);

@@ -6,22 +6,30 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-      <div class="col">
-        <!-- Page pre-title -->
-        <div class="page-pretitle">
-          Overview
-        </div>
-        <h2 class="page-title">
-          Combo layout
-        </h2>
-      </div>
+    @if( app()->getLocale() == 'ar')
+<style>
+  .breadcrumb-item+.breadcrumb-item::before {
+    float: right;
+    padding-left: var(--tblr-breadcrumb-item-padding-x);
+}
+</style>
+@endif
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  optional($level->course)->name }}</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/admin/courses/'.optional($level->course)->id.'/levels')}}">{{ $level->name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
+  </ol>
+</nav>  
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
           <div class="card-header">
             <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+              <a href="{{ route($route.'.index',$level->id) }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>
@@ -36,29 +44,14 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card" novalidate action="{{ route($route.'.store',$level->id) }}" method="post" enctype="multipart/form-data">
           @csrf
 
 
           <div class="card-body">
             <div class="row ">
               <div class="col-md-6">
-                <div class="mb-3">
-                  <label class="form-label" for="course_id">{{ __('admin.lectures.course') }} <span>*</span></label>
-                  <select class="form-control" name="course_id" id="course_id" required>
-                    <option value="">{{ __('select') }}</option>
-                    @foreach($courses as $course)
-                    <option value="{{ $course->id }}"> {{ $course->name }}</option>
-
-                    @endforeach
-                  </select>
-
-                  @error('course_id')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
+             
                 <div class="mb-3">
                   <label class="form-label" for="title"> {{ __('admin.lectures.field_title') }} <span>*</span></label>
                   <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
@@ -74,22 +67,8 @@
               </div>
               <div class="col-md-6">
 
-                <div class="mb-3">
-                  <label class="form-label" for="level_id">{{ __('admin.lectures.level') }} <span>*</span></label>
-                  <select class="form-control" name="level_id" id="level_id" required>
-                    <option value="">{{ __('select') }}</option>
-                    @foreach($levels as $level)
-                    <option value="{{ $level->id }}"> {{ $level->name }}</option>
-
-                    @endforeach
-                  </select>
-
-                  @error('level_id')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
+<input type="hidden" value="{{ $level->id}}" name="level_id" >            
+<input type="hidden" value="{{ optional($level->course)->id}}" name="course_id" >            
 
                 <div class="mb-3">
                   <label class="form-label" for="type">{{ __('admin.lectures.type') }} <span>*</span></label>

@@ -114,22 +114,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3">
-                  <label class="form-label" for="level_id">{{ __('admin.courses.level') }} <span>*</span></label>
-                  <select class="form-control" name="level_id" id="level_id" required>
-                    <option value="">{{ __('select') }}</option>
-                    @foreach($levels as $level)
-                    <option value="{{ $level->id }}" @if($row->level_id == $level->id ) selected @endif> {{ $level->name }}</option>
-
-                    @endforeach
-                  </select>
-
-                  @error('level_id')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
+               
 
               </div>
               <div class="col-md-6">

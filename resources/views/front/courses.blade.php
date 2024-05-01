@@ -51,7 +51,7 @@
                                 <input class="form-check-input" type="checkbox" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif id="">
                                 <label for="img-videos" class="d-flex">
                                     <p class="m-0 mx-2"> {{ $track->name }}</p>
-                                    <span>(25)</span>
+                                    <span>( {{$track->courseCount }})</span>
                                 </label>
                             </li>
                             @endforeach
@@ -287,7 +287,7 @@
                                             </a>
                                             <div class="name primary-color fw-bold mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }} </div>
                                             <div class="rating d-flex justify-content-end">
-                                                <span class="mx-3">(102)</span>
+                                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
                                                 <img src="public/front/img/grayStar.svg" alt="">
                                                 <img src="public/front/img/Star.svg" alt="">
@@ -361,7 +361,7 @@
                                 </a>
                                 <div class="name primary-color mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }} </div>
                                 <div class="rating d-flex justify-content-end">
-                                    <span class="mx-3">(102)</span>
+                                    <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
                                     <img src="public/front/img/grayStar.svg" alt="">
                                     <img src="public/front/img/Star.svg" alt="">

@@ -76,6 +76,21 @@ return [
         'day' => 'يوم',
         'hour' => 'ساعه'
     ],
+    "lectures" =>[
+        'title' => 'المحاضرات',
+        'add' => 'إضافة محاضره',
+        'edit' => 'تعديل محاضره',
+        'field_title'  => "العنوان",
+        'status' => 'الحالة',
+        'actions' => 'الحدث',
+        'course' => 'الدورة',
+        'level' => 'المستوى',
+        'descriptions' => 'الوصف',
+        'short_description' => 'الوصف المختصر',
+        'type' => 'النوع',
+        'viedo' => 'فيديو',
+        'metting' => 'اجتماع'
+    ],
     "paymenttypes" => [
         "title" => "عرض أنواع الدفع",
         "name"  => "الإسم",

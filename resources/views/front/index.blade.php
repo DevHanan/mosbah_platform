@@ -101,7 +101,7 @@
                             </a>
                             <div class="name primary-color mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }}</div>
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">(102)</span>
+                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
                                 <img src="public/front/img/grayStar.svg" alt="">
                                 <img src="public/front/img/Star.svg" alt="">
@@ -232,7 +232,7 @@
                             </a>
                             <div class="name primary-color mb-2" style="font-size: 14px;"> {{ optional($course->instructor)->name }}</div>
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">(102)</span>
+                                <span class="mx-3"> ({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
                                 <img src="public/front/img/grayStar.svg" alt="">
                                 <img src="public/front/img/Star.svg" alt="">

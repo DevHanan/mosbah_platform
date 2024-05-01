@@ -7,16 +7,22 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        @include('admin.layouts.inc.breadcrumb')
-        <!-- Page pre-title
-                <div class="page-pretitle">
-                    {{ $setting->title }}
-                </div>
-                <h2 class="page-title">
-                    @if(isset($title))
-                    {{ $title }}
-                    @endif
-                </h2> -->
+      @if( app()->getLocale() == 'ar')
+<style>
+  .breadcrumb-item+.breadcrumb-item::before {
+    float: right;
+    padding-left: var(--tblr-breadcrumb-item-padding-x);
+}
+</style>
+@endif
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  $course->name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
+  </ol>
+</nav>  
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
@@ -110,11 +116,11 @@
                     <a href="{{ route($route.'.edit',[$course->id,$row->id]) }}" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
-
-                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    @include('admin.layouts.inc.delete')
+                   
+                    <a href="{{ url('admin/levels/'.$row->id.'/lectures') }}" class="btn btn-icon btn-primary btn-sm">
+                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                    </a>
+                   
                   </td>
                 </tr>
                 @endforeach

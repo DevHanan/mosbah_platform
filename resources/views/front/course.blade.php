@@ -150,11 +150,12 @@
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec1" aria-expanded="true" aria-controls="stage1_lec1">
+                                        <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec{{$lecture->id}}
+                                        " aria-expanded="true" aria-controls="stage1_lec1">
                                         <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt="">  {{ $lecture->title }}
                                         </button>
                                         </h2>
-                                        <div id="stage1_lec1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">
+                                        <div id="stage1_lec{{$lecture->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">
                                             <div class="accordion-body">
                                                 <p>
 {{
@@ -166,7 +167,7 @@
                                                         <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
                                                     </div>
                                                     <div class="mt-2">
-                                                        <a href="#" class="btn secondary-bg px-3 text-white">اذهب الي المحاضرة</button>
+                                                        <button class="btn secondary-bg px-3 text-white">اذهب الي الدورة</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -499,9 +500,9 @@
 
                         <!-- <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div> -->
                         <div class="info mt-3 px-4">
-                            <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> 24 محاضرة</span></p>
-                            <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt=""> <span> $ 120 </span></p>
-                            <p> <img src="{{ asset('public/front/img/icons/fi-rr-user.svg')}}" class="ms-2" width="20" alt=""> <span> 146 طلاب مشتركين</span></p>
+                            <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $coure->lectures()->count()}} محاضرة</span></p>
+                            <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt=""> <span> $ {{ $course->price }} </span></p>
+                            <p> <img src="{{ asset('public/front/img/icons/fi-rr-user.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $coure->SubscriptionCount}} طلاب مشتركين</span></p>
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> 200 سعة مقاعد</span></p>
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> 80 ساعة </span></p>
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span>مستوى متقدم </span></p>

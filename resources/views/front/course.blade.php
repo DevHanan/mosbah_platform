@@ -151,7 +151,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec1" aria-expanded="true" aria-controls="stage1_lec1">
-                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt="">  {{ $lecture->name }}
+                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt="">  {{ $lecture->title }}
                                         </button>
                                         </h2>
                                         <div id="stage1_lec1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">

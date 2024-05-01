@@ -20,14 +20,14 @@
                                 <div class="d-flex mb-1">
                                     <input type="radio" name="pay_method" value="a"  id="paypal" onclick="showForm('paypalForm')">
                                     <label for="paypal" class="p-2 rounded shadow-sm py-2 px-4 me-2 ">
-                                        <img src="public/front/img/icons/paypal.png" alt="">
+                                        <img src="{{asset('public/front/img/icons/paypal.png')}}" alt="">
                                     </label>
                                 </div>
         
                                 <div class="d-flex">
                                     <input type="radio" name="pay_method" value="a"  id="yandex" onclick="showForm('cashForm')">
                                     <label for="yandex" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center">
-                                        <img src="public/front/img/icons/Yandex.png" alt="">
+                                        <img src="{{asset('public/front/img/icons/Yandex.png')}}" alt="">
                                         <p style="font-size: 10px;" class="m-0 secondary-color">موبايل كاش</p>
                                     </label>
                                 </div>
@@ -35,7 +35,7 @@
                                 <div class="d-flex mb-1">
                                     <input type="radio" name="pay_method" value="a"  id="external" onclick="showForm('externalForm')">
                                     <label for="external" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center" style="cursor: pointer;">
-                                        <img src="public/front/img/icons/add-square.png" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
+                                        <img src="{{asset('public/front/img/icons/add-square.png')}}" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
                                     </label>
                                 </div>
                             </div>

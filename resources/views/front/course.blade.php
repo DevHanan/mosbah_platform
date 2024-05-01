@@ -322,31 +322,19 @@
                 </div>
 
                 <div class="tab-pane fade" id="navs-justified-about" role="tabpanel">
-                    <h3 class="primary-color fw-bold">المحاسبة مالية</h3>
+                    <h3 class="primary-color fw-bold"> {{ $course->name }}</h3>
                     <p class="my-4">
-                        لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-                        أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-                        أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-                    <br>    أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-                        أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
+                        {{ $course->description }}
                     </p>
 
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="title primary-color fw-bold mb-4">اهدف الدورة</div>
-                            <ul>
-                                <li>تعليم مبادئ المحاسبة المالية</li>
-                                <li>اعداد قوائم مالية</li>
-                                <li>اعداد ميزانية لأي مؤسسة</li>
-                                <li>حساب ارباح وخسارة أي مؤسسة</li>
-                            </ul>
+                            {{ $course->goals }}
                         </div>
                         <div class="col-lg-6">
                             <div class="title primary-color fw-bold mb-4">الدورة موجهة الي :</div>
-                            <ul>
-                                <li>طلاب الجامعات بكليات التجارة</li>
-                                <li>موظفي المؤسسات التجارية</li>
-                            </ul>
+                            {{ $course->directedTo }}
                         </div>
                     </div>
                 </div>
@@ -356,20 +344,18 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="person d-flex align-items-center">
                                 <div class="img"><img src="{{ asset('public/front/img/user4.png')}}" alt=""></div>
-                                <p class="fw-bold mx-3">علي احمد</p>
+                                <p class="fw-bold mx-3"> {{ optional($course->instructor)->name  }}</p>
                             </div>
                             <div class="rating d-flex">
                                 <div><img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" width="20" alt=""></div>
                                 <div class="mx-2 fw-bold">
-                                    15 دورة
-                                </div>
+                                {{ optional($course->instructor)->courseNumer  }}
+                                                            </div>
                             </div>
                         </div>
                         <div class="opinion my-3">
-                            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-                            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-                            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
-                        </div>
+                        {{ optional($course->instructor)->about_teacher  }}
+                                            </div>
                         <div class="rating d-flex justify-content-end align-items-center"> 
                             <!-- <div class="fw-bold">تقييم عام </div> -->
                             <div class="mx-2 fw-bold">4.5 </div>

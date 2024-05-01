@@ -140,7 +140,7 @@
                                     <label for="visaType1" class="shadow-sm rounded p-2 px-3">
                                         <div class="row">
                                             <div class="col-4">
-                                                <div class="img"><img src=" {{asset('public/front/img/icons/visa-logo.png')}}" alt=""></div>
+                                                <div class="img"><img src="{{asset('public/front/img/icons/visa-logo.png')}}" alt=""></div>
                                             </div>
                                             <div class="col-8">
                                                 <p class="fw-bold mb-0"> 1234 ****</p>

@@ -134,7 +134,7 @@
                     <div class="accordion mb-4" id="accordion{{$level->id}}">
                         <div class="accordion-item border-0 shadow-sm">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button pb-0 d-block bg-transparent border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#dataTab{{$level->id}}" aria-expanded="true" aria-controls="dataTab{{$level->id}}">
+                                <button class="accordion-button pb-0 d-block bg-transparent border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#dataTab" aria-expanded="true" aria-controls="dataTab">
                                     <div class="d-flex justify-content-between flex-wrap mb-2">
                                         <p>   {{ $level->name }} </p>
                                         <div class="d-flex flex-wrap">
@@ -146,7 +146,7 @@
                             </h2>
 
                             @foreach($level->lectures as $lecture)
-                            <div id="dataTab{{$lecture->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
+                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">

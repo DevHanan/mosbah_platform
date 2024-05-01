@@ -271,7 +271,7 @@
                                     <div class="d-flex justify-content-around" style="font-size: 14px;">
                                         <p> <i class="fa-solid fa-graduation-cap ms-1"></i> مبتدئ</p>
                                         <p> <i class="fa-regular fa-clock ms-1"></i> 40 ساعة</p>
-                                        <p> <i class="fa-solid fa-laptop ms-1"></i> 15 محاضرة</p>
+                                        <p> <i class="fa-solid fa-laptop ms-1"></i> {{ $course->lectures()->count()}} محاضرة</p>
                                     </div>
                                 </div>
                             </div>

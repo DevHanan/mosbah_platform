@@ -145,6 +145,7 @@
                                 </button>
                             </h2>
 
+                            @foreach($level->lectures as $lecture)
                             <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
                                 <div class="accordion-body">
                                     <div class="accordion-item">
@@ -172,8 +173,9 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            @endforeach
+<!-- 
+                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingtwo">
@@ -200,7 +202,7 @@
                                 </div>
                             </div>
 
-                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
@@ -228,7 +230,7 @@
                                 </div>
                             </div>
 
-                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingtwo">
@@ -255,7 +257,7 @@
                                 </div>
                             </div>
 
-                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$level->id}}">
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingtwo">
@@ -280,7 +282,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>

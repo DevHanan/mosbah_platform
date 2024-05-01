@@ -166,7 +166,7 @@
                                                         <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
                                                     </div>
                                                     <div class="mt-2">
-                                                        <button class="btn secondary-bg px-3 text-white">اذهب الي الدورة</button>
+                                                        <a href="#" class="btn secondary-bg px-3 text-white">اذهب الي المحاضرة</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -66,7 +66,7 @@ class HomeController extends Controller
 
     public function lecture($id)
     {
-        $lecturw = Lecture::find($id);
+        $lecture = Lecture::find($id);
         return view('front.course',compact('lecture'));
     }
     public function signin()

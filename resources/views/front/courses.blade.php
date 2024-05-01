@@ -280,7 +280,7 @@
                                     </div>
                                     <div class="col-12 paginationCardData">
                                         <div class="card__data p-3 pt-1">
-                                            <a href="pages/{{ url('course/'.$course->id)}}" class="text-decoration-none text-dark">
+                                            <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none text-dark">
                                                 <p class="card__description my-1">
                                                             {{ $course->name }}
                                             </p>

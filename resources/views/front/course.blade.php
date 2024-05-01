@@ -151,14 +151,15 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec1" aria-expanded="true" aria-controls="stage1_lec1">
-                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> المحاضرة الاولى
+                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt="">  {{ $lecture->name }}
                                         </button>
                                         </h2>
                                         <div id="stage1_lec1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">
                                             <div class="accordion-body">
                                                 <p>
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
-                                                </p>                                          
+{{
+    $lecture->short_description
+}}                                                </p>                                          
                                                 <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
                                                     <div class="d-flex flex-wrap mt-2">
                                                         <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>

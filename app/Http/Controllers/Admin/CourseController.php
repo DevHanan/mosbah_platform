@@ -75,7 +75,7 @@ class CourseController extends Controller
 
     }
 
-    public function store(CourseRequest $request)
+    public function store(Request $request)
     {
         $course = Course::create($request->except(['image', 'background_image']));
         if ($request->hasFile('image')) {
@@ -125,7 +125,7 @@ class CourseController extends Controller
       return view($this->view.'.edit', $data);
 
     }
-    public function update(UpdateCourseRequest $request)
+    public function update(Request $request)
     {
         $course = Course::find($request->id);
         $course->update($request->except(['image', 'background_image']));

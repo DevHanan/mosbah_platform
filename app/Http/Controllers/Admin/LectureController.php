@@ -37,7 +37,7 @@ class LectureController extends Controller
         $data['rows'] = Lecture::where(function($q)use($request){
             if ($request->title)
             $q->Where('title', 'like', '%' . $request->title  . '%');
-        })->paginate(10);
+        })->where('level_id',$level_id)->paginate(10);
         $data['level'] = Level::find($level_id);
         return view($this->view.'.index', $data);
     }

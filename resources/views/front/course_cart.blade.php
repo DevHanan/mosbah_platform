@@ -92,7 +92,7 @@
                             <div class="d-flex justify-content-center">
                                 <div class="p-2" style="background-color: rgb(232, 232, 232);">
                                     <a href="#" class="btn px-5 d-flex justify-content-center align-items-center" style="height: 50px;;background-color: rgb(241, 185, 44);">
-                                        <img src="public/front/img/icons/paypal.svg" class="img-fluid" alt=""> Pay with 
+                                        <img src="{{asset('public/front/img/icons/paypal.svg')}}" class="img-fluid" alt=""> Pay with 
                                     </a>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                     <label for="visaType1" class="shadow-sm rounded p-2 px-3">
                                         <div class="row">
                                             <div class="col-4">
-                                                <div class="img"><img src="public/front/img/icons/visa-logo.png" alt=""></div>
+                                                <div class="img"><img src="{{asset('public/front/img/icons/visa-logo.png')}}" alt=""></div>
                                             </div>
                                             <div class="col-8">
                                                 <p class="fw-bold mb-0"> 1234 ****</p>
@@ -156,7 +156,7 @@
                                     <label for="visaType2" class="shadow-sm rounded p-2 px-3">
                                         <div class="row">
                                             <div class="col-4">
-                                                <div class="img"><img src="public/front/img/icons/visa-logo.png" alt=""></div>
+                                                <div class="img"><img src="{{asset('public/front/img/icons/visa-logo.png')}}" alt=""></div>
                                             </div>
                                             <div class="col-8">
                                                 <p class="fw-bold mb-0"> 1234 ****</p>
@@ -168,7 +168,7 @@
 
                                 <div class="position-relative my-1">
                                     <button class="btn shadow-sm rounded p-2 px-3 h-100">
-                                        <img src="public/front/img/icons/add-square.png" alt=""> <span class="primary-color" style="font-size: 12px;">اضف بطاقة جديدة </span>
+                                        <img src="{{asset('public/front/img/icons/add-square.png')}}" alt=""> <span class="primary-color" style="font-size: 12px;">اضف بطاقة جديدة </span>
                                     </button>
                                 </div> 
                             </div>
@@ -225,7 +225,7 @@
 
                             <div class="px-5 d-flex flex-column align-items-center">
                                 <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
-                                    <p> اسحب صورة الفاتورة هنا <img src="public/front/img/icons/upload.png" alt=""></p>
+                                    <p> اسحب صورة الفاتورة هنا <img src="{{asset('public/front/img/icons/upload.png')}}" alt=""></p>
                                 </div>
                                 <div class="choose_img position-relative d-flex justify-content-center my-3">
                                     <input type="file" class="position-absolute" id="fileInput">
@@ -259,12 +259,12 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-6">
                             <div class="course_content shadow-sm my-4 p-2">
-                                <div class="img"><img src="public/front/img/course-img.png" class="img-fluid w-100" alt=""></div>
+                                <div class="img"><img src="{{asset('public/front/img/course-img.png')}}" class="img-fluid w-100" alt=""></div>
                                 <div class="info mt-4 px-4">
                                     <p class="course_title mb-0 fw-bold">برمجة وتطوير مواقع</p>
                                     <p class="secondary-color" style="font-size: 14px;">البرمجة</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="img"><img src="public/front/img/user4.png" alt=""></div>
+                                        <div class="img"><img src="{{asset('public/front/img/user4.png')}}" alt=""></div>
                                         <p class="mx-2 fw-bold">علاء سلامة</p>
                                     </div>
                                     <hr>

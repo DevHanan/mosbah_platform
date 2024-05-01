@@ -131,7 +131,7 @@
                   
                     <!-- المرحلة الاولي -->
                     @foreach($course->levels as $level)
-                    <div class="accordion mb-4" id="accordion_$level->id">
+                    <div class="accordion mb-4" id="accordion".{{$level->id}}>
                         <div class="accordion-item border-0 shadow-sm">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button pb-0 d-block bg-transparent border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#dataTab" aria-expanded="true" aria-controls="dataTab">
@@ -145,7 +145,7 @@
                                 </button>
                             </h2>
 
-                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion_$level->id">
+                            <div id="dataTab" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion".{{$level->id}}>
                                 <div class="accordion-body">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">

@@ -52,4 +52,14 @@ class Course extends Model
     {
         return $this->hasMany(Subscription::class);
     }
+
+    public function levels()
+    {
+        return $this->hasMany(Level::class);
+    }
+
+    public function lectures()
+    {
+        return $this->hasMany(Lecture::class);
+    }
 }

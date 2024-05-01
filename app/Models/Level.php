@@ -23,4 +23,9 @@ class Level extends Model
         return $this->belongsTo(Course::class);
     }
 
+    public function lectures()
+    {
+        return $this->hasMany(Lecture::class);
+    }
+
 }

@@ -104,7 +104,7 @@
                 <div class="tab-pane fade show active" id="navs-justified-content" role="tabpanel">
 
                     <!-- اختبار بداية الدورة -->
-                    <div class="accordion mb-4" id="course_start_exam">
+                    <!-- <div class="accordion mb-4" id="course_start_exam">
                         <div class="accordion-item">
                           <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
@@ -127,17 +127,18 @@
                             </div>
                           </div>
                         </div>
-                    </div>
+                    </div> -->
                   
                     <!-- المرحلة الاولي -->
+                    @foreach($course->levels as $level)
                     <div class="accordion mb-4" id="accordion1">
                         <div class="accordion-item border-0 shadow-sm">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button pb-0 d-block bg-transparent border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#dataTab" aria-expanded="true" aria-controls="dataTab">
                                     <div class="d-flex justify-content-between flex-wrap mb-2">
-                                        <p> المرحلة الاولي : مبادئ المحاسبة المالية</p>
+                                        <p>   {{ $level->name }} </p>
                                         <div class="d-flex flex-wrap">
-                                            <div class="parts">5 محاضرات</div>
+                                            <div class="parts"> {{ $level->lectures()->count()}} </div>
                                             <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 10 ساعات </div>
                                         </div>
                                     </div>
@@ -283,109 +284,13 @@
 
                         </div>
                     </div>
+                    @endforeach
 
                     <!-- المرحلة الثانية -->
-                    <div class="accordion mb-4" id="accordion2">
-                        <div class="accordion-item border-0 shadow-sm">
-                            <h2 class="accordion-header" id="heading2">
-                                <button class="accordion-button pb-0 d-block bg-transparent border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#dataTab2" aria-expanded="true" aria-controls="dataTab2">
-                                    <div class="d-flex justify-content-between flex-wrap mb-2">
-                                        <p> المرحلة الثانية : مبادئ المحاسبة المالية</p>
-                                        <div class="d-flex flex-wrap">
-                                            <div class="parts">5 محاضرات</div>
-                                            <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 10 ساعات </div>
-                                        </div>
-                                    </div>
-                                </button>
-                            </h2>
-
-                            <div id="dataTab2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion2">
-                                <div class="accordion-body">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="heading2">
-                                        <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage2_lec1" aria-expanded="true" aria-controls="stage2_lec1">
-                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> المحاضرة الاولى
-                                        </button>
-                                        </h2>
-                                        <div id="stage2_lec1" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#data_body">
-                                            <div class="accordion-body">
-                                                <p>
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
-                                                </p>                                          
-                                                <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
-                                                    <div class="d-flex flex-wrap mt-2">
-                                                        <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
-                                                        <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <button class="btn secondary-bg px-3 text-white">اذهب الي الدورة</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="dataTab2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion2">
-                                <div class="accordion-body">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingtwo">
-                                            <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage2_lec1_exam" aria-expanded="true" aria-controls="stage2_lec1_exam">
-                                                <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt=""> اختبار المحاضرة الاولى
-                                            </button>
-                                        </h2>
-                                        <div id="stage2_lec1_exam" class="accordion-collapse collapse" aria-labelledby="headingtwo" data-bs-parent="#data_body">
-                                            <div class="accordion-body">
-                                                <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                                    <div class="my-2">المحاولات : <span>0/3</span></div>
-                                                    <div class="my-2">درجات الاجتياز : <span>70/100</span></div>
-                                                    <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
-                                                    <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
-                                                </div>                                            
-                                                <div class="d-flex flex-wrap justify-content-end mt-2">
-                                                    <div class="mt-2">
-                                                        <button class="btn secondary-bg px-3 text-white">ابدء الأختبار</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="dataTab2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion2">
-                                <div class="accordion-body">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingtwo">
-                                            <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage2_exam" aria-expanded="true" aria-controls="stage2_exam">
-                                                <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt=""> اختبار نهاية المرحلة 
-                                            </button>
-                                        </h2>
-                                        <div id="stage2_exam" class="accordion-collapse collapse" aria-labelledby="headingtwo" data-bs-parent="#data_body">
-                                            <div class="accordion-body">
-                                                <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                                    <div class="my-2">المحاولات : <span>0/3</span></div>
-                                                    <div class="my-2">درجات الاجتياز : <span>70/100</span></div>
-                                                    <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
-                                                    <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
-                                                </div>                                            
-                                                <div class="d-flex flex-wrap justify-content-end mt-2">
-                                                    <div class="mt-2">
-                                                        <button class="btn secondary-bg px-3 text-white">ابدء الأختبار</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-            
-                        </div>
-                    </div>
+                   
 
                     <!-- اختبار نهاية الدورة -->
-                    <div class="accordion mb-4" id="course_end_exam">
+                    <!-- <div class="accordion mb-4" id="course_end_exam">
                         <div class="accordion-item">
                           <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#end_exam" aria-expanded="true" aria-controls="end_exam">
@@ -408,7 +313,7 @@
                             </div>
                           </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 

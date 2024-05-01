@@ -21,8 +21,8 @@
                         </div>
 
                         <div class="lec-desc">
-                            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
-                        </div>
+                                    {{ $lecture->description }}
+                    </div>
                     </div>
 
                     <div class="col-lg-4 left-class">
@@ -30,9 +30,9 @@
                             <div class="col-lg-12 col-md-6">
                                 <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
                                     <div class="info mt-3 px-4">
-                                        <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span>  الدورة التابعة لها                                    </span></p>
-                                        <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> المرحلة التابعة لها                                 </span></p>
-                                        <p> <img src="../img/icons/fi-rr-calendar.png" class="ms-2" width="20" alt=""> <span> 25/04/2024 </span></p>
+                                        <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span>  الدورة  : {{ optional($lecture->course)->name }}                                    </span></p>
+                                        <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> المرحلة  :     {{ optional($lecture->level)->name }}                             </span></p>
+                                        <p> <img src="../img/icons/fi-rr-calendar.png" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at }}  </span></p>
                                         <p> <img src="../img/icons/fi-rr-time-quarter-to.svg" class="ms-2" width="20" alt=""> <span> 2 ساعة </span></p>
                                         <p> <img src="../img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> نوع المحاضرة : فيدبو مسجلة / ميتنج مباشر / حضور من المقر </span></p>
                                     </div>

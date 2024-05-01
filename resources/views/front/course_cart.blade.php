@@ -251,7 +251,7 @@
                         </div>
                         <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
                     </form>
-                    <p class="text-center">من خلال إكمال عملية الشراء ، فإنك توافق على <a href="#" class="text-decoration-none secondary-color">شروط الخدمة</a> هذه.</p>
+                    <p class="text-center">من خلال إكمال عملية الشراء ، فإنك توافق على <a href="{{url('/policies')}}" class="text-decoration-none secondary-color">شروط الخدمة</a> هذه.</p>
                 </div>
 
                 <div class="col-lg-4 left-class">
@@ -261,11 +261,11 @@
                             <div class="course_content shadow-sm my-4 p-2">
                                 <div class="img"><img src="{{asset('public/front/img/course-img.png')}}" class="img-fluid w-100" alt=""></div>
                                 <div class="info mt-4 px-4">
-                                    <p class="course_title mb-0 fw-bold">برمجة وتطوير مواقع</p>
-                                    <p class="secondary-color" style="font-size: 14px;">البرمجة</p>
+                                    <p class="course_title mb-0 fw-bold"> {{ $course->name }}</p>
+                                    <p class="secondary-color" style="font-size: 14px;">{{ optional($course->track)->name }}</p>
                                     <div class="d-flex align-items-center">
                                         <div class="img"><img src="{{asset('public/front/img/user4.png')}}" alt=""></div>
-                                        <p class="mx-2 fw-bold">علاء سلامة</p>
+                                        <p class="mx-2 fw-bold"> {{ optional($course->instructor)->name }}</p>
                                     </div>
                                     <hr>
                                     <div class="d-flex justify-content-around" style="font-size: 14px;">
@@ -284,7 +284,7 @@
                                             <p class="fw-bold">السعر الاساسي :</p>
                                         </div>
                                         <div class="col-5">
-                                            <p class="mx-3 fw-bold">$ 210 </p>
+                                            <p class="mx-3 fw-bold">$ {{ $course->price }} </p>
                                         </div>
                                     </div>
                                     <p class="fw-bold">كوبون خصم</p>

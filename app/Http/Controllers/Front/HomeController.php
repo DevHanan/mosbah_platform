@@ -7,7 +7,7 @@ use App\Models\AboutSetting;
 use App\Models\Course;
 use App\Models\Partener;
 use App\Models\Team;
-use App\Models\Setting;
+use App\Models\Lecture;
 
 class HomeController extends Controller
 {
@@ -62,6 +62,12 @@ class HomeController extends Controller
         $course = Course::find($id);
         $related_courses = Course::where('track_id',$course->track_id)->get();
         return view('front.course',compact('course','related_courses'));
+    }
+
+    public function lecture($id)
+    {
+        $lecturw = Lecture::find($id);
+        return view('front.course',compact('lecture'));
     }
     public function signin()
     {

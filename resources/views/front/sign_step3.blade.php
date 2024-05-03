@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dwafeer</title>
-    <link rel="stylesheet" href="PUBLIC/FRONT/css/bootstrap.min.css">
+    <title>  @if(isset($title))
+  {{ $title }} -
+  @endif
+  {{ $setting->title }}</title>
+  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">    <link rel="stylesheet" href="PUBLIC/FRONT/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
   referrerpolicy="no-referrer" />
 

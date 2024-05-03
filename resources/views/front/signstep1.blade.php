@@ -44,6 +44,7 @@
                     <h1>تسجيل حساب مدرب!</h1>
                     <p class="mt-3 mb-5">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
                     <form action="{{url('sign_step1')}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-6"></div>
                         </div>
@@ -56,7 +57,7 @@
                         <input type="password"  name="password" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
 
                         <label for="" class="my-3"> تأكيد كلمة المرور</label>
-                        <input type="password_confirmation"  required name="password_confirmation" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                        <input type="password"  required name="password_confirmation" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
 
                         <div class="form-check d-flex">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>

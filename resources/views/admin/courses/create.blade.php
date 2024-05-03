@@ -112,7 +112,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
-                  <select class="form-control" name="track_id" id="track_id" required>
+                  <select class="select2 form-control" name="track_id" id="track_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}"> {{ $track->name }}</option>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
-                  <select class="form-control" name="instructor_id" id="instructor_id" required>
+                  <select class="select2 form-control" name="instructor_id" id="instructor_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($instructors as $instructor)
                     <option value="{{ $instructor->id }}"> {{ $instructor->name }}</option>
@@ -184,7 +184,7 @@
                 <div class="form-group col-md-12">
                   <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                   <div>
-                    <select class="form-control" name="active" id="active" required>
+                    <select class="select2 form-control" name="active" id="active" required>
                       <option value="">{{ __('select') }}</option>
                       <option value="1"> {{ __('admin.active')}}</option>
                       <option value="0"> {{ __('admin.inactive')}}</option>
@@ -198,7 +198,7 @@
                 <div class="form-group col-md-12">
                   <label class="form-label" for="recommend" class="form-label">{{ __('admin.select_recommend') }}</label>
                   <div>
-                    <select class="form-control" name="recommend" id="recommend" required>
+                    <select class="select2 form-control" name="recommend" id="recommend" required>
                       <option value="">{{ __('select') }}</option>
                       <option value="1"> {{ __('admin.recommend')}}</option>
                       <option value="0"> {{ __('admin.inrecommend')}}</option>

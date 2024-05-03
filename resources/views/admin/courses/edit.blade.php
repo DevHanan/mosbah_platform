@@ -31,7 +31,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="course_type_id">{{ __('admin.courses.course_type') }} <span>*</span></label>
-                  <select class="form-control" name="course_type_id" id="course_type_id" required>
+                  <select class="select2 form-control" name="course_type_id" id="course_type_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($courseTypes as $type)
                     <option value="{{ $type->id }}" @if($row->course_type_id == $type->id ) selected @endif> {{ $type->name }}</option>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
-                  <select class="form-control" name="track_id" id="track_id" required>
+                  <select class="select2 form-control" name="track_id" id="track_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}" @if($row->track_id == $track->id ) selected @endif> {{ $track->name }}</option>
@@ -157,7 +157,7 @@
                 <div class="form-group col-md-12">
                   <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                   <div>
-                    <select class="form-control" name="active" id="active" required>
+                    <select class="select2 form-control" name="active" id="active" required>
                       <option value="">{{ __('select') }}</option>
                       <option value="1" @if($row->active ==1 ) selected @endif> {{ __('admin.active')}}</option>
                       <option value="0" @if($row->active == 0 ) selected @endif>> {{ __('admin.inactive')}}</option>
@@ -198,7 +198,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
-                  <select class="form-control" name="instructor_id" id="instructor_id" required>
+                  <select class="select2 form-control" name="instructor_id" id="instructor_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($instructors as $instructor)
                     <option value="{{ $instructor->id }}"  @if($row->instructor_id == $instructor->id ) selected @endif> {{ $instructor->name }}</option>

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  @if(isset($title))
+   <title>  @if(isset($title))
   {{ $title }} -
   @endif
   {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">    <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">
+      <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -47,12 +48,15 @@
                             <div class="col-lg-6"></div>
                         </div>
                         <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>
-                        <input type="email" class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
+                        <input type="email" name="email" required class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
                         
                         <label for="" class="mb-3"> رقم الهاتف </label>
-                        <input id="phone_number" type="tel" name="phone" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
+                        <input id="phone_number"  name="phone" required  type="tel" name="phone" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
                         <label for="" class="my-3">كلمة مرور*</label>
-                        <input type="password" class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                        <input type="password"  name="password" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+
+                        <label for="" class="my-3"> تأكيد كلمة المرور</label>
+                        <input type="password_confirmation"  required name="password_confirmation" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
 
                         <div class="form-check d-flex">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>

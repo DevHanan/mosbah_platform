@@ -17,7 +17,7 @@
                         <img src="public/front/img/completed-bg.svg" class="position-absolute img-fluid" alt="">
                         <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $setting-> title}} </h4>
                         <div class="content fw-bold text-white">
-                            {!! $setting->rows="4" !!}
+                            {!! $setting->description !!}
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,8 @@
                             </a>
 
                             <div class="card__data p-3">
-                                <p class="card__rows="4" fw-bold text-center m-0 mb-2"> {{ $team->name }} </p>
-                                <p class="card__rows="4" text-center m-0"> {{ $team->job }} </p>
+                                <p class="card__description fw-bold text-center m-0 mb-2"> {{ $team->name }} </p>
+                                <p class="card__description text-center m-0"> {{ $team->job }} </p>
                             </div>
                         </article>
                         @endforeach

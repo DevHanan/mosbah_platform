@@ -165,7 +165,7 @@
                                 <div class="data mb-5">
                                     <img src="{{ asset('public/'.$setting->msg_image1)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title1 }}</h5>
-                                    <p> {{ $setting->msg_desc1 }}</p>
+                                    <p> {!! $setting->msg_desc1 !!}</p>
                                 </div>
                             </div>
 
@@ -173,7 +173,7 @@
                                 <div class="data mb-5">
                                     <img src="{{ asset('public/'.$setting->msg_image2) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title2 }}</h5>
-                                    <p> {{ $setting->msg_desc2 }}</p>
+                                    <p> {!! $setting->msg_desc2 !!}</p>
                                 </div>
                             </div>
 
@@ -181,7 +181,7 @@
                                 <div class="data mb-5">
                                     <img src="{{ asset('public/'.$setting->msg_image3) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title3 }}</h5>
-                                    <p> {{ $setting->msg_desc3 }}</p>
+                                    <p> {!! $setting->msg_desc3 !!}</p>
                                 </div>
                             </div>
 
@@ -189,7 +189,7 @@
                                 <div class="data mb-5">
                                     <img src="{{ asset('public/'.$setting->msg_image4) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
                                     <h5> {{$setting->msg_title4 }}</h5>
-                                    <p> {{ $setting->msg_desc4 }}</p>
+                                    <p> {!! $setting->msg_desc4 !!}</p>
                                 </div>
                             </div>
                         </div>

@@ -70,6 +70,9 @@ Route::post('/sign_step3', [RegisterController::class, 'signstep3']);
 Route::get('/sign-verify', [RegisterController::class, 'signVerify']);
 Route::get('/sign-complete', [RegisterController::class, 'signcomplete']);
 
+Route::post('/signin', [RegisterController::class, 'signin']);
+
+
 Route::get('/questions', [HomeController::class, 'questions']);
 
 

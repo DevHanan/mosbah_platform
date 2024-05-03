@@ -42,19 +42,20 @@
                           <button class="phoneBtn btn w-100 rounded"> <i class="fa-solid fa-phone mx-2"></i> التليفون</button>
                         </div>
                 
-                        <form action="">
+                        <form action="{{url('signin')}}" method="POST">
+                            @csrf
                             <div class="email_feild">
                                 <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>
-                                <input type="email" class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
+                                <input type="email" name="email" class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
                             </div>
 
                             <div class="phone_feild">
                                 <label for="" class="mb-3">التليفون*</label>
-                                <input type="text" class="form-control mb-3 p-3" placeholder="أدخل رقم التليفون">
+                                <input type="text" name="phone" class="form-control mb-3 p-3" placeholder="أدخل رقم التليفون">
                             </div>
 
                             <label for="" class="mb-3">كلمة مرور*</label>
-                            <input type="password" class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                            <input type="password" name="password" class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
     
                             <div class="form-check d-flex">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -63,7 +64,7 @@
                                 </label>
                             </div>
     
-                            <a href="{{url('/')}}" type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل الدخول</a>
+                            <button  type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل الدخول</button>
                         </form>
                         <p class="text-center">او</p>
                         <button class="btn shadow-sm border fw-bold w-100 my-3 py-3">تسجيل الدخول عن طريق جوجل <img src="public/front/img/icons/google.png" class="mx-3" alt=""></button>

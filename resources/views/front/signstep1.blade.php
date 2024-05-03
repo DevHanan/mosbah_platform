@@ -90,8 +90,8 @@
 
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل حساب</a>
                     </form>
-                    <!-- <p class="text-center">او</p> -->
-                    <button ype="submit" class="btn shadow border fw-bold w-100 my-3 py-3">التسجيل عن طريق جوجل <img src="public/front/img/icons/google.png" class="mx-3" alt=""></button>
+                    <p class="text-center">او</p>
+                    <button type="submit" class="btn shadow border fw-bold w-100 my-3 py-3">التسجيل عن طريق جوجل <img src="public/front/img/icons/google.png" class="mx-3" alt=""></button>
                 </div>
             </div>
         </div>

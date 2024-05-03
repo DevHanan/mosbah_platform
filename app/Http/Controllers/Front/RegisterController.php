@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Instructor;
 use Auth;
+use Yoeunes\Toastr\Toastr;
 
 class RegisterController extends Controller
 {
@@ -48,7 +49,7 @@ class RegisterController extends Controller
         $item->save();
         $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
         Auth::guard($guard)->loginUsingId($item->id);
-        toastr.success(__('front.msg_created_successfully'), __('front.msg_success'));
+        toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
         return view('front.sign_step2', compact(['type', 'item']));
     }
 
@@ -74,15 +75,56 @@ class RegisterController extends Controller
                 'qualifications' => $request->qualifications
             ]);
         }
+        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return view('front.sign_step3');
     }
 
 
     public function signstep3(Request $request)
     {
+        if(Auth::guard('students-login')->check()){
+         $directory = 'uploads/students/images';
+         $guard = 'students-login';
+        }else{
+            $directory = 'uploads/instructors/images';
+            $guard = 'instructors-login';
+        }
 
+    if ($request->hasFile('image')) {
+    $attach = 'image';
+    Auth::guard($guard)->user()->photo ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
+    Auth::guard($guard)->user()->save();
+}
 
 
         return view('front.sign-completed');
+    }
+
+
+    public function signin(Request $request)  {
+     if(isset($request->email) && $request->email != null ){
+            $field = 'email';
+            $value = $request->email;
+      } else{
+            $field = 'phone';
+            $value = $request->phone;
+
+      }
+        
+         if(auth()->guard('students-login')->attempt([$field =>$value ,'password' =>$request->password])){ 
+             $client = auth()->guard('students-login')->user();
+           
+             $token = $client->createToken('apiToken')->plainTextToken;
+             $client->api_token = $token;
+             $client->save();
+             toastr()->success(__('front.login_success'), __('front.msg_success'));
+             return view('front.index');
+                } else{
+                    toastr()->error(__('front.login_failed'), __('front.msg_error'));
+                    return view('front.signin');
+ 
+                }
+                
+ 
     }
 }

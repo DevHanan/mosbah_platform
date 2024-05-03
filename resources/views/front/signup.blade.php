@@ -59,7 +59,7 @@
                         </div>
                     </a>
 
-                    <a href="{{url(''sign_step1?type=org')}}" class="text-decoration-none">
+                    <a href="{{url('sign_step1?type=org')}}" class="text-decoration-none">
                         <div class="info d-flex justify-content-between align-items-center shadow-sm border p-4">
                             <div class="d-flex align-items-center">
                                 <div class="polygon d-flex justify-content-center align-items-center"><i class="fa-solid fa-building-columns"></i></div>

@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-8 right-class"> 
                         <div class="position-relative w-100 gallery-item mt-3" style="height: 400px;">
-                            <video id="myVideo" class="w-100 h-100" poster="public/front/img/video-img.png" style="object-fit: cover;">
+                            <video id="myVideo" class="w-100 h-100" poster="public/front/img/video-img.png')}}" style="object-fit: cover;">
                                 <source src="" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -30,11 +30,11 @@
                             <div class="col-lg-12 col-md-6">
                                 <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
                                     <div class="info mt-3 px-4">
-                                        <p> <img src="public/front/img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span>  الدورة  : {{ optional($lecture->course)->name }}                                    </span></p>
-                                        <p> <img src="public/front/img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> المرحلة  :     {{ optional($lecture->level)->name }}                             </span></p>
-                                        <p> <img src="public/front/img/icons/fi-rr-calendar.png" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at }}  </span></p>
-                                        <p> <img src="public/front/img/icons/fi-rr-time-quarter-to.svg" class="ms-2" width="20" alt=""> <span> 2 ساعة </span></p>
-                                        <p> <img src="public/front/img/icons/fi-rr-e-learning.png" class="ms-2" width="20" alt=""> <span> 
+                                        <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span>  الدورة  : {{ optional($lecture->course)->name }}                                    </span></p>
+                                        <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> المرحلة  :     {{ optional($lecture->level)->name }}                             </span></p>
+                                        <p> <img src="{{asset('public/front/img/icons/fi-rr-calendar.png')}}" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at }}  </span></p>
+                                        <p> <img src="{{asset('public/front/img/icons/fi-rr-time-quarter-to.svg" class="ms-2" width="20" alt=""> <span> 2 ساعة </span></p>
+                                        <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> 
                                             نوع المحاضرة :
                                             @if($lecture->type == 1)
                                             {{ __('admin.lectures.viedo')}}
@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-md-5 mb-4">
                                     <div class="position-relative w-100 h-100 gallery-item">
-                                        <img src="public/front/img/Rectangle1585.png" class="w-100 h-100" alt="">
+                                        <img src="{{asset('public/front/img/Rectangle1585.png')}}" class="w-100 h-100" alt="">
                                         <div class="position-absolute event-title bottom-0 w-100" style="background-color: rgb(0 0 0 / 65%);box-shadow: 0 0 10px #00000091;">
                                             <p class="text-white m-3 mx-4">عنوان الصورة</p>
                                         </div>
@@ -80,7 +80,7 @@
 
                                 <div class="col-md-7 mb-4">
                                     <div class="position-relative w-100 h-100 gallery-item">
-                                        <img src="public/front/img/Rectangle1586.png" class="w-100 h-100" alt="">
+                                        <img src="{{asset('public/front/img/Rectangle1586.png')}}" class="w-100 h-100" alt="">
                                         <div class="position-absolute event-title bottom-0 w-100" style="background-color: rgb(0 0 0 / 65%);box-shadow: 0 0 10px #00000091;">
                                             <p class="text-white m-3 mx-4">عنوان الصورة</p>
                                         </div>
@@ -89,7 +89,7 @@
 
                                 <div class="col-md-8 mb-4">
                                     <div class="position-relative w-100 h-100 gallery-item">
-                                        <img src="public/front/img/Rectangle1588.png" class="w-100 h-100" alt="">
+                                        <img src="{{asset('public/front/img/Rectangle1588.png')}}" class="w-100 h-100" alt="">
                                         <div class="position-absolute event-title bottom-0 w-100" style="background-color: rgb(0 0 0 / 65%);box-shadow: 0 0 10px #00000091;">
                                             <p class="text-white m-3 mx-4">عنوان الصورة</p>
                                         </div>
@@ -98,7 +98,7 @@
         
                                 <div class="col-md-4 mb-4">
                                     <div class="position-relative w-100 h-100 gallery-item">
-                                        <img src="public/front/img/Rectangle1587.png" class="w-100 h-100" alt="">
+                                        <img src="{{asset('public/front/img/Rectangle1587.png')}}" class="w-100 h-100" alt="">
                                         <div class="position-absolute event-title bottom-0 w-100" style="background-color: rgb(0 0 0 / 65%);box-shadow: 0 0 10px #00000091;">
                                             <p class="text-white m-3 mx-4">عنوان الصورة</p>
                                         </div>
@@ -119,7 +119,7 @@
                                                 <p class="mt-4">وصف عن هذا الكتاب</p>
                                             </div>
                                             <div>
-                                                <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
+                                                <a href="#" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@
                                                 <p class="mt-4">وصف عن هذا الكتاب</p>
                                             </div>
                                             <div>
-                                                <a href="#" class="btn btn-success primary-bg" download=""> <img src="public/front/img/icons/material-symbols_download.png" alt=""> تنزيل </a>
+                                                <a href="#" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
                                             </div>
                                         </div>
                                     </div>

@@ -20,6 +20,17 @@
 <script src="{{asset('dist/js/demo.min.js?1692870487')}}" defer></script>
 
 
+<script src="https://cdn.tiny.cloud/1/no-apikey/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea.myeditorinstance',
+        plugins: 'directionality',
+        toolbar: 'rtl ltr | undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect',
+        menubar: 'file edit view insert format tools table help',
+    });
+</script>
+</script>
 <script>
 	// @formatter:off
 	document.addEventListener("DOMContentLoaded", function() {

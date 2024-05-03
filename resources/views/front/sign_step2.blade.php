@@ -42,15 +42,22 @@
                     </div>
                     <h1>أكمل ملفك الشخصي!</h1>
                     <p class="mt-3 mb-5">قم بادخال بياناتك الشخصية ، التفاصيل الخاصة بك مطلوبة.</p>
-                    <form action="">
-                        <label for="" class="mb-3"> اسمك الكامل* </label>
-                        <input type="email" class="form-control mb-3 p-3" placeholder="محمد علي علي">
+                    <form action="{{url('sign_step2')}}" method="POST">
+                        @csrf
+                        <label for="" class="mb-3"> الاسم الاول* </label>
+                        <input type="text"  name="first_name" class="form-control mb-3 p-3" placeholder="محمد ">
+                        <label for="" class="mb-3"> الاسم الاخير* </label>
+                        <input type="text"  name="last_name" class="form-control mb-3 p-3" placeholder=" علي">
                         <label for="" class="mb-3">بلد الإقامة</label>
-                        <select class="form-control mb-3 p-3">
+                        <select class="form-control mb-3 p-3" name="country_id">
                             <option selected disabled>يرجى الاختيار</option>
+                            @foreach($countries as $country)
+                            <option value="{{$country->id}}"> {{ $country->name }} </option>
+                            @endforeach
                         </select>
                         <label for="" class="mb-3">المؤهل الدراسي</label>
-                        <input type="email" class="form-control mb-3 p-3" placeholder="الرجاء إدخال المؤهل الدراسي">
+                        <input type="text" name="qualifications" class="form-control mb-3 p-3" placeholder="الرجاء إدخال المؤهل الدراسي">
+                        @if($type != 'instructor')
                         <label for="" class="mb-3">المسارات التي تهتم بها (مع الطالب والمنظمة)</label>
                         <div class="multiselect w-100">
                             <div class="selectBox position-relative" onclick="showCheckboxes('checkboxes1')">
@@ -60,18 +67,17 @@
                                 <div class="overSelect position-absolute"></div>
                             </div>
                             <div id="checkboxes1" class="checkboxes py-1">
+                                @foreach($tracks as $track)
                                 <label for="one" class="py-1">
-                                    <input type="checkbox" id="one" class="mx-2"/>First checkbox
+                                    <input type="checkbox" id="{{ $track->id }}" class="mx-2"/>
+                                    {{ $track->name }} 
                                 </label>
-                                <label for="two" class="py-1">
-                                    <input type="checkbox" id="two" class="mx-2"/>Second checkbox
-                                </label>
-                                <label for="three" class="py-1">
-                                    <input type="checkbox" id="three" class="mx-2"/>Third checkbox
-                                </label>
+                                @endforeach
+                               
                             </div>
                         </div>
-                        <a href="{{url('sign_step3')}}" type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </a>
+                        @endif
+                        <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </button>
                         <p class="text-center">يتم تأمين معلوماتك بأمان <i class="fa-solid fa-lock mx-3"></i></p>
                     </form>
                 </div>

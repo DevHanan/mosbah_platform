@@ -56,13 +56,19 @@ Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
-Route::get('/sign_step1', [HomeController::class, 'signstep1']);
+
+Route::get('/sign_step1', [RegisterController::class, 'getsignstep1']);
 Route::post('/sign_step1', [RegisterController::class, 'registerStudent']);
 
-Route::get('/sign_step2', [HomeController::class, 'signstep2']);
-Route::get('/sign_step3', [HomeController::class, 'signstep3']);
-Route::get('/sign-verify', [HomeController::class, 'signVerify']);
-Route::get('/sign-complete', [HomeController::class, 'signcomplete']);
+Route::get('/sign_step2', [RegisterController::class, 'getsignstep2']);
+Route::post('/sign_step2', [RegisterController::class, 'signstep2']);
+
+
+Route::get('/sign_step3', [RegisterController::class, 'getsignstep3']);
+Route::post('/sign_step3', [RegisterController::class, 'signstep3']);
+
+Route::get('/sign-verify', [RegisterController::class, 'signVerify']);
+Route::get('/sign-complete', [RegisterController::class, 'signcomplete']);
 
 Route::get('/questions', [HomeController::class, 'questions']);
 

@@ -23,6 +23,8 @@
 <!-- data tables css -->
 <link rel="stylesheet" href="{{ asset('dashboard/plugins/data-tables/css/datatables.min.css') }}">
 <!-- select2 css -->
+<script src="{{asset('front/css/select2.min.css')}}"></script>
+
 <style>
   @import url('https://rsms.me/inter/inter.css');
 

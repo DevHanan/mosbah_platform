@@ -44,19 +44,22 @@
                     </div>
                     <h1>أكمل ملفك الشخصي!</h1>
                     <p class="mt-3 mb-5">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
-                    <form action="">
+                    <form action="{{url('sign_step3')}}" method="POST" enctype="multipart/form-data" >
+                        @csrf
                         <div class="px-5 mb-4 d-flex flex-column align-items-center">
                             <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
-                                <img src="{{asset('public/front/img/fi-rr-camera.svg')}}" alt="">
+                                <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="profile" alt="">
                                 <p>اضف صورة</p>
                             </div>
+                           
+
                             <div class="choose_img position-relative d-flex justify-content-center my-3">
                                 <input type="file" class="position-absolute" id="fileInput">
                                 <div class="py-2 text-center rounded">اختر الملف</div>
                             </div>                            
                         </div>
                                                 
-                        <a href="{{url('sign-completed')}}" type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </a>
+                        <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </button>
                         <p class="text-center">يتم تأمين معلوماتك بأمان <i class="fa-solid fa-lock mx-3"></i></p>
                     </form>
                 </div>

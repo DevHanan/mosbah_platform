@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
 @yield('content')
 
   @include('front.layouts.common.footer_script')

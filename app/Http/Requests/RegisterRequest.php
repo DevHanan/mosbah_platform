@@ -27,18 +27,31 @@ class RegisterRequest extends FormRequest
             return [
                 'email'        => 'required|unique:instructors,email',
                 'password' => 'required|confirmed',
-                'phone'        => 'required'
+                'email'        => 'required|unique:instructors,phone',
 
             ];
         } else {
             return [
-                'phone' => 'required',
                 'email'        => 'required|unique:students,email',
                 'password' => 'required|confirmed',
-                'tracks.*' => 'required|exists:tracks,id'
+                'tracks.*' => 'required|exists:tracks,id',
+                'email'        => 'required|unique:students,phone',
+
 
 
             ];
         }
+    }
+
+    public function messages()
+    {
+        return [
+            'email.unique' => __('front.email_unique'),
+            'email.required' => __('front.email_required'),
+            'phone.required'  => __('front.phone_required'),
+            'phone.unique' => __('front.phone_unique'),
+            'password.required' => __('front.password_required'),
+            'password.confirmed'  => __('front.password_confirm_not_match')
+        ];
     }
 }

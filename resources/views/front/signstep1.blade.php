@@ -52,14 +52,14 @@
                             <div class="col-lg-6"></div>
                         </div>
                         <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>
-                        <input type="email" name="email" required class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
+                        <input type="email" name="email" required class="form-control mb-3 p-3" value="{{old('email')}}" placeholder="أدخل عنوان البريد الإلكتروني">
                         @error('email')
                         <div class="invalid-feedback" style="display:block;">
                             {{ $message }}
                         </div>
                         @enderror
                         <label for="" class="mb-3"> رقم الهاتف </label>
-                        <input id="phone_number" name="phone" required type="tel" name="phone" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
+                        <input id="phone_number" name="phone" required type="tel" name="phone" value="{{old('phone')}}" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
                         @error('phone')
                         <div class="invalid-feedback" style="display:block;">
                             {{ $message }}

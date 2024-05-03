@@ -87,8 +87,9 @@
         </div>
     </div>
 </footer>
-
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 <script src="{{asset('public/front/js/jquery.min.js')}}"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{asset('public/front/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('public/front/js/swiper-bundle.min.js')}}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!--animation-->

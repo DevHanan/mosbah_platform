@@ -88,26 +88,6 @@ class HomeController extends Controller
         return view('front.Questions');
     }
 
-    public function signstep1()
-    {
-        return view('front.signstep1');
-    }
-    public function signstep2()
-    {
-        return view('front.sign_step2');
-    }
-    public function signstep3()
-    {
-        return view('front.sign_step3');
-    }
-    public function signVerify()
-    {
-        return view('front.sign-verfiy');
-    }
-    public function signcomplete()
-    {
-        return view('front.sign-completed');
-    }
-
+  
     
 }

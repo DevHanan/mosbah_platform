@@ -26,7 +26,7 @@
                 @if(isset($setting))
                 @if(is_file($setting->logo_path))
               
-                <img src="{{ asset('public/'.$setting->logo_path) }}" style="width:120px;height:90px;" alt="{{ $setting->title }}" class="navbar-brand-image">
+                <img src="{{ asset($setting->logo_path) }}" style="width:120px;height:90px;" alt="{{ $setting->title }}" class="navbar-brand-image">
 
                 @endif
                 @endif 

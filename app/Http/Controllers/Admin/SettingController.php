@@ -77,7 +77,7 @@ class SettingController extends Controller
             $thumbnail = $request->logo_path;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->logo_path ='uploads/settings/'.$filename;
+            $data->logo_path ='public/uploads/settings/'.$filename;
             $data->save();
         }
 
@@ -86,7 +86,7 @@ class SettingController extends Controller
             $thumbnail = $request->favicon_path;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->favicon_path ='uploads/settings/'.$filename;
+            $data->favicon_path ='public/uploads/settings/'.$filename;
             $data->save();
          
         }
@@ -136,7 +136,7 @@ class SettingController extends Controller
             $thumbnail = $request->background_image;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->background_image ='uploads/settings/'.$filename;
+            $data->background_image ='public/uploads/settings/'.$filename;
             $data->save();
         }
 
@@ -145,7 +145,7 @@ class SettingController extends Controller
             $thumbnail = $request->mission_image;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->mission_image ='uploads/settings/'.$filename;
+            $data->mission_image ='public/uploads/settings/'.$filename;
             $data->save();
         }
         if($request->hasFile('msg_image1')){
@@ -153,7 +153,7 @@ class SettingController extends Controller
             $thumbnail = $request->msg_image1;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->msg_image1 ='uploads/settings/'.$filename;
+            $data->msg_image1 ='public/uploads/settings/'.$filename;
             $data->save();
         }
         if($request->hasFile('msg_image2')){
@@ -161,7 +161,7 @@ class SettingController extends Controller
             $thumbnail = $request->msg_image2;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->msg_image2 ='uploads/settings/'.$filename;
+            $data->msg_image2 ='public/uploads/settings/'.$filename;
             $data->save();
         }
 
@@ -170,7 +170,7 @@ class SettingController extends Controller
             $thumbnail = $request->msg_image3;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->msg_image3 ='uploads/settings/'.$filename;
+            $data->msg_image3 ='public/uploads/settings/'.$filename;
             $data->save();
         }
         if($request->hasFile('msg_image4')){
@@ -178,7 +178,7 @@ class SettingController extends Controller
             $thumbnail = $request->msg_image4;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'),$filename);
-            $data->msg_image4 ='uploads/settings/'.$filename;
+            $data->msg_image4 ='public/uploads/settings/'.$filename;
             $data->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

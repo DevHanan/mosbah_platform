@@ -62,4 +62,11 @@ class Course extends Model
     {
         return $this->hasMany(Lecture::class);
     }
+
+    public function coupon()
+    {
+        return $this->hasOne(Coupon::class)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now());
+    }
 }

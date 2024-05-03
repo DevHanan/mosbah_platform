@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>  @if(isset($title))
-  {{ $title }} -
-  @endif
-  {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">
-      <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <title> @if(isset($title))
+        {{ $title }} -
+        @endif
+        {{ $setting->title }}
+    </title>
+    <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">
+    <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <link rel="stylesheet" href="public/front/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="public/front/css/custom.css">
     <link rel="stylesheet" href="public/front/css/media.css">
 </head>
+
 <body>
     <div class="register sign_step1">
         <div class="row p-0 m-0">
@@ -34,7 +37,7 @@
                 <div class="intro container p-5 pt-3">
                     <div class="d-flex justify-content-between align-items-center mb-5">
                         <a href="{{url('signup')}}" class="text-decoration-none fw-bold" style="color:#696F79">
-                            <i class="fa-solid fa-angle-right ms-2"></i> عودة 
+                            <i class="fa-solid fa-angle-right ms-2"></i> عودة
                         </a>
                         <div class="text-center">
                             <span style="color: #BDBDBD;">خطوة 01/03</span>
@@ -51,32 +54,33 @@
                         <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>
                         <input type="email" name="email" required class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
                         @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                         <label for="" class="mb-3"> رقم الهاتف </label>
-                        <input id="phone_number"  name="phone" required  type="tel" name="phone" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
+                        <input id="phone_number" name="phone" required type="tel" name="phone" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
                         @error('phone')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                         <label for="" class="my-3">كلمة مرور*</label>
-                        <input type="password"  name="password" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                        <input type="password" name="password" required class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور">
 
                         @error('password')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                         <label for="" class="my-3"> تأكيد كلمة المرور</label>
-                        <input type="password"  required name="password_confirmation" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                        <input type="password" required name="password_confirmation" required class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور">
                         @error('password_confirmation')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        <input type="hidden" value="{{$request->input('type')}}" name="type">
                         <div class="form-check d-flex">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             <label class="form-check-label mx-5" for="flexCheckChecked">
@@ -92,13 +96,13 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         const phoneInputField = document.querySelector("#phone_number");
         const phoneInput = window.intlTelInput(phoneInputField, {
-          utilsScript:
-            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
-      </script>
+    </script>
 </body>
+
 </html>

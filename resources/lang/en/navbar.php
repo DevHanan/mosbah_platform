@@ -2,63 +2,68 @@
 return [
     "Home" => "Home",
     'users' => "Users",
-    "user_managment" => " User Managment",
-    "roles" => "Roles",
+    "user_managment" => "Users Management",
+    "roles" => "Roles & Permissions",
     "countries" => "Countries",
     "paymenttypes" => "Payment Types",
-    "master_data"  => "Master Data",
+    "master_data"  => "General Data",
     'students' => [
-        "student_managment"  => "Student Managment",
-        "list" => "List Students",
-        "add"   => "New Student"
+        "student_managment"  => "Students managment",
+        "list" => "List students",
+        "add"   => "New student",
     ],
 
     'instructors' => [
-        "instructor_management"  => "instructors Managment",
-        "list" => "List instructors",
-        "add"   => "New instructor"
+        "instructor_management"  => "Instructors Management",
+        "list" => "List Instructors",
+        "add"   => "New Instructor"
     ],
     'subscriptions' => [
-        'title'  => 'Subscriptions',
-        "list" => "List Subscriptions",
-        "add"  => "New Subscription"
+        'title'  => 'Student subscriptions',
+        "list" => "List subscriptions",
+        "add"  => " New subscription "
 
     ],
     'coupons' => [
-        "coupons_management"  => "coupons Managment",
-        "list" => "List coupons",
-        "add"   => "New coupon"
+        "coupons_management"  => "إدارة الكوبونات",
+        "list" => "عرض الكوبونات",
+        "add"   => "إضافة كوبون"
     ],
     'certifications' => [
-        "certifications_management"  => "certifications Managment",
-        "list" => "List certifications",
-        "student_certifications" => "Student certifications",
-        "add"   => "New certification"
+        "certifications_management"  => "Certifications Management",
+        "list" => "List Certifications",
+        "student_certifications" => "Student Certifications",
+        "add"   => "New Certification"
     ],
     'tickets' => [
-        "tickets_management"  => "tickets Managment",
-        "list" => "List tickets",
-        "add"   => "New tickets",
-        "instrutor_msg" => "instrutor message",
-        "student_msg" => "student message"
-
+        "tickets_management"  => "Ticket Managment",
+        "list" => "List Tickets",
+        "add"   => "New",
+        "instrutor_msg" => "Instructor Message",
+        "student_msg" => "Student Message"
     ],
     "courses" => [
         "title"  => "Courses",
         "list_tracks" => "List Tracks",
-        "add_track" => "Add Track",
-        "list_course_types"  => "List Type",
-        "add_course_types" => "Add  Type",
+        "add_track" => "New Track",
+        "list_course_types"  => "List Course Type",
+        "add_course_types" => "New Type",
         "list_lectures"  => "List Lectures",
-        "add_lecture" => " Add Lecture",
+        "add_lecture" => " New Lecture",
         "list_levels" => "List Levels",
-        "add_level" => "Add Level",
-        "add_course"  => "Add Course"
+        "add_level" => "New Level",
+        "add_course"  => "New Course",
+        'recommened_courses' => 'Recommend Courses'
 
 
     ],
     'settings' => [
         'general_settings' => 'General Setting',
-        'policies' => 'Policies',  
+        'policies' => 'Policies & Conditions',  
+        'about_us_settings' => 'About Us',
+        'questions' =>'Frequent asked questions',
+        'teams' => 'Our Team ',
+        'parteners' => 'Success Partener'
+
     ]
 ];

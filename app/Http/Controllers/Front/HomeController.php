@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function policy()
     {
         $title = trans('front.policy');
-        return view('front.policy',compact('policy'));
+        return view('front.policy',compact('title'));
     }
     public function contactus()
     {

@@ -54,14 +54,14 @@
                         <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>
                         <input type="email" name="email" required class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
                         @error('email')
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" style="display:block;">
                             {{ $message }}
                         </div>
                         @enderror
                         <label for="" class="mb-3"> رقم الهاتف </label>
                         <input id="phone_number" name="phone" required type="tel" name="phone" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
                         @error('phone')
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" style="display:block;">
                             {{ $message }}
                         </div>
                         @enderror
@@ -69,14 +69,14 @@
                         <input type="password" name="password" required class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور">
 
                         @error('password')
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" style="display:block;">
                             {{ $message }}
                         </div>
                         @enderror
                         <label for="" class="my-3"> تأكيد كلمة المرور</label>
                         <input type="password" required name="password_confirmation" required class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور">
                         @error('password_confirmation')
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" style="display:block;">
                             {{ $message }}
                         </div>
                         @enderror

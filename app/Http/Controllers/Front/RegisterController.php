@@ -14,7 +14,7 @@ class RegisterController extends Controller
     
     public function registerStudent(RegisterRequest $request){
         $type= $request->input('type');
-        $model =  $type  == 'instructor' ? 'Instructor' : 'Student';
+        $model =  $type  == 'Instructor' ? 'Instructor' : 'Student';
         $request->merge(['password'=> Bcrypt($request->password)]);
         $item = $model::create($request->all());
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));

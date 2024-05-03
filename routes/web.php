@@ -37,7 +37,7 @@ use App\Http\Controllers\Admin\PartenerController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\QuestionController;
-use App\Http\Controllers\Front\StudentRegisterController;
+use App\Http\Controllers\Front\RegisterController;
 
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 
@@ -57,7 +57,7 @@ Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 Route::get('/sign_step1', [HomeController::class, 'signstep1']);
-Route::post('/sign_step1', [StudentRegisterController::class, 'registerStudent']);
+Route::post('/sign_step1', [RegisterController::class, 'registerStudent']);
 
 Route::get('/sign_step2', [HomeController::class, 'signstep2']);
 Route::get('/sign_step3', [HomeController::class, 'signstep3']);

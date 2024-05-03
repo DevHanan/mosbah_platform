@@ -42,11 +42,11 @@
                                     <p>حساب المعلم لإدارة جميع أنشطتك.ولوحة القيادة</p>
                                 </div>
                             </div>
-                            <a href="sign_step1.html" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
+                            <a href="{{url('signup?type=instructor')}}" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
                         </div>
                     </a>
 
-                    <a href="sign_step1.html" class="text-decoration-none">
+                    <a href="{{url('signup')}}" class="text-decoration-none">
                         <div class="info mb-5 d-flex justify-content-between align-items-center shadow-sm border p-4">
                             <div class="d-flex align-items-center">
                                 <div class="polygon d-flex justify-content-center align-items-center"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -55,11 +55,11 @@
                                     <p>حساب شخصي لإدارة جميع أنشطتك.</p>
                                 </div>
                             </div>
-                            <a href="sign_step1.html" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
+                            <a href="{{url('signup?type=student')}}" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
                         </div>
                     </a>
 
-                    <a href="sign_step1.html" class="text-decoration-none">
+                    <a href="{{url('signup')}}" class="text-decoration-none">
                         <div class="info d-flex justify-content-between align-items-center shadow-sm border p-4">
                             <div class="d-flex align-items-center">
                                 <div class="polygon d-flex justify-content-center align-items-center"><i class="fa-solid fa-building-columns"></i></div>
@@ -68,7 +68,7 @@
                                     <p>حساب مؤسسة تضم مجموعة موظفين بغرض تدريبهم</p>
                                 </div>
                             </div>
-                            <a href="sign_step1.html" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
+                            <a href="{{url('signup?type=org')}}" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
                         </div>
                     </a>
                 </div>

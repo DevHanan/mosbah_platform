@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Bcrypt;
+use App\Models\Student;
+use App\Models\Instructor;
+
 
 class RegisterController extends Controller
 {

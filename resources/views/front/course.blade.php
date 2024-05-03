@@ -59,7 +59,7 @@
                         <span class="fw-bold mx-2">{{ $course->start_date  }}</span>
                     </div>
                     <div class="d-flex justify-content-center mb-3">
-                        <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
+                        <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3"  @if(!auth()->guard('students-login')->user())  style="pointer-events: none;" @endif> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                     </div>
                     
                     <div class="form-check d-flex justify-content-center p-0" style="font-size: 14px;">
@@ -493,7 +493,7 @@
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> 80 ساعة </span></p>
                             <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span>مستوى متقدم </span></p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
+                                <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"  @if(!auth()->guard('students-login')->user())  style="pointer-events: none;" @endif > اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                             </div>
                         </div>
                     </div>

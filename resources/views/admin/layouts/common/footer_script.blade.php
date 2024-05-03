@@ -20,7 +20,7 @@
 <script src="{{asset('dist/js/demo.min.js?1692870487')}}" defer></script>
 
 
-<script src="https://cdn.tiny.cloud/1/no-apikey/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/wz96dir3qccs1frm29whhowfsscviapyi4afm64o6rtgm9h5/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
     tinymce.init({

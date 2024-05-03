@@ -239,17 +239,17 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
-                <textarea dir="auto" class="form-control" name="descriptions" rows="6" placeholder="Content.."></textarea>
+                <textarea dir="auto" class="form-control" name="descriptions" rows="4" placeholder="Content.."></textarea>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
-                <textarea  dir="auto" class="form-control" name="directedTo" rows="6" placeholder="Content.."></textarea>
+                <textarea  dir="auto" class="form-control" name="directedTo" rows="4" placeholder="Content.."></textarea>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
-                <textarea  dir="auto" class="form-control" name="goals" rows="6" placeholder="Content.."></textarea>
+                <textarea  dir="auto" class="form-control" name="goals" rows="4" placeholder="Content.."></textarea>
               </div>
 
 

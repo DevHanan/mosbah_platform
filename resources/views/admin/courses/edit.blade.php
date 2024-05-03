@@ -216,14 +216,14 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
-                <textarea dir="auto" class="form-control myeditorinstance" name="descriptions" rows="6" placeholder="Content..">
+                <textarea dir="auto" class="form-control myeditorinstance" name="descriptions" rows="4" placeholder="Content..">
                   {{ $row->description }}
                 </textarea>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
-                <textarea  dir="auto" class="form-control myeditorinstance" name="directedTo" rows="6" placeholder="Content..">
+                <textarea  dir="auto" class="form-control myeditorinstance" name="directedTo" rows="4" placeholder="Content..">
                 {{ $row->directedTo }}
 
                 </textarea>
@@ -231,7 +231,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
-                <textarea dir="auto" class="form-control myeditorinstance" name="goals" rows="6" placeholder="Content..">
+                <textarea dir="auto" class="form-control myeditorinstance" name="goals" rows="4" placeholder="Content..">
                 {{ $row->goals }}
 
                 </textarea>

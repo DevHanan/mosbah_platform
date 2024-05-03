@@ -53,7 +53,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="course_type_id">{{ __('admin.courses.course_type') }} <span>*</span></label>
-                  <select class="form-control" name="course_type_id" id="course_type_id" required>
+                  <select class="select2 form-control" name="course_type_id" id="course_type_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($courseTypes as $type)
                     <option value="{{ $type->id }}"> {{ $type->name }}</option>
@@ -239,17 +239,17 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
-                <textarea class="form-control" name="descriptions" rows="6" placeholder="Content.."></textarea>
+                <textarea dir="auto" class="form-control" name="descriptions" rows="6" placeholder="Content.."></textarea>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
-                <textarea class="form-control" name="directedTo" rows="6" placeholder="Content.."></textarea>
+                <textarea  dir="auto" class="form-control" name="directedTo" rows="6" placeholder="Content.."></textarea>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
-                <textarea class="form-control" name="goals" rows="6" placeholder="Content.."></textarea>
+                <textarea  dir="auto" class="form-control" name="goals" rows="6" placeholder="Content.."></textarea>
               </div>
 
 

@@ -25,12 +25,7 @@ class RegisterStudentRequest extends FormRequest
         return [
             'email'        => 'required|unique:students,email',
             'password' => 'required|confirmed',
-            'phone'        => 'required',
-            'first_name'  => 'required',
-            'last_name'   => 'required',
-            'country_id'  => 'required',
-            'qualifications' => 'required',
-            'tracks'  => 'required',
+            'phone'        => 'required'
 
 
 

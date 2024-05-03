@@ -43,7 +43,7 @@
                     </div>
                     <h1>تسجيل حساب مدرب!</h1>
                     <p class="mt-3 mb-5">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
-                    <form action="">
+                    <form action="{{url('sign_step1')}}" method="POST">
                         <div class="row">
                             <div class="col-lg-6"></div>
                         </div>
@@ -65,7 +65,7 @@
                             </label>
                         </div>
 
-                        <a href="sign-verify.html" type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل حساب</a>
+                        <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل حساب</a>
                     </form>
                     <p class="text-center">او</p>
                     <button ype="submit" class="btn shadow border fw-bold w-100 my-3 py-3">التسجيل عن طريق جوجل <img src="public/front/img/icons/google.png" class="mx-3" alt=""></button>

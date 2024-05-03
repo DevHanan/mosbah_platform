@@ -23,7 +23,7 @@ class RegisterStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'        => 'required|unique:students,email',
+            'email'        => 'required',
             'password' => 'required|confirmed',
             'phone'        => 'required'
 

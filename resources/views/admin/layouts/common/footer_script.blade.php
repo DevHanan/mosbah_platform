@@ -4,17 +4,13 @@
 <script src="{{asset('dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
 <!-- Tabler Core -->
 
-<script src="{{asset('front/js/jquery.min.js')}}"></script>
-<!-- <script src="{{asset('front/js/bootstrap.bundle.min.js')}}"></script>   -->
-<script src="{{asset('front/js/swiper-bundle.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!--animation-->
 <script>
 	AOS.init();
 </script>
-<!-- <script src="{{asset('front/js/price_filter.js')}}"></script>  -->
-<!-- <script src="{{asset('front/js/pagination.js')}}"></script> 
-    <script src="{{asset('front/js/main.js')}}"></script>  -->
+
 
 <script src="{{asset('dist/js/tabler.min.js?1692870487')}}" defer></script>
 <script src="{{asset('dist/js/demo.min.js?1692870487')}}" defer></script>

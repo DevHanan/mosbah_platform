@@ -80,7 +80,7 @@
                             {{ $message }}
                         </div>
                         @enderror
-                        <input type="hidden" value="{{$request->input('type')}}" name="type">
+                        <input type="hidden" value="{{request()->input('type')}}" name="type">
                         <div class="form-check d-flex">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             <label class="form-check-label mx-5" for="flexCheckChecked">

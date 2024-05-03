@@ -24,6 +24,7 @@
 	$dir = 'RTL';
 	@else
 	$dir = 'LTR';
+	@endif
 
 <script>
   tinymce.init({

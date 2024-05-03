@@ -72,7 +72,11 @@
                                 @enderror
                         <label for="" class="my-3"> تأكيد كلمة المرور</label>
                         <input type="password"  required name="password_confirmation" required  class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
-
+                        @error('password_confirmation')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                         <div class="form-check d-flex">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             <label class="form-check-label mx-5" for="flexCheckChecked">
@@ -82,7 +86,7 @@
 
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل حساب</a>
                     </form>
-                    <p class="text-center">او</p>
+                    <!-- <p class="text-center">او</p> -->
                     <button ype="submit" class="btn shadow border fw-bold w-100 my-3 py-3">التسجيل عن طريق جوجل <img src="public/front/img/icons/google.png" class="mx-3" alt=""></button>
                 </div>
             </div>

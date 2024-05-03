@@ -14,7 +14,8 @@ class HomeController extends Controller
     public function index()
     {
         $latest  = Course::latest()->take(6)->get();
-        return view('front.index',compact(['latest']));
+        $title = trans('front.home');
+        return view('front.index',compact(['latest','title']));
 
     }
 
@@ -23,12 +24,14 @@ class HomeController extends Controller
         $setting = AboutSetting::find(1);
         $teams = Team::active()->get();
         $parteners = Partener::active()->get();
-        return view('front.about',compact(['setting','teams','parteners']));
+        $title = trans('front.about');
+        return view('front.about',compact(['setting','teams','parteners','title']));
     }
 
     public function courses()
     {
-        return view('front.courses');
+        $title = trans('front.courses');
+        return view('front.courses',compact('title'));
     }
 
     public function blogs()
@@ -38,11 +41,13 @@ class HomeController extends Controller
 
     public function policy()
     {
-        return view('front.policy');
+        $title = trans('front.policy');
+        return view('front.policy',compact('policy'));
     }
     public function contactus()
     {
-        return view('front.contactus');
+        $title = trans('front.contactus');
+        return view('front.contactus',compact('title'));
     }
 
     public function books()
@@ -61,31 +66,38 @@ class HomeController extends Controller
     {
         $course = Course::find($id);
         $related_courses = Course::where('track_id',$course->track_id)->get();
-        return view('front.course',compact('course','related_courses'));
+        $title = trans('front.course_details');
+        return view('front.course',compact('course','related_courses','title'));
     }
 
     public function lecture($id)
     {
         $lecture = Lecture::find($id);
-        return view('front.lecture',compact('lecture'));
+        $title = trans('front.lecture_details');
+        return view('front.lecture',compact('lecture','lecture_details'));
+
     }
     public function signin()
     {
-        return view('front.signin');
+        $title = trans('front.signin');
+        return view('front.signin',compact('title'));
     }
     public function signup()
     {
-        return view('front.signup');
+        $title = trans('front.signup');
+        return view('front.signup',compact('signup'));
     }
     public function cart($id)
     {
         $course = Course::find($id);
-        return view('front.course_cart',compact('course'));
+        $title = trans('front.cart');
+        return view('front.course_cart',compact('course','title'));
     }
 
     public function Questions()
     {
-        return view('front.Questions');
+        $title = trans('front.Questions');
+        return view('front.Questions',compact('Questions'));
     }
 
   

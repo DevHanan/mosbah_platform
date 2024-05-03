@@ -11,5 +11,16 @@ return [
     'data_created_successfully' => 'تم حفظ البيانات بتجاح',
     'login_success'  => 'تم تسجيل الدخول بنجاح',
     'login_failed'   => ' فشل التحقق من البيانات',
-    'msg_error'   => 'خطأ'
+    'msg_error'   => 'خطأ',
+    'home' => 'الصفحة الرئيسية',
+    'about' => 'من نجن',
+    'courses' => 'الدورات التدريبية',
+    'policy' => 'الشروط والسياسات',
+    'contactus' => 'تواصل معنا',
+    'course_details' => 'تفاصيل الدورة',
+    'lecture_details' => 'تفاصيل المحاضرة',
+    'signin' => 'تسجيل الدخول',
+    'signup' => 'تسجيل حساب جديد',
+    'Questions'  => 'الأسئلة الشائعة'
+
 ];

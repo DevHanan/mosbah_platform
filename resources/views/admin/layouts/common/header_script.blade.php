@@ -23,7 +23,7 @@
 <!-- data tables css -->
 <link rel="stylesheet" href="{{ asset('dashboard/plugins/data-tables/css/datatables.min.css') }}">
 <!-- select2 css -->
-<script src="{{asset('front/css/select2.min.css')}}"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
 <style>
   @import url('https://rsms.me/inter/inter.css');

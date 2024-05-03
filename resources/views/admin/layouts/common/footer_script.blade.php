@@ -7,7 +7,7 @@
 <script src="{{asset('front/js/jquery.min.js')}}"></script>
 <!-- <script src="{{asset('front/js/bootstrap.bundle.min.js')}}"></script>   -->
 <script src="{{asset('front/js/swiper-bundle.min.js')}}"></script>
-<script src="{{asset('front/js/select2.full.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!--animation-->
 <script>
 	AOS.init();
@@ -41,16 +41,7 @@
 
 
 
-<!-- <script src="https://cdn.tiny.cloud/1/wz96dir3qccs1frm29whhowfsscviapyi4afm64o6rtgm9h5/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script>
-    tinymce.init({
-        selector: 'textarea.myeditorinstance',
-        plugins: 'directionality',
-        toolbar: 'rtl ltr | undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect',
-        menubar: 'file edit view insert format tools table help',
-    });
-</script> -->
 </script>
 <script>
 	// @formatter:off

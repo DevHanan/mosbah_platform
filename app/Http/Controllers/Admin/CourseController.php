@@ -77,27 +77,31 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
-        $course = Course::create($request->except(['image', 'background_image']));
+        $course = Course::create($request->except(['image', 'background_image','thumbinal_image']));
         if ($request->hasFile('image')) {
-            $directory = 'courses/main';
-            $attach = 'image';
-            $course->image = 'public/uploads/coursers/main/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/main/'),$filename);
+            $course->image ='public/uploads/courses/main/'.$filename;
             $course->save();
         }
 
+    
+
         if ($request->hasFile('background_image')) {
-            $directory = 'courses/backgroundImg';
-            $attach = 'background_image';
-            $course->background_image ='public/uploads/coursers/backgroundImg/'. $this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->background_image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/background_image/'),$filename);
+            $course->background_image ='public/uploads/courses/background_image/'.$filename;
             $course->save();
         }
         if ($request->hasFile('thumbinal_image')) {
-            $directory = 'courses/thumbinal_image';
-            $attach = 'thumbinal_image';
-            $course->background_image ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->thumbinal_image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/thumbinal_image/'),$filename);
+            $course->thumbinal_image ='public/uploads/courses/thumbinal_image/'.$filename;
             $course->save();
         }
-        $course_id = $course;
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect('admin/courses/'.$course->id .'/levels');
 
@@ -128,24 +132,30 @@ class CourseController extends Controller
     public function update(Request $request)
     {
         $course = Course::find($request->id);
-        $course->update($request->except(['image', 'background_image']));
+        $course->update($request->except(['image', 'background_image','thumbinal_image']));
+
         if ($request->hasFile('image')) {
-            $directory = 'courses/main';
-            $attach = 'image';
-            $course->image = 'public/uploads/coursers/main/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/main/'),$filename);
+            $course->image ='public/uploads/courses/main/'.$filename;
             $course->save();
         }
 
+    
+
         if ($request->hasFile('background_image')) {
-            $directory = 'courses/backgroundImg';
-            $attach = 'background_image';
-            $course->background_image ='public/uploads/coursers/backgroundImg/'. $this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->background_image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/background_image/'),$filename);
+            $course->background_image ='public/uploads/courses/background_image/'.$filename;
             $course->save();
         }
         if ($request->hasFile('thumbinal_image')) {
-            $directory = 'courses/thumbinal_image';
-            $attach = 'thumbinal_image';
-            $course->background_image ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->thumbinal_image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/thumbinal_image/'),$filename);
+            $course->thumbinal_image ='public/uploads/courses/thumbinal_image/'.$filename;
             $course->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

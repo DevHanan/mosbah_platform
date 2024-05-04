@@ -12,11 +12,12 @@ class Course extends Model
     public $timestamps = true;
 
     protected $fillable = array('name','recommend','price','course_type_id','published_at','track_id','active',
-                                'instructor_id','promo_url','level_id','description','goals','directedTo'
-                               );
+                                'instructor_id','promo_url', 'start_date','end_date','level_id','description','goals','directedTo'
+                                ,'period_type','period','seat_number'  
+                            );
 
 
-    protected $appends = ['SubscriptionCount','Totalsubscription'] ;   
+    protected $appends = ['SubscriptionCount','Totalsubscription','TotalDiscount'] ;   
     
     
     public function getSubscriptionCountAttribute(){
@@ -25,6 +26,13 @@ class Course extends Model
 
     public function getTotalsubscriptionAttribute(){
         return $this->subscriptions()->count() * $this->price;   
+    }
+
+    public function getTotalDiscountAttribute(){
+        if($this->coupon())
+        return $this->price -( $this->coupon()->value('discount')  *($this->price/100));  
+         else
+         return $this->price; 
     }
 
     public function scopeActive($query)
@@ -69,4 +77,6 @@ class Course extends Model
             ->where('start_date', '<=', now())
             ->where('end_date', '>=', now());
     }
+
+
 }

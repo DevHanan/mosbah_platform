@@ -65,7 +65,7 @@ class CouponController extends Controller
         return view($this->view.'.edit',$data);
     }
 
-    public function update(UpdateCouponRequest $request)
+    public function update(CouponRequest $request)
     {
         $coupon = Coupon::find($request->id);
         $coupon->update($request->all());

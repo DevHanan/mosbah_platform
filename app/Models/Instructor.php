@@ -31,14 +31,11 @@ class Instructor extends Authenticatable
     {
         return $query->where('active', '1');
     }
-
-  
      
     public function track()
     {
         return $this->belongsTo(Track::class);
     }
-
     public function courses()
     {
         return $this->hasMany(Course::class);

@@ -68,11 +68,11 @@
                                 <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('coursesFilter')">
                                 <p class="m-0 mx-2">الكل</p>
                             </li>
-@foreach($courseTypes as $type)
+                            @foreach($courseTypes as $type)
                             <li class="my-2 d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="{{$type->id}}" id="">
                                 <label for="combine-courses">
-                                    <p class="m-0 mx-2">  {{ $type->name }} </p>
+                                    <p class="m-0 mx-2"> {{ $type->name }} </p>
                                 </label>
                             </li>
                             @endforeach
@@ -89,7 +89,7 @@
                                 <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('trainers')">
                                 <p class="m-0 mx-2">الكل</p>
                             </li>
-                  @foreach($instructors as $instructor)
+                            @foreach($instructors as $instructor)
                             <li class="my-2 d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="" id="teacher5">
                                 <label for="teacher5">
@@ -265,14 +265,14 @@
                     </div>
 
                     <div class="row" id="paginationCard">
-                        @foreach($courses  as $course)
+                        @foreach($courses as $course)
                         <div class="col-sm-6 card_pagination">
                             <article class="rounded mt-4 shadow">
                                 <div class="row">
                                     <div class="col-12 paginationCardImg">
                                         <div class="card__image h-100 p-2">
                                             <a href="{{ url('course/'.$course->id)}}">
-                                                <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100 h-100">
+                                                <img src="{{asset($course->image)}}" style="max-height:175px;" alt="image" class="card__img img-fluid w-100 h-100">
                                             </a>
                                             <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
                                             <div class="card__shadow"></div>
@@ -282,8 +282,8 @@
                                         <div class="card__data p-3 pt-1">
                                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none text-dark">
                                                 <p class="card__description my-1">
-                                                            {{ $course->name }}
-                                            </p>
+                                                    {{ $course->name }}
+                                                </p>
                                             </a>
                                             <div class="name primary-color fw-bold mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }} </div>
                                             <div class="rating d-flex justify-content-end">
@@ -299,9 +299,17 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                                 <div class="price">
-                                                    <span class="instead-price text-danger text-decoration-line-through mx-2">$ 700</span>
-                                                    <span class="fw-bold">$ {{ $course->price }}</span>
+                                                    @if($course->coupon)
+                                                    <span class="instead-price text-danger text-decoration-line-through mx-2">{{ $setting->currency }}{{ $course->price }}</span>
+                                                    <span class="fw-bold">{{ $setting->currency }} {{ $course->TotalDiscount }}</span>
+                                                    @else
+                                                    <span class="fw-bold"> {{ $setting->currency }} {{ $course->price }}</span>
+
+                                                    @endif
                                                 </div>
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -309,7 +317,7 @@
                             </article>
                         </div>
                         @endforeach
-                       
+
                     </div>
 
                     <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
@@ -349,7 +357,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="{{ url('course/'.$course->id)}}">
                                 <div class="card__image p-2">
-                                    <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                    <img src="{{asset($course->image)}}" style="max-height:175px;" alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
                                     <div class="card__shadow"></div>
                                 </div>
@@ -373,8 +381,13 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                     <div class="price">
-                                        <span class="instead-price text-decoration-line-through mx-2 primary-color">$ {{ $course->price }}</span>
-                                        <span class="fw-bold">$ 500</span>
+                                        @if($course->coupon)
+                                        <span class="instead-price text-decoration-line-through mx-2 primary-color">{{ $setting->currency }}{{ $course->price }}</span>
+                                        <span class="fw-bold"> {{ $course->TotalDiscount }}</span>
+                                        @else
+                                        <span class="fw-bold">  {{ $setting->currency }} {{ $course->price }}</span>
+
+                                        @endif
                                     </div>
                                 </div>
                             </div>

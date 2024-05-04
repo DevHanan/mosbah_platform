@@ -175,6 +175,7 @@ return [
 
     ],
     "courses"=>[
+        'seat_number' => 'Seat Number',
         "title"  => "Courses",
         "name"  => "Course Name",
         "type"  => 'Course Type',

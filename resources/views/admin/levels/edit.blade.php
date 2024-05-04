@@ -96,12 +96,9 @@
                   <label class="form-label" for="period_type">{{ __('admin.levels.period_type') }} <span>*</span></label>
                   <select class="form-control" name="period_type" id="period_type" required>
                     <option value="">{{ __('select') }}</option>
-                    @foreach($courses as $course)
                     <option value="1" @if($row->period_type == 1 ) selected @endif> {{ __('admin.levels.month') }}</option>
                     <option value="2" @if($row->period_type == 2 ) selected @endif>> {{ __('admin.levels.day') }}</option>
                     <option value="3" @if($row->period_type == 3 ) selected @endif>> {{ __('admin.levels.hour') }}</option>
-
-                    @endforeach
                   </select>
 
                   @error('period_type')

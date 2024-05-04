@@ -112,6 +112,7 @@
 
 
 
+                                <input type="hidden" value="{{$row->id}}" name="id">
 
 
                                 <div class="col-md-12">

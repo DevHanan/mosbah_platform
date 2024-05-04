@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $latest  = Course::latest()->take(6)->get();
-        $title = trans('front.home');
+        $title = 'الصفحة الرئيسية';
         return view('front.index',compact(['latest','title']));
 
     }
@@ -24,13 +24,13 @@ class HomeController extends Controller
         $setting = AboutSetting::find(1);
         $teams = Team::active()->get();
         $parteners = Partener::active()->get();
-        $title = trans('front.about');
+        $title = 'من نحن';
         return view('front.about',compact(['setting','teams','parteners','title']));
     }
 
     public function courses()
     {
-        $title = trans('front.courses');
+        $title = 'الدورات التدريبية';
         return view('front.courses',compact('title'));
     }
 
@@ -41,12 +41,12 @@ class HomeController extends Controller
 
     public function policy()
     {
-        $title = trans('front.policy');
+        $title = 'السياسات والشروط';
         return view('front.policy',compact('title'));
     }
     public function contactus()
     {
-        $title = trans('front.contactus');
+        $title = 'تواصل معنا';
         return view('front.contactus',compact('title'));
     }
 
@@ -66,37 +66,37 @@ class HomeController extends Controller
     {
         $course = Course::with('coupon')->find($id);
         $related_courses = Course::where('track_id',$course->track_id)->where('id','!=',$course->id)->get();
-        $title = trans('front.course_details');
+        $title = $course->name;
         return view('front.course',compact('course','related_courses','title'));
     }
 
     public function lecture($id)
     {
         $lecture = Lecture::find($id);
-        $title = trans('front.lecture_details');
+        $title = $lecture->title;
         return view('front.lecture',compact('lecture','lecture_details'));
 
     }
     public function signin()
     {
-        $title = trans('front.signin');
+        $title = 'تسجيل الدخول';
         return view('front.signin',compact('title'));
     }
     public function signup()
     {
-        $title = trans('front.signup');
+        $title = 'تسجيل حساب جديد';
         return view('front.signup',compact('signup'));
     }
     public function cart($id)
     {
         $course = Course::find($id);
-        $title = trans('front.cart');
+        $title = 'الاشتراكات';
         return view('front.course_cart',compact('course','title'));
     }
 
     public function Questions()
     {
-        $title = trans('front.Questions');
+        $title = 'الأسئلة الشائعة';
         return view('front.Questions',compact('Questions'));
     }
 

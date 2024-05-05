@@ -28,15 +28,10 @@ class UpdateStudentRequest extends FormRequest
             'last_name' => 'required',
             'email' => [
                 'required',
-                Rule::unique('students', 'email')->ignore($this->student)
+                Rule::unique('students', 'email')->ignore($this->id)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'userName' => [
-                'required',
-                Rule::unique('students', 'userName')->ignore($this->student)
-            ],
-            'country_id' => 'required|exists:countries,id',
-            'track_id' => 'required|exists:tracks,id',
+            'country_id' => 'required|exists:countries,id'
 
 
 

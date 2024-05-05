@@ -70,10 +70,10 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
-                                    <select class="form-control" name="track_id" id="track_id" required>
+                                    <select class="form-control select2" name="track_ids[]" id="track_id" required multiple>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
-                                        <option value="{{ $track->id }}" @if($row->track_id == $track->id) selected="selected" @endif> {{ $track->name }}</option>
+                                        <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray()))  selected @endif> {{ $track->name }}</option>
 
                                         @endforeach
                                     </select>
@@ -92,10 +92,8 @@
                                     <input type="file" class="form-control" name="image" id="logo">
 
                                     @if(isset($row->image))
-                @if(is_file($row->image))
                 <img src="{{ asset($row->image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                 <div class="clearfix"></div>
-                @endif
                 @endif
                                     @error('image')
                                     <div class="invalid-feedback">
@@ -136,7 +134,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control" name="country_id" id="country_id" required>
+                                    <select class="form-control select2" name="country_id" id="country_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
                                         <option value="{{ $country->id }}"  @if($row->country_id == $country->id) selected="selected" @endif> {{ $country->name }}</option>

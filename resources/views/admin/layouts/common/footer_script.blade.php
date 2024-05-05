@@ -335,9 +335,9 @@
 	// @formatter:on
 </script>
 <script>
-	 $(document).ready(function() {
-            $(".select2").select2();
-        });
+	$(document).ready(function() {
+		$(".select2").select2();
+	});
 </script>
 
 <script>
@@ -363,133 +363,37 @@
 		});
 	}
 </script>
-<script>
-	document.getElementById("typeSelect").addEventListener("change", function() {
-		var selectedValue = this.value;
-		var option1Div = document.getElementById("appointment_div");
-		var option2Div = document.getElementById("link_div");
-		var option3Div = document.getElementById("provider_div");
-
-
-		option1Div.classList.add("hidden");
-		option2Div.classList.add("hidden");
-		option3Div.classList.add("hidden");
-
-		switch (selectedValue) {
-			case "1":
-				option1Div.classList.add("hidden");
-				option2Div.classList.remove("hidden");
-				option3Div.classList.remove("hidden");
-				break;
-			case "2":
-				option1Div.classList.remove("hidden");
-				option2Div.classList.remove("hidden");
-				option3Div.classList.add("hidden");
-				break;
-		}
-	});
-</script>
-<script>
-
-	function addRow(tableID) {
-  var table = document.getElementById(tableID);
-  var rowCount = table.rows.length;
-  var row = table.insertRow(rowCount);
-  var colCount = table.rows[0].cells.length;
-  
-  for(var i=0; i<colCount; i++) {
-    var newRow = row.insertCell(i);
-
-    newRow.innerHTML = table.rows[0].cells[i].innerHTML;
-    newRow.childNodes[0].value = "";
-  }
-}
- 
-function deleteRow(row) {
-  var table = document.getElementById("data");
-  var rowCount = table.rows.length;
-  if (rowCount > 1) {
-    var rowIndex = row.parentNode.parentNode.rowIndex;
-    document.getElementById("data").deleteRow(rowIndex);
-  }
-  else {
-    alert("Please specify at least one value.");
-  }
-}
-
-function deleteRow2(row) {
-  var table = document.getElementById("data2");
-  var rowCount = table.rows.length;
-  if (rowCount > 1) {
-    var rowIndex = row.parentNode.parentNode.rowIndex;
-    document.getElementById("data2").deleteRow(rowIndex);
-  }
-  else {
-    alert("Please specify at least one value.");
-  }
-}
-
-</script>
-<script src="{{ asset('dashboard/plugins/jquery/js/jquery.min.js') }}"></script>
-<script src="https://developers.google.com/maps/marker/advanced-marker-element/latest/advanced-marker-element.min.js"></script>
-    <script>
-		$('document').ready(function(){
-			let map;
-
-function initMap() {
-
-	map = new google.maps.Map(document.getElementById('mapelement'), {
-		center: {
-			lat: <?php echo $setting->lat ?>,
-			lng: <?php echo  $setting->lng ?>
-		},
-		zoom: 8,
-	});
-	const marker = new google.maps.Marker({
-		position: {
-			lat: <?php echo $setting->lat ?>,
-			lng: <?php echo  $setting->lng ?>
-		},
-		map: map,
-		title: 'Hello World!'
-	});
-
-
-}
-		});
-      
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeKtyQzy9Mg88dwLjT2OxlfEZdgUYdydg
-&callback=initMap" async defer></script>
 
 <script>
-        $(function() {
-            $('.toggole-class').change(function() {
-                var status = $(this).prop('checked') == true ? 1 : 0;
-                var id = $(this).data('id');
-				var type = $(this).data('type');
+	$(function() {
+		$('.toggole-class').change(function() {
+			var status = $(this).prop('checked') == true ? 1 : 0;
+			var id = $(this).data('id');
+			var type = $(this).data('type');
 
-				$.ajaxSetup({
-            headers: {
-               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-         });
-                $.ajax({
-                    type: "POST",
-                    dataType: "json",
-                    url: 'changestatus',
-                    data: {'status': status, 'id': id ,'type':type},
-                    success: function(data){
-						Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: data.success,
-                    })
-						
-                    }
-                });
-            })
-        })
-    </script>
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				url: 'changestatus',
+				data: {
+					'status': status,
+					'id': id,
+					'type': type
+				},
+				success: function(data) {
+					Swal.fire({
+						icon: 'success',
+						title: 'Success!',
+						text: data.success,
+					})
+
+				}
+			});
+		})
+	})
 </script>

@@ -14,7 +14,7 @@ class Student extends Authenticatable
 
     protected $fillable = array(
         'first_name', 'last_name', 'email', 'userName', 'phone', 'active',
-        'country_id', 'track_id', 'qualifications', 'about_student'
+        'country_id', 'qualifications', 'about_student'
     ); 
     
     protected $appends = ['name'];
@@ -35,9 +35,9 @@ class Student extends Authenticatable
     }
 
 
-    public function track()
+    public function tracks()
     {
-        return $this->belongsTo(Track::class);
+        return $this->belongsToMany(Track::class);
     }
 
     public function subscriptions()

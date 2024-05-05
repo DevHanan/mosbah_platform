@@ -101,6 +101,10 @@
                                                 <i class="far fa-edit"></i>
                                             </a>
 
+                                            <a href="{{ url('admin/students/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="far fa-eye"></i>
+                                            </a>
+
                                             <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>

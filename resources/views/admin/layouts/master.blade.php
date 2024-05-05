@@ -130,7 +130,7 @@
 
 
   @include('admin.layouts.common.footer_script')
-  @stack('custom-scripts')
+  @stack('scripts')
 
 
 </body>

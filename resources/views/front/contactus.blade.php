@@ -167,3 +167,35 @@
 
     </section>
 @endsection
+@push('front-script')
+<script src="https://developers.google.com/maps/marker/advanced-marker-element/latest/advanced-marker-element.min.js"></script>
+<script>
+	$('document').ready(function() {
+		let map;
+
+		function initMap() {
+
+			map = new google.maps.Map(document.getElementById('mapelement'), {
+				center: {
+					lat: <?php echo $setting->lat ?>,
+					lng: <?php echo  $setting->lng ?>
+				},
+				zoom: 8,
+			});
+			const marker = new google.maps.Marker({
+				position: {
+					lat: <?php echo $setting->lat ?>,
+					lng: <?php echo  $setting->lng ?>
+				},
+				map: map,
+				title: 'Hello World!'
+			});
+
+
+		}
+	});
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeKtyQzy9Mg88dwLjT2OxlfEZdgUYdydg
+&callback=initMap" async defer></script>
+@endpush

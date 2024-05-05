@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('userName')->unique();
             $table->string('password');
             $table->integer('country_id');
-            $table->integer('track_id');
             $table->text('qualifications');
             $table->text('about_student');
             $table->string('image')->nullable();

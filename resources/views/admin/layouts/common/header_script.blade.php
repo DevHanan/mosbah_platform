@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="{{ asset('dashboard/plugins/data-tables/css/datatables.min.css') }}">
 <!-- select2 css -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
 <style>
   @import url('https://rsms.me/inter/inter.css');
@@ -55,3 +56,4 @@
 }
 </style>
 @endif
+<meta name="csrf-token" content="{{ csrf_token() }}">

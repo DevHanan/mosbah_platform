@@ -13,7 +13,7 @@ class Subscription extends Model
     public $timestamps = true;
 
     protected $fillable = array(
-        'course_id', 'student_id', 'track_id', 'payment_type_id'
+        'course_id', 'student_id', 'track_id', 'payment_type_id','status'
     );
 
 

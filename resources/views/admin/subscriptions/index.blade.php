@@ -4,7 +4,7 @@
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
-        @include('admin.layouts.inc.breadcrumb')
+            @include('admin.layouts.inc.breadcrumb')
 
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -41,10 +41,13 @@
                                         <th>#</th>
 
                                         <th>{{ __('admin.subscriptions.field_name') }}</th>
-                                        <th>{{ __('admin.subscriptions.phone_number') }}</th>
                                         <th>{{ __('admin.subscriptions.field_email') }}</th>
                                         <th>{{ __('admin.subscriptions.field_course') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_track') }}</th>
+                                        <th>{{ __('admin.subscriptions.field_course_price') }}</th>
+                                        <th>{{ __('admin.subscriptions.field_date') }}</th>
+                                        <th>{{ __('admin.subscriptions.field_status') }}</th>
+                                        <th>{{ __('admin.subscriptions.type') }}</th>
+                                        <th>{{ __('admin.subscriptions.field_paymenttype') }}</th>
                                         <th>{{ __('admin.subscriptions.field_action') }}</th>
 
 
@@ -56,28 +59,42 @@
                                         <td>{{ $loop->iteration }}</td>
 
                                         <td>{{ optional($row->student)->first_name }}</td>
-                                        <td>{{ optional($row->student)->phone }}</td>
                                         <td>{{ optional($row->student)->email }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td>{{ optional($row->course)->track->name }}</td>
+                                        <td>{{ optional($row->course)->price }} {{ $setting->currency }}</td>
+                                        <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
+                                        <td>
+                                            <div class="form-check form-switch md-3" style="margin:10px">
+
+                                                <input data-id="{{$row->id}}" class="form-check-input form-control toggole-subscribtion" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->status==1) checked="checked" @endif name="active">
+                                            </div>
+                                        </td>
+                                        <td> {{ optional($row->paymentType)->name }}</td>
+                                        <td>
+                                            @if($row->payment_attachment)
+                                            <a href="{{ asset($row->payment_attachment)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
+                                                <img src="{{asset($row->payment_attachment)}}" style="width:40px"> </a>
+                                            @else
+                                            {{ __('admin.no_file') }}
+                                            @endif
+                                        </td>
+
 
                                         <td>
 
 
-                                       
 
-
-                                            <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-edit"></i>
+                                            <a style="margin-bottom: 2px;" target="_blank" href="{{ url('admin/students/'.$row->student_id) }}" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="fa-solid fa-person"></i>
                                             </a>
+                                            @if($row->payment_attachment)
+                                            <a href="{{ asset($row->payment_attachment)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="far fa-file"></i>
+                                            </a>
+                                            @endif
 
-                                            <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                            <!-- Include Delete modal -->
-                                            @include('admin.layouts.inc.delete')
 
-                                         
+
 
 
                                         </td>

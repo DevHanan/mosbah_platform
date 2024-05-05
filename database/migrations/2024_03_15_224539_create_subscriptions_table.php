@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('track_id');
             $table->integer('payment_type_id');
             $table->string('payment_attachment');
+            $table->integer('status');
             $table->timestamps();
         });
     }

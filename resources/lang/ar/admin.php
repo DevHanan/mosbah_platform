@@ -1,5 +1,6 @@
 <?php
 return [
+    'no_file' => 'لا يوجد ملف',
     'show' => 'عرض الملف',
     'download' => 'تنزيل الملف',
     'no_file' => 'لا يوجد ملف',
@@ -177,7 +178,10 @@ return [
         "field_track" => "المسار",
         "phone_number" => "الهاتف",
         "field_status" => "الحالة",
-        "field_action" => "الحدث",
+        "field_course_price" => "سعر الدورة",
+        "field_date" => "تاريخ الإشتراك",
+        'type' => ' نوع الدفع',
+        "field_action" => "الحدث ",
         "student" => "الطالب",
         "field_paymenttype"  => "مرفق الدفع"
 

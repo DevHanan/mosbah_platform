@@ -18,7 +18,7 @@ class SubscriptionController extends Controller
 
     public function __construct()
     {
-        $this->title = 'list subscriptions';
+        $this->title = trans('admin.subscriptions.title');
         $this->route = 'admin.subscriptions';
         $this->view = 'admin.subscriptions';
         $this->path = 'subscriptions';
@@ -45,7 +45,7 @@ class SubscriptionController extends Controller
 
     public function create(Subscription $subscription)
     {
-        $data['title'] = 'Add Subscription ';
+        $data['title'] =trans('admin.subscriptions.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -98,5 +98,16 @@ class SubscriptionController extends Controller
        if($subscription)
        $subscription->delete();
        Toastr::success(__('msg_delete_successfully'), __('msg_success'));
-       return redirect()->route($this->route.'.index');    }
+       return redirect()->route($this->route.'.index'); 
+       }
+
+
+       public  function changeStatus(Request $request){
+        
+        $item = Subscription::find($request->subscribtion_id);
+        $item->status = $request->status;
+        $item->save();
+        return response()->json(['success'=>'Status change successfully.']);
+    }
+       
 }

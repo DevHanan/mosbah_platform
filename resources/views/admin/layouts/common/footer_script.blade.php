@@ -18,6 +18,7 @@
 
 <!-- Place the first <script> tag in your HTML's <head> -->
 <script src="https://cdn.tiny.cloud/1/wz96dir3qccs1frm29whhowfsscviapyi4afm64o6rtgm9h5/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 
@@ -429,4 +430,65 @@ function deleteRow2(row) {
   }
 }
 
+</script>
+<script src="{{ asset('dashboard/plugins/jquery/js/jquery.min.js') }}"></script>
+<script src="https://developers.google.com/maps/marker/advanced-marker-element/latest/advanced-marker-element.min.js"></script>
+    <script>
+		$('document').ready(function(){
+			let map;
+
+function initMap() {
+
+	map = new google.maps.Map(document.getElementById('mapelement'), {
+		center: {
+			lat: <?php echo $setting->lat ?>,
+			lng: <?php echo  $setting->lng ?>
+		},
+		zoom: 8,
+	});
+	const marker = new google.maps.Marker({
+		position: {
+			lat: <?php echo $setting->lat ?>,
+			lng: <?php echo  $setting->lng ?>
+		},
+		map: map,
+		title: 'Hello World!'
+	});
+
+
+}
+		});
+      
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeKtyQzy9Mg88dwLjT2OxlfEZdgUYdydg
+&callback=initMap" async defer></script>
+
+<script>
+        $(function() {
+            $('.toggole-subscribtion').change(function() {
+                var status = $(this).prop('checked') == true ? 1 : 0;
+                var id = $(this).data('id');
+				$.ajaxSetup({
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+         });
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: 'changesubscriptionstatus',
+                    data: {'status': status, 'subscribtion_id': id},
+                    success: function(data){
+						Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: data.success,
+                    })
+						
+                    }
+                });
+            })
+        })
+    </script>
 </script>

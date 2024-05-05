@@ -58,7 +58,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ optional($row->student)->first_name }}</td>
+                                        <td>{{ optional($row->student)->name }}</td>
                                         <td>{{ optional($row->student)->email }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
                                         <td>{{ optional($row->course)->price }} {{ $setting->currency }}</td>
@@ -66,7 +66,7 @@
                                         <td>
                                             <div class="form-check form-switch md-3" style="margin:10px">
 
-                                                <input data-id="{{$row->id}}" class="form-check-input form-control toggole-subscribtion" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->status==1) checked="checked" @endif name="active">
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Subscription' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->status==1) checked="checked" @endif name="active">
                                             </div>
                                         </td>
                                         <td> {{ optional($row->paymentType)->name }}</td>

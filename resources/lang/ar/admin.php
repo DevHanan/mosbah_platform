@@ -141,7 +141,8 @@ return [
         "qualifications" => "المؤهلات",
         'about' => "عن الطالب",
         'field_photo' => 'الصورة',
-        "userName" => "إسم المستخدم"
+        "userName" => "إسم المستخدم",
+        'field_total_subscription' => 'إجمالى قيمة الإشتراكات'
     ],
     "instructors" =>[
         "list" => "عرض المحاضرين",

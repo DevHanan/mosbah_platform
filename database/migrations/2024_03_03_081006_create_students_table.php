@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('qualifications');
             $table->text('about_student');
             $table->string('image')->nullable();
-            $table->boolean('active')->default(1);
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

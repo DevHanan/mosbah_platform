@@ -104,7 +104,7 @@ class SubscriptionController extends Controller
 
        public  function changeStatus(Request $request){
         
-        $item = Subscription::find($request->subscribtion_id);
+        $item = $request->type::find($request->id);
         $item->status = $request->status;
         $item->save();
         return response()->json(['success'=>'Status change successfully.']);

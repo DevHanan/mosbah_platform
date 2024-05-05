@@ -15,7 +15,13 @@ class Student extends Authenticatable
     protected $fillable = array(
         'first_name', 'last_name', 'email', 'userName', 'phone', 'active',
         'country_id', 'track_id', 'qualifications', 'about_student'
-    );
+    ); 
+    
+    protected $appends = ['name'];
+    protected function getNameAttribute(){
+        return $this->first_name . ' ' . $this->last_name;
+       }
+
     protected $hidden = ['password'];
 
     public function scopeActive($query)
@@ -32,5 +38,10 @@ class Student extends Authenticatable
     public function track()
     {
         return $this->belongsTo(Track::class);
+    }
+
+    public function subscriptions()
+    {
+        return $this->belongsTo(Subscription::class);
     }
 }

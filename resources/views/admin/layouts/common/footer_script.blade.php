@@ -466,9 +466,11 @@ function initMap() {
 
 <script>
         $(function() {
-            $('.toggole-subscribtion').change(function() {
+            $('.toggole-class').change(function() {
                 var status = $(this).prop('checked') == true ? 1 : 0;
                 var id = $(this).data('id');
+				var type = $(this).data('type');
+
 				$.ajaxSetup({
             headers: {
                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -477,8 +479,8 @@ function initMap() {
                 $.ajax({
                     type: "POST",
                     dataType: "json",
-                    url: 'changesubscriptionstatus',
-                    data: {'status': status, 'subscribtion_id': id},
+                    url: 'changestatus',
+                    data: {'status': status, 'id': id ,'type':type},
                     success: function(data){
 						Swal.fire({
                         icon: 'success',

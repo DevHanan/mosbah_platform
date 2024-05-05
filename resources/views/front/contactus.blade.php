@@ -168,6 +168,7 @@
     </section>
 @endsection
 @push('front-script')
+<script src="{{asset('public/front/js/jquery.min.js')}}"></script>
 <script src="https://developers.google.com/maps/marker/advanced-marker-element/latest/advanced-marker-element.min.js"></script>
 <script>
 	$('document').ready(function() {

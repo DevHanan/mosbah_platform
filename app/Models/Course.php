@@ -17,11 +17,18 @@ class Course extends Model
                             );
 
 
-    protected $appends = ['SubscriptionCount','Totalsubscription','TotalDiscount'] ;   
+    protected $appends = ['SubscriptionCount','Totalsubscription','TotalDiscount','isSubscribed'] ;   
     
     
     public function getSubscriptionCountAttribute(){
      return $this->subscriptions()->count();   
+    }
+
+    public function getisSubscribedAttribute(){
+        if(auth()->guard('students-login')->user())
+        return $this->subscriptions()->where('course_id',$this->id)->where('student_id',auth()->guard('students-login')->user()->id)->count();   
+        else
+        return 0;
     }
 
     public function getTotalsubscriptionAttribute(){

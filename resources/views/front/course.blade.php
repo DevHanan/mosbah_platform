@@ -64,9 +64,11 @@
                             <i class="fa fa-calendar" style="color: #374957;"></i>
                             <span class="fw-bold mx-2">{{ $course->start_date  }}</span>
                         </div>
+                        @if($course->isSubscribed == 0) 
                         <div class="d-flex justify-content-center mb-3">
                             <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3" @if(!auth()->guard('students-login')->user()) style="pointer-events: none;" @endif> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                         </div>
+                       @endif 
 
                         <div class="form-check d-flex justify-content-center p-0" style="font-size: 14px;">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -506,9 +508,12 @@
                                    @endif
                                 </span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span>مستوى متقدم </span></p>
+                                @if($course->isSubscribed == 0) 
+
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3" @if(!auth()->guard('students-login')->user()) style="pointer-events: none;" @endif > اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>

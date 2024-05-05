@@ -144,20 +144,11 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="userName">{{ __('admin.students.userName') }} <span>*</span></label>
-                                    <input type="userName" class="form-control" name="userName" id="userName" value="{{ old('password_confirmation') }}" required>
-
-                                    @error('userName')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                              
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control" name="country_id" id="country_id" required>
+                                    <select class="form-control select2" name="country_id" id="country_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
                                         <option value="{{ $country->id }}"> {{ $country->name }}</option>
@@ -178,10 +169,7 @@
 
                             </div>
 
-                            <div class="col-md-12">
-                                <label class="form-label">{{ __('admin.students.about') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="about_student" rows="6" placeholder="Content.."></textarea>
-                            </div>
+                           
                             <div class="col-md-12">
                                 <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
                                 <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>

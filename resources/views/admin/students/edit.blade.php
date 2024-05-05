@@ -66,16 +66,7 @@
                                 </div>
 
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="userName">{{ __('admin.students.userName') }} <span>*</span></label>
-                                    <input type="userName" class="form-control" name="userName" id="userName" value="{{ $row->userName }}" required>
-
-                                    @error('userName')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                              
 
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
@@ -166,10 +157,7 @@
 
                             </div>
 
-                            <div class="col-md-12">
-                                <label class="form-label">{{ __('admin.students.about') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="about_student" rows="6" placeholder="Content.."> {{ $row->about_student }}</textarea>
-                            </div>
+                           
                             <div class="col-md-12">
                                 <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
                                 <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>

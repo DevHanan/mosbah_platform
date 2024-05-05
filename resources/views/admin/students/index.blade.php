@@ -84,7 +84,7 @@
 
                                             <div class="form-check form-switch md-3" style="margin:10px">
 
-                                                <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->status==1) checked="checked" @endif name="active">
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                             </div>
                                         </td>
                                         <td>

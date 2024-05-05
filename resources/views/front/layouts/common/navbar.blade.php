@@ -2,8 +2,10 @@
         <div class="container-fluid">
           <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
             <div class="header-info d-flex align-items-center">
-            <a href="{{url('signup')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" @if(auth()->guard('students-login')->user())  style="pointer-events: none;" @endif> اشترك الان مجانا </a>
-              <a href="{{url('signin')}}"  class="mx-3 p-2 text-decoration-none text-dark"  @if(auth()->guard('students-login')->user())  style="pointer-events: none;" @endif> تسجيل الدخول <i class="fa-solid fa-lock mx-2"></i> </a>
+            @if(auth()->guard('students-login')->user())  
+            <a href="{{url('signup')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> اشترك الان مجانا </a>
+              <a href="{{url('signin')}}"  class="mx-3 p-2 text-decoration-none text-dark"  > تسجيل الدخول <i class="fa-solid fa-lock mx-2"></i> </a>
+              @endif
             </div>
             <div>
               <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-row align-items-center">

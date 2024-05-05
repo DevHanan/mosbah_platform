@@ -204,18 +204,18 @@
                   {{ __('navbar.courses.list_tracks') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.tracks.create')) active @endif" href="{{ url('admin/tracks/create')}}">
+                <!-- <a class="dropdown-item @if(request()->routeIs('admin.tracks.create')) active @endif" href="{{ url('admin/tracks/create')}}">
                   {{ __('navbar.courses.add_track') }}
 
-                </a>
+                </a> -->
                 <a class="dropdown-item @if(request()->routeIs(['admin.course-types.index','admin.course-types.edit'])) active @endif" href="{{ url('admin/course-types')}}">
                   {{ __('navbar.courses.list_course_types') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.course-types.create')) active @endif" href="{{ url('admin/course-types/create')}}">
+                <!-- <a class="dropdown-item @if(request()->routeIs('admin.course-types.create')) active @endif" href="{{ url('admin/course-types/create')}}">
                   {{ __('navbar.courses.add_course_types') }}
 
-                </a>
+                </a> -->
                 @foreach($courseTypes as $type)
                 <a class="dropdown-item" href="{{ url('admin/courses?type='. $type->id)}}">
                   {{ $type->name }}

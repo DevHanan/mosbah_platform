@@ -12,19 +12,11 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 @include('admin.layouts.inc.breadcrumb')
-                <!-- Page pre-title
-                <div class="page-pretitle">
-                    {{ $setting->title }}
-                </div>
-                <h2 class="page-title">
-                    @if(isset($title))
-                    {{ $title }}
-                    @endif
-                </h2> -->
+                
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
-                <!-- <div class="btn-list">
+                <div class="btn-list">
 
                     <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -34,7 +26,7 @@
                         </svg>
                         {{__('admin.btn_add_new')}} </a>
 
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

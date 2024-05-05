@@ -204,18 +204,12 @@
                   {{ __('navbar.courses.list_tracks') }}
 
                 </a>
-                <!-- <a class="dropdown-item @if(request()->routeIs('admin.tracks.create')) active @endif" href="{{ url('admin/tracks/create')}}">
-                  {{ __('navbar.courses.add_track') }}
 
-                </a> -->
                 <a class="dropdown-item @if(request()->routeIs(['admin.course-types.index','admin.course-types.edit'])) active @endif" href="{{ url('admin/course-types')}}">
                   {{ __('navbar.courses.list_course_types') }}
 
                 </a>
-                <!-- <a class="dropdown-item @if(request()->routeIs('admin.course-types.create')) active @endif" href="{{ url('admin/course-types/create')}}">
-                  {{ __('navbar.courses.add_course_types') }}
 
-                </a> -->
                 @foreach($courseTypes as $type)
                 <a class="dropdown-item" href="{{ url('admin/courses?type='. $type->id)}}">
                   {{ $type->name }}
@@ -223,38 +217,14 @@
                 </a>
                 @endforeach
                 <a class="dropdown-item" href="{{ url('admin/courses?recommend=1')}}">
-                  
-                {{ __('navbar.courses.recommened_courses') }}
+
+                  {{ __('navbar.courses.recommened_courses') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.courses.create')) active @endif" href="{{ url('admin/courses/create')}}">
                   {{ __('navbar.courses.add_course') }}
 
                 </a>
-                <!-- <a class="dropdown-item @if(request()->routeIs('admin.levels.*')) active @endif" href="{{ url('admin/levels')}}">
-                  {{ __('navbar.courses.list_levels') }}
-
-                </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.levels.create')) active @endif" href="{{ url('admin/levels/create')}}">
-                  {{ __('navbar.courses.add_level') }}
-
-                </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.lectures.*')) active @endif" href="{{ url('admin/lectures')}}">
-                  {{ __('navbar.courses.list_lectures') }}
-
-                </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.lectures.create')) active @endif" href="{{ url('admin/lectures/create')}}">
-                  {{ __('navbar.courses.add_lecture') }}
-
-                </a> -->
-
-
-
-
-
-
-
-
 
               </div>
 
@@ -393,7 +363,7 @@
             </div>
           </div>
         </li>
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif"  href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -427,8 +397,8 @@
               </div>
             </div>
           </div>
-        </li> -->
-        <!-- <li class="nav-item dropdown">
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets'])) show @endif "  href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -458,7 +428,48 @@
               </div>
             </div>
           </div>
-        </li> -->
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 9l9 6l9 -6l-9 -6l-9 6"></path><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"></path><path d="M3 19l6 -6"></path><path d="M15 13l6 6"></path></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    الماليات 
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 9l9 6l9 -6l-9 -6l-9 6"></path><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"></path><path d="M3 19l6 -6"></path><path d="M15 13l6 6"></path></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    حساب المعادلة 
+                  </span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 9l9 6l9 -6l-9 -6l-9 6"></path><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"></path><path d="M3 19l6 -6"></path><path d="M15 13l6 6"></path></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    صانع cv 
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 9l9 6l9 -6l-9 -6l-9 6"></path><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"></path><path d="M3 19l6 -6"></path><path d="M15 13l6 6"></path></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    الأختبارات 
+                  </span>
+                </a>
+              </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown"="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">

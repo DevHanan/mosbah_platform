@@ -169,8 +169,8 @@
                                                             !!} </p>
                                                         <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
                                                             <div class="d-flex flex-wrap mt-2">
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
+                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }}  </div>
+                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $lecture->created_at->format('l, F j, Y') }} </div>
                                                             </div>
                                                             <div class="mt-2">
                                                                 <a class="btn secondary-bg px-3 text-white" href="{{url('lecture/'.$lecture->id)}}">اذهب الي المحاضرة</a>

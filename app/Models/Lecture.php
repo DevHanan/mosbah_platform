@@ -11,7 +11,8 @@ class Lecture extends Model
     protected $table = 'lectures';
     public $timestamps = true;
 
-    protected $fillable = array('title','level_id','course_id','type','active','description','short_description','type');
+    protected $fillable = array('title','level_id','course_id','type','active',
+    'description','short_description','type','goals','conclusion','appointment','link','provider','period');
 
     public function scopeActive($query)
     {
@@ -25,5 +26,15 @@ class Lecture extends Model
     public function level()
     {
         return $this->belongsTo(Level::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(PhotoLecture::class);
+    }
+
+    public function books()
+    {
+        return $this->hasMany(BookLecture::class);
     }
 }

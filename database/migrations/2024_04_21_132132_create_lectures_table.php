@@ -19,8 +19,14 @@ return new class extends Migration
             $table->string('course_id');
             $table->text('short_description')->nullable();
             $table->text('description')->nullable();
+            $table->text('goals')->nullable();
+            $table->text('conclusion')->nullable();
             $table->string('type');
+            $table->string('appointment')->nullable();
+            $table->string('link')->nullable();
+            $table->string('provider')->nullable();
             $table->boolean('active')->default(1);
+            $table->string('period')->nullable();
         });
     }
 

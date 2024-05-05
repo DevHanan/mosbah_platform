@@ -74,6 +74,7 @@ Route::post('/signin', [RegisterController::class, 'signin']);
 
 
 Route::get('/questions', [HomeController::class, 'questions']);
+Route::post('/subscribe', [HomeController::class, 'subscribe']);
 
 
 

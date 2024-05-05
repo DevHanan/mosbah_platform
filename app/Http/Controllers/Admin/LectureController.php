@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
-use App\Models\Course;
+use App\Models\BookLecture;
+use App\Models\PhotoLecture;
 use App\Models\Lecture;
 use App\Models\Level;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class LectureController extends Controller
     use ApiResponse, FileUploader;
 
 
-    
+
     public function __construct()
     {
         $this->title = trans('admin.lectures.title');
@@ -30,58 +31,92 @@ class LectureController extends Controller
         // $this->middleware('permission:lectures-edit',   ['only' => ['edit','update']]);
         // $this->middleware('permission:lectures-delete',   ['only' => ['delete']]);
     }
-    public function index(Request $request,$level_id)
+    public function index(Request $request, $level_id)
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
-        $data['rows'] = Lecture::where(function($q)use($request){
+        $data['rows'] = Lecture::where(function ($q) use ($request) {
             if ($request->title)
-            $q->Where('title', 'like', '%' . $request->title  . '%');
-        })->where('level_id',$level_id)->paginate(10);
+                $q->Where('title', 'like', '%' . $request->title  . '%');
+        })->where('level_id', $level_id)->paginate(10);
         $data['level'] = Level::find($level_id);
-        return view($this->view.'.index', $data);
+        return view($this->view . '.index', $data);
     }
 
-    public function create(Lecture $lecture,$level_id)
+    public function create(Lecture $lecture, $level_id)
     {
         $data['title'] = trans('admin.lectures.add');
         $data['route'] = $this->route;
         $data['level'] = Level::find($level_id);
-        return view($this->view .'.create',$data);
+        return view($this->view . '.create', $data);
     }
-    public function store(Request $request,$level_id)
+    public function store(Request $request, $level_id)
     {
-       $lecture = Lecture::create($request->all());
+        $lecture = Lecture::create($request->except(['img', 'bookFiles']));
+        if ($request->imgTitle) {
+            for ($i = 0; $i < count($request->imgTitle); $i++) {
+                if ($request->img[$i]) {
+
+                    $thumbnail = $request->img[$i];
+                    $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                    $thumbnail->move(public_path('/uploads/lectures/images/'), $filename);
+
+                    PhotoLecture::create([
+                        'title' => $request->imgTitle[$i],
+                        'photo' => 'public/uploads/lectures/images/' . $filename,
+                        'lecture_id'  => $lecture->id
+                    ]);
+                }
+            }
+        }
+
+
+        if ($request->bookTitles) {
+            for ($i = 0; $i < count($request->bookTitles); $i++) {
+                if ($request->bookFiles[$i]) {
+
+                    $thumbnail = $request->bookFiles[$i];
+                    $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                    $thumbnail->move(public_path('/uploads/lectures/books/'), $filename);
+
+                    BookLecture::create([
+                        'title' => $request->bookTitles[$i],
+                        'file' => 'public/uploads/lectures/books/' . $filename,
+                        'link'  =>$request->bookLinks[$i],
+                        'lecture_id'  => $lecture->id
+                    ]);
+                }
+            }
+        }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/levels/$level_id/lectures");
-
     }
 
-    public function edit($level_id,$id)
-    {   
+    public function edit($level_id, $id)
+    {
         $data['row'] = Lecture::find($id);
         $data['level'] = Level::find($level_id);
         $data['route'] = $this->route;
         $data['title'] = trans('admin.lectures.edit');
-        return view($this->view.'.edit',$data);
+        return view($this->view . '.edit', $data);
     }
 
-    public function update(Request $request,$level_id)
+    public function update(Request $request, $level_id)
     {
-       $lecture = Lecture::find($request->id);
-       $lecture->update($request->all());
-    
+        $lecture = Lecture::find($request->id);
+        $lecture->update($request->all());
+
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/levels/$level_id/lectures");
-      }
+    }
 
-    public function destroy (Request $request)
+    public function destroy(Request $request)
     {
-       $lecture = Lecture::find($request->id);
+        $lecture = Lecture::find($request->id);
         if ($lecture)
-           $lecture->delete();
+            $lecture->delete();
 
-            Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
-            return redirect()->route($this->route.'.index');
+        Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
+        return redirect()->route($this->route . '.index');
     }
 }

@@ -205,7 +205,8 @@
                         </div>
                         <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
                     </form>
-                    <form action="" class="externalForm d-none">
+                    <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST">
+                        @csrf
                         <div class="payment shadow-sm p-4 my-3">
                             <h5 class="fw-bold">تحويل خارجي</h5>
                             <hr>
@@ -221,11 +222,11 @@
                             </div>
 
                             <label class="fw-bold mb-3">رقم العملية</label>
-                            <input type="text" class="form-control mb-3">
+                            <input type="text" class="form-control mb-3" name="transcation_id">
 
                             <div class="px-5 d-flex flex-column align-items-center">
                                 <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
-                                    <p> اسحب صورة الفاتورة هنا <img src="{{asset('public/front/img/icons/upload.png')}}" alt=""></p>
+                                    <p> اسحب صورة الفاتورة هنا <img  name="bill" src="{{asset('public/front/img/icons/upload.png')}}" alt=""></p>
                                 </div>
                                 <div class="choose_img position-relative d-flex justify-content-center my-3">
                                     <input type="file" class="position-absolute" id="fileInput">
@@ -234,22 +235,24 @@
                             </div>
                             
                             <label class="fw-bold mb-3">عنوان إرسال الفواتير</label>
-                            <select class="form-control select2 p-4 py-5">
-                                <option selected="selected">مصر</option>
-                                <option>Alaska</option>
+                            <select class="form-control select2 p-4 py-5" name="country_id">
+                                @foreach($countries as $country)
+                                <option value="{{$country->id}}" > {{$country->name }}</option>
+                                @endforeach
                             </select>
                             <div class="row mt-3">
                                 <div class="col-sm-6">
                                     <label class="fw-bold mb-3">المدينة</label>
-                                    <input type="text" class="form-control mb-3" placeholder="مثال : الجيزة">
+                                    <input type="text"  name="city" class="form-control mb-3" placeholder="مثال : الجيزة">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="fw-bold mb-3"> الرمز البريدي </label>
-                                    <input type="text" class="form-control mb-3" placeholder="مثال : 77889">
+                                    <input type="text" name="postal_code" class="form-control mb-3" placeholder="مثال : 77889">
                                 </div>
+                                <input type="hidden" value="{{$course->id}}" name="course_id">
                             </div>
                         </div>
-                        <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                        <button type="submit" class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                     </form>
                     <p class="text-center">من خلال إكمال عملية الشراء ، فإنك توافق على <a href="{{url('/policies')}}" class="text-decoration-none secondary-color">شروط الخدمة</a> هذه.</p>
                 </div>
@@ -270,7 +273,7 @@
                                     <hr>
                                     <div class="d-flex justify-content-around" style="font-size: 14px;">
                                         <p> <i class="fa-solid fa-graduation-cap ms-1"></i> مبتدئ</p>
-                                        <p> <i class="fa-regular fa-clock ms-1"></i> 40 ساعة</p>
+                                        <p> <i class="fa-regular fa-clock ms-1"></i> {{ $course->period }} ساعة</p>
                                         <p> <i class="fa-solid fa-laptop ms-1"></i> {{ $course->lectures()->count()}} محاضرة</p>
                                     </div>
                                 </div>

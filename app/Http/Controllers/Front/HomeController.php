@@ -8,7 +8,10 @@ use App\Models\Course;
 use App\Models\Partener;
 use App\Models\Team;
 use App\Models\Lecture;
-
+use App\Models\Subscription;
+use App\Models\Subsctiption;
+use Illuminate\Http\Request;
+use Auth;
 class HomeController extends Controller
 {
     public function index()
@@ -64,7 +67,7 @@ class HomeController extends Controller
     }
     public function course($id)
     {
-        $course = Course::with('coupon')->find($id);
+        $course = Course::with(['levels','lectures','track','instructor','coupon'])->find($id);
         $related_courses = Course::where('track_id',$course->track_id)->where('id','!=',$course->id)->get();
         $title = $course->name;
         return view('front.course',compact('course','related_courses','title'));
@@ -74,7 +77,7 @@ class HomeController extends Controller
     {
         $lecture = Lecture::find($id);
         $title = $lecture->title;
-        return view('front.lecture',compact('lecture','lecture_details'));
+        return view('front.lecture',compact('lecture'));
 
     }
     public function signin()
@@ -89,7 +92,7 @@ class HomeController extends Controller
     }
     public function cart($id)
     {
-        $course = Course::find($id);
+        $course = Course::with(['levels','lectures','track','instructor'])->find($id);
         $title = 'الاشتراكات';
         return view('front.course_cart',compact('course','title'));
     }
@@ -98,6 +101,24 @@ class HomeController extends Controller
     {
         $title = 'الأسئلة الشائعة';
         return view('front.Questions',compact('Questions'));
+    }
+
+
+    public function subscribe(Request $request){
+        $request->merge(['student_id'=>Auth::guard('students-login')->user()->id]);
+        $item = Subscription::create($request->except(['bill']));
+        if($request->hasFile('bill')){
+              
+            $thumbnail = $request->bill;
+           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/subsctiptions/'),$filename);
+            $item->bill ='public/uploads/subsctiptions/'.$filename;
+            $item->save();
+        }
+        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
+        return redirect('course/'.$request->course_id);
+
+
     }
 
   

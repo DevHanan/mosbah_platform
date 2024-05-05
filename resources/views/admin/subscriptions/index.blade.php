@@ -4,15 +4,8 @@
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
-            <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
-            </div>
+        @include('admin.layouts.inc.breadcrumb')
+
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
@@ -52,7 +45,6 @@
                                         <th>{{ __('admin.subscriptions.field_email') }}</th>
                                         <th>{{ __('admin.subscriptions.field_course') }}</th>
                                         <th>{{ __('admin.subscriptions.field_track') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_status') }}</th>
                                         <th>{{ __('admin.subscriptions.field_action') }}</th>
 
 
@@ -67,36 +59,12 @@
                                         <td>{{ optional($row->student)->phone }}</td>
                                         <td>{{ optional($row->student)->email }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td>{{ optional($row->track)->name }}</td>
-                                        <td>{{ $row->status }}</td>
+                                        <td>{{ optional($row->course)->track->name }}</td>
 
                                         <td>
 
 
-                                            @if( $row->active == 1 )
-                                            <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                                            @else
-                                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                                            @endif
-                                        </td>
-                                        <td>
-
-
-                                            @if($row->status == 0)
-
-
-                                            <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa-solid fa-lock-open"></i>
-                                            </button>
-                                            @else
-                                            <button class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa fa-window-close" aria-hidden="true"></i>
-                                            </button>
-                                            @endif
-
-                                            <!-- Include Password Change modal -->
-                                            @include('admin.subscriptions.change-status')
-
+                                       
 
 
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">

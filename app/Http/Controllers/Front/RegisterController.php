@@ -118,7 +118,7 @@ class RegisterController extends Controller
              $client->api_token = $token;
              $client->save();
              toastr()->success(__('front.login_success'), __('front.msg_success'));
-             return view('front.index');
+             return view('front.courses');
                 } else{
                     toastr()->error(__('front.login_failed'), __('front.msg_error'));
                     return view('front.signin');

@@ -20,21 +20,26 @@
 <script src="https://cdn.tiny.cloud/1/wz96dir3qccs1frm29whhowfsscviapyi4afm64o6rtgm9h5/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
-	
+
 <script>
-  tinymce.init({
-    selector: 'textarea',
-	direction: '<?= app()->getLocale() == 'ar' ? "RTL" : "LTR"; ?>',
-    plugins: 'directionality anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
-    toolbar: 'rtl ltr |undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-    tinycomments_mode: 'embedded',
-    tinycomments_author: 'Author name',
-    mergetags_list: [
-      { value: 'First.Name', title: 'First Name' },
-      { value: 'Email', title: 'Email' },
-    ],
-    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
-  });
+	tinymce.init({
+		selector: 'textarea',
+		direction: '<?= app()->getLocale() == 'ar' ? "RTL" : "LTR"; ?>',
+		plugins: 'directionality anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+		toolbar: 'rtl ltr |undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+		tinycomments_mode: 'embedded',
+		tinycomments_author: 'Author name',
+		mergetags_list: [{
+				value: 'First.Name',
+				title: 'First Name'
+			},
+			{
+				value: 'Email',
+				title: 'Email'
+			},
+		],
+		ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+	});
 </script>
 
 
@@ -358,4 +363,70 @@
 		});
 	}
 </script>
+<script>
+	document.getElementById("typeSelect").addEventListener("change", function() {
+		var selectedValue = this.value;
+		var option1Div = document.getElementById("appointment_div");
+		var option2Div = document.getElementById("link_div");
+		var option3Div = document.getElementById("provider_div");
 
+
+		option1Div.classList.add("hidden");
+		option2Div.classList.add("hidden");
+		option3Div.classList.add("hidden");
+
+		switch (selectedValue) {
+			case "1":
+				option1Div.classList.add("hidden");
+				option2Div.classList.remove("hidden");
+				option3Div.classList.remove("hidden");
+				break;
+			case "2":
+				option1Div.classList.remove("hidden");
+				option2Div.classList.remove("hidden");
+				option3Div.classList.add("hidden");
+				break;
+		}
+	});
+</script>
+<script>
+
+	function addRow(tableID) {
+  var table = document.getElementById(tableID);
+  var rowCount = table.rows.length;
+  var row = table.insertRow(rowCount);
+  var colCount = table.rows[0].cells.length;
+  
+  for(var i=0; i<colCount; i++) {
+    var newRow = row.insertCell(i);
+
+    newRow.innerHTML = table.rows[0].cells[i].innerHTML;
+    newRow.childNodes[0].value = "";
+  }
+}
+ 
+function deleteRow(row) {
+  var table = document.getElementById("data");
+  var rowCount = table.rows.length;
+  if (rowCount > 1) {
+    var rowIndex = row.parentNode.parentNode.rowIndex;
+    document.getElementById("data").deleteRow(rowIndex);
+  }
+  else {
+    alert("Please specify at least one value.");
+  }
+}
+
+function deleteRow2(row) {
+  var table = document.getElementById("data2");
+  var rowCount = table.rows.length;
+  if (rowCount > 1) {
+    var rowIndex = row.parentNode.parentNode.rowIndex;
+    document.getElementById("data2").deleteRow(rowIndex);
+  }
+  else {
+    alert("Please specify at least one value.");
+  }
+}
+
+</script>

@@ -77,6 +77,10 @@ return [
         'hour' => 'Hour'
     ],
     "lectures" =>[
+        'field_period' => 'Period',
+        'goals' => 'Lecture Goals',
+        'conclusion'  => 'Conclusion',
+        'opened_free'  => 'Opened Free',
         'title' => 'List Lectures',
         'add' => 'New Lecture',
         'edit' => 'Edit Lecture',

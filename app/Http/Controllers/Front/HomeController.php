@@ -88,7 +88,7 @@ class HomeController extends Controller
     public function signup()
     {
         $title = 'تسجيل حساب جديد';
-        return view('front.signup',compact('signup'));
+        return view('front.signup',compact('title'));
     }
     public function cart($id)
     {

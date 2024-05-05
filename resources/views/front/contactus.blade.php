@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div class="que mt-5 py-5 mb-3">
+        <!-- <div class="que mt-5 py-5 mb-3">
             <div class="container">
                 <h2 class="text-center mb-5">أسئلة متكررة؟</h2>
                 <div class="d-flex justify-content-between">
@@ -159,6 +159,10 @@
                 </div>
                 
             </div>     
-        </div>
+        </div> -->
+        <div class="row col-md-12">
+
+<div id="mapelement" style="height: 500px; width: 100%;"></div>
+</div>
     </section>
 @endsection

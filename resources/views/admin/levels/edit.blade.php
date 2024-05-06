@@ -108,9 +108,6 @@
                   @enderror
                 </div>
               
-
-              
-              
                 <div class="mb-3">
                   <label class="form-label" for="period"> {{ __('admin.levels.period') }} <span>*</span></label>
                   <input type="number" class="form-control" name="period" id="period" value="{{ $row->period }}" required>

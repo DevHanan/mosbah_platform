@@ -137,6 +137,68 @@
     </div>
 </div>
 
+<div class="popular-courses my-5">
+    <div class="container">
+        <h2 class="section_title fw-bold">دورات <span class="primary-color">المرشحة </span></h2>
+        <p class="fw-bold mt-3"> بين يديك الدورات الأكثر ترشيحا فى سوق العمل يسعى أغلب الطلاب للاشتراك بها فانضم اليهم </p>
+    </div>
+
+    <div class="card__container swiper mt-4">
+        <div class="container">
+
+            <div class="card__content">
+                <div class="swiper-wrapper">
+                    @foreach($recommened_courses as $course)
+                    <article class="card__article swiper-slide shadow">
+                        <a href="{{ url('course/'.$course->id)}}">
+                            <div class="card__image p-2">
+                                <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
+                                <div class="card__shadow"></div>
+                            </div>
+                        </a>
+
+                        <div class="card__data p-3">
+                            <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
+                                <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
+                            </a>
+                            <div class="name primary-color mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }}</div>
+                            <div class="rating d-flex justify-content-end">
+                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
+                                <img src="public/front/img/grayStar.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                                <img src="public/front/img/Star.svg" alt="">
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
+                                <div class="price">
+                                    <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
+                                    <span class="fw-bold">$ {{ $course->price }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-next">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+
+        <div class="swiper-button-prev">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
 <div class="categories py-5">
     <div class="container">
         <h2 class="section_title fw-bold">المسارات</h2>
@@ -172,6 +234,7 @@
             <div class="card__content">
                 <div class="swiper-wrapper">
                     @foreach($instructors as $instructor)
+                        @if($instructor->recommened == 1)
                     <article class="card__article swiper-slide shadow">
                         <a href="#">
                             <div class="card__image p-2">
@@ -186,6 +249,7 @@
                             <p class="card__description text-center m-0"> {{ $instructor->job }} </p>
                         </div>
                     </article>
+                    @endif
                     @endforeach
 
 

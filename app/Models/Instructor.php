@@ -16,7 +16,8 @@ class Instructor extends Authenticatable
     protected $appends = ['name','courseNumer'];
 
     protected $fillable = array('first_name','last_name','email','userName','phone','active'
-                                ,'track_id','qualifications','about_teacher','bank_account'
+                                ,'track_id','qualifications','about_teacher','bank_account',
+                                'salary','is_employee'
                                );
 
 

@@ -75,6 +75,17 @@
                   </div>
                   @enderror
                 </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="period"> {{ __('admin.levels.period') }} <span>*</span></label>
+                  <input type="number" class="form-control" name="period" id="period" value="{{ old('name') }}" required>
+
+                  @error('period')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
               
 
               
@@ -98,20 +109,22 @@
                   @enderror
                 </div>
 
-                <input type="hidden" name="course_id" value="{{$course->id}}">
-
-
-
                 <div class="mb-3">
-                  <label class="form-label" for="period"> {{ __('admin.levels.period') }} <span>*</span></label>
-                  <input type="number" class="form-control" name="period" id="period" value="{{ old('name') }}" required>
+                  <label class="form-label" for="end_date">{{ __('admin.levels.end_date') }} <span>*</span></label>
+                  <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date') }}">
 
-                  @error('period')
+                  @error('end_date')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
                 </div>
+
+                <input type="hidden" name="course_id" value="{{$course->id}}">
+
+
+
+               
            
 
               </div>

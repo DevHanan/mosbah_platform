@@ -8,8 +8,8 @@
         <div class="row g-2 align-items-center">
             <div class="col">
 
-            @include('admin.layouts.inc.breadcrumb')
-        </div>
+                @include('admin.layouts.inc.breadcrumb')
+            </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
@@ -75,6 +75,21 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
+                                    <select class="form-control" name="is_employee" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        <option value="1"> {{ __('admin.instructors.yes')}}</option>
+                                        <option value="0"> {{ __('admin.instructors.no')}}</option>
+
+                                    </select>
+
+                                    @error('type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
@@ -94,15 +109,15 @@
                                 <div class="mb-3">
 
 
-<label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
-<input type="file" class="form-control" name="image" id="logo">
+                                    <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
+                                    <input type="file" class="form-control" name="image" id="logo">
 
-@error('image')
-<div class="invalid-feedback">
-    {{ $message }}
-</div>
-@enderror
-</div>
+                                    @error('image')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
 
                             </div>
                             <div class="col-md-6">
@@ -142,8 +157,18 @@
                                     </div>
                                     @enderror
                                 </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
+                                    <input type="salary" class="form-control" name="salary" id="salary" value="{{ old('salary') }}" required>
 
-                                 <div class="mb-3">
+                                    @error('salary')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
                                     <label class="form-label" for="userName">{{ __('admin.instructors.userName') }} <span>*</span></label>
                                     <input type="userName" class="form-control" name="userName" id="userName" value="{{ old('userName') }}" required>
 
@@ -171,14 +196,14 @@
 
 
                             </div>
-                           
+
                             <div class="col-md-12">
-                              <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
-                              <textarea class="form-control" name="about_teacher" rows="6" placeholder="Content.."></textarea>
+                                <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
+                                <textarea class="form-control" name="about_teacher" rows="6" placeholder="Content.."></textarea>
                             </div>
                             <div class="col-md-12">
-                              <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
-                              <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>
+                                <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
+                                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>
                             </div>
                         </div>
                     </div>

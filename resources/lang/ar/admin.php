@@ -71,6 +71,7 @@ return [
         'actions' => 'الحدث',
         'course' => 'الدورة',
         'start_date' => 'تاريخ البدايه',
+        'end_date' => 'تاريخ النهاية',
         'period' => 'المدة',
         'period_type' => 'نوع المدة',
         'month' => "شهر",
@@ -145,6 +146,11 @@ return [
         'field_total_subscription' => 'إجمالى قيمة الإشتراكات'
     ],
     "instructors" =>[
+        'is_employee' => 'هل المحاضر موظف',
+        'salary' => 'المرتب',
+        'yes'  => 'نعم',
+        'no'  => 'لا',
+        'recommend'  => 'مرشح',
         "list" => "عرض المحاضرين",
         'add' => 'إضافة محاضر جديد',
         'edit' => 'تعديل بيانات محاضر',
@@ -188,9 +194,10 @@ return [
 
     ],
     "courses"=>[
+        'recommend_status' => 'حالة الترشيح',
         'seat_number' => 'عدد المقاعد المتاحة',
         "title"  => "الدورات",
-        "name"  => "إسم الدورة",
+        "name"  => "عنوان",
         "type"  => 'نوع الدورة',
         'status'  => 'الحالة',
         "track"  => "المسار",

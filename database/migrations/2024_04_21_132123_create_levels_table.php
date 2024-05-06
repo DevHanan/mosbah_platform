@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('course_id');
             $table->string('name')->nullable();
             $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
             $table->string('period_type');
             $table->string('period');
             $table->boolean('active')->default(1);

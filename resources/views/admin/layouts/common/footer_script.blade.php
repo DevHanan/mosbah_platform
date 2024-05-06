@@ -396,4 +396,36 @@
 			});
 		})
 	})
+
+	$(function() {
+		$('.toggole-recommened').change(function() {
+			var status = $(this).prop('checked') == true ? 1 : 0;
+			var id = $(this).data('id');
+			var type = $(this).data('type');
+
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				url: 'changerecommened',
+				data: {
+					'recommened': status,
+					'id': id,
+					'type': type
+				},
+				success: function(data) {
+					Swal.fire({
+						icon: 'success',
+						title: 'Success!',
+						text: data.success,
+					})
+
+				}
+			});
+		})
+	})
 </script>

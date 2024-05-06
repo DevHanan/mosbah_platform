@@ -4,11 +4,11 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-      
+
       <div class="col">
         @include('admin.layouts.inc.breadcrumb')
-      
-    </div>
+
+      </div>
       <!-- Page title actions -->
       <!-- <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
@@ -64,13 +64,12 @@
                   </th>
                   <th> {{__('admin.courses.name')}}</th>
                   <th> {{__('admin.courses.image')}}</th>
+                  <th>{{ __('admin.courses.track') }}</th>
+                  <th>{{ __('admin.courses.instructor') }}</th>
                   <th> {{__('admin.courses.type')}}</th>
                   <th>{{ __('admin.courses.price') }}</th>
-
-                  <th>{{ __('admin.courses.track') }}</th>
                   <th>{{ __('admin.courses.status') }}</th>
-
-
+                  <th>{{ __('admin.courses.recommend_status') }}</th>
                   <th>{{ __('admin.courses.actions') }}</th>
                 </tr>
               </thead>
@@ -82,18 +81,28 @@
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->name}}</td>
                   <td><img src="{{asset($row->image)}}" style="width:40px"></td>
-                  <td>{{optional($row->coursetype)->name}}</td>
-                  <td>{{$row->price}}</td>
                   <td>{{optional($row->track)->name}}</td>
+                  <td>{{optional($row->instructor)->name}}</td>
+                  <td>{{optional($row->coursetype)->name}}</td>
+                  <td>{{$row->price}} {{ $setting->currency }}</td>
+                  <td>
 
+
+<div class="form-check form-switch md-3" style="margin:10px">
+
+  <input data-id="{{$row->id}}" data-type='App\Models\Course' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+</div>
+</td>
 
                   <td>
-                    @if( $row->active == 1 )
-                    <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                    @else
-                    <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                    @endif
+
+
+                    <div class="form-check form-switch md-3" style="margin:10px">
+
+                      <input data-id="{{$row->id}}" data-type='App\Models\Course' class="form-check-input form-control toggole-recommened" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->recommened==1) checked="checked" @endif name="recommened">
+                    </div>
                   </td>
+              
 
 
                   <td style="width: 270px;">
@@ -105,7 +114,7 @@
                     </a>
 
                     <a href="{{ url('admin/courses/'.$row->id .'/levels') }}" class="btn btn-icon btn-primary btn-sm">
-                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                      <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
 
 

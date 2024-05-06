@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            @include('admin.layouts.inc.breadcrumb')
+                @include('admin.layouts.inc.breadcrumb')
 
             </div>
             <!-- Page title actions -->
@@ -42,13 +42,13 @@
                                     <tr>
                                         <th>#</th>
 
-                                        <th>{{ __('admin.students.field_name') }}</th>
-                                        <th>{{ __('admin.students.field_photo') }}</th>
-                                        <th>{{ __('admin.students.phone_number') }}</th>
-                                        <th>{{ __('admin.students.field_email') }}</th>
-                                        <th>{{ __('admin.students.field_status') }}</th>
-
-                                        <th>{{ __('admin.students.field_action') }}</th>
+                                        <th>{{ __('admin.instructors.field_name') }}</th>
+                                        <th>{{ __('admin.instructors.field_photo') }}</th>
+                                        <th>{{ __('admin.instructors.phone_number') }}</th>
+                                        <th>{{ __('admin.instructors.field_email') }}</th>
+                                        <th>{{ __('admin.instructors.recommend') }}</th>
+                                        <th>{{ __('admin.instructors.field_status') }}</th>
+                                        <th>{{ __('admin.instructors.field_action') }}</th>
 
 
                                     </tr>
@@ -58,40 +58,35 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ $row->first_name }}</td>
+                                        <td>{{ $row->name }}</td>
                                         <td><img src="{{asset($row->image)}}" style="width:40px"></td>
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->email }}</td>
-
-
-
-
                                         <td>
 
 
-                                        <div class="form-check form-switch md-3" style="margin:10px">
+                                            <div class="form-check form-switch md-3" style="margin:10px">
 
-<input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-</div>
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Instructor' class="form-check-input form-control toggole-recommened" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->recommened==1) checked="checked" @endif name="recommened">
+                                            </div>
                                         </td>
                                         <td>
 
 
-                                            @if($row->active == 0)
+                                            <div class="form-check form-switch md-3" style="margin:10px">
+
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Instructor' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                                            </div>
+                                        </td>
+                                        </td>
+                                        <td>
 
 
-                                            <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa-solid fa-lock-open"></i>
-                                            </button>
-                                            @else
-                                            <button class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa fa-window-close" aria-hidden="true"></i>
-                                            </button>
-                                            @endif
 
-                                            <!-- Include Password Change modal -->
-                                            @include('admin.students.change-status')
+                                        <a href="#"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
 
+                                            </a>
 
 
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
@@ -104,7 +99,7 @@
                                             <!-- Include Delete modal -->
                                             @include('admin.layouts.inc.delete')
 
-                                         
+
 
 
                                         </td>

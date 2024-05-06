@@ -80,6 +80,7 @@
                   <th> {{__('admin.levels.name')}}</th>
                   <th> {{__('admin.levels.course')}}</th>
                   <th>{{ __('admin.levels.start_date') }}</th>
+                  <th>{{ __('admin.levels.end_date') }}</th>
 
                   <th>{{ __('admin.levels.period') }}</th>
                   <th>{{ __('admin.levels.status') }}</th>
@@ -97,6 +98,7 @@
                   <td>{{$row->name}}</td>
                   <td>{{optional($row->course)->name}}</td>
                   <td>{{$row->start_date}}</td>
+                  <td>{{$row->end_date}}</td>
                   <td>{{$row->period}}</td>
 
 

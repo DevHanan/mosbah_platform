@@ -19,9 +19,9 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class InstructorController extends Controller
 {
- use ApiResponse, FileUploader;
+    use ApiResponse, FileUploader;
 
- public function __construct()
+    public function __construct()
     {
         $this->title = trans('admin.instructors.list');
         $this->route = 'admin.instructors';
@@ -39,49 +39,54 @@ class InstructorController extends Controller
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
-        $data['rows'] = Instructor::where(function($q)use($request){
+        $data['rows'] = Instructor::where(function ($q) use ($request) {
             if ($request->name)
-            $q->Where('first_name', 'like', '%' . $request->name  . '%')
-           ->orWhere('last_name', 'like', '%' . $request->name  . '%');
-           if ($request->phone)
-           $q->Where('phone', $request->phone);
-           if ($request->email)
-           $q->Where('email', $request->email);
+                $q->Where('first_name', 'like', '%' . $request->name  . '%')
+                    ->orWhere('last_name', 'like', '%' . $request->name  . '%');
+            if ($request->phone)
+                $q->Where('phone', $request->phone);
+            if ($request->email)
+                $q->Where('email', $request->email);
         })->get();
-        return view($this->view.'.index', $data);    }
+        return view($this->view . '.index', $data);
+    }
 
 
-        public function create(Instructor $instructor)
-        {
-            $data['title'] = trans('admin.instructors.add');
-            $data['route'] = $this->route;
-            return view($this->view .'.create',$data);
-        }
+    public function create(Instructor $instructor)
+    {
+        $data['title'] = trans('admin.instructors.add');
+        $data['route'] = $this->route;
+        return view($this->view . '.create', $data);
+    }
     public function store(InstructorRequest $request)
     {
         $instructor = Instructor::create($request->except('image'));
+
         if ($request->hasFile('image')) {
-            $directory = 'instructors';
-            $attach = 'image';
-            $instructor->image =  'uploads/instructors/'.$this->uploadMedia($request,$attach, $directory);
+
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+            $instructor->image = 'public/uploads/instructors/' . $filename;
             $instructor->save();
         }
 
-        if($request->password){
+        if ($request->password) {
             $instructor->password = Bcrypt($request->password);
             $instructor->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.instructors.index');      }
+        return redirect()->route('admin.instructors.index');
+    }
 
 
-    public function show($id){
+    public function show($id)
+    {
         $instructor = Instructor::find($id);
-        if($instructor)
-        return $this->okApiResponse(new InstructorResource($instructor), __('instructor loades successfully'));
+        if ($instructor)
+            return $this->okApiResponse(new InstructorResource($instructor), __('instructor loades successfully'));
         else
-        return $this->notFoundApiResponse([],__('Data Not Found'));
-
+            return $this->notFoundApiResponse([], __('Data Not Found'));
     }
 
     public function update(UpdateInstructorRequest $request)
@@ -89,51 +94,53 @@ class InstructorController extends Controller
         $instructor = Instructor::find($request->id);
         $instructor->update($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'instructors';
-            $attach = 'image';
-            $instructor->image = $this->uploadMedia($request,$attach, $directory);
+
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+            $instructor->image = 'public/uploads/instructors/' . $filename;
             $instructor->save();
         }
 
-        if($request->password){
+        if ($request->password) {
             $instructor->password = Bcrypt($request->password);
             $instructor->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.instructors.index'); 
-        }   
+        return redirect()->route('admin.instructors.index');
+    }
     public function edit($id)
-    {   
+    {
         $data['row'] = Instructor::find($id);
         $data['route'] = $this->route;
         $data['title'] = trans('admin.instructors.edit');
-        return view($this->view.'.edit',$data);
+        return view($this->view . '.edit', $data);
     }
 
-    public function destroy (Request $request)
+    public function destroy(Request $request)
     {
         $instructor = Instructor::find($request->id);
-        if($instructor)
-        $instructor->delete();
+        if ($instructor)
+            $instructor->delete();
         Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
-        return redirect()->route($this->route.'.index');    }
+        return redirect()->route($this->route . '.index');
+    }
 
 
-    public function ExportToExcel(Request $request){
+    public function ExportToExcel(Request $request)
+    {
 
         return Excel::download(new InstructorsExport, 'Instructors.xlsx');
-
     }
 
     public function status($id)
-    {   
+    {
         // Set Status
         $user = Instructor::where('id', $id)->firstOrFail();
-        $user->active = $user->active == 0 ? 1:0;
+        $user->active = $user->active == 0 ? 1 : 0;
         $user->save();
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
 
-        return redirect()->route('admin.instructors.index');  
+        return redirect()->route('admin.instructors.index');
     }
-
 }

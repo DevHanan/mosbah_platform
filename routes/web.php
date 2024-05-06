@@ -129,7 +129,9 @@ Route::group(
             Route::get('student-status/{id}', [StudentController::class, 'status'])->name('users.status');
             Route::resource('subscriptions', SubscriptionController::class);
             Route::post('changestatus', [SubscriptionController::class, 'changeStatus']);
+            Route::post('changerecommened', [SubscriptionController::class, 'changerecommened']);
 
+            
             Route::resource('instructors', InstructorController::class);
             Route::get('instructors-status/{id}', [InstructorController::class, 'status'])->name('users.status');
 

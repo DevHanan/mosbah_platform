@@ -25,6 +25,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('bank_account')->nullable();
             $table->boolean('active')->default(1);
+            $table->boolean('recommened')->default(1);
+            $table->boolean('is_employee')->default(0);
+            $table->double('salary');
+
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class Course extends Model
 
     protected $fillable = array('name','recommend','price','course_type_id','published_at','track_id','active',
                                 'instructor_id','promo_url', 'start_date','end_date','level_id','description','goals','directedTo'
-                                ,'period_type','period','seat_number'  
+                                ,'period_type','period','seat_number','recommened'  
                             );
 
 
@@ -46,6 +46,12 @@ class Course extends Model
     {
         return $query->where('active', '1');
     }
+
+    public function scoperecommened($query)
+    {
+        return $query->where('recommened', '1');
+    }
+    
  
     public function instructor()
     {

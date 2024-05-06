@@ -11,7 +11,7 @@ class Level extends Model
     protected $table = 'levels';
     public $timestamps = true;
 
-    protected $fillable = array('name','course_id','active','start_date','period_type','period');
+    protected $fillable = array('name','course_id','active','start_date','end_date','period_type','period');
 
     public function scopeActive($query)
     {

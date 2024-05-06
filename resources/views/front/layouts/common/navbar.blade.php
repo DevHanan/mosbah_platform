@@ -2,7 +2,9 @@
         <div class="container-fluid">
           <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
             <div class="header-info d-flex align-items-center">
-            @if(auth()->guard('students-login')->user())  
+            @if(auth()->guard('students-login')->user()) 
+            <a href="#"> profile </a>
+            @else 
             <a href="{{url('signup')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> اشترك الان مجانا </a>
               <a href="{{url('signin')}}"  class="mx-3 p-2 text-decoration-none text-dark"  > تسجيل الدخول <i class="fa-solid fa-lock mx-2"></i> </a>
               @endif

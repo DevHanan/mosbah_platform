@@ -62,7 +62,7 @@
                         </div>
                         <div class="date text-center">
                             <i class="fa fa-calendar" style="color: #374957;"></i>
-                            <span class="fw-bold mx-2">{{ $course->start_date  }}</span>
+                            <span class="fw-bold mx-2">{{ $course->published_at  }}</span>
                         </div>
                         @if($course->isSubscribed == 0) 
                         <div class="d-flex justify-content-center mb-3">

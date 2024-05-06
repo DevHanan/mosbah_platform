@@ -105,7 +105,8 @@ class HomeController extends Controller
 
 
     public function subscribe(Request $request){
-        $request->merge(['student_id'=>Auth::guard('students-login')->user()->id]);
+        $course = Course::find($request->course_id);
+        $request->merge(['student_id'=>Auth::guard('students-login')->user()->id,'paid'=>$course->TotalDiscount]);
         $item = Subscription::create($request->except(['bill']));
         if($request->hasFile('bill')){
               
@@ -115,6 +116,8 @@ class HomeController extends Controller
             $item->bill ='public/uploads/subsctiptions/'.$filename;
             $item->save();
         }
+
+        /** add teacher prectanage  */
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return redirect('course/'.$request->course_id);
 

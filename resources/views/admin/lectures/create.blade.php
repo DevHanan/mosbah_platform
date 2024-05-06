@@ -124,7 +124,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3 hidden" id="provider_div" >
+                <div class="mb-3 hidden" id="provider_div">
                   <label class="form-label" for="provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
                   <select class="form-control" name="provider" id="provideSelect" required>
                     <option value="">{{ __('select') }}</option>
@@ -154,7 +154,7 @@
 
               </div>
               <div class="col-md-6">
-              <div class="mb-3">
+                <div class="mb-3">
                   <label class="form-label" for="period"> {{ __('admin.lectures.field_period') }} <span>*</span></label>
                   <input type="text" class="form-control" name="period" id="period" value="{{ old('period') }}" required>
 
@@ -177,7 +177,7 @@
                 </div>
 
 
-               
+
                 <div class="mb-3 hidden" id="link_div" style="padding-top: 18px;">
                   <label class="form-label" for="link"> {{ __('admin.lectures.link') }} <span>*</span></label>
                   <input type="text" class="form-control" name="link" id="link" value="{{ old('link') }}" required>
@@ -242,14 +242,14 @@
                   <h3> إضافة الكتب والمراجع </h3>
                 </div>
                 <div class="card-body">
-                <div class="main">
+                  <div class="main">
                     <table id="data2" class=" table data-table data-table-horizontal data-table-highlight">
 
                       <tbody>
                         <tr>
                           <td><input type="text" name="bookTitles[]" placeholder="عنوان الكتاب" /></td>
                           <td><input type="file" name="bookFiles[]" /></td>
-                          <td><input type="text" name="bookLinks[]"  placeholder="رابط الكتاب"/></td>
+                          <td><input type="text" name="bookLinks[]" placeholder="رابط الكتاب" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow2(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
@@ -287,68 +287,68 @@
   @endsection
 
 
-  @stack('scripts')
+  @push('scripts')
   <script>
-	document.getElementById("typeSelect").addEventListener("change", function() {
-		var selectedValue = this.value;
-		var option1Div = document.getElementById("appointment_div");
-		var option2Div = document.getElementById("link_div");
-		var option3Div = document.getElementById("provider_div");
+    document.getElementById("typeSelect").addEventListener("change", function() {
+      var selectedValue = this.value;
+      var option1Div = document.getElementById("appointment_div");
+      var option2Div = document.getElementById("link_div");
+      var option3Div = document.getElementById("provider_div");
 
 
-		option1Div.classList.add("hidden");
-		option2Div.classList.add("hidden");
-		option3Div.classList.add("hidden");
+      option1Div.classList.add("hidden");
+      option2Div.classList.add("hidden");
+      option3Div.classList.add("hidden");
 
-		switch (selectedValue) {
-			case "1":
-				option1Div.classList.add("hidden");
-				option2Div.classList.remove("hidden");
-				option3Div.classList.remove("hidden");
-				break;
-			case "2":
-				option1Div.classList.remove("hidden");
-				option2Div.classList.remove("hidden");
-				option3Div.classList.add("hidden");
-				break;
-		}
-	});
-</script>
-<script>
-	function addRow(tableID) {
-		var table = document.getElementById(tableID);
-		var rowCount = table.rows.length;
-		var row = table.insertRow(rowCount);
-		var colCount = table.rows[0].cells.length;
+      switch (selectedValue) {
+        case "1":
+          option1Div.classList.add("hidden");
+          option2Div.classList.remove("hidden");
+          option3Div.classList.remove("hidden");
+          break;
+        case "2":
+          option1Div.classList.remove("hidden");
+          option2Div.classList.remove("hidden");
+          option3Div.classList.add("hidden");
+          break;
+      }
+    });
+  </script>
+  <script>
+    function addRow(tableID) {
+      var table = document.getElementById(tableID);
+      var rowCount = table.rows.length;
+      var row = table.insertRow(rowCount);
+      var colCount = table.rows[0].cells.length;
 
-		for (var i = 0; i < colCount; i++) {
-			var newRow = row.insertCell(i);
+      for (var i = 0; i < colCount; i++) {
+        var newRow = row.insertCell(i);
 
-			newRow.innerHTML = table.rows[0].cells[i].innerHTML;
-			newRow.childNodes[0].value = "";
-		}
-	}
+        newRow.innerHTML = table.rows[0].cells[i].innerHTML;
+        newRow.childNodes[0].value = "";
+      }
+    }
 
-	function deleteRow(row) {
-		var table = document.getElementById("data");
-		var rowCount = table.rows.length;
-		if (rowCount > 1) {
-			var rowIndex = row.parentNode.parentNode.rowIndex;
-			document.getElementById("data").deleteRow(rowIndex);
-		} else {
-			alert("Please specify at least one value.");
-		}
-	}
+    function deleteRow(row) {
+      var table = document.getElementById("data");
+      var rowCount = table.rows.length;
+      if (rowCount > 1) {
+        var rowIndex = row.parentNode.parentNode.rowIndex;
+        document.getElementById("data").deleteRow(rowIndex);
+      } else {
+        alert("Please specify at least one value.");
+      }
+    }
 
-	function deleteRow2(row) {
-		var table = document.getElementById("data2");
-		var rowCount = table.rows.length;
-		if (rowCount > 1) {
-			var rowIndex = row.parentNode.parentNode.rowIndex;
-			document.getElementById("data2").deleteRow(rowIndex);
-		} else {
-			alert("Please specify at least one value.");
-		}
-	}
-</script>
+    function deleteRow2(row) {
+      var table = document.getElementById("data2");
+      var rowCount = table.rows.length;
+      if (rowCount > 1) {
+        var rowIndex = row.parentNode.parentNode.rowIndex;
+        document.getElementById("data2").deleteRow(rowIndex);
+      } else {
+        alert("Please specify at least one value.");
+      }
+    }
+  </script>
   @endpush

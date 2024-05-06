@@ -12,7 +12,7 @@ use App\Models\Track;
 use App\Models\PaymentType;
 use App\Models\Level;
 use App\Models\Instructor;
-use App\Models\Partener;
+use App\Models\Subscription;
 use App\Models\Ticket;
 use App\Models\Policy;
 use App\Models\Question;
@@ -53,6 +53,8 @@ class AppServiceProvider extends ServiceProvider
         $questions = Question::active()->get();
         $most_required = Course::active()->latest()->get();
         $recommened_courses = Course::recommened()->latest()->get();
+        $subscriptions = Subscription::all();
+
 
 
         $policies = Policy::active()->get();
@@ -64,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
             'courseTypes' => $courseTypes, 'levels' => $levels, 'instructors' => $instructors,
             'policies' => $policies, 'tickets' => $tickets, 'teams' => $teams,
             'about' => $about ,'questions'=> $questions,'most_required'=>$most_required,
-            'recommened_courses'=> $recommened_courses
+            'recommened_courses'=> $recommened_courses,'subscriptions'=>$subscriptions
 
 
         ]);

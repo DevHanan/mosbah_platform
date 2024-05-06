@@ -107,12 +107,28 @@
                   @enderror
                 </div>
 
+                <div class=" row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="title"> {{ __('admin.select_status') }} <span>*</span></label>
+                  <div class="form-check form-switch md-3" style="margin:10px">
+
+                    <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="title"> {{ __('admin.select_recommend') }} <span>*</span></label>
+                  <div class="form-check form-switch md-3" style="margin:10px">
+
+                    <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="recommened">
+                  </div>
+                </div>
+                </div>
+              
 
 
 
-
-
-                <div class="form-group col-md-12">
+                <!-- <div class="form-group col-md-12">
                   <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                   <div>
                     <select class="select2 form-control" name="active" id="active" required>
@@ -138,7 +154,7 @@
 
 
                   </div>
-                </div>
+                </div> -->
               
 
 

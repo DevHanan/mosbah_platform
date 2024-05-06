@@ -1,5 +1,6 @@
 <?php
 return [
+    
     'no_file' => 'لا يوجد ملف',
     'show' => 'عرض الملف',
     'download' => 'تنزيل الملف',
@@ -227,7 +228,13 @@ return [
         'student_number' => 'عدد الطلاب',
         'tickets_number'  => 'عدد التذاكر',
         'course_number'  => 'عدد الدورات',
-        'instructor_number'  => 'عدد المحاضرين'
+        'instructor_number'  => 'عدد المحاضرين',
+        'subscriptions_count' => 'عدد الاشتراكات',
+    'subscriptions_total' => 'قيمة الاشتراكات',
+    'today_subscriptions_total'  => 'إجمالى إشتراكات اليوم',
+    'this_year_subscriptions_total' => 'إجمالى إشتراكات العام',
+    'this_month_subscriptions_total' => 'إجمالى إشتراكات الشهر الحالى'
+
 
     ],
     'auth_login'         => "تسجيل دخول لوحة التحكم",

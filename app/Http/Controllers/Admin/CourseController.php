@@ -12,6 +12,7 @@ use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CourseExport;
+use App\Models\CourseInstructor;
 use Toastr;
 
 
@@ -50,7 +51,7 @@ class CourseController extends Controller
             if ($request->type)
             $q->where('course_type_id', $request->type);
             if ($request->recommend)
-            $q->where('recommened', $request->recommend);
+            $q->where('recommend', $request->recommend);
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)
@@ -77,7 +78,25 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
-        $course = Course::create($request->except(['image', 'background_image','thumbinal_image']));
+        $course = Course::create($request->except(['image', 'background_image']));
+
+        if($request->track_ids)
+        $course->tracks()->attach($request->track_ids);
+
+        if(count($request->instructorsprice) && $request->instructorsprice[0] != 0)
+            for ($i = 0; $i < count($request->$request->instructorspric); $i++) 
+
+            {
+                CourseInstructor::create([
+                    'course_id' => $course->id,
+                    'instructor_id' => $request->instructors[$i],
+                    'course_price' => $request->instructorsprice[$i],
+                    'course_prectange' => $request->instructorsprecentage[$i]
+
+                ]);
+            }
+        
+
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -86,8 +105,6 @@ class CourseController extends Controller
             $course->save();
         }
 
-    
-
         if ($request->hasFile('background_image')) {
             $thumbnail = $request->background_image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -95,13 +112,7 @@ class CourseController extends Controller
             $course->background_image ='public/uploads/courses/background_image/'.$filename;
             $course->save();
         }
-        if ($request->hasFile('thumbinal_image')) {
-            $thumbnail = $request->thumbinal_image;
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/courses/thumbinal_image/'),$filename);
-            $course->thumbinal_image ='public/uploads/courses/thumbinal_image/'.$filename;
-            $course->save();
-        }
+    
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect('admin/courses/'.$course->id .'/levels');
 

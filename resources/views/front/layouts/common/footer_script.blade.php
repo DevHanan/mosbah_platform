@@ -30,7 +30,7 @@
                     <h4 class="text-white">اكتشف</h4>
                     <ul class="list-unstyled p-0">
                         <li class="py-2"><a href="{{ url('/') }}" class="text-white text-decoration-none">الرئيسية</a></li>
-                        <li class="py-2"><a href="{{ url('/about') }}" class="text-white text-decoration-none">من نحن</a></li>
+                        <li class="py-2"><a href="{{ url('/about-us') }}" class="text-white text-decoration-none">من نحن</a></li>
                         <li class="py-2"><a href="{{ url('courses') }}" class="text-white text-decoration-none">الدورات</a></li>
                         <li class="py-2"><a href="{{ url('books')}}" class="text-white text-decoration-none">متجر الكتب</a></li>
                         <li class="py-2"><a href=" {{ url('/blogs') }}" class="text-white text-decoration-none">المدونة</a></li>

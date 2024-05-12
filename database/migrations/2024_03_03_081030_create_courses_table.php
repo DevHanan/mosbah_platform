@@ -29,6 +29,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('goals')->nullable();
             $table->text('directedTo')->nullable();
+            $table->text('prerequisites')->nullable();
+            $table->double('price_with_discount');
+            $table->string('difficulty_level');
             $table->timestamps();
         });
     }

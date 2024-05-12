@@ -3,10 +3,6 @@
 @section('content')
 
 
-@extends('admin.layouts.master')
-@section('title', 'عرض الفئات')
-@section('content')
-
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">

@@ -13,7 +13,8 @@ class Course extends Model
 
     protected $fillable = array('name','recommend','price','course_type_id','published_at','track_id','active',
                                 'instructor_id','promo_url', 'start_date','end_date','level_id','description','goals','directedTo'
-                                ,'period_type','period','seat_number','recommened'  
+                                ,'period_type','period','seat_number','price_with_discount','difficulty_level
+                                ','prerequisites'  
                             );
 
 
@@ -47,9 +48,11 @@ class Course extends Model
         return $query->where('active', '1');
     }
 
+   
+
     public function scoperecommened($query)
     {
-        return $query->where('recommened', '1');
+        return $query->where('active', '1')->where('recommend','1');
     }
     
  
@@ -63,6 +66,10 @@ class Course extends Model
         return $this->belongsTo(Track::class);
     }
 
+    public function tracks()
+    {
+        return $this->belongsToMany(Track::class,'course_tracks');
+    }
     public function courseType()
     {
         return $this->belongsTo(CourseType::class);

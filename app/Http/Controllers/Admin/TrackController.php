@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateTrackRequest;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Toastr;
+use App\DataTables\TracksDataTable;
 
 
 class TrackController extends Controller
@@ -31,7 +32,7 @@ class TrackController extends Controller
         // $this->middleware('permission:tracks-edit',   ['only' => ['edit','update']]);
         // $this->middleware('permission:tracks-delete',   ['only' => ['delete']]);
     }
-    public function index(Request $request)
+    public function index(Request $request,)
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;

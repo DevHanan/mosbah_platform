@@ -11,19 +11,40 @@ class Course extends Model
     protected $table = 'courses';
     public $timestamps = true;
 
-    protected $fillable = array('name','recommend','price','course_type_id','published_at','track_id','active',
+    protected $fillable = array('name','recommened','price','course_type_id','published_at','track_id','active',
                                 'instructor_id','promo_url', 'start_date','end_date','level_id','description','goals','directedTo'
                                 ,'period_type','period','seat_number','price_with_discount','difficulty_level
-                                ','prerequisites'  
+                                ','prerequisites','provider'  
                             );
 
 
-    protected $appends = ['SubscriptionCount','Totalsubscription','TotalDiscount','isSubscribed'] ;   
+    protected $appends = ['difficultyLevelLabel','SubscriptionCount','Totalsubscription','TotalDiscount','isSubscribed','periodLabel'] ;   
     
     
     public function getSubscriptionCountAttribute(){
      return $this->subscriptions()->count();   
     }
+
+    public function getPeriodLabelAttribute(){
+        if ($this->period ==1)
+         return  trans('admin.levels.month');
+        elseif($this->period ==2) 
+         trans('admin.levels.day'); 
+        else
+        return  ('admin.levels.hour');   
+       }
+
+       public function getDifficultyLevelLabelAttribute(){
+        if ($this->difficulty_level ==0)
+         return  trans('admin.courses.beginner');
+        elseif ($this->difficulty_level ==1)
+
+         trans('admin.courses.intermediate'); 
+         elseif ($this->difficulty_level ==2)
+         trans('admin.courses.advanced'); 
+        else
+        return  ('admin.courses.all');   
+       }
 
     public function getisSubscribedAttribute(){
         if(auth()->guard('students-login')->user())
@@ -33,14 +54,11 @@ class Course extends Model
     }
 
     public function getTotalsubscriptionAttribute(){
-        return $this->subscriptions()->count() * $this->price;   
+        return $this->subscriptions()->count() * $this->price_with_discount;   
     }
 
     public function getTotalDiscountAttribute(){
-        if($this->coupon())
-        return $this->price -( $this->coupon()->value('discount')  *($this->price/100));  
-         else
-         return $this->price; 
+        return $this->price_with_discount;
     }
 
     public function scopeActive($query)
@@ -52,19 +70,17 @@ class Course extends Model
 
     public function scoperecommened($query)
     {
-        return $query->where('active', '1')->where('recommend','1');
+        return $query->where('active', '1')->where('recommened','1');
     }
     
  
-    public function instructor()
+    public function instructors()
     {
-        return $this->belongsTo(Instructor::class);
+        return $this->belongsToMany(Instructor::class,'course_instructors')->withPivot('instructor_id', 'course_price','course_prectange');
+        ;
     }
 
-    public function track()
-    {
-        return $this->belongsTo(Track::class);
-    }
+   
 
     public function tracks()
     {

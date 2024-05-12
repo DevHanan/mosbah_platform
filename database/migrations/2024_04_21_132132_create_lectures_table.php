@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('link')->nullable();
             $table->string('provider')->nullable();
             $table->boolean('active')->default(1);
+            $table->boolean('free')->default(0);
             $table->string('period')->nullable();
         });
     }

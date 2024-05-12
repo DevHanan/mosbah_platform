@@ -1,6 +1,13 @@
 @extends('admin.layouts.master')
 @section('title', $title)
 @section('content')
+<style>
+  .list-unstyled {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+</style>
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
@@ -68,6 +75,8 @@
                   <th>{{ __('admin.courses.instructor') }}</th>
                   <th> {{__('admin.courses.type')}}</th>
                   <th>{{ __('admin.courses.price') }}</th>
+                  <th>{{ __('admin.courses.price_with_discount') }}</th>
+                  <th>{{ __('admin.courses.period') }}</th>
                   <th>{{ __('admin.courses.status') }}</th>
                   <th>{{ __('admin.courses.recommend_status') }}</th>
                   <th>{{ __('admin.courses.actions') }}</th>
@@ -81,10 +90,31 @@
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->name}}</td>
                   <td><img src="{{asset($row->image)}}" style="width:40px"></td>
-                  <td>{{optional($row->track)->name}}</td>
-                  <td>{{optional($row->instructor)->name}}</td>
+                  <td>
+                    @if($row->tracks)
+                    <ul class="list-unstyled">
+                      @foreach($row->tracks as $item)
+                      <li> {{ $item->name  }}</li>
+                      @endforeach
+                    </ul>
+                    @endif
+
+                  </td>
+                  <td>
+                    @if($row->instructors)
+                    <ul class="list-unstyled">
+                      @foreach($row->instructors as $item)
+                      <li> {{ $item->name  }}</li>
+                      @endforeach
+                    </ul>
+                    @endif
+
+                  </td>
                   <td>{{optional($row->coursetype)->name}}</td>
                   <td>{{$row->price}} {{ $setting->currency }}</td>
+                  <td>{{$row->price_with_discount}} {{ $setting->currency }}</td>
+                  <th>{{$row->period }} {{ __($row->periodLabel) }}</th>
+
                   <td>
 
 

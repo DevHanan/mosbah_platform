@@ -1,4 +1,4 @@
-    @extends('admin.layouts.master')
+@extends('admin.layouts.master')
     @section('title', $title)
     @section('content')
     <div class="container-xl">
@@ -13,15 +13,26 @@
           <form class="needs-validation" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+
             <div class="card-body">
               <div class="row ">
                 <div class="col-md-6">
 
                   <div class="mb-3">
                     <label class="form-label" for="name"> {{ __('admin.courses.name') }} <span>*</span></label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{ $row->name }}" required>
+                    <input type="text" class="form-control" name="name" id="name" value="{{ old('name',$row) }}" required>
 
                     @error('name')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
+                    <input type="number" class="form-control" name="price" id="price" value="{{ old('price',$row) }}" required>
+
+                    @error('price')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
@@ -30,7 +41,7 @@
 
                   <div class="mb-3">
                     <label class="form-label" for="period"> {{ __('admin.courses.period') }} <span>*</span></label>
-                    <input type="number" class="form-control" name="period" id="period" value="{{ $row->period }}" required>
+                    <input type="number" class="form-control" name="period" id="period" value="{{ old('period',$row) }}" required>
 
                     @error('period')
                     <div class="invalid-feedback">
@@ -38,7 +49,6 @@
                     </div>
                     @enderror
                   </div>
-
 
 
                   <div class="mb-3">
@@ -58,26 +68,11 @@
                     @enderror
                   </div>
 
-                  <div class="mb-3">
-                    <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
-                    <select class="select2 form-control" name="instructor_id" id="instructor_id" required>
-                      <option value="">{{ __('select') }}</option>
-                      @foreach($instructors as $instructor)
-                      <option value="{{ $instructor->id }}" @if($row->instructor_id == $instructor->id ) selected @endif> {{ $instructor->name }}</option>
 
-                      @endforeach
-                    </select>
-
-                    @error('instructor_id')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
 
                   <div class="mb-3">
                     <label class="form-label" for="published_at">{{ __('admin.courses.field_published_at') }} <span>*</span></label>
-                    <input type="date" class="form-control" name="published_at" id="published_at" value="{{ $row->published_at }}" required>
+                    <input type="date" class="form-control" name="published_at" id="published_at" value="{{ old('published_at',$row) }}" required>
 
                     @error('published_at')
                     <div class="invalid-feedback">
@@ -86,121 +81,9 @@
                     @enderror
                   </div>
 
-                  <div class="form-group col-md-12">
-                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
-                    <div>
-                      <select class="select2 form-control" name="active" id="active" required>
-                        <option value="">{{ __('select') }}</option>
-                        <option value="1" @if($row->active ==1 ) selected @endif> {{ __('admin.active')}}</option>
-                        <option value="0" @if($row->active == 0 ) selected @endif>> {{ __('admin.inactive')}}</option>
-
-                      </select>
-
-
-                    </div>
-                  </div>
-
-                  <div class="form-group col-md-12">
-                  <label class="form-label" for="recommend" class="form-label">{{ __('admin.select_recommend') }}</label>
-                  <div>
-                    <select class="select2 form-control" name="recommend" id="recommend" required>
-                      <option value="">{{ __('select') }}</option>
-                      <option value="1" @if($row->recommend ==1 ) selected @endif>> {{ __('admin.recommend')}}</option>
-                      <option value="0" @if($row->recommend ==0 ) selected @endif>> {{ __('admin.inrecommend')}}</option>
-
-                    </select>
-
-
-                  </div>
-                </div>
-
-                
-
-
-
-                  <input type="hidden" value="{{$row->id}}" name="id">
-
-
-                  <!-- <div class="mb-3">
-                    <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
-                    <select class="select2 form-control" name="track_id" id="track_id" required>
-                      <option value="">{{ __('select') }}</option>
-                      @foreach($tracks as $track)
-                      <option value="{{ $track->id }}" @if($row->track_id == $track->id ) selected @endif> {{ $track->name }}</option>
-
-                      @endforeach
-                    </select>
-
-                    @error('track_id')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div> -->
-
-
-                </div>
-                <div class="col-md-6">
-
-
-
                   <div class="mb-3">
-                    <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                    <input type="number" class="form-control" name="price" id="price" value="{{ $row->price }}" required>
-
-                    @error('price')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label" for="period_type">{{ __('admin.levels.period_type') }} <span>*</span></label>
-                    <select class="form-control" name="period_type" id="period_type" required>
-                      <option value="">{{ __('select') }}</option>
-                      <option value="1" @if($row->period_type == 1 ) selected @endif> {{ __('admin.levels.month') }}</option>
-                      <option value="2" @if($row->period_type == 2 ) selected @endif>> {{ __('admin.levels.day') }}</option>
-                      <option value="3" @if($row->period_type == 3 ) selected @endif>> {{ __('admin.levels.hour') }}</option>
-                    </select>
-
-                    @error('period_type')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
-                    <select class="select2 form-control" name="track_id" id="track_id" required>
-                      <option value="">{{ __('select') }}</option>
-                      @foreach($tracks as $track)
-                      <option value="{{ $track->id }}" @if($row->track_id == $track->id ) selected @endif> {{ $track->name }}</option>
-
-                      @endforeach
-                    </select>
-
-                    @error('track_id')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-                  <div class="mb-3">
-                  <label class="form-label" for="seat_number"> {{ __('admin.courses.seat_number') }} <span>*</span></label>
-                  <input type="number" class="form-control" name="seat_number" id="seat_number" value="{{ $row->seat_number}}" required>
-
-                  @error('seat_number')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-
-                <div class="mb-3">
                     <label class="form-label" for="start_date">{{ __('admin.courses.start_date') }} <span>*</span></label>
-                    <input type="date" class="form-control" name="start_date" id="start_date" value="{{ $row->start_date }}">
+                    <input type="date" class="form-control" name="start_date" id="start_date" value="{{ old('start_date',$row) }}">
 
                     @error('start_date')
                     <div class="invalid-feedback">
@@ -211,7 +94,7 @@
 
                   <div class="mb-3">
                     <label class="form-label" for="end_date">{{ __('admin.courses.end_date') }} <span>*</span></label>
-                    <input type="date" class="form-control" name="end_date" id="end_date" value="{{ $row->end_date }}" required>
+                    <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date',$row) }}" required>
 
                     @error('end_date')
                     <div class="invalid-feedback">
@@ -220,11 +103,9 @@
                     @enderror
                   </div>
 
-
-
                   <div class="mb-3">
                     <label class="form-label" for="promo_url"> {{ __('admin.courses.promo_url') }} <span>*</span></label>
-                    <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ $row->promo_url }}" required>
+                    <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ old('promo_url',$row) }}" required>
 
                     @error('promo_url')
                     <div class="invalid-feedback">
@@ -233,30 +114,141 @@
                     @enderror
                   </div>
 
+                </div>
+                <div class="col-md-6">
+
+                  <div class=" row mb-3" style="margin-top:10px;">
+                    <div class="col-md-6">
+                      <label class="form-label" for="title"> {{ __('admin.select_status') }} <span>*</span></label>
+                      <div class="form-check form-switch md-3" style="margin:10px">
+
+                        <input class="form-check-input form-control" type="checkbox" style="float: right;" @if($row->active ==1 ) checked @endif role="switch" id="flexSwitchCheckDefault" name="active">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="form-label" for="title"> {{ __('admin.select_recommend') }} <span>*</span></label>
+                      <div class="form-check form-switch md-3" style="margin:10px">
+
+                        <input class="form-check-input form-control" type="checkbox" style="float: right;" @if($row->recommened ==1 ) checked @endif role="switch" id="flexSwitchCheckDefault" name="recommened">
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="mb-3">
+                    <label class="form-label" for="price_with_discount"> {{ __('admin.courses.price_with_discount') }} <span>*</span></label>
+                    <input type="number" class="form-control" name="price_with_discount" id="price_with_discount" value="{{ old('price_with_discount',$row) }}" required>
+
+                    @error('price_with_discount')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label class="form-label" for="period_type">{{ __('admin.courses.period_type') }} <span>*</span></label>
+                    <select class="form-control" name="period_type" id="period_type" required>
+                      <option value="">{{ __('select') }}</option>
+                      <option value="1" @if($row->period_type == 1 ) selected @endif> {{ __('admin.levels.month') }}</option>
+                      <option value="2" @if($row->period_type == 2 ) selected @endif> {{ __('admin.levels.day') }}</option>
+                      <option value="3" @if($row->period_type == 3 ) selected @endif> {{ __('admin.levels.hour') }}</option>
+                    </select>
+
+                    @error('period_type')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="difficulty_level">{{ __('admin.courses.difficulty_level') }} <span>*</span></label>
+                    <select class="select2 form-control" name="difficulty_level" id="difficulty_level" required>
+                      <option value="">{{ __('select') }}</option>
+                      <option value="0" @if($row->difficulty_level == '0' ) selected @endif >{{ __('admin.courses.beginner') }}</option>
+                      <option value="1" @if($row->difficulty_level == '1' ) selected @endif>{{ __('admin.courses.intermediate') }}</option>
+                      <option value="2" @if($row->difficulty_level == '2' ) selected @endif>{{ __('admin.courses.advanced') }}</option>
+                      <option value="3" @if($row->difficulty_level == '3' ) selected @endif>{{ __('admin.courses.all') }}</option>
+
+                    </select>
+
+                    @error('difficulty_level')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
+                    <select class="select2 form-control" name="track_ids[]" id="track_id" required multiple>
+                      <option value="">{{ __('select') }}</option>
+                      @foreach($tracks as $track)
+                      <option value="{{ $track->id }}"> {{ $track->name }}</option>
+
+                      @endforeach
+                    </select>
+
+                    @error('track_id')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="seat_number"> {{ __('admin.courses.seat_number') }} <span>*</span></label>
+                    <input type="number" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number',$row) }}" required>
+
+                    @error('seat_number')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+
+
+
+
+                  <div class="mb-3">
+                    <label class="form-label" for="provider">{{ __('admin.courses.provider') }} <span>*</span></label>
+                    <select class="form-control" name="provider" id="provideSelect" required>
+                      <option value="">{{ __('select') }}</option>
+                      <option value="1" @if($row->provider == 1)  selected @endif> {{ __('admin.lectures.viedo')}}</option>
+                      <option value="2" @if($row->provider == 2)  selected @endif> {{ __('admin.lectures.Youtube')}}</option>
+
+                    </select>
+                  </div>
+
+
+
+
+
+
+
 
                 </div>
                 <div class="mb-3">
                   <label class="form-label">{{ __('admin.courses.descriptions') }} <span class="form-label-description"></span></label>
-                  <textarea dir="auto" class="form-control myeditorinstance" name="description" rows="4" placeholder="Content..">
-                  {{ $row->description }}
-                  </textarea>
+                  <textarea dir="auto" class="form-control" name="description" rows="4" placeholder="Content.."> {{ $row->description }}</textarea>
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label">{{ __('admin.courses.directedTo') }} <span class="form-label-description"></span></label>
-                  <textarea dir="auto" class="form-control myeditorinstance" name="directedTo" rows="4" placeholder="Content..">
-                  {{ $row->directedTo }}
-
-                  </textarea>
+                  <textarea dir="auto" class="form-control" name="directedTo" rows="4" placeholder="Content..">{{ $row->directedTo }}</textarea>
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label">{{ __('admin.courses.goals') }} <span class="form-label-description"></span></label>
-                  <textarea dir="auto" class="form-control myeditorinstance" name="goals" rows="4" placeholder="Content..">
-                  {{ $row->goals }}
-
-                  </textarea>
+                  <textarea dir="auto" class="form-control" name="goals" rows="4" placeholder="Content..">{{ $row->goals }}</textarea>
                 </div>
+                <div class="mb-3">
+                  <label class="form-label">{{ __('admin.courses.prerequisites') }} <span class="form-label-description"></span></label>
+                  <textarea dir="auto" class="form-control" name="prerequisites" rows="4" placeholder="Content.."> {{ $row->prerequisites }} </textarea>
+                </div>
+
+
                 <div class="mb-3 ">
 
 
@@ -264,12 +256,10 @@
                   <label for="logo">{{ __('admin.courses.image') }}</label>
                   <input type="file" class="form-control" name="image" id="logo">
                   @if(isset($row->image))
-                  @if(is_file($row->image))
-                  <img style="max-height:140px;margin:10px;" src="{{ asset($row->image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                  <img src="{{ asset($row->image) }}"  style="max-height:120px;" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                   <div class="clearfix"></div>
                   @endif
-                  @endif
-                  @error('image')
+                  @error('img')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -283,42 +273,68 @@
                   <label for="logo">{{ __('admin.courses.background_image') }}</label>
                   <input type="file" class="form-control" name="background_image" id="logo">
                   @if(isset($row->background_image))
-                  @if(is_file($row->background_image))
-                  <img style="max-height:140px;margin:10px;" src="{{ asset($row->background_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                  <img src="{{ asset($row->background_image) }}" style="max-height:120px;" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                   <div class="clearfix"></div>
-                  @endif
                   @endif
                   @error('background_image')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
-
                 </div>
+                <input type="hidden" name="id" value="{{$row->id}}">
 
-
-                <div class="mb-3 ">
-
-
-
-                  <label for="logo">{{ __('admin.courses.thumbinal_image') }}</label>
-                  <input type="file" class="form-control" name="thumbinal_image" id="logo">
-                  @if(isset($row->thumbinal_image))
-                  @if(is_file($row->thumbinal_image))
-                  <img style="max-height:140px;margin:10px;" src="{{ asset($row->thumbinal_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-                  <div class="clearfix"></div>
-                  @endif
-                  @endif
-                  @error('thumbinal_image')
-                  <div class="invalid-feedback">
-                    {{ $message }}
+                <div class="card" style="margin-top: 20px;">
+                  <div class="card-header">
+                    <h3> إضافة المدربين </h3>
                   </div>
-                  @enderror
+                  <div class="card-body">
+                    <div class="main">
+                      <table id="instructorstable" class=" table data-table data-table-horizontal data-table-highlight">
+
+                        <tbody>
+                        
+                          <tr>
+                            <td>
+                              <select class=" form-control" name="instructors[]" style="padding:3px;" required>
+
+                                @foreach($instructors as $instructor)
+                                <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
+                                @endforeach
+                              </select>
+                            </td>
+                            <td><input type="number" name="instructorsprice[]" value="0" placeholder="قيمة شراء الدورة من المدرب" /></td>
+                            <td><input type="number" name="instructorsprecentage[]" value="0" placeholder="ربح المدرب من كل اشتراك" /></td>
+                            <td><a type="button" value="Delete" onclick="deleteRow(this)">
+                                <i class="fas fa-trash-alt"></i>
+                              </a></td>
+                          </tr>
+                          @foreach($row->instructors as $item)
+                          <tr>
+                            <td>
+                              <select class=" form-control" name="instructors[]" style="padding:3px;" required>
+                                <option value="{{$item->instructor_id}}" selected > {{ $item->name }}</option>
+                              </select>
+                            </td>
+                            <td><input type="number" name="instructorsprice[]" value="{{$item->pivot->course_price}}" placeholder="قيمة شراء الدورة من المدرب" /></td>
+                            <td><input type="number" name="instructorsprecentage[]" value="{{$item->pivot->course_prectange}}" placeholder="ربح المدرب من كل اشتراك" /></td>
+                            <td><a type="button" value="Delete" onclick="deleteRow(this)">
+                                <i class="fas fa-trash-alt"></i>
+                              </a></td>
+                          </tr>
+                          @endforeach
+                      </table>
+                      <div class="pull-right">
+                        <input type="button" value="إضافة" class="top-buffer" onclick="addRow('instructorstable')" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
 
               </div>
             </div>
+            
 
             <div class="card-footer">
               <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('admin.btn_Back') }}</button>-->
@@ -333,3 +349,32 @@
 
 
     @endsection
+    @push('scripts')
+
+<script>
+  function addRow(tableID) {
+    var table = document.getElementById(tableID);
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    var colCount = table.rows[0].cells.length;
+
+    for (var i = 0; i < colCount; i++) {
+      var newRow = row.insertCell(i);
+
+      newRow.innerHTML = table.rows[0].cells[i].innerHTML;
+      newRow.childNodes[0].value = "";
+    }
+  }
+
+  function deleteRow(row) {
+    var table = document.getElementById("instructorstable");
+    var rowCount = table.rows.length;
+    if (rowCount > 1) {
+      var rowIndex = row.parentNode.parentNode.rowIndex;
+      document.getElementById("instructorstable").deleteRow(rowIndex);
+    } else {
+      alert("Please specify at least one value.");
+    }
+  }
+</script>
+@endpush

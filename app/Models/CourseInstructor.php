@@ -13,4 +13,13 @@ class CourseInstructor extends Model
     public $timestamps = true;
 
     protected $fillable = array('course_id','instructor_id','course_price','course_prectange');
+
+
+    protected function instructor(){
+        return $this->belongsTo(Instructor::class);
+    }
+    
+    protected function course(){
+        return $this->belongsTo(Course::class);
+    }
 }

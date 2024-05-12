@@ -135,11 +135,6 @@
                   @enderror
                 </div>
 
-
-
-
-
-
               </div>
               <div class="col-md-6">
 
@@ -194,10 +189,10 @@
                   <label class="form-label" for="difficulty_level">{{ __('admin.courses.difficulty_level') }} <span>*</span></label>
                   <select class="select2 form-control" name="difficulty_level" id="difficulty_level" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="beginner">{{ __('admin.courses.beginner') }}</option>
-                    <option value="intermediate">{{ __('admin.courses.intermediate') }}</option>
-                    <option value="advanced ">{{ __('admin.courses.advanced') }}</option>
-                    <option value="all">{{ __('admin.courses.all') }}</option>
+                    <option value="0">{{ __('admin.courses.beginner') }}</option>
+                    <option value="1">{{ __('admin.courses.intermediate') }}</option>
+                    <option value="2 ">{{ __('admin.courses.advanced') }}</option>
+                    <option value="3">{{ __('admin.courses.all') }}</option>
 
                   </select>
 
@@ -314,15 +309,14 @@
                       <tbody>
                         <tr>
                           <td>
-                            <select class=" form-control" name="instructors[]" style="padding:3px;"
-                             required>
+                            <select class=" form-control" name="instructors[]" style="padding:3px;" required>
 
                               @foreach($instructors as $instructor)
                               <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
                               @endforeach
                             </select>
                           </td>
-                          <td><input type="number" name="instructorsprice[]"  value="0" placeholder="قيمة شراء الدورة من المدرب" /></td>
+                          <td><input type="number" name="instructorsprice[]" value="0" placeholder="قيمة شراء الدورة من المدرب" /></td>
                           <td><input type="number" name="instructorsprecentage[]" value="0" placeholder="ربح المدرب من كل اشتراك" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
@@ -361,32 +355,31 @@
 
 @endsection
 @push('scripts')
- 
-  <script>
-    function addRow(tableID) {
-      var table = document.getElementById(tableID);
-      var rowCount = table.rows.length;
-      var row = table.insertRow(rowCount);
-      var colCount = table.rows[0].cells.length;
 
-      for (var i = 0; i < colCount; i++) {
-        var newRow = row.insertCell(i);
+<script>
+  function addRow(tableID) {
+    var table = document.getElementById(tableID);
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    var colCount = table.rows[0].cells.length;
 
-        newRow.innerHTML = table.rows[0].cells[i].innerHTML;
-        newRow.childNodes[0].value = "";
-      }
+    for (var i = 0; i < colCount; i++) {
+      var newRow = row.insertCell(i);
+
+      newRow.innerHTML = table.rows[0].cells[i].innerHTML;
+      newRow.childNodes[0].value = "";
     }
+  }
 
-    function deleteRow(row) {
-      var table = document.getElementById("instructorstable");
-      var rowCount = table.rows.length;
-      if (rowCount > 1) {
-        var rowIndex = row.parentNode.parentNode.rowIndex;
-        document.getElementById("instructorstable").deleteRow(rowIndex);
-      } else {
-        alert("Please specify at least one value.");
-      }
+  function deleteRow(row) {
+    var table = document.getElementById("instructorstable");
+    var rowCount = table.rows.length;
+    if (rowCount > 1) {
+      var rowIndex = row.parentNode.parentNode.rowIndex;
+      document.getElementById("instructorstable").deleteRow(rowIndex);
+    } else {
+      alert("Please specify at least one value.");
     }
-
-  </script>
-  @endpush
+  }
+</script>
+@endpush

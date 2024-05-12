@@ -79,12 +79,11 @@
                     </svg>
                   </th>
                   <th> {{__('admin.lectures.title')}}</th>
-                  <th> {{__('admin.lectures.course')}}</th>
                   <th>{{ __('admin.lectures.level') }}</th>
-
+                  <th> {{__('admin.lectures.course')}}</th>
+                  <th> {{__('admin.lectures.field_period')}}</th>
                   <th>{{ __('admin.lectures.type') }}</th>
-
-
+                  <th>{{ __('admin.lectures.opened_free') }}</th>
                   <th>{{ __('admin.lectures.actions') }}</th>
                 </tr>
               </thead>
@@ -95,9 +94,12 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->title}}</td>
-                  <td>{{optional($row->course)->name}}</td>
                   <td>{{optional($row->level)->name}}</td>
-                  <td>
+                  <td>{{optional($row->course)->name}}</td>
+                  <td> {{ $row->period }}</td>
+                  
+                  <td> {{ $row->free }}</td>
+                                    <td>
                     @if($row->type == 1)
                     {{ __('admin.lectures.viedo')}}
                     @else

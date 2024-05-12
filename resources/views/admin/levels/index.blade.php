@@ -7,22 +7,6 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-      @if( app()->getLocale() == 'ar')
-<style>
-  .breadcrumb-item+.breadcrumb-item::before {
-    float: right;
-    padding-left: var(--tblr-breadcrumb-item-padding-x);
-}
-</style>
-@endif
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
-    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  $course->name }}</a></li>
-    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
-  </ol>
-</nav>  
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
@@ -79,6 +63,8 @@
                   </th>
                   <th> {{__('admin.levels.name')}}</th>
                   <th> {{__('admin.levels.course')}}</th>
+                  <th> {{__('admin.levels.track')}}</th>
+                  <th> {{__('admin.levels.instructor')}}</th>
                   <th>{{ __('admin.levels.start_date') }}</th>
                   <th>{{ __('admin.levels.end_date') }}</th>
 
@@ -97,17 +83,20 @@
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->name}}</td>
                   <td>{{optional($row->course)->name}}</td>
+                  <td>{{optional($row->track)->name}}</td>
+                  <td>{{optional($row->instructor)->name}}</td>
                   <td>{{$row->start_date}}</td>
                   <td>{{$row->end_date}}</td>
-                  <td>{{$row->period}}</td>
+                  <td>{{$row->period}} {{ __($row->periodLabel)}}</td>
 
 
                   <td>
-                    @if( $row->active == 1 )
-                    <span class="badge bg-green text-green-fg">{{ __('admin.active') }}</span>
-                    @else
-                    <span class="badge bg-red text-red-fg">{{ __('admin.inactive') }}</span>
-                    @endif
+
+
+                    <div class="form-check form-switch md-3" style="margin:10px">
+
+                      <input data-id="{{$row->id}}" data-type='App\Models\Level' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                    </div>
                   </td>
 
 
@@ -118,11 +107,11 @@
                     <a href="{{ route($route.'.edit',[$course->id,$row->id]) }}" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
-                   
+
                     <a href="{{ url('admin/levels/'.$row->id.'/lectures') }}" class="btn btn-icon btn-primary btn-sm">
-                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                      <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
-                   
+
                   </td>
                 </tr>
                 @endforeach

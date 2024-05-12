@@ -11,16 +11,33 @@ class Level extends Model
     protected $table = 'levels';
     public $timestamps = true;
 
-    protected $fillable = array('name','course_id','active','start_date','end_date','period_type','period');
+    protected $fillable = array('name','course_id','track_id','instructor_id','active','start_date','end_date','period_type','period');
 
     public function scopeActive($query)
     {
         return $query->where('active', '1');
     }
 
+    public function getPeriodLabelAttribute(){
+        if ($this->period ==1)
+         return  trans('admin.levels.day');
+       
+        else
+        return  ('admin.levels.hour');   
+       }
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function track()
+    {
+        return $this->belongsTo(Track::class);
+    }
+
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class);
     }
 
     public function lectures()

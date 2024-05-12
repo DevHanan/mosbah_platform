@@ -32,6 +32,7 @@ return new class extends Migration
             $table->text('prerequisites')->nullable();
             $table->double('price_with_discount');
             $table->string('difficulty_level');
+            $table->integer('provider')->nullable();
             $table->timestamps();
         });
     }

@@ -348,22 +348,24 @@
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-trainsers" role="tabpanel">
+                            @if($course->instructors)
+                            @foreach($course->instructors as $instructor )
                             <div class="shadow-sm my-4 p-4" style="border-radius: 24px;">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="person d-flex align-items-center">
                                         <div class="img"><img src="{{ asset('public/front/img/user4.png')}}" alt=""></div>
-                                        <p class="fw-bold mx-3"> {{ optional($course->instructor)->name  }}</p>
+                                        <p class="fw-bold mx-3"> {{ $instructor->name  }}</p>
                                     </div>
                                     <div class="rating d-flex">
                                         <div><img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" width="20" alt=""></div>
                                         <div class="mx-2 fw-bold">
-                                            {{ optional($course->instructor)->courses()->count()  }}
+                                            {{ $instructor->courses()->count()  }}
                                                                 دورة
                                         </div>
                                     </div>
                                 </div>
                                 <div class="opinion my-3">
-                                    {!! optional($course->instructor)->about_teacher  !!}
+                                    {!! $instructor->about_teacher  !!}
                                 </div>
                                 <div class="rating d-flex justify-content-end align-items-center">
                                     <!-- <div class="fw-bold">تقييم عام </div> -->
@@ -377,6 +379,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+                            @else
+                            لا توجد بيانات للمدربين لعرضها 
+                            @endif
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-rating" role="tabpanel">
@@ -498,16 +504,10 @@
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $setting->currency }}{{ $course->price }} </span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-user.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->SubscriptionCount}} طلاب مشتركين</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->seat_number }} سعة مقاعد</span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span>   {{ $course->period }} 
-                                   @if ($course->period_type == 1 )
-                                   {{ __('admin.levels.month') }}
-                                   @elseif($course->period_type == 2 )
-                                   {{ __('admin.levels.day') }}
-                                   @else
-                                   {{ __('admin.levels.hour') }}
-                                   @endif
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span>   {{ $course->period }}  {{ __($course->PeriodLabel)  }}
+                                  
                                 </span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span>مستوى متقدم </span></p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->difficultyLevelLabel }} </span></p>
                                 @if($course->isSubscribed == 0) 
 
                                 <div class="d-flex justify-content-center mb-2">
@@ -521,9 +521,13 @@
                         <div class="shadow-sm border my-4 p-4 py-5 d-flex flex-column align-items-center" style="border-radius: 24px;">
                             <p class="fw-bold" style="font-size: 18px;">دورات ذات صلة</p>
                             <ul class="">
+                                @if(count($related_courses))
                                 @foreach($related_courses as $item)
                                 <li class="py-1"><a href="{{url('course/'.$item->id)}}" class="text-decoration-none"> {{ $item->name }}</a></li>
                                 @endforeach
+                                @else
+                                                                    لا توجد دورات للعرض
+                                @endif
                             </ul>
                         </div>
                     </div>

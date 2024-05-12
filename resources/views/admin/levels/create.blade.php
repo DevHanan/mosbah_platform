@@ -6,22 +6,22 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-    @if( app()->getLocale() == 'ar')
-<style>
-  .breadcrumb-item+.breadcrumb-item::before {
-    float: right;
-    padding-left: var(--tblr-breadcrumb-item-padding-x);
-}
-</style>
-@endif
+      @if( app()->getLocale() == 'ar')
+      <style>
+        .breadcrumb-item+.breadcrumb-item::before {
+          float: right;
+          padding-left: var(--tblr-breadcrumb-item-padding-x);
+        }
+      </style>
+      @endif
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
-    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  $course->name }}</a></li>
-    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
-  </ol>
-</nav> 
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{ $course->name }}</a></li>
+          <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
+        </ol>
+      </nav>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
@@ -49,8 +49,7 @@
 
           <div class="card-body">
             <div class="row ">
-            <div class="col-md-6">
-              <div class="mb-3">
+            <div class="mb-3">
                   <label class="form-label" for="name"> {{ __('admin.levels.name') }} <span>*</span></label>
                   <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
 
@@ -60,13 +59,29 @@
                   </div>
                   @enderror
                 </div>
+              <div class="col-md-6">
+              <div class="mb-3">
+                  <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
+                  <select class="select2 form-control" name="track_id" id="track_id" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($course->tracks as $track)
+                    <option value="{{ $track->id }}"> {{ $track->name }}</option>
+
+                    @endforeach
+                  </select>
+
+                  @error('track_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
                 <div class="mb-3">
                   <label class="form-label" for="period_type">{{ __('admin.levels.period_type') }} <span>*</span></label>
                   <select class="form-control" name="period_type" id="period_type" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1"> {{ __('admin.levels.month') }}</option>
-                    <option value="2"> {{ __('admin.levels.day') }}</option>
-                    <option value="3"> {{ __('admin.levels.hour') }}</option>
+                    <option value="1"> {{ __('admin.levels.day') }}</option>
+                    <option value="2"> {{ __('admin.levels.hour') }}</option>
                   </select>
 
                   @error('period_type')
@@ -86,17 +101,34 @@
                   </div>
                   @enderror
                 </div>
-              
 
-              
-              
 
-           
+
+                
+
+
 
               </div>
               <div class="col-md-6">
-          
-                      
+
+              <div class="mb-3">
+                  <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
+                  <select class="select2 form-control" name="instructor_id" id="instructor_id">
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($course->instructors as $instructor)
+                    <option value="{{ $instructor->id }}"> {{ $instructor->name }}</option>
+
+                    @endforeach
+                  </select>
+
+                  @error('instructor_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+             
 
                 <div class="mb-3">
                   <label class="form-label" for="start_date">{{ __('admin.levels.start_date') }} <span>*</span></label>
@@ -124,14 +156,14 @@
 
 
 
-               
-           
+
+
 
               </div>
-             
-         
 
-             
+
+
+
             </div>
           </div>
           <div class="card-footer text-end">

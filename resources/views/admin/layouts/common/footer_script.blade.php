@@ -379,7 +379,7 @@
 			$.ajax({
 				type: "POST",
 				dataType: "json",
-				url: 'changestatus',
+				url: "{{url('admin/changestatus')}}",
 				data: {
 					'status': status,
 					'id': id,

@@ -12,7 +12,8 @@ class Lecture extends Model
     public $timestamps = true;
 
     protected $fillable = array('title','level_id','course_id','type','active',
-    'description','short_description','type','goals','conclusion','appointment','link','provider','period');
+    'description','short_description','type','goals','conclusion','appointment','link','provider','period'
+    ,'free');
 
     public function scopeActive($query)
     {

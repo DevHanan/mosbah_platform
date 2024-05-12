@@ -67,7 +67,7 @@ class HomeController extends Controller
     }
     public function course($id)
     {
-        $course = Course::with(['levels','lectures','track','instructor','coupon'])->find($id);
+        $course = Course::with(['levels','lectures','tracks','instructors','coupon'])->find($id);
         $related_courses = Course::where('track_id',$course->track_id)->where('id','!=',$course->id)->get();
         $title = $course->name;
         return view('front.course',compact('course','related_courses','title'));

@@ -63,7 +63,7 @@ class StudentController extends Controller
             $thumbnail = $request->image;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/students/'),$filename);
-            $student->image ='public/uploads/students/'.$filename;
+            $student->image ='uploads/students/'.$filename;
             $student->save();
         }
 
@@ -105,7 +105,7 @@ class StudentController extends Controller
             $thumbnail = $request->image;
            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/students/'),$filename);
-            $student->image ='public/uploads/students/'.$filename;
+            $student->image ='uploads/students/'.$filename;
             $student->save();
         }
         if($request->track_ids)

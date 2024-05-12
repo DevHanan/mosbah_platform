@@ -62,3 +62,23 @@ Breadcrumbs::for('show-courses', function (BreadcrumbTrail $trail,$row) {
     $trail->push($row->name, route('admin.courses.edit', $row));
 });
 
+
+// Home > Course details  > Levels
+ Breadcrumbs::for('levels', function (BreadcrumbTrail $trail,$course) {
+    $trail->parent('show-courses');
+    $trail->push(trans('navbar.courses.list_levels'), route('admin.courses.levels.index',$course));
+});
+
+Breadcrumbs::for('add-levels', function (BreadcrumbTrail $trail) {
+    $trail->parent('show-courses');
+    $trail->push(trans('navbar.courses.add_level'), route('admin.courses.levels.create'));
+});
+Breadcrumbs::for('update-levels', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('show-courses');
+    $trail->push($row->name, route('admin.courses.levels.edit', $row));
+});
+Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('show-courses');
+    $trail->push($row->name, route('admin.courses.levels.edit', $row));
+});
+

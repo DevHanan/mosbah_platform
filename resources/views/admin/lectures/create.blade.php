@@ -115,6 +115,7 @@
                     <option value="">{{ __('select') }}</option>
                     <option value="1"> {{ __('admin.lectures.viedo')}}</option>
                     <option value="2"> {{ __('admin.lectures.metting')}}</option>
+                    <option value="3"> {{ __('admin.lectures.offline')}}</option>
 
                   </select>
 
@@ -128,9 +129,10 @@
                   <label class="form-label" for="provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
                   <select class="form-control" name="provider" id="provideSelect" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1"> {{ __('admin.lectures.viedo')}}</option>
+                    <option value="1"> {{ __('admin.lectures.viemo')}}</option>
                     <option value="2"> {{ __('admin.lectures.Youtube')}}</option>
 
+                    <option value="2"> {{ __('admin.lectures.external_link')}}</option>
                   </select>
 
                   @error('provider')
@@ -311,6 +313,10 @@
           option2Div.classList.remove("hidden");
           option3Div.classList.add("hidden");
           break;
+          case "3":
+            option1Div.classList.add("hidden");
+          option2Div.classList.add("hidden");
+          option3Div.classList.add("hidden");
       }
     });
   </script>

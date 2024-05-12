@@ -44,10 +44,12 @@
 
                                         <th>{{ __('admin.coupons.code') }}</th>
                                         <th>{{ __('admin.coupons.course') }}</th>
+                                        <th>{{ __('admin.coupons.track') }}</th>
+                                        <th>{{ __('admin.coupons.discount') }}</th>
+                                        <th>{{ __('admin.coupons.create_date') }}</th>
                                         <th>{{ __('admin.coupons.start_date') }}</th>
                                         <th>{{ __('admin.coupons.end_date') }}</th>
                                         <th>{{ __('admin.coupons.status') }}</th>
-                                        <th>{{ __('admin.coupons.discount') }}</th>
                                         <th>{{ __('admin.coupons.action') }}</th>
 
 
@@ -60,17 +62,32 @@
 
                                         <td>{{ $row->code }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
+                                        <td> @if(optional($row->course)->tracks)
+                                            <ul class="list-unstyled">
+                                                @foreach(optional($row->course)->tracks as $item)
+                                                <li> {{ $item->name  }}</li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
+                                        </td>
+                                        <td>{{ $row->discount }}</td>
+                                        <td>{{ $row->created_at }}</td>
                                         <td>{{ $row->start_date }}</td>
 
                                         <td>{{ $row->end_date }}</td>
-                                        <td>{{ $row->status }}</td>
-                                        <td>{{ $row->discount }}</td>
+                                        <td>
 
+
+<div class="form-check form-switch md-3" style="margin:10px">
+
+  <input data-id="{{$row->id}}" data-type='App\Models\Coupon' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+</div>
+</td>
 
                                         <td>
 
 
-                                           
+
 
 
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
             $table->integer('course_id');
+            $table->integer('track_id');
+            $table->integer('instructor_id');
             $table->string('name')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();

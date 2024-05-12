@@ -44,16 +44,7 @@
                                         <td>{{ $row->email }}</td>
 
                                     </tr>
-                                    <tr>
-                                        <th>{{ __('admin.students.track') }}</th>
-                                        <td>
-                                            @foreach ($tracks as $item) 
-                                        <span class="badge bg-blue text-blue-fg"> {{ $item->name  }} </span>   
-                                            @endforeach
-                                            
-                                        </td>
-
-                                    </tr>
+                                 
                                     <tr>
                                         <th>{{ __('admin.students.phone_number') }}</th>
                                         <td>{{ $row->phone }}</td>
@@ -62,11 +53,6 @@
                                     <tr>
                                         <th>{{ __('admin.students.field_country') }}</th>
                                         <td>{{ optional($row->country)->name }}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>{{ __('admin.students.field_course_number') }}</th>
-                                        <td> {{ $row->subscriptions()->count() }} </td>
 
                                     </tr>
                                     <tr>
@@ -80,6 +66,23 @@
                                         <td>{!! $row->qualifications !!}</td>
 
                                     </tr>
+                                    <tr>
+                                        <th>{{ __('admin.students.favourite_tracks') }}</th>
+                                        <td>
+                                            @foreach ($row->tracks as $item)
+                                            <span class="badge bg-blue text-blue-fg"> {{ $item->name  }} </span>
+                                            @endforeach
+
+                                        </td>
+
+                                    </tr>
+                                   
+                                    <tr>
+                                        <th>{{ __('admin.students.field_course_number') }}</th>
+                                        <td> {{ $row->subscriptions()->count() }} </td>
+
+                                    </tr>
+
 
 
 

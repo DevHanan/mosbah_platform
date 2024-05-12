@@ -15,8 +15,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,HasRoles;
 
-    CONST STATUS_PENDING = 'غير مفعل';
-    CONST STATUS_ACCEPTED = 'مفعل';
+    CONST INActive = 'غير مفعل';
+    CONST Active = 'مفعل';
     /**
      * The attributes that are mass assignable.
      *
@@ -48,10 +48,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
     public function getStatusLabelAttribute(){
-        if($this->status == 0)
-        return Self::STATUS_PENDING;
+        if($this->active == 0)
+        return Self::INActive;
         else
-        return Self::STATUS_ACCEPTED;
+        return Self::Active;
 
 
     }

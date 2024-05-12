@@ -7,13 +7,8 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        <!-- Page pre-title -->
-        <div class="page-pretitle">
-          Overview
-        </div>
-        <h2 class="page-title">
-          Combo layout
-        </h2>
+      {{ Breadcrumbs::render('update-users',$row) }}
+
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
@@ -21,7 +16,7 @@
 
           <div class="card-header">
             <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>
@@ -61,7 +56,7 @@
 
                 <div class="form-group col-md-6">
                   <label class="form-label" for="role">{{ __('admin.users.role') }} <span>*</span></label>
-                  <select class="form-control" name="roles[]" id="role" required>
+                  <select class="form-control select2" name="roles[]" id="role" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach( $roles as $role )
                     <option value="{{ $role->id }}" @foreach($userRoles as $userRole) @if($userRole->id == $role->id) selected @endif

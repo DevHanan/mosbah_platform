@@ -7,13 +7,8 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+            {{ Breadcrumbs::render('add-users') }}
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -57,7 +52,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label" for="role">{{ __('admin.users.role') }} <span>*</span></label>
-                                <select class="form-control" name="roles[]" id="role" required>
+                                <select class="form-control select2" name="roles[]" id="role" required>
                                     <option value="">{{ __('select') }}</option>
                                     @foreach( $roles as $role )
                                     <option value="{{ $role->id }}" @if(old('roles')==$role->id) selected @endif>{{ $role->name }}</option>

@@ -589,17 +589,17 @@
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs(['admin.roles.index','admin.roles.edit'])) active @endif" href="{{url('admin/roles')}}">
-                  {{ __('navbar.roles') }}
+                  {{ __('navbar.roles.list') }}
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.roles.create')) active @endif" href="{{url('admin/roles/create')}}">
-                  {{ __('navbar.add_role') }}
+                  {{ __('navbar.roles.add') }}
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.users.index','admin.users.edit'])) active @endif" href="{{url('admin/users')}}">
-                  {{ __('navbar.users') }}
+                  {{ __('navbar.users.list') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.users.create')) active @endif" href="{{url('admin/users/create')}}">
-                  {{ __('navbar.add_user') }}
+                  {{ __('navbar.users.add') }}
 
                 </a>
 

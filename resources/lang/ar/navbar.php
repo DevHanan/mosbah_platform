@@ -4,8 +4,6 @@ return [
     'users' => "المستخدمين",
     'add_user' => "إضافة مستخدم",
     "user_managment" => "المستخدمين",
-    "roles" => "الأدوار",
-    "add_role" => "إضافة دور",
     "countries" => "الدول",
     "paymenttypes" => "أنواع الدفع ",
     "master_data"  => "الإعدادت",
@@ -13,6 +11,15 @@ return [
         "student_managment"  => "إدارة الطلاب",
         "list" => "قائمة الطلاب",
         "add"   => "إضافة طالب"
+    ],
+    'users' => [
+        "list" => "المستخدمين",
+        "add"   => "إضافة مستخدم"
+    ],
+    'roles' => [
+        "list" => "الأدوار",
+        "add"   => "إضافة دور",
+        'show' => 'عر تفاصيل الدور'
     ],
 
     'instructors' => [

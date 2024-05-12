@@ -43,6 +43,50 @@ Breadcrumbs::for('update-tracks', function (BreadcrumbTrail $trail,$row) {
     $trail->push($row->name, route('admin.tracks.edit', $row));
 });
 
+
+// Home > users
+Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.users.list'), route('admin.users.index'));
+});
+
+Breadcrumbs::for('add-users', function (BreadcrumbTrail $trail) {
+    $trail->parent('users');
+    $trail->push(trans('navbar.users.add'), route('admin.users.create'));
+});
+Breadcrumbs::for('update-users', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('users');
+    $trail->push($row->name, route('admin.users.edit', $row));
+});
+
+Breadcrumbs::for('show-users', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('users');
+    $trail->push($row->name, route('admin.users.show', $row));
+});
+
+
+
+// Home > roles
+Breadcrumbs::for('roles', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.roles.list'), route('admin.roles.index'));
+});
+
+Breadcrumbs::for('add-roles', function (BreadcrumbTrail $trail) {
+    $trail->parent('roles');
+    $trail->push(trans('navbar.roles.add'), route('admin.roles.create'));
+});
+Breadcrumbs::for('update-roles', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('roles');
+    $trail->push($row->name, route('admin.roles.edit', $row));
+});
+
+Breadcrumbs::for('show-roles', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('roles');
+    $trail->push($row->name, route('admin.roles.show', $row));
+});
+
+
 // Home > Courses
 Breadcrumbs::for('courses', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

@@ -104,7 +104,7 @@ Route::group(
         'verify'   => false,  // for email verification
     ]);
 
-        Route::name('admin.')->middleware('auth:web')->group(function () {
+        Route::name('admin.')->middleware(['auth:web','prevent-inactive-user'])->group(function () {
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);

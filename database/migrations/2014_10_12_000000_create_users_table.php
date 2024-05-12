@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('photo');
-            $table->boolean('status')->default(1);
+            $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
 

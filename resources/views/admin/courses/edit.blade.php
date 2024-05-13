@@ -273,7 +273,7 @@
 
               <label for="logo">{{ __('admin.courses.image') }}</label>
               <input type="file" class="form-control" name="image" id="logo">
-              @if(isset($row->image))
+              @if(isset($row->imageFullPath))
               <img src="{{ {{$row->imageFullPath}} }}" style="max-height:120px;" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
               <div class="clearfix"></div>
               @endif
@@ -290,8 +290,8 @@
 
               <label for="logo">{{ __('admin.courses.background_image') }}</label>
               <input type="file" class="form-control" name="background_image" id="logo">
-              @if(isset($row->background_image))
-              <img src="{{ {{$row->backgroundImageFullPath}} }}" style="max-height:120px;" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+              @if(isset($row->backgroundImageFullPath))
+              <img src="{{ $row->backgroundmageFullPath }}" style="max-height:120px;" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
               <div class="clearfix"></div>
               @endif
               @error('background_image')

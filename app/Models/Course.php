@@ -28,12 +28,12 @@ class Course extends Model
     public function getImageFullPathAttribute($value)
 {
 
-        return public_path($this->image);
+        return asset('public/'.$this->image);
 }
 public function getBackgroundImageFullPathAttribute($value)
 {
 
-        return public_path($this->background_image);
+    return asset('public/'.$this->background_image);
 }
     public function getPeriodLabelAttribute(){
         if ($this->period ==1)

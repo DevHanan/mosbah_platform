@@ -18,13 +18,23 @@ class Course extends Model
                             );
 
 
-    protected $appends = ['difficultyLevelLabel','SubscriptionCount','Totalsubscription','TotalDiscount','isSubscribed','periodLabel'] ;   
+    protected $appends = ['backgroundImageFullPath','imageFullPath','difficultyLevelLabel','SubscriptionCount','Totalsubscription','TotalDiscount','isSubscribed','periodLabel'] ;   
     
     
     public function getSubscriptionCountAttribute(){
      return $this->subscriptions()->count();   
     }
 
+    public function getImageFullPathAttribute($value)
+{
+
+        return public_path($this->image);
+}
+public function getBackgroundImageFullPathAttribute($value)
+{
+
+        return public_path($this->background_image);
+}
     public function getPeriodLabelAttribute(){
         if ($this->period ==1)
          return  trans('admin.levels.month');

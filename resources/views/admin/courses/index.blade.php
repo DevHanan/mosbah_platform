@@ -89,7 +89,7 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->name}}</td>
-                  <td><img src="{{public_path($row->image)}}" style="width:40px"></td>
+                  <td><img src="$course->imageFullPath" style="width:40px"></td>
                   <td>
                     @if($row->tracks)
                     <ul class="list-unstyled">

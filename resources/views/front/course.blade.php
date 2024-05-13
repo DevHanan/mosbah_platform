@@ -10,7 +10,7 @@
                 <div class="col-md-6">
                     <div class="img h-100 d-flex">
                         @if(isset($course->background_image))
-                        <img src="{{ asset($course->background_image)}}" class="img-fluid m-0" alt="">
+                        <img src="{{ asset('public/'.$course->background_image)}}" class="img-fluid m-0" alt="">
                         @else
                         <img src="{{ asset('public/front/img/questions.svg')}}" class="img-fluid m-0" alt="">
                         @endif
@@ -20,9 +20,9 @@
                     <img src="{{ asset('public/front/img/completed-bg.svg')}}" class="position-absolute img-fluid" alt="">
                     <div class="info position-relative py-5">
                         <h2 class="title py-3 pb-1 fw-bold secondary-color text-center"> {{ $course->name }} </h2>
-                        <!-- <h3 class="fw-bold text-center mb-4">
+                        <h3 class="fw-bold text-center mb-4">
                         <a href="{{url('/courses')}}" class="text-decoration-none text-white">الأختبارات</a>
-                    </h3> -->
+                    </h3>
                         <div class="d-flex justify-content-center align-items-center">
                             @if($course->SubscriptionCount > 0)
                             <div class="persons mx-3">

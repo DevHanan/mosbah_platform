@@ -368,7 +368,13 @@
                             <a href="{{ url('course/'.$course->id)}}">
                                 <div class="card__image p-2">
                                     <img src="{{asset('public/'.$course->image)}}" style="max-height:175px;" alt="image" class="card__img img-fluid w-100">
-                                    <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
+                                    <div class="card_category position-absolute rounded text-dark px-2 py-1"> 
+                                    @if($course->tracks)
+                                            @foreach ($course->tracks as $item)
+                                           {{ $item->name  }} 
+                                            @endforeach
+                                            @endif 
+                                    </div>
                                     <div class="card__shadow"></div>
                                 </div>
                             </a>

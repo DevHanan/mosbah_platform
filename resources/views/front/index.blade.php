@@ -90,7 +90,11 @@
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
                                 <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
+                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
+                                            @foreach ($course->tracks as $item)
+                                           {{ $item->name  }} 
+                                            @endforeach
+                                            @endif </div>
                                 <div class="card__shadow"></div>
                             </div>
                         </a>
@@ -99,7 +103,13 @@
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
                                 <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
                             </a>
-                            <div class="name primary-color mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }}</div>
+                            <div class="name primary-color mb-3" style="font-size: 14px;"> 
+                            @if($course->instructors)
+                                            @foreach($course->instructors as $item)
+                                            {{ $item->name }} 
+                                            @endforeach
+
+                                            @endif                        </div>
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
@@ -153,7 +163,11 @@
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
                                 <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
+                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
+                                            @foreach ($course->tracks as $item)
+                                           {{ $item->name  }} 
+                                            @endforeach
+                                            @endif </div>
                                 <div class="card__shadow"></div>
                             </div>
                         </a>
@@ -162,7 +176,14 @@
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
                                 <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
                             </a>
-                            <div class="name primary-color mb-3" style="font-size: 14px;"> {{ optional($course->instructor)->name }}</div>
+                            <div class="name primary-color mb-3" style="font-size: 14px;"> 
+                            @if($course->instructors)
+                                            @foreach($course->instructors as $item)
+                                            {{ $item->name }} 
+                                            @endforeach
+
+                                            @endif
+                        </div>
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
@@ -285,7 +306,11 @@
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
                                 <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
-                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> {{ optional($course->track)->name }}</div>
+                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
+                                            @foreach ($course->tracks as $item)
+                                           {{ $item->name  }} 
+                                            @endforeach
+                                            @endif </div>
                                 <div class="card__shadow"></div>
                             </div>
                         </a>
@@ -294,7 +319,14 @@
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none text-dark">
                                 <p class="card__description mb-1">  {{ $course->name }}</p>
                             </a>
-                            <div class="name primary-color mb-2" style="font-size: 14px;"> {{ optional($course->instructor)->name }}</div>
+                            <div class="name primary-color mb-2" style="font-size: 14px;"> 
+                            @if($course->instructors)
+                                            @foreach($course->instructors as $item)
+                                            {{ $item->name }} 
+                                            @endforeach
+
+                                            @endif
+                        </div>
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3"> ({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>

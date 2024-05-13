@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img h-100 d-flex">
-                        @if(isset($course->background_image))
-                        <img src="{{ asset('public/'.$course->background_image)}}" class="img-fluid m-0" alt="">
+                        @if(isset($course->backgroundImageFullPath))
+                        <img src="{{ $course->backgroundImageFullPath }}" class="img-fluid m-0" alt="">
                         @else
                         <img src="{{ asset('public/front/img/questions.svg')}}" class="img-fluid m-0" alt="">
                         @endif

@@ -44,8 +44,13 @@
 
                                         <th>{{ __('admin.instructors.field_name') }}</th>
                                         <th>{{ __('admin.instructors.field_photo') }}</th>
-                                        <th>{{ __('admin.instructors.phone_number') }}</th>
                                         <th>{{ __('admin.instructors.field_email') }}</th>
+                                        <th>{{ __('admin.instructors.phone_number') }}</th>
+                                        <th>{{ __('admin.instructors.field_country') }}</th>
+                                        <th>{{ __('admin.students.field_join_date') }}</th>
+                                        <th>{{ __('admin.instructors.total_course') }}</th>
+                                        <th>{{ __('admin.instructors.total_balance') }}</th>
+                                        <th>{{ __('admin.instructors.current_balance') }}</th>
                                         <th>{{ __('admin.instructors.recommend') }}</th>
                                         <th>{{ __('admin.instructors.field_status') }}</th>
                                         <th>{{ __('admin.instructors.field_action') }}</th>
@@ -62,6 +67,12 @@
                                         <td><img src="{{asset($row->image)}}" style="width:40px"></td>
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->email }}</td>
+                                        <td>{{ optional($row->country)->name }}</td>
+                                        <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
+                                        <td>{{ $row->courseNumber }}</td>
+                                        <td>{{ $row->total_balance }} {{ $setting->currency }}</td>
+                                        <td>{{ $row->current_balance }} {{ $setting->currency }}</td>
+
                                         <td>
 
 

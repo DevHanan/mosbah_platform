@@ -13,6 +13,8 @@ use App\Models\Course;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CourseExport;
 use App\Models\CourseInstructor;
+use App\Models\CourseTrack;
+
 use Toastr;
 
 
@@ -86,10 +88,11 @@ class CourseController extends Controller
         if($request->track_ids)
         $course->tracks()->attach($request->track_ids);
 
-        if(count($request->instructorsprice))
-            for ($i = 0; $i < count($request->instructorsprice); $i++) 
+        if(count($request->instructors)){
+            for ($i = 0; $i < count($request->instructors); $i++) 
 
             {
+                if($request->instructors[$i] != 0)
                 CourseInstructor::create([
                     'course_id' => $course->id,
                     'instructor_id' => $request->instructors[$i],
@@ -98,7 +101,7 @@ class CourseController extends Controller
 
                 ]);
             }
-        
+        }
 
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
@@ -139,6 +142,8 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
         $data['row'] = Course::find($id);
+        $data['row_tracks']= $data['row']->tracks->pluck('id')->ToArray();
+
 
       return view($this->view.'.edit', $data);
 
@@ -146,8 +151,31 @@ class CourseController extends Controller
     public function update(Request $request)
     {
         $course = Course::find($request->id);
+        $active = $request->active ? '1' :'0';
+        $recommend = $request->recommend ? '1' :'0';
+        $request->merge(['active'=>$active,'recommend'=>$recommend]);
         $course->update($request->except(['image', 'background_image','thumbinal_image']));
 
+        if($request->track_ids){
+            CourseTrack::where('course_id',$course->id)->delete();
+        $course->tracks()->attach($request->track_ids);
+        }
+
+        if(count($request->instructors)){
+            CourseInstructor::where('course_id',$course->id)->delete();
+            for ($i = 0; $i < count($request->instructors); $i++) 
+
+            {
+                if($request->instructors[$i] != 0)
+                CourseInstructor::create([
+                    'course_id' => $course->id,
+                    'instructor_id' => $request->instructors[$i],
+                    'course_price' => $request->instructorsprice[$i],
+                    'course_prectange' => $request->instructorsprecentage[$i]
+
+                ]);
+            }
+        }
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -156,9 +184,7 @@ class CourseController extends Controller
             $course->save();
         }
 
-    
-
-        if ($request->hasFile('background_image')) {
+            if ($request->hasFile('background_image')) {
             $thumbnail = $request->background_image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/courses/background_image/'),$filename);

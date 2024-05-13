@@ -92,8 +92,7 @@ class LevelController extends Controller
        $level = Level::find($request->id);
         if ($level)
            $level->delete();
-
             Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
-            return redirect()->route($this->route.'.index');
+            return redirect()->back();
     }
 }

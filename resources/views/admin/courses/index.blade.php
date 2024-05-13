@@ -43,7 +43,7 @@
           </div>
           <div class="card-body border-bottom py-3">
             <div class="d-flex">
-              <div class="text-secondary">
+              <!-- <div class="text-secondary">
                 Show
                 <div class="mx-2 d-inline-block">
                   <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
@@ -55,7 +55,7 @@
                 <div class="ms-2 d-inline-block">
                   <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="table-responsive">
@@ -74,9 +74,9 @@
                   <th>{{ __('admin.courses.track') }}</th>
                   <th>{{ __('admin.courses.instructor') }}</th>
                   <th> {{__('admin.courses.type')}}</th>
+                  <th>{{ __('admin.courses.period') }}</th>
                   <th>{{ __('admin.courses.price') }}</th>
                   <th>{{ __('admin.courses.price_with_discount') }}</th>
-                  <th>{{ __('admin.courses.period') }}</th>
                   <th>{{ __('admin.courses.status') }}</th>
                   <th>{{ __('admin.courses.recommend_status') }}</th>
                   <th>{{ __('admin.courses.actions') }}</th>
@@ -111,9 +111,9 @@
 
                   </td>
                   <td>{{optional($row->coursetype)->name}}</td>
+                  <th>{{$row->period }} {{ __($row->periodLabel) }}</th>
                   <td>{{$row->price}} {{ $setting->currency }}</td>
                   <td>{{$row->price_with_discount}} {{ $setting->currency }}</td>
-                  <th>{{$row->period }} {{ __($row->periodLabel) }}</th>
 
                   <td>
 

@@ -109,20 +109,47 @@ Breadcrumbs::for('show-courses', function (BreadcrumbTrail $trail,$row) {
 
 // Home > Course details  > Levels
  Breadcrumbs::for('levels', function (BreadcrumbTrail $trail,$course) {
-    $trail->parent('show-courses');
+    $trail->parent('show-courses',$course);
     $trail->push(trans('navbar.courses.list_levels'), route('admin.courses.levels.index',$course));
 });
 
-Breadcrumbs::for('add-levels', function (BreadcrumbTrail $trail) {
-    $trail->parent('show-courses');
-    $trail->push(trans('navbar.courses.add_level'), route('admin.courses.levels.create'));
+Breadcrumbs::for('add-levels', function (BreadcrumbTrail $trail,$course) {
+    $trail->parent('levels',$course);
+    $trail->push(trans('navbar.courses.add_level'), route('admin.courses.levels.create',$course));
 });
-Breadcrumbs::for('update-levels', function (BreadcrumbTrail $trail,$row) {
-    $trail->parent('show-courses');
-    $trail->push($row->name, route('admin.courses.levels.edit', $row));
-});
-Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$row) {
-    $trail->parent('show-courses');
-    $trail->push($row->name, route('admin.courses.levels.edit', $row));
+Breadcrumbs::for('update-levels', function (BreadcrumbTrail $trail,$course,$row) {
+    $trail->parent('levels',$course);
+    $trail->push($row->name, route('admin.courses.levels.edit',[$course,$row]));
 });
 
+Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$course,$row) {
+    $trail->parent('levels',$course);
+    $trail->push($row->name, route('admin.courses.edit', $row));
+});
+
+// Home > Levels details  > Lectures
+Breadcrumbs::for('lectures', function (BreadcrumbTrail $trail,$course,$level) {
+    $trail->parent('show-levels',$course,$level);
+    $trail->push(trans('navbar.courses.list_lectures'), route('admin.levels.lectures.index',$level));
+});
+
+Breadcrumbs::for('add-lectures', function (BreadcrumbTrail $trail,$course,$level) {
+    $trail->parent('lectures',$course,$level);
+    $trail->push(trans('navbar.courses.add_lecture'), route('admin.levels.lectures.create',$level));
+});
+
+Breadcrumbs::for('update-lectures', function (BreadcrumbTrail $trail,$course,$level,$row) {
+    $trail->parent('lectures',$course,$level);
+    $trail->push($row->title, route('admin.levels.lectures.edit',[$level,$row]));
+});
+
+//subscriptions
+Breadcrumbs::for('subscribtions', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.subscriptions.list'), route('admin.subscriptions.index'));
+});
+
+Breadcrumbs::for('add-subscribtions', function (BreadcrumbTrail $trail) {
+    $trail->parent('subscribtions');
+    $trail->push(trans('navbar.subscriptions.add'), route('admin.subscriptions.create'));
+});

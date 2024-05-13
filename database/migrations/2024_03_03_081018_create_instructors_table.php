@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('qualifications');
             $table->integer('track_id');
+            $table->integer('country_id');
             $table->text('about_teacher');
             $table->string('image')->nullable();
             $table->string('bank_account')->nullable();
@@ -28,6 +29,14 @@ return new class extends Migration
             $table->boolean('recommened')->default(1);
             $table->boolean('is_employee')->default(0);
             $table->double('salary');
+            $table->double('current_balance')->default(0);
+            $table->double('total_balance')->default(0);
+            $table->string('cash_wallet_number')->nullable();
+            $table->string('paypall_account_number')->nullable();
+
+
+
+            
 
             $table->timestamps();
         });

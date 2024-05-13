@@ -63,6 +63,7 @@ return [
         "add_course_types" => "إضافة نوع",
         "list_lectures"  => "عرض المحاضرات",
         "add_lecture" => " إضافه محاضره",
+        'edit_lecture' => 'تعديل محاضرة',
         "list_levels" => "عرض المستويات",
         "add_level" => "إضافه مستوي",
         "add_course"  => "إضافة دوره",

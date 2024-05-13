@@ -52,30 +52,17 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-      @if( app()->getLocale() == 'ar')
-      <style>
-        .breadcrumb-item+.breadcrumb-item::before {
-          float: right;
-          padding-left: var(--tblr-breadcrumb-item-padding-x);
-        }
-      </style>
-      @endif
+      <div class="col">
+        {{ Breadcrumbs::render('add-lectures',$level->course,$level) }}
 
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
-          <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{ optional($level->course)->name }}</a></li>
-          <li class="breadcrumb-item"><a href="{{url('/admin/courses/'.optional($level->course)->id.'/levels')}}">{{ $level->name }}</a></li>
-          <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
-        </ol>
-      </nav>
+      </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
           <div class="card-header">
             <div class="card-block">
-              <a href="{{ route($route.'.index',$level->id) }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+            <a href="{{ route($route.'.index',$level->id) }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>
@@ -85,6 +72,7 @@
     </div>
   </div>
 </div>
+
 <div class="page-body">
   <div class="container-xl">
     <div class="row row-cards">

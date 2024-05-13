@@ -17,7 +17,8 @@ class Instructor extends Authenticatable
 
     protected $fillable = array('first_name','last_name','email','userName','phone','active'
                                 ,'track_id','qualifications','about_teacher','bank_account',
-                                'salary','is_employee'
+                                'salary','is_employee','current_balance','total_balance','country_id',
+                                'cash_wallet_number','paypall_account_number'
                                );
 
 
@@ -39,7 +40,7 @@ class Instructor extends Authenticatable
     }
     public function courses()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany(Course::class,'course_instructors');
     }
 
   

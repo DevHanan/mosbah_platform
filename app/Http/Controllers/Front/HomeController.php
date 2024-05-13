@@ -92,7 +92,7 @@ class HomeController extends Controller
     }
     public function cart($id)
     {
-        $course = Course::with(['levels','lectures','track','instructor'])->find($id);
+        $course = Course::with(['levels','lectures','tracks','instructors'])->find($id);
         $title = 'الاشتراكات';
         return view('front.course_cart',compact('course','title'));
     }

@@ -109,6 +109,34 @@
                   @enderror
                 </div>
 
+                <div class="mb-3">
+                                    <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
+                                    <select class="form-control select2" name="country_id" id="country_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($countries as $country)
+                                        <option value="{{ $country->id }}" @if($row->country_id == $country->id)  selected @endif> {{ $country->name }}</option>
+
+                                        @endforeach
+                                    </select>
+
+                                    @error('country_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="paypall_account_number">{{ __('admin.instructors.paypall_account_number') }} <span>*</span></label>
+                                    <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}" required>
+
+
+                                    @error('paypall_account_number')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
 
 
               </div>
@@ -157,6 +185,18 @@
                   </div>
                   @enderror
                 </div>
+
+                <div class="mb-3">
+                                    <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
+                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}" required>
+
+
+                                    @error('cash_wallet_number')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>

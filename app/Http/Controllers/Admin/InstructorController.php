@@ -67,7 +67,7 @@ class InstructorController extends Controller
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/instructors/'), $filename);
-            $instructor->image = 'public/uploads/instructors/' . $filename;
+            $instructor->image = 'uploads/instructors/' . $filename;
             $instructor->save();
         }
 
@@ -98,7 +98,7 @@ class InstructorController extends Controller
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/instructors/'), $filename);
-            $instructor->image = 'public/uploads/instructors/' . $filename;
+            $instructor->image = 'uploads/instructors/' . $filename;
             $instructor->save();
         }
 

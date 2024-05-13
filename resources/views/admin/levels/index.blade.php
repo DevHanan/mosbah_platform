@@ -7,6 +7,8 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
+      {{ Breadcrumbs::render('levels',$course) }}
+
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
@@ -35,7 +37,7 @@
           </div>
           <div class="card-body border-bottom py-3">
             <div class="d-flex">
-              <div class="text-secondary">
+              <!-- <div class="text-secondary">
                 Show
                 <div class="mx-2 d-inline-block">
                   <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
@@ -47,7 +49,7 @@
                 <div class="ms-2 d-inline-block">
                   <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="table-responsive">
@@ -111,7 +113,11 @@
                     <a href="{{ url('admin/levels/'.$row->id.'/lectures') }}" class="btn btn-icon btn-primary btn-sm">
                       <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
-
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <!-- Include Delete modal -->
+                    @include('admin.layouts.inc.custom-delete')
                   </td>
                 </tr>
                 @endforeach

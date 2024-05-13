@@ -51,8 +51,10 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
+      <div class="col">
+        {{ Breadcrumbs::render('update-lectures',$level->course,$level,$row) }}
 
-
+      </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
@@ -92,7 +94,7 @@
                   </div>
                   @enderror
                 </div>
-
+                <input type="hidden" name="id" value="{{$row->id}}">
                 <div class="mb-3">
                   <label class="form-label" for="type">{{ __('admin.lectures.type') }} <span>*</span></label>
                   <select class="form-control" name="type" id="typeSelect" required>
@@ -217,7 +219,7 @@
                         @if($row->photos)
                         @foreach($row->photos as $photo)
                         <tr>
-                          <td><input type="text" name="imgTitle[]"  value="{{$photo->title}}" /></td>
+                          <td><input type="text" name="imgTitle[]" value="{{$photo->title}}" /></td>
                           <td>
                             <input type="file" name="img[]" />
                           </td>
@@ -226,7 +228,7 @@
                             </a></td>
                         </tr>
                         @endforeach
-                       
+
                         @endif
 
                     </table>
@@ -260,7 +262,7 @@
                         <tr>
                           <td><input type="text" name="bookTitles[]" value="{{ $book->title }}" /></td>
                           <td><input type="file" name="bookFiles[]" /></td>
-                          <td><input type="text" name="bookLinks[]"  value="{{ $book->link }}"/></td>
+                          <td><input type="text" name="bookLinks[]" value="{{ $book->link }}" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow2(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
@@ -293,7 +295,6 @@
 @endsection
 @push('scripts')
 <script>
-  
   document.getElementById("typeSelect").addEventListener("change", function() {
     var selectedValue = this.value;
     var option1Div = document.getElementById("appointment_div");
@@ -316,10 +317,10 @@
         option2Div.classList.remove("hidden");
         option3Div.classList.add("hidden");
         break;
-        case "3":
-            option1Div.classList.add("hidden");
-          option2Div.classList.add("hidden");
-          option3Div.classList.add("hidden");
+      case "3":
+        option1Div.classList.add("hidden");
+        option2Div.classList.add("hidden");
+        option3Div.classList.add("hidden");
 
     }
   });

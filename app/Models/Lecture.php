@@ -11,10 +11,31 @@ class Lecture extends Model
     protected $table = 'lectures';
     public $timestamps = true;
 
-    protected $fillable = array('title','level_id','course_id','type','active',
-    'description','short_description','type','goals','conclusion','appointment','link','provider','period'
-    ,'free');
+    protected $fillable = array(
+        'title', 'level_id', 'course_id', 'type', 'active',
+        'description', 'short_description', 'type', 'goals', 'conclusion', 'appointment', 'link', 'provider', 'period', 'free'
+    );
 
+
+    protected $appends = ['freeLabel','typeLabel'] ;   
+
+    public function getTypeLabelAttribute()
+    {
+        if ($this->type == 1)
+            return  trans('admin.lectures.viedo');
+        elseif ($this->type == 2)
+            trans('admin.lectures.metting');
+        else
+            return ('admin.lectures.offline');
+    }
+
+    public function getFreeLabelAttribute()
+    {
+        if ($this->free == 1)
+            return  trans('admin.lectures.opened_free');
+        else
+            return ('admin.lectures.not_opened_free');
+    }
     public function scopeActive($query)
     {
         return $query->where('active', '1');

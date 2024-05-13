@@ -4,30 +4,17 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-      @if( app()->getLocale() == 'ar')
-      <style>
-        .breadcrumb-item+.breadcrumb-item::before {
-          float: right;
-          padding-left: var(--tblr-breadcrumb-item-padding-x);
-        }
-      </style>
-      @endif
+      <div class="col">
+        {{ Breadcrumbs::render('update-levels',$course,$row) }}
 
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
-          <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{ $course->name }}</a></li>
-          <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
-        </ol>
-      </nav>
-      <!--  -->
+      </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
           <div class="card-header">
             <div class="card-block">
-              <a href="{{ route($route.'.index',$course->id) }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+            <a href="{{ url('admin/courses/'.$course->id.'/levels') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>
@@ -48,23 +35,23 @@
           @method("PUT")
           <div class="card-body">
             <div class="row ">
-            <div class="mb-3">
-                  <label class="form-label" for="name"> {{ __('admin.levels.name') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="name" id="name" value="{{ $row->name }}" required>
-
-                  @error('name')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-              <div class="col-md-6">
               <div class="mb-3">
+                <label class="form-label" for="name"> {{ __('admin.levels.name') }} <span>*</span></label>
+                <input type="text" class="form-control" name="name" id="name" value="{{ $row->name }}" required>
+
+                @error('name')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
                   <select class="select2 form-control" name="track_id" id="track_id" required>
                     <option value="">{{ __('select') }}</option>
                     @foreach($course->tracks as $track)
-                    <option value="{{ $track->id }}" @if($row->track_id == $track->id)  selected @endif> {{ $track->name }}</option>
+                    <option value="{{ $track->id }}" @if($row->track_id == $track->id) selected @endif> {{ $track->name }}</option>
 
                     @endforeach
                   </select>
@@ -79,8 +66,8 @@
                   <label class="form-label" for="period_type">{{ __('admin.levels.period_type') }} <span>*</span></label>
                   <select class="form-control" name="period_type" id="period_type" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1"  @if($row->period ==1 )  selected @endif> {{ __('admin.levels.day') }}</option>
-                    <option value="2" @if($row->period ==2 )  selected @endif> {{ __('admin.levels.hour') }}</option>
+                    <option value="1" @if($row->period ==1 ) selected @endif> {{ __('admin.levels.day') }}</option>
+                    <option value="2" @if($row->period ==2 ) selected @endif> {{ __('admin.levels.hour') }}</option>
                   </select>
 
                   @error('period_type')
@@ -103,19 +90,19 @@
 
 
 
-                
 
-<input type="hidden" value="{{$row->id}}" name="id">
+
+                <input type="hidden" value="{{$row->id}}" name="id">
 
               </div>
               <div class="col-md-6">
 
-              <div class="mb-3">
+                <div class="mb-3">
                   <label class="form-label" for="instructor_id">{{ __('admin.courses.instructor') }} <span>*</span></label>
                   <select class="select2 form-control" name="instructor_id" id="instructor_id">
                     <option value="">{{ __('select') }}</option>
                     @foreach($course->instructors as $instructor)
-                    <option value="{{ $instructor->id }}" @if($row->instructor_id == $instructor->id)  selected @endif> {{ $instructor->name }}</option>
+                    <option value="{{ $instructor->id }}" @if($row->instructor_id == $instructor->id) selected @endif> {{ $instructor->name }}</option>
 
                     @endforeach
                   </select>
@@ -127,7 +114,7 @@
                   @enderror
                 </div>
 
-             
+
 
                 <div class="mb-3">
                   <label class="form-label" for="start_date">{{ __('admin.levels.start_date') }} <span>*</span></label>

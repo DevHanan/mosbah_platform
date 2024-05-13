@@ -111,7 +111,7 @@ class RegisterController extends Controller
 
       }
         
-         if(auth()->guard('students-login')->attempt([$field =>$value ,'password' =>$request->password])){ 
+         if(auth()->guard('students-login')->attempt([$field =>$value ,'password' =>$request->password,'active'=>'1'])){ 
              $client = auth()->guard('students-login')->user();
            
              $token = $client->createToken('apiToken')->plainTextToken;

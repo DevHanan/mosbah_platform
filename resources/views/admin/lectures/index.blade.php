@@ -7,29 +7,14 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-      @if( app()->getLocale() == 'ar')
-<style>
-  .breadcrumb-item+.breadcrumb-item::before {
-    float: right;
-    padding-left: var(--tblr-breadcrumb-item-padding-x);
-}
-</style>
-@endif
+      {{ Breadcrumbs::render('lectures',$level->course,$level) }}
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">{{ __('admin.home') }}</a></li>
-    <li class="breadcrumb-item"><a href="{{url('/admin/courses')}}">{{  optional($level->course)->name }}</a></li>
-    <li class="breadcrumb-item"><a href="{{url('/admin/courses/'.optional($level->course)->id.'/levels')}}">{{ $level->name }}</a></li>
-    <li class="breadcrumb-item active" aria-current="page"> @if(isset($title)) {{ $title }} @endif </li>
-  </ol>
-</nav>       
       </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
-          <a href="{{ route($route.'.create',[$level->id]) }}" class="btn btn-primary d-none d-sm-inline-block">
+          <a href="{{ route($route.'.create',$level->id) }}" class="btn btn-primary d-none d-sm-inline-block">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M12 5l0 14" />
@@ -52,19 +37,19 @@
           </div>
           <div class="card-body border-bottom py-3">
             <div class="d-flex">
-              <div class="text-secondary">
+              <!-- <div class="text-secondary">
                 Show
                 <div class="mx-2 d-inline-block">
                   <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
                 </div>
                 entries
-              </div>
-              <div class="ms-auto text-secondary">
+              </div> -->
+              <!-- <div class="ms-auto text-secondary">
                 Search:
                 <div class="ms-2 d-inline-block">
                   <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="table-responsive">
@@ -78,7 +63,7 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.lectures.title')}}</th>
+                  <th> {{__('admin.lectures.field_title')}}</th>
                   <th>{{ __('admin.lectures.level') }}</th>
                   <th> {{__('admin.lectures.course')}}</th>
                   <th> {{__('admin.lectures.field_period')}}</th>
@@ -98,13 +83,11 @@
                   <td>{{optional($row->course)->name}}</td>
                   <td> {{ $row->period }}</td>
                   
-                  <td> {{ $row->free }}</td>
-                                    <td>
-                    @if($row->type == 1)
-                    {{ __('admin.lectures.viedo')}}
-                    @else
-                    {{ __('admin.lectures.metting')}}
-                    @endif
+                  <td>
+                    {{ trans($row->typeLabel) }}
+                  </td>
+                  <td> {{ trans($row->freeLabel) }}</td>
+
 
 
 
@@ -115,7 +98,11 @@
                     <a href="{{ route($route.'.edit',[$level->id,$row->id]) }}" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
-
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <!-- Include Delete modal -->
+                    @include('admin.layouts.inc.custom-lecture-delete')
                    
                   </td>
                 </tr>

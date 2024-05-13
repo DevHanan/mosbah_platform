@@ -52,10 +52,12 @@ class LectureController extends Controller
     }
     public function store(Request $request, $level_id)
     {
+        $free = $request->free ? '1' :'0';
+        $request->merge(['free'=>$free]);
         $lecture = Lecture::create($request->except(['img', 'bookFiles']));
-        if ($request->imgTitle) {
+        if (count($request->imgTitle) && $request->imgTitle[0] != null) {
             for ($i = 0; $i < count($request->imgTitle); $i++) {
-                if ($request->img[$i]) {
+                if ($request->img[$i] != null) {
 
                     $thumbnail = $request->img[$i];
                     $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -71,9 +73,9 @@ class LectureController extends Controller
         }
 
 
-        if ($request->bookTitles) {
+        if ($request->bookTitles &&  $request->bookTitles[0] != null) {
             for ($i = 0; $i < count($request->bookTitles); $i++) {
-                if ($request->bookFiles[$i]) {
+                if ($request->bookFiles[$i] != null) {
 
                     $thumbnail = $request->bookFiles[$i];
                     $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -103,8 +105,56 @@ class LectureController extends Controller
 
     public function update(Request $request, $level_id)
     {
+        $free = $request->free ? '1' :'0';
+        $request->merge(['free'=>$free]);
         $lecture = Lecture::find($request->id);
-        $lecture->update($request->all());
+        $lecture->update($request->except(['img', 'bookFiles']));
+
+        if (count($request->imgTitle) && $request->imgTitle[0] != null) {
+            // PhotoLecture::where('lecture_id',$lecture->id)->delete();
+            for ($i = 0; $i < count($request->imgTitle); $i++) {
+                if ($request->img[$i] != null) {
+
+                    $thumbnail = $request->img[$i];
+                    $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                    $thumbnail->move(public_path('/uploads/lectures/images/'), $filename);
+
+                    PhotoLecture::create([
+                        'title' => $request->imgTitle[$i],
+                        'photo' => 'public/uploads/lectures/images/' . $filename,
+                        'lecture_id'  => $lecture->id
+                    ]);
+                }
+            }
+        }
+
+
+        if ($request->bookTitles &&  $request->bookTitles[0] != null) {
+            // BookLecture::where('lecture_id',$lecture->id)->delete();
+            for ($i = 0; $i < count($request->bookTitles); $i++) {
+                if (isset($request->bookFiles[$i])) {
+
+                    $thumbnail = $request->bookFiles[$i];
+                    $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                    $thumbnail->move(public_path('/uploads/lectures/books/'), $filename);
+                    BookLecture::create([
+                        'title' => $request->bookTitles[$i],
+                        'file' => 'public/uploads/lectures/books/' . $filename,
+                        'link'  =>$request->bookLinks[$i],
+                        'lecture_id'  => $lecture->id
+                    ]);
+                }else{
+                    BookLecture::create([
+                        'title' => $request->bookTitles[$i],
+                        'file' => '',
+                        'link'  =>$request->bookLinks[$i],
+                        'lecture_id'  => $lecture->id
+                    ]);  
+                }
+                   
+                
+            }
+        }
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/levels/$level_id/lectures");
@@ -117,6 +167,6 @@ class LectureController extends Controller
             $lecture->delete();
 
         Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
-        return redirect()->route($this->route . '.index');
+        return redirect()->back();
     }
 }

@@ -28,7 +28,10 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-  
+    public function register(): void
+    {
+        //
+    }
 
     /**
      * Bootstrap any application services.
@@ -68,11 +71,4 @@ class AppServiceProvider extends ServiceProvider
 
         ]);
     }
-
-    public function register()
-{
-    $this->app->bind('path.public', function() {
-        return base_path().'/public';
-    });
-}
 }

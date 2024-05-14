@@ -13,14 +13,8 @@
 
   <div class="page">
 
-    @if(auth()->guard('web')->user())
     @include('admin.layouts.inc.navbar')
-    @elseif(auth()->guard('instructors-login')->user())
-    @include('admin.layouts.inc.instructor_navbar')
-    @else
-    @include('admin.layouts.inc.student_navbar')
-    @endif
-
+  
 
     <div class="page-wrapper">
       @yield('content')

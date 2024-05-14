@@ -3,6 +3,7 @@
     margin-left: 7px !important;
   }
 </style>
+@if(auth()->guard('web')->user())
 <aside class="navbar navbar-vertical  navbar-expand-lg @if(App::getLocale() == 'ar') navbar-right 
  @endif">
   <div class="container-fluid">
@@ -685,6 +686,11 @@
     </div>
   </div>
 </aside>
+@elseif(auth()->guard('instructors-login')->user())
+    @include('admin.layouts.inc.instructor_navbar')
+    @else
+    @include('admin.layouts.inc.student_navbar')
+    @endif
 <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none">
   <div class="container-xl">
     <button class="navbar-toggler" type="button" href="#navbar-layout" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">

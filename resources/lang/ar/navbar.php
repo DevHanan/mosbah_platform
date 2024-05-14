@@ -122,4 +122,16 @@ return [
         'add_cvmaker_template' => 'إضافة قالب'
 
     ],
+    'instructors'=>[
+        'Home' => 'الرئيسية',
+        'profile' => 'الملف الشخصى',
+        'mystudents' => 'طلابي',
+        'mycourses' => 'دوراتي',
+        'tests' => 'الاختبارات',
+        'studentTestResult' => 'نتائج اختبارات الطلاب',
+        'profits' => 'أرباحي',
+        'profits_requests' => 'طلبات سحب الأرباح',
+        'paid_profits' => 'مدفوعات الارباح',
+
+    ]
 ];

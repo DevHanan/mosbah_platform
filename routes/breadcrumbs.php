@@ -97,13 +97,15 @@ Breadcrumbs::for('add-courses', function (BreadcrumbTrail $trail) {
     $trail->parent('courses');
     $trail->push(trans('navbar.courses.add_course'), route('admin.courses.create'));
 });
-Breadcrumbs::for('update-courses', function (BreadcrumbTrail $trail,$row) {
-    $trail->parent('courses');
-    $trail->push($row->name, route('admin.courses.edit', $row));
-});
+
 Breadcrumbs::for('show-courses', function (BreadcrumbTrail $trail,$row) {
     $trail->parent('courses');
-    $trail->push($row->name, route('admin.courses.edit', $row));
+    $trail->push($row->name, route('admin.courses.show', $row));
+});
+
+Breadcrumbs::for('update-courses', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('show-courses');
+    $trail->push(trans('navbar.courses.edit_course'), route('admin.courses.edit', $row));
 });
 
 

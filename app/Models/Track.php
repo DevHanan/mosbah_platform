@@ -16,6 +16,12 @@ class Track extends Model
     public function getCourseCountAttribute(){
      return $this->courses()->count();   
     }
+
+    public function getImageAttribute($value)
+    {
+    
+            return asset('public/'.$this->image);
+    }
     protected $fillable = array('name','active');
 
     public function scopeActive($query)

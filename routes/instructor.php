@@ -12,7 +12,7 @@ Route::group(
         Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {
 
             Route::get('dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard.index');
-            Route::post('logout', [AuthController::class, 'logout']);
+            Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
         });
 

@@ -87,11 +87,6 @@ Route::get('/clear-cache', function () {
 
 
 
-Route::group(
-    [
-        'middleware' => [ 'LogoutOtherUsers']
-    ],
-    function () {
 
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 
@@ -182,5 +177,4 @@ Route::group(
         });
     });
 
-    });
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -21,8 +21,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\LogoutOtherUsers::class,
-
 
     ];
 
@@ -86,9 +84,6 @@ class Kernel extends HttpKernel
         'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
         'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
         'prevent-inactive-user'   => \App\Http\Middleware\PreventInactiveUser::class,
-        'LogoutOtherUsers'   => \App\Http\Middleware\LogoutOtherUsers::class,
-                
-
 
 
 

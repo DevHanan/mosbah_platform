@@ -87,6 +87,12 @@ Route::get('/clear-cache', function () {
 
 
 
+Route::group(
+    [
+        'middleware' => [ 'LogoutOtherUsers']
+    ],
+    function () {
+
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 
 Route::group(
@@ -159,13 +165,9 @@ Route::group(
 
     }
 );
-
-
 Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(),
-
-        'middleware' => [ 'localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
+    ['prefix' => LaravelLocalization::setLocale(),
+      'middleware' => [ 'localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
         Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {
@@ -180,4 +182,5 @@ Route::group(
         });
     });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    });
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

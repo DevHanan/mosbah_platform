@@ -3,26 +3,26 @@
     <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
       <div class="header-info d-flex align-items-center">
         @if(auth()->guard('students-login')->user() )
-        <a href="{{url('/students/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم الطالب </a>
+        <a href="{{url('/student/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم الطالب </a>
         <a href="javascript:void(0);" 
         class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
         href="#" onclick="event.preventDefault();
         document.getElementById('student-logout-form').submit();">
 
-          {{ __('admin.logout')}}
+          تسجيل الخروج
         </a>
 
         <form id="student-logout-form" action="{{ route('logout') }}" method="POST">
           @csrf
         </form>
         @elseif(auth()->guard('instructors-login')->user())
-        <a href="{{url('/students/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم المحاضر </a>
+        <a href="{{url('/instructor/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم المحاضر </a>
         <a href="javascript:void(0);" 
         class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
         href="#" onclick="event.preventDefault();
         document.getElementById('instructor-logout-form').submit();">
 
-          {{ __('admin.logout')}}
+          تسجيل الخروج
         </a>
 
         <form id="instructor-logout-form" action="{{ route('logout') }}" method="POST">
@@ -34,7 +34,7 @@
         <a href="javascript:void(0);" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
 
-          {{ __('admin.logout')}}
+          تسجيل الخروج
         </a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST">

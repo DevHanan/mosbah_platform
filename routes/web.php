@@ -154,6 +154,23 @@ Route::group(
 
 
         });
+
+
+
+        Route::name('instructor.')->middleware(['auth:instructors-login'])->group(function () {
+
+            Route::get('dashboard', function(){
+                return view('instructors.index');
+            })->name('dashboard.index');
+        });
+
+
+        Route::name('student.')->middleware(['auth:students-login'])->group(function () {
+
+            Route::get('dashboard', function(){
+                return view('students.index');
+            })->name('dashboard.index');
+        });
     }
 );
 

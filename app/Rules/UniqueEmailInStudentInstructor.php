@@ -50,6 +50,6 @@ class UniqueEmailInStudentInstructor implements Rule
      */
     public function message()
     {
-        return 'The :attribute has already been taken in two tables.';
+        return 'The :attribute has already been taken.';
     }
 }

@@ -18,7 +18,7 @@ class PreventInactiveUser
     {
         if (Auth::check() && Auth::user()->active == '0') {
             Auth::logout();
-            return redirect()->route('login')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
+            return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
         }
         return $next($request);
 

@@ -103,6 +103,16 @@ class RegisterController extends Controller
 
     public function signin(Request $request)
     {
+
+        // Check if the user is already logged in with a different account
+       $otherGuards = array_keys(Auth::guard()->getGuards());
+    foreach ($otherGuards as $guard) {
+        if (Auth::guard($guard)->check()) {
+            return redirect('/')->with('error', 'You are already logged in with a different account. Please logout first before logging in with this account.');
+            return redirect()->back();
+
+        }
+
         if (isset($request->email) && $request->email != null) {
             $field = 'email';
             $value = $request->email;

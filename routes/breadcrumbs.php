@@ -104,7 +104,7 @@ Breadcrumbs::for('show-courses', function (BreadcrumbTrail $trail,$row) {
 });
 
 Breadcrumbs::for('update-courses', function (BreadcrumbTrail $trail,$row) {
-    $trail->parent('show-courses');
+    $trail->parent('show-courses',$row);
     $trail->push(trans('navbar.courses.edit_course'), route('admin.courses.edit', $row));
 });
 

@@ -155,8 +155,17 @@ Route::group(
 
         });
 
+    }
+);
 
 
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+
+        'middleware' => [ 'localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
         Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {
 
             Route::get('dashboard', function(){
@@ -171,8 +180,6 @@ Route::group(
                 return view('students.index');
             })->name('dashboard.index');
         });
-    }
-);
-
+    });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

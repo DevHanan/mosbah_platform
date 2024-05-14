@@ -86,6 +86,9 @@ class Kernel extends HttpKernel
         'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
         'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
         'prevent-inactive-user'   => \App\Http\Middleware\PreventInactiveUser::class,
+        'LogoutOtherUsers'   => \App\Http\Middleware\LogoutOtherUsers::class,
+                
+
 
 
 

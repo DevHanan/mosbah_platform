@@ -82,58 +82,60 @@ class RegisterController extends Controller
 
     public function signstep3(Request $request)
     {
-        if(Auth::guard('students-login')->check()){
-         $directory = 'uploads/students/images';
-         $guard = 'students-login';
-        }else{
+        if (Auth::guard('students-login')->check()) {
+            $directory = 'uploads/students/images';
+            $guard = 'students-login';
+        } else {
             $directory = 'uploads/instructors/images';
             $guard = 'instructors-login';
         }
 
-    if ($request->hasFile('image')) {
-    $attach = 'image';
-    Auth::guard($guard)->user()->photo ='uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
-    Auth::guard($guard)->user()->save();
-}
+        if ($request->hasFile('image')) {
+            $attach = 'image';
+            Auth::guard($guard)->user()->photo = 'uploads/coursers/thumbinal_image/' . $this->uploadMedia($request, $attach, $directory);
+            Auth::guard($guard)->user()->save();
+        }
 
 
         return view('front.sign-completed');
     }
 
 
-    public function signin(Request $request)  {
-     if(isset($request->email) && $request->email != null ){
+    public function signin(Request $request)
+    {
+        if (isset($request->email) && $request->email != null) {
             $field = 'email';
             $value = $request->email;
-      } else{
+        } else {
             $field = 'phone';
             $value = $request->phone;
+        }
 
-      }
-        
-         if(auth()->guard('students-login')->attempt([$field =>$value ,'password' =>$request->password])){ 
-             $client = auth()->guard('students-login')->user();
-           
-             $token = $client->createToken('apiToken')->plainTextToken;
-             $client->api_token = $token;
-             $client->save();
-             toastr()->success(__('front.login_success'), __('front.msg_success'));
-             return view('front.index');
-                }elseif(auth()->guard('instructors-login')->attempt([$field =>$value ,'password' =>$request->password])){ 
-                
-                    $client = auth()->guard('instructors-login')->user();
-           
-                    $token = $client->createToken('apiToken')->plainTextToken;
-                    $client->api_token = $token;
-                    $client->save();
-                    toastr()->success(__('front.login_success'), __('front.msg_success'));
-                    return view('front.index');
-                }else{
-                    toastr()->error(__('front.login_failed'), __('front.msg_error'));
-                    return view('front.signstep1');
- 
-                }
-                
- 
+        if (auth()->guard('students-login')->attempt([$field => $value, 'password' => $request->password])) {
+            $client = auth()->guard('students-login')->user();
+            if (!$client->active == '1') {
+                Auth::guard('students-login')->logout();
+                return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
+            }
+            $token = $client->createToken('apiToken')->plainTextToken;
+            $client->api_token = $token;
+            $client->save();
+            toastr()->success(__('front.login_success'), __('front.msg_success'));
+            return view('front.index');
+        } elseif (auth()->guard('instructors-login')->attempt([$field => $value, 'password' => $request->password])) {
+            $client = auth()->guard('instructors-login')->user();
+            if (!$client->active == '1') {
+                Auth::guard('students-login')->logout();
+                return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
+            }
+            $token = $client->createToken('apiToken')->plainTextToken;
+            $client->api_token = $token;
+            $client->save();
+            toastr()->success(__('front.login_success'), __('front.msg_success'));
+            return view('front.index');
+        } else {
+            toastr()->error(__('front.login_failed'), __('front.msg_error'));
+            return view('front.signstep1');
+        }
     }
 }

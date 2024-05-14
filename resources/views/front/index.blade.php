@@ -230,7 +230,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img src="{{ $track->ImageFullPath }}" class="mx-2" alt=""> {{ $track->name}}</div>
+                        <div> <img  style="max-height:20px;" src="{{ $track->ImageFullPath }}" class="mx-2" alt=""> {{ $track->name}}</div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                 </a>

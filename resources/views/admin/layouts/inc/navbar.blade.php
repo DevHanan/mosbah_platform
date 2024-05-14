@@ -6,10 +6,10 @@
 @if(auth()->guard('web')->user())
 @include('admin.layouts.inc.admin_side')
 @elseif(auth()->guard('instructors-login')->user())
-@include('admin.layouts.inc.instructor_navbar')
+@include('admin.layouts.inc.instructor_side')
 
 @else
-@include('admin.layouts.inc.student_navbar')
+@include('admin.layouts.inc.student_side')
 @endif
 <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none">
   <div class="container-xl">

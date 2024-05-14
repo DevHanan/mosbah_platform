@@ -70,16 +70,14 @@
 
               <div class="form-group col-md-6">
 
-                @if(isset($row->image))
-                @if(is_file($row->imageFullPath ))
-                <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-                <div class="clearfix"></div>
-                @endif
-                @endif
+              
 
                 <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
                 <input type="file" class="form-control" name="image" id="logo">
-
+                @if(isset($row->image))
+                <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                <div class="clearfix"></div>
+                @endif
                 @error('image')
                 <div class="invalid-feedback">
                   {{ $message }}

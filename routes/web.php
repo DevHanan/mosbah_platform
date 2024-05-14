@@ -157,7 +157,7 @@ Route::group(
 
 
 
-        Route::name('instructor.')->middleware(['auth:instructors-login'])->group(function () {
+        Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {
 
             Route::get('dashboard', function(){
                 return view('instructors.index');
@@ -165,7 +165,7 @@ Route::group(
         });
 
 
-        Route::name('student.')->middleware(['auth:students-login'])->group(function () {
+        Route::name('student.')->prefix('student/')->middleware(['auth:students-login'])->group(function () {
 
             Route::get('dashboard', function(){
                 return view('students.index');

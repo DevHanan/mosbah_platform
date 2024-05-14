@@ -20,7 +20,11 @@ use App\Http\Controllers\Front\HomeController;
 
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 
-
+Route::group(
+    [
+        'middleware' => [  'prevent-inactive-user']
+    ],
+    function () {
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/courses', [HomeController::class, 'courses']);
@@ -33,7 +37,7 @@ Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 
-Route::get('/signin', [HomeController::class, 'signin'])->middleware('prevent-inactive-user');
+Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 
@@ -65,3 +69,4 @@ Route::get('/clear-cache', function () {
 
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    });

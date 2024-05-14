@@ -6,7 +6,7 @@ use App\Http\Controllers\Student\DashboardController as StudentDashboardControll
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath', 'prevent-inactive-user']
+        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
       

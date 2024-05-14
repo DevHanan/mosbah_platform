@@ -130,7 +130,7 @@ class RegisterController extends Controller
                     return view('front.index');
                 }else{
                     toastr()->error(__('front.login_failed'), __('front.msg_error'));
-                    return view('front.index');
+                    return view('front.signstep1');
  
                 }
                 

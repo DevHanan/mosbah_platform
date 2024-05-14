@@ -12,7 +12,7 @@
           تسجيل الخروج
         </a>
 
-        <form id="student-logout-form" action="{{ route('logout') }}" method="POST">
+        <form id="student-logout-form" action="{{ route('student.logout') }}" method="POST">
           @csrf
         </form>
         @elseif(auth()->guard('instructors-login')->user())
@@ -25,7 +25,7 @@
           تسجيل الخروج
         </a>
 
-        <form id="instructor-logout-form" action="{{ route('logout') }}" method="POST">
+        <form id="instructor-logout-form" action="{{ route('instructor.logout') }}" method="POST">
           @csrf
         </form>
         @elseif(auth()->guard('web')->user())

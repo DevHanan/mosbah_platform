@@ -124,7 +124,7 @@ return [
     ],
     'instructors'=>[
         'Home' => 'الرئيسية',
-        'profile' => 'الملف الشخصى',
+        'profile' => 'ملفى الشخصى',
         'mystudents' => 'طلابي',
         'mycourses' => 'دوراتي',
         'tests' => 'الاختبارات',
@@ -133,5 +133,15 @@ return [
         'profits_requests' => 'طلبات سحب الأرباح',
         'paid_profits' => 'مدفوعات الارباح',
 
-    ]
+    ],
+    'students'=>[
+        'Home' => 'الرئيسية',
+        'profile' => 'ملفى الشخصى',
+        'mycourses' => 'الدورات المشترك بها',
+        'tests' => 'الاختبارات',
+        'courses_payment' => 'مدفوعات الدورات',
+        'certificationfromin' => 'شهاداتي من المنصة',
+        'certificationfromout' => 'شهاداتي من جهات خارجية',
+
+    ],
 ];

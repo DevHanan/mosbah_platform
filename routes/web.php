@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Student\DashboardController as StudentDashboardController ;
+use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseTypeController;
 use App\Http\Controllers\Admin\TrackController;
@@ -168,17 +170,14 @@ Route::group(
     function () {
         Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {
 
-            Route::get('dashboard', function(){
-                return view('instructors.index');
-            })->name('dashboard.index');
-        });
+        
+        Route::get('dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard.index');
+
 
 
         Route::name('student.')->prefix('student/')->middleware(['auth:students-login'])->group(function () {
+            Route::get('dashboard', [StudentDashboardController::class, 'index'])->name('dashboard.index');
 
-            Route::get('dashboard', function(){
-                return view('students.index');
-            })->name('dashboard.index');
         });
     });
 

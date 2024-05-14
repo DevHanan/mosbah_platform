@@ -169,11 +169,10 @@ Route::group(
     ],
     function () {
         Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {
-
         
         Route::get('dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard.index');
 
-
+        });
 
         Route::name('student.')->prefix('student/')->middleware(['auth:students-login'])->group(function () {
             Route::get('dashboard', [StudentDashboardController::class, 'index'])->name('dashboard.index');

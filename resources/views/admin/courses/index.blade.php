@@ -87,7 +87,7 @@
 
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
-                  <td><span class="text-secondary">{{$row->id}}</span></td>
+                  <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{$row->name}}</td>
                   <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
                   <td>

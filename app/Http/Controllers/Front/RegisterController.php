@@ -118,7 +118,7 @@ class RegisterController extends Controller
              $client->api_token = $token;
              $client->save();
              toastr()->success(__('front.login_success'), __('front.msg_success'));
-             return view('front.courses');
+             return view('front.index');
                 }elseif(auth()->guard('instructors-login')->attempt([$field =>$value ,'password' =>$request->password,'active'=>'1'])){ 
                 
                     $client = auth()->guard('instructors-login')->user();
@@ -127,10 +127,10 @@ class RegisterController extends Controller
                     $client->api_token = $token;
                     $client->save();
                     toastr()->success(__('front.login_success'), __('front.msg_success'));
-                    return view('front.courses');
+                    return view('front.index');
                 }else{
                     toastr()->error(__('front.login_failed'), __('front.msg_error'));
-                    return view('front.signin');
+                    return view('front.index');
  
                 }
                 

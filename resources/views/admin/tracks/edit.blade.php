@@ -71,7 +71,7 @@
               <div class="form-group col-md-6">
 
                 @if(isset($row->image))
-                @if(is_file($row->image))
+                @if(is_file($row->imageFullPath ))
                 <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                 <div class="clearfix"></div>
                 @endif

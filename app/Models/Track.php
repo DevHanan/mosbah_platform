@@ -10,14 +10,14 @@ class Track extends Model
     use HasFactory;
     protected $table = 'tracks';
     public $timestamps = true;
-    protected $appends = ['courseCount'] ;   
+    protected $appends = ['courseCount','ImageFullPath'] ;   
     
     
     public function getCourseCountAttribute(){
      return $this->courses()->count();   
     }
 
-    public function getImageAttribute($value)
+    public function getImageFullPathAttribute($value)
     {
     
             return asset('public/'.$this->image);

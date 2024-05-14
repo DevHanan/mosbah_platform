@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Instructor\AuthController;
+use App\Http\Controllers\Instructor\AuthController;
 use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardController;
 Route::group(
     [

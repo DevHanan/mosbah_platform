@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\Student\AuthController;
+use App\Http\Controllers\Student\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController ;
 Route::group(

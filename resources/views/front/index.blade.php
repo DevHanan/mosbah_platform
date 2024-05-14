@@ -259,7 +259,7 @@
                     <article class="card__article swiper-slide shadow">
                         <a href="#">
                             <div class="card__image p-2">
-                                <img src="{{ asset('public/'.$instructor->image)}}" alt="image" class="card__img img-fluid w-100">
+                                <img src="{{ $instructor->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">{{ $instructor->courseNumber }} دورات</div>
                                 <div class="card__shadow"></div>
                             </div>

@@ -13,7 +13,7 @@ class Instructor extends Authenticatable
     use HasApiTokens, HasFactory,Notifiable;
     protected $table = 'instructors';
     public $timestamps = true;
-    protected $appends = ['name','courseNumber'];
+    protected $appends = ['name','courseNumber','ImageFullPath'];
 
     protected $fillable = array('first_name','last_name','email','userName','phone','active'
                                 ,'track_id','qualifications','about_teacher','bank_account',
@@ -32,6 +32,12 @@ class Instructor extends Authenticatable
     public function scopeActive($query)
     {
         return $query->where('active', '1');
+    }
+
+    public function getImageFullPathAttribute($value)
+    {
+    
+            return asset('public/'.$this->image);
     }
      
     public function track()

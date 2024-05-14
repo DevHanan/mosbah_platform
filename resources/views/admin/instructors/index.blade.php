@@ -64,7 +64,7 @@
                                         <td>{{ $loop->iteration }}</td>
 
                                         <td>{{ $row->name }}</td>
-                                        <td><img src="{{asset($row->image)}}" style="width:40px"></td>
+                                        <td><img src="{{$row->imageFullPath }}" style="width:40px"></td>
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->email }}</td>
                                         <td>{{ optional($row->country)->name }}</td>

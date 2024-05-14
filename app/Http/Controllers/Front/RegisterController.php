@@ -111,7 +111,7 @@ class RegisterController extends Controller
 
       }
         
-         if(auth()->guard('students-login')->attempt([$field =>$value ,'password' =>$request->password,'active'=>'1'])){ 
+         if(auth()->guard('students-login')->attempt([$field =>$value ,'password' =>$request->password])){ 
              $client = auth()->guard('students-login')->user();
            
              $token = $client->createToken('apiToken')->plainTextToken;
@@ -119,7 +119,7 @@ class RegisterController extends Controller
              $client->save();
              toastr()->success(__('front.login_success'), __('front.msg_success'));
              return view('front.index');
-                }elseif(auth()->guard('instructors-login')->attempt([$field =>$value ,'password' =>$request->password,'active'=>'1'])){ 
+                }elseif(auth()->guard('instructors-login')->attempt([$field =>$value ,'password' =>$request->password])){ 
                 
                     $client = auth()->guard('instructors-login')->user();
            

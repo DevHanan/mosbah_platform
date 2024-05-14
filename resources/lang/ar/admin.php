@@ -143,7 +143,7 @@ return [
         "field_course_number"  => "عدد الكورسات",
         "field_email" => "البريد الإلكترونى",
         "phone_number" => "الهاتف",
-        "field_status" => "حالة الظهور",
+        "field_status" => "حالة الحساب",
         "field_action" => "الحدث",
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور",
@@ -242,10 +242,9 @@ return [
         'intermediate' => 'مستوى متوسط',
         'advanced' => 'مستوى متقدم',
         'prerequisites' => 'متطلبات مسبقة للدورة',
-        'provider' => 'مزود الخدمة'
-
-
-
+        'provider' => 'مزود الخدمة',
+        'viemo' =>'فيمو',
+        'Youtube'=> 'يوتيوب'
     ],
     'dashboard' => [
         'student_number' => 'عدد الطلاب',

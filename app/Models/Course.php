@@ -13,8 +13,7 @@ class Course extends Model
 
     protected $fillable = array('name','recommened','price','course_type_id','published_at','track_id','active',
                                 'instructor_id','promo_url', 'start_date','end_date','level_id','description','goals','directedTo'
-                                ,'period_type','period','seat_number','price_with_discount','difficulty_level
-                                ','prerequisites','provider'  
+                                ,'period_type','period','seat_number','price_with_discount','difficulty_level','prerequisites','provider'  
                             );
 
 

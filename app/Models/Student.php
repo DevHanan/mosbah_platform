@@ -15,12 +15,19 @@ class Student extends Authenticatable
     protected $fillable = array(
         'first_name', 'last_name', 'email', 'userName', 'phone', 'active',
         'country_id', 'qualifications', 'about_student'
-    ); 
-    
-    protected $appends = ['name'];
-    protected function getNameAttribute(){
+    );
+
+    protected $appends = ['name', 'imageFullPath'];
+    protected function getNameAttribute()
+    {
         return $this->first_name . ' ' . $this->last_name;
-       }
+    }
+
+    public function getImageFullPathAttribute($value)
+    {
+
+        return asset('public/' . $this->image);
+    }
 
     protected $hidden = ['password'];
 

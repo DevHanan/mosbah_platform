@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Rules\UniqueEmailInStudentInstructor;
+use App\Rules\UniquePhoneInStudentInstructor;
 
 
 class RegisterRequest extends FormRequest
@@ -29,6 +30,7 @@ class RegisterRequest extends FormRequest
             return [
                 'email' => ['required', new UniqueEmailInStudentInstructor('students', 'instructors', 'email')],
                 'password' => 'required|confirmed',
+                'phone' => ['required', new UniquePhoneInStudentInstructor('students', 'instructors', 'phone')],
 
             ];
        

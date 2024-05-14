@@ -12,7 +12,7 @@
         <div class="row row-cards">
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
@@ -36,7 +36,7 @@
           </div>
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
@@ -63,7 +63,7 @@
           </div>
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-twitter text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
@@ -90,7 +90,7 @@
           </div>
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
@@ -126,7 +126,7 @@
          
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
@@ -151,7 +151,7 @@
           </div>
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
@@ -176,7 +176,7 @@
           </div>
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
@@ -201,7 +201,7 @@
           </div>
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
-              <div class="card-body">
+              <div class="card-body" style="min-height:90px;">
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->

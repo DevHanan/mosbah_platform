@@ -221,7 +221,10 @@
                   {{ __('navbar.courses.recommened_courses') }}
 
                 </a>
+                <a class="dropdown-item @if(request()->routeIs('admin.courses')) active @endif" href="{{ url('admin/courses')}}">
+                  {{ __('navbar.courses.all_courses') }}
 
+                </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.courses.create')) active @endif" href="{{ url('admin/courses/create')}}">
                   {{ __('navbar.courses.add_course') }}
 

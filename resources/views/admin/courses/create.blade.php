@@ -236,8 +236,8 @@
                   <label class="form-label" for="provider">{{ __('admin.courses.provider') }} <span>*</span></label>
                   <select class="form-control" name="provider" id="provideSelect" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1"> {{ __('admin.lectures.viedo')}}</option>
-                    <option value="2"> {{ __('admin.lectures.Youtube')}}</option>
+                    <option value="1"> {{ __('admin.courses.viemo')}}</option>
+                    <option value="2"> {{ __('admin.courses.Youtube')}}</option>
 
                   </select>
                 </div>

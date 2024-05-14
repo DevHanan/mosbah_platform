@@ -31,10 +31,16 @@ class HomeController extends Controller
         return view('front.about',compact(['setting','teams','parteners','title']));
     }
 
-    public function courses()
+    public function courses(Request $request)
     {
         $title = 'الدورات التدريبية';
-        return view('front.courses',compact('title'));
+        $list_courses= Course::where(function($q)use($request){
+            if($request->track_id)
+            $q->whereHas('tracks',function($l)use($request){
+                $l->where('tracks.id',$request->track_id);
+        });
+        })->active()->latest()->get();
+        return view('front.courses',compact('title','list_courses'));
     }
 
     public function blogs()
@@ -68,7 +74,8 @@ class HomeController extends Controller
     public function course($id)
     {
         $course = Course::with(['levels','lectures','tracks','instructors','coupon'])->find($id);
-        $related_courses = Course::where('track_id',$course->track_id)->where('id','!=',$course->id)->get();
+        $tracks_id = $course->tracks()->pluck('track_id')->ToArray();
+        $related_courses = Course::whereIn('track_id',$tracks_id)->where('id','!=',$course->id)->get();
         $title = $course->name;
         return view('front.course',compact('course','related_courses','title'));
     }

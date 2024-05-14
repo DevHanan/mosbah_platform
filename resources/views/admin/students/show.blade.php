@@ -36,7 +36,7 @@
                                     <tr>
 
                                         <th>{{ __('admin.students.field_photo') }}</th>
-                                        <td> <img src="{{asset($row->image)}}" style="width:40px"></td>
+                                        <td> <img src="{{ $row->imageFullPath }}" style="width:40px"></td>
 
                                     </tr>
                                     <tr>

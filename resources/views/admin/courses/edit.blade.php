@@ -233,8 +233,8 @@
                 <label class="form-label" for="provider">{{ __('admin.courses.provider') }} <span>*</span></label>
                 <select class="form-control" name="provider" id="provideSelect" required>
                   <option value="">{{ __('select') }}</option>
-                  <option value="1" @if($row->provider == 1) selected @endif> {{ __('admin.lectures.viedo')}}</option>
-                  <option value="2" @if($row->provider == 2) selected @endif> {{ __('admin.lectures.Youtube')}}</option>
+                  <option value="1" @if($row->provider == 1) selected @endif> {{ __('admin.courses.viemo')}}</option>
+                  <option value="2" @if($row->provider == 2) selected @endif> {{ __('admin.courses.Youtube')}}</option>
 
                 </select>
               </div>

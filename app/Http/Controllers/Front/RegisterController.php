@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
     if ($request->hasFile('image')) {
     $attach = 'image';
-    Auth::guard($guard)->user()->photo ='public/uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
+    Auth::guard($guard)->user()->photo ='uploads/coursers/thumbinal_image/'. $this->uploadMedia($request, $attach, $directory);
     Auth::guard($guard)->user()->save();
 }
 
@@ -119,7 +119,16 @@ class RegisterController extends Controller
              $client->save();
              toastr()->success(__('front.login_success'), __('front.msg_success'));
              return view('front.courses');
-                } else{
+                }elseif(auth()->guard('instructors-login')->attempt([$field =>$value ,'password' =>$request->password,'active'=>'1'])){ 
+                
+                    $client = auth()->guard('instructors-login')->user();
+           
+                    $token = $client->createToken('apiToken')->plainTextToken;
+                    $client->api_token = $token;
+                    $client->save();
+                    toastr()->success(__('front.login_success'), __('front.msg_success'));
+                    return view('front.courses');
+                }else{
                     toastr()->error(__('front.login_failed'), __('front.msg_error'));
                     return view('front.signin');
  

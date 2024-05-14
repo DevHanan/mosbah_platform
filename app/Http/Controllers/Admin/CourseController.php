@@ -53,7 +53,7 @@ class CourseController extends Controller
             if ($request->type)
             $q->where('course_type_id', $request->type);
             if ($request->recommend)
-            $q->where('recommend', $request->recommend);
+            $q->where('recommened', $request->recommend);
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)

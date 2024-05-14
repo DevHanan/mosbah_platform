@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
-                                    <input type="date" class="form-control" name="start_date" id="title" value="{{ old('start_date') }}" required>
+                                    <input type="date" class="form-control" name="start_date" id="title" value="{{ old('start_date') }}">
 
                                     @error('start_date')
                                     <div class="invalid-feedback">
@@ -80,7 +80,7 @@
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="1" type="radio" name="active">
+                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
                                             <span class="form-check-label"> {{ __('admin.active')}}</span>
                                         </label>
                                         <label class="form-check form-check-inline">
@@ -115,7 +115,7 @@
 
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="end_date"> {{__('admin.coupons.end_date')}} <span>*</span></label>
-                                    <input type="date" class="form-control" name="end_date" id="title" value="{{ old('end_date') }}" required>
+                                    <input type="date" class="form-control" name="end_date" id="title" value="{{ old('end_date') }}">
 
                                     @error('end_date')
                                     <div class="invalid-feedback">

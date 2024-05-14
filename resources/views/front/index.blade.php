@@ -89,7 +89,7 @@
                     <article class="card__article swiper-slide shadow">
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
-                                <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
                                             @foreach ($course->tracks as $item)
                                            {{ $item->name  }} 
@@ -162,7 +162,7 @@
                     <article class="card__article swiper-slide shadow">
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
-                                <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
                                             @foreach ($course->tracks as $item)
                                            {{ $item->name  }} 
@@ -305,7 +305,7 @@
                     <article class="card__article swiper-slide bg-white shadow">
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
-                                <img src="public/front/img/work2.svg" alt="image" class="card__img img-fluid w-100">
+                                <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
                                             @foreach ($course->tracks as $item)
                                            {{ $item->name  }} 

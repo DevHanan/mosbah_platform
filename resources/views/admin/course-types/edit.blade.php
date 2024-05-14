@@ -50,7 +50,7 @@
               @enderror
             </div>
 
-            <input type="text" class="form-control" name="id"  value="{{ old('id',$coursetype) }}" required>
+            <input type="hidden" class="form-control" name="id"  value="{{ old('id',$coursetype) }}" required>
 
 
 

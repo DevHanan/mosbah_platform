@@ -56,6 +56,7 @@ return [
 
     ],
     "courses" => [
+        'all_courses' => 'كل الدورات',
         "title"  => "الدورات التدريبية",
         "list_tracks" => "المسارات",
         "add_track" => " إضافه مسار",
@@ -110,7 +111,7 @@ return [
 
     ],
     'processing_account' => [
-        'processing_account_management' => 'حساب المعادلة (أو حساب التنسيق)',
+        'processing_account_management' => 'حساب المعادلة',
         'course_profit' => 'قائمة المواد',
         'students_payment' => 'اعدادات حساب المعادلة'
 

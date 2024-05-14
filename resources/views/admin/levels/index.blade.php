@@ -82,7 +82,7 @@
 
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
-                  <td><span class="text-secondary">{{$row->id}}</span></td>
+                  <td><span class="text-secondary">{{$loop->iteration }}</span></td>
                   <td>{{$row->name}}</td>
                   <td>{{optional($row->course)->name}}</td>
                   <td>{{optional($row->track)->name}}</td>

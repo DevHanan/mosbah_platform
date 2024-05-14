@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
-                                    <input type="date" class="form-control" name="start_date" id="title" value="{{ $row->start_date }}" required>
+                                    <input type="date" class="form-control" name="start_date" id="title" value="{{ $row->start_date }}">
 
                                     @error('start_date')
                                     <div class="invalid-feedback">
@@ -117,7 +117,7 @@
 
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="end_date"> {{__('admin.coupons.end_date')}} <span>*</span></label>
-                                    <input type="date" class="form-control" name="end_date" id="title" value="{{ $row->end_date }}" required>
+                                    <input type="date" class="form-control" name="end_date" id="title" value="{{ $row->end_date }}">
 
                                     @error('end_date')
                                     <div class="invalid-feedback">

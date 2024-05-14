@@ -72,7 +72,7 @@ class CouponController extends Controller
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.coupons.index');     }
 
-    public function destory(Request $request)
+    public function destroy(Request $request)
     {
        $coupon =  Coupon::find($request->id);
        if($coupon)

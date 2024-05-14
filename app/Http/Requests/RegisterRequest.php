@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\UniqueEmailInStudentInstructor;
+
 
 class RegisterRequest extends FormRequest
 {
@@ -22,25 +24,14 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
-        $type = $this->request->get('type');
-        if ($type == 'instructor') {
+
+        
             return [
-                'email'        => 'required|unique:instructors,email',
+                'email' => ['required', new UniqueEmailInStudentInstructor('students', 'instructors', 'email')],
                 'password' => 'required|confirmed',
-                'email'        => 'required|unique:instructors,phone',
 
             ];
-        } else {
-            return [
-                'email'        => 'required|unique:students,email',
-                'password' => 'required|confirmed',
-                'tracks.*' => 'required|exists:tracks,id',
-                'email'        => 'required|unique:students,phone',
-
-
-
-            ];
-        }
+       
     }
 
     public function messages()

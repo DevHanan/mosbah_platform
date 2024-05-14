@@ -53,9 +53,10 @@ class TrackController extends Controller
     {
         $track = Track::create($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'tracks';
-            $attach = 'image';
-            $track->image =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $track->image ='uploads/tracks/main/'.$filename;
             $track->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -83,10 +84,12 @@ class TrackController extends Controller
     public function update(UpdateTrackRequest $request,Track $track)
     {
         $track->update($request->except('image'));
+       
         if ($request->hasFile('image')) {
-            $directory = 'tracks';
-            $attach = 'image';
-            $track->image = 'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $track->image ='uploads/tracks/main/'.$filename;
             $track->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

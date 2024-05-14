@@ -32,7 +32,8 @@ Route::get('/book', [HomeController::class, 'book']);
 Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
-Route::get('/signin', [HomeController::class, 'signin']);
+
+Route::get('/signin', [HomeController::class, 'signin'])->middleware('prevent-inactive-user');
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 

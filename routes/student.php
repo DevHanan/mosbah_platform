@@ -13,7 +13,7 @@ Route::group(
 
         Route::name('student.')->prefix('student/')->middleware(['auth:students-login'])->group(function () {
             Route::get('dashboard', [StudentDashboardController::class, 'index'])->name('dashboard.index');
-            Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+            Route::post('logout', [AuthController::class, 'logout'])->name('student-logout');
 
         });
     }

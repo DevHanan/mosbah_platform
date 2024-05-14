@@ -20,17 +20,13 @@ class PreventInactiveUser
             Auth::logout();
             return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
         }
-        if (Auth::guard('web')->check() &&!Auth::guard('web')->user()->active == '1') {
-            Auth::guard('web')->logout();
-            return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
-        }
 
         if (Auth::guard('students-login')->check() &&!Auth::guard('students-login')->user()->active == '1') {
             Auth::guard('students-login')->logout();
             return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
         }
 
-        if (Auth::guard('instructorss-login')->check() &&!Auth::guard('instructors-login')->user()->active == '1') {
+        if (Auth::guard('instructors-login')->check() &&!Auth::guard('instructors-login')->user()->active == '1') {
             Auth::guard('instructors-login')->logout();
             return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
         }

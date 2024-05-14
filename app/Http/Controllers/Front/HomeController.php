@@ -16,9 +16,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $latest  = Course::latest()->take(6)->get();
         $title = 'الصفحة الرئيسية';
-        return view('front.index',compact(['latest','title']));
+        return view('front.index',compact(['title']));
 
     }
 

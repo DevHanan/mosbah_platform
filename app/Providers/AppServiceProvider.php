@@ -54,12 +54,15 @@ class AppServiceProvider extends ServiceProvider
         $most_required = Course::active()->latest()->get();
         $recommened_courses = Course::recommened()->latest()->get();
         $subscriptions = Subscription::all();
+        $latest  = Course::latest()->take(6)->get();
+
 
 
 
         $policies = Policy::active()->get();
 
         View::share([
+            'latest' =>$latest,
             'setting' => $setting, 'courses' => $courses,
             'tracks' => $tracks, 'countries' => $countries,
             'paymenttypes' => $paymenttypes, 'students' => $students,

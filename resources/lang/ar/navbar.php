@@ -122,7 +122,7 @@ return [
         'add_cvmaker_template' => 'إضافة قالب'
 
     ],
-    'instructors'=>[
+    'instructors_side'=>[
         'Home' => 'الرئيسية',
         'profile' => 'ملفى الشخصى',
         'mystudents' => 'طلابي',
@@ -134,7 +134,7 @@ return [
         'paid_profits' => 'مدفوعات الارباح',
 
     ],
-    'students'=>[
+    'students_side'=>[
         'Home' => 'الرئيسية',
         'profile' => 'ملفى الشخصى',
         'mycourses' => 'الدورات المشترك بها',

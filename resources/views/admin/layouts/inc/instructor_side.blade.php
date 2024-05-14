@@ -169,7 +169,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.Home') }}
+              {{ __('navbar.instructors_side.Home') }}
             </span>
           </a>
         </li>
@@ -185,7 +185,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.profile') }}
+              {{ __('navbar.instructors_side.profile') }}
             </span>
           </a>
         </li>
@@ -201,7 +201,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.mystudents') }}
+              {{ __('navbar.instructors_side.mystudents') }}
             </span>
           </a>
         </li>
@@ -216,7 +216,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.mycourses') }}
+              {{ __('navbar.instructors_side.mycourses') }}
             </span>
           </a>
         </li>
@@ -231,7 +231,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.tests') }}
+              {{ __('navbar.instructors_side.tests') }}
             </span>
           </a>
         </li>
@@ -246,7 +246,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.studentTestResult') }}
+              {{ __('navbar.instructors_side.studentTestResult') }}
             </span>
           </a>
         </li>
@@ -261,7 +261,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.profits') }}
+              {{ __('navbar.instructors_side.profits') }}
             </span>
           </a>
         </li>
@@ -276,7 +276,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.profits_requests') }}
+              {{ __('navbar.instructors_side.profits_requests') }}
             </span>
           </a>
         </li>
@@ -291,7 +291,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.instructors.paid_profits') }}
+              {{ __('navbar.instructors_side.paid_profits') }}
             </span>
           </a>
         </li>

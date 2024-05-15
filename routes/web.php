@@ -21,7 +21,7 @@ use App\Http\Controllers\Front\HomeController;
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 Route::group(
     [
-        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
+        'middleware' => [ 'localize', 'localeViewPath']
     ],
     function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');

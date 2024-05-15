@@ -22,24 +22,24 @@ class Course extends Model
     public function getPeriodTypeLabelAttribute()
     {
         if ($this->period_type == 1)
-            return  trans('admin.levels.month');
+            return  __('admin.levels.month');
         elseif ($this->period_type == 2)
-            trans('admin.levels.day');
+            __('admin.levels.day');
         else
-            return  trans('admin.levels.hour');
+            return  __('admin.levels.hour');
     }
 
     public function getDifficultyLevelLabelAttribute()
     {
         if ($this->difficulty_level == 0)
-            return  trans('admin.courses.beginner');
+            return  __('admin.courses.beginner');
         elseif ($this->difficulty_level == 1)
 
-            trans('admin.courses.intermediate');
+            __('admin.courses.intermediate');
         elseif ($this->difficulty_level == 2)
-            trans('admin.courses.advanced');
+            __('admin.courses.advanced');
         else
-            return  trans('admin.courses.all');
+            return  __('admin.courses.all');
     }
 
     public function getSubscriptionCountAttribute()

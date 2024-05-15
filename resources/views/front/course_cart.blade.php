@@ -301,8 +301,8 @@
                                             <p class="fw-bold">السعر الاساسي :</p>
                                         </div>
                                         <div class="col-5">
-                                            <p class="mx-3 fw-bold text-decoration-line-through mx-2 primary-color"> {{ $course->price }}  {{ $setting->currency }}</p>
-                                            <p class="mx-3 fw-bold"> {{ $course->TotalDiscount }}  {{ $setting->currency }}</p>
+                                            <span class="mx-3 fw-bold text-decoration-line-through mx-2 primary-color"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                            <span class="mx-3 fw-bold"> {{ $course->TotalDiscount }}  {{ $setting->currency }}</span>
 
                                         </div>
                                     </div>

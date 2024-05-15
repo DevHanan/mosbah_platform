@@ -2,7 +2,5 @@
 @section('title', $title)
 @section('content')
 @include('front.layouts.common.navbar')
- {{ __($title) }}
-
- {{ trans($title) }}
+ {{ __('admin.courses.all') }}
 @endsection

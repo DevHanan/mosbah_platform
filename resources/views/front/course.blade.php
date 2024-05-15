@@ -3,4 +3,6 @@
 @section('content')
 @include('front.layouts.common.navbar')
  {{ __($title) }}
+
+ {{ trans($title) }}
 @endsection

@@ -34,7 +34,7 @@ public function getBackgroundImageFullPathAttribute($value)
 
     return asset('public/'.$this->background_image);
 }
-    public function getPeriodLabelAttribute(){
+    public function getperiodLabelAttribute(){
         if ($this->period ==1)
          return  trans('admin.levels.month');
         elseif($this->period ==2) 

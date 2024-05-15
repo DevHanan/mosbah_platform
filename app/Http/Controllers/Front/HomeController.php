@@ -104,7 +104,7 @@ class HomeController extends Controller
         return view('front.course_cart',compact('course','title'));
         }else{
             toastr()->error(__('front.failed'), __('front.login_as_Student'));
-            return view('front.signin');
+            return redirect('/ignin');
         }
     }
 

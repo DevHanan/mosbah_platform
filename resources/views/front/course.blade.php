@@ -529,6 +529,10 @@
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"  > اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                                 </div>
+                                @else 
+                                <div class="d-flex justify-content-center mb-2">
+                                    انت بالفعل مشترك فى الدورة
+                                </div>
                                 @endif
                             </div>
                         </div>

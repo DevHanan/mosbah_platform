@@ -386,7 +386,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-rating" role="tabpanel">
-                            <div id="paginationCard">
+                            <!-- <div id="paginationCard">
                                 <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="person d-flex align-items-center">
@@ -434,7 +434,7 @@
                                         أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
                                 <ul id="pagination" class="pagination align-items-center">

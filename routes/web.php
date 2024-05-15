@@ -34,7 +34,7 @@ Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 
 Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
-Route::get('/cart/{id}', [HomeController::class, 'cart']);
+Route::get('/cart/{id}', [HomeController::class, 'cart'])->middleware('auth:students-login');
 
 Route::get('/sign_step1', [RegisterController::class, 'getsignstep1']);
 Route::post('/sign_step1', [RegisterController::class, 'registerStudent']);

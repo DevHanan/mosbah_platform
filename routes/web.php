@@ -20,7 +20,7 @@ use App\Http\Controllers\Front\HomeController;
 
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->nam('home');
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/courses', [HomeController::class, 'courses']);
 Route::get('/blogs', [HomeController::class, 'blogs']);

@@ -21,8 +21,8 @@
                     <div class="info position-relative py-5">
                         <h2 class="title py-3 pb-1 fw-bold secondary-color text-center"> {{ $course->name }} </h2>
                         <h3 class="fw-bold text-center mb-4">
-                        <a href="{{url('/courses')}}" class="text-decoration-none text-white">الأختبارات</a>
-                    </h3>
+                            <a href="{{url('/courses')}}" class="text-decoration-none text-white">الأختبارات</a>
+                        </h3>
                         <div class="d-flex justify-content-center align-items-center">
                             @if($course->SubscriptionCount > 0)
                             <div class="persons mx-3">
@@ -64,11 +64,11 @@
                             <i class="fa fa-calendar" style="color: #374957;"></i>
                             <span class="fw-bold mx-2">{{ $course->published_at  }}</span>
                         </div>
-                        @if($course->isSubscribed == 0) 
+                        @if($course->isSubscribed == 0)
                         <div class="d-flex justify-content-center mb-3">
                             <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3" @if(!auth()->guard('students-login')->user()) style="pointer-events: none;" @endif> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                         </div>
-                       @endif 
+                        @endif
 
                         <div class="form-check d-flex justify-content-center p-0" style="font-size: 14px;">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -147,7 +147,7 @@
                                                 <p> {{ $level->name }} </p>
                                                 <div class="d-flex flex-wrap">
                                                     <div class="parts"> {{ $level->lectures()->count()}} </div>
-                                                    <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }}  {{ __($level->periodLabel) }} </div>
+                                                    <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }} {{ __($level->periodLabel) }} </div>
                                                 </div>
                                             </div>
                                         </button>
@@ -171,7 +171,7 @@
                                                             !!} </p>
                                                         <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
                                                             <div class="d-flex flex-wrap mt-2">
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }}  </div>
+                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }} </div>
                                                                 <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $lecture->created_at->format('l, F j, Y') }} </div>
                                                             </div>
                                                             <div class="mt-2">
@@ -360,12 +360,12 @@
                                         <div><img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" width="20" alt=""></div>
                                         <div class="mx-2 fw-bold">
                                             {{ $instructor->courses()->count()  }}
-                                                                دورة
+                                            دورة
                                         </div>
                                     </div>
                                 </div>
                                 <div class="opinion my-3">
-                                    {!! $instructor->about_teacher  !!}
+                                    {!! $instructor->about_teacher !!}
                                 </div>
                                 <div class="rating d-flex justify-content-end align-items-center">
                                     <!-- <div class="fw-bold">تقييم عام </div> -->
@@ -381,7 +381,7 @@
                             </div>
                             @endforeach
                             @else
-                            لا توجد بيانات للمدربين لعرضها 
+                            لا توجد بيانات للمدربين لعرضها
                             @endif
                         </div>
 
@@ -501,14 +501,20 @@
                             <!-- <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div> -->
                             <div class="info mt-3 px-4">
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->lectures()->count()}} محاضرة</span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $setting->currency }}{{ $course->price }} </span></p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt="">
+                                    <span class="instead-price text-danger text-decoration-line-through mx-2">{{ $setting->currency }}{{ $course->price }}</span>
+                                    <span class="fw-bold">{{ $setting->currency }} {{ $course->TotalDiscount }}</span>
+                                    <!-- <span> {{ $setting->currency }}{{ $course->price }} </span> -->
+                                </p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-user.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->SubscriptionCount}} طلاب مشتركين</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->seat_number }} سعة مقاعد</span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span>   {{ $course->period }}  {{ __($course->PeriodLabel)  }}
-                                  
-                                </span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->difficultyLevelLabel }} </span></p>
-                                @if($course->isSubscribed == 0) 
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->period }} {{ __($course->PeriodLabel)  }}
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->period }} {{ __($course->PeriodLabel)  }}
+
+                                    </span></p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ optional($course->courseType)->name  }} </span></p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ trans($course->difficultyLevelLabel) }} </span></p>
+                                @if($course->isSubscribed == 0)
 
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3" @if(!auth()->guard('students-login')->user()) style="pointer-events: none;" @endif > اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
@@ -526,7 +532,7 @@
                                 <li class="py-1"><a href="{{url('course/'.$item->id)}}" class="text-decoration-none"> {{ $item->name }}</a></li>
                                 @endforeach
                                 @else
-                                                                    لا توجد دورات للعرض
+                                لا توجد دورات للعرض
                                 @endif
                             </ul>
                         </div>

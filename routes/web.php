@@ -19,7 +19,12 @@ use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Front\HomeController;
 
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
+Route::group(
+    [
 
+        'middleware' => [ 'localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/courses', [HomeController::class, 'courses']);
@@ -64,3 +69,5 @@ Route::get('/clear-cache', function () {
 
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    });

@@ -120,7 +120,7 @@ class RegisterController extends Controller
             }
             if (Auth::guard('instructors-login')->check() || Auth::guard('web')->check()) {
                 Auth::guard('students-login')->logout();
-                return redirect('/')->with('error', 'There are another login user  please logout first to can login.');
+                return redirect('/signin')->with('error', 'There are another login user  please logout first to can login.');
             }
             $token = $client->createToken('apiToken')->plainTextToken;
             $client->api_token = $token;
@@ -135,7 +135,7 @@ class RegisterController extends Controller
             }
             if (Auth::guard('students-login')->check() || Auth::guard('web')->check()) {
                 Auth::guard('instructors-login')->logout();
-                return redirect('/')->with('error', 'There are another login user  please logout first to can login.');
+                return redirect('/signin')->with('error', 'There are another login user  please logout first to can login.');
             }
             $token = $client->createToken('apiToken')->plainTextToken;
             $client->api_token = $token;

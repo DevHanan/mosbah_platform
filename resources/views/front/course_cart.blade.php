@@ -265,14 +265,28 @@
                                 <div class="img"><img src="{{asset('public/front/img/course-img.png')}}" class="img-fluid w-100" alt=""></div>
                                 <div class="info mt-4 px-4">
                                     <p class="course_title mb-0 fw-bold"> {{ $course->name }}</p>
-                                    <p class="secondary-color" style="font-size: 14px;">{{ optional($course->track)->name }}</p>
+                                    <p class="secondary-color" style="font-size: 14px;">
+                                    @if($course->tracks)
+                                            @foreach ($course->tracks as $item)
+                                           {{ $item->name  }} 
+                                            @endforeach
+                                            @endif 
+                                </p>
                                     <div class="d-flex align-items-center">
                                         <div class="img"><img src="{{asset('public/front/img/user4.png')}}" alt=""></div>
-                                        <p class="mx-2 fw-bold"> {{ optional($course->instructor)->name }}</p>
+                                        <p class="mx-2 fw-bold"> 
+                                        @if($course->instructors)
+                                            @foreach($course->instructors as $item)
+                                            {{ $item->name }} 
+                                            @endforeach
+
+                                            @endif
+                                        
+                                        </p>
                                     </div>
                                     <hr>
                                     <div class="d-flex justify-content-around" style="font-size: 14px;">
-                                        <p> <i class="fa-solid fa-graduation-cap ms-1"></i> مبتدئ</p>
+                                        <p> <i class="fa-solid fa-graduation-cap ms-1"></i> {{ $course->difficultyLevelLabel }}</p>
                                         <p> <i class="fa-regular fa-clock ms-1"></i> {{ $course->period }} ساعة</p>
                                         <p> <i class="fa-solid fa-laptop ms-1"></i> {{ $course->lectures()->count()}} محاضرة</p>
                                     </div>

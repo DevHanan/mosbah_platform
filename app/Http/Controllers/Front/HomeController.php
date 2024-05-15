@@ -98,9 +98,14 @@ class HomeController extends Controller
     }
     public function cart($id)
     {
+        if(Auth::guard('students-login')->check()){
         $course = Course::with(['levels','lectures','tracks','instructors'])->find($id);
         $title = 'الاشتراكات';
         return view('front.course_cart',compact('course','title'));
+        }else{
+            toastr()->error(__('front.failed'), __('front.login_as_Student'));
+            return view('front.signin');
+        }
     }
 
     public function Questions()

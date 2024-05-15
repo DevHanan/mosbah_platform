@@ -104,15 +104,6 @@ class RegisterController extends Controller
     public function signin(Request $request)
     {
 
-        // Check if the user is already logged in with a different account
-        $otherGuards = ['web', 'students-login', 'instructors-login'];
-        foreach ($otherGuards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect('/')->with('error', 'You are already logged in with a different account. Please logout first before logging in with this account.');
-                return redirect()->back();
-            }
-        }
-
         if (isset($request->email) && $request->email != null) {
             $field = 'email';
             $value = $request->email;
@@ -127,6 +118,10 @@ class RegisterController extends Controller
                 Auth::guard('students-login')->logout();
                 return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
             }
+            if (Auth::guard('instructors-login')->check() || Auth::guard('web')->check()) {
+                Auth::guard('students-login')->logout();
+                return redirect('/')->with('error', 'There are another login user  please logout first to can login.');
+            }
             $token = $client->createToken('apiToken')->plainTextToken;
             $client->api_token = $token;
             $client->save();
@@ -137,6 +132,10 @@ class RegisterController extends Controller
             if (!$client->active == '1') {
                 Auth::guard('students-login')->logout();
                 return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
+            }
+            if (Auth::guard('students-login')->check() || Auth::guard('web')->check()) {
+                Auth::guard('instructors-login')->logout();
+                return redirect('/')->with('error', 'There are another login user  please logout first to can login.');
             }
             $token = $client->createToken('apiToken')->plainTextToken;
             $client->api_token = $token;

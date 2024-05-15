@@ -112,6 +112,7 @@ class RegisterController extends Controller
             return redirect()->back();
 
         }
+    }
 
         if (isset($request->email) && $request->email != null) {
             $field = 'email';
@@ -149,3 +150,4 @@ class RegisterController extends Controller
         }
     }
 }
+

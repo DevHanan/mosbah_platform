@@ -147,7 +147,7 @@
                                                 <p> {{ $level->name }} </p>
                                                 <div class="d-flex flex-wrap">
                                                     <div class="parts"> {{ $level->lectures()->count()}} </div>
-                                                    <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }} {{ __($level->periodLabel) }} </div>
+                                                    <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }} {{ $level->periodLabel }} </div>
                                                 </div>
                                             </div>
                                         </button>

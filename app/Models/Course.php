@@ -34,10 +34,10 @@ public function getBackgroundImageFullPathAttribute($value)
 
     return asset('public/'.$this->background_image);
 }
-    public function getperiodLabelAttribute(){
-        if ($this->period_type ==1)
+    public function getPeriodLabelAttribute(){
+        if ($this->period_type ==1 )
          return  trans('admin.levels.month');
-        elseif($this->period_type ==2) 
+        elseif($this->period_type ==2 ) 
          trans('admin.levels.day'); 
         else
         return  trans('admin.levels.hour');   

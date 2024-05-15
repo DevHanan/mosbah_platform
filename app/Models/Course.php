@@ -40,7 +40,7 @@ public function getBackgroundImageFullPathAttribute($value)
         elseif($this->period ==2) 
          trans('admin.levels.day'); 
         else
-        return  ('admin.levels.hour');   
+        return  trans('admin.levels.hour');   
        }
 
        public function getDifficultyLevelLabelAttribute(){
@@ -52,7 +52,7 @@ public function getBackgroundImageFullPathAttribute($value)
          elseif ($this->difficulty_level ==2)
          trans('admin.courses.advanced'); 
         else
-        return  ('admin.courses.all');   
+        return  trans('admin.courses.all');   
        }
 
     public function getisSubscribedAttribute(){

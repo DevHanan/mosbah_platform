@@ -508,7 +508,15 @@
                                 </p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-user.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->SubscriptionCount}} طلاب مشتركين</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->seat_number }} سعة مقاعد</span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->period }} {{ __($course->PeriodTypeLabel) }}
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->period }} 
+                                    
+                                @if ($course->period_type == 1)
+            {{ trans('admin.levels.month') }}  
+        @elseif ($course->period_type == 2)
+             {{ trans('admin.levels.day')}}
+        @else
+             {{ trans('admin.levels.hour') }}
+             @endif
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> 
                                 <span>  <i class="fi fi-rr-calendar"></i> {{ $course->start_date }}  </span>
                                 <span>{{ $course->end_date }}

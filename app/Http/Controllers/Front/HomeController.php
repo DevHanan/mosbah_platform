@@ -73,6 +73,7 @@ class HomeController extends Controller
     public function course($id)
     {
         $course = Course::with(['levels','lectures','tracks','instructors','coupon'])->find($id);
+       return $course;
         $tracks_id = $course->tracks()->pluck('track_id')->ToArray();
         $related_courses = Course::whereIn('track_id',$tracks_id)->where('id','!=',$course->id)->get();
         $title = $course->name;

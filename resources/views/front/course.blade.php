@@ -2,5 +2,5 @@
 @section('title', $title)
 @section('content')
 @include('front.layouts.common.navbar')
- {{ __('admin.courses.all') }} - pppp 
+ {{ @lang('admin.courses.all') }} - pppp 
 @endsection

@@ -23,7 +23,7 @@ class Level extends Model
          return  trans('admin.levels.day');
        
         else
-        return  ('admin.levels.hour');   
+        return  trans('admin.levels.hour');   
        }
     public function course()
     {

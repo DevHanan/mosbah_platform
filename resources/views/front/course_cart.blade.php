@@ -20,7 +20,7 @@
                                 <div class="d-flex mb-1">
                                     <input type="radio" name="pay_method" value="a"  id="paypal" onclick="showForm('paypalForm')">
                                     <label for="paypal" class="p-2 rounded shadow-sm py-2 px-4 me-2 ">
-                                        <img src="{{asset('public/front/img/icons/paypal.png')}}" alt="">
+                                        <img src="{{asset('public/front/img/icons/PayPal.png')}}" alt="">
                                     </label>
                                 </div>
         

@@ -43,6 +43,6 @@ class AuthController extends Controller
 
         Auth::guard('students-login')->logout();
 
-        return redirect()->route('/')->with('admin.success', __('admin.auth_logged_out'));
+        return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 }

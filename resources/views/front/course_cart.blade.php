@@ -220,6 +220,8 @@
                             <p class="fw-bold">paypal.link.com</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
                         </div>
 
+                        <input type="hidden" value="{{$course->TotalDiscount}}" id="finalPrice">
+
                         <label class="fw-bold mb-3">رقم العملية</label>
                         <input type="text" class="form-control mb-3" name="transcation_id">
 
@@ -351,7 +353,7 @@
         var code = document.getElementById('couponinput').value;
         var id = $(this).data('id');
         console.log(code);
-        
+
 
         $.ajaxSetup({
             headers: {
@@ -370,9 +372,12 @@
                     if (response.status === 'success') {
                         $('#coupon-message').html(response.discount + '%');
                         $('#total-message').html(response.total);
+                        $('#finalPrice').value = response.total;
 
                     } else {
                         $('#coupon-message').html('Coupon Not vaild');
+                        $('#finalPrice').value = response.total;
+
 
                     }
                 },

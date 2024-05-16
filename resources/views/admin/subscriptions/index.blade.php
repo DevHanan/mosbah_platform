@@ -63,7 +63,7 @@
                                         <td>{{ optional($row->student)->name }}</td>
                                         <td>{{ optional($row->student)->email }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td>{{ optional($row->course)->price }} {{ $setting->currency }}</td>
+                                        <td>{{ $row->paid }} {{ $setting->currency }}</td>
                                         <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
                                         <td>
                                             <div class="form-check form-switch md-3" style="margin:10px">

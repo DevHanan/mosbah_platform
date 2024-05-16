@@ -58,3 +58,8 @@
 </style>
 @endif
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+  div#DataTables_Table_0_filter{
+    margin: 25px;
+  }
+</style>

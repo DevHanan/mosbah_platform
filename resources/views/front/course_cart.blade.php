@@ -320,7 +320,7 @@
                                         <p class="fw-bold">تخفيض :</p>
                                     </div>
                                     <div class="col-5">
-                                        <p class="mx-3 fw-bold">$ 10- </p>
+                                        <p class="mx-3 fw-bold" id="coupon-message"> </p>
                                     </div>
                                 </div>
                                 <hr>
@@ -329,7 +329,7 @@
                                         <p class="fw-bold">الأجمالي :</p>
                                     </div>
                                     <div class="col-5">
-                                        <p class="mx-3 fw-bold">$ 210 </p>
+                                        <p class="mx-3 fw-bold"> {{ $course->TotalDiscount }} {{ $setting->currency }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -364,14 +364,17 @@
                 'code': status,
                 'course-id': id,
             },
-            success: function(data) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: data.success,
-                })
+            success: function(response) {
+                    if (response.status === 'success') {
+                        $('#coupon-message').html('Coupon found! Discount: ' + response.discount + '%');
+                    } else {
+                        $('#coupon-message').html('Coupon not found');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
 
-            }
         });
     })
 })

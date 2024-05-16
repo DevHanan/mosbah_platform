@@ -300,24 +300,24 @@
 
               <div class="card" style="margin-top: 20px;">
                 <div class="card-header">
-                  <h3>  {{ __('admin.courses.add_instructors') }} </h3>
+                  <h3> {{ __('admin.courses.add_instructors') }} </h3>
                 </div>
                 <div class="card-body">
                   <div class="main">
-                    <table id="instructorstable" class=" table data-table data-table-horizontal data-table-highlight">
-<thead>
-  <tr>
-    <td> محاضر</td>
-    <td>سعر شراء من المحاضر</td>
-    <td>نسبة المحاضر</td>
-    <td></td>
-  </tr>
-</thead>
-                      <tbody>
+                    <table  class=" table data-table data-table-horizontal data-table-highlight">
+                      <thead>
+                        <tr>
+                          <td> محاضر</td>
+                          <td>سعر شراء من المحاضر</td>
+                          <td>نسبة المحاضر</td>
+                          <td></td>
+                        </tr>
+                      </thead>
+                      <tbody id="instructorstable">
                         <tr>
                           <td>
                             <select class=" form-control" name="instructors[]" style="padding:3px;" required>
-                            <option value="0"> {{ __('admin.select_instructor')}}</option>
+                              <option value="0"> {{ __('admin.select_instructor')}}</option>
                               @foreach($instructors as $instructor)
                               <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
                               @endforeach
@@ -364,13 +364,13 @@
     var table = document.getElementById(tableID);
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    var colCount = table.rows[1].cells.length;
+    var colCount = table.rows[0].cells.length;
 
     for (var i = 0; i < colCount; i++) {
       var newRow = row.insertCell(i);
 
       newRow.innerHTML = table.rows[0].cells[i].innerHTML;
-      newRow.childNodes[1].value = "";
+      newRow.childNodes[0].value = "";
     }
   }
 

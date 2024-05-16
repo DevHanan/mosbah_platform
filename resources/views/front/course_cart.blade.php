@@ -367,8 +367,11 @@
             success: function(response) {
                     if (response.status === 'success') {
                         $('#coupon-message').html(response.discount + '%');
-                    } else {
                         $('#total-message').html(response.total);
+
+                    } else {
+                        $('#coupon-message').html('Coupon Not vaild');
+
                     }
                 },
                 error: function(xhr, status, error) {

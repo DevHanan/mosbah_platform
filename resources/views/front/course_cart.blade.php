@@ -312,7 +312,7 @@
                                         <input type="text" class="form-control mb-3" placeholder="57CTWAY" id="couponinput">
                                     </div>
                                     <div class="col-6">
-                                        <button data-id="{{$course->id}}"  id="check-discount-button" class="btn secondary-bg rounded text-white ">تطبيق الخصم</button>
+                                        <button data-id="{{$course->id}}" id="check-discount-button" class="btn secondary-bg rounded text-white ">تطبيق الخصم</button>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
@@ -340,5 +340,37 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function() {
 
+        document.getElementById("check-discount-button").addEventListener("click", function() {
+
+            var code = $('document').getElementById('couponinput').value;
+            var id = $(this).data('id');
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "{{url('admin/checkcouponstatus')}}",
+                data: {
+                    'code': status,
+                    'course-id': id,
+                },
+                success: function(data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: data.success,
+                    })
+
+                }
+            });
+        })
+    })
+</script>
 @endsection

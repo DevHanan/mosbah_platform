@@ -305,7 +305,13 @@
                 <div class="card-body">
                   <div class="main">
                     <table id="instructorstable" class=" table data-table data-table-horizontal data-table-highlight">
-
+<thead>
+  <tr>
+    <td> محاضر</td>
+    <td>سعر شراء من المحاضر</td>
+    <td>نسبة المحاضر</td>
+  </tr>
+</thead>
                       <tbody>
                         <tr>
                           <td>
@@ -357,13 +363,13 @@
     var table = document.getElementById(tableID);
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    var colCount = table.rows[0].cells.length;
+    var colCount = table.rows[1].cells.length;
 
     for (var i = 0; i < colCount; i++) {
       var newRow = row.insertCell(i);
 
       newRow.innerHTML = table.rows[0].cells[i].innerHTML;
-      newRow.childNodes[0].value = "";
+      newRow.childNodes[1].value = "";
     }
   }
 

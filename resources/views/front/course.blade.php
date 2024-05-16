@@ -512,7 +512,7 @@
 
 
                                         <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt="">
-                                            <span> <i class="fi fi-rr-calendar"></i> {{ $course->start_date }} </span> / 
+                                            <span> <i class="fi fi-rr-calendar"></i> {{ $course->start_date }} </span> /
                                             <span>{{ $course->end_date }}
 
                                             </span>
@@ -526,10 +526,14 @@
                                         </div>
                                         @elseif( $course->isSubscribed == 1)
                                         <div class="d-flex justify-content-center mb-2">
-                                            انت بالفعل مشترك فى الدورة
+                                            <span> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
+                                            </span>
                                         </div>
                                         @elseif( $course->isSubscribed == -1)
-                                        الإشتراك قيد الانتظار للتفعيل
+                                        <div class="d-flex justify-content-center mb-2">
+                                        <span> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
+                                        </span>
+                                        </div>
                                         @endif
                             </div>
                         </div>

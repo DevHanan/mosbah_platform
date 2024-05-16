@@ -324,7 +324,7 @@
                           <select class=" form-control" name="instructors[]" style="padding:3px;" required>
                             <option value="0"> {{ __('admin.select_instructor')}}</option>
                             @foreach($instructors as $instructor)
-                            <option value="{{$instructor}}"> {{ $instructor }}</option>
+                            <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
                             @endforeach
                           </select>
                         </td>
@@ -338,7 +338,7 @@
                       <tr>
                         <td>
                           <select class=" form-control" name="instructors[]" style="padding:3px;" required>
-                            <option value="{{$item->instructor_id}}" selected> {{ $item->name }}</option>
+                            <option value="{{$item->instructor_id}}" selected> {{ $item }}</option>
                           </select>
                         </td>
                         <td><input type="number" name="instructorsprice[]" value="{{$item->pivot->course_price}}" placeholder="قيمة شراء الدورة من المدرب" /></td>

@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->double('price');
-            $table->integer('course_type_id');
-            $table->date('published_at');
+            $table->double('price')->default();
+            $table->integer('course_type_id')->nullable();
+            $table->date('published_at')->nullable();
             $table->boolean('active')->default(1);
             $table->boolean('recommend')->default(0);
-            $table->integer('track_id');
-            $table->integer('instructor_id');
             $table->string('image')->nullable();
             $table->string('background_image')->nullable();
             $table->string('thumbinal_image')->nullable();
@@ -30,8 +28,8 @@ return new class extends Migration
             $table->text('goals')->nullable();
             $table->text('directedTo')->nullable();
             $table->text('prerequisites')->nullable();
-            $table->double('price_with_discount');
-            $table->string('difficulty_level');
+            $table->double('price_with_discount')->nullable();
+            $table->string('difficulty_level')->nullable();
             $table->integer('provider')->nullable();
             $table->timestamps();
         });

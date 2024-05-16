@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Course extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     protected $table = 'courses';
     public $timestamps = true;
 
@@ -15,7 +19,7 @@ class Course extends Model
         'name', 'recommened', 'price', 'course_type_id', 'published_at', 'track_id', 'active',
         'instructor_id', 'promo_url', 'start_date', 'end_date', 'level_id', 'description', 'goals', 'directedTo', 'period_type', 'period', 'seat_number', 'price_with_discount', 'difficulty_level', 'prerequisites', 'provider'
     );
-
+    protected $dates = ['deleted_at']; 
 
     protected $appends = ['backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
 

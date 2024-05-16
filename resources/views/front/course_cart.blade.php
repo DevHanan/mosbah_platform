@@ -289,7 +289,7 @@
                                 <hr>
                                 <div class="d-flex justify-content-around" style="font-size: 14px;">
                                     <p> <i class="fa-solid fa-graduation-cap ms-1"></i> {{ $course->difficultyLevelLabel }}</p>
-                                    <p> <i class="fa-regular fa-clock ms-1"></i> {{ $course->period }} ساعة</p>
+                                    <p> <i class="fa-regular fa-clock ms-1"></i> {{ $course->period }} {{ $course->PeriodTypeLabel }}</p>
                                     <p> <i class="fa-solid fa-laptop ms-1"></i> {{ $course->lectures()->count()}} محاضرة</p>
                                 </div>
                             </div>

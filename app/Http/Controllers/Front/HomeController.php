@@ -139,7 +139,8 @@ class HomeController extends Controller
 
     public function checkCoupon(Request $request)
     {
-     $coupon = Coupon::where('code', $request->code)->first();
+     $coupon = Coupon::where('code', $request->code)->where('course_id',$request->course_id)->first();
+     $course = Course::find($request->course_id);
         if ($coupon) {
             return response()->json([
                 'status' => 'success',

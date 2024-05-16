@@ -64,9 +64,22 @@
                             <i class="fa fa-calendar" style="color: #374957;"></i>
                             <span class="fw-bold mx-2">{{ $course->published_at  }}</span>
                         </div>
-                        @if($course->isSubscribed == 0)
+
+
+                        @if( $course->isSubscribed == 0)
+
                         <div class="d-flex justify-content-center mb-3">
                             <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
+                        </div>
+                        @elseif( $course->isSubscribed == 1)
+                        <div class="d-flex justify-content-center mb-2">
+                            <span> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
+                            </span>
+                        </div>
+                        @elseif( $course->isSubscribed == -1)
+                        <div class="d-flex justify-content-center mb-2">
+                            <span> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
+                            </span>
                         </div>
                         @endif
 
@@ -174,7 +187,7 @@
                                                             !!} </p>
                                                         <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
                                                             <div class="d-flex flex-wrap mt-2">
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }}  ساعة</div>
+                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }} ساعة</div>
                                                                 <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $lecture->created_at->format('l, F j, Y') }} </div>
                                                             </div>
                                                             @if($lecture->free == 1 || $course->isSubscribed == 1)

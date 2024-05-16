@@ -220,7 +220,8 @@
                             <p class="fw-bold">paypal.link.com</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
                         </div>
 
-                        <input type="hidden" value="{{$course->TotalDiscount}}" id="finalPrice">
+                        <input type="hidden"  name="paid" value="{{$course->TotalDiscount}}" id="finalPrice">
+                        <input type="hidden" name="course_id" value="{{$course->id}}" id="finalPrice">
 
                         <label class="fw-bold mb-3">رقم العملية</label>
                         <input type="text" class="form-control mb-3" name="transcation_id">

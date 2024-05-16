@@ -120,14 +120,15 @@ class HomeController extends Controller
     public function subscribe(Request $request)
     {
         $course = Course::find($request->course_id);
-        $request->merge(['student_id' => Auth::guard('students-login')->user()->id, 'paid' => $course->TotalDiscount]);
+        $request->merge(['student_id' => Auth::guard('students-login')->user()->id, 
+        'paid' => $request->paid ]);
         $item = Subscription::create($request->except(['bill']));
         if ($request->hasFile('bill')) {
 
             $thumbnail = $request->bill;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/subsctiptions/'), $filename);
-            $item->bill = 'public/uploads/subsctiptions/' . $filename;
+            $item->bill = 'uploads/subsctiptions/' . $filename;
             $item->save();
         }
 

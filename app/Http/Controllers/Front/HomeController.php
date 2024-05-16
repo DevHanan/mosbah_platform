@@ -151,7 +151,7 @@ class HomeController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Coupon not found',
-                'total' => optional($coupon->course)->TotalDiscount 
+                'total' => $course->TotalDiscount 
             ]);
         }
     }

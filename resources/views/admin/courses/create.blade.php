@@ -300,7 +300,7 @@
 
               <div class="card" style="margin-top: 20px;">
                 <div class="card-header">
-                  <h3> إضافة المدربين </h3>
+                  <h3>  {{ __('admin.courses.add_instructors') }}< </h3>
                 </div>
                 <div class="card-body">
                   <div class="main">

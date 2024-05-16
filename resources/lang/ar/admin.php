@@ -209,6 +209,7 @@ return [
 
     ],
     "courses"=>[
+        'add_instructors' => 'إضافة المدربين',
         'price_with_discount' => 'السعر بعد الخصم',
         'recommend_status' => 'حالة الترشيح',
         'seat_number' => 'سعة الدورة (عدد مقاعد الطلاب)',

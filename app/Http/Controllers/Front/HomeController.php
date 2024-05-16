@@ -139,12 +139,12 @@ class HomeController extends Controller
 
     public function checkCoupon(Request $request)
     {
-        return $request->all();
                 $coupon = Coupon::Active()->where('course_id', $request->course_id)->where('code', $request->code)->first();
         if ($coupon) {
             return response()->json([
                 'status' => 'success',
                 'discount' => $coupon->discount,
+                'total' => optional($coupon->course)->TotalDiscount - ($coupon->discount )
             ]);
         } else {
             return response()->json([

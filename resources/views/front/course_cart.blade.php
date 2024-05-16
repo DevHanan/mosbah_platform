@@ -329,7 +329,7 @@
                                         <p class="fw-bold">الأجمالي :</p>
                                     </div>
                                     <div class="col-5">
-                                        <p class="mx-3 fw-bold"> {{ $course->TotalDiscount }} {{ $setting->currency }} </p>
+                                        <p class="mx-3 fw-bold" id="total-message"> {{ $course->TotalDiscount }} {{ $setting->currency }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -368,7 +368,7 @@
                     if (response.status === 'success') {
                         $('#coupon-message').html('Coupon found! Discount: ' + response.discount + '%');
                     } else {
-                        $('#coupon-message').html('Coupon not found');
+                        $('#total-message').html(response.total);
                     }
                 },
                 error: function(xhr, status, error) {

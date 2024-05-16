@@ -307,9 +307,9 @@
                     <table  class=" table data-table data-table-horizontal data-table-highlight">
                       <thead>
                         <tr>
-                          <td> محاضر</td>
-                          <td>سعر شراء من المحاضر</td>
-                          <td>نسبة المحاضر</td>
+                          <td> {{ __('admin.courses.instructor') }} </td>
+                          <td>   {{ __('admin.courses.buy_course_instructor') }}</td>
+                          <td> {{ __('admin.courses.instructor_prectange') }}</td>
                           <td></td>
                         </tr>
                       </thead>

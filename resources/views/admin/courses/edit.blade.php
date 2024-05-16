@@ -308,9 +308,16 @@
               </div>
               <div class="card-body">
                 <div class="main">
-                  <table id="instructorstable" class=" table data-table data-table-horizontal data-table-highlight">
-
-                    <tbody>
+                  <table  class=" table data-table data-table-horizontal data-table-highlight">
+                  <thead>
+                        <tr>
+                          <td> {{ __('admin.courses.instructor') }} </td>
+                          <td>   {{ __('admin.courses.buy_course_instructor') }}</td>
+                          <td> {{ __('admin.courses.instructor_prectange') }}</td>
+                          <td></td>
+                        </tr>
+                      </thead>
+                    <tbody id="instructorstable">
 
                       <tr>
                         <td>

@@ -342,37 +342,3 @@
 </section>
 
 @endsection
-@push('scripts')
-<script>
-  
-                $(document).ready(function() {
-                    $("#check-discount-button").click(function() {
-                        var code = $('document').getElementByIddata('couponinput').value;
-                        var id = $(this).data('id');
-
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-                        $.ajax({
-                            type: "POST",
-                            dataType: "json",
-                            url: "{{url('admin/checkcouponstatus')}}",
-                            data: {
-                                'code': status,
-                                'course-id': id,
-                            },
-                            success: function(data) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Success!',
-                                    text: data.success,
-                                })
-
-                            }
-                        });
-                    })
-                })
-</script>
-@endpush

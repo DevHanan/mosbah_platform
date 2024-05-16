@@ -209,6 +209,8 @@ return [
 
     ],
     "courses"=>[
+         'instructor_prectange' => 'نسبة المحاضر',
+        'buy_course_instructor' => 'القيمة الشرائية من المحاضر',
         'add_instructors' => 'إضافة المدربين',
         'price_with_discount' => 'السعر بعد الخصم',
         'recommend_status' => 'حالة الترشيح',

@@ -144,7 +144,7 @@ class HomeController extends Controller
             return response()->json([
                 'status' => 'success',
                 'discount' => $coupon->discount,
-                'total' => (optional($coupon->course)->TotalDiscount * 100)/ (100-$coupon->discount )
+                'total' => (optional($coupon->course)->TotalDiscount )-  ((optional($coupon->course)->TotalDiscount/100)*$coupon->discount )
             ]);
         } else {
             return response()->json([

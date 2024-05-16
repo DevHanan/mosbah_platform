@@ -56,6 +56,7 @@ return [
 
     ],
     "courses" => [
+        'edit_course' => 'تعديل بيانات الدورة',
         'all_courses' => 'كل الدورات',
         "title"  => "الدورات التدريبية",
         "list_tracks" => "المسارات",

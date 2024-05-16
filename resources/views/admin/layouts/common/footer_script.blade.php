@@ -450,24 +450,24 @@
     },
                 buttons: [
                    
-                    {
-                        extend: 'excelHtml5',
-                        className: 'btn btn-primary excel-export-button',
-                        text: 'إكسل',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                        },
+                    // {
+                    //     extend: 'excelHtml5',
+                    //     className: 'btn btn-primary excel-export-button',
+                    //     text: 'إكسل',
+                    //     exportOptions: {
+                    //         columns: ':not(:last-child)',
+                    //     },
                         
 
-                    },
+                    // },
                    
-                    {
-                        extend: 'pdfHtml5',
-                        text: 'PDF',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                        }
-                    },
+                    // {
+                    //     extend: 'pdfHtml5',
+                    //     text: 'PDF',
+                    //     exportOptions: {
+                    //         columns: ':not(:last-child)',
+                    //     }
+                    // },
                     
                 ]
             });

@@ -366,7 +366,7 @@
             url: "{{url('checkcoupon')}}",
             data: {
                 'code': code,
-                'course-id': id,
+                'course_id': id,
             },
             success: function(response) {
                     if (response.status === 'success') {

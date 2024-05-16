@@ -309,7 +309,7 @@
                                 <p class="fw-bold">كوبون خصم</p>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control mb-3" placeholder="57CTWAY" id="couponinput">
+                                        <input type="text" class="form-control mb-3" value="57CTWAY" id="couponinput">
                                     </div>
                                     <div class="col-6">
                                         <button data-id="{{$course->id}}"  id="check-discount-button" class="btn secondary-bg rounded text-white ">تطبيق الخصم</button>

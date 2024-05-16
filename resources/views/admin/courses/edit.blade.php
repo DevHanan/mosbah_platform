@@ -324,7 +324,7 @@
                           <select class=" form-control" name="instructors[]" style="padding:3px;" required>
                             <option value="0"> {{ __('admin.select_instructor')}}</option>
                             @foreach($instructors as $instructor)
-                            <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
+                            <option value="{{$instructor}}"> {{ $instructor->name }}</option>
                             @endforeach
                           </select>
                         </td>

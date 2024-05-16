@@ -359,7 +359,7 @@
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "{{url('admin/checkcouponstatus')}}",
+            url: "{{url('checkcoupon')}}",
             data: {
                 'code': status,
                 'course-id': id,

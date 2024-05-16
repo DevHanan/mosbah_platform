@@ -136,6 +136,11 @@ class HomeController extends Controller
 
     }
 
+
+    public function checkCoupon(Request $request){
+        return $request->all();
+    }
+
   
     
 }

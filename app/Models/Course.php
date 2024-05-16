@@ -59,14 +59,17 @@ class Course extends Model
     }
 
 
-    public function getisSubscribedAttribute()
+    public function getIsSubscribedAttribute()
     {
-        if (auth()->guard('students-login')->user()){
-            $code =  Subscription::where('course_id', $this->id)->where('student_id', auth()->guard('students-login')->user()->id)->get();
-            return $code->active == 1 ? 1 : 2;
-           
-        
-        }else
+        if (auth()->guard('students-login')->user()) {
+            $item = Subscription::where('course_id', $this->id)->where('student_id', auth()->guard('students-login')->user()->id)->first();
+            if ($item && $item->active == 1)
+                return 1;
+            elseif ($item && $item->active == 0)
+                return -1;
+            else
+                return 0;
+        } else
             return 0;
     }
 
@@ -112,7 +115,7 @@ class Course extends Model
 
     public function subscriptions()
     {
-        return $this->belongsToMany(Subscription::class);
+        return $this->hasMany(Subscription::class);
     }
 
     public function levels()

@@ -17,9 +17,9 @@ class Course extends Model
     );
 
 
-    protected $appends = ['backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'PeriodTypeLabel'];
+    protected $appends = ['backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodTypeLabel'];
 
-    public function getPeriodTypeLabelAttribute()
+    public function getperiodTypeLabelAttribute()
     {
         if ($this->period_type == 1)
             return  trans('admin.levels.month');

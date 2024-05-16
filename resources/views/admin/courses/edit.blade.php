@@ -338,7 +338,7 @@
                       <tr>
                         <td>
                           <select class=" form-control" name="instructors[]" style="padding:3px;" required>
-                            <option value="{{$item->instructor_id}}" selected> {{ $item }}</option>
+                            <option value="{{$item->id}}" selected> {{ $item->name }}</option>
                           </select>
                         </td>
                         <td><input type="number" name="instructorsprice[]" value="{{$item->pivot->course_price}}" placeholder="قيمة شراء الدورة من المدرب" /></td>

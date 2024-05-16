@@ -12,7 +12,7 @@
 @yield('content')
 
   @include('front.layouts.common.footer_script')
-  @stack('front-script')
+  @stack('frontscript')
 </body>
 
 </html>

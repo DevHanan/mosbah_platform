@@ -49,6 +49,6 @@ class Student extends Authenticatable
 
     public function subscriptions()
     {
-        return $this->belongsTo(Subscription::class);
+        return $this->hasMany(Subscription::class);
     }
 }

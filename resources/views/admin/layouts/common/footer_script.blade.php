@@ -437,6 +437,7 @@
 <script type="text/javascript">
 	'use strict';
 	$(document).ready(function() {
+		var languageUrl='//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json';
 		// DataTable configuration
 const dataTableConfig = {
   dom: 'Bfrtip',

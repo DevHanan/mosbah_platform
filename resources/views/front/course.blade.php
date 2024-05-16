@@ -146,7 +146,7 @@
                                             <div class="d-flex justify-content-between flex-wrap mb-2">
                                                 <p> {{ $level->name }} </p>
                                                 <div class="d-flex flex-wrap">
-                                                    <div class="parts"> {{ $level->lectures()->count()}} </div>
+                                                    <div class="parts"> {{ $level->lectures()->count()}} محاضرات</div>
                                                     <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }} {{ __($level->periodLabel) }} </div>
                                                 </div>
                                             </div>
@@ -171,12 +171,14 @@
                                                             !!} </p>
                                                         <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
                                                             <div class="d-flex flex-wrap mt-2">
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }} </div>
+                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }}  ساعة</div>
                                                                 <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $lecture->created_at->format('l, F j, Y') }} </div>
                                                             </div>
+                                                            @if($lecture->free == 1)
                                                             <div class="mt-2">
                                                                 <a class="btn secondary-bg px-3 text-white" href="{{url('lecture/'.$lecture->id)}}">اذهب الي المحاضرة</a>
                                                             </div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -531,8 +533,8 @@
                                         </div>
                                         @elseif( $course->isSubscribed == -1)
                                         <div class="d-flex justify-content-center mb-2">
-                                        <span> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
-                                        </span>
+                                            <span> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
+                                            </span>
                                         </div>
                                         @endif
                             </div>

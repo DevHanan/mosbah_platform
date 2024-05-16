@@ -309,10 +309,10 @@
                                 <p class="fw-bold">كوبون خصم</p>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control mb-3" placeholder="57CTWAY">
+                                        <input type="text" class="form-control mb-3" placeholder="57CTWAY" id="couponinput">
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn secondary-bg rounded text-white">تطبيق الخصم</button>
+                                        <button  data-id="{{$course->id}}" class="btn secondary-bg rounded text-white check-discount-button">تطبيق الخصم</button>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
@@ -341,4 +341,37 @@
     </div>
 </section>
 
-@endsection
+@endsection@push('scripts')
+
+<script>
+$(function() {
+		$('.check-discount-button').change(function() {
+			var code = $('document').getElementByIddata('couponinput').value;
+			var id = $(this).data('id');
+
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "{{url('admin/checkcouponstatus')}}",
+				data: {
+					'code': status,
+					'course-id': id,
+				},
+				success: function(data) {
+					Swal.fire({
+						icon: 'success',
+						title: 'Success!',
+						text: data.success,
+					})
+
+				}
+			});
+		})
+	})
+</script>
+@endpush

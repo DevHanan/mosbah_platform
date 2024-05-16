@@ -57,7 +57,7 @@
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.students.field_join_date') }}</th>
-                                        <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
+                                        <td>{{ optional($row->created_at)->format('l, F j, Y')  }}</td>
 
                                     </tr>
 

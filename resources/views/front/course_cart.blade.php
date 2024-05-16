@@ -357,7 +357,7 @@
             }
         });
         $.ajax({
-            type: "POST",
+            type: "GET",
             dataType: "json",
             url: "{{url('checkcoupon')}}",
             data: {

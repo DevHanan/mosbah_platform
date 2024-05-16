@@ -38,7 +38,7 @@ Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 
 
-Route::post('/checkcoupon', [HomeController::class, 'checkCoupon']);
+Route::get('/checkcoupon', [HomeController::class, 'checkCoupon']);
 
 Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);

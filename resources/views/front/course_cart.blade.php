@@ -366,7 +366,7 @@
             },
             success: function(response) {
                     if (response.status === 'success') {
-                        $('#coupon-message').html('Coupon found! Discount: ' + response.discount + '%');
+                        $('#coupon-message').html(response.discount + '%');
                     } else {
                         $('#total-message').html(response.total);
                     }

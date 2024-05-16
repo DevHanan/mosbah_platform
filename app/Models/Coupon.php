@@ -19,6 +19,7 @@ class Coupon extends Model
         return $query->where('active', '1');
     }
 
+
     public function course()
     {
         return $this->belongsTo(Course::class);

@@ -62,7 +62,7 @@ class Course extends Model
     public function getisSubscribedAttribute()
     {
         if (auth()->guard('students-login')->user()){
-            $code =  $this->subscriptions()->where('course_id', $this->id)->where('student_id', auth()->guard('students-login')->user()->id)->get();
+            $code =  Subscription::where('course_id', $this->id)->where('student_id', auth()->guard('students-login')->user()->id)->count();
             return $code->active == 1 ? 1 : 2;
            
         

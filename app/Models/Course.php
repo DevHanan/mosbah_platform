@@ -23,7 +23,7 @@ class Course extends Model
     {
         if ($this->period_type == 1)
             return  trans('admin.levels.month');
-        if ($this->period_type == 2)
+        elseif ($this->period_type == 2)
             trans('admin.levels.day');
         else
             return  trans('admin.levels.hour');

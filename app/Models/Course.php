@@ -112,7 +112,7 @@ class Course extends Model
 
     public function subscriptions()
     {
-        return $this->hasMany(Subscription::class);
+        return $this->belongsToMany(Subscription::class);
     }
 
     public function levels()

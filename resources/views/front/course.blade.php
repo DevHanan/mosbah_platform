@@ -526,33 +526,35 @@
                                 </p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-user.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->SubscriptionCount}} طلاب مشتركين</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->seat_number }} سعة مقاعد</span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->period }} {{ $course->periodLabel }}
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->period }}
+                                        {{ $course->periodLabel }}
+                                </p>
 
 
-                                        <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt="">
-                                            <span> <i class="fi fi-rr-calendar"></i> {{ $course->start_date }} </span> /
-                                            <span>{{ $course->end_date }}
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt="">
+                                    <span> <i class="fi fi-rr-calendar"></i> {{ $course->start_date }} </span> /
+                                    <span>{{ $course->end_date }}
 
-                                            </span>
-                                        </p>
-                                        <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ optional($course->courseType)->name  }} </span></p>
-                                        <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ __($course->difficultyLevelLabel) }} </span></p>
-                                        @if( $course->isSubscribed == 0)
+                                    </span>
+                                </p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ optional($course->courseType)->name  }} </span></p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ __($course->difficultyLevelLabel) }} </span></p>
+                                @if( $course->isSubscribed == 0)
 
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
-                                        </div>
-                                        @elseif( $course->isSubscribed == 1)
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
-                                            </span>
-                                        </div>
-                                        @elseif( $course->isSubscribed == -1)
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
-                                            </span>
-                                        </div>
-                                        @endif
+                                <div class="d-flex justify-content-center mb-3">
+                                    <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
+                                </div>
+                                @elseif( $course->isSubscribed == 1)
+                                <div class="d-flex justify-content-center mb-3">
+                                    <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
+                                    </span>
+                                </div>
+                                @elseif( $course->isSubscribed == -1)
+                                <div class="d-flex justify-content-center mb-3">
+                                    <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
+                                    </span>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>

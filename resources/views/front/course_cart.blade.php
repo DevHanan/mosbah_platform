@@ -348,7 +348,7 @@
      $(document).ready(function() {
     
     $("#check-discount-button").click(function() {
-        var code = $('document').getElementById('couponinput').value;
+        var code = document.getElementById('couponinput').value;
         var id = $(this).data('id');
 
         $.ajaxSetup({

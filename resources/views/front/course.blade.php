@@ -72,13 +72,13 @@
                             <a href="{{url('cart/'.$course->id)}}" class="btn secondary-bg text-white mt-4 px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                         </div>
                         @elseif( $course->isSubscribed == 1)
-                        <div class="d-flex justify-content-center mb-2">
-                            <span> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
+                        <div class="d-flex justify-content-center mb-3">
+                            <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
                             </span>
                         </div>
                         @elseif( $course->isSubscribed == -1)
-                        <div class="d-flex justify-content-center mb-2">
-                            <span> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
+                        <div class="d-flex justify-content-center mb-3">
+                            <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
                             </span>
                         </div>
                         @endif
@@ -539,17 +539,17 @@
                                         <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ __($course->difficultyLevelLabel) }} </span></p>
                                         @if( $course->isSubscribed == 0)
 
-                                        <div class="d-flex justify-content-center mb-2">
+                                        <div class="d-flex justify-content-center mb-3">
                                             <a href="{{ url('cart/'.$course->id)}}" class="btn secondary-bg text-white px-3"> اشترك الأن <i class="fa fa-arrow-left mx-2"></i></a>
                                         </div>
                                         @elseif( $course->isSubscribed == 1)
-                                        <div class="d-flex justify-content-center mb-2">
-                                            <span> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
+                                        <div class="d-flex justify-content-center mb-3">
+                                            <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> انت بالفعل مشترك فى الدورة
                                             </span>
                                         </div>
                                         @elseif( $course->isSubscribed == -1)
-                                        <div class="d-flex justify-content-center mb-2">
-                                            <span> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
+                                        <div class="d-flex justify-content-center mb-3">
+                                            <span class="btn secondary-bg text-white mt-4 px-3"> <i class="fa-solid fa-bell"></i> الإشتراك قيد الانتظار للتفعيل
                                             </span>
                                         </div>
                                         @endif

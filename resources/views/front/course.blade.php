@@ -161,6 +161,9 @@
                                                     <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec{{$lecture->id}}
                                         " aria-expanded="true" aria-controls="stage1_lec1">
                                                         <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> {{ $lecture->title }}
+                                                        @if($lecture->free == 0)
+                                                        <span><i class="fi fi-rr-lock"></i> </span>
+                                                        @endif
                                                     </button>
                                                 </h2>
                                                 <div id="stage1_lec{{$lecture->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">
@@ -174,7 +177,7 @@
                                                                 <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $lecture->period }}  ساعة</div>
                                                                 <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $lecture->created_at->format('l, F j, Y') }} </div>
                                                             </div>
-                                                            @if($lecture->free == 1)
+                                                            @if($lecture->free == 1 || $course->isSubscribed == 1)
                                                             <div class="mt-2">
                                                                 <a class="btn secondary-bg px-3 text-white" href="{{url('lecture/'.$lecture->id)}}">اذهب الي المحاضرة</a>
                                                             </div>

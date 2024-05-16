@@ -5,6 +5,7 @@
 <!-- Tabler Core -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!--animation-->
 <script>

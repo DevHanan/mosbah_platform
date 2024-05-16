@@ -345,7 +345,7 @@
 @push('scripts')
 <script>
 $(function() {
-		$('.check-discount-button').change(function() {
+		$('.check-discount-button').on('click',function() {
 			var code = $('document').getElementByIddata('couponinput').value;
 			var id = $(this).data('id');
 

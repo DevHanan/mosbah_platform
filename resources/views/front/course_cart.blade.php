@@ -341,8 +341,8 @@
     </div>
 </section>
 
-@endsection@push('scripts')
-
+@endsection
+@push('scripts')
 <script>
 $(function() {
 		$('.check-discount-button').change(function() {

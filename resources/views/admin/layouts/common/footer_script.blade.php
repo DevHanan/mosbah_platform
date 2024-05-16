@@ -437,51 +437,33 @@
 <script type="text/javascript">
 	'use strict';
 	$(document).ready(function() {
-		// [ Zero-configuration ] start
-		$('#basic-table').DataTable({
-			language: {
-				url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
-			},
-		});
+		// DataTable configuration
+const dataTableConfig = {
+  dom: 'Bfrtip',
+  language: {
+    url: languageUrl, // declare languageUrl as a variable or constant
+  },
+  buttons: [
+    createButtonConfig('excelHtml5', 'إكسل', 'btn btn-primary excel-export-button'),
+    createButtonConfig('pdfHtml5', 'PDF', 'btn btn-primary pdf-export-button'),
+    createButtonConfig('print', 'طباعة', 'btn btn-primary print-button', true),
+  ],
+};
 
-		// [ HTML5-Export ] start
-		$('.export-table').DataTable({
-			dom: 'Bfrtip',
-			language: {
-				url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
-			},
-			buttons: [
+// Create a button configuration object
+function createButtonConfig(extend, text, className, autoPrint = false) {
+  return {
+    extend,
+    text,
+    className,
+    exportOptions: {
+      columns: ':not(:last-child)',
+    },
+    autoPrint,
+  };
+}
 
-				{
-					extend: 'excelHtml5',
-					className: 'btn btn-primary excel-export-button',
-					text: 'إكسل',
-					exportOptions: {
-						columns: ':not(:last-child)',
-					},
-
-
-				},
-
-				{
-					extend: 'pdfHtml5',
-					text: 'PDF',
-					exportOptions: {
-						columns: ':not(:last-child)',
-					}
-				},
-				{
-					extend: 'print',
-					text: 'طباعة',
-					autoPrint: true,
-					// title: '',
-					footer: false,
-					exportOptions: {
-						columns: ':not(:last-child)',
-					},
-					
-				}
-			]
-		});
+// Initialize DataTable
+$('.export-table').DataTable(dataTableConfig);
 	});
 </script>

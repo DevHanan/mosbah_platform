@@ -30,44 +30,44 @@
                                 <tbody>
 
                                     <tr>
-                                        <th>{{ __('admin.students.field_name') }}</th>
+                                        <th>{{ __('admin.instructors.field_name') }}</th>
                                         <td>{{ $row->name }}</td>
                                     </tr>
                                     <tr>
 
-                                        <th>{{ __('admin.students.field_photo') }}</th>
+                                        <th>{{ __('admin.instructors.field_photo') }}</th>
                                         <td> <img src="{{ $row->imageFullPath }}" style="width:40px"></td>
 
                                     </tr>
                                     <tr>
-                                        <th>{{ __('admin.students.field_email') }}</th>
+                                        <th>{{ __('admin.instructors.field_email') }}</th>
                                         <td>{{ $row->email }}</td>
 
                                     </tr>
-                                 
+
                                     <tr>
-                                        <th>{{ __('admin.students.phone_number') }}</th>
+                                        <th>{{ __('admin.instructors.phone_number') }}</th>
                                         <td>{{ $row->phone }}</td>
 
                                     </tr>
                                     <tr>
-                                        <th>{{ __('admin.students.field_country') }}</th>
+                                        <th>{{ __('admin.instructors.field_country') }}</th>
                                         <td>{{ optional($row->country)->name }}</td>
 
                                     </tr>
                                     <tr>
-                                        <th>{{ __('admin.students.field_join_date') }}</th>
+                                        <th>{{ __('admin.instructors.field_join_date') }}</th>
                                         <td>{{ optional($row->created_at)->format('l, F j, Y')  }}</td>
 
                                     </tr>
 
                                     <tr>
-                                        <th>{{ __('admin.students.qualifications') }}</th>
+                                        <th>{{ __('admin.instructors.qualifications') }}</th>
                                         <td>{!! $row->qualifications !!}</td>
 
                                     </tr>
                                     <tr>
-                                        <th>{{ __('admin.students.favourite_tracks') }}</th>
+                                        <th>{{ __('admin.instructors.favourite_tracks') }}</th>
                                         <td>
                                             @foreach ($row->tracks as $item)
                                             <span class="badge bg-blue text-blue-fg"> {{ $item->name  }} </span>
@@ -76,10 +76,10 @@
                                         </td>
 
                                     </tr>
-                                   
+
                                     <tr>
-                                        <th>{{ __('admin.students.field_course_number') }}</th>
-                                        <td> {{ $row->subscriptions()->count() }} </td>
+                                        <th>{{ __('admin.instructors.field_course_number') }}</th>
+                                        <td> {{ $row->courses()->count() }} </td>
 
                                     </tr>
 
@@ -90,13 +90,13 @@
 
 
 
-                                        <th>{{ __('admin.students.field_status') }}</th>
+                                        <th>{{ __('admin.instructors.field_status') }}</th>
                                         <td>
 
 
                                             <div class="form-check form-switch md-3" style="margin:10px">
 
-                                                <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Instructor' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                             </div>
                                         </td>
 
@@ -108,7 +108,6 @@
 
 
 
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

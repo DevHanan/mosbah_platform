@@ -195,6 +195,7 @@ return [
         'Graduated' => 'خريج',
         'Doctorate' => 'دكتوراه',
         'Master' => 'ماجستير',
+        'favourite_tracks' => 'المسارات المفضلة'
 
     ],
     'subscriptions' => [

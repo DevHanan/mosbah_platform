@@ -6,6 +6,7 @@ use Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Instructor;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Toastr;
 
 class AuthController extends Controller
 {
@@ -32,6 +33,7 @@ class AuthController extends Controller
     public function login($id){
         Auth::guard('web')->logout();
         Auth::guard('instructors-login')->loginUsingId($id);
+        Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
         return redirect('instructor/dashboard');
     }
   

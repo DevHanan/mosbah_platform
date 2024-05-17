@@ -31,16 +31,16 @@ class Instructor extends Authenticatable
     public function getAboutLabelAttribute()
     {
         if ($this->about_teacher == 0)
-            return  trans('admin.courses.beginner');
+            return  trans('admin.instructors.student');
         elseif ($this->about_teacher == 1)
 
-            return  trans('admin.courses.intermediate');
+        return  trans('admin.instructors.Bachelor');
         elseif ($this->about_teacher == 2)
-            return  trans('admin.courses.advanced');
+        return  trans('admin.instructors.Graduated');
         elseif ($this->about_teacher == 3)
-            return  trans('admin.courses.advanced');
+        return  trans('admin.instructors.Doctorate');
         else
-            return  trans('admin.courses.all');
+        return  trans('admin.instructors.Master');
     }
     protected function getcourseNumberAttribute()
     {

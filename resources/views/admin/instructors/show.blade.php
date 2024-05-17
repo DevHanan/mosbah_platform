@@ -81,6 +81,18 @@
                                         <th>{{ __('admin.instructors.field_course_number') }}</th>
                                         <td> {{ $row->courses()->count() }} </td>
 
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.instructors.salary') }}</th>
+                                        <td> {{ $row->salary }} </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>{{ __('admin.instructors.about') }}</th>
+                                        <td> {{ $row->aboutLabel }} </td>
+
                                     </tr>
 
 

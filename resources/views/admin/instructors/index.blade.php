@@ -99,6 +99,21 @@
 
                                             </a>
 
+                                            <a href="javascript:void(0);" 
+        class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
+        href="#" onclick='event.preventDefault();
+        document.getElementById("instructor-login-form-$row->id").submit();'>
+
+<i class="fa fa-sign-in" aria-hidden="true"></i>
+
+        </a>
+
+        <form id="instructor-login-form-{{$row->id}}" action="{{ route('instructor.instructor-login') }}" method="POST">
+          @csrf
+          <input type="hidden" name="id" value="{{$row->id}}">
+
+        </form>
+
                                             <a href="{{ url('admin/instructors/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-eye"></i>
                                             </a>

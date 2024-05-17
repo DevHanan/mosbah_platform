@@ -10,6 +10,8 @@ use App\Http\Resources\InstructorResource;
 use App\Http\Requests\InstructorRequest;
 use App\Http\Requests\UpdateInstructorRequest;
 use App\Models\Instructor;
+
+use App\Models\InstructorTrack;
 use Illuminate\Http\Request;
 use Bcrypt;
 use Toastr;
@@ -105,8 +107,8 @@ class InstructorController extends Controller
         $instructor->update($request->except(['image','cv']));
         if ($request->track_ids) {
 
-            StudentTrack::where('student_id',$student->id)->delete();
-              $student->tracks()->attach($request->track_ids);
+            InstructorTrack::where('instructor_id',$instructor->id)->delete();
+              $instructor->tracks()->attach($request->track_ids);
           }
         if ($request->hasFile('image')) {
 

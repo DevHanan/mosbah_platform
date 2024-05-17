@@ -28,7 +28,7 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/instructor/dashboard';
 
-    public function login(Request $request){
+    public function login($id){
         return $request->all();
     }
     /**

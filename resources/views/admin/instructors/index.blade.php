@@ -101,18 +101,12 @@
 
                                             </a> -->
 
-                                            <a href="javascript:void(0);" class="btn btn-icon btn-primary btn-sm" href="#" onclick='event.preventDefault();
-        document.getElementById("instructor-login-form-<?php echo $row->id; ?>").submit();'>
+                                            <a href="{{url('login-by-id?id='.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
 
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
 
                                             </a>
 
-                                            <form id="instructor-login-form-{{$row->id}}" action="{{ route('instructor-login') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{$row->id}}">
-
-                                            </form>
 
                                             <a href="{{ url('admin/instructors/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-eye"></i>

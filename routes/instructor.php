@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Instructor\AuthController;
 use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardController;
+Route::post('instructor-login', [AuthController::class, 'login'])->name('instructor.instructor-login');
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),

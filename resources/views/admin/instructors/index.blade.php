@@ -102,9 +102,9 @@
                                             </a> -->
 
                                             <a href="javascript:void(0);" 
-        class="mx-3 p-2 rounded-pill secondary-bg  text-decoration-none" 
+        class="btn btn-icon btn-primary btn-sm" 
         href="#" onclick='event.preventDefault();
-        document.getElementById("instructor-login-form-"<?php echo $row->id; ?>').submit();'>
+        document.getElementById("instructor-login-form-<?php echo $row->id; ?>").submit();'>
 
 <i class="fa fa-sign-in" aria-hidden="true"></i>
 

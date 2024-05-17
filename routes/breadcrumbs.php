@@ -131,7 +131,7 @@ Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$course,$row) {
 
 // Home > Levels details  > Lectures
 Breadcrumbs::for('lectures', function (BreadcrumbTrail $trail,$course,$level) {
-    $trail->parent('show-levels',$level);
+    $trail->parent('show-levels',$course);
     $trail->push(trans('navbar.courses.list_lectures'), route('admin.levels.lectures.index',$level));
 });
 

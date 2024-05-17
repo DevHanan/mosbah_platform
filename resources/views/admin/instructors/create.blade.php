@@ -8,7 +8,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
 
-            {{ Breadcrumbs::render('add-instructors') }}
+                {{ Breadcrumbs::render('add-instructors') }}
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -79,7 +79,7 @@
                                     <select class="form-control" name="is_employee" required>
                                         <option value="">{{ __('select') }}</option>
                                         <option value="1"> {{ __('admin.instructors.yes')}}</option>
-                                        <option value="0"> {{ __('admin.instructors.no')}}</option>
+                                        <option value="0" selected> {{ __('admin.instructors.no')}}</option>
 
                                     </select>
 
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
-                                    <select class="form-control" name="track_id" id="track_id" required>
+                                    <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
                                         <option value="{{ $track->id }}"> {{ $track->name }}</option>
@@ -232,14 +232,25 @@
                                 </div>
 
 
+                                <div class="mb-3">
 
+
+                                    <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
+                                    <input type="file" class="form-control" name="cv" id="cv">
+
+                                    @error('cv')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
 
                             </div>
 
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
                                 <textarea class="form-control" name="about_teacher" rows="6" placeholder="Content.."></textarea>
-                            </div>
+                            </div> -->
                             <div class="col-md-12">
                                 <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
                                 <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>

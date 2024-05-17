@@ -9,6 +9,7 @@ use App\Http\Resources\StudentResource;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
+use App\Models\StudentTrack;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Toastr;
@@ -58,17 +59,17 @@ class StudentController extends Controller
         $student = Student::create($request->except(['image', 'password']));
         $student->password = Bcrypt($request->password);
         $student->save();
-        if($request->hasFile('image')){
-              
+        if ($request->hasFile('image')) {
+
             $thumbnail = $request->image;
-           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/students/'),$filename);
-            $student->image ='uploads/students/'.$filename;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/students/'), $filename);
+            $student->image = 'uploads/students/' . $filename;
             $student->save();
         }
 
-        if($request->track_ids)
-        $student->tracks()->attach($request->track_ids);
+        if ($request->track_ids)
+            $student->tracks()->attach($request->track_ids);
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.students.index');
     }
@@ -76,10 +77,9 @@ class StudentController extends Controller
     public function show($id)
     {
         $row = Student::find($id);
-        $tracks = Track::whereIn('id',$row->tracks()->pluck('track_id')->ToArray())->get();
+        $tracks = Track::whereIn('id', $row->tracks()->pluck('track_id')->ToArray())->get();
         $title =  ' تفاصيل الطالب' . ' ' . $row->name;
-        return view('admin.students.show',compact('row','title','tracks'));
-      
+        return view('admin.students.show', compact('row', 'title', 'tracks'));
     }
 
 
@@ -99,17 +99,20 @@ class StudentController extends Controller
             $student->save();
         }
         $student->update($request->except(['image', 'password']));
-      
-        if($request->hasFile('image')){
-              
+
+        if ($request->hasFile('image')) {
+
             $thumbnail = $request->image;
-           $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/students/'),$filename);
-            $student->image ='uploads/students/'.$filename;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/students/'), $filename);
+            $student->image = 'uploads/students/' . $filename;
             $student->save();
         }
-        if($request->track_ids)
-        $student->tracks()->attach($request->track_ids);
+        if ($request->track_ids) {
+
+          StudentTrack::where('student_id',$student->id)->delete();
+            $student->tracks()->attach($request->track_ids);
+        }
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.students.index');

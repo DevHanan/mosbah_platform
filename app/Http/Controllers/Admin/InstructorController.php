@@ -60,14 +60,24 @@ class InstructorController extends Controller
     }
     public function store(InstructorRequest $request)
     {
-        $instructor = Instructor::create($request->except('image'));
-
+        $instructor = Instructor::create($request->except(['image','cv']));
+        if ($request->track_ids)
+            $instructor->tracks()->attach($request->track_ids);
         if ($request->hasFile('image')) {
 
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/instructors/'), $filename);
             $instructor->image = 'uploads/instructors/' . $filename;
+            $instructor->save();
+        }
+
+        if ($request->hasFile('cv')) {
+
+            $thumbnail = $request->cv;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+            $instructor->cv = 'uploads/instructors/' . $filename;
             $instructor->save();
         }
 
@@ -92,13 +102,27 @@ class InstructorController extends Controller
     public function update(UpdateInstructorRequest $request)
     {
         $instructor = Instructor::find($request->id);
-        $instructor->update($request->except('image'));
+        $instructor->update($request->except(['image','cv']));
+        if ($request->track_ids) {
+
+            StudentTrack::where('student_id',$student->id)->delete();
+              $student->tracks()->attach($request->track_ids);
+          }
         if ($request->hasFile('image')) {
 
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/instructors/'), $filename);
             $instructor->image = 'uploads/instructors/' . $filename;
+            $instructor->save();
+        }
+
+        if ($request->hasFile('cv')) {
+
+            $thumbnail = $request->cv;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+            $instructor->cv = 'uploads/instructors/' . $filename;
             $instructor->save();
         }
 

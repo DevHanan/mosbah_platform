@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('country_id');
             $table->text('about_teacher');
             $table->string('image')->nullable();
+            $table->string('cv')->nullable();
             $table->string('bank_account')->nullable();
             $table->boolean('active')->default(1);
             $table->boolean('recommened')->default(1);

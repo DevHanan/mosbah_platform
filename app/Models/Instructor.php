@@ -46,6 +46,11 @@ class Instructor extends Authenticatable
     {
         return $this->belongsToMany(Track::class);
     }
+
+    public function country()
+    {
+        return $this->belongs(Country::class);
+    }
     public function courses()
     {
         return $this->belongsToMany(Course::class,'course_instructors');

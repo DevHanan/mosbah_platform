@@ -101,7 +101,7 @@
 
                                             </a> -->
 
-                                            <a href="{{url('login-by-id?'.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
+                                            <a href="{{url('login-by-id/'.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
 
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
 

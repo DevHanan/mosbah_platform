@@ -126,12 +126,12 @@ Breadcrumbs::for('update-levels', function (BreadcrumbTrail $trail,$course,$row)
 
 Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$course,$row) {
     $trail->parent('levels',$course);
-    $trail->push($row->name, route('admin.courses.show', $row));
+    $trail->push($row->name, route('admin.courses.edit', $row));
 });
 
 // Home > Levels details  > Lectures
 Breadcrumbs::for('lectures', function (BreadcrumbTrail $trail,$course,$level) {
-    $trail->parent('show-levels',$course);
+    $trail->parent('show-levels',$course,$level);
     $trail->push(trans('navbar.courses.list_lectures'), route('admin.levels.lectures.index',$level));
 });
 

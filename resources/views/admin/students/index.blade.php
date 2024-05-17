@@ -74,7 +74,11 @@
                                         <td> {{ $row->subscriptions()->count() }} </td>
                                         <td> 0 </td>
 
-                                        <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
+                                        <td>
+                                            @if(isset($row->created_at))
+                                            {{ $row->created_at->format('l, F j, Y')  }}
+                                            @endif
+                                        </td>
 
 
 
@@ -91,17 +95,17 @@
 
 
 
-                                        <a href="#"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                            <a href="#" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="fa fa-sign-in" aria-hidden="true"></i>
 
                                             </a>
 
 
-                                            <a href="{{ route($route.'.edit', $row->id) }}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <a href="{{ route($route.'.edit', $row->id) }}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </a>
 
-                                            <a href="{{ url('admin/students/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <a href="{{ url('admin/students/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-eye"></i>
                                             </a>
 

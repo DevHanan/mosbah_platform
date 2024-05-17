@@ -404,8 +404,8 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                     <div class="price">
-                                        <span class="instead-price text-decoration-line-through mx-2 primary-color">{{ $setting->currency }}{{ $course->price }}</span>
-                                        <span class="fw-bold"> {{ $course->TotalDiscount }}</span>
+                                        <span class="instead-price text-decoration-line-through mx-2 primary-color">{{ $setting->currency }} {{ $course->price }}</span>
+                                        <span class="fw-bold"> {{ $course->TotalDiscount }} {{ $setting->currency }}</span>
                                     
                                     </div>
                                 </div>

@@ -29,17 +29,11 @@ class AuthController extends Controller
     protected $redirectTo = '/instructor/dashboard';
 
     public function login($id){
-        return $request->all();
+        Auth::guard('web')->logout();
+        Auth::loginUsingId($id);
+        return redirect('instructor/dashboard');
     }
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest:web')->except('logout');
-    }
+  
 
 
     public function logout(){

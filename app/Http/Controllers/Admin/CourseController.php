@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CourseExport;
 use App\Models\CourseInstructor;
 use App\Models\CourseTrack;
-
+use App\Models\Instructor;
 use Toastr;
 
 
@@ -100,6 +100,9 @@ class CourseController extends Controller
                     'course_prectange' => $request->instructorsprecentage[$i]
 
                 ]);
+                $instructor = Instructor::find($request->instructors[$i]);
+                $instructor->update(['current_balance' => $instructor->current_balance + $request->instructorsprice[$i]
+                 ,'total_balance'=> $instructor->total_balance + $request->instructorsprice[$i]]);
             }
         }
 

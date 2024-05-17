@@ -209,10 +209,17 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="userName">{{ __('admin.instructors.userName') }} <span>*</span></label>
-                                    <input type="userName" class="form-control" name="userName" id="userName" value="{{ old('userName') }}" required>
+                                    <label class="form-label" for="about_teacher">{{ __('admin.instructors.userName') }} <span>*</span></label>
+                                    <select class="select2 form-control" name="about_teacher" id="difficulty_level" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        <option value="0">{{ __('admin.instructors.student') }}</option>
+                                        <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
+                                        <option value="2 ">{{ __('admin.instructors.Graduated ') }}</option>
+                                        <option value="3">{{ __('admin.instructors.Doctorate ') }}</option>
+                                        <option value="4">{{ __('admin.instructors.Master ') }}</option>
 
-                                    @error('userName')
+                                    </select>
+                                    @error('about_teacher')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

@@ -73,7 +73,7 @@ class CourseTypeController extends Controller
             "name"=>$request->name,
         ]);
         
-        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.course-types.index');
     }
 

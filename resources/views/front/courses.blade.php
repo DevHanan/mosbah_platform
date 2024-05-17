@@ -9,12 +9,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="public/front/img/courses-header.svg" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="{{asset('front/img/courses-header.svg')}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="info position-relative py-5">
-                        <img src="public/front/img/completed-bg.svg" class="position-absolute img-fluid" alt="">
+                        <img src="{{asset('front/img/completed-bg.svg')}}" class="position-absolute img-fluid" alt="">
                         <h4 class="title py-5 pb-1 fw-bold secondary-color">قائمة الدورات </h4>
                         <div class="content fw-bold text-white">
                             بين يديك مجموعة متنوعة من الدورات التدريبية فى مختلف المسارات التعليمية نسعى من خلالها لتلبية احتياجاتك العلمية واكسابك مهارات متنوعة وخبرات ومعرفة تؤهلك للعمل وممارسة حياتك بشكل أفضل
@@ -196,11 +196,11 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
                                 </div>
                             </li>
                             <li class="my-2 d-flex align-items-center justify-content-between">
@@ -211,11 +211,11 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
                                 </div>
                             </li>
                             <li class="my-2 d-flex align-items-center justify-content-between">
@@ -226,11 +226,11 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
                                 </div>
                             </li>
                             <li class="my-2 d-flex align-items-center justify-content-between">
@@ -241,11 +241,11 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/emptyStar.png" width="20" alt="">
-                                    <img src="public/front/img/Star.svg" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/emptyStar.png')}}" width="20" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" width="20" alt="">
                                 </div>
                             </li>
                         </ul>
@@ -254,13 +254,13 @@
             </div>
             <div class="col-lg-7">
                 <div class="course_content">
-                    <h3 class="position-relative fw-bold primary-color mb-4">التصميم <img src="public/front/img/text-line2.svg" class="position-absolute img-fluid" alt=""></h3>
+                    <h3 class="position-relative fw-bold primary-color mb-4">التصميم <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute img-fluid" alt=""></h3>
                     <div class="d-flex justify-content-between">
                         <h3 class="fw-bold">قائمة الدورات</h3>
                         <div class="d-flex">
 
-                            <img src="public/front/img/icons/category.svg" class="img-fluid categoryCards cardShape active p-1 rounded mx-2" alt="">
-                            <img src="public/front/img/icons/Layer.svg" class="img-fluid rowsCards cardShape p-1 rounded" alt="">
+                            <img src="{{asset('front/img/icons/category.svg')}}" class="img-fluid categoryCards cardShape active p-1 rounded mx-2" alt="">
+                            <img src="{{asset('front/img/icons/Layer.svg')}}" class="img-fluid rowsCards cardShape p-1 rounded" alt="">
                         </div>
                     </div>
 
@@ -303,11 +303,11 @@
                                             <div class="rating d-flex justify-content-end">
                                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                                <img src="public/front/img/grayStar.svg" alt="">
-                                                <img src="public/front/img/Star.svg" alt="">
-                                                <img src="public/front/img/Star.svg" alt="">
-                                                <img src="public/front/img/Star.svg" alt="">
-                                                <img src="public/front/img/Star.svg" alt="">
+                                                <img src="{{asset('front/img/grayStar.svg')}}" alt="">
+                                                <img src="{{asset('front/img/Star.svg')}}" alt="">
+                                                <img src="{{asset('front/img/Star.svg')}}" alt="">
+                                                <img src="{{asset('front/img/Star.svg')}}" alt="">
+                                                <img src="{{asset('front/img/Star.svg')}}" alt="">
                                             </div>
                                             <hr>
                                             <div class="d-flex justify-content-between align-items-center">
@@ -394,11 +394,11 @@
                                 <div class="rating d-flex justify-content-end">
                                     <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="public/front/img/grayStar.svg" alt="">
-                                    <img src="public/front/img/Star.svg" alt="">
-                                    <img src="public/front/img/Star.svg" alt="">
-                                    <img src="public/front/img/Star.svg" alt="">
-                                    <img src="public/front/img/Star.svg" alt="">
+                                    <img src="{{asset('front/img/grayStar.svg')}}" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
+                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">

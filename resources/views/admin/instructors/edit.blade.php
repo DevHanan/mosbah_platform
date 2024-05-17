@@ -85,11 +85,12 @@
                   <label class="form-label" for="about_teacher">{{ __('admin.instructors.about') }} <span>*</span></label>
                   <select class="select2 form-control" name="about_teacher" id="about_teacher" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="0">{{ __('admin.instructors.student') }}</option>
-                    <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
-                    <option value="2 ">{{ __('admin.instructors.Graduated ') }}</option>
-                    <option value="3">{{ __('admin.instructors.Doctorate ') }}</option>
-                    <option value="4">{{ __('admin.instructors.Master ') }}</option>
+                    <option value="0" @if($row->about_teacher == 0) selected="selected" @endif>{{ __('admin.instructors.student') }}</option>
+                    <option value="1" @if($row->about_teacher == 1) selected="selected" @endif>{{ __('admin.instructors.Bachelor') }}</option>
+                    <option value="2" @if($row->about_teacher == 2) selected="selected" @endif>{{ __('admin.instructors.Graduated ') }}</option>
+                    <option value="3" @if($row->about_teacher == 3) selected="selected" @endif>{{ __('admin.instructors.Doctorate ') }}</option>
+                    <option value="4" @if($row->about_teacher == 4) selected="selected" @endif>{{ __('admin.instructors.Master ') }}</option>
+
 
                   </select>
                   @error('about_teacher')

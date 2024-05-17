@@ -189,7 +189,13 @@ return [
         'field_photo' => 'الصورة',
         "userName" => "إسم المستخدم",
         'paypall_account_number' => 'رابط حساب باي بال',
-        'cash_wallet_number' => 'رقم محفظة كاش' 
+        'cash_wallet_number' => 'رقم محفظة كاش' ,
+        'student' => 'طالب',
+        'Bachelor' => 'بكالوريس',
+        'Graduated' => 'خريج',
+        'Doctorate' => 'دكتوراه',
+        'Master' => 'ماجستير',
+
     ],
     'subscriptions' => [
         'title'  => 'الإشتراكات',

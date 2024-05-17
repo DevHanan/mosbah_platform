@@ -175,7 +175,7 @@
                                         " aria-expanded="true" aria-controls="stage1_lec1">
                                                         <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> 
                                                         @if($lecture->free == 0)
-                                                         <span style="padding:px 10px;"><i class="fas fa-lock"></i>  </span>
+                                                         <span style="padding:0px 5px;"><i class="fas fa-lock"></i>  </span>
                                                         @endif
                                                          {{ $lecture->title }}
                                                        

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class InstructorTrack extends Model
 {
     use HasFactory;
-    protected $table = 'instrucotr_tracks';
+    protected $table = 'instructor_tracks';
     protected $fillable = ['instructor_id', 'track_id'];
 
     public function track()

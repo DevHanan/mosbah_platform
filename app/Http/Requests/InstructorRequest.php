@@ -27,8 +27,6 @@ class InstructorRequest extends FormRequest
             'last_name' => 'required',
             'email'        => 'required|unique:instructors,email',
             'password' => 'required|confirmed',
-            'userName'        => 'required|unique:instructors,userName',
-            'track_id' => 'required|exists:tracks,id',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
 

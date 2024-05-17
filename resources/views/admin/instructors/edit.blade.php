@@ -237,10 +237,10 @@
 
               </div>
 
-              <div class="col-md-12">
+              <!-- <div class="col-md-12">
                 <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
                 <textarea class="form-control" name="about_teacher" rows="6" placeholder="Content.."> {{ $row->about_teacher }}</textarea>
-              </div>
+              </div> -->
               <div class="col-md-12">
                 <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
                 <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>

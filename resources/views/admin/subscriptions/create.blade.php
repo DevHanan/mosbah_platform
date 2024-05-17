@@ -45,7 +45,7 @@
                                 <select class="form-control" name="student_id" id="student_id" required>
                                     <option value="">{{ __('select') }}</option>
                                     @foreach($students as $student)
-                                    <option value="{{ $student->id }}"> {{ $student->first_name }}</option>
+                                    <option value="{{ $student->id }}"> {{ $student->name }}</option>
 
                                     @endforeach
                                 </select>
@@ -57,7 +57,7 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="form-label" for="track_id">{{ __('admin.subscriptions.field_track') }} <span>*</span></label>
                                 <select class="form-control" name="track_id" id="track_id" required>
                                     <option value="">{{ __('select') }}</option>
@@ -72,7 +72,7 @@
                                     {{ $message }}
                                 </div>
                                 @enderror
-                            </div>
+                            </div> -->
 
                             <div class="mb-3">
 
@@ -112,7 +112,7 @@
                                 <select class="form-control" name="course_id" id="course_id" required>
                                     <option value="">{{ __('select') }}</option>
                                     @foreach($courses as $course)
-                                    <option value="{{ $course->id }}"> {{ $course->name }}</option>
+                                    <option value="{{ $course->id }}"> {{ $course->name }} - {{ $course->price_with_discount }} {{ $setting->currency }}</option>
 
                                     @endforeach
                                 </select>

@@ -102,7 +102,7 @@
                                             <a href="javascript:void(0);" 
         class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
         href="#" onclick='event.preventDefault();
-        document.getElementById("instructor-login-form-$row->id").submit();'>
+        document.getElementById("instructor-login-form-".$row->id).submit();'>
 
 <i class="fa fa-sign-in" aria-hidden="true"></i>
 

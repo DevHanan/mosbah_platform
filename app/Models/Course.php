@@ -39,9 +39,9 @@ class Course extends Model
             return  trans('admin.courses.beginner');
         elseif ($this->difficulty_level == 1)
 
-            trans('admin.courses.intermediate');
+           return  trans('admin.courses.intermediate');
         elseif ($this->difficulty_level == 2)
-            trans('admin.courses.advanced');
+           return  trans('admin.courses.advanced');
         else
             return  trans('admin.courses.all');
     }

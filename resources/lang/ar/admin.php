@@ -185,7 +185,7 @@ return [
         'country_id'  => 'الدولة',
         'track' =>'المسار',
         "qualifications" => "المؤهلات",
-        'about' => "خبرات علمية ",
+        'about' => "درجة علمية ",
         'field_photo' => 'الصورة',
         "userName" => "إسم المستخدم",
         'paypall_account_number' => 'رابط حساب باي بال',

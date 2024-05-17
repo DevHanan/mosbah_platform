@@ -82,8 +82,8 @@
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="about_teacher">{{ __('admin.instructors.userName') }} <span>*</span></label>
-                  <select class="select2 form-control" name="about_teacher" id="difficulty_level" required>
+                  <label class="form-label" for="about_teacher">{{ __('admin.instructors.about') }} <span>*</span></label>
+                  <select class="select2 form-control" name="about_teacher" id="about_teacher" required>
                     <option value="">{{ __('select') }}</option>
                     <option value="0">{{ __('admin.instructors.student') }}</option>
                     <option value="1">{{ __('admin.instructors.Bachelor') }}</option>

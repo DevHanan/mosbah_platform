@@ -99,7 +99,7 @@
 
                                             </a>
 
-                                            <a href="{{ url('admin/students/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <a href="{{ url('admin/instructors/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-eye"></i>
                                             </a>
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">

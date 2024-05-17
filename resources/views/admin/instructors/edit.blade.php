@@ -69,7 +69,7 @@
                   <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
                   <select class="form-control" name="is_employee" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1"  @if($row->is_employee == 1) selected="selected" @endif> {{ __('admin.instructors.yes')}}</option>
+                    <option value="1" @if($row->is_employee == 1) selected="selected" @endif> {{ __('admin.instructors.yes')}}</option>
                     <option value="0" @if($row->is_employee == 0 ) selected="selected" @endif> {{ __('admin.instructors.no')}}</option>
 
                   </select>
@@ -82,10 +82,17 @@
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="userName">{{ __('admin.instructors.userName') }} <span>*</span></label>
-                  <input type="userName" class="form-control" name="userName" id="userName" value="{{ $row->userName }}" required>
+                  <label class="form-label" for="about_teacher">{{ __('admin.instructors.userName') }} <span>*</span></label>
+                  <select class="select2 form-control" name="about_teacher" id="difficulty_level" required>
+                    <option value="">{{ __('select') }}</option>
+                    <option value="0">{{ __('admin.instructors.student') }}</option>
+                    <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
+                    <option value="2 ">{{ __('admin.instructors.Graduated ') }}</option>
+                    <option value="3">{{ __('admin.instructors.Doctorate ') }}</option>
+                    <option value="4">{{ __('admin.instructors.Master ') }}</option>
 
-                  @error('userName')
+                  </select>
+                  @error('about_teacher')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -94,7 +101,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
-                  <select class="form-control" name="track_id" id="track_id" required>
+                  <select class="form-control" name="track_ids[]" id="track_id" multiple>
                     <option value="">{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}" @if($row->track_id == $track->id) selected="selected" @endif> {{ $track->name }}</option>
@@ -110,33 +117,33 @@
                 </div>
 
                 <div class="mb-3">
-                                    <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control select2" name="country_id" id="country_id" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($countries as $country)
-                                        <option value="{{ $country->id }}" @if($row->country_id == $country->id)  selected @endif> {{ $country->name }}</option>
+                  <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
+                  <select class="form-control select2" name="country_id" id="country_id" required>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($countries as $country)
+                    <option value="{{ $country->id }}" @if($row->country_id == $country->id) selected @endif> {{ $country->name }}</option>
 
-                                        @endforeach
-                                    </select>
+                    @endforeach
+                  </select>
 
-                                    @error('country_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                  @error('country_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="paypall_account_number">{{ __('admin.instructors.paypall_account_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}" required>
+                <div class="mb-3">
+                  <label class="form-label" for="paypall_account_number">{{ __('admin.instructors.paypall_account_number') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}" required>
 
 
-                                    @error('paypall_account_number')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                  @error('paypall_account_number')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
               </div>
@@ -187,16 +194,16 @@
                 </div>
 
                 <div class="mb-3">
-                                    <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}" required>
+                  <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}" required>
 
 
-                                    @error('cash_wallet_number')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                  @error('cash_wallet_number')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
@@ -212,6 +219,19 @@
                   </div>
                   @enderror
                 </div>
+
+                <div class="mb-3">
+
+
+<label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
+<input type="file" class="form-control" name="cv" id="cv">
+
+@error('cv')
+<div class="invalid-feedback">
+    {{ $message }}
+</div>
+@enderror
+</div>
 
 
 

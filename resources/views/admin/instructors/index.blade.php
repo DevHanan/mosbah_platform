@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            {{ Breadcrumbs::render('instructors') }}
+                {{ Breadcrumbs::render('instructors') }}
 
             </div>
             <!-- Page title actions -->
@@ -94,12 +94,14 @@
 
 
 
-                                        <a href="#"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                            <a href="#" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="fa fa-sign-in" aria-hidden="true"></i>
 
                                             </a>
 
-
+                                            <a href="{{ url('admin/students/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="far fa-eye"></i>
+                                            </a>
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </a>

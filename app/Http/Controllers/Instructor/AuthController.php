@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Instructor;
 
 use Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Instructor;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthController extends Controller
@@ -30,7 +31,7 @@ class AuthController extends Controller
 
     public function login($id){
         Auth::guard('web')->logout();
-        Auth::loginUsingId($id);
+        Auth::guard('instructors-login')->loginUsingId($id);
         return redirect('instructor/dashboard');
     }
   

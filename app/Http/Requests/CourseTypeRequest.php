@@ -23,6 +23,7 @@ class CourseTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
+            
             'name'=>'unique:course_types,name'
 
 

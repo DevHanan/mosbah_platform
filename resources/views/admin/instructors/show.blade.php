@@ -79,13 +79,19 @@
 
                                     <tr>
                                         <th>{{ __('admin.instructors.field_course_number') }}</th>
-                                        <td> {{ $row->courses()->count() }} </td>
+                                        <td> {{ $row->courses()->count() }} دورة تدريبية </td>
 
-                                        
+
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.instructors.field_course_total') }}</th>
+                                        <td> {{ $row->courses()->sum('price') }} </td>
+
+
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.instructors.salary') }}</th>
-                                        <td> {{ $row->salary }} </td>
+                                        <td> {{ $row->salary }}  {{ $setting->currency }}</td>
 
                                     </tr>
 

@@ -31,12 +31,7 @@ class UpdateInstructorRequest extends FormRequest
                 Rule::unique('instructors', 'email')->ignore($this->id)
             ],
             'password' => 'confirmed',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'userName' => [
-                'required',
-                Rule::unique('instructors', 'userName')->ignore($this->id)
-            ],
-            'track_id' => 'required|exists:tracks,id',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
 
 
 

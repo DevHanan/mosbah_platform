@@ -40,9 +40,11 @@ class Instructor extends Authenticatable
             return asset('public/'.$this->image);
     }
      
-    public function track()
+
+
+    public function tracks()
     {
-        return $this->belongsTo(Track::class);
+        return $this->belongsToMany(Track::class);
     }
     public function courses()
     {

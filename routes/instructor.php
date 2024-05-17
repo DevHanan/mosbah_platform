@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Instructor\AuthController;
 use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardController;
-Route::post('login-by-id', [AuthController::class, 'login'])->name('instructor-login');
+Route::get('login-by-id', [AuthController::class, 'login'])->name('instructor-login');
 
 Route::group(
     [

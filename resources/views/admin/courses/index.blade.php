@@ -3,10 +3,10 @@
 @section('content')
 <style>
   .list-unstyled {
-	list-style: none;
-	margin-left: 0;
-	padding-left: 0;
-}
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
 </style>
 <div class="page-header d-print-none">
   <div class="container-xl">
@@ -41,7 +41,7 @@
           <div class="card-header">
             <h3 class="card-title">{{ $title }}</h3>
           </div>
-          
+
           <div class="table-responsive">
             <table class=" export-table table card-table table-vcenter text-nowrap datatable">
               <thead>
@@ -102,11 +102,11 @@
                   <td>
 
 
-<div class="form-check form-switch md-3" style="margin:10px">
+                    <div class="form-check form-switch md-3" style="margin:10px">
 
-  <input data-id="{{$row->id}}" data-type='App\Models\Course' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-</div>
-</td>
+                      <input data-id="{{$row->id}}" data-type='App\Models\Course' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                    </div>
+                  </td>
 
                   <td>
 
@@ -116,7 +116,7 @@
                       <input data-id="{{$row->id}}" data-type='App\Models\Course' class="form-check-input form-control toggole-recommened" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->recommened==1) checked="checked" @endif name="recommened">
                     </div>
                   </td>
-              
+
 
 
                   <td style="width: 270px;">

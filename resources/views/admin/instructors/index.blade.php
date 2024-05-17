@@ -89,8 +89,8 @@
                                                 <input data-id="{{$row->id}}" data-type='App\Models\Instructor' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                             </div>
                                         </td>
-                                        </td>
-                                        <td>
+
+                                        <td style="width: 270px;">
 
 
 
@@ -101,22 +101,20 @@
 
                                             </a> -->
 
-                                            <a href="javascript:void(0);" 
-        class="btn btn-icon btn-primary btn-sm" 
-        href="#" onclick='event.preventDefault();
+                                            <a href="javascript:void(0);" class="btn btn-icon btn-primary btn-sm" href="#" onclick='event.preventDefault();
         document.getElementById("instructor-login-form-<?php echo $row->id; ?>").submit();'>
 
-<i class="fa fa-sign-in" aria-hidden="true"></i>
+                                                <i class="fa fa-sign-in" aria-hidden="true"></i>
 
-        </a>
+                                            </a>
 
-        <form id="instructor-login-form-{{$row->id}}" action="{{ route('instructor.instructor-login') }}" method="POST">
-          @csrf
-          <input type="hidden" name="id" value="{{$row->id}}">
+                                            <form id="instructor-login-form-{{$row->id}}" action="{{ route('instructor.instructor-login') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$row->id}}">
 
-        </form>
+                                            </form>
 
-                                            <a href="{{ url('admin/instructors/'.$row->id)}}"  style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <a href="{{ url('admin/instructors/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-eye"></i>
                                             </a>
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">

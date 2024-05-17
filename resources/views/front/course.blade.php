@@ -175,7 +175,7 @@
                                         " aria-expanded="true" aria-controls="stage1_lec1">
                                                         <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> {{ $lecture->title }}
                                                         @if($lecture->free == 0)
-                                                        <span><i class="fi fi-rr-lock"></i>  Locked </span>
+                                                        <span><i class="fas fa-lock"></i>  </span>
                                                         @endif
                                                     </button>
                                                 </h2>

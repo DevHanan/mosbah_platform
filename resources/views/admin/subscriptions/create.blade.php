@@ -89,27 +89,9 @@
 
                         </div>
                         <div class="col-md-6">
-
-                        <div class="mb-3">
-                                <label class="form-label" for="payment_type_id">{{ __('admin.subscriptions.field_paymenttype') }} <span>*</span></label>
-                                <select class="form-control" name="payment_type_id" id="payment_type_id" required>
-                                    <option value="">{{ __('select') }}</option>
-                                    @foreach($paymenttypes as $paymenttype)
-                                    <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }}</option>
-
-                                    @endforeach
-                                </select>
-
-                                @error('payment_type_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
                         <div class="mb-3">
                                 <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                <select class="form-control" name="course_id" id="course_id" required>
+                                <select class="form-control select2" name="course_id" id="course_id" required>
                                     <option value="">{{ __('select') }}</option>
                                     @foreach($courses as $course)
                                     <option value="{{ $course->id }}"> {{ $course->name }} - {{ $course->price_with_discount }} {{ $setting->currency }}</option>
@@ -134,6 +116,24 @@
 
 
                         </div>
+                        <div class="mb-3">
+                                <label class="form-label" for="payment_type_id">{{ __('admin.subscriptions.field_paymenttype') }} <span>*</span></label>
+                                <select class="form-control" name="payment_type_id" id="payment_type_id" required>
+                                    <option value="">{{ __('select') }}</option>
+                                    @foreach($paymenttypes as $paymenttype)
+                                    <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }}</option>
+
+                                    @endforeach
+                                </select>
+
+                                @error('payment_type_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                       
 
 
                        

@@ -94,15 +94,17 @@
 
 
 
-                                            <a href="#" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <!-- <a href="#" 
+                                            style="margin-bottom:5px;" 
+                                            class="btn btn-icon btn-primary btn-sm">
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
 
-                                            </a>
+                                            </a> -->
 
                                             <a href="javascript:void(0);" 
-        class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
+        class="mx-3 p-2 rounded-pill secondary-bg  text-decoration-none" 
         href="#" onclick='event.preventDefault();
-        document.getElementById("instructor-login-form-".$row->id).submit();'>
+        document.getElementById("instructor-login-form-"<?php echo $row->id; ?>').submit();'>
 
 <i class="fa fa-sign-in" aria-hidden="true"></i>
 

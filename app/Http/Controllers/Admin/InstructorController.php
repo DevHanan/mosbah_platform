@@ -95,6 +95,7 @@ class InstructorController extends Controller
     public function show($id)
     {
         $data['row'] = Instructor::find($id);
+        $data['title'] = 'عرض بروفايل المحاضر';
         return view($this->view . '.show', $data);
 
     }

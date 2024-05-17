@@ -108,7 +108,7 @@
 
                                             </a>
 
-                                            <form id="instructor-login-form-{{$row->id}}" action="{{ route('instructor.instructor-login') }}" method="POST">
+                                            <form id="instructor-login-form-{{$row->id}}" action="{{ route('instructor-login') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$row->id}}">
 

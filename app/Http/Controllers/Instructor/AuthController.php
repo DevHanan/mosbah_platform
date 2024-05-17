@@ -26,8 +26,11 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/instructor/dashboard';
 
+    public function login(Request $request){
+        return $request->all();
+    }
     /**
      * Create a new controller instance.
      *

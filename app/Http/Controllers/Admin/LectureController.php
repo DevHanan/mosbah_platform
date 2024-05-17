@@ -90,7 +90,7 @@ class LectureController extends Controller
                 }
             }
         }
-        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect("admin/levels/$level_id/lectures");
     }
 

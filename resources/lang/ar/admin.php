@@ -156,6 +156,7 @@ return [
         'field_total_subscription' => 'إجمالى قيمة الإشتراكات'
     ],
     "instructors" =>[
+        'field_cv' => 'ملف السيرة الذاتية',
         'is_employee' => 'هل المحاضر موظف',
         'salary' => 'المرتب',
         'yes'  => 'نعم',

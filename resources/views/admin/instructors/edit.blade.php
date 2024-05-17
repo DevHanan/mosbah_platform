@@ -101,10 +101,10 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
-                  <select class="form-control" name="track_ids[]" id="track_id" multiple>
+                  <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
                     <option value="">{{ __('select') }}</option>
                     @foreach($tracks as $track)
-                    <option value="{{ $track->id }}" @if($row->track_id == $track->id) selected="selected" @endif> {{ $track->name }}</option>
+                    <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray())) selected @endif> {{ $track->name }}</option>
 
                     @endforeach
                   </select>
@@ -223,15 +223,15 @@
                 <div class="mb-3">
 
 
-<label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
-<input type="file" class="form-control" name="cv" id="cv">
+                  <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
+                  <input type="file" class="form-control" name="cv" id="cv">
 
-@error('cv')
-<div class="invalid-feedback">
-    {{ $message }}
-</div>
-@enderror
-</div>
+                  @error('cv')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
 

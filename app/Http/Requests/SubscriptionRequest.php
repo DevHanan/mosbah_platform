@@ -24,7 +24,6 @@ class SubscriptionRequest extends FormRequest
     {
         return [
             'course_id' => 'required|exists:courses,id',
-            'track_id' => 'required|exists:tracks,id',
             'student_id' => 'required|exists:students,id',
             'payment_type_id' => 'required|exists:payment_types,id',
             'id' => 'nullable|exists:subscriptions,id'

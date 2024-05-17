@@ -126,7 +126,7 @@ Breadcrumbs::for('update-levels', function (BreadcrumbTrail $trail,$course,$row)
 
 Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$course,$row) {
     $trail->parent('levels',$course);
-    $trail->push($row->name, route('admin.courses.edit', $row));
+    $trail->push($row->name, route('admin.courses.show', $row));
 });
 
 // Home > Levels details  > Lectures

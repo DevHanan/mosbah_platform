@@ -304,6 +304,8 @@ return [
         'action' => 'الحدث'
     ],
     'settings' => [
+        'address_on_map' => 'العنوان على الخريطة',
+        'map_link' => 'لوكيشن الخريطة',
         'telephone' => 'رقم الهاتف الارضى',
         'telegram_number' => 'رقم تليجرام',
         'linkedin_url' => 'لينكد ان',

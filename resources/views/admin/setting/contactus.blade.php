@@ -84,6 +84,17 @@
 
 
                                                     <div class="mb-3">
+                                                        <label class="form-label" for="linkedin_url">{{ __('admin.settings.linkedin_url') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="linkedin_url" id="linkedin_url" value="{{ isset($row->linkedin_url)?$row->linkedin_url:'' }}">
+
+                                                        @error('linkedin_url')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+
+                                                    <div class="mb-3">
                                                         <label class="form-label" for="instgram_url">{{ __('admin.settings.field_instgram_url') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="instgram_url" id="instgram_url" value="{{ isset($row->instgram_url)?$row->instgram_url:'' }}">
 
@@ -94,11 +105,20 @@
                                                         @enderror
                                                     </div>
 
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="address_on_map">{{ __('admin.settings.address_on_map') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="address_on_map" id="address_on_map" value="{{ isset($row->address_on_map)?$row->address_on_map:'' }}">
 
+                                                        @error('address_on_map')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="telephone ">{{ __('admin.settings.telephone ') }} <span>*</span></label>
+                                                        <label class="form-label" for="telephone ">{{ __('admin.settings.telephone') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="telephone " id="telephone " value="{{ isset($row->telephone )?$row->telephone :'' }}">
 
                                                         @error('telephone ')
@@ -153,6 +173,27 @@
                                                         @enderror
                                                     </div>
 
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="tiktok_url">{{ __('admin.settings.tiktok_url') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="tiktok_url" id="tiktok_url" value="{{ isset($row->tiktok_url)?$row->tiktok_url:'' }}">
+
+                                                        @error('tiktok_url')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="map_link">{{ __('admin.settings.map_link') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="map_link" id="map_link" value="{{ isset($row->map_link)?$row->map_link:'' }}">
+
+                                                        @error('map_link')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
 
 
 

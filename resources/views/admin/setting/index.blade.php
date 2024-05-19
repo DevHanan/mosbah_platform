@@ -60,7 +60,7 @@
 
 
                             @if(isset($row->logo_path))
-                            <img src="{{ asset($row->logo_path) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->logoFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                           </div>
@@ -73,7 +73,7 @@
                             <input type="file" class="form-control" name="login_image" id="favicon">
 
                             @if(isset($row->login_image))
-                            <img src="{{ asset($row->login_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
+                            <img src="{{ asset($row->loginImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
                             <div class="clearfix"></div>
                             @endif
                           </div>
@@ -108,7 +108,7 @@
                             <input type="file" class="form-control" name="favicon_path" id="favicon">
 
                             @if(isset($row->favicon_path))
-                            <img src="{{ asset($row->favicon_path) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
+                            <img src="{{ asset($row->iconFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
                             <div class="clearfix"></div>
                             @endif
                           </div>
@@ -121,7 +121,7 @@
                             <input type="file" class="form-control" name="register_image" id="favicon">
 
                             @if(isset($row->register_image))
-                            <img src="{{ asset($row->register_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
+                            <img src="{{ asset($row->registerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
                             <div class="clearfix"></div>
                             @endif
                           </div>

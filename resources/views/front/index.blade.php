@@ -27,7 +27,7 @@
                     </p>
 
                     <div class="content my-5">
-                {!!   $landing_setting->header_description !!}
+                {{   $landing_setting->header_description }}
                 </div>
                     <div class="search position-relative">
                         <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟">

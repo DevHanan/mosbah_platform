@@ -7,7 +7,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="img">
+                    @if(isset($landing_setting->header_image))
+                    <img src="{{asset($landing_setting->headerImageFullPath)}}" class="img-fluid" data-aos="fade-left" data-aos-duration="1000" alt="">
+                    @else
                     <img src="public/front/img/index-header.svg" class="img-fluid" data-aos="fade-left" data-aos-duration="1000" alt="">
+                    @endif
                 </div>
             </div>
             <div class="col-md-6">
@@ -27,7 +31,7 @@
                     </p>
 
                     <div class="content my-5">
-                {{   $landing_setting->header_description }}
+                {!!   $landing_setting->header_description !!}
                 </div>
                     <div class="search position-relative">
                         <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟">

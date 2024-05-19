@@ -44,6 +44,22 @@ Breadcrumbs::for('update-tracks', function (BreadcrumbTrail $trail,$row) {
 });
 
 
+// Home > tracks
+Breadcrumbs::for('coupons', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.coupons.list'), route('admin.coupons.index'));
+});
+
+Breadcrumbs::for('add-coupons', function (BreadcrumbTrail $trail) {
+    $trail->parent('coupons');
+    $trail->push(trans('navbar.courses.add_track'), route('admin.coupons.create'));
+});
+Breadcrumbs::for('update-coupons', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('coupons');
+    $trail->push($row->name, route('admin.coupons.edit', $row));
+});
+
+
 // Home > users
 Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
@@ -128,6 +144,9 @@ Breadcrumbs::for('show-levels', function (BreadcrumbTrail $trail,$course,$row) {
     $trail->parent('levels',$course);
     $trail->push($row->name, route('admin.courses.edit', $row));
 });
+
+
+
 
 // Home > Levels details  > Lectures
 Breadcrumbs::for('lectures', function (BreadcrumbTrail $trail,$course,$level) {

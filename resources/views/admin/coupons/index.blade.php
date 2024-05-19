@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                @include('admin.layouts.inc.breadcrumb')
+            {{ Breadcrumbs::render('coupons') }}
 
             </div>
             <!-- Page title actions -->
@@ -37,7 +37,7 @@
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
-                            <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
+                            <table id="basic-table" class=" export-table display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>

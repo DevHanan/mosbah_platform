@@ -8,6 +8,9 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Requests\SubscriptionRequest;
 use App\Http\Resources\SubscriptionResource;
+use App\Models\Course;
+use App\Models\CourseInstructor;
+use App\Models\Instructor;
 use App\Models\Subscription;
 use Toastr;
 
@@ -58,6 +61,17 @@ class SubscriptionController extends Controller
             $attach = 'payment_attachment';
             $subscription->payment_attachment = 'uploads/' .$directory .'/'.$this->uploadMedia($request,$attach, $directory);
             $subscription->save();
+        }
+        $course= Course::find($request->course_id);
+        $subscription->update(['paid'=>$course->price_with_discount]);
+
+
+        /** add instructor prectange if exist */
+        $instructors = CourseInstructor::where('course_id',$course->id)->get();
+        foreach($instructors as $item){
+            if($item->prectange)
+            $instructor = Instructor::find($item->instructor_id);
+            
         }
      
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));

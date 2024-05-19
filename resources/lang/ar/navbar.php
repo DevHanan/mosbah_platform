@@ -36,7 +36,9 @@ return [
     'coupons' => [
         "coupons_management"  => "إدارة الكوبونات",
         "list" => "قائمة الكوبونات",
-        "add"   => "إضافة كوبون"
+        "add"   => "إضافة كوبون",
+        "edit"   => "تعديل كوبون",
+
     ],
     'certifications' => [
         "certifications_management"  => " الشهادات",

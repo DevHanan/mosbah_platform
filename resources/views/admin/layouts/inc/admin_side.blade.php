@@ -642,7 +642,7 @@
 
                   {{ __('navbar.settings.about_us_settings') }}
                 </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="#">
+                <a class="dropdown-item  @if(request()->routeIs('admin.setting.contactUs')) active @endif " href="{url('admin/contact-us-settings')">
 
                   {{ __('navbar.settings.contactus_settings') }}
                 </a>

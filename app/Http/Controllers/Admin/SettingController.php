@@ -61,9 +61,7 @@ class SettingController extends Controller
         $request->validate([
             'title' => 'required',
             'logo' => 'nullable|image',
-            'favicon' => 'nullable|image',
-            'phone' => 'nullable',
-            'email' => 'nullable|email'
+            'favicon' => 'nullable|image'
         ]);
 
        
@@ -100,6 +98,35 @@ class SettingController extends Controller
         $data['row'] = Setting::where('status', 1)->first();
         return view($this->view.'.mobile', $data);   
     }
+
+
+    public function contactUs(){
+        $data['title'] = 'إعدادت تواصل معنا ';
+        $data['row'] = Setting::where('status', 1)->first();
+        return view($this->view.'.contactus', $data);   
+    }
+
+
+    public function SaveContactUs(Request $request)
+    {
+        // Field Validation
+        // $request->validate([
+        //     'title' => 'required',
+        //     'logo' => 'nullable|image',
+        //     'favicon' => 'nullable|image'
+        // ]);
+
+       
+        $data = Setting::where('id',1)->first();
+        if(!$data)
+        $data = new Setting();
+        $data->update($request->all());
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->back();
+
+    }
+
+    
 
 
     

@@ -82,6 +82,10 @@ Route::group(
             /** Setting Route  */
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
             Route::post('siteinfo', [SettingController::class, 'siteinfo'])->name('setting.siteinfo');
+          
+            Route::get('contact-us-settings', [SettingController::class, 'contactUs'])->name('settings.contactUs');
+            Route::post('contact-us-settings', [SettingController::class, 'SaveContactUs'])->name('setting.SaveContactUs');
+
             Route::get('about-us-settings', [SettingController::class, 'aboutUSSetting'])->name('settings.aboutUSSetting');
             Route::post('about-us-settings', [SettingController::class, 'saveAboutSetting'])->name('setting.saveAboutSetting');
             Route::resource('teams', TeamController::class);

@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-
+    @if($landing_setting->achievements == 1)
     <div class="achievementSec my-5">
         <div class="container">
             <div class="row">
@@ -84,6 +84,7 @@
             </div>
         </div>
     </div>
+    @endif
     @if($landing_setting->workteam == 1)
 
     <div class="team trainers py-5">

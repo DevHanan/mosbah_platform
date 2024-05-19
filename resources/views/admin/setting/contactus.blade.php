@@ -61,6 +61,17 @@
                                                     </div>
 
                                                     <div class="mb-3">
+                                                        <label class="form-label" for="telegram_number">{{ __('admin.settings.telegram_number') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="telegram_number" id="telegram_number" value="{{ isset($row->telegram_number)?$row->telegram_number:'' }}">
+
+                                                        @error('telegram_number')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+
+                                                    <div class="mb-3">
                                                         <label class="form-label" for="youtube_url">{{ __('admin.settings.field_youtube_url') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="youtube_url" id="youtube_url" value="{{ isset($row->youtube_url)?$row->youtube_url:'' }}">
 
@@ -87,7 +98,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="telephone ">{{ __('admin.settings.field_telephone ') }} <span>*</span></label>
+                                                        <label class="form-label" for="telephone ">{{ __('admin.settings.telephone ') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="telephone " id="telephone " value="{{ isset($row->telephone )?$row->telephone :'' }}">
 
                                                         @error('telephone ')

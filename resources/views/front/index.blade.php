@@ -85,6 +85,7 @@
         </div>
     </div>
 </div>
+@if($landing_setting->most_required_courses == 1)
 
 <div class="popular-courses my-5">
     <div class="container">
@@ -159,6 +160,9 @@
     </div>
 </div>
 
+@endif
+@if($landing_setting->recommend_courses == 1)
+
 <div class="popular-courses my-5">
     <div class="container">
         <h2 class="section_title fw-bold">دورات <span class="primary-color">المرشحة </span></h2>
@@ -232,6 +236,9 @@
         <div class="swiper-pagination"></div>
     </div>
 </div>
+@endif
+
+@if($landing_setting->tracks == 1)
 <div class="categories py-5">
     <div class="container">
         <h2 class="section_title fw-bold">المسارات</h2>
@@ -253,8 +260,9 @@
         </div>
     </div>
 </div>
+@endif
 
-
+@if($landing_setting->instructors == 1)
 <div class="trainers my-5">
     <div class="container">
         <h2 class="section_title fw-bold">افضل <span class="primary-color"> مدربين لدينا</span></h2>
@@ -301,7 +309,8 @@
         <div class="swiper-pagination"></div>
     </div>
 </div>
-
+@endif
+@if($landing_setting->star_recently_courses == 1)
 <div class="courses position-relative py-5">
     <div class="container">
         <h2 class="section_title fw-bold">دورات <span class="primary-color"> تبدأ قريباً</span></h2>
@@ -382,7 +391,9 @@
     <img src="public/front/img/icons/pc.svg" class="pc position-absolute" alt="">
     <img src="public/front/img/icons/map.svg" class="map position-absolute" alt="">
 </div>
+@endif
 
+@if($landing_setting->student_opinion == 1)
 
 <div class="students_notes my-5">
     <div class="container">
@@ -452,19 +463,24 @@
         <div class="swiper-pagination"></div>
     </div>
 </div>
+@endif
 
 <div class="join_us my-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="img">
+                    @if($landing_setting->footer_image)
+                    <img src="{{ $landing_setting->footerImageFullPath }}" class="img-fluid" alt="">
+                    @else
                     <img src="public/front/img/join.svg" class="img-fluid" alt="">
+                    @endif
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="data h-100 d-flex flex-column justify-content-center">
                     <p class="title fw-bold"> انضم الى <span class="primary-color"> منصة دوافير التعليمية</span> اختيارك الأفضل اليوم، متوافقة مع شروط ومعايير المركز الوطني للتعليم الالكتروني</p>
-                    <p>بين يديك عدد كبير من الدورات التدريبية فى مسارات متعددة تكسبك مهارات تؤهلك لسوق العمل أو تمنحك خبرات ومعارف تجعل حياتك أفضل</p>
+                                        {!! $landing_setting->footer_description !!}
                     <div>
                         <a href="{{ url('signup')}}" class="btn rounded-pill secondary-bg text-white mt-4">سجل الآن مجانا وابدأ التعلم</a>
                     </div>

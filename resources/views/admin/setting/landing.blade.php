@@ -57,7 +57,7 @@
                                   <label for="logo form-label">{{ __('admin.landing.header_image') }}</label>
                                   <input type="file" class="form-control" name="header_image" id="logo">
                                   @if(isset($row->header_image))
-                                  <img src="{{ asset($row->headerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                                  <img  style="height:200px;" src="{{ asset($row->headerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                                   <div class="clearfix"></div>
                                   @endif
                                   @error('header_image')
@@ -107,7 +107,7 @@
                                   <label for="logo form-label">{{ __('admin.landing.footer_image') }}</label>
                                   <input type="file" class="form-control" name="footer_image" id="logo">
                                   @if(isset($row->footer_image))
-                                  <img src="{{ asset($row->footerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                                  <img  style="height:200px;"  src="{{ asset($row->footerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                                   <div class="clearfix"></div>
                                   @endif
                                   @error('footer_image')

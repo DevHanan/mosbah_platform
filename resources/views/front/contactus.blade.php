@@ -160,11 +160,13 @@
                 
             </div>     
         </div> -->
+        @if($landing_setting->map_locations == 1)
+
         <div class="row col-md-12">
 
 <div id="mapelement" style="height: 500px; width: 100%;"></div>
 </div>
-
+@endif
     </section>
 @endsection
 @push('front-script')

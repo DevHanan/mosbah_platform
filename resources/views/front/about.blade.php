@@ -84,6 +84,7 @@
             </div>
         </div>
     </div>
+    @if($landing_setting->workteam == 1)
 
     <div class="team trainers py-5">
         <div class="container">
@@ -125,6 +126,7 @@
             <div class="swiper-pagination"></div>
         </div>
     </div>
+    @endif
 
     <div class="aim position-relative my-5">
         <!-- <img src="public/front/img/aim-bg.svg" class="position-absolute img-fluid" alt=""> -->
@@ -199,6 +201,7 @@
 
         </div>
     </div>
+    @if($landing_setting->parteners == 1)
 
     <div class="partners position-relative my-5">
         <div class="container text-center mb-3">
@@ -232,6 +235,7 @@
             <div class="swiper-pagination"></div>
         </div>
     </div>
+    @endif
 
     <div class="que mt-5 py-5 mb-3" style="background-color: #DBFFFE;">
             <div class="container">

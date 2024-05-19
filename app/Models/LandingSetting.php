@@ -12,4 +12,18 @@ class LandingSetting extends Model
     'recommend_courses','top_rated_courses','star_recently_courses','tracks','instructors',
     'workteam','parteners','student_opinion','map_locations'
 ];
+
+protected $appends = ['headerImageFullPath','footerImageFullPath'];
+
+public function getheaderImageFullPathAttribute($value)
+{
+
+    return asset('public/' . $this->header_image);
+}
+
+public function getfooterImageFullPathAttribute($value)
+{
+
+    return asset('public/' . $this->footer_image);
+}
 }

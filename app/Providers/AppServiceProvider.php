@@ -12,6 +12,7 @@ use App\Models\Track;
 use App\Models\PaymentType;
 use App\Models\Level;
 use App\Models\Instructor;
+use App\Models\LandingSetting;
 use App\Models\Subscription;
 use App\Models\Ticket;
 use App\Models\Policy;
@@ -55,6 +56,7 @@ class AppServiceProvider extends ServiceProvider
         $recommened_courses = Course::recommened()->latest()->get();
         $subscriptions = Subscription::all();
         $latest  = Course::latest()->take(6)->get();
+        $landingSetting = LandingSetting::first();
 
 
 
@@ -69,7 +71,8 @@ class AppServiceProvider extends ServiceProvider
             'courseTypes' => $courseTypes, 'levels' => $levels, 'instructors' => $instructors,
             'policies' => $policies, 'tickets' => $tickets, 'teams' => $teams,
             'about' => $about ,'questions'=> $questions,'most_required'=>$most_required,
-            'recommened_courses'=> $recommened_courses,'subscriptions'=>$subscriptions
+            'recommened_courses'=> $recommened_courses,'subscriptions'=>$subscriptions,
+            'landing_Setting' => $landingSetting
 
 
         ]);

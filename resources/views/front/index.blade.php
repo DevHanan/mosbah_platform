@@ -13,14 +13,22 @@
             <div class="col-md-6">
                 <div class="info py-5">
                     <h4 class="title py-3 pb-1 fw-bold secondary-color">ابدأ بالنجاح</h4>
-                    <p class="desc fw-bold text-white">
+                    <!-- <p class="desc fw-bold text-white">
                         يمكنك الوصول إلى
                         <span class="position-relative">5000+ <img src="public/front/img/text-line1.svg" class="img-fluid img-line position-absolute" alt=""></span>
                         دورة
                         مع <span class="position-relative">300 <img src="public/front/img/text-line2.svg" class="img-fluid img-line position-absolute" alt=""></span> من المدربين
                         والمؤسسات
+                    </p> -->
+
+                    <p class="desc fw-bold text-white">
+
+                    {{ $landing_setting->header_title }}
                     </p>
-                    <div class="content my-5">منصة دوافير التعليمية متوافقة مع شروط ومعايير المركز الوطني للتعليم الالكتروني</div>
+
+                    <div class="content my-5">
+                {!!   $landing_setting->header_description !!}
+                </div>
                     <div class="search position-relative">
                         <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟">
                         <i class="fa-solid fa-search p-2 h-100 position-absolute rounded-circle d-flex align-items-center text-white secondary-bg"></i>

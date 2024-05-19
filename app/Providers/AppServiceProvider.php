@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
             'policies' => $policies, 'tickets' => $tickets, 'teams' => $teams,
             'about' => $about ,'questions'=> $questions,'most_required'=>$most_required,
             'recommened_courses'=> $recommened_courses,'subscriptions'=>$subscriptions,
-            'landing_Setting' => $landingSetting
+            'landing_setting' => $landingSetting
 
 
         ]);

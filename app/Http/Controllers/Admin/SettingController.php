@@ -144,6 +144,7 @@ class SettingController extends Controller
         $data->parteners = $request->parteners ? 1 : 0;
         $data->student_opinion = $request->student_opinion ? 1 : 0;
         $data->map_locations = $request->map_locations ? 1 : 0;
+        $data->achievements = $request->achievements ? 1: 0;
 
         $data->save();
 

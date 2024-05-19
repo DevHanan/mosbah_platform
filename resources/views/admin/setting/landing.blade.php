@@ -147,6 +147,19 @@
                             </div>
                             <div class="card-body">
                               <div class="row">
+
+                              <div class="col-md-12">
+                                  <label class="form-control">
+                                    <span class="col">
+                                    {{ __('admin.landing.achievements')}}
+                                    </span>
+                                    <span class="col-auto">
+                                      <label class="form-check form-check-single form-switch">
+                                        <input class="form-check-input" type="checkbox" name="achievements" @if($row->achievements==1) checked="checked" @endif>
+                                      </label>
+                                    </span>
+                                  </label>
+                                </div>
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">

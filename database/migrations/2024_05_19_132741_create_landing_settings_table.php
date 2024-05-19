@@ -29,6 +29,8 @@ return new class extends Migration
             $table->boolean('parteners')->default('1');
             $table->boolean('student_opinion')->default('1');
             $table->boolean('map_locations')->default('1');
+            $table->boolean('achievements')->default('1');
+
 
         });
     }

@@ -342,7 +342,8 @@ return [
         'workteam' => 'قائمة فريق العمل',
         'parteners' => 'قائمة الشركاء',
         'student_opinion' => 'آراء الطلاب',
-        'map_locations' => 'لوكيشن على الخريطة'
+        'map_locations' => 'لوكيشن على الخريطة',
+        'achievements' => 'الإنجازات'
         
 
     ],

@@ -46,52 +46,9 @@
                           </div>
 
 
-                          <div class="mb-3">
-                            <label class="form-label" for="phone">{{ __('admin.settings.field_phone') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="phone" id="phone" value="{{ isset($row->phone)?$row->phone:'' }}">
-
-                            @error('phone')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
 
 
 
-                          <div class="mb-3">
-                            <label class="form-label" for="address">{{ __('admin.settings.field_address') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="address" id="currency" value="{{ isset($row->address)?$row->address:'' }}">
-
-                            @error('address')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-
-                          <div class="mb-3">
-                            <label class="form-label" for="youtube_url">{{ __('admin.settings.field_youtube_url') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="youtube_url" id="youtube_url" value="{{ isset($row->youtube_url)?$row->youtube_url:'' }}">
-
-                            @error('youtube_url')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-
-
-                          <div class="mb-3">
-                            <label class="form-label" for="instgram_url">{{ __('admin.settings.field_instgram_url') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="instgram_url" id="instgram_url" value="{{ isset($row->instgram_url)?$row->instgram_url:'' }}">
-
-                            @error('instgram_url')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
 
 
                           <div class="mb-3">
@@ -108,30 +65,24 @@
                             @endif
                           </div>
 
+                          <div class="mb-3">
+
+
+
+                            <label class="form-label" for="login_image">{{ __('admin.settings.field_login_image') }}</label>
+                            <input type="file" class="form-control" name="login_image" id="favicon">
+
+                            @if(isset($row->login_image))
+                            <img src="{{ asset($row->login_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
+                            <div class="clearfix"></div>
+                            @endif
+                          </div>
+
+
                         </div>
                         <div class="col-md-6">
 
-                          <div class="mb-3">
-                            <label class="form-label" for="email">{{ __('admin.settings.field_email') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="email" id="currency" value="{{ isset($row->email)?$row->email:'' }}">
 
-                            @error('email')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-
-                          <div class="mb-3">
-                            <label class="form-label" for="whatsapp">{{ __('admin.settings.field_whatsapp') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="whatsapp" id="whatsapp" value="{{ isset($row->whatsapp)?$row->whatsapp:'' }}">
-
-                            @error('whatsapp')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
 
 
                           <div class="mb-3">
@@ -145,27 +96,9 @@
                             @enderror
                           </div>
 
-                          <div class="mb-3">
-                            <label class="form-label" for="facebook_url">{{ __('admin.settings.field_facebook_url') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="facebook_url" id="currency" value="{{ isset($row->facebook_url)?$row->facebook_url:'' }}">
 
-                            @error('facebook_url')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
 
-                          <div class="mb-3">
-                            <label class="form-label" for="twitter_url">{{ __('admin.settings.field_twitter_url') }} <span>*</span></label>
-                            <input type="text" class="form-control" name="twitter_url" id="currency" value="{{ isset($row->twitter_url)?$row->twitter_url:'' }}">
 
-                            @error('twitter_url')
-                            <div class="invalid-feedback">
-                              {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
 
                           <div class="mb-3">
 
@@ -176,6 +109,19 @@
 
                             @if(isset($row->favicon_path))
                             <img src="{{ asset($row->favicon_path) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
+                            <div class="clearfix"></div>
+                            @endif
+                          </div>
+
+                          <div class="mb-3">
+
+
+
+                            <label class="form-label" for="register_image">{{ __('admin.settings.field_register_image') }}</label>
+                            <input type="file" class="form-control" name="register_image" id="favicon">
+
+                            @if(isset($row->register_image))
+                            <img src="{{ asset($row->register_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_favicon') }}">
                             <div class="clearfix"></div>
                             @endif
                           </div>

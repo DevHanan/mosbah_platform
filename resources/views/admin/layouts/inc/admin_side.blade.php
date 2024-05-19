@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1 class="navbar-brand navbar-brand-autodark">
-      <a href="{{url('/')}}" >
+      <a href="{{url('/')}}">
         <img src="{{ asset($setting->logo_path)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
       </a>
     </h1>
@@ -618,6 +618,21 @@
 
                   {{ __('navbar.settings.general_settings') }}
                 </a>
+
+                <a class="dropdown-item  @if(request()->routeIs('admin.setting.home')) active @endif " href="{{url('admin/landing-page-settings')}}">
+
+                  {{ __('navbar.settings.home_settings') }}
+                </a>
+
+                <a class="dropdown-item  @if(request()->routeIs('admin.settings.aboutUSSetting')) active @endif " href="{{url('admin/about-us-settings')}}">
+
+                  {{ __('navbar.settings.about_us_settings') }}
+                </a>
+
+                <a class="dropdown-item  @if(request()->routeIs('admin.setting.contactUs')) active @endif " href="{{url('admin/contact-us-settings')}}">
+
+                  {{ __('navbar.settings.contactus_settings') }}
+                </a>
                 <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="#">
 
                   {{ __('navbar.settings.language_setting') }}
@@ -634,18 +649,8 @@
 
                   {{ __('navbar.settings.policies') }}
                 </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="#">
 
-                  {{ __('navbar.settings.home_settings') }}
-                </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.settings.aboutUSSetting')) active @endif " href="{{url('admin/about-us-settings')}}">
 
-                  {{ __('navbar.settings.about_us_settings') }}
-                </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.contactUs')) active @endif " href="{url('admin/contact-us-settings')">
-
-                  {{ __('navbar.settings.contactus_settings') }}
-                </a>
 
                 <a class="dropdown-item  @if(request()->routeIs('admin.parteners.*')) active @endif " href="{{url('admin/parteners')}}">
 

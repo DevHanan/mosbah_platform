@@ -26,7 +26,7 @@
                         <div class="container-xl">
                             <div class="row row-cards">
                                 <div class="col-md-12">
-                                    <form action="{{ route($route.'.siteinfo') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.setting.siteinfo') }}" method="post" enctype="multipart/form-data">
                                         @csrf
 
 

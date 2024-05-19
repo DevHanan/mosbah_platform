@@ -86,6 +86,10 @@ Route::group(
             Route::get('contact-us-settings', [SettingController::class, 'contactUs'])->name('settings.contactUs');
             Route::post('contact-us-settings', [SettingController::class, 'SaveContactUs'])->name('setting.SaveContactUs');
 
+            Route::get('landing-page-settings', [SettingController::class, 'landingSetting'])->name('settings.contactUs');
+            Route::post('landing-settings', [SettingController::class, 'SaveLandingSetting'])->name('setting.SaveContactUs');
+
+
             Route::get('about-us-settings', [SettingController::class, 'aboutUSSetting'])->name('settings.aboutUSSetting');
             Route::post('about-us-settings', [SettingController::class, 'saveAboutSetting'])->name('setting.saveAboutSetting');
             Route::resource('teams', TeamController::class);

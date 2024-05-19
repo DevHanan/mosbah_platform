@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->text('logo_path')->nullable();
             $table->text('favicon_path')->nullable();
+            $table->text('register_image')->nullable();
+            $table->text('login_image')->nullable();
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('email')->nullable();

@@ -304,6 +304,8 @@ return [
         'action' => 'الحدث'
     ],
     'settings' => [
+        "field_register_image" => "صورة الخاصة بإنشاء حساب بواجهه الزوار",
+        "field_login_image" => "صورة الخاصة بتسجيل حساب  بواجهه الزوار",
         'title'  => 'الاعدادت',
         'general_setting' => 'إعدادات عامة',
         'field_site_title' => 'إسم الموقع',
@@ -321,6 +323,28 @@ return [
         'policy_settings' => 'السياسات والشروط',
         'policies'  => 'السياسات والشروط',
         'field_whatsapp'  => 'رقم الواتساب'
+    ],
+    'landing' => [
+        'header_settings' => 'بيانات الهيدر',
+        'footer_settings' => 'بيانات سكشن التعريف بالمنصة',
+        'header_title' => 'عنوان  الهيدر',
+        'header_image'  => 'صورة الهيدر',
+        'header_descriptions' => 'وصف الهيدر',
+        'footer_image'  => 'صورة ',
+        'footer_description' => 'وصف ',
+        'control' => 'إظهار وإخفاء البيانات ',
+        'most_required_courses' => 'قائمة الدورات الأكثر طلبا',
+        'recommend_courses' => 'قائمة الدورات المرشحة',
+        'top_rated_courses' => 'قائمة الدورات الأعلى تقييما',
+        'star_recently_courses' => 'قائمة دورات تبدأ قريبا',
+        'tracks' => 'قائمة المسارات',
+        'instructors' => 'قائمة المدربين',
+        'workteam' => 'قائمة فريق العمل',
+        'parteners' => 'قائمة الشركاء',
+        'student_opinion' => 'آراء الطلاب',
+        'map_locations' => 'لوكيشن على الخريطة'
+        
+
     ],
     'policies' =>[
         'field_title' => 'العنوان',

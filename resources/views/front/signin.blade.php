@@ -67,7 +67,8 @@
                             <button  type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل الدخول</button>
                         </form>
                         <p class="text-center">او</p>
-                        <button class="btn shadow-sm border fw-bold w-100 my-3 py-3">تسجيل الدخول عن طريق جوجل <img src="{{asset('front/img/icons/google.png')}}" class="mx-3" alt=""></button>
+                        <button class="btn shadow-sm border fw-bold w-100 my-3 py-3">تسجيل الدخول عن طريق جوجل 
+                            <img src="{{asset('front/img/icons/google.png')}}" class="mx-3" alt=""></button>
                     
                 
                       </section>

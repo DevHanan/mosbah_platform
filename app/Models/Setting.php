@@ -9,7 +9,8 @@ class Setting extends Model
 {
     use HasFactory;
     protected $fillable=['title','email','address','phone','facebook_url',
-    'twitter_url','instgram_url','youtube_url','currency','whatsapp'
+    'twitter_url','instgram_url','youtube_url','currency','whatsapp',
+    'telephone'
 ];
 protected $appends = ['loginImageFullPath','registerImageFullPath' ,'logoFullPath', 'iconFullPath'];
 

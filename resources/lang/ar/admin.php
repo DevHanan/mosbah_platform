@@ -304,6 +304,7 @@ return [
         'action' => 'الحدث'
     ],
     'settings' => [
+        'telephone' => 'رقم الهاتف الارضى',
         "field_register_image" => "صورة الخاصة بإنشاء حساب بواجهه الزوار",
         "field_login_image" => "صورة الخاصة بتسجيل حساب  بواجهه الزوار",
         'title'  => 'الاعدادت',

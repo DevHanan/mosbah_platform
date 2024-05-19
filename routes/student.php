@@ -3,6 +3,8 @@
 use App\Http\Controllers\Student\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController ;
+Route::get('student-login-by-id/{id}', [AuthController::class, 'login'])->name('student-login');
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),

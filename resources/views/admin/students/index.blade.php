@@ -99,7 +99,11 @@
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
 
                                             </a>
+                                            <a href="{{url('student-login-by-id/'.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
 
+                                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+
+                                            </a>
 
                                             <a href="{{ route($route.'.edit', $row->id) }}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>

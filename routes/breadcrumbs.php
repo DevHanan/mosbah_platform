@@ -56,7 +56,7 @@ Breadcrumbs::for('add-coupons', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('update-coupons', function (BreadcrumbTrail $trail,$row) {
     $trail->parent('coupons');
-    $trail->push($row->name, route('admin.coupons.edit', $row));
+    $trail->push($row->code, route('admin.coupons.edit', $row));
 });
 
 

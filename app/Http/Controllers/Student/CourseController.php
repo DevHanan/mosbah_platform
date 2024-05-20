@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Course;
 use App\Models\Sale;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Subscription;
 use App\Models\Visit;
 use Auth;
 use Carbon\Carbon;
@@ -32,6 +34,8 @@ class DashboardController extends Controller
      $data['title'] = $this->title;
       $data['route'] = $this->route;
       $data['view'] = $this->view;
+      $ids= Subscription::where('student_id',auth()->guard('students-login')->user()->id)->pluck('course_id')->ToArray();
+      $data['courses'] = Course::whereIn('id',$ids)->latest()->get();
 
       return view('student.courses', $data);
 

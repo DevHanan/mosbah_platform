@@ -65,7 +65,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $setting->instagram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-instagram fa-lg primary-color"></i>
                                 </a>
                             </li>

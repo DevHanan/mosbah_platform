@@ -305,7 +305,7 @@ return [
     ],
     'settings' => [
         'address_on_map' => 'العنوان على الخريطة',
-        'map_link' => 'لوكيشن الخريطة',
+        'map_link' => '(الرابط)لوكيشن الخريطة',
         'telephone' => 'رقم الهاتف الارضى',
         'telegram_number' => 'رقم تليجرام',
         'linkedin_url' => 'لينكد ان',

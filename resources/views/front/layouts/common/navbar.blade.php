@@ -60,7 +60,7 @@
             <a class="nav-link primary-color" href="{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link primary-color" href="{{ $setting->instagram_url }}"><i class="fa-brands fa-instagram"></i></a>
+            <a class="nav-link primary-color" href="{{ $setting->instgram_url }}"><i class="fa-brands fa-instagram"></i></a>
           </li>
           <li class="nav-item px-2">
             <a class="nav-link primary-color" href="{{ $setting->youtube_url }}"><i class="fa-brands fa-youtube"></i></a>

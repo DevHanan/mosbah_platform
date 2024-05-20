@@ -18,7 +18,7 @@
 
                 <div class="row" id="paginationCard">
                     @foreach($courses as $course)
-                    <div class="col-sm-6 card_pagination">
+                    <div class="col-sm-4 card_pagination">
                         <article class="rounded mt-4 shadow">
                             <div class="row">
                                 <div class="col-12 paginationCardImg">

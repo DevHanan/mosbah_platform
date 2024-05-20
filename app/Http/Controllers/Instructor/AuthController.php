@@ -43,6 +43,6 @@ class AuthController extends Controller
 
         Auth::guard('instructors-login')->logout();
 
-        return redirect()->route('signin')->with('admin.success', __('admin.auth_logged_out'));
+        return redirect()->route('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 }

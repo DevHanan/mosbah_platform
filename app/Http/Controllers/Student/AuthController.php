@@ -33,11 +33,7 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest:web')->except('logout');
-    }
-
+  
 
     public function login($id){
         Auth::guard('web')->logout();
@@ -51,6 +47,6 @@ class AuthController extends Controller
 
         Auth::guard('students-login')->logout();
 
-        return redirect()->route('signin')->with('admin.success', __('admin.auth_logged_out'));
+        return redirect()->route('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 }

@@ -63,16 +63,16 @@ Breadcrumbs::for('update-coupons', function (BreadcrumbTrail $trail,$row) {
 // Home > tracks
 Breadcrumbs::for('parteners', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.partener.list'), route('admin.partener.index'));
+    $trail->push(trans('navbar.partener.list'), route('admin.parteners.index'));
 });
 
 Breadcrumbs::for('add-parteners', function (BreadcrumbTrail $trail) {
     $trail->parent('parteners');
-    $trail->push(trans('navbar.courses.add_track'), route('admin.partener.create'));
+    $trail->push(trans('navbar.courses.add_track'), route('admin.parteners.create'));
 });
 Breadcrumbs::for('update-parteners', function (BreadcrumbTrail $trail,$row) {
-    $trail->parent('partener');
-    $trail->push($row->name, route('admin.partener.edit', $row));
+    $trail->parent('parteners');
+    $trail->push($row->name, route('admin.parteners.edit', $row));
 });
 
 

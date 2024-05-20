@@ -50,11 +50,13 @@ class PartenerController extends Controller
     }
     public function store(Request $request)
     {
-        $partener = Partener::create(['name'=>$request->name]);
+        $partener = Partener::create(['name'=>$request->name,'active'=>'1']);
+      
         if ($request->hasFile('image')) {
-            $directory = 'parteners';
-            $attach = 'image';
-            $partener->image =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $partener->image ='uploads/parteners/main/'.$filename;
             $partener->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -83,9 +85,10 @@ class PartenerController extends Controller
     {
         $partener->update($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'parteners';
-            $attach = 'image';
-            $partener->image = 'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $partener->image ='uploads/parteners/main/'.$filename;
             $partener->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

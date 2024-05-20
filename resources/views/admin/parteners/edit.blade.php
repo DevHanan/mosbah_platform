@@ -1,7 +1,30 @@
     @extends('admin.layouts.master')
     @section('title', $title)
     @section('content')
-    <div class="container-xl">
+    <div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+      {{ Breadcrumbs::render('update-parteners',$row) }}
+
+      </div>
+      <!-- Page title actions -->
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+
+          <div class="card-header">
+            <div class="card-block">
+              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="page-body">
       <div class="row row-cards">
         <div class="card">
           <div class="card-header">
@@ -38,10 +61,8 @@
 
 
                     @if(isset($row->image))
-                    @if(is_file($row->image))
-                    <img src="{{ asset($row->image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                    <img src="{{ asset($row->imageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                     <div class="clearfix"></div>
-                    @endif
                     @endif
                     <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
                     <input type="file" class="form-control" name="image" id="logo">

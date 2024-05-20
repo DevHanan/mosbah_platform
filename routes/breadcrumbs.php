@@ -60,6 +60,22 @@ Breadcrumbs::for('update-coupons', function (BreadcrumbTrail $trail,$row) {
 });
 
 
+// Home > tracks
+Breadcrumbs::for('parteners', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.partener.list'), route('admin.partener.index'));
+});
+
+Breadcrumbs::for('add-parteners', function (BreadcrumbTrail $trail) {
+    $trail->parent('parteners');
+    $trail->push(trans('navbar.courses.add_track'), route('admin.partener.create'));
+});
+Breadcrumbs::for('update-parteners', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('partener');
+    $trail->push($row->name, route('admin.partener.edit', $row));
+});
+
+
 // Home > users
 Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

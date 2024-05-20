@@ -5,7 +5,7 @@
 
     <div class="row">
       
-        <div class="col-lg-7">
+        <div class="col-lg-12">
             <div class="course_content">
                 <h3 class="position-relative fw-bold primary-color mb-4">التصميم <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute img-fluid" alt=""></h3>
                 <div class="d-flex justify-content-between">

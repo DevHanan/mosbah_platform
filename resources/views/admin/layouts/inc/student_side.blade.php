@@ -169,7 +169,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..Home') }}
+              {{ __('navbar.students_side.Home') }}
             </span>
           </a>
         </li>
@@ -185,7 +185,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..profile') }}
+              {{ __('navbar.students_side.profile') }}
             </span>
           </a>
         </li>
@@ -201,7 +201,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..mycourses') }}
+              {{ __('navbar.students_side.mycourses') }}
             </span>
           </a>
         </li>
@@ -216,7 +216,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..tests') }}
+              {{ __('navbar.students_side.tests') }}
             </span>
           </a>
         </li>
@@ -231,7 +231,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..studentTestResult') }}
+              {{ __('navbar.students_side.studentTestResult') }}
             </span>
           </a>
         </li>
@@ -246,7 +246,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..courses_payment') }}
+              {{ __('navbar.students_side.courses_payment') }}
             </span>
           </a>
         </li>
@@ -261,7 +261,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..certificationfromin') }}
+              {{ __('navbar.students_side.certificationfromin') }}
             </span>
           </a>
         </li>
@@ -276,7 +276,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar..students_side..certificationfromout') }}
+              {{ __('navbar.students_side.certificationfromout') }}
             </span>
           </a>
         </li>

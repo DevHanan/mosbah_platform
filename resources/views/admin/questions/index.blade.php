@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            @include('admin.layouts.inc.breadcrumb')
+                @include('admin.layouts.inc.breadcrumb')
 
             </div>
             <!-- Page title actions -->
@@ -37,7 +37,7 @@
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
-                            <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
+                            <table id="basic-table" class=" export-table display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -58,19 +58,20 @@
 
                                         <td>{{ $row->question }}</td>
                                         <td>{{ $row->answer }}</td>
-                                      
+
 
                                         <td>
 
-                                        <div class="form-check form-switch md-3" style="margin:10px">
 
-<input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-</div>
+                                            <div class="form-check form-switch md-3" style="margin:10px">
+
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Question' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                                            </div>
                                         </td>
                                         <td>
 
 
-                                           
+
 
                                             <!-- Include Password Change modal -->
 
@@ -86,7 +87,7 @@
                                             <!-- Include Delete modal -->
                                             @include('admin.layouts.inc.delete')
 
-                                         
+
 
 
                                         </td>

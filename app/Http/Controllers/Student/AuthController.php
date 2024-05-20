@@ -26,7 +26,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/student/dashboard';
 
     /**
      * Create a new controller instance.
@@ -38,6 +38,14 @@ class AuthController extends Controller
         $this->middleware('guest:web')->except('logout');
     }
 
+
+    public function login($id){
+        Auth::guard('web')->logout();
+        Auth::guard('students-login')->loginUsingId($id);
+        Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
+        return redirect('student/dashboard');
+    }
+  
 
     public function logout(){
 

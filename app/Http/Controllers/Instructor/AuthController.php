@@ -32,9 +32,9 @@ class AuthController extends Controller
 
     public function login($id){
         Auth::guard('web')->logout();
-        Auth::guard('students-login')->loginUsingId($id);
+        Auth::guard('instructors-login')->loginUsingId($id);
         Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
-        return redirect('student/dashboard');
+        return redirect('instructor/dashboard');
     }
   
 

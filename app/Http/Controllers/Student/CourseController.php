@@ -13,7 +13,7 @@ use App\Models\Visit;
 use Auth;
 use Carbon\Carbon;
 use DB;
-class DashboardController extends Controller
+class CourseController extends Controller
 {
    public function __construct()
    {

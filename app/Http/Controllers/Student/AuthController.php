@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Toastr;
 
 class AuthController extends Controller
 {

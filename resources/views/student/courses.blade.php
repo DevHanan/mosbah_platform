@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @section('title', $title)
 @section('content')
+<link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
 <div class="content my-5 container">
 
     <div class="row">

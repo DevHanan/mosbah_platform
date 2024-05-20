@@ -153,6 +153,7 @@ return [
         'courses_payment' => 'مدفوعات الدورات',
         'certificationfromin' => 'شهاداتي من المنصة',
         'certificationfromout' => 'شهاداتي من جهات خارجية',
+        'studentTestResult' => 'نتائج الاختبارات'
 
     ],
 ];

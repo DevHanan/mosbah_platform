@@ -52,9 +52,10 @@ class TeamController extends Controller
     {
         $team = Team::create(['name'=>$request->name,'job'=>$request->job]);
         if ($request->hasFile('image')) {
-            $directory = 'teams';
-            $attach = 'image';
-            $team->image =  'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/teams/main/'),$filename);
+            $team->image ='uploads/teams/main/'.$filename;
             $team->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -83,9 +84,10 @@ class TeamController extends Controller
     {
         $team->update($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'teams';
-            $attach = 'image';
-            $team->image = 'uploads/'.$directory . '/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/teams/main/'),$filename);
+            $team->image ='uploads/teams/main/'.$filename;
             $team->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

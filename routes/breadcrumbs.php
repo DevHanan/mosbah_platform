@@ -76,6 +76,21 @@ Breadcrumbs::for('update-parteners', function (BreadcrumbTrail $trail,$row) {
 });
 
 
+
+Breadcrumbs::for('teams', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.teams.list'), route('admin.teams.index'));
+});
+
+Breadcrumbs::for('add-teams', function (BreadcrumbTrail $trail) {
+    $trail->parent('teams');
+    $trail->push(trans('navbar.teams.add'), route('admin.teams.create'));
+});
+Breadcrumbs::for('update-teams', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('teams');
+    $trail->push($row->name, route('admin.teams.edit', $row));
+});
+
 // Home > users
 Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

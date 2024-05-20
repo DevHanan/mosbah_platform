@@ -4,11 +4,11 @@
 <div class="page-header d-print-none">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
-      
+
       <div class="col">
-        @include('admin.layouts.inc.breadcrumb')
-      
-    </div>
+        {{ Breadcrumbs::render('teams') }}
+
+      </div>
       <!-- Page title actions -->
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
@@ -34,9 +34,9 @@
           <div class="card-header">
             <h3 class="card-title">{{ $title }}</h3>
           </div>
-        
+
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap datatable">
+            <table class=" export-table table card-table table-vcenter text-nowrap datatable">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -65,15 +65,12 @@
                   <td>{{$row->name}}</td>
                   <td>{{$row->job}}</td>
 
-                  <td><img src="{{asset($row->image)}}" style="width:40px"></td>
-              
-
-
+                  <td><img src="{{asset($row->imageFullPath)}}" style="width:40px"></td>
                   <td>
-                  <div class="form-check form-switch md-3" style="margin:10px">
+                    <div class="form-check form-switch md-3" style="margin:10px">
 
-<input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-</div>
+                      <input data-id="{{$row->id}}" data-type='App\Models\Team' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                    </div>
                   </td>
 
 

@@ -55,7 +55,7 @@ class PartenerController extends Controller
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $thumbnail->move(public_path('/uploads/parteners/main/'),$filename);
             $partener->image ='uploads/parteners/main/'.$filename;
             $partener->save();
         }
@@ -87,7 +87,7 @@ class PartenerController extends Controller
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $thumbnail->move(public_path('/uploads/parteners/main/'),$filename);
             $partener->image ='uploads/parteners/main/'.$filename;
             $partener->save();
         }

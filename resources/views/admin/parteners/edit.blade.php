@@ -2,36 +2,32 @@
     @section('title', $title)
     @section('content')
     <div class="page-header d-print-none">
-  <div class="container-xl">
-    <div class="row g-2 align-items-center">
-      <div class="col">
-      {{ Breadcrumbs::render('update-parteners',$row) }}
+      <div class="container-xl">
+        <div class="row g-2 align-items-center">
+          <div class="col">
+            {{ Breadcrumbs::render('update-parteners',$row) }}
 
-      </div>
-      <!-- Page title actions -->
-      <div class="col-auto ms-auto d-print-none">
-        <div class="btn-list">
+          </div>
+          <!-- Page title actions -->
+          <div class="col-auto ms-auto d-print-none">
+            <div class="btn-list">
 
-          <div class="card-header">
-            <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+              <div class="card-header">
+                <div class="card-block">
+                  <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+
+                </div>
+              </div>
 
             </div>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-</div>
     <div class="page-body">
       <div class="row row-cards">
         <div class="card">
-          <div class="card-header">
-            <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_back') }}</a>
-            </div>
-          </div>
+
 
           <form class="needs-validation" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -77,15 +73,14 @@
 
 
                 </div>
-               
-               
+
+
 
 
               </div>
             </div>
 
             <div class="card-footer">
-              <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('admin.btn_Back') }}</button>-->
               <button type="submit" class="btn btn-success">{{ __('admin.btn_update') }}</button>
             </div>
 

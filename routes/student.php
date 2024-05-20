@@ -3,6 +3,8 @@
 use App\Http\Controllers\Student\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController ;
+use App\Http\Controllers\Student\CourseController ;
+
 Route::get('student-login-by-id/{id}', [AuthController::class, 'login'])->name('student-login');
 
 Route::group(
@@ -16,6 +18,7 @@ Route::group(
         Route::name('student.')->prefix('student/')->middleware(['auth:students-login'])->group(function () {
             Route::get('dashboard', [StudentDashboardController::class, 'index'])->name('dashboard.index');
             Route::post('logout', [AuthController::class, 'logout'])->name('student-logout');
+            Route::get('courses', [CourseController::class, 'list'])->name('courses.index');
 
         });
     }

@@ -303,6 +303,14 @@ return [
         'answer' => 'الإجابة',
         'action' => 'الحدث'
     ],
+    'payments' =>[
+      'transactionnumber' => 'رقم العملية',
+      'transcation_date' => 'تاريخ العملية',
+      'course_name' => 'اسم الدورة',
+      'paid_amount' => ' القيمة المدفوعة',
+      'payment_attachment' => 'مرفق اثبات الدفع',
+
+    ],
     'settings' => [
         'address_on_map' => 'العنوان على الخريطة',
         'map_link' => '(الرابط)لوكيشن الخريطة',

@@ -46,7 +46,6 @@
                                             <path d="M6 15l6 -6l6 6"></path>
                                         </svg>
                                     </th>
-                                    <!-- <th> {{__('admin.certifications.transactionnumber')}}</th> -->
                                     <th> {{__('admin.certifications.name')}}</th>
                                     <th>{{ __('admin.certifications.course_name') }}</th>
                                     <th>{{ __('admin.certifications.track_name') }}</th>
@@ -73,7 +72,7 @@
                                         عرض الملف 
                                         </a>
                                     </td>
-                                 <td></td>
+                                 
                                     <td style="width: 270px;">
 
 

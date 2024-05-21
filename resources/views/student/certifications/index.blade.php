@@ -40,6 +40,8 @@
                                     <th>{{ __('admin.certifications.track_name') }}</th>
                                     <th>{{ __('admin.certifications.date') }}</th>
                                     <th>{{ __('admin.certifications.file') }}</th>
+                                    <th>{{ __('admin.certifications.actions') }}</th>
+
 
 
                                 </tr>

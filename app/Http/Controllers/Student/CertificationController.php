@@ -23,7 +23,7 @@ class CertificationController extends Controller
         $data['rows'] = Certificate::where('student_id',auth()->guard('students-login')->user()->id)->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
+        })->paginate(10);
         return view($this->view.'.index', $data);
     }
 

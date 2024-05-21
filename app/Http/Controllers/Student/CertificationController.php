@@ -69,7 +69,7 @@ class CertificationController extends Controller
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
-        return redirect()->route('admin.certifications.index');
+        return redirect()->route('student.externalCertifications');
     }
 
 
@@ -102,7 +102,7 @@ class CertificationController extends Controller
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
-        return redirect()->route('admin.certifications.index');    }
+        return redirect()->route('student.externalCertifications');    }
 
     public function destroy (Request $request)
     {

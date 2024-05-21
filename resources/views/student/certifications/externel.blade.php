@@ -72,6 +72,7 @@
 
 
 
+                                        @if($row->accepted != 1)
                                         <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
                                             <span class="far fa-edit "></span>
                                         </a>
@@ -81,6 +82,7 @@
                                         </button>
                                         <!-- Include Delete modal -->
                                         @include('admin.layouts.inc.delete')
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

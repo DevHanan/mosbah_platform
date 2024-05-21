@@ -33,7 +33,7 @@ class DashboardController extends Controller
       $data['route'] = $this->route;
       $data['view'] = $this->view;
 
-      return view('instructor.index', $data);
+      return view('student.index', $data);
 
    }
 }

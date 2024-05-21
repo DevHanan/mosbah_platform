@@ -38,7 +38,7 @@
 
                         <div class=" form-group col-md-6">
                             <label class="form-label" for="name"> {{__('admin.certifications.name')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name',$row) }}" required>
 
                             @error('name')
                             <div class="invalid-feedback">
@@ -49,7 +49,7 @@
 
                         <div class=" form-group col-md-6">
                             <label class="form-label" for="authority"> {{__('admin.certifications.authority')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="authority" id="authority" value="{{ old('authority') }}" required>
+                            <input type="text" class="form-control" name="authority" id="authority" value="{{ old('authority',$row) }}" required>
 
                             @error('authority')
                             <div class="invalid-feedback">
@@ -60,7 +60,7 @@
 
                         <div class=" form-group col-md-6">
                             <label class="form-label" for="date"> {{__('admin.certifications.date')}} <span>*</span></label>
-                            <input type="date" class="form-control" name="date" id="date" value="{{ old('date') }}" required>
+                            <input type="date" class="form-control" name="date" id="date" value="{{ old('date',$row) }}" required>
 
                             @error('date')
                             <div class="invalid-feedback">

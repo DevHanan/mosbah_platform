@@ -213,7 +213,12 @@ Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
 });
 
-Breadcrumbs::for('student-certifications', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('externalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.certifications.list'), route('student.externalCertifications'));
+    $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));
+});
+
+Breadcrumbs::for('platformCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.certifications.platform_certification'), route('student.platformCertifications'));
 });

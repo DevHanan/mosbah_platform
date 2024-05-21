@@ -51,7 +51,7 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.payments.transactionnumber')}}</th>
+                  <!-- <th> {{__('admin.payments.transactionnumber')}}</th> -->
                   <th> {{__('admin.payments.transcation_date')}}</th>
                   <th>{{ __('admin.payments.course_name') }}</th>
                   <th>{{ __('admin.payments.paid_amount') }}</th>

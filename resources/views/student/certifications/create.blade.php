@@ -69,6 +69,22 @@
                         </div>
 
                         <div class="form-group col-md-6">
+    <label class="form-label" for="track_id">{{__('admin.certifications.track_name')}} <span>*</span></label>
+    <select class="form-control select2" name="track_id" id="track_id">
+      <option value="">{{ __('select') }}</option>
+      @foreach( $tracks as $track )
+      <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
+      @endforeach
+    </select>
+
+    @error('track_id')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
+  </div>
+
+                        <div class="form-group col-md-6">
               <label class="form-label" for="course_id">{{__('admin.certifications.course_name')}} <span>*</span></label>
               <select class="form-control select2" name="course_id" id="course_id">
                 <option value="">{{ __('select') }}</option>

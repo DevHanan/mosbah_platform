@@ -47,12 +47,12 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
-        $certificate = Certificate::create($request->except('image'));
-        if ($request->hasFile('image')) {
-            $thumbnail = $request->image;
+        $certificate = Certificate::create($request->except('file'));
+        if ($request->hasFile('file')) {
+            $thumbnail = $request->file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
-            $certificate->image ='uploads/tracks/main/'.$filename;
+            $certificate->file ='uploads/tracks/main/'.$filename;
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
@@ -61,7 +61,7 @@ class CertificationController extends Controller
 
 
     public function show($id){
-        $certificate = Certification::find($id);
+        $certificate = Certificate::find($id);
         if($certificate)
         return $this->okApiResponse(new CountryResource($certificate), __('Country loades successfully'));
         else
@@ -71,21 +71,21 @@ class CertificationController extends Controller
 
     public function edit($id)
     {   
-        $data['row'] = Certification::find($id);
+        $data['row'] = Certificate::find($id);
         $data['route'] = $this->route;
         $data['title'] = 'edit Country';
         return view($this->view.'.edit',$data);
     }
 
-    public function update(CountryRequest $request)
+    public function update(Request $request)
     {
-        $certificate = Certification::find($request->id);
-        $certificate->update($request->except('image'));
-        if ($request->hasFile('image')) {
-            $thumbnail = $request->image;
+        $certificate = Certificate::find($request->id);
+        $certificate->update($request->except('file'));
+        if ($request->hasFile('file')) {
+            $thumbnail = $request->file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
-            $certificate->image ='uploads/tracks/main/'.$filename;
+            $certificate->file ='uploads/tracks/main/'.$filename;
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
@@ -93,7 +93,7 @@ class CertificationController extends Controller
 
     public function destroy (Request $request)
     {
-        $certificate = Certification::find($request->id);
+        $certificate = Certificate::find($request->id);
         if ($certificate)
             $certificate->delete();
 

@@ -66,7 +66,7 @@
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->authority}}</td>
-                                    <td>{{$row->created_at}}</td>
+                                    <td>{{$row->date}}</td>
                                     <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
                                     <td style="width: 270px;">
 

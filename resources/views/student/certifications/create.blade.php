@@ -57,6 +57,16 @@
                             @enderror
                         </div>
 
+                        <div class=" form-group col-md-6">
+                            <label class="form-label" for="date"> {{__('admin.certifications.date')}} <span>*</span></label>
+                            <input type="date" class="form-control" date="date" id="date" value="{{ old('title') }}" required>
+
+                            @error('date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
 
                         <div class="form-group col-md-6">
               <label class="form-label" for="course_id">{{__('admin.certifications.course_name')}} <span>*</span></label>

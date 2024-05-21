@@ -63,7 +63,7 @@
                 @foreach($rows as $row)
 
                 <tr>
-                  <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                  <td>#</td>
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->created_at}}</td>
                   <td>{{ optional($row->course)->name}}</td>

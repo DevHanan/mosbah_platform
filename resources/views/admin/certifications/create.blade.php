@@ -5,15 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    {{ $setting->title }}
-                </div>
-                <h2 class="page-title">
-                    @if(isset($title))
-                    {{ $title }}
-                    @endif
-                </h2>
+            {{ Breadcrumbs::render('add-externalCertifications') }}
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -21,7 +13,7 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('Back') }}</a>
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
                         </div>
                     </div>
@@ -38,13 +30,13 @@
 
                 <form class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="row card-body">
+                    <div class="card-body">
                         <!-- Form Start -->
 
 
-                        <div class=" form-group col-md-6">
-                            <label class="form-label" for="name"> {{__('Certificate Name')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="name" value="{{ old('title') }}" required>
+                        <div class="col-md-12">
+                            <label class="form-label" for="title"> {{__('admin.certifications.name')}} <span>*</span></label>
+                            <input type="text" class="form-control" name="name" id="title" value="{{ old('title') }}" required>
 
                             @error('name')
                             <div class="invalid-feedback">
@@ -53,40 +45,13 @@
                             @enderror
                         </div>
 
-                        <div class=" form-group col-md-6">
-                            <label class="form-label" for="status" class="form-label">{{ __('Select Status') }}</label>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" value="1" @ type="radio" name="status">
-                                <span class="form-check-label"> {{ __('status_status')}}</span>
-                            </label>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" value="0" type="radio" name="status">
-                                <span class="form-check-label"> {{ __('status_instatus' )}}</span>
-                            </label>
 
-
-                        </div>
 
 
                         <div class="form-group col-md-6">
-              <label class="form-label" for="course_id">Course <span>*</span></label>
-              <select class="form-control select2" name="course_id" id="course_id">
-                <option value="">{{ __('select') }}</option>
-                @foreach( $courses as $course )
-                <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif>{{ $course->name }}</option>
-                @endforeach
-              </select>
-
-              @error('course_id')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-                        <div class="form-group col-md-6">
 
 
-                            <label for="logo">{{ __('Certificate File') }}</label>
+                            <label for="logo">{{ __('admin.certifications.file') }}</label>
                             <input type="file" class="form-control" name="file" id="logo">
 
                             @error('file')
@@ -99,7 +64,7 @@
                         <!-- Form End -->
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
                     </div>
                 </form>
             </div>

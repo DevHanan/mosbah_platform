@@ -223,6 +223,11 @@ Breadcrumbs::for('externalCertifications', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));
 });
 
+Breadcrumbs::for('add-externalCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('externalCertifications');
+    $trail->push(trans('navbar.certifications.add'), route('student.certifications.create'));
+});
+
 Breadcrumbs::for('platformCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');
     $trail->push(trans('navbar.certifications.platform_certification'), route('student.platformCertifications'));

@@ -23,7 +23,10 @@ Route::group(
             Route::post('logout', [AuthController::class, 'logout'])->name('student-logout');
             Route::get('courses', [CourseController::class, 'list'])->name('courses.index');
             Route::get('payments', [PaymentController::class, 'list'])->name('payments.index');
-            Route::resource('certifications', CertificationController::class);
+            Route::get('platform-certifications', [CertificationController::class, 'platformCertifications'])->name('platformCertifications');
+            Route::get('externel-certifications', [CertificationController::class, 'externalCertifications'])->name('externalCertifications');
+            Route::get('add-externel-certifications', [CertificationController::class, 'create']);
+            Route::post('post-externel-certifications', [CertificationController::class, 'store']);
 
             
         });

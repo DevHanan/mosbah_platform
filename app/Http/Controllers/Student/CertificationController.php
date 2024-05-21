@@ -16,17 +16,28 @@ class CertificationController extends Controller
         $this->path = 'certifications';
         $this->access = 'certifications';
     }
-    public function index(Request $request)
+    public function platformCertifications(Request $request)
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
         $data['rows'] = Certificate::where('student_id',auth()->guard('students-login')->user()->id)->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->paginate(10);
+        })->where('platform_certification','1')->paginate(10);
         return view($this->view.'.index', $data);
     }
 
+
+    public function externalCertifications(Request $request)
+    {
+        $data['route'] = $this->route;
+        $data['title'] = $this->title;
+        $data['rows'] = Certificate::where('student_id',auth()->guard('students-login')->user()->id)->where(function($q)use($request){
+            if ($request->name)
+            $q->Where('name', 'like', '%' . $request->name  . '%');
+        })->where('platform_certification','0')->paginate(10);
+        return view($this->view.'.index', $data);
+    }
     
     public function studentCertificate(Request $request)
     {

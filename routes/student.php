@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController ;
 use App\Http\Controllers\Student\CourseController ;
 use App\Http\Controllers\Student\PaymentController ;
-
+use App\Http\Controllers\Student\CertificationController ;
 
 
 Route::get('student-login-by-id/{id}', [AuthController::class, 'login'])->name('student-login');
@@ -23,6 +23,7 @@ Route::group(
             Route::post('logout', [AuthController::class, 'logout'])->name('student-logout');
             Route::get('courses', [CourseController::class, 'list'])->name('courses.index');
             Route::get('payments', [PaymentController::class, 'list'])->name('payments.index');
+            Route::resource('certifications', [CertificationController::class, 'list'])->name('payments.index');
 
             
         });

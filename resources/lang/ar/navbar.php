@@ -156,4 +156,13 @@ return [
         'studentTestResult' => 'نتائج الاختبارات'
 
     ],
+    'payments' =>[
+        'transactionnumber' => 'رقم العملية',
+        'transcation_date' => 'تاريخ العملية',
+        'course_name' => 'اسم الدورة',
+        'paid_amount' => ' القيمة المدفوعة',
+        'payment_attachment' => 'مرفق اثبات الدفع',
+        'list' => 'سجل مدفوعات الطالب'
+  
+      ],
 ];

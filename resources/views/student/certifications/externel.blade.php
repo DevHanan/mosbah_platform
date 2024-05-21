@@ -68,7 +68,11 @@
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->authority}}</td>
                                     <td>{{$row->date}}</td>
-                                    <td><img src="{{$row->fileFullPath}}" style="width:40px"></td>
+                                    <td>
+                                        <a href="{{$row->fileFullPath}}" style="width:40px" class="btn btn-primary">
+                                        عرض الملف 
+                                        </a>
+                                    </td>
                                  <td></td>
                                     <td style="width: 270px;">
 

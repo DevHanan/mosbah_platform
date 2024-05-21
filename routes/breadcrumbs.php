@@ -212,3 +212,8 @@ Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
 });
+
+Breadcrumbs::for('student-certifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.certifications.list'), route('student.certifications.index'));
+});

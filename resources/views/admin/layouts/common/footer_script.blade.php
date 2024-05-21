@@ -457,3 +457,63 @@
 	});
 	
 </script>
+
+<script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+
+        let categoryCards = document.querySelector('.categoryCards');
+        let rowsCards = document.querySelector('.rowsCards');
+        let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
+        let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
+        let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+
+        rowsCards.addEventListener('click', function() {
+            categoryCards.classList.remove('active');
+            rowsCards.classList.add('active');
+
+            paginationCards.forEach(paginationCard => {
+                paginationCard.classList.add('col-sm-12');
+            });
+            paginationCardsImg.forEach(paginationCardImg => {
+                paginationCardImg.classList.remove('col-12');
+                paginationCardImg.classList.add('col-4');
+            });
+            paginationCardsData.forEach(paginationCardData => {
+                paginationCardData.classList.remove('col-12');
+                paginationCardData.classList.add('col-8');
+            });
+
+            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+            paginationCardsDesc.forEach(paginationCardDesc => {
+                paginationCardDesc.style.cssText = 'white-space: normal;';
+            });
+        });
+
+        categoryCards.addEventListener('click', function() {
+            rowsCards.classList.remove('active');
+            categoryCards.classList.add('active');
+
+            paginationCards.forEach(paginationCard => {
+                paginationCard.classList.remove('col-sm-12');
+
+                paginationCardsImg.forEach(paginationCardImg => {
+                    paginationCardImg.classList.remove('col-4');
+                    paginationCardImg.classList.add('col-12');
+                });
+                paginationCardsData.forEach(paginationCardData => {
+                    paginationCardData.classList.remove('col-8');
+                    paginationCardData.classList.add('col-12');
+                });
+            });
+
+            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+            paginationCardsDesc.forEach(paginationCardDesc => {
+                paginationCardDesc.style.cssText = 'white-space: nowrap;';
+            });
+        });
+    </script>

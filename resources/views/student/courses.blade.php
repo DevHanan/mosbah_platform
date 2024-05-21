@@ -17,6 +17,7 @@
                 </div>
 
                 <div class="row" id="paginationCard">
+                    @if($courses)
                     @foreach($courses as $course)
                     <div class="col-sm-4 card_pagination">
                         <article class="rounded mt-4 shadow">
@@ -79,6 +80,9 @@
                         </article>
                     </div>
                     @endforeach
+                    @else
+                                                            لا توجد دورات للعرض
+                    @endif
 
                 </div>
 

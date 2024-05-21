@@ -68,6 +68,7 @@
                                     <td>{{$row->authority}}</td>
                                     <td>{{$row->date}}</td>
                                     <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
+                                 <td></td>
                                     <td style="width: 270px;">
 
 

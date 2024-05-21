@@ -24,7 +24,7 @@ class CertificationController extends Controller
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->where('platform_certification','1')->paginate(10);
-        return view($this->view.'.platofrm', $data);
+        return view($this->view.'.platform', $data);
     }
 
 

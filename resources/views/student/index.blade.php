@@ -31,7 +31,7 @@
                       {{ $courses->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.student.course_number')}}
+                      {{ __('admin.students.course_number')}}
                     </div>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                       {{ $courses->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.student.current_course_number')}}
+                      {{ __('admin.students.current_course_number')}}
                     </div>
                   </div>
                 </div>
@@ -85,7 +85,7 @@
                       {{ $courses->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.student.finished_course_number')}}
+                      {{ __('admin.students.finished_course_number')}}
                     </div>
                   </div>
                 </div>
@@ -110,7 +110,7 @@
                       {{ $subscriptions->sum('paid') }} {{ $setting->currency }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.student.subscriptions_total')}}
+                      {{ __('admin.students.subscriptions_total')}}
                     </div>
                   </div>
                 </div>

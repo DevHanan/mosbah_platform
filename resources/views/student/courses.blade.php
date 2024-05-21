@@ -1,41 +1,8 @@
 @extends('admin.layouts.master')
 @section('title', $title)
 @section('content')
-<style>
-    .courses .swiper-button-prev {left: 30%;transform: translateX(-50%);bottom: 3px;}
-.courses .swiper-button-next {right: 30%;transform: translateX(-50%);bottom: 3px;}
-.courses .card__content{padding: 30px 20px;}
-.courses .swiper-button-next .fa-angle-right, .courses .swiper-button-prev i {bottom: 0;position: absolute;}
-.courses .pencil {top: 5%;width: 70px;height: 70px;left: 55%;}
-.courses .loop {top: 0%;width: 70px;height: 70px;left: 37%;}
-.courses .lamp {top: 8%;width: 70px;height: 70px;left: 5%;}
-.courses .pc {top: 35%;width: 70px;height: 70px;left: 5%;}
-.courses .map {bottom: 6%;width: 85px;height: 85px;left: 9%;}
-.courses article p{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 100%;}
-.courses .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
+<link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
 
-
-/* ================= courses =============== */
-section.coursesPage .hero_sec .info .content{line-height: 2.8;font-size: 18px;}
-section.coursesPage .filter :is(.category,.trainers,.rating,.coursesFilter,.prices, .dateFilter){box-shadow: 0 0 5px #d1d1d1;border-radius: 12px !important;}
-section.coursesPage .filter .category p{font-size: 18px;color: var(--gray-text);}
-section.coursesPage .filter .category span{font-size: 12px;color: #796F6F;}
-section.coursesPage .filter .trainers ul{height: 160px;overflow-y: scroll;}
-section.coursesPage .filter .trainers ul::-webkit-scrollbar {width: 5px;}
-section.coursesPage .filter .trainers ul::-webkit-scrollbar-track {background: hsl(0, 0%, 92%);width: 4px; }
-section.coursesPage .filter .trainers ul::-webkit-scrollbar-thumb {background-color: #C4C4C4;border-radius: 20px; border: 3px solid #C4C4C4;}
-section.coursesPage .select2-container--default .select2-selection--single{border: 1px solid var(--secondary);}
-section.coursesPage .select2-container--default .select2-selection--single {height: 40px;display: flex;align-items: center;}
-section.coursesPage article p{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 100%;}
-section.coursesPage .course_content h3 img{bottom: -19px;right: 0;}
-section.coursesPage .cardShape{background-color: #D8D8D8;cursor: pointer;}
-section.coursesPage .cardShape.active{background-color: var(--secondary);}
-section.coursesPage #paginationCard .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
-section.coursesPage #paginationCard .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
-section.coursesPage label{cursor: pointer;}
-.trainers .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
-
-</style>
 <div class="content my-5 container">
 
     <div class="row">
@@ -116,7 +83,7 @@ section.coursesPage label{cursor: pointer;}
                     </div>
                     @endforeach
                     @else
-                                                            لا توجد دورات للعرض
+                                                            لا توجد دورات
                     @endif
 
                 </div>

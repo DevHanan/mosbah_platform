@@ -10,7 +10,7 @@ class CertificationController extends Controller
 {
     public function __construct()
     {
-        $this->title = 'list certifications';
+        $this->title = trans('admin.certifications.list');
         $this->route = 'student.certifications';
         $this->view = 'student.certifications';
         $this->path = 'certifications';
@@ -49,9 +49,10 @@ class CertificationController extends Controller
     {
         $certificate = Certificate::create($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'certifications';
-            $attach = 'image';
-            $certificate->image = 'uploads/certifications/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $certificate->image ='uploads/tracks/main/'.$filename;
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
@@ -81,9 +82,10 @@ class CertificationController extends Controller
         $certificate = Certification::find($request->id);
         $certificate->update($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'certifications';
-            $attach = 'image';
-            $certificate->image = 'uploads/certifications/'.$this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
+            $certificate->image ='uploads/tracks/main/'.$filename;
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));

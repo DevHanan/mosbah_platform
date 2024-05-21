@@ -28,7 +28,7 @@ class PaymentController extends Controller
       $data['route'] = $this->route;
       $data['view'] = $this->view;
       $data['rows']= Subscription::where('student_id',auth()->guard('students-login')->user()->id)->latest()->get();
-      return view('student.courses', $data);
+      return view('student.payments', $data);
 
    }
 }

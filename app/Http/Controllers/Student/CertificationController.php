@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use Toastr;
 
 class CertificationController extends Controller
 {

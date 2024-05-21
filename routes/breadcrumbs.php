@@ -211,7 +211,7 @@ Breadcrumbs::for('add-subscribtions', function (BreadcrumbTrail $trail) {
 
 // Home
 Breadcrumbs::for('student-home', function (BreadcrumbTrail $trail) {
-    $trail->push(trans('navbar.Home'), route('admin.student.index'));
+    $trail->push(trans('navbar.Home'), route('student.dashboard.index'));
 });
 Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');

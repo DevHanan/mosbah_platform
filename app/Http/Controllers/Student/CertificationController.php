@@ -64,8 +64,8 @@ class CertificationController extends Controller
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
-            $certificate->file ='uploads/tracks/main/'.$filename;
+            $thumbnail->move(public_path('/uploads/certifications/main/'),$filename);
+            $certificate->file ='uploads/certifications/main/'.$filename;
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
@@ -97,8 +97,8 @@ class CertificationController extends Controller
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/tracks/main/'),$filename);
-            $certificate->file ='uploads/tracks/main/'.$filename;
+            $thumbnail->move(public_path('/uploads/certifications/main/'),$filename);
+            $certificate->file ='uploads/certifications/main/'.$filename;
             $certificate->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));

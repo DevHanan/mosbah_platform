@@ -62,12 +62,13 @@
 
                                 <tr>
                                     <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                    <td> {{ $loop->iteration }}</td>
                                     <td><span class="text-secondary">{{$row->name}}</span></td>
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->authority}}</td>
                                     <td>{{$row->date}}</td>
-                                    <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
+                                    <td><img src="{{$row->fileFullPath}}" style="width:40px"></td>
                                  <td></td>
                                     <td style="width: 270px;">
 

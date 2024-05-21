@@ -25,8 +25,7 @@ Route::group(
             Route::get('payments', [PaymentController::class, 'list'])->name('payments.index');
             Route::get('platform-certifications', [CertificationController::class, 'platformCertifications'])->name('platformCertifications');
             Route::get('externel-certifications', [CertificationController::class, 'externalCertifications'])->name('externalCertifications');
-            Route::get('add-externel-certifications', [CertificationController::class, 'create']);
-            Route::post('post-externel-certifications', [CertificationController::class, 'store']);
+            Route::resource('certifications',CertificationController::class);
 
             
         });

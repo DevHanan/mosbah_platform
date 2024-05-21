@@ -428,10 +428,11 @@ return [
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
         'platform_certification' => 'شهادتى من المنصة',
-        'externel_certification' => 'شهادات خارجية',
+        'externel_certification' => 'شهاداتي من جهات خارجية ',
         'add' => 'إضافة شهادة',
         'date' => 'تاريخ الحصول على الشهادة ',
-        'file' => 'ملف الشهادة '
+        'file' => 'ملف الشهادة ',
+        'authority' => 'اسم الجهة الصادر عنها الشهادة'
     ]
 
   

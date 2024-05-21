@@ -19,7 +19,7 @@ class CertificationController extends Controller
     public function platformCertifications(Request $request)
     {
         $data['route'] = $this->route;
-        $data['title'] = $this->title;
+        $data['title'] = trans('admin.certifications.platform_certification');
         $data['rows'] = Certificate::where('student_id',auth()->guard('students-login')->user()->id)->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
@@ -31,7 +31,7 @@ class CertificationController extends Controller
     public function externalCertifications(Request $request)
     {
         $data['route'] = $this->route;
-        $data['title'] = $this->title;
+        $data['title'] = trans('admin.certifications.externel_certification');
         $data['rows'] = Certificate::where('student_id',auth()->guard('students-login')->user()->id)->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');

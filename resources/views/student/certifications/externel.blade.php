@@ -10,8 +10,20 @@
                 {{ Breadcrumbs::render('externalCertifications') }}
 
             </div>
+            <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
 
-            <!-- Page title actions -->
+          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 5l0 14" />
+              <path d="M5 12l14 0" />
+            </svg>
+            {{__('admin.btn_add_new')}} </a>
+
+        </div>
+      </div>
+
         </div>
     </div>
 </div>
@@ -38,10 +50,24 @@
                                     <th> {{__('admin.certifications.name')}}</th>
                                     <th>{{ __('admin.certifications.course_name') }}</th>
                                     <th>{{ __('admin.certifications.track_name') }}</th>
+                                    <th>{{ __('admin.certifications.authority') }}</th>
                                     <th>{{ __('admin.certifications.date') }}</th>
                                     <th>{{ __('admin.certifications.file') }}</th>
+                                    <th>{{ __('admin.tracks.actions') }}</th>
+                                    <td style="width: 270px;">
 
 
+
+                                        <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                                            <span class="far fa-edit "></span>
+                                        </a>
+
+                                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <!-- Include Delete modal -->
+                                        @include('admin.layouts.inc.delete')
+                                    </td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,6 +78,7 @@
                                     <td><span class="text-secondary">{{$row->name}}</span></td>
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
+                                    <td>{{$row->authority}}</td>
                                     <td>{{$row->created_at}}</td>
                                     <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
 

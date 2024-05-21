@@ -215,5 +215,5 @@ Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('student-certifications', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.certifications.list'), route('student.certifications.index'));
+    $trail->push(trans('navbar.certifications.list'), route('student.externalCertifications'));
 });

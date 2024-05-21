@@ -205,3 +205,10 @@ Breadcrumbs::for('add-subscribtions', function (BreadcrumbTrail $trail) {
     $trail->parent('subscribtions');
     $trail->push(trans('navbar.subscriptions.add'), route('admin.subscriptions.create'));
 });
+
+
+
+Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
+});

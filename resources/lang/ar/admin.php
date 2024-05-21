@@ -309,6 +309,7 @@ return [
       'course_name' => 'اسم الدورة',
       'paid_amount' => ' القيمة المدفوعة',
       'payment_attachment' => 'مرفق اثبات الدفع',
+      'list' => 'سجل مدفوعات الطالب'
 
     ],
     'settings' => [

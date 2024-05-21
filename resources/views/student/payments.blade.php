@@ -10,7 +10,21 @@
         {{ Breadcrumbs::render('tracks') }}
 
       </div>
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+
+          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 5l0 14" />
+              <path d="M5 12l14 0" />
+            </svg>
+            {{__('admin.btn_add_new')}} </a>
+
+        </div>
       </div>
+      <!-- Page title actions -->
+    </div>
   </div>
 </div>
 <div class="page-body">
@@ -22,6 +36,21 @@
             <h3 class="card-title">{{ $title }}</h3>
           </div>
           <div class="card-body border-bottom py-3">
+            <!-- <div class="d-flex">
+                      <div class="text-secondary">
+                        Show
+                        <div class="mx-2 d-inline-block">
+                          <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
+                        </div>
+                        entries
+                      </div>
+                      <div class="ms-auto text-secondary">
+                        Search:
+                        <div class="ms-2 d-inline-block">
+                          <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                        </div>
+                      </div>
+                    </div> -->
           </div>
           <div class="table-responsive">
             <table class="table card-table table-vcenter text-nowrap datatable">
@@ -34,11 +63,12 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.tracks.name')}}</th>
-                  <th> {{__('admin.tracks.status')}}</th>
-                  <th>{{ __('admin.tracks.field_photo') }}</th>
+                  <th> {{__('admin.payments.transactionnumber')}}</th>
+                  <th> {{__('admin.payments.transcation_date')}}</th>
+                  <th>{{ __('admin.payments.course_name') }}</th>
+                  <th>{{ __('admin.payments.paid_amount') }}</th>
+                  <th>{{ __('admin.payments.payment_attachment') }}</th>
 
-                  <th>{{ __('admin.tracks.actions') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -46,35 +76,13 @@
 
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
-                  <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                  <td>{{$row->name}}</td>
-
-
-                  <td>
-
-
-                    <div class="form-check form-switch md-3" style="margin:10px">
-
-                      <input data-id="{{$row->id}}" data-type='App\Models\Track' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-                    </div>
-                  </td>
+                  <td><span class="text-secondary">{{$row->id}}</span></td>
+                  <td>{{$row->created_at}}</td>
+                  <td>{{ optional($row->course)->name}}</td>
+                  <td>{{$row->paid }}</td>
+                
                   <td><img  src="{{$row->imageFullPath}}" style="width:40px"></td>
 
-
-                  <td style="width: 270px;">
-
-
-
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                      <span class="far fa-edit "></span>
-                    </a>
-
-                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <!-- Include Delete modal -->
-                    @include('admin.layouts.inc.delete')
-                  </td>
                 </tr>
                 @endforeach
 

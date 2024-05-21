@@ -34,7 +34,6 @@
                                             <path d="M6 15l6 -6l6 6"></path>
                                         </svg>
                                     </th>
-                                    <!-- <th> {{__('admin.certifications.transactionnumber')}}</th> -->
                                     <th> {{__('admin.certifications.name')}}</th>
                                     <th>{{ __('admin.certifications.course_name') }}</th>
                                     <th>{{ __('admin.certifications.track_name') }}</th>
@@ -51,6 +50,7 @@
 
                                 <tr>
                                     <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                    <td> {{ $loop->iteration }}</td>
                                     <td><span class="text-secondary">{{$row->name}}</span></td>
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>

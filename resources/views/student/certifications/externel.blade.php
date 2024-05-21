@@ -69,10 +69,10 @@
                                     <td>{{$row->date}}</td>
                                     <td>
                                         <a href="{{$row->fileFullPath}}" style="width:40px" class="btn btn-primary">
-                                        عرض الملف 
+                                            عرض الملف
                                         </a>
                                     </td>
-                                 
+
                                     <td style="width: 270px;">
 
 

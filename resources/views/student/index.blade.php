@@ -31,7 +31,7 @@
                       {{ $courses->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.dashboard.course_number')}}
+                      {{ __('admin.student.course_number')}}
                     </div>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                       {{ $courses->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.dashboard.course_number')}}
+                      {{ __('admin.student.current_course_number')}}
                     </div>
                   </div>
                 </div>
@@ -85,22 +85,13 @@
                       {{ $courses->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.dashboard.course_number')}}
+                      {{ __('admin.student.finished_course_number')}}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row row-deck row-cards" style="margin-top: 10px;">
-
-      <div class="col-12">
-        <div class="row row-cards">
-         
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
               <div class="card-body" style="min-height:90px;">
@@ -119,17 +110,18 @@
                       {{ $subscriptions->sum('paid') }} {{ $setting->currency }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.dashboard.subscriptions_total')}}
+                      {{ __('admin.student.subscriptions_total')}}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-         
         </div>
       </div>
     </div>
+
+    
   </div>
 </div>
 

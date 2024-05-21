@@ -74,7 +74,7 @@
                             <select class="form-control select2" name="track_id" id="track_id">
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $tracks as $track )
-                                <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
+                                <option value="{{ $track->id }}" @if($row->track_id ==$track->id) selected @endif>{{ $track->name }}</option>
                                 @endforeach
                             </select>
 
@@ -90,7 +90,7 @@
                             <select class="form-control select2" name="course_id" id="course_id">
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $courses as $course )
-                                <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif>{{ $course->name }}</option>
+                                <option value="{{ $course->id }}" @if($row->course_id==$course->id) selected @endif>{{ $course->name }}</option>
                                 @endforeach
                             </select>
 
@@ -102,7 +102,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ __('admin.certifications.notes') }} <span class="form-label-description"></span></label>
-                            <textarea dir="auto" class="form-control" name="notes" rows="4" placeholder="Content.."></textarea>
+                            <textarea dir="auto" class="form-control" name="notes" rows="4" placeholder="Content.."> {{ $row->notes }}</textarea>
                         </div>
 
                         <div class="form-group col-md-12">
@@ -110,7 +110,9 @@
 
                             <label for="logo">{{ __('admin.certifications.file') }}</label>
                             <input type="file" class="form-control" name="file" id="logo">
-
+                            <a href="{{$row->fileFullPath}}" style="width:40px" class="btn btn-primary">
+                                            عرض الملف
+                                        </a>
                             @error('file')
                             <div class="invalid-feedback">
                                 {{ $message }}

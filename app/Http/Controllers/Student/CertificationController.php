@@ -58,6 +58,7 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
+        $request->merge(['platform_certification'=>'0']);
         $certificate = Certificate::create($request->except('file'));
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;

@@ -23,7 +23,7 @@ Route::group(
             Route::post('logout', [AuthController::class, 'logout'])->name('student-logout');
             Route::get('courses', [CourseController::class, 'list'])->name('courses.index');
             Route::get('payments', [PaymentController::class, 'list'])->name('payments.index');
-            Route::resource('certifications', [CertificationController::class, 'list'])->name('payments.index');
+            Route::resource('certifications', CertificationController::class);
 
             
         });

@@ -13,9 +13,17 @@ class Subscription extends Model
     public $timestamps = true;
 
     protected $fillable = array(
-        'course_id', 'student_id', 'track_id', 'payment_type_id','active','paid'
+        'course_id', 'student_id', 'track_id', 'payment_type_id', 'active', 'paid'
     );
 
+
+    protected $appends = ['ImageFullPath'];
+
+    public function getImageFullPathAttribute($value)
+    {
+
+        return asset('public/' . $this->payment_attachment);
+    }
 
     public function course()
     {

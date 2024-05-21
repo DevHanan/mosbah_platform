@@ -207,18 +207,23 @@ Breadcrumbs::for('add-subscribtions', function (BreadcrumbTrail $trail) {
 });
 
 
+/** Student dashboard  */
 
+// Home
+Breadcrumbs::for('student-home', function (BreadcrumbTrail $trail) {
+    $trail->push(trans('navbar.Home'), route('admin.student.index'));
+});
 Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
+    $trail->parent('student-home');
     $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
 });
 
 Breadcrumbs::for('externalCertifications', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
+    $trail->parent('student-home');
     $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));
 });
 
 Breadcrumbs::for('platformCertifications', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
+    $trail->parent('student-home');
     $trail->push(trans('navbar.certifications.platform_certification'), route('student.platformCertifications'));
 });

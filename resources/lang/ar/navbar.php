@@ -165,4 +165,12 @@ return [
         'list' => 'سجل مدفوعات الطالب'
   
       ],
+      'certifications' => [
+        'name' => 'إسم الشهادة',
+        'course_name' => 'إسم الدورة',
+        'track_name' => 'إسم المسار',
+        'platform_certification' => 'شهادتى من المنصة',
+        'externel_certification' => 'شهادات خارجية',
+        'add' => 'إضافة شهادة'
+    ]
 ];

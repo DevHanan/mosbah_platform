@@ -29,7 +29,7 @@ class CertificationController extends Controller
     }
 
 
-    public function externalCertifications(Request $request)
+    public function index(Request $request)
     {
         $data['route'] = $this->route;
         $data['title'] = trans('admin.certifications.externel_certification');

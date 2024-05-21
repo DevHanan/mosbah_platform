@@ -47,17 +47,14 @@
                         </div>
 
                         <div class=" form-group col-md-6">
-                            <label class="form-label" for="status" class="form-label">{{ __('Select Status') }}</label>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" value="1" @ type="radio" name="status">
-                                <span class="form-check-label"> {{ __('status_status')}}</span>
-                            </label>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" value="0" type="radio" name="status">
-                                <span class="form-check-label"> {{ __('status_instatus' )}}</span>
-                            </label>
+                            <label class="form-label" for="authority"> {{__('admin.certifications.authority')}} <span>*</span></label>
+                            <input type="text" class="form-control" authority="authority" id="authority" value="{{ old('title') }}" required>
 
-
+                            @error('authority')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
 
 

@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.master')
 @section('title', $title)
 @section('content')
@@ -5,13 +6,8 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+                {{ Breadcrumbs::render('add-externalCertifications') }}
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -19,7 +15,7 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('btn_back') }}</a>
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('Back') }}</a>
 
                         </div>
                     </div>
@@ -30,84 +26,107 @@
     </div>
 </div>
 <div class="page-body">
-<div class="container-xl">
-    <div class="row row-cards">
-        <div class="col-md-12">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-md-12">
+
+            <form class="card" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row card-body">
+                        <!-- Form Start -->
 
 
-      <form class="card" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
-        @csrf
-        @method("PUT")
-        <div class="card-body">
-          <!-- Form Start -->
-          <fieldset class="row scheduler-border">
+                        <div class=" form-group col-md-6">
+                            <label class="form-label" for="name"> {{__('admin.certifications.name')}} <span>*</span></label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+
+                            @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class=" form-group col-md-6">
+                            <label class="form-label" for="authority"> {{__('admin.certifications.authority')}} <span>*</span></label>
+                            <input type="text" class="form-control" name="authority" id="authority" value="{{ old('authority') }}" required>
+
+                            @error('authority')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class=" form-group col-md-6">
+                            <label class="form-label" for="date"> {{__('admin.certifications.date')}} <span>*</span></label>
+                            <input type="date" class="form-control" name="date" id="date" value="{{ old('date') }}" required>
+
+                            @error('date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="track_id">{{__('admin.certifications.track_name')}} <span>*</span></label>
+                            <select class="form-control select2" name="track_id" id="track_id">
+                                <option value="">{{ __('select') }}</option>
+                                @foreach( $tracks as $track )
+                                <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('track_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="course_id">{{__('admin.certifications.course_name')}} <span>*</span></label>
+                            <select class="form-control select2" name="course_id" id="course_id">
+                                <option value="">{{ __('select') }}</option>
+                                @foreach( $courses as $course )
+                                <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif>{{ $course->name }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('course_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{{ __('admin.certifications.notes') }} <span class="form-label-description"></span></label>
+                            <textarea dir="auto" class="form-control" name="notes" rows="4" placeholder="Content.."></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12">
 
 
-            <div class="form-group col-md-12">
-             <label class="form-label" for="name"> {{__('track_name')}} <span>*</span></label>
-              <input type="text" class="form-control" name="name" id="name" value="{{ old('name',$row) }}" required>
+                            <label for="logo">{{ __('admin.certifications.file') }}</label>
+                            <input type="file" class="form-control" name="file" id="logo">
 
-              @error('name')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
+                            @error('file')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <!-- Form End -->
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+                    </div>
+                </form>
             </div>
-
-        
-
-
-
-            <div class="form-group col-md-12">
-             <label class="form-label" for="active" class="form-label">{{ __('select_active') }}</label>
-              <div>
-               <label class="form-check form-check-inline">
-                  <input class="form-check-input" value="1" @if($row->active ==1) checked="checked" @endif type="radio" name="active" >
-                  <span class="form-check-label"> {{ __('status_active')}}</span>
-                </label>
-               <label  class="form-check form-check-inline">
-                  <input class="form-check-input" value="0" @if($row->active == 0) checked="checked" @endif type="radio" name="active" >
-                  <span class="form-check-label"> {{ __('status_inactive' )}}</span>
-                </label>
-
-              </div>
-            </div>
-
-            <div class="form-group col-md-6">
-
-@if(isset($row->image))
-@if(is_file($row->image))
-<img src="{{ asset($row->image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-<div class="clearfix"></div>
-@endif
-@endif
-
-<label for="logo">{{ __('image') }}</label>
-<input type="file" class="form-control" name="image" id="logo">
-
-@error('image')
-<div class="invalid-feedback">
-  {{ $message }}
-</div>
-@enderror
-</div>
-
-
-          </fieldset>
-
-
-          <!-- Form End -->
         </div>
-        <div class="card-footer">
-          <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
-        </div>
-      </form>
     </div>
-  </div>
-  <!-- [ Card ] end -->
-</div>
-</div>
-<!-- [ Main Content ] end -->
 
-
+</div>
 @endsection

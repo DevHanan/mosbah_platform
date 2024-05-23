@@ -32,7 +32,7 @@ class CourseController extends Controller
       $login_id = auth()->guard('instructors-login')->user()->id;
       $data['rows'] = Course::whereHas('instructors', function ($query)use($login_id) {
          $query->where('instructor_id', $login_id);
-     })->get();;
+     })->paginate(10);
 
       return view('instructor.courses', $data);
 

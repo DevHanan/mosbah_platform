@@ -40,11 +40,9 @@ class StudentController extends Controller
          $query->where('instructor_id', $login_id);
      })->pluck('id')->ToArray();
     
-    $data['students']= Student::whereHas('subscriptions',function($q)use($coursesIDS){
+    $data['rows']= Student::whereHas('subscriptions',function($q)use($coursesIDS){
          $q->where('course_id',$coursesIDS);
     })->paginate(10);
-
-    return $data['students'];
 
       return view('instructor.students', $data);
 

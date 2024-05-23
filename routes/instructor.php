@@ -20,8 +20,8 @@ Route::group(
 
             Route::get('dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard.index');
             Route::post('logout', [AuthController::class, 'logout'])->name('instructor-logout');
-            Route::get('my-students', [StudentController::class, 'index'])->name('mystudent.index');
-            Route::get('my-courses', [CourseController::class, 'index'])->name('mycourses.index');
+            Route::get('my-students', [StudentController::class, 'list'])->name('students');
+            Route::get('my-courses', [CourseController::class, 'list'])->name('courses');
 
         });
 

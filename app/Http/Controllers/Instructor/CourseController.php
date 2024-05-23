@@ -15,7 +15,7 @@ class CourseController extends Controller
       // Module Data
       $this->title = 'دوراتى';
       $this->route = 'instructor.courses';
-      $this->view = 'instructor';
+      $this->view = 'courses';
    }
 
    /**
@@ -29,8 +29,10 @@ class CourseController extends Controller
      $data['title'] = $this->title;
       $data['route'] = $this->route;
       $data['view'] = $this->view;
-      $ids= Subscription::where('instructor_id',auth()->guard('instructors-login')->user()->id)->pluck('course_id')->ToArray();
-      $data['courses'] = Course::whereIn('id',$ids)->latest()->get();
+      $login_id = auth()->guard('instructors-login')->user()->id;
+      $data['rows'] = Course::whereHas('instructors', function ($query)use($login_id) {
+         $query->where('instructor_id', $login_id);
+     })->get();;
 
       return view('instructor.courses', $data);
 

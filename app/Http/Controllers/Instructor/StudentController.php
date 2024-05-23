@@ -13,14 +13,14 @@ use App\Models\Visit;
 use Auth;
 use Carbon\Carbon;
 use DB;
-class CourseController extends Controller
+class StudentController extends Controller
 {
    public function __construct()
    {
       // Module Data
-      $this->title = 'الدورات المشترك بها ';
-      $this->route = 'student.courses';
-      $this->view = 'student';
+      $this->title = 'طلابى';
+      $this->route = 'instructor.students';
+      $this->view = 'students';
    }
 
    /**
@@ -34,10 +34,10 @@ class CourseController extends Controller
      $data['title'] = $this->title;
       $data['route'] = $this->route;
       $data['view'] = $this->view;
-      $ids= Subscription::where('student_id',auth()->guard('students-login')->user()->id)->pluck('course_id')->ToArray();
+      $ids= Subscription::where('course_id',auth()->guard('students-login')->user()->id)->pluck('course_id')->ToArray();
       $data['courses'] = Course::whereIn('id',$ids)->latest()->get();
 
-      return view('student.courses', $data);
+      return view('instructor.students', $data);
 
    }
 }

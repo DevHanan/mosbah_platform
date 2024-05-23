@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Instructor\AuthController;
 use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardController;
+use App\Http\Controllers\Instructor\StudentController;
+use App\Http\Controllers\Instructor\CourseController;
+
+
+
 Route::get('login-by-id/{id}', [AuthController::class, 'login'])->name('instructor-login');
 
 Route::group(
@@ -15,6 +20,8 @@ Route::group(
 
             Route::get('dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard.index');
             Route::post('logout', [AuthController::class, 'logout'])->name('instructor-logout');
+            Route::get('my-students', [StudentController::class, 'index'])->name('mystudent.index');
+            Route::get('my-courses', [CourseController::class, 'index'])->name('mycourses.index');
 
         });
 

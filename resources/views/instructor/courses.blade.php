@@ -44,7 +44,7 @@
                     </svg>
                   </th>
                   <th>
-                    <a href="{{url('course/'.$row->id)}}">  {{__('admin.courses.name')}} </a></th>
+                      {{__('admin.courses.name')}} </th>
                   <th>{{ __('admin.courses.track') }}</th>
                   <th>{{ __('admin.courses.create_date') }}</th>
                   <th>{{ __('admin.courses.start_date') }}</th>
@@ -61,7 +61,9 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                  <td>{{$row->name}}</td>
+                  <td><a href="{{url('course/'.$row->id)}}">
+                    {{$row->name}}
+                  </a></td>
                   <td>
                     @if($row->tracks)
                     <ul class="list-unstyled">

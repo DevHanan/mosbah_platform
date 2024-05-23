@@ -43,16 +43,15 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.courses.name')}}</th>
+                  <th>
+                    <a href="{{url('course/'.$row->id)}}">  {{__('admin.courses.name')}} </a></th>
                   <th>{{ __('admin.courses.track') }}</th>
                   <th>{{ __('admin.courses.create_date') }}</th>
                   <th>{{ __('admin.courses.start_date') }}</th>
                   <th>{{ __('admin.courses.end_date') }}</th>
                   <th>{{ __('admin.courses.price') }}</th>
                   <th>{{ __('admin.courses.price_with_discount') }}</th>
-                  <th> {{__('admin.courses.image')}}</th>
-                  <th>{{ __('admin.courses.instructor') }}</th>      
-                  <th>{{ __('admin.courses.status') }}</th>
+        
                 
                 </tr>
               </thead>

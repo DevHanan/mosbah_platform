@@ -222,6 +222,7 @@ return [
 
     ],
     "courses"=>[
+        'create_date' => 'تاريخ الإنشاء',
          'instructor_prectange' => 'نسبة المحاضر',
         'buy_course_instructor' => 'القيمة الشرائية من المحاضر',
         'add_instructors' => 'إضافة المدربين',

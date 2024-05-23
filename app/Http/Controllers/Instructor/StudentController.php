@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Sale;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Student;
 use App\Models\Subscription;
 use App\Models\Visit;
 use Auth;
@@ -34,8 +35,12 @@ class StudentController extends Controller
      $data['title'] = $this->title;
       $data['route'] = $this->route;
       $data['view'] = $this->view;
-      $ids= Subscription::where('course_id',auth()->guard('students-login')->user()->id)->pluck('course_id')->ToArray();
-      $data['courses'] = Course::whereIn('id',$ids)->latest()->get();
+      $login_id = auth()->guard('instructors-login')->user()->id;
+    
+    $data['students']= auth()->guard('instructors-login')->user()->courses->whereHas('students', function ($query) {
+      $query->where('is_active', true); // or any other criteria for the students
+  })->with('students')->get();
+  return $data['students'];
 
       return view('instructor.students', $data);
 

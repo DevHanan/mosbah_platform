@@ -158,7 +158,9 @@ return [
         'about' => "عن الطالب",
         'field_photo' => 'صورة البروفايل',
         "userName" => "إسم المستخدم",
-        'field_total_subscription' => 'إجمالى قيمة الإشتراكات'
+        'field_total_subscription' => 'إجمالى قيمة الإشتراكات',
+        'course_name' => 'إسم الدورة',
+        'subscribed_date' => 'تاريخ الإشتراك بالدورة'
     ],
     "instructors" =>[
         'field_cv' => 'ملف السيرة الذاتية',

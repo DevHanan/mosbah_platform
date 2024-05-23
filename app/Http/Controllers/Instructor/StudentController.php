@@ -39,10 +39,8 @@ class StudentController extends Controller
       $coursesIDS = Course::whereHas('instructors', function ($query)use($login_id) {
          $query->where('instructor_id', $login_id);
      })->pluck('id')->ToArray();
-    
-    $data['rows']= Student::whereHas('subscriptions',function($q)use($coursesIDS){
-         $q->where('course_id',$coursesIDS);
-    })->paginate(10);
+   
+    $data['rows'] = Subscription::whereIn('course_id',$coursesIDS)->paginate(10);
 
       return view('instructor.students', $data);
 

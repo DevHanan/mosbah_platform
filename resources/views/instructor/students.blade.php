@@ -11,7 +11,7 @@
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
-               
+
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
-                            <table id="basic-table" class=" export-table display table nowrap table-striped table-hover" style="width:100%">
+                            <table id="basic-table" class="export-table display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -35,7 +35,10 @@
                                         <th>{{ __('admin.students.field_name') }}</th>
                                         <th>{{ __('admin.students.field_join_date') }}</th>
 
-            
+                                        <th>{{ __('admin.students.course_name') }}</th>
+                                        <th>{{ __('admin.students.track') }}</th>
+                                        <th>{{ __('admin.students.subscribed_date') }}</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,9 +46,10 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ $row->name }}</td>
-                                      
-
+                                        <td>{{ optional($row->student)->name }}</td>
+                                        <td>{{ optional($row->student)->created_at->format('l, F j, Y')  }}</td>
+                                        <td>{{ optional($row->course)->name }}</td>
+                                        <td>{{ optional(optional($row->course)->track)->name }}</td>
 
                                         <td>
                                             @if(isset($row->created_at))
@@ -56,6 +60,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="card-footer d-flex align-items-center">
+                            {{ $rows->links()}}
                         </div>
                         <!-- [ Data table ] end -->
                     </div>

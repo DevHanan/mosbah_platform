@@ -36,11 +36,15 @@ class StudentController extends Controller
       $data['route'] = $this->route;
       $data['view'] = $this->view;
       $login_id = auth()->guard('instructors-login')->user()->id;
+      $coursesIDS = Course::whereHas('instructors', function ($query)use($login_id) {
+         $query->where('instructor_id', $login_id);
+     })->pluck('id')->ToArray();
     
-    $data['students']= auth()->guard('instructors-login')->user()->courses->whereHas('students', function ($query) {
-      $query->where('is_active', true); // or any other criteria for the students
-  })->with('students')->get();
-  return $data['students'];
+    $data['students']= Student::whereHas('subscriptions',function($q)use($coursesIDS){
+         $q->where('course_id',$coursesIDS);
+    })->paginate(10);
+
+    return $data['students'];
 
       return view('instructor.students', $data);
 

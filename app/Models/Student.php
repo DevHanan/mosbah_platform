@@ -51,4 +51,9 @@ class Student extends Authenticatable
     {
         return $this->hasMany(Subscription::class);
     }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
 }

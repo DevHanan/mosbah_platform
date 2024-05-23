@@ -24,7 +24,7 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-block">
+                    <div class="card-body">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
                             <table id="basic-table" class="export-table display table nowrap table-striped table-hover" style="width:100%">

@@ -1,15 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\instructorr;
+namespace App\Http\Controllers\instructor;
 
 use App\Http\Controllers\Controller;
-use App\Models\Client;
 use App\Models\Course;
-use App\Models\Sale;
-use App\Models\Order;
-use App\Models\Product;
 use App\Models\Subscription;
-use App\Models\Visit;
 use Auth;
 use Carbon\Carbon;
 use DB;

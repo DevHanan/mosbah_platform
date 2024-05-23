@@ -38,6 +38,9 @@
                                         <th>{{ __('admin.students.course_name') }}</th>
                                         <th>{{ __('admin.students.track') }}</th>
                                         <th>{{ __('admin.students.subscribed_date') }}</th>
+                                        <th>{{ __('admin.students.subscribed_amount') }}</th>
+
+                                        
 
                                     </tr>
                                 </thead>
@@ -49,13 +52,15 @@
                                         <td>{{ optional($row->student)->name }}</td>
                                         <td>{{ optional($row->student)->created_at->format('l, F j, Y')  }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td>{{ optional(optional($row->course)->track)->name }}</td>
+                                        <td>{{ optional($row->track)->name }}</td>
 
                                         <td>
                                             @if(isset($row->created_at))
                                             {{ $row->created_at->format('l, F j, Y')  }}
                                             @endif
                                         </td>
+                                        <td> {{ $row->paid }} {{ $setting->currency }}</td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>

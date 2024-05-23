@@ -130,6 +130,7 @@ return [
         'edit'  => 'تعديل دولة'
     ],
     "students" =>[
+        'subscribed_amount' => ' قيمة الاشتراك ',
         'course_number' => 'عدد الدورات المشترك بها ',
         'current_course_number' => 'دورات جارية',
         'finished_course_number' => 'دورات منتهية',

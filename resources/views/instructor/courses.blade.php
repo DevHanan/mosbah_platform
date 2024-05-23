@@ -51,6 +51,8 @@
                   <th>{{ __('admin.courses.end_date') }}</th>
                   <th>{{ __('admin.courses.price') }}</th>
                   <th>{{ __('admin.courses.price_with_discount') }}</th>
+                  <th>{{ __('admin.courses.student_number') }}</th>
+
         
                 
                 </tr>
@@ -80,6 +82,7 @@
 
                   <td>{{$row->price}} {{ $setting->currency }}</td>
                   <td>{{$row->price_with_discount}} {{ $setting->currency }}</td>
+                  <td>{{$row->SubscriptionCount }} </td>
 
                 </tr>
                 @endforeach

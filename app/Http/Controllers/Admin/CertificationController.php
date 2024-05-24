@@ -8,6 +8,8 @@ use App\Mixins\Certificate\MakeCertificate;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Toastr;
+
 
 class CertificationController extends Controller
 {

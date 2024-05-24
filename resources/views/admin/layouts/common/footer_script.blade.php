@@ -517,3 +517,33 @@
             });
         });
     </script>
+	<script>
+		<script>
+$(document).ready(function() {
+    $('#track_id').on('change', function() {
+        var track_id = $(this).val();
+        if (track_id) {
+            $.ajax({
+                url: "{{ route('admin.getCourses') }}",
+                type: "GET",
+                data: {
+                    'track_id': track_id
+                },
+                dataType: "json",
+                success: function(res) {
+                    if (res.status == 'success') {
+                        let all_options = "<ul>";
+                        let all_courses = res.courses;
+                        $.each(all_courses, function(index, value) {
+                            all_options += "<li>" + value.name + "</li>";
+                        });
+                        all_options += "</ul>";
+                        $('#courses').html(all_options);
+                    }
+                }
+            })
+        }
+    });
+});
+</script>
+	</script>

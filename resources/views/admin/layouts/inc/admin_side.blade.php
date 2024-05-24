@@ -357,7 +357,7 @@
           </div>
         </li>
 
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
@@ -391,36 +391,6 @@
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="#">
                   {{ __('navbar.certifications.add') }}
-                </a>
-
-              </div>
-            </div>
-          </div>
-        </li> -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.coupons.*')) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
-            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-discount">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M9 15l6 -6" />
-                <circle cx="9.5" cy="9.5" r=".5" fill="currentColor" />
-                <circle cx="14.5" cy="14.5" r=".5" fill="currentColor" />
-                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-              </svg>
-            </span>
-            <span class="nav-link-title">
-              {{ __('navbar.certifications.certifications_management') }}
-            </span>
-          </a>
-          <div class="dropdown-menu @if(request()->routeIs('admin.coupons.*')) show @endif">
-            <div class="dropdown-menu-columns">
-              <div class="dropdown-menu-column">
-                <a class="dropdown-item @if(request()->routeIs(['admin.coupons.index','admin.coupons.edit'])) active @endif" href="{{url('/admin/coupons')}}">
-                  {{ __('navbar.coupons.list') }}
-
-                </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.coupons.create')) active @endif" href="{{url('/admin/coupons/create')}}">
-                  {{ __('navbar.coupons.add') }}
                 </a>
 
               </div>

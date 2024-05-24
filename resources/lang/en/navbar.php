@@ -30,10 +30,11 @@ return [
         "add"   => "إضافة كوبون"
     ],
     'certifications' => [
-        "certifications_management"  => "Certifications Management",
-        "list" => "List Certifications",
-        "student_certifications" => "Student Certifications",
-        "add"   => "New Certification"
+        "certifications_management" => " الشهادات",
+        "list_dwafer" => " قائمة شهادات دوافير",
+        "student_certifications" => "شهادات الطلاب من دوافير",
+        "add"   => "إضافة شهادة",
+        'student_certifications_from_out'  => 'شهادات الطلاب من جهات خارجية'
     ],
     'tickets' => [
         "tickets_management"  => "Ticket Managment",

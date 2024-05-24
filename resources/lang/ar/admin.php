@@ -348,6 +348,7 @@ return [
         'field_whatsapp'  => 'رقم الواتساب'
     ],
     'landing' => [
+        'start_soon_period' =>'مدة الدورات تبدا قريبا',
         'header_settings' => 'بيانات الهيدر',
         'footer_settings' => 'بيانات سكشن التعريف بالمنصة',
         'header_title' => 'عنوان  الهيدر',

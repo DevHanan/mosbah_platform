@@ -69,15 +69,15 @@
 
 
                         <div class="form-group col-md-6">
-              <label class="form-label" for="course_id">Course <span>*</span></label>
-              <select class="form-control select2" name="course_id" id="course_id">
+              <label class="form-label" for="track_id">track <span>*</span></label>
+              <select class="form-control select2" name="track_id" id="track_id">
                 <option value="">{{ __('select') }}</option>
-                @foreach( $courses as $course )
-                <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif>{{ $course->name }}</option>
+                @foreach( $tracks as $track )
+                <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
                 @endforeach
               </select>
 
-              @error('course_id')
+              @error('track_id')
               <div class="invalid-feedback">
                 {{ $message }}
               </div>

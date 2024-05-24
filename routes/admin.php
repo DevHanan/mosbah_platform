@@ -48,6 +48,8 @@ Route::group(
             Route::resource('tracks', TrackController::class);
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
+            Route::get('get-courses', [CourseController::class, 'getcourses'])->name('getCourses');
+
             Route::resource('courses.levels', LevelController::class);
             Route::resource('levels.lectures', LectureController::class);
 

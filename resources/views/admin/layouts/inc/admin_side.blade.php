@@ -377,19 +377,19 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item @if(request()->routeIs(['admin.certifications'])) active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs(['admin.certifications'])) active @endif" href="{{url('admin/certifications')}}">
                 {{ __('navbar.certifications.list_dwafer') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="{{url('admin/student-certifications')}}">
                 {{ __('navbar.certifications.student_certifications') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="{{url('admin/certifications')}}">
                   {{ __('navbar.certifications.student_certifications_from_out') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('admin/certifications/create')}}">
                   {{ __('navbar.certifications.add') }}
                 </a>
 

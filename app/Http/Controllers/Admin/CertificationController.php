@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\CertificatesExport;
 use App\Http\Controllers\Controller;
 use App\Mixins\Certificate\MakeCertificate;
-use App\Models\Certificate;
+use App\Models\Certification;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -27,7 +27,7 @@ class CertificationController extends Controller
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
-        $data['rows'] = Certificate::where(function($q)use($request){
+        $data['rows'] = Certification::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->get();
@@ -39,7 +39,7 @@ class CertificationController extends Controller
     {
         $data['route'] = $this->route;
         $data['title'] = 'Student Certifications';
-        $data['rows'] = Certificate::whereNull('course_id')->where(function($q)use($request){
+        $data['rows'] = Certification::whereNull('course_id')->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->get();
@@ -54,7 +54,7 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
-        $certificate = Certificate::create($request->except('image'));
+        $certificate = Certification::create($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'certifications';
             $attach = 'image';

@@ -129,6 +129,9 @@ class SettingController extends Controller
         if (!$data)
             $data = new LandingSetting();
 
+
+        $data->start_soon_period = $request->start_soon_period;
+
         $data->header_title = $request->header_title;
         $data->header_description = $request->header_description;
         $data->footer_description = $request->footer_description;

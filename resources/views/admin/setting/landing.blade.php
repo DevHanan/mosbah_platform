@@ -57,7 +57,7 @@
                                   <label for="logo form-label">{{ __('admin.landing.header_image') }}</label>
                                   <input type="file" class="form-control" name="header_image" id="logo">
                                   @if(isset($row->header_image))
-                                  <img  style="height:200px;" src="{{ asset($row->headerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                                  <img style="height:200px;" src="{{ asset($row->headerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                                   <div class="clearfix"></div>
                                   @endif
                                   @error('header_image')
@@ -107,7 +107,7 @@
                                   <label for="logo form-label">{{ __('admin.landing.footer_image') }}</label>
                                   <input type="file" class="form-control" name="footer_image" id="logo">
                                   @if(isset($row->footer_image))
-                                  <img  style="height:200px;"  src="{{ asset($row->footerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                                  <img style="height:200px;" src="{{ asset($row->footerImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                                   <div class="clearfix"></div>
                                   @endif
                                   @error('footer_image')
@@ -138,6 +138,18 @@
                       </div>
                     </div>
 
+                    <div class="mb-3">
+                            <label class="form-label" for="start_soon_period">{{ __('admin.landing.start_soon_period') }} <span>*</span></label>
+                            <input type="number" class="form-control" name="start_soon_period" id="start_soon_period" value="{{ isset($row->start_soon_period)?$row->start_soon_period:'' }}">
+
+                            @error('start_soon_period')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
+                          </div>
+
+
                     <div class="col-12">
                       <div class="row row-cards row-deck">
                         <div class="col">
@@ -148,10 +160,10 @@
                             <div class="card-body">
                               <div class="row">
 
-                              <div class="col-md-12">
+                                <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                    {{ __('admin.landing.achievements')}}
+                                      {{ __('admin.landing.achievements')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -163,7 +175,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                    {{ __('admin.landing.most_required_courses')}}
+                                      {{ __('admin.landing.most_required_courses')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -175,8 +187,8 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                    {{ __('admin.landing.recommend_courses')}}
-                                    
+                                      {{ __('admin.landing.recommend_courses')}}
+
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -189,9 +201,9 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                    {{ __('admin.landing.top_rated_courses')}}
+                                      {{ __('admin.landing.top_rated_courses')}}
 
-                                    
+
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -203,7 +215,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.star_recently_courses')}}
+                                      {{ __('admin.landing.star_recently_courses')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -215,7 +227,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.tracks')}}
+                                      {{ __('admin.landing.tracks')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -227,7 +239,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.instructors')}}
+                                      {{ __('admin.landing.instructors')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -239,7 +251,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.workteam')}}
+                                      {{ __('admin.landing.workteam')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -251,7 +263,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.parteners')}}
+                                      {{ __('admin.landing.parteners')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -263,7 +275,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.student_opinion')}}
+                                      {{ __('admin.landing.student_opinion')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -275,7 +287,7 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
-                                       {{ __('admin.landing.map_locations')}}
+                                      {{ __('admin.landing.map_locations')}}
                                     </span>
                                     <span class="col-auto">
                                       <label class="form-check form-check-single form-switch">
@@ -293,9 +305,9 @@
                         </div>
                       </div>
                     </div>
-                            <div class="card-footer">
-                              <button type="submit" class="btn btn-success">{{ __('admin.btn_update') }}</button>
-                            </div>
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-success">{{ __('admin.btn_update') }}</button>
+                    </div>
 
                   </form>
                 </div>

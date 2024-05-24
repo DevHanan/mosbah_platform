@@ -30,6 +30,8 @@ return new class extends Migration
             $table->boolean('student_opinion')->default('1');
             $table->boolean('map_locations')->default('1');
             $table->boolean('achievements')->default('1');
+            $table->integer('start_soon_period')->default('30');
+
 
 
         });

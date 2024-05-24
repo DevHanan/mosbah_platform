@@ -264,7 +264,7 @@ return [
         'prerequisites' => 'متطلبات مسبقة للدورة',
         'provider' => 'مزود الخدمة',
         'viemo' =>'فيمو',
-        'Youtube'=> 'يوتيوب'
+        'Youtube'=> 'يوتيوب',
     ],
     'dashboard' => [
         'student_number' => 'عدد الطلاب',

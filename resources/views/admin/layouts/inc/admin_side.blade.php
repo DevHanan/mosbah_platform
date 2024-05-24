@@ -210,7 +210,7 @@
 
                 <a class="dropdown-item" href="{{ url('admin/start-soon-courses')}}">
 
-                  {{ __('navbar.courses.start_soon_period') }}
+                  {{ __('navbar.courses.start_soon_courses') }}
 
                 </a>
 

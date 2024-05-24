@@ -69,20 +69,26 @@
 
 
                         <div class="form-group col-md-6">
-              <label class="form-label" for="track_id">track <span>*</span></label>
-              <select class="form-control select2" name="track_id" id="track_id">
-                <option value="">{{ __('select') }}</option>
-                @foreach( $tracks as $track )
-                <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
-                @endforeach
-              </select>
+                            <label class="form-label" for="track_id">track <span>*</span></label>
+                            <select class="form-control select2" name="track_id" id="track_id">
+                                <option value="">{{ __('select') }}</option>
+                                @foreach( $tracks as $track )
+                                <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
+                                @endforeach
+                            </select>
 
-              @error('track_id')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
+                            @error('track_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+
+                        <div id="courses"></div>
+                        </div>
+
                         <div class="form-group col-md-6">
 
 

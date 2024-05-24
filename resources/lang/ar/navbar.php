@@ -58,6 +58,7 @@ return [
 
     ],
     "courses" => [
+        'start_soon_courses' => 'دورات تبدا قريبا',
         'edit_course' => 'تعديل بيانات الدورة',
         'all_courses' => 'كل الدورات',
         "title"  => "الدورات التدريبية",

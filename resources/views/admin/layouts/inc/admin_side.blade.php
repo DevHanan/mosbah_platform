@@ -215,6 +215,11 @@
                   {{ __('navbar.courses.recommened_courses') }}
 
                 </a>
+                <a class="dropdown-item" href="{{ url('admin/start-soon-courses')}}">
+
+                  {{ __('navbar.courses.start_soon_courses') }}
+
+                </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.courses.index')) active @endif" href="{{ url('admin/courses')}}">
                   {{ __('navbar.courses.all_courses') }}
 

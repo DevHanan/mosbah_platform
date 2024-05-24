@@ -70,7 +70,7 @@ class CourseController extends Controller
    
   public function startSoonCourses(Request $request)
     {
-        $data['title'] = $this->title;
+        $data['title'] = 'دورات تبدأ قريبا';
         $data['route'] = $this->route;
         $data['view'] = $this->view;
         $data['path'] = $this->path;

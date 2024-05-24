@@ -518,7 +518,6 @@
         });
     </script>
 	<script>
-		<script>
 $(document).ready(function() {
     $('#track_id').on('change', function() {
         var track_id = $(this).val();

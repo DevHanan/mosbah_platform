@@ -378,15 +378,15 @@
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications'])) active @endif" href="#">
-                  {{ __('navbar.certifications.list_dwafer') }}
+                {{ __('navbar.certifications.add') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="#">
-                  {{ __('navbar.certifications.student_certifications') }}
+                {{ __('navbar.certifications.add') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.student-certifications.*'])) active @endif" href="#">
-                  {{ __('navbar.certifications.student_certifications_from_out') }}
+                  {{ __('navbar.certifications.add') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="#">

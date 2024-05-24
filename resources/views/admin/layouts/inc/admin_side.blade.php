@@ -208,7 +208,11 @@
                 @endforeach
 
 
+                <a class="dropdown-item" href="{{ url('admin/start-soon-courses')}}">
 
+                  {{ __('navbar.courses.start_soon_period') }}
+
+                </a>
 
                 <a class="dropdown-item" href="{{ url('admin/courses?recommend=1')}}">
 

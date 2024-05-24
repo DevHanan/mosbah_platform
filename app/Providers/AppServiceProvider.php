@@ -56,7 +56,7 @@ class AppServiceProvider extends ServiceProvider
         $recommened_courses = Course::recommened()->latest()->get();
         $subscriptions = Subscription::all();
         $landingSetting = LandingSetting::first();
-        $latest  = Course::whereDate('start_date', '<=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
+        $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
 
 
 

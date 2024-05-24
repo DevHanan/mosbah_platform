@@ -371,7 +371,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-              {{ __('navbar.certifications.certifications_management') }}
+            {{ __('navbar.certifications.certifications_management') }}
             </span>
           </a>
           <div class="dropdown-menu  @if(request()->routeIs(['admin.certifications.*','admin.student-certifications.*'])) show @endif">

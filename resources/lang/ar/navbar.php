@@ -41,7 +41,7 @@ return [
 
     ],
     'certifications' => [
-        "certifications_management"  => " الشهادات",
+        "certifications_management" => " الشهادات",
         "list_dwafer" => " قائمة شهادات دوافير",
         "student_certifications" => "شهادات الطلاب من دوافير",
         "add"   => "إضافة شهادة",

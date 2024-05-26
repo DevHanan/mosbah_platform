@@ -102,12 +102,12 @@ Breadcrumbs::for('visitor-messages', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('student-messages', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.tickets.student_msg'), route('admin.studenttickets'));
+    $trail->push(trans('navbar.tickets.student_msg'), route('admin.studentstickets'));
 });
 
 Breadcrumbs::for('instructor-messages', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.tickets.instrutor_msg'), route('admin.instructortickets'));
+    $trail->push(trans('navbar.tickets.instrutor_msg'), route('admin.instructorstickets'));
 });
 
 Breadcrumbs::for('teams', function (BreadcrumbTrail $trail) {

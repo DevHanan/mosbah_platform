@@ -102,7 +102,7 @@
 
                           <div class="form-group col-md-12">
                             <label class="form-label" for="course_number">{{ __('admin.aboutus.course_number') }} <span>*</span></label>
-                            <input type="number" class="form-control" name="course_number" id="course_number" value="{{ isset($row->course_number)?$row->course_number:'' }}">
+                            <input type="number" class="form-control" name="course_number" id="course_number" value="{{ isset($row->course_number)?$row->course_number: $courses->count() }}">
 
                             @error('course_number')
                             <div class="invalid-feedback">
@@ -113,7 +113,7 @@
 
                           <div class="form-group col-md-12">
                             <label class="form-label" for="lecture_number">{{ __('admin.aboutus.lecture_number') }} <span>*</span></label>
-                            <input type="number" class="form-control" name="lecture_number" id="lecture_number" value="{{ isset($row->lecture_number)?$row->lecture_number:'' }}">
+                            <input type="number" class="form-control" name="lecture_number" id="lecture_number" value="{{ isset($row->lecture_number)?$row->lecture_number:$lectures->count() }}">
 
                             @error('lecture_number')
                             <div class="invalid-feedback">

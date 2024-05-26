@@ -141,14 +141,14 @@
                                 <span id="slider-range-value2"></span>
                                 <span id="slider-range-value1"></span>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-12">
                                     <form>
                                         <input type="hidden" name="min-value" value="">
                                         <input type="hidden" name="max-value" value="">
                                     </form>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

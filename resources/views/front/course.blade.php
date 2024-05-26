@@ -521,12 +521,14 @@
                                     <source src="" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                                <iframe type='text/html' src="{{ $course->promo_url }}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
+
                                 <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
                                     <i class="fa-solid fa-play text-white"></i>
                                 </div>
                             </div>
 
-                            <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div>
+                            <!-- <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div> -->
                             <div class="info mt-3 px-4">
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->lectures()->count()}} محاضرة</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt="">

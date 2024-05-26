@@ -57,7 +57,7 @@
                                         <td>{{ $loop->iteration }}</td>
 
                                         <td>{{ $row->question }}</td>
-                                        <td>{{ $row->answer }}</td>
+                                        <td>{!! $row->answer !!}</td>
 
 
                                         <td>

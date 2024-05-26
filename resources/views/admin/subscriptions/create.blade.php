@@ -77,10 +77,10 @@
                                 <div class="mb-3">
 
 
-                                    <label class="form-label" for="logo">{{ __('admin.subscriptions.field_paymenttype') }}</label>
-                                    <input type="file" class="form-control" name="payment_attachment" id="logo">
+                                    <label class="form-label" for="logo">{{ __('admin.subscriptions.field_payment_attachmend') }}</label>
+                                    <input type="file" class="form-control" name="bill" id="logo">
 
-                                    @error('payment_attachment')
+                                    @error('bill')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

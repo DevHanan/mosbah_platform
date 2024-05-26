@@ -55,11 +55,12 @@ class SubscriptionController extends Controller
 
     public function store(SubscriptionRequest $request)
     {
-        $subscription= Subscription::create($request->except('payment_attachment'));
-        if ($request->hasFile('payment_attachment')) {
-            $directory = 'subscriptions';
-            $attach = 'payment_attachment';
-            $subscription->payment_attachment = 'uploads/' .$directory .'/'.$this->uploadMedia($request,$attach, $directory);
+        $subscription= Subscription::create($request->except('bill'));
+        if ($request->hasFile('bill')) {
+            $thumbnail = $request->bill;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/subscriptions/main/'),$filename);
+            $subscription->image ='uploads/subscriptions/main/'.$filename;
             $subscription->save();
         }
         $course= Course::find($request->course_id);
@@ -96,11 +97,12 @@ class SubscriptionController extends Controller
     public function update(SubscriptionRequest $request)
     {
         $subscription= Subscription::find($request->id);
-        $subscription->update($request->except('payment_attachment'));
-        if ($request->hasFile('payment_attachment')) {
-            $directory = 'subscriptions';
-            $attach = 'payment_attachment';
-            $subscription->payment_attachment = 'uploads/' .$directory .'/'.$this->uploadMedia($request,$attach, $directory);
+        $subscription->update($request->except('bill'));
+        if ($request->hasFile('bill')) {
+            $thumbnail = $request->bill;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/subscriptions/main/'),$filename);
+            $subscription->image ='uploads/subscriptions/main/'.$filename;
             $subscription->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

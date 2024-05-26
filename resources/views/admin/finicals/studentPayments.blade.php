@@ -49,9 +49,9 @@
                                         <td>{{ $row->paid }} {{ $setting->currency }}</td>
                                         
                                         <td>
-                                            @if($row->payment_attachment)
-                                            <a href="{{ asset($row->payment_attachment)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
-                                                <img src="{{asset($row->payment_attachment)}}" style="width:40px"> </a>
+                                            @if($row->bill)
+                                            <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
+                                                <img src="{{asset($row->billFullPath)}}" style="width:40px"> </a>
                                             @else
                                             {{ __('admin.no_file') }}
                                             @endif

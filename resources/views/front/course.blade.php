@@ -521,9 +521,7 @@
                                     <source src="{{ $course->promo_url }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video> -->
-                                <x-markdown>
     <iframe width="640" height="480" src="{{$course->promo_url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </x-markdown>
                                 <iframe type='text/html' src="{{ $course->promo_url }}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
 
                                 <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">

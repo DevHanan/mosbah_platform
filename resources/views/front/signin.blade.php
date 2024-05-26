@@ -42,7 +42,7 @@
                           <button class="phoneBtn btn w-100 rounded"> <i class="fa-solid fa-phone mx-2"></i> التليفون</button>
                         </div>
                 
-                        <form action="{{url('signin')}}" method="POST">
+                        <form action="{{url('signin')}}" method="POST" autocomplete="off">
                             @csrf
                             <div class="email_feild">
                                 <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>

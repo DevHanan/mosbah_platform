@@ -17,12 +17,12 @@ class Subscription extends Model
     );
 
 
-    protected $appends = ['ImageFullPath'];
+    protected $appends = ['billFullPath'];
 
-    public function getImageFullPathAttribute($value)
+    public function getBillFullPathAttribute($value)
     {
 
-        return asset('public/' . $this->payment_attachment);
+        return asset('public/' . $this->bill);
     }
 
     public function course()

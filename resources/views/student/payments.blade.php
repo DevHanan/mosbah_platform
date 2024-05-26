@@ -69,7 +69,7 @@
                   <td>{{ optional($row->course)->name}}</td>
                   <td>{{$row->paid }}</td>
                 
-                  <td><img  src="{{$row->imageFullPath}}" style="width:40px"></td>
+                  <td><img  src="{{$row->billFullPath}}" style="width:40px"></td>
 
                 </tr>
                 @endforeach

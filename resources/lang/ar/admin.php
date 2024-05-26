@@ -94,7 +94,7 @@ return [
         'hour' => 'ساعه'
     ],
     "lectures" =>[
-        'field_period' => 'مدة المدربة(بالساعة)',
+        'field_period' => 'مدة المحاضرة(بالساعة)',
         'goals' => 'اهداف المدربه',
         'conclusion'  => 'الخاتمة',
         'opened_free'  => 'مفتوحة مجانا',
@@ -114,9 +114,9 @@ return [
         'actions' => 'الحدث',
         'course' => 'الدورة',
         'level' => 'المرحلة',
-        'descriptions' => 'موضوع المدربة (وصف طويل)',
+        'descriptions' => 'موضوع المحاضرة (وصف طويل)',
         'short_description' => 'الوصف المختصر',
-        'type' => 'نوع المدربة',
+        'type' => 'نوع المحاضرة',
         'viedo' => 'فيديو',
         'metting' => 'اجتماع'
     ],

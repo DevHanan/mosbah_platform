@@ -155,7 +155,7 @@ return [
         "field_first_name"  => "الإسم الأول",
         "field_last_name" => "الإسم الأخير",
         "field_name" => "إسم الطالب",
-        "field_course_number"  => "عدد الكورسات التى يقدمها",
+        "field_course_number"  => "عدد الكورسات المشترك بها",
         "field_course_total" => "إجمالي قيمة الدورات",
         "field_email" => "البريد الإلكترونى",
         "phone_number" => "الهاتف",

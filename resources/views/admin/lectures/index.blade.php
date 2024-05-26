@@ -84,9 +84,9 @@
                   <td> {{ $row->period }}</td>
                   
                   <td>
-                    {{ trans($row->typeLabel) }}
+                    {{ __($row->typeLabel) }}
                   </td>
-                  <td> {{ trans($row->freeLabel) }}</td>
+                  <td> {{ __($row->freeLabel) }}</td>
 
 
 

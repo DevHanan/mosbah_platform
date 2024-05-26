@@ -521,7 +521,7 @@
                                     <source src="{{ $course->promo_url }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video> -->
-                                <iframe type='text/html' src="{{ $course->promo_url }}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
+                                <iframe type='text/html'  style="max-height: 220px;" src="{{ $course->promo_url }}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
 
                                 <!-- <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
                                     <i class="fa-solid fa-play text-white"></i>

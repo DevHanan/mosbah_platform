@@ -523,7 +523,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets','admin.visitors-tickets'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructorstickets','admin.studentstickets','admin.visitorstickets'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -537,21 +537,21 @@
               {{ __('navbar.tickets.tickets_management') }}
             </span>
           </a>
-          <div class="dropdown-menu  @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets','admin.visitors-tickets']))  show @endif ">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.instructorstickets','admin.studentstickets','admin.visitorstickets']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="{{url('admin/students-tickets')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.studentstickets'))   active @endif" href="{{url('admin/students-tickets')}}">
                   {{ __('navbar.tickets.student_msg') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.instructors-tickets'))  active @endif" href="{{url('admin/instructors-tickets')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.instructorstickets'))  active @endif" href="{{url('admin/instructors-tickets')}}">
                   {{ __('navbar.tickets.instrutor_msg') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.visitors-tickets'))  active @endif" href="{{url('admin/visitors-tickets')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.visitorstickets'))  active @endif" href="{{url('admin/visitors-tickets')}}">
                   {{ __('navbar.tickets.visitors') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.instructors-tickets'))  active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.instructorstickets'))  active @endif" href="#">
                   {{ __('navbar.tickets.notifications') }}
 
                 </a>

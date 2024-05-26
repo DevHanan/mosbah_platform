@@ -73,7 +73,7 @@
                                     <td>{{ $row->phone }}</td>
                                     <td>{{ optional($row->country)->name }}</td>
                                     <td> {{ $row->subscriptions()->count() }} </td>
-                                    <td> 0 </td>
+                                    <td> {{ $row->subscriptions()->sum('paid') }} {{ $setting->currency }} </td>
 
                                     <td>
                                         @if(isset($row->created_at))

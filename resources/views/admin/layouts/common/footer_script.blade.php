@@ -24,12 +24,13 @@
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
         <script>
+			    $(document).ready(function(){
             ClassicEditor
                 .create(document.querySelector('.richtext'))
                 .catch(error => {
                     console.error(error);
                 });
-				
+			});
         </script>
 
 <script>

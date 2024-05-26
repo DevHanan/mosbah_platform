@@ -31,10 +31,11 @@
         <div class="row row-deck row-cards">
 
 
-
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-block">
+                <div class="card-header">
+            <h3 class="card-title">{{ $title }}</h3>
+          </div>
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
                             <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
@@ -130,13 +131,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- [ Data table ] end -->
-                    </div>
+                       
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 @endsection

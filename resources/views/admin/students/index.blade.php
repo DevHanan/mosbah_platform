@@ -35,98 +35,98 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-block">
-                        <!-- [ Data table ] start -->
-                        <div class="table-responsive">
-                            <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-
-                                        <th>{{ __('admin.students.field_name') }}</th>
-                                        <th>{{ __('admin.students.field_photo') }}</th>
-                                        <th>{{ __('admin.students.field_email') }}</th>
-                                        <th>{{ __('admin.students.phone_number') }}</th>
-                                        <th>{{ __('admin.students.field_country') }}</th>
-
-                                        <th>{{ __('admin.students.field_course_number') }}</th>
-                                        <th>{{ __('admin.students.field_total_subscription') }}</th>
-                                        <th>{{ __('admin.students.field_join_date') }}</th>
-
-                                        <th>{{ __('admin.students.field_status') }}</th>
-
-                                        <th>{{ __('admin.students.field_action') }}</th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach( $rows as $key => $row )
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-
-                                        <td>{{ $row->first_name }}</td>
-                                        <td><img src="{{ $row->imageFullPath }}" style="width:40px"></td>
-                                        <td>{{ $row->email }}</td>
-
-                                        <td>{{ $row->phone }}</td>
-                                        <td>{{ optional($row->country)->name }}</td>
-                                        <td> {{ $row->subscriptions()->count() }} </td>
-                                        <td> 0 </td>
-
-                                        <td>
-                                            @if(isset($row->created_at))
-                                            {{ $row->created_at->format('l, F j, Y')  }}
-                                            @endif
-                                        </td>
-
-
-
-
-                                        <td>
-
-
-                                            <div class="form-check form-switch md-3" style="margin:10px">
-
-                                                <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-                                            </div>
-                                        </td>
-                                        <td>
-
-
-
-                                           
-                                            <a href="{{url('student-login-by-id/'.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
-
-                                                <i class="fa fa-sign-in" aria-hidden="true"></i>
-
-                                            </a>
-
-                                            <a href="{{ route($route.'.edit', $row->id) }}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-
-                                            <a href="{{ url('admin/students/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-eye"></i>
-                                            </a>
-
-                                            <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                            <!-- Include Delete modal -->
-                                            @include('admin.layouts.inc.delete')
-
-
-
-
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- [ Data table ] end -->
+                    <div class="card-header">
+                        <h3 class="card-title">{{ $title }}</h3>
                     </div>
+                    <div class="table-responsive">
+                        <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+
+                                    <th>{{ __('admin.students.field_name') }}</th>
+                                    <th>{{ __('admin.students.field_photo') }}</th>
+                                    <th>{{ __('admin.students.field_email') }}</th>
+                                    <th>{{ __('admin.students.phone_number') }}</th>
+                                    <th>{{ __('admin.students.field_country') }}</th>
+
+                                    <th>{{ __('admin.students.field_course_number') }}</th>
+                                    <th>{{ __('admin.students.field_total_subscription') }}</th>
+                                    <th>{{ __('admin.students.field_join_date') }}</th>
+
+                                    <th>{{ __('admin.students.field_status') }}</th>
+
+                                    <th>{{ __('admin.students.field_action') }}</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( $rows as $key => $row )
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+
+                                    <td>{{ $row->first_name }}</td>
+                                    <td><img src="{{ $row->imageFullPath }}" style="width:40px"></td>
+                                    <td>{{ $row->email }}</td>
+
+                                    <td>{{ $row->phone }}</td>
+                                    <td>{{ optional($row->country)->name }}</td>
+                                    <td> {{ $row->subscriptions()->count() }} </td>
+                                    <td> 0 </td>
+
+                                    <td>
+                                        @if(isset($row->created_at))
+                                        {{ $row->created_at->format('l, F j, Y')  }}
+                                        @endif
+                                    </td>
+
+
+
+
+                                    <td>
+
+
+                                        <div class="form-check form-switch md-3" style="margin:10px">
+
+                                            <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                                        </div>
+                                    </td>
+                                    <td>
+
+
+
+
+                                        <a href="{{url('student-login-by-id/'.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
+
+                                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+
+                                        </a>
+
+                                        <a href="{{ route($route.'.edit', $row->id) }}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+
+                                        <a href="{{ url('admin/students/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                            <i class="far fa-eye"></i>
+                                        </a>
+
+                                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <!-- Include Delete modal -->
+                                        @include('admin.layouts.inc.delete')
+
+
+
+
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>

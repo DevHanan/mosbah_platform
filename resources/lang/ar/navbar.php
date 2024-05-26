@@ -118,7 +118,7 @@ return [
         'course_profit' => 'ايرادات الدورات',
         'students_payment' => 'مدفوعات الطلاب',
         'instructors_profit' => 'أرباح المدربين',
-        'instructors_request' => 'طلبات سحب الحاضرين',
+        'instructors_request' => 'طلبات سحب المدربين',
         'instructor_paid' => 'مدفوعات أرباح المدربين',
 
     ],

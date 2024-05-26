@@ -73,9 +73,9 @@
                                         </td>
                                         <td> {{ optional($row->paymentType)->name }}</td>
                                         <td>
-                                            @if($row->payment_attachment)
-                                            <a href="{{ asset($row->payment_attachment)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
-                                                <img src="{{asset($row->payment_attachment)}}" style="width:40px"> </a>
+                                            @if($row->billFullPath)
+                                            <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
+                                                <img src="{{asset($row->billFullPath)}}" style="width:40px"> </a>
                                             @else
                                             {{ __('admin.no_file') }}
                                             @endif
@@ -89,8 +89,8 @@
                                             <a style="margin-bottom: 2px;" target="_blank" href="{{ url('admin/students/'.$row->student_id) }}" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="fa-solid fa-person"></i>
                                             </a>
-                                            @if($row->payment_attachment)
-                                            <a href="{{ asset($row->payment_attachment)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
+                                            @if($row->billFullPath)
+                                            <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-file"></i>
                                             </a>
                                             @endif

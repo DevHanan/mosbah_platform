@@ -113,9 +113,9 @@ class CourseController extends Controller
         if ($request->track_ids)
             $course->tracks()->attach($request->track_ids);
 
-        if (count($request->instructors)) {
+        if (count($request->instructors) ) {
             for ($i = 0; $i < count($request->instructors); $i++) {
-                if ($request->instructors[$i] != 0)
+                if ($request->instructors[$i] != 0){
                     CourseInstructor::create([
                         'course_id' => $course->id,
                         'instructor_id' => $request->instructors[$i],
@@ -128,6 +128,7 @@ class CourseController extends Controller
                     'current_balance' => $instructor->current_balance + $request->instructorsprice[$i], 'total_balance' => $instructor->total_balance + $request->instructorsprice[$i]
                 ]);
             }
+        }
         }
 
         if ($request->hasFile('image')) {

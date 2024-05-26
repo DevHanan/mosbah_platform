@@ -18,7 +18,7 @@ class ProfitController extends Controller
     public function courseProfit(Request $request)
     {
         $data['title'] = trans('admin.finances.course_profit');
-        $data['rows'] = Course::where(function($q)use($request){
+        $data['rows'] = Course::whereHas('subscriptions')->where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->paginate(10);

@@ -31,7 +31,7 @@
                       {{ auth()->guard('instructors-login')->user()->courses()->count() }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.students.course_number')}}
+                      {{ __('admin.instructors.course_number')}}
                     </div>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                       {{ $setting->currency }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.students.subscriptions_total')}}
+                      {{ __('admin.instructors.profit_total')}}
                     </div>
                   </div>
                 </div>

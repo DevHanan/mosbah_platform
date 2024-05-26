@@ -62,13 +62,7 @@
 
                                         <td>{{ $row->code }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td> @if(optional($row->course)->tracks)
-                                            <ul class="list-unstyled">
-                                                @foreach(optional($row->course)->tracks as $item)
-                                                <li> {{ $item->name  }}</li>
-                                                @endforeach
-                                            </ul>
-                                            @endif
+                                        <td> {{ optional($row->track)->name }}                                         
                                         </td>
                                         <td>{{ $row->discount }}</td>
                                         <td>{{ $row->created_at }}</td>

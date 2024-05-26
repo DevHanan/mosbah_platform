@@ -12,7 +12,7 @@ class Coupon extends Model
     public $timestamps = true;
     protected $with = ['course'];
 
-    protected $fillable = array('code','active','start_date','end_date','discount','course_id');
+    protected $fillable = array('code','active','start_date','end_date','discount','course_id','track_id');
 
     public function scopeActive($query)
     {

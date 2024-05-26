@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('code');
             $table->double('discount');
             $table->integer('course_id');
+            $table->integer('track_id');
             $table->date('start_date');
             $table->date('end_date');
             $table->boolean('active')->default(1);

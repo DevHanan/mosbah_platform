@@ -517,7 +517,7 @@
                     <div class="col-lg-12 col-md-6">
                         <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
                             <div class="position-relative w-100 h-100 gallery-item">
-                                <video id="myVideo" class="w-100 h-100" poster="../img/video-img.png')}}" style="object-fit: cover;">
+                                <video id="myVideo" class="w-100 h-100" poster="{{ $course->promo_url }}" style="object-fit: cover;">
                                     <source src="" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>

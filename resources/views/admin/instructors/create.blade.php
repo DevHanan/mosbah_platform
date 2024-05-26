@@ -65,7 +65,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}" required>
+                                    <input type="password" class="form-control" name="password" id="password"  required>
 
                                     @error('password')
                                     <div class="invalid-feedback">
@@ -189,7 +189,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="password">{{ __('admin.instructors.field_password_confirmation') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" value="{{ old('password_confirmation') }}" required>
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"  required>
 
                                     @error('password')
                                     <div class="invalid-feedback">
@@ -240,7 +240,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('bank_account') }}" required>
+                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number') }}" required>
 
 
                                     @error('cash_wallet_number')

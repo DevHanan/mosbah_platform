@@ -83,12 +83,12 @@
 
 
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <th>{{ __('admin.instructors.field_course_total') }}</th>
                                         <td> {{ $row->courses()->sum('price') }} </td>
 
 
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <th>{{ __('admin.instructors.salary') }}</th>
                                         <td> {{ $row->salary }}  {{ $setting->currency }}</td>

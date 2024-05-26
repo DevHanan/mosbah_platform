@@ -188,7 +188,7 @@
               {{ __('navbar.courses.title') }}
             </span>
           </a>
-          <div class="dropdown-menu  @if(request()->routeIs(['admin.courses.*','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.courses.*','admin.startsoonCourses','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif">
             <div class="dropdown-menu-columns ">
               <div class="dropdown-menu-column ">
                 <a class="dropdown-item @if(request()->routeIs(['admin.tracks.index','admin.tracks.edit'])) active @endif" href="{{ url('admin/tracks')}}">

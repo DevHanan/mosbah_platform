@@ -83,6 +83,12 @@
 
                                     </tr>
 
+                                    <tr>
+                                    <th>{{ __('admin.students.field_total_subscription') }}</th>
+                                    <td> {{ $row->subscriptions()->sum('paid') }} {{ $setting->currency }} </td>
+
+                                    </tr>
+
 
 
 

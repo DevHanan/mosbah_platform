@@ -52,9 +52,9 @@
                                         </div>
                                     </td>
                                     <td><a href="{{asset($row->FileFullPath)}}" style="width:40px">
-                                    عرض الملف
-                                    </a>
-                                </td>
+                                            عرض الملف
+                                        </a>
+                                    </td>
 
 
                                     <td style="width: 270px;">

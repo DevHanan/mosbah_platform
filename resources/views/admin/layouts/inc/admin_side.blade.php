@@ -615,7 +615,7 @@
               {{ __('navbar.master_data')}}
             </span>
           </a>
-          <div class="dropdown-menu @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.setting.landingSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="{{url('admin/setting')}}">
@@ -623,7 +623,7 @@
                   {{ __('navbar.settings.general_settings') }}
                 </a>
 
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.home')) active @endif " href="{{url('admin/landing-page-settings')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin.setting.landingSetting')) active @endif " href="{{url('admin/landing-page-settings')}}">
 
                   {{ __('navbar.settings.home_settings') }}
                 </a>

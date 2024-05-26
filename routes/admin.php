@@ -104,7 +104,7 @@ Route::group(
             Route::get('contact-us-settings', [SettingController::class, 'contactUs'])->name('settings.contactUs');
             Route::post('contact-us-settings', [SettingController::class, 'SaveContactUs'])->name('setting.SaveContactUs');
 
-            Route::get('landing-page-settings', [SettingController::class, 'landingSetting'])->name('settings.contactUs');
+            Route::get('landing-page-settings', [SettingController::class, 'landingSetting'])->name('settings.landingSetting');
             Route::post('landing-settings', [SettingController::class, 'SaveLandingSetting'])->name('setting.SaveContactUs');
 
 

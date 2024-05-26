@@ -25,10 +25,11 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
         <script>
             ClassicEditor
-                .create(document.querySelector('textarea'))
+                .create(document.querySelector('.richtext'))
                 .catch(error => {
                     console.error(error);
                 });
+				
         </script>
 
 <script>

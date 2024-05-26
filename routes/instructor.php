@@ -5,6 +5,7 @@ use App\Http\Controllers\Instructor\AuthController;
 use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardController;
 use App\Http\Controllers\Instructor\StudentController;
 use App\Http\Controllers\Instructor\CourseController;
+use App\Http\Controllers\Instructor\ProfitController;
 
 
 
@@ -22,6 +23,11 @@ Route::group(
             Route::post('logout', [AuthController::class, 'logout'])->name('instructor-logout');
             Route::get('my-students', [StudentController::class, 'list'])->name('students');
             Route::get('my-courses', [CourseController::class, 'list'])->name('courses');
+            Route::get('myprofits', [ProfitController::class, 'myProfit'])->name('myprofits');
+            Route::get('request-profit', [ProfitController::class, 'addRequest'])->name('requestProfit');
+            Route::post('store-request-profit', [ProfitController::class, 'storeRequest'])->name('storeRequest');
+            Route::get('list-request-profit', [ProfitController::class, 'listRequest'])->name('listRequest');
+            Route::get('list-paid-request-profit', [ProfitController::class, 'listPaidRequest'])->name('listPaidRequest');
 
         });
 

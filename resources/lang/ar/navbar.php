@@ -23,8 +23,8 @@ return [
     ],
 
     'instructors' => [
-        "instructor_management"  => "إدارة المحاضرين",
-        "list" => "قائمة المحاضرين",
+        "instructor_management"  => "إدارة المدربين",
+        "list" => "قائمة المدربين",
         "add"   => "إضافة محاضر"
     ],
     'subscriptions' => [
@@ -51,7 +51,7 @@ return [
         "tickets_management"  => " الدعم",
         "list" => "عرض الدعم الفنى",
         "add"   => "",
-        "instrutor_msg" => "مراسلات المحاضرين",
+        "instrutor_msg" => "مراسلات المدربين",
         "student_msg" => "مراسلات الطلاب",
         'visitors'  => 'مراسلات الزوار',
         'notifications'  => 'إشعارات',
@@ -117,9 +117,9 @@ return [
         'finances_management' => 'الماليات',
         'course_profit' => 'ايرادات الدورات',
         'students_payment' => 'مدفوعات الطلاب',
-        'instructors_profit' => 'أرباح المحاضرين',
+        'instructors_profit' => 'أرباح المدربين',
         'instructors_request' => 'طلبات سحب الحاضرين',
-        'instructor_paid' => 'مدفوعات أرباح المحاضرين',
+        'instructor_paid' => 'مدفوعات أرباح المدربين',
 
     ],
     'processing_account' => [
@@ -170,8 +170,13 @@ return [
         'name' => 'إسم الشهادة',
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
-        'platform_certification' => 'شهادتى من المنصة',
+        'platform_certification' => 'شهادات منصة دوافير ',
         'externel_certification' => 'شهادات خارجية',
         'add' => 'إضافة شهادة'
-    ]
+      ],
+      'cvs' => [
+        'list' => 'قوالب السيرة الذاتية',
+        'add' => 'إضافة قالب جديد',
+        'edit' => 'تعديل قالب'
+    ],
 ];

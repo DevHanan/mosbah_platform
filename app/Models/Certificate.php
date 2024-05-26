@@ -13,8 +13,18 @@ class Certificate extends Model
     protected $guarded = ['id'];
     protected $fillable = array('name', 'course_id','date' ,'authority','student_id', 'track_id', 'platform_certification','notes');
 
-    protected $appends = ['FileFullPath'] ;   
+    protected $appends = ['FileFullPath','statusLabel'] ;   
     
+
+    public function getstatusLabelAttribute()
+    {
+        if ($this->active == 1)
+        return  trans('admin.certifications.accepted');
+        elseif ($this->active == 0)
+        return  trans('admin.certifications.pending');
+        else
+        return  trans('admin.certifications.refaused');
+    }
  
     public function getFileFullPathAttribute($value)
     {

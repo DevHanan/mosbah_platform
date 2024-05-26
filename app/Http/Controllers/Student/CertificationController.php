@@ -29,7 +29,7 @@ class CertificationController extends Controller
     }
 
 
-    public function index(Request $request)
+    public function externalCertifications(Request $request)
     {
         $data['route'] = $this->route;
         $data['title'] = trans('admin.certifications.externel_certification');
@@ -40,17 +40,7 @@ class CertificationController extends Controller
         return view($this->view.'.externel', $data);
     }
     
-    public function studentCertificate(Request $request)
-    {
-        $data['route'] = $this->route;
-        $data['title'] = 'Student Certifications';
-        $data['rows'] = Certificate::whereNull('course_id')->where(function($q)use($request){
-            if ($request->name)
-            $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
-        return view($this->view.'.index', $data);
-    }
-
+    public function index(){}
     public function create(Certificate $certificate)
     {
         $data['title'] = 'Add certifications ';
@@ -59,8 +49,8 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
-        $request->merge(['platform_certification'=>'0','student_id'=>auth()->guard('students-login')->user()->id]);
-        $certificate = Certificate::create($request->except('file'));
+        $request->merge(['student_id'=>auth()->guard('students-login')->user()->id]);
+        $certificate = Certificate::create($request->except('image'));
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -68,6 +58,7 @@ class CertificationController extends Controller
             $certificate->file ='uploads/certifications/main/'.$filename;
             $certificate->save();
         }
+        
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
         return redirect()->route('student.externalCertifications');
     }
@@ -80,29 +71,8 @@ class CertificationController extends Controller
         else
         return $this->notFoundApiResponse([],__('Data Not Found'));
 
+        
     }
-
-    public function edit($id)
-    {   
-        $data['row'] = Certificate::find($id);
-        $data['route'] = $this->route;
-        $data['title'] = 'edit Country';
-        return view($this->view.'.edit',$data);
-    }
-
-    public function update(Request $request)
-    {
-        $certificate = Certificate::find($request->id);
-        $certificate->update($request->except('file'));
-        if ($request->hasFile('file')) {
-            $thumbnail = $request->file;
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/certifications/main/'),$filename);
-            $certificate->file ='uploads/certifications/main/'.$filename;
-            $certificate->save();
-        }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
-        return redirect()->route('student.externalCertifications');    }
 
     public function destroy (Request $request)
     {
@@ -113,4 +83,5 @@ class CertificationController extends Controller
             Toastr::success(__('msg_delete_successfully'), __('msg_success'));
             return redirect()->route($this->route.'.index');
     }
+
 }

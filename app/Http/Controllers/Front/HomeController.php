@@ -12,6 +12,7 @@ use App\Models\Team;
 use App\Models\Lecture;
 use App\Models\Subscription;
 use App\Models\Subsctiption;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -120,8 +121,10 @@ class HomeController extends Controller
     public function subscribe(Request $request)
     {
         $course = Course::find($request->course_id);
-        $request->merge(['student_id' => Auth::guard('students-login')->user()->id, 
-        'paid' => $request->paid ]);
+        $request->merge([
+            'student_id' => Auth::guard('students-login')->user()->id,
+            'paid' => $request->paid
+        ]);
         $item = Subscription::create($request->except(['bill']));
         if ($request->hasFile('bill')) {
 
@@ -137,22 +140,40 @@ class HomeController extends Controller
         return redirect('course/' . $request->course_id);
     }
 
+    public function saveMessage(Request $request)
+    {
+        if (Auth::guard('students-login')->check())
+            $request->merge([
+                'student_id' => Auth::guard('students-login')->user()->id,'read' => '0'
+            ]);
+        elseif (Auth::guard('instructors-login')->check())
+            $request->merge([
+                'instructor_id' => Auth::guard('instructors-login')->user()->id,'read' => '0'
+            ]);
+        else
+            $request->merge(['read' => '0']);
+
+        Ticket::create($request->all());
+        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
+        return redirect()->back();
+    }
+
 
     public function checkCoupon(Request $request)
     {
-     $coupon = Coupon::where('code', $request->code)->where('course_id',$request->course_id)->first();
-     $course = Course::find($request->course_id);
+        $coupon = Coupon::where('code', $request->code)->where('course_id', $request->course_id)->first();
+        $course = Course::find($request->course_id);
         if ($coupon) {
             return response()->json([
                 'status' => 'success',
                 'discount' => $coupon->discount,
-                'total' => (optional($coupon->course)->TotalDiscount )-  ((optional($coupon->course)->TotalDiscount/100)*$coupon->discount )
+                'total' => (optional($coupon->course)->TotalDiscount) -  ((optional($coupon->course)->TotalDiscount / 100) * $coupon->discount)
             ]);
         } else {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Coupon not found',
-                'total' => $course->TotalDiscount 
+                'total' => $course->TotalDiscount
             ]);
         }
     }

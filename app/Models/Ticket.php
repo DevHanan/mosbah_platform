@@ -12,8 +12,17 @@ class Ticket extends Model
     public $timestamps = true;
 
     protected $fillable = array(
-        'instructor_id', 'student_id', 'title', 'description','create_date'
+        'instructor_id', 'student_id', 'title', 'description','phone','email','name','read'
     );
+    protected $appends = ['statusLabel'] ;   
+
+    public function getStatusLabelAttribute()
+    {
+        if ($this->read == 1)
+            return  trans('admin.tickets.read');
+        else
+            return ('admin.tickets.not_read');
+    }
     public function student()
     {
         return $this->belongsTo(Student::class);

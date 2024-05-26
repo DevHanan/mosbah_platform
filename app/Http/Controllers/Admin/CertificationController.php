@@ -15,7 +15,7 @@ class CertificationController extends Controller
 {
     public function __construct()
     {
-        $this->title = 'list certifications';
+        $this->title = trans('admin.certifications.platform_certification');
         $this->route = 'admin.certifications';
         $this->view = 'admin.certifications';
         $this->path = 'certifications';
@@ -32,7 +32,7 @@ class CertificationController extends Controller
         $data['rows'] = Certificate::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
+        })->whereNull('student_id')->where('platform_certification','1')->paginate(10);
         return view($this->view.'.index', $data);
     }
 
@@ -40,12 +40,23 @@ class CertificationController extends Controller
     public function studentCertificate(Request $request)
     {
         $data['route'] = $this->route;
-        $data['title'] = 'Student Certifications';
-        $data['rows'] = Certificate::whereNull('course_id')->where(function($q)use($request){
+        $data['title'] = trans('admin.certifications.student_certification');
+        $data['rows'] = Certificate::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->get();
+        })->whereNotNull('student_id')->where('platform_certification','1')->paginate(10);
         return view($this->view.'.index', $data);
+    }
+
+    public function externelStudentCertificate(Request $request)
+    {
+        $data['route'] = $this->route;
+        $data['title'] = trans('admin.certifications.externel_certification');
+        $data['rows'] = Certificate::where(function($q)use($request){
+            if ($request->name)
+            $q->Where('name', 'like', '%' . $request->name  . '%');
+        })->where('platform_certification','0')->paginate(10);
+        return view($this->view.'.externel', $data);
     }
 
     public function create(Certificate $certificate)
@@ -57,19 +68,21 @@ class CertificationController extends Controller
     public function store(Request $request)
     {
         $certificate = Certificate::create($request->except('image'));
-        if ($request->hasFile('image')) {
-            $directory = 'certifications';
-            $attach = 'image';
-            $certificate->image = 'uploads/certifications/'.$this->uploadMedia($request, $attach, $directory);
+        if ($request->hasFile('file')) {
+            $thumbnail = $request->file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/certifications/main/'),$filename);
+            $certificate->file ='uploads/certifications/main/'.$filename;
             $certificate->save();
         }
+        
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
         return redirect()->route('admin.certifications.index');
     }
 
 
     public function show($id){
-        $certificate = Certification::find($id);
+        $certificate = Certificate::find($id);
         if($certificate)
         return $this->okApiResponse(new CountryResource($certificate), __('Country loades successfully'));
         else
@@ -79,7 +92,7 @@ class CertificationController extends Controller
 
     public function edit($id)
     {   
-        $data['row'] = Certification::find($id);
+        $data['row'] = Certificate::find($id);
         $data['route'] = $this->route;
         $data['title'] = 'edit Country';
         return view($this->view.'.edit',$data);
@@ -87,7 +100,7 @@ class CertificationController extends Controller
 
     public function update(CountryRequest $request)
     {
-        $certificate = Certification::find($request->id);
+        $certificate = Certificate::find($request->id);
         $certificate->update($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'certifications';

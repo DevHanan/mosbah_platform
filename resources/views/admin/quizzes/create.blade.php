@@ -1,0 +1,36 @@
+@extends('admin.layouts.master')
+
+
+@section('content')
+
+    <section class="section">
+        <div class="section-header">
+            <h1>{{ $pageTitle }}</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="#">{{trans('admin/main.dashboard')}}</a>
+                </div>
+                <div class="breadcrumb-item">{{ $pageTitle }}</div>
+            </div>
+        </div>
+
+        <div class="section-body">
+
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @include('admin.quizzes.create_quiz_form')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+@endsection
+
+@push('scripts_bottom')
+    
+
+    <script src="/assets/default/js/admin/quiz.min.js"></script>
+@endpush

@@ -63,6 +63,8 @@ Route::post('/signin', [RegisterController::class, 'signin']);
 Route::get('/questions', [HomeController::class, 'questions']);
 Route::post('/subscribe', [HomeController::class, 'subscribe']);
 
+Route::post('/contactus', [HomeController::class, 'saveMessage']);
+
 
 
 Route::get('/clear-cache', function () {

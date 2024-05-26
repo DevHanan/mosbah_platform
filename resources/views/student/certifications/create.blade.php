@@ -14,7 +14,7 @@
 
                     <div class="card-header">
                         <div class="card-block">
-                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('Back') }}</a>
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
                         </div>
                     </div>
@@ -36,7 +36,7 @@
 
 
                         <div class=" form-group col-md-6">
-                            <label class="form-label" for="name"> {{__('admin.certifications.name')}} <span>*</span></label>
+                            <label class="form-label" for="name" > {{__('admin.certifications.name')}} <span>*</span></label>
                             <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
 
                             @error('name')
@@ -70,7 +70,7 @@
 
                         <div class="form-group col-md-6">
                             <label class="form-label" for="track_id">{{__('admin.certifications.track_name')}} <span>*</span></label>
-                            <select class="form-control select2" name="track_id" id="track_id">
+                            <select class="form-control select2" name="track_id" id="track_id" required>
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $tracks as $track )
                                 <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
@@ -86,11 +86,9 @@
 
                         <div class="form-group col-md-6">
                             <label class="form-label" for="course_id">{{__('admin.certifications.course_name')}} <span>*</span></label>
-                            <select class="form-control select2" name="course_id" id="course_id">
+                            <select class="form-control select2" name="course_id" id="courses">
                                 <option value="">{{ __('select') }}</option>
-                                @foreach( $courses as $course )
-                                <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif>{{ $course->name }}</option>
-                                @endforeach
+                              
                             </select>
 
                             @error('course_id')
@@ -120,7 +118,7 @@
                         <!-- Form End -->
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">{{ __('btn_save') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
                     </div>
                 </form>
             </div>

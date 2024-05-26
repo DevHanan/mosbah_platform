@@ -57,6 +57,12 @@ class Instructor extends Authenticatable
         return asset('public/' . $this->image);
     }
 
+    public function getCvFullPathAttribute($value)
+    {
+
+        return asset('public/' . $this->image);
+    }
+
     public function getImageCvPathAttribute($value)
     {
 

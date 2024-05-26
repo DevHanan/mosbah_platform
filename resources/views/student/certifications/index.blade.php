@@ -55,7 +55,10 @@
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->created_at}}</td>
-                                    <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
+                                    <td><a href="{{asset($row->FileFullPath)}}" style="width:40px">
+                                    عرض الملف
+                                    </a>
+                                </td>
 
                                 </tr>
                                 @endforeach

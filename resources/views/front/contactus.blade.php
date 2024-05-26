@@ -72,27 +72,32 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <form action="">
+                        <form action="{{url('contactus')}}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="form-group mb-3 position-relative">
                                     <i class="fa-solid fa-user secondary-color position-absolute" style="top: 13px ; right: 25px;"></i>
-                                    <input type="text" class="form-control pe-5 py-2" placeholder="الاسم">
+                                    <input type="text" class="form-control pe-5 py-2" placeholder="الاسم" name="name" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3 position-relative">
                                         <i class="fa-solid fa-envelope secondary-color position-absolute" style="top: 13px; right: 14px;"></i>
-                                        <input type="email" class="form-control pe-5 py-2" placeholder="البريد الالكتروني">
+                                        <input type="email" class="form-control pe-5 py-2" placeholder="البريد الالكتروني" name="email" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3 position-relative">
                                         <i class="fa-solid fa-phone secondary-color position-absolute" style="top: 13px; right: 17px;"></i>
-                                        <input type="email" class="form-control pe-5 py-2" placeholder="رقم الهاتف">
+                                        <input type="text" class="form-control pe-5 py-2" placeholder="رقم الهاتف" name="phone" required>
                                     </div>
+                                </div>
+                                <div class="form-group mb-3 position-relative">
+                                    <i class="fa-solid fa-user secondary-color position-absolute" style="top: 13px ; right: 25px;"></i>
+                                    <input type="text" class="form-control pe-5 py-2" placeholder="نص الرسالة" name="title" required>
                                 </div>
                                 <div class="form-group position-relative">
                                     <i class="fa-solid fa-edit secondary-color position-absolute" style="top: 13px; right: 25px;"></i>
-                                    <textarea name="" id="" cols="30" rows="9" class="form-control pe-5" placeholder="رسالتك"></textarea>
+                                    <textarea  id="" cols="30" rows="9" class="form-control pe-5" placeholder="رسالتك" name="description" required></textarea>
                                 </div>
                             </div>
 

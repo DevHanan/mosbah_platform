@@ -30,34 +30,57 @@ class TicketController extends Controller
         // $this->middleware('permission:tickets-edit',   ['only' => ['edit','update']]);
         // $this->middleware('permission:tickets-delete',   ['only' => ['delete']]);
     }
+
+
+
+    public function listVisitorMsg(Request $request)
+    {
+        $data['route'] = $this->route;
+        $data['title'] = trans('admin.tickets.visitor_msg');
+        $data['rows'] = Ticket::where(function ($q) use ($request) {
+            if ($request->title)
+                $q->Where('title', 'like', '%' . $request->title  . '%');
+        })->whereNull('instructor_id')->whereNull('student_id')->paginate(10);
+        return view($this->view . '.visitormsg', $data);
+    }
     public function listInstructorMsg(Request $request)
     {
         $data['route'] = $this->route;
-        $data['title'] = $this->title;
-        $data['rows'] =Ticket::where(function($q)use($request){
+        $data['title'] = trans('admin.tickets.instructor_msg');
+        $data['rows'] = Ticket::where(function ($q) use ($request) {
             if ($request->title)
-            $q->Where('title', 'like', '%' . $request->title  . '%');
-        })->whereNOtNull('instructor_id')->get();
-        return view($this->view.'.index', $data);
+                $q->Where('title', 'like', '%' . $request->title  . '%');
+        })->whereNOtNull('instructor_id')->paginate(10);
+        return view($this->view . '.instructormsg', $data);
     }
 
-    public function listStudentMsg (Request $request)
+    public function listStudentMsg(Request $request)
     {
         $data['route'] = $this->route;
-        $data['title'] = $this->title;
-        $data['rows'] =Ticket::where(function($q)use($request){
+        $data['title'] = trans('admin.tickets.student_msg');
+        $data['rows'] = Ticket::where(function ($q) use ($request) {
             if ($request->title)
-            $q->Where('title', 'like', '%' . $request->title  . '%');
-        })->whereNOtNull('instructor_id')->get();
-        return view($this->view.'.index', $data);
+                $q->Where('title', 'like', '%' . $request->title  . '%');
+        })->whereNOtNull('student_id')->paginate(10);
+        return view($this->view . '.studentmsg', $data);
     }
 
-   
+
     public function destory(Request $request)
     {
-       $coupon =  Coupon::find($request->id);
-       if($coupon)
-       $coupon->delete();
-       Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
-       return redirect()->route($this->route.'.index');    }
+        $coupon =  Coupon::find($request->id);
+        if ($coupon)
+            $coupon->delete();
+        Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
+        return redirect()->route($this->route . '.index');
+    }
+
+    public function changeStatus(Request $request){
+        $ticket= Ticket::find($request->id);
+        $ticket->read = $ticket->read == 0 ? 1 : 0;
+        $ticket->save();
+        Toastr::success(__('admin.msg_status_changed_successfully'), __('admin.msg_success'));
+        return redirect()->back();
+
+    }
 }

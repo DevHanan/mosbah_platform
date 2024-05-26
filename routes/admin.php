@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CourseController;
@@ -22,42 +23,56 @@ use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\PartenerController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\CvController;
+use App\Http\Controllers\Admin\QuestionBankGroupsController;
+use App\Http\Controllers\Admin\QuestionBankQuestionsController;
+use App\Http\Controllers\Admin\ProfitController;
+
+
+
+
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale() . '/admin',
 
-        'middleware' => [ 'localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
+        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-        
-    Auth::routes([
-        'login'    => true,
-        'logout'   => true,
-        'register' => false,
-        'reset'    => false,   // for resetting passwords
-        'confirm'  => false,  // for additional password confirmations
-        'verify'   => false,  // for email verification
-    ]);
 
-        Route::name('admin.')->middleware(['auth:web','prevent-inactive-user'])->group(function () {
+        Auth::routes([
+            'login'    => true,
+            'logout'   => true,
+            'register' => false,
+            'reset'    => false,   // for resetting passwords
+            'confirm'  => false,  // for additional password confirmations
+            'verify'   => false,  // for email verification
+        ]);
+        Route::get('admin/get-courses', [CourseController::class, 'getcourses'])->name('admin.getCourses');
+
+        Route::name('admin.')->middleware(['auth:web', 'prevent-inactive-user'])->group(function () {
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
-            
+
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
             Route::resource('tracks', TrackController::class);
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
-            Route::get('get-courses', [CourseController::class, 'getcourses'])->name('getCourses');
 
             Route::resource('courses.levels', LevelController::class);
             Route::resource('levels.lectures', LectureController::class);
 
             Route::resource('certifications', CertificationController::class);
-            Route::get('students-certifications', [CertificationController::class, 'studentCertificate']);
+            Route::get('students-certifications', [CertificationController::class, 'studentCertificate'])->name('studentscertifications');
+            Route::get('externel-students-certifications', [CertificationController::class, 'externelstudentCertificate'])->name('externelstudentscertifications');
 
-            Route::get('instructors-tickets', [TicketController::class, 'listInstructorMsg']);
-            Route::get('students-tickets', [TicketController::class, 'listStudentMsg']);
+            Route::get('instructors-tickets', [TicketController::class, 'listInstructorMsg'])->name('instructortickets');
+            Route::get('students-tickets', [TicketController::class, 'listStudentMsg'])->name('studenttickets');
+            Route::get('visitors-tickets', [TicketController::class, 'listVisitorMsg'])->name('visitorstickets');
+            Route::resource('tickets', TicketController::class);
+            Route::post('change-ticket-status', [TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
+
 
 
             Route::resource('coupons', CouponController::class);
@@ -69,7 +84,7 @@ Route::group(
             Route::post('changestatus', [SubscriptionController::class, 'changeStatus']);
             Route::post('changerecommened', [SubscriptionController::class, 'changerecommened']);
 
-            
+
             Route::resource('instructors', InstructorController::class);
             Route::get('instructors-status/{id}', [InstructorController::class, 'status'])->name('users.status');
 
@@ -85,7 +100,7 @@ Route::group(
             /** Setting Route  */
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
             Route::post('siteinfo', [SettingController::class, 'siteinfo'])->name('setting.siteinfo');
-          
+
             Route::get('contact-us-settings', [SettingController::class, 'contactUs'])->name('settings.contactUs');
             Route::post('contact-us-settings', [SettingController::class, 'SaveContactUs'])->name('setting.SaveContactUs');
 
@@ -97,9 +112,23 @@ Route::group(
             Route::post('about-us-settings', [SettingController::class, 'saveAboutSetting'])->name('setting.saveAboutSetting');
             Route::resource('teams', TeamController::class);
             Route::resource('parteners', PartenerController::class);
+            Route::resource('cvs', CvController::class);
 
 
+
+            //Questions Bank Groups
+            Route::resource('questions-bank-groups', QuestionBankGroupsController::class);
+            Route::resource('questions-bank', QuestionBankQuestionsController::class);
+
+
+
+            /** finical  */
+            Route::get('course/profit', [ProfitController::class, 'courseProfit'])->name('courseprofits');
+            Route::get('student-payments', [ProfitController::class, 'studentPayment'])->name('studentspayment');
+            Route::get('list-payment-requests', [ProfitController::class, 'listRequest'])->name('listRequest');
+            Route::get('list-paid-payment-requests', [ProfitController::class, 'listPaidRequest'])->name('listPaidRequest');
+
+        
         });
-
     }
 );

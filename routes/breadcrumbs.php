@@ -60,7 +60,7 @@ Breadcrumbs::for('update-coupons', function (BreadcrumbTrail $trail,$row) {
 });
 
 
-// Home > tracks
+// Home > Parteners
 Breadcrumbs::for('parteners', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(trans('navbar.parteners.list'), route('admin.parteners.index'));
@@ -76,6 +76,39 @@ Breadcrumbs::for('update-parteners', function (BreadcrumbTrail $trail,$row) {
 });
 
 
+
+// Home > CV
+Breadcrumbs::for('cvs', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.cvs.list'), route('admin.cvs.index'));
+});
+
+Breadcrumbs::for('add-cvs', function (BreadcrumbTrail $trail) {
+    $trail->parent('cvs');
+    $trail->push(trans('navbar.cvs.add'), route('admin.cvs.create'));
+});
+Breadcrumbs::for('update-cvs', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('cvs');
+    $trail->push(trans('navbar.cvs.edit'), route('admin.cvs.edit', $row));
+});
+
+
+
+// tickets 
+Breadcrumbs::for('visitor-messages', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.tickets.visitors'), route('admin.visitorstickets'));
+});
+
+Breadcrumbs::for('student-messages', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.tickets.student_msg'), route('admin.studenttickets'));
+});
+
+Breadcrumbs::for('instructor-messages', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.tickets.instrutor_msg'), route('admin.instructortickets'));
+});
 
 Breadcrumbs::for('teams', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
@@ -207,6 +240,34 @@ Breadcrumbs::for('add-subscribtions', function (BreadcrumbTrail $trail) {
 });
 
 
+
+Breadcrumbs::for('externalCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.certifications.externel_certification'), route('admin.externelstudentscertifications'));
+});
+
+Breadcrumbs::for('platformCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.certifications.platform_certification'), route('admin.certifications.index'));
+});
+
+Breadcrumbs::for('add-externalCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('platformCertifications');
+    $trail->push(trans('navbar.certifications.add'), route('student.certifications.create'));
+});
+
+Breadcrumbs::for('edit-externalCertifications', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('platformCertifications');
+    $trail->push($row->name, route('student.certifications.edit',$row));
+});
+
+
+
+
+
+
+
+
 /** Student dashboard  */
 
 // Home
@@ -218,17 +279,8 @@ Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
 });
 
-Breadcrumbs::for('externalCertifications', function (BreadcrumbTrail $trail) {
+
+Breadcrumbs::for('studentexternalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');
     $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));
-});
-
-Breadcrumbs::for('add-externalCertifications', function (BreadcrumbTrail $trail) {
-    $trail->parent('externalCertifications');
-    $trail->push(trans('navbar.certifications.add'), route('student.certifications.create'));
-});
-
-Breadcrumbs::for('platformCertifications', function (BreadcrumbTrail $trail) {
-    $trail->parent('student-home');
-    $trail->push(trans('navbar.certifications.platform_certification'), route('student.platformCertifications'));
 });

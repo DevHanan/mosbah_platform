@@ -116,7 +116,7 @@ class RegisterController extends Controller
             $client = auth()->guard('students-login')->user();
             if (!$client->active == '1') {
                 Auth::guard('students-login')->logout();
-                return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
+                return redirect('/signin')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
             }
             if (Auth::guard('instructors-login')->check() || Auth::guard('web')->check()) {
                 Auth::guard('students-login')->logout();
@@ -126,12 +126,12 @@ class RegisterController extends Controller
             $client->api_token = $token;
             $client->save();
             toastr()->success(__('front.login_success'), __('front.msg_success'));
-            return view('front.index');
+            return redirect('/');
         } elseif (auth()->guard('instructors-login')->attempt([$field => $value, 'password' => $request->password])) {
             $client = auth()->guard('instructors-login')->user();
             if (!$client->active == '1') {
                 Auth::guard('students-login')->logout();
-                return redirect('/')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
+                return redirect('/signin')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
             }
             if (Auth::guard('students-login')->check() || Auth::guard('web')->check()) {
                 Auth::guard('instructors-login')->logout();
@@ -141,10 +141,10 @@ class RegisterController extends Controller
             $client->api_token = $token;
             $client->save();
             toastr()->success(__('front.login_success'), __('front.msg_success'));
-            return view('front.index');
+            return redirect('/');
         } else {
             toastr()->error(__('front.login_failed'), __('front.msg_error'));
-            return view('front.signstep1');
+            return redirect('/signin');
         }
     }
 }

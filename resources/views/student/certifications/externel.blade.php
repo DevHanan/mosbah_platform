@@ -7,7 +7,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                {{ Breadcrumbs::render('externalCertifications') }}
+                {{ Breadcrumbs::render('studentexternalCertifications') }}
 
             </div>
             <div class="col-auto ms-auto d-print-none">
@@ -50,6 +50,7 @@
                                     <th>{{ __('admin.certifications.course_name') }}</th>
                                     <th>{{ __('admin.certifications.track_name') }}</th>
                                     <th>{{ __('admin.certifications.authority') }}</th>
+                                    <th>{{ __('admin.certifications.status') }}</th>
                                     <th>{{ __('admin.certifications.date') }}</th>
                                     <th>{{ __('admin.certifications.file') }}</th>
                                     <th>{{ __('admin.tracks.actions') }}</th>
@@ -66,21 +67,24 @@
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->authority}}</td>
+                                    <td> {{ __($row->statusLabel) }}</td>
                                     <td>{{$row->date}}</td>
                                     <td>
+                                        @if(file_exists($row->fileFullPath))
                                         <a href="{{$row->fileFullPath}}" style="width:40px" class="btn btn-primary">
                                             عرض الملف
                                         </a>
+                                        @else
+                                        لا يوجد ملف للعرض
+                                        @endif
                                     </td>
 
                                     <td style="width: 270px;">
 
 
 
-                                        @if($row->accepted != 1)
-                                        <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                                            <span class="far fa-edit "></span>
-                                        </a>
+                                        @if($row->active != 1)
+                                        
 
                                         <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                                             <i class="fas fa-trash-alt"></i>

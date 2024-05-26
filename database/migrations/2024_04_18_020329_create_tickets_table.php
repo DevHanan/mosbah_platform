@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('phone',64)->nullable();
+            $table->string('name',64)->nullable();
+            $table->string('email',64)->nullable();
+            $table->integer('student_id')->nullable();
+            $table->integer('instructor_id')->nullable();
             $table->string('title',64);
-            $table->integer('create_date')->nullable();
-            $table->integer('student_id');
-            $table->integer('instructor_id');
+            $table->boolean('read')->default('0');
             $table->string('description',64);
 
           

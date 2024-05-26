@@ -246,10 +246,7 @@ class CourseController extends Controller
         $courses = Course::whereHas('tracks',function($q)use($track_id){
             $q->where('track_id',$track_id);
         })->get();
-        return response()->json([
-            'status' => 'success',
-            'courses' => $courses,
-        ]);
+        return response()->json($courses);
     }
 
     

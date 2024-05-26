@@ -529,16 +529,12 @@ $(document).ready(function() {
                     'track_id': track_id
                 },
                 dataType: "json",
-                success: function(res) {
-                    if (res.status == 'success') {
-                        let all_options = "<ul>";
-                        let all_courses = res.courses;
-                        $.each(all_courses, function(index, value) {
-                            all_options += "<li>" + value.name + "</li>";
-                        });
-                        all_options += "</ul>";
-                        $('#courses').html(all_options);
-                    }
+                success: function(data) {
+					var html = '<option value="">Select Course</option>';
+                    $.each(data, function (index, value) {
+                        html += '<option value="' + value.id + '">' + value.name + '</option>';
+                    });
+                    $('#courses').html(html);
                 }
             })
         }

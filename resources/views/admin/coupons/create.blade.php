@@ -76,7 +76,7 @@
                             </div>
                             <div class="col-md-6">
 
-                            <div class="form-group ">
+                                <div class="form-group ">
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
                                         <label class="form-check form-check-inline">
@@ -92,13 +92,13 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="track_id">{{ __('admin.subscriptions.track_id') }} <span>*</span></label>
+                                    <label class="form-label" for="track_id">{{ __('admin.subscriptions.track') }} <span>*</span></label>
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
                                         <option value="{{$track->id}}">{{ $track->name }}</option>
                                         @endforeach
-                                  
+
                                     </select>
 
                                     @error('track_id')
@@ -112,7 +112,7 @@
                                     <label class="form-label" for="courses">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
                                     <select class="form-control" name="course_id" id="courses" required>
                                         <option value="">{{ __('select') }}</option>
-                                  
+
                                     </select>
 
                                     @error('course_id')

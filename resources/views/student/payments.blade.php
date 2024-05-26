@@ -67,7 +67,7 @@
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->created_at}}</td>
                   <td>{{ optional($row->course)->name}}</td>
-                  <td>{{$row->paid }}</td>
+                  <td>{{$row->paid }} {{$setting->currency}}</td>
                 
                   <td><img  src="{{$row->billFullPath}}" style="width:40px"></td>
 

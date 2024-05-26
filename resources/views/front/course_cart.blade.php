@@ -204,7 +204,7 @@
                     </div>
                     <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
                 </form>
-                <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST">
+                <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="payment shadow-sm p-4 my-3">
                         <h5 class="fw-bold">تحويل خارجي</h5>
@@ -231,7 +231,7 @@
                                 <p> اسحب صورة الفاتورة هنا <img name="bill" src="{{asset('public/front/img/icons/upload.png')}}" alt=""></p>
                             </div>
                             <div class="choose_img position-relative d-flex justify-content-center my-3">
-                                <input type="file" class="position-absolute" id="fileInput">
+                                <input type="file" class="position-absolute" id="fileInput" name="bill">
                                 <div class="btn secondary-bg text-white py-2 px-4 text-center rounded">اختر الملف</div>
                             </div>
                         </div>

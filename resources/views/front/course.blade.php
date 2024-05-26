@@ -517,10 +517,13 @@
                     <div class="col-lg-12 col-md-6">
                         <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
                             <div class="position-relative w-100 h-100 gallery-item">
-                                <video id="myVideo" class="w-100 h-100" poster="{{ $course->promo_url }}" style="object-fit: cover;">
+                                <!-- <video id="myVideo" class="w-100 h-100" poster="{{ $course->promo_url }}" style="object-fit: cover;">
                                     <source src="{{ $course->promo_url }}" type="video/mp4">
                                     Your browser does not support the video tag.
-                                </video>
+                                </video> -->
+                                <x-markdown>
+    <iframe width="640" height="480" src="{{$course->promo_url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </x-markdown>
                                 <iframe type='text/html' src="{{ $course->promo_url }}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
 
                                 <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">

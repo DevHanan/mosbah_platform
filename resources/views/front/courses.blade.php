@@ -32,7 +32,7 @@
                 <div class="filter px-5">
                     <button class="btn w-100 rounded-pill fw-bold text-center secondary-bg text-white" type="submit"> تصفية النتائج</button>
                     <div class="search position-relative">
-                        <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟">
+                        <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟" name="name">
                         <i class="fa-solid fa-search p-2 h-100 position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top: 0;"></i>
                     </div>
 

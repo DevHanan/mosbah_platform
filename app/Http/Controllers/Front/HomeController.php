@@ -41,6 +41,13 @@ class HomeController extends Controller
                 $q->whereHas('tracks', function ($l) use ($request) {
                     $l->where('tracks.id', $request->track_id);
                 });
+
+            if ($request->type)
+                $q->where('course_type_id', $request->type);
+            if ($request->recommend)
+                $q->where('recommened', $request->recommend);
+            if ($request->name)
+                $q->Where('name', 'like', '%' . $request->name  . '%');
         })->active()->latest()->get();
         return view('front.courses', compact('title', 'list_courses'));
     }

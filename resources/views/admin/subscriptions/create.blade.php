@@ -89,9 +89,27 @@
 
                             </div>
                             <div class="col-md-6">
+
+                            <div class="mb-3">
+                                    <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
+                                    <select class="form-control" name="track_id" id="track_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($tracks as $track)
+                                        <option value="{{$track->id}}">{{ $track->name }}</option>
+                                        @endforeach
+
+                                    </select>
+
+                                    @error('track_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
                                 <div class="mb-3">
                                     <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control select2" name="course_id" id="course_id" required>
+                                    <select class="form-control select2" name="course_id" id="courses" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($courses as $course)
                                         <option value="{{ $course->id }}"> {{ $course->name }} - {{ $course->price_with_discount }} {{ $setting->currency }}</option>

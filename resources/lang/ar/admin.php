@@ -235,7 +235,7 @@ return [
         'type' => ' نوع الدفع',
         "field_action" => "الحدث ",
         "student" => "الطالب",
-        "field_paymenttype"  => "مرفق الدفع"
+        "field_paymenttype"  => "نوع الدفع"
 
     ],
     "courses"=>[

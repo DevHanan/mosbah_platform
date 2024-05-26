@@ -50,7 +50,7 @@
           <li class="nav-item px-2">
             <a class="nav-link position-relative" aria-current="page" href="{{ url('/cart') }}">
               <i class="fa-solid fa-cart-shopping primary-color fa-lg"></i>
-              <span class="position-absolute bg-white fw-bold rounded-pill">1</span>
+              <span class="position-absolute bg-white fw-bold rounded-pill">0</span>
             </a>
           </li>
           <li class="nav-item px-2">

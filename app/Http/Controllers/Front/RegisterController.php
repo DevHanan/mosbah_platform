@@ -114,7 +114,7 @@ class RegisterController extends Controller
 
         if (auth()->guard('students-login')->attempt([$field => $value, 'password' => $request->password])) {
             $client = auth()->guard('students-login')->user();
-            if (!$client->active == '1') {
+            if ($client->active != '1') {
                 Auth::guard('students-login')->logout();
                 return redirect('/signin')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
             }
@@ -129,8 +129,8 @@ class RegisterController extends Controller
             return redirect('/');
         } elseif (auth()->guard('instructors-login')->attempt([$field => $value, 'password' => $request->password])) {
             $client = auth()->guard('instructors-login')->user();
-            if (!$client->active == '1') {
-                Auth::guard('students-login')->logout();
+            if ($client->active != '1') {
+                Auth::guard('instructors-login')->logout();
                 return redirect('/signin')->with('error', 'Your account is currently inactive. Please contact the administrator for further assistance.');
             }
             if (Auth::guard('students-login')->check() || Auth::guard('web')->check()) {

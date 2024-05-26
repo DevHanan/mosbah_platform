@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="row" id="paginationCard">
-                    @if($courses)
+                    @if(count($courses)>0)
                     @foreach($courses as $course)
                     <div class="col-sm-4 card_pagination">
                         <article class="rounded mt-4 shadow">
@@ -82,7 +82,9 @@
                     </div>
                     @endforeach
                     @else
-                                                            لا توجد دورات
+                                                         <p class="text-primary">  لا توجد دورات
+
+                                                         </p> 
                     @endif
 
                 </div>

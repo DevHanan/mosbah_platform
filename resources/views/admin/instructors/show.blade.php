@@ -19,10 +19,21 @@
         <div class="row row-deck row-cards">
 
 
+        <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3> إحصائيات</h3>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-block">
+                    <div class="card-body">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
                             <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
@@ -91,7 +102,7 @@
                                     </tr> -->
                                     <tr>
                                         <th>{{ __('admin.instructors.salary') }}</th>
-                                        <td> {{ $row->salary }}  {{ $setting->currency }}</td>
+                                        <td> {{ $row->salary }} {{ $setting->currency }}</td>
 
                                     </tr>
 
@@ -130,6 +141,96 @@
                             </table>
                         </div>
                         <!-- [ Data table ] end -->
+                    </div>
+                </div>
+            </div>
+
+
+          
+
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3> بيانات تحويل الأموال</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row row-cards">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card card-active">
+                                    <div class="card-body">
+                                        <h4> {{ __('admin.instructors.paypall_account_number') }} </h4>
+                                        <p> {{ $row->paypall_account_number }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card card-active">
+                                    <div class="card-body">
+                                        <h4> {{ __('admin.instructors.cash_wallet_number') }} </h4>
+                                        <p> {{ $row->cash_wallet_number }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card card-active">
+                                    <div class="card-body">
+                                        <h4> {{ __('admin.instructors.bank_account') }} </h4>
+                                        <p> {{ $row->bank_account }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3> الدورات المقدمة </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class=" export-table table card-table table-vcenter text-nowrap datatable">
+                                <thead>
+                                    <tr>
+                                        <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                                        <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M6 15l6 -6l6 6"></path>
+                                            </svg>
+                                        </th>
+                                        <th> {{__('admin.courses.name')}}</th>
+                                        <th> {{__('admin.courses.image')}}</th>
+                                        \ <th> {{__('admin.courses.type')}}</th>
+                                        <th>{{ __('admin.courses.period') }}</th>
+                                        <th>{{ __('admin.courses.price') }}</th>
+                                        <th>{{ __('admin.courses.price_with_discount') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($row->courses as $row)
+
+                                    <tr>
+                                        <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                        <td><span class="text-secondary">{{$loop->iteration}}</span></td>
+                                        <td>{{$row->name}}</td>
+                                        <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
+                                        <td>{{ optional($row->coursetype)->name}}</td>
+                                        <th>{{ $row->period }} {{ __($row->periodLabel) }}</th>
+                                        <td>{{ $row->price}} {{ $setting->currency }}</td>
+                                        <td>{{ $row->price_with_discount}} {{ $setting->currency }}</td>
+
+
+
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

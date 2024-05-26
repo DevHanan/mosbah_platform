@@ -6,7 +6,7 @@
     </button>
     <h1 class="navbar-brand navbar-brand-autodark">
       <a href="{{url('/')}}" >
-        <img src="{{ asset($setting->logoFullPath)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+        <img src="{{asset($setting->logoFullPath)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
       </a>
     </h1>
     <div class="navbar-nav flex-row d-lg-none">
@@ -190,7 +190,7 @@
           </a>
         </li>
 
-        <li class="nav-item ">
+        <li class="nav-item  @if(request()->routeIs('instructor.students')) active @endif">
           <a class="nav-link " href="{{url('/instructor/my-students')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -205,7 +205,7 @@
             </span>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item   @if(request()->routeIs('instructor.courses')) active @endif">
           <a class="nav-link " href="{{url('/instructor/my-courses')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -250,7 +250,7 @@
             </span>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item   @if(request()->routeIs('instructor.myprofits')) active @endif">
           <a class="nav-link " href="{{url('/instructor/myprofits')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -265,7 +265,7 @@
             </span>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item  @if(request()->routeIs('instructor.requestProfit')) active @endif">
           <a class="nav-link " href="{{url('instructor/request-profit')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -280,7 +280,7 @@
             </span>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item  @if(request()->routeIs('instructor.listRequest')) active @endif">
           <a class="nav-link " href="{{url('instructor/list-request-profit')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -295,7 +295,7 @@
             </span>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item   @if(request()->routeIs('instructor.listPaidRequest')) active @endif">
           <a class="nav-link " href="{{url('instructor/list-paid-request-profit')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

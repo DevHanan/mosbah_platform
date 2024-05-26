@@ -144,6 +144,8 @@ return [
         'profits' => 'أرباحي',
         'profits_requests' => 'طلبات سحب الأرباح',
         'paid_profits' => 'مدفوعات الارباح',
+        'add_profits_requests' => 'إضافة طلب سحب',
+        'paid_profits_requests' => 'مدفوعات المحاضرين'
 
     ],
     'students_side'=>[

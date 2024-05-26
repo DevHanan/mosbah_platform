@@ -17,9 +17,6 @@
 <div class="page-body">
     <div class="container-xl">
         <div class="row row-deck row-cards">
-
-
-
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-block">
@@ -44,7 +41,7 @@
                                         <td>{{ $row->email }}</td>
 
                                     </tr>
-                                 
+
                                     <tr>
                                         <th>{{ __('admin.students.phone_number') }}</th>
                                         <td>{{ $row->phone }}</td>
@@ -76,7 +73,7 @@
                                         </td>
 
                                     </tr>
-                                   
+
                                     <tr>
                                         <th>{{ __('admin.students.field_course_number') }}</th>
                                         <td> {{ $row->subscriptions()->count() }} </td>
@@ -84,8 +81,8 @@
                                     </tr>
 
                                     <tr>
-                                    <th>{{ __('admin.students.field_total_subscription') }}</th>
-                                    <td> {{ $row->subscriptions()->sum('paid') }} {{ $setting->currency }} </td>
+                                        <th>{{ __('admin.students.field_total_subscription') }}</th>
+                                        <td> {{ $row->subscriptions()->sum('paid') }} {{ $setting->currency }} </td>
 
                                     </tr>
 
@@ -119,6 +116,57 @@
                             </table>
                         </div>
                         <!-- [ Data table ] end -->
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3> الدورات المشترك بها </h3>
+                </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class=" export-table table card-table table-vcenter text-nowrap datatable">
+                                <thead>
+                                    <tr>
+                                        <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                                        <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M6 15l6 -6l6 6"></path>
+                                            </svg>
+                                        </th>
+                                        <th> {{__('admin.courses.name')}}</th>
+                                        <th> {{__('admin.courses.image')}}</th>
+                                        \ <th> {{__('admin.courses.type')}}</th>
+                                        <th>{{ __('admin.courses.period') }}</th>
+                                        <th>{{ __('admin.courses.price') }}</th>
+                                        <th>{{ __('admin.courses.price_with_discount') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($row->subscriptions as $row)
+
+                                    <tr>
+                                        <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                        <td><span class="text-secondary">{{$loop->iteration}}</span></td>
+                                        <td>{{optional($row->course)->name}}</td>
+                                        <td><img src="{{optional($row->course)->imageFullPath}}" style="width:40px"></td>
+                                        <td>{{ optional(optional($row->course)->coursetype)->name}}</td>
+                                        <th>{{ optional($row->course)->period }} {{ __($row->periodLabel) }}</th>
+                                        <td>{{ optional($row->course)->price}} {{ $setting->currency }}</td>
+                                        <td>{{ optional($row->course)->price_with_discount}} {{ $setting->currency }}</td>
+
+
+
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

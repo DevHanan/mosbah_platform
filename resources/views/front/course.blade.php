@@ -110,16 +110,20 @@
                                 <span class="d-sm-block fw-bold text-dark"> عن الدورة</span>
                             </button>
                         </li>
+                        @if(count($course->instructors))
                         <li class="nav-item py-3">
                             <button type="button" class="nav-link border-0 p-0 m-0" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-trainsers" aria-controls="navs-justified-trainsers" aria-selected="false">
                                 <span class="d-sm-block fw-bold text-dark"> عن المدرب</span>
                             </button>
                         </li>
+                        @endif
+                        @if(isset($course->comments) && count($course->comments))
                         <li class="nav-item py-3">
                             <button type="button" class="nav-link border-0 p-0 m-0" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-rating" aria-controls="navs-justified-rating" aria-selected="false">
                                 <span class="d-sm-block fw-bold text-dark"> تقييمات الطلاب</span>
                             </button>
                         </li>
+                        @endif
                     </ul>
                     <div class="tab-content p-4">
                         <div class="tab-pane fade show active" id="navs-justified-content" role="tabpanel">
@@ -151,6 +155,7 @@
                     </div> -->
 
                             <!-- المرحلة الاولي -->
+                            @if(count($course->levels))
                             @foreach($course->levels as $level)
                             <div class="accordion mb-4" id="accordion{{$level->id}}">
                                 <div class="accordion-item border-0 shadow-sm">
@@ -317,6 +322,9 @@
                                 </div>
                             </div>
                             @endforeach
+                            @else
+                                                                    لا يوجد محتوى للعرض
+                            @endif
 
                             <!-- المرحلة الثانية -->
 

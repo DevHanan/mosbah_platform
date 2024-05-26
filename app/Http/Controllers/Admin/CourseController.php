@@ -124,9 +124,9 @@ class CourseController extends Controller
 
                     ]);
                 $instructor = Instructor::find($request->instructors[$i]);
-                $instructor->update([
-                    'current_balance' => $instructor->current_balance + $request->instructorsprice[$i], 'total_balance' => $instructor->total_balance + $request->instructorsprice[$i]
-                ]);
+                $instructor->current_balance = $instructor->current_balance + $request->instructorsprice[$i];
+                $instructor->total_balance = $instructor->total_balance + $request->instructorsprice[$i];
+                $instructor->save();
             }
         }
         }

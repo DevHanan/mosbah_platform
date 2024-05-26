@@ -500,6 +500,7 @@ return [
         'instructors_profit' => 'أرباح المدربين',
         'instructors_request' => 'طلبات سحب الحاضرين',
         'instructor_paid' => 'مدفوعات أرباح المدربين',
+        'list_reuests' => 'عرض طلبات سحب الأرباح',
 
     ],
     'course_price' => 'قيمة الشراء من المدرب',

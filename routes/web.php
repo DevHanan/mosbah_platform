@@ -17,7 +17,6 @@ use App\Http\Controllers\Front\RegisterController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Front\HomeController;
-
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 Route::group(
     [

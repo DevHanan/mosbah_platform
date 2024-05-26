@@ -42,7 +42,7 @@ class AuthController extends Controller
     public function logout(){
 
         Auth::guard('instructors-login')->logout();
-
-        return redirect()->route('/')->with('admin.success', __('admin.auth_logged_out'));
+        Toastr::success(__('admin.msg_logout_successfully'), __('admin.msg_success'));
+        return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 }

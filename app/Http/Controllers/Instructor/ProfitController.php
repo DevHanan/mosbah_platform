@@ -61,7 +61,7 @@ class ProfitController extends Controller
 
 
     public function listPaidRequest(){
-        $data['title'] = trans('admin.finances.list_reuests');
+        $data['title'] = trans('admin.finances.instructor_paid');
         
         $data['rows']=Withdrawal::where('status','1')->where('instructor_id',auth()->guard('instructors-login')->user()->id)->latest()->paginate(10);
         return view('instructor.listRequestPayment', $data);

@@ -9,8 +9,8 @@
 
       <div class="col-12">
         <div class="row row-cards">
-        
-         
+
+
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
               <div class="card-body" style="min-height:90px;">
@@ -28,7 +28,7 @@
                   </div>
                   <div class="col">
                     <div class="font-weight-medium">
-                      {{ $courses->count() }}
+                      {{ auth()->guard('students-login')->user()->subscriptions()->count() }}
                     </div>
                     <div class="text-secondary">
                       {{ __('admin.students.course_number')}}
@@ -55,7 +55,7 @@
                   </div>
                   <div class="col">
                     <div class="font-weight-medium">
-                      {{ $courses->count() }}
+                      {{ $currentCourses}}
                     </div>
                     <div class="text-secondary">
                       {{ __('admin.students.current_course_number')}}
@@ -82,7 +82,7 @@
                   </div>
                   <div class="col">
                     <div class="font-weight-medium">
-                      {{ $courses->count() }}
+                      {{ $finishedCourses}}
                     </div>
                     <div class="text-secondary">
                       {{ __('admin.students.finished_course_number')}}
@@ -107,7 +107,8 @@
                   </div>
                   <div class="col">
                     <div class="font-weight-medium">
-                      {{ $subscriptions->sum('paid') }} {{ $setting->currency }}
+                      {{ auth()->guard('students-login')->user()->subscriptions()->sum('paid') }}
+                      {{ $setting->currency }}
                     </div>
                     <div class="text-secondary">
                       {{ __('admin.students.subscriptions_total')}}
@@ -121,7 +122,7 @@
       </div>
     </div>
 
-    
+
   </div>
 </div>
 

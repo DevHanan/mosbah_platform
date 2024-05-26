@@ -443,7 +443,7 @@
               {{ __('navbar.finances.finances_management') }}
             </span>
           </a>
-          <div class="dropdown-menu  @if(request()->routeIs(['admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest'))  show @endif ">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.courseprofits'))   active @endif" href="{{url('admin/course/profit')}}">

@@ -92,13 +92,27 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control" name="course_id" id="course_id" required>
+                                    <label class="form-label" for="track_id">{{ __('admin.subscriptions.track_id') }} <span>*</span></label>
+                                    <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
-                                        @foreach($courses as $course)
-                                        <option value="{{ $course->id }}"> {{ $course->name }}</option>
-
+                                        @foreach($tracks as $track)
+                                        <option value="{{$track->id}}">{{ $track->name }}</option>
                                         @endforeach
+                                  
+                                    </select>
+
+                                    @error('track_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="courses">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
+                                    <select class="form-control" name="course_id" id="courses" required>
+                                        <option value="">{{ __('select') }}</option>
+                                  
                                     </select>
 
                                     @error('course_id')

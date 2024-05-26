@@ -96,10 +96,15 @@
                                     <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                                         <div>
                                             <h3> {{ $book->title }}</h2>
-                                                <p class="mt-4">وصف عن هذا الكتاب</p>
                                         </div>
                                         <div>
+                                            @if(isset($book->link))
                                             <a href="{{$book->link}}" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
+                                            @elseif($book->file)
+                                            <a href="{{$book->file}}" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
+                                            @else
+                                            لا يوجد محتوى للعرض
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

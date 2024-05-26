@@ -32,7 +32,7 @@ class CertificationController extends Controller
         $data['rows'] = Certificate::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->whereNull('student_id')->where('platform_certification','1')->paginate(10);
+        })->where('platform_certification','1')->paginate(10);
         return view($this->view.'.index', $data);
     }
 
@@ -67,6 +67,7 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
+        $request->merge(['platform_certification'=>'1']);
         $certificate = Certificate::create($request->except('image'));
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;

@@ -95,7 +95,7 @@ return [
     ],
     "lectures" =>[
         'field_period' => 'مدة المحاضرة(بالساعة)',
-        'goals' => 'اهداف المدربه',
+        'goals' => 'اهداف المحاضرة',
         'conclusion'  => 'الخاتمة',
         'opened_free'  => 'مفتوحة مجانا',
         'not_opened_free' => 'غير مجانية',

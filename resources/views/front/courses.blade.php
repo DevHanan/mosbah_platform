@@ -30,7 +30,7 @@
             <div class="col-lg-5">
                 <form method="get" action="{{url('/courses')}}">
                 <div class="filter px-5">
-                    <div class="btn w-100 rounded-pill fw-bold text-center secondary-bg text-white"> تصفية النتائج</div>
+                    <button class="btn w-100 rounded-pill fw-bold text-center secondary-bg text-white" type="submit"> تصفية النتائج</button>
                     <div class="search position-relative">
                         <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟">
                         <i class="fa-solid fa-search p-2 h-100 position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top: 0;"></i>

@@ -76,23 +76,10 @@
                             </div>
                             <div class="col-md-6">
 
-                                <div class="form-group ">
-                                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
-                                    <div>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
-                                            <span class="form-check-label"> {{ __('admin.active')}}</span>
-                                        </label>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="0" type="radio" name="active">
-                                            <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
-                                        </label>
-
-                                    </div>
-                                </div>
+                                
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="track_id">{{ __('admin.subscriptions.track') }} <span>*</span></label>
+                                    <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
@@ -121,7 +108,22 @@
                                     </div>
                                     @enderror
                                 </div>
+                            </div>
 
+                            <div class="form-group ">
+                                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                                    <div>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
+                                            <span class="form-check-label"> {{ __('admin.active')}}</span>
+                                        </label>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" value="0" type="radio" name="active">
+                                            <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                                        </label>
+
+                                    </div>
+                                </div>
 
 
 

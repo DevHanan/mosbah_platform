@@ -254,7 +254,7 @@
                                 </p>
                                 <div class="collapse" id="collapse_right_{{$item->id}}">
                                     <div class="card card-body bg-transparent border-0">
-                                    {{ $item->answer }}  
+                                    {!! $item->answer !!}  
                                     </div>
                                 </div>
                             </li>

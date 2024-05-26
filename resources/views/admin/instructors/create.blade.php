@@ -214,9 +214,9 @@
                                         <option value="">{{ __('select') }}</option>
                                         <option value="0">{{ __('admin.instructors.student') }}</option>
                                         <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
-                                        <option value="2 ">{{ __('admin.instructors.Graduated ') }}</option>
-                                        <option value="3">{{ __('admin.instructors.Doctorate ') }}</option>
-                                        <option value="4">{{ __('admin.instructors.Master ') }}</option>
+                                        <option value="2 ">{{ __('admin.instructors.Graduated') }}</option>
+                                        <option value="3">{{ __('admin.instructors.Doctorate') }}</option>
+                                        <option value="4">{{ __('admin.instructors.Master') }}</option>
 
                                     </select>
                                     @error('about_teacher')

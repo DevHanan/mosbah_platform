@@ -28,6 +28,7 @@
     <div class="content my-5 container">
         <div class="row">
             <div class="col-lg-5">
+                <form method="get" action="{{url('/courses')}}">
                 <div class="filter px-5">
                     <div class="btn w-100 rounded-pill fw-bold text-center secondary-bg text-white"> تصفية النتائج</div>
                     <div class="search position-relative">
@@ -251,6 +252,7 @@
                         </ul>
                     </div>
                 </div>
+                </form>
             </div>
             <div class="col-lg-7">
                 <div class="course_content">

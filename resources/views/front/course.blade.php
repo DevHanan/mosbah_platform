@@ -518,7 +518,7 @@
                         <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
                             <div class="position-relative w-100 h-100 gallery-item">
                                 <video id="myVideo" class="w-100 h-100" poster="{{ $course->promo_url }}" style="object-fit: cover;">
-                                    <source src="" type="video/mp4">
+                                    <source src="{{ $course->promo_url }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                                 <iframe type='text/html' src="{{ $course->promo_url }}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>

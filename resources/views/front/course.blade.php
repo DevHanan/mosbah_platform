@@ -516,19 +516,16 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-6">
                         <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
-                            <div class="position-relative w-100 h-100 gallery-item">
-                                <!-- <video id="myVideo" class="w-100 h-100" poster="{{ $course->promo_url }}" style="object-fit: cover;">
-                                    <source src="{{ $course->promo_url }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video> -->
-                                <iframe type='text/html'  style="max-height: 220px;" src="https://www.youtube.com/embed/bNyUyrR0PHo" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
+                        @if($course->videoId)   
+                        <div class="position-relative w-100 h-100 gallery-item">
+                             
+                                <iframe type='text/html'  style="max-height: 220px;" src="{{$course->videoId}}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
 
-                                <!-- <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-play text-white"></i>
-                                </div> -->
                             </div>
+                            @else
 
-                            <!-- <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div> -->
+                            <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div>
+                                                                @endif
                             <div class="info mt-3 px-4">
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->lectures()->count()}} محاضرة</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt="">

@@ -99,7 +99,10 @@ class StudentController extends Controller
             $student->save();
         }
         $student->update($request->except(['image', 'password']));
-
+        if ($request->password != null) {
+            $student->password = Bcrypt($request->password);
+            $student->save();
+        }
         if ($request->hasFile('image')) {
 
             $thumbnail = $request->image;
@@ -110,7 +113,7 @@ class StudentController extends Controller
         }
         if ($request->track_ids) {
 
-          StudentTrack::where('student_id',$student->id)->delete();
+            StudentTrack::where('student_id', $student->id)->delete();
             $student->tracks()->attach($request->track_ids);
         }
 

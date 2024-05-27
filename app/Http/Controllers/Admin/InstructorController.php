@@ -126,15 +126,11 @@ class InstructorController extends Controller
             $instructor->save();
         }
 
-        if ($request->password) {
+        if ($request->password != null) {
             $instructor->password = Bcrypt($request->password);
             $instructor->save();
         }
 
-        if ($request->password) {
-            $instructor->password = Bcrypt($request->password);
-            $instructor->save();
-        }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.instructors.index');
     }

@@ -66,6 +66,17 @@
                                 </div>
 
 
+                                <div class="mb-3">
+                                    <label class="form-label" for="password">{{ __('admin.students.field_password') }} <span>*</span></label>
+                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}">
+
+                                    @error('password')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
                               
 
                                 <div class="mb-3">
@@ -124,6 +135,17 @@
                                     <input type="text" class="form-control" name="email" id="email" value="{{ $row->email }}" required>
 
                                     @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="password">{{ __('admin.students.field_password_confirmation') }} <span>*</span></label>
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" value="{{ old('password_confirmation') }}">
+
+                                    @error('password')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

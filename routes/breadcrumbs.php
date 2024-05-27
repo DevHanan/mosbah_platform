@@ -52,7 +52,7 @@ Breadcrumbs::for('coupons', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('add-coupons', function (BreadcrumbTrail $trail) {
     $trail->parent('coupons');
-    $trail->push(trans('navbar.courses.add_coupon'), route('admin.coupons.create'));
+    $trail->push(trans('navbar.coupons.add'), route('admin.coupons.create'));
 });
 Breadcrumbs::for('update-coupons', function (BreadcrumbTrail $trail,$row) {
     $trail->parent('coupons');

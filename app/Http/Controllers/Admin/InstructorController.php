@@ -104,9 +104,8 @@ class InstructorController extends Controller
     {
         $instructor = Instructor::find($request->id);
         $instructor->update($request->except(['image','cv']));
+        InstructorTrack::where('instructor_id',$instructor->id)->delete();
         if ($request->track_ids) {
-
-            InstructorTrack::where('instructor_id',$instructor->id)->delete();
               $instructor->tracks()->attach($request->track_ids);
           }
         if ($request->hasFile('image')) {

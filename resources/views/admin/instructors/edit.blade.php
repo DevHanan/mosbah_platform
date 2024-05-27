@@ -67,7 +67,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
-                  <input type="password" class="form-control" name="password" id="password" required>
+                  <input type="password" class="form-control" name="password" id="password" >
 
                   @error('password')
                   <div class="invalid-feedback">
@@ -173,7 +173,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="password">{{ __('admin.instructors.field_password_confirmation') }} <span>*</span></label>
-                  <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
+                  <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
 
                   @error('password')
                   <div class="invalid-feedback">

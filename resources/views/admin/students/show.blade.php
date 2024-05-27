@@ -18,7 +18,7 @@
     <div class="container-xl">
         <div class="row row-deck row-cards">
             <div class="col-sm-12">
-                <div class="card">
+               <div class="card">
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">

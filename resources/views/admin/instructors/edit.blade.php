@@ -111,22 +111,7 @@
                   @enderror
                 </div>
 
-                <div class="mb-3">
-                  <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
-                  <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
-                    <option value="">{{ __('select') }}</option>
-                    @foreach($tracks as $track)
-                    <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray())) selected @endif> {{ $track->name }}</option>
-
-                    @endforeach
-                  </select>
-
-                  @error('track_id')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
+            
 
                 <div class="mb-3">
                   <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
@@ -201,6 +186,22 @@
                   <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" required>
 
                   @error('salary')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
+                  <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($tracks as $track)
+                    <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray())) selected @endif> {{ $track->name }}</option>
+
+                    @endforeach
+                  </select>
+
+                  @error('track_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>

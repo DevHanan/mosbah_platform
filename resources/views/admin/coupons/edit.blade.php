@@ -77,6 +77,17 @@
                                     </div>
                                     @enderror
                                 </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label" class="form-label" for="end_date"> {{__('admin.coupons.end_date')}} <span>*</span></label>
+                                    <input type="date" class="form-control" name="end_date" id="title" value="{{ $row->end_date }}">
+
+                                    @error('end_date')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                             <div class="form-group ">
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
@@ -115,16 +126,7 @@
                                 <input type="hidden" value="{{$row->id}}" name="id">
 
 
-                                <div class="col-md-12">
-                                    <label class="form-label" class="form-label" for="end_date"> {{__('admin.coupons.end_date')}} <span>*</span></label>
-                                    <input type="date" class="form-control" name="end_date" id="title" value="{{ $row->end_date }}">
-
-                                    @error('end_date')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                              
 
 
 

@@ -8,7 +8,7 @@
     <div class="row g-2 align-items-center">
       <div class="col">
         <!-- Page pre-title -->
-        {{ Breadcrumbs::render('update-students') }}
+        {{ Breadcrumbs::render('update-students',$row) }}
 
       </div>
       <!-- Page title actions -->

@@ -45,7 +45,13 @@ return [
         "list_dwafer" => " قائمة شهادات دوافير",
         "student_certifications" => "شهادات الطلاب من دوافير",
         "add"   => "إضافة شهادة",
-        'student_certifications_from_out'  => 'شهادات الطلاب من جهات خارجية'
+        'student_certifications_from_out'  => 'شهادات الطلاب من جهات خارجية',
+        'name' => 'إسم الشهادة',
+        'course_name' => 'إسم الدورة',
+        'track_name' => 'إسم المسار',
+        'platform_certification' => 'شهادات منصة دوافير ',
+        'externel_certification' => 'شهادات خارجية',
+        'add' => 'إضافة شهادة'
     ],
     'tickets' => [
         "tickets_management"  => " الدعم",
@@ -168,14 +174,7 @@ return [
         'list' => 'سجل مدفوعات الطالب'
   
       ],
-      'certifications' => [
-        'name' => 'إسم الشهادة',
-        'course_name' => 'إسم الدورة',
-        'track_name' => 'إسم المسار',
-        'platform_certification' => 'شهادات منصة دوافير ',
-        'externel_certification' => 'شهادات خارجية',
-        'add' => 'إضافة شهادة'
-      ],
+     
       'cvs' => [
         'list' => 'قوالب السيرة الذاتية',
         'add' => 'إضافة قالب جديد',

@@ -31,7 +31,6 @@
     <div class="container-xl">
         <div class="row row-cards">
             <div class="col-md-12">
-                <div class="card">
 
                 <form autocomplete="off" class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -67,7 +66,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                              
+
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
                                     <input type="date" class="form-control" name="start_date" id="title" value="{{ old('start_date') }}">
@@ -82,7 +81,7 @@
 
                             </div>
                             <div class="col-md-6">
-                            <div class="col-md-12">
+                                <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="discount"> {{__('admin.coupons.discount')}} <span>*</span></label>
                                     <input type="text" class="form-control" name="discount" id="title" value="{{ old('discount') }}" required>
 
@@ -92,9 +91,9 @@
                                     </div>
                                     @enderror
                                 </div>
-                                
 
-                               
+
+
 
                                 <div class="mb-3">
                                     <label class="form-label" for="courses">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
@@ -122,49 +121,49 @@
                             </div>
 
                             <div class="form-group ">
-                                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
-                                    <div>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
-                                            <span class="form-check-label"> {{ __('admin.active')}}</span>
-                                        </label>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="0" type="radio" name="active">
-                                            <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
-                                        </label>
+                                <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                                <div>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" value="1" type="radio" name="active" checked>
+                                        <span class="form-check-label"> {{ __('admin.active')}}</span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" value="0" type="radio" name="active">
+                                        <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                                    </label>
 
-                                    </div>
                                 </div>
-
-
-
-
-
-                             
-
-
-
                             </div>
 
 
 
+
+
+
+
+
+
                         </div>
-                    </div>
-                    <div class="card-footer text-end">
-                        <div class="d-flex">
-                            <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
+                        <div class="card-footer text-end">
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
+                            </div>
                         </div>
+
+
                     </div>
+
+
 
                     <!-- Form End -->
 
 
                 </form>
-                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

@@ -95,7 +95,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control" name="course_id" id="course_id" required>
+                                    <select class="form-control" name="course_id" id="courses" required>
                                         <option value="{{ $row->course_id }}"  selected="selected" > {{ optional($row->course)->name }}</option>
                                     </select>
 

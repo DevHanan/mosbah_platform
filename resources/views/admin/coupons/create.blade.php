@@ -51,16 +51,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-12">
-                                    <label class="form-label" class="form-label" for="discount"> {{__('admin.coupons.discount')}} <span>*</span></label>
-                                    <input type="text" class="form-control" name="discount" id="title" value="{{ old('discount') }}" required>
-
-                                    @error('discount')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                              
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
                                     <input type="date" class="form-control" name="start_date" id="title" value="{{ old('start_date') }}">
@@ -75,7 +66,16 @@
 
                             </div>
                             <div class="col-md-6">
+                            <div class="col-md-12">
+                                    <label class="form-label" class="form-label" for="discount"> {{__('admin.coupons.discount')}} <span>*</span></label>
+                                    <input type="text" class="form-control" name="discount" id="title" value="{{ old('discount') }}" required>
 
+                                    @error('discount')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                                 
 
                                 <div class="mb-3">

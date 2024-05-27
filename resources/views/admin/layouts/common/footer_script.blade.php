@@ -541,6 +541,11 @@ $(document).ready(function() {
             })
         }
     });
+	const dateInput = document.querySelector('input[type="date"]');
+
+dateInput.addEventListener('keydown', (e) => {
+  e.preventDefault();
+});
 });
 </script>
 	</script>

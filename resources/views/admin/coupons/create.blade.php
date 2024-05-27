@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" class="form-label" for="end_date"> {{__('admin.coupons.end_date')}} <span>*</span></label>
-                                    <input type="date" class="form-control" readonly  name="end_date" id="title" value="{{ old('end_date') }}">
+                                    <input type="date" class="form-control"  name="end_date" id="title" value="{{ old('end_date') }}">
 
                                     @error('end_date')
                                     <div class="invalid-feedback">

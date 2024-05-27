@@ -541,9 +541,12 @@ $(document).ready(function() {
             })
         }
     });
-	const dateInput = document.querySelector('input[type="date"]');
+	
 
-dateInput.addEventListener('keydown', (e) => {
+	document.querySelector('#start_date').addEventListener('keydown', (e) => {
+  e.preventDefault();
+});
+document.querySelector('#end_date').addEventListener('keydown', (e) => {
   e.preventDefault();
 });
 });

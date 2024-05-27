@@ -77,12 +77,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                         
-
-
-
-                        </div>
-                        <div class="form-group ">
+                            <div class="form-group ">
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
                                         <label class="form-check form-check-inline">
@@ -134,6 +129,10 @@
 
 
                             </div>
+
+
+
+                        </div>
                     </div>
                     <div class="card-footer text-end">
                         <div class="d-flex">

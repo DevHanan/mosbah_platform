@@ -96,12 +96,7 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
                                     <select class="form-control" name="course_id" id="course_id" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($courses as $course)
-                                        @if($row->course_id == $course->id)
-                                        <option value="{{ $course->id }}" @if($row->course_id == $course->id)  selected="selected" @endif> {{ $course->name }}</option>
-                                        @endif
-                                        @endforeach
+                                        <option value="{{ $row->course_id }}"  selected="selected" > {{ optional($row->course)->name }}</option>
                                     </select>
 
                                     @error('course_id')

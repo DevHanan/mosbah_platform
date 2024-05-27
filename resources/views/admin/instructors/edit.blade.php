@@ -66,6 +66,17 @@
                 </div>
 
                 <div class="mb-3">
+                  <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
+                  <input type="password" class="form-control" name="password" id="password" required>
+
+                  @error('password')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+                <div class="mb-3">
                   <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
                   <select class="form-control" name="is_employee" required>
                     <option value="">{{ __('select') }}</option>
@@ -169,6 +180,17 @@
                   <input type="text" class="form-control" name="email" id="email" value="{{ $row->email }}" required>
 
                   @error('email')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="password">{{ __('admin.instructors.field_password_confirmation') }} <span>*</span></label>
+                  <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
+
+                  @error('password')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>

@@ -229,7 +229,13 @@
                   @enderror
                 </div>
 
-                <div class="mb-3">
+             
+
+
+
+              </div>
+
+              <div class="mb-3">
                   <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
                   <input type="file" class="form-control" name="image" id="logo">
 
@@ -256,10 +262,6 @@
                   </div>
                   @enderror
                 </div>
-
-
-
-              </div>
 
               <!-- <div class="col-md-12">
                 <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>

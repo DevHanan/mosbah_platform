@@ -44,6 +44,11 @@ Breadcrumbs::for('update-students', function (BreadcrumbTrail $trail,$row) {
     $trail->push($row->name, route('admin.students.edit', $row));
 });
 
+Breadcrumbs::for('show-students', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('students');
+    $trail->push($row->name, route('admin.students.show', $row));
+});
+
 // Home > tracks
 Breadcrumbs::for('tracks', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

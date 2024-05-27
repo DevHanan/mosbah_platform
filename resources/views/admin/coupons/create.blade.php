@@ -31,6 +31,7 @@
     <div class="container-xl">
         <div class="row row-cards">
             <div class="col-md-12">
+                <div class="card">
 
                 <form autocomplete="off" class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -50,7 +51,22 @@
                                     </div>
                                     @enderror
                                 </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
+                                    <select class="form-control" name="track_id" id="track_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($tracks as $track)
+                                        <option value="{{$track->id}}">{{ $track->name }}</option>
+                                        @endforeach
 
+                                    </select>
+
+                                    @error('track_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                               
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
@@ -78,22 +94,7 @@
                                 </div>
                                 
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
-                                    <select class="form-control" name="track_id" id="track_id" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($tracks as $track)
-                                        <option value="{{$track->id}}">{{ $track->name }}</option>
-                                        @endforeach
-
-                                    </select>
-
-                                    @error('track_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                               
 
                                 <div class="mb-3">
                                     <label class="form-label" for="courses">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
@@ -159,6 +160,7 @@
 
 
                 </form>
+                </div>
             </div>
         </div>
     </div>

@@ -15,6 +15,7 @@ use App\Models\Subsctiption;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Auth;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -176,15 +177,22 @@ class HomeController extends Controller
 
     public function checkCoupon(Request $request)
     {
-        $coupon = Coupon::where('code', $request->code)->where('active','1')->where('course_id', $request->course_id)->first();
+        $coupon = Coupon::where('code', $request->code)->where('course_id', $request->course_id)->first();
         $course = Course::find($request->course_id);
         if ($coupon){
-            
+             if($coupon->activ == '0' ||  $coupon->start_date > Carbon::today()  || $coupon->end_date < Carbon::today() ){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Coupon has been expire',
+                    'total' => $course->TotalDiscount
+                ]);
+             }else{
             return response()->json([
                 'status' => 'success',
                 'discount' => $coupon->discount,
                 'total' => (optional($coupon->course)->TotalDiscount) -  ((optional($coupon->course)->TotalDiscount / 100) * $coupon->discount)
             ]);
+        }
         } else {
             return response()->json([
                 'status' => 'error',

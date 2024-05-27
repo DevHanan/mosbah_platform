@@ -52,16 +52,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-12">
-                                    <label class="form-label" class="form-label" for="discount"> {{__('admin.coupons.discount')}} <span>*</span></label>
-                                    <input type="text" class="form-control" name="discount" id="title" value="{{ $row->discount }}" required>
-
-                                    @error('discount')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                               
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
                                     <input type="date" class="form-control" name="start_date" id="title" value="{{ $row->start_date }}">
@@ -76,8 +67,22 @@
 
                             </div>
                             <div class="col-md-6">
+                            <div class="col-md-12">
+                                    <label class="form-label" class="form-label" for="discount"> {{__('admin.coupons.discount')}} <span>*</span></label>
+                                    <input type="text" class="form-control" name="discount" id="title" value="{{ $row->discount }}" required>
 
-                            <div class="form-group ">
+                                    @error('discount')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                         
+
+
+
+                        </div>
+                        <div class="form-group ">
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
                                         <label class="form-check form-check-inline">
@@ -129,10 +134,6 @@
 
 
                             </div>
-
-
-
-                        </div>
                     </div>
                     <div class="card-footer text-end">
                         <div class="d-flex">

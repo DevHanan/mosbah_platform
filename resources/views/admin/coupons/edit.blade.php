@@ -52,7 +52,22 @@
                                     @enderror
                                 </div>
 
-                               
+                                <div class="mb-3">
+                                    <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
+                                    <select class="form-control" name="track_id" id="track_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($tracks as $track)
+                                        <option value="{{$track->id}}" @if($row->track_id == $track->id)  selected="selected" @endif>{{ $track->name }}</option>
+                                        @endforeach
+
+                                    </select>
+
+                                    @error('track_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="start_date"> {{__('admin.coupons.start_date')}} <span>*</span></label>
                                     <input type="date" class="form-control" name="start_date" id="title" value="{{ $row->start_date }}">
@@ -78,6 +93,23 @@
                                     @enderror
                                 </div>
 
+                                <div class="mb-3">
+                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
+                                    <select class="form-control" name="course_id" id="course_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($courses as $course)
+                                        @if($row->course_id == $course->id)
+                                        <option value="{{ $course->id }}" @if($row->course_id == $course->id)  selected="selected" @endif> {{ $course->name }}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+
+                                    @error('course_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="end_date"> {{__('admin.coupons.end_date')}} <span>*</span></label>
                                     <input type="date" class="form-control" name="end_date" id="title" value="{{ $row->end_date }}">
@@ -103,22 +135,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control" name="course_id" id="course_id" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($courses as $course)
-                                        <option value="{{ $course->id }}" @if($row->course_id == $course->id)  selected="selected" @endif> {{ $course->name }}</option>
-
-                                        @endforeach
-                                    </select>
-
-                                    @error('course_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+                             
 
 
 

@@ -183,7 +183,7 @@ class HomeController extends Controller
              if($coupon->activ == '0' ||  $coupon->start_date > Carbon::today()  || $coupon->end_date < Carbon::today() ){
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Coupon has been expire',
+                    'message' => 'Coupon has been deactivated',
                     'total' => $course->TotalDiscount
                 ]);
              }else{

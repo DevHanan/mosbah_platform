@@ -28,6 +28,22 @@ Breadcrumbs::for('update-instructors', function (BreadcrumbTrail $trail,$row) {
     $trail->push($row->name, route('admin.instructors.edit', $row));
 });
 
+
+// Home > students
+Breadcrumbs::for('students', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.students.list'), route('admin.students.index'));
+});
+
+Breadcrumbs::for('add-students', function (BreadcrumbTrail $trail) {
+    $trail->parent('students');
+    $trail->push(trans('navbar.students.add'), route('admin.students.create'));
+});
+Breadcrumbs::for('update-students', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('students');
+    $trail->push($row->name, route('admin.students.edit', $row));
+});
+
 // Home > tracks
 Breadcrumbs::for('tracks', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

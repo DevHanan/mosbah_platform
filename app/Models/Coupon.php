@@ -24,4 +24,8 @@ class Coupon extends Model
     {
         return $this->belongsTo(Course::class);
     }
+    public function track()
+    {
+        return $this->belongsTo(Track::class);
+    }
 }

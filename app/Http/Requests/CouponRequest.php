@@ -25,9 +25,8 @@ class CouponRequest extends FormRequest
         return [
             'code'   => 'required',
             'discount' => 'required',
-            'course_id' => 'required|exists:courses,id',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'track_id' => 'required|exists:tracks,id',
+            'course_id' => 'required|exists:courses,id'
 
 
         ];

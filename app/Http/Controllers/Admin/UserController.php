@@ -87,7 +87,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->status = '1';
+        $user->active = '1';
 
         $user->save();
         if(isset($request->roles))
@@ -188,7 +188,7 @@ class UserController extends Controller
     {   
         // Set Status
         $user = User::where('id', $id)->firstOrFail();
-        $user->status = $user->status== 0 ? 1:0;
+        $user->active = $user->active== 0 ? 1:0;
         $user->save();
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
 
@@ -206,7 +206,7 @@ class UserController extends Controller
         //
         $user = User::where('id', $id)->firstOrFail();
         
-        $mail = MailSetting::where('status', '1')->first();
+        $mail = MailSetting::where('active', '1')->first();
 
         if(isset($mail->sender_email) && isset($mail->sender_name)){
 

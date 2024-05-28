@@ -101,7 +101,7 @@ class RegisterController extends Controller
             $instructor->image = 'uploads/instructors/' . $filename;
             $instructor->save();
         }
-       
+        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return view('front.sign-completed');
     }
 

@@ -86,7 +86,7 @@
 
         </div>
         <div class="row">
-            <p> Developed with ♥️ by Brain Soft Solutions </p>
+            <p style="text-align:center;color:#ffffff;"> Developed with ♥️ by Brain Soft Solutions </p>
         </div>
 
     </div>

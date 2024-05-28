@@ -9,15 +9,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="{{ asset($setting->backgroundImageFullPath)}}" style="padding-top:90px;" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="{{ asset($aboutsetting->backgroundImageFullPath)}}" style="padding-top:90px;" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="info position-relative py-5">
                         <img src="{{asset('/front/img/completed-bg.svg')}}" class="position-absolute img-fluid" alt="">
-                        <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $setting-> title}} </h4>
+                        <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $aboutsetting-> title}} </h4>
                         <div class="content fw-bold text-white">
-                            {!! $setting->description !!}
+                            {!! $aboutsetting->description !!}
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #E9F8F3;"><img src="{{asset('/front/img/icons/GraduationCap.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="300"> {{ $setting->course_number}}</h3>
+                                        <h3 class="fw-bold count" data-target="300"> {{ $aboutsetting->course_number}}</h3>
                                         <p class="fw-bold">دورات</p>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFFAF5;"><img src="{{asset('/front/img/icons/VideoCamera.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="5000">{{ $setting->lecture_number}}</h3>
+                                        <h3 class="fw-bold count" data-target="5000">{{ $aboutsetting->lecture_number}}</h3>
                                         <p class="fw-bold">محاضرات</p>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #F0F7FF;"><img src="{{asset('/front/img/icons/UsersThree.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="50">{{ $setting->instructor_number}}</h3>
+                                        <h3 class="fw-bold count" data-target="50">{{ $aboutsetting->instructor_number}}</h3>
                                         <p class="fw-bold">مدربين</p>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFEEF0;"><img src="{{asset('/front/img/icons/GraduationCap2.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="1000">{{ $setting->student_number}}</h3>
+                                        <h3 class="fw-bold count" data-target="1000">{{ $aboutsetting->student_number}}</h3>
                                         <p class="fw-bold">طلاب</p>
                                     </div>
                                 </div>
@@ -135,11 +135,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="h-100 d-flex flex-column justify-content-center">
-                        <h2 class="position-relative"> {{ $setting->mission_title }}
+                        <h2 class="position-relative"> {{ $aboutsetting->mission_title }}
                             <img src="{{asset('/front/img/text-line2.svg')}}" class="position-absolute" alt="">
                         </h2>
                         <h5 class="my-5 mb-5 ">
-                            {!! $setting->mission_description !!}
+                            {!! $aboutsetting->mission_description !!}
                         </h5>
                         <div>
                             <a href="{{url('signup')}}" class="btn rounded-pill secondary-bg text-white my-4">اشترك الآن مجانا وابدأ رحلتك التعليمية</a>
@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="img"><img src="{{ asset( $setting->missionimageFullPath )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
+                    <div class="img"><img src="{{ asset( $aboutsetting->missionimageFullPath )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
                 </div>
             </div>
 
@@ -166,33 +166,33 @@
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$setting->msg_image1)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$setting->msg_title1 }}</h5>
-                                    <p> {!! $setting->msg_desc1 !!}</p>
+                                    <img src="{{ asset('public/'.$aboutsetting->msg_image1)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <h5> {{$aboutsetting->msg_title1 }}</h5>
+                                    <p> {!! $aboutsetting->msg_desc1 !!}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$setting->msg_image2) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$setting->msg_title2 }}</h5>
-                                    <p> {!! $setting->msg_desc2 !!}</p>
+                                    <img src="{{ asset('public/'.$aboutsetting->msg_image2) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <h5> {{$aboutsetting->msg_title2 }}</h5>
+                                    <p> {!! $aboutsetting->msg_desc2 !!}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$setting->msg_image3) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$setting->msg_title3 }}</h5>
-                                    <p> {!! $setting->msg_desc3 !!}</p>
+                                    <img src="{{ asset('public/'.$aboutsetting->msg_image3) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <h5> {{$aboutsetting->msg_title3 }}</h5>
+                                    <p> {!! $aboutsetting->msg_desc3 !!}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$setting->msg_image4) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$setting->msg_title4 }}</h5>
-                                    <p> {!! $setting->msg_desc4 !!}</p>
+                                    <img src="{{ asset('public/'.$aboutsetting->msg_image4) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
+                                    <h5> {{$aboutsetting->msg_title4 }}</h5>
+                                    <p> {!! $aboutsetting->msg_desc4 !!}</p>
                                 </div>
                             </div>
                         </div>

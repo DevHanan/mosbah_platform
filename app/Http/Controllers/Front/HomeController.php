@@ -27,11 +27,11 @@ class HomeController extends Controller
 
     public function about()
     {
-        $setting = AboutSetting::find(1);
+    $aboutsetting = AboutSetting::find(1);
         $teams = Team::active()->get();
         $parteners = Partener::active()->get();
         $title = 'من نحن';
-        return view('front.about', compact(['setting', 'teams', 'parteners', 'title']));
+        return view('front.about', compact(['aboutsetting', 'teams', 'parteners', 'title']));
     }
 
     public function courses(Request $request)

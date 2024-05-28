@@ -96,6 +96,11 @@ class AuthController extends Controller
         if ($request->track_ids)
             $user->tracks()->attach($request->track_ids);
 
+            if ($request->password != null) {
+                $user->password = Bcrypt($request->password);
+                $user->save();
+            }
+
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
 
         }

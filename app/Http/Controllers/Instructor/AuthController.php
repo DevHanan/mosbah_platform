@@ -30,27 +30,29 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/instructor/dashboard';
 
-    public function login($id){
+    public function login($id)
+    {
         Auth::guard('web')->logout();
         Auth::guard('instructors-login')->loginUsingId($id);
         Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
         return redirect('instructor/dashboard');
     }
-  
 
 
-    public function logout(){
+
+    public function logout()
+    {
 
         Auth::guard('instructors-login')->logout();
         Toastr::success(__('admin.msg_logout_successfully'), __('admin.msg_success'));
         return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 
-    public function getProfile(){
+    public function getProfile()
+    {
 
         $data['row'] = auth()->guard('instructors-login')->user();
-        return view('student.profile', $data);
-
+        return view('instrucotr.profile', $data);
     }
     public function profile(Request $request)
     {
@@ -65,35 +67,49 @@ class AuthController extends Controller
 
         $user = Auth::guard('instructors-login')->user();
 
-        if($request->id == $user->id){
+        if ($request->id == $user->id) {
 
-        // Update data
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->country_id = $request->country_id;
-        $user->phone = $request->phone;
-        $user->qualifications = $request->qualifications;
-        $user->save();
-
-
-        if ($request->hasFile('image')) {
-
-            $thumbnail = $request->image;
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
-            $user->image = 'uploads/instructors/' . $filename;
+            // Update data
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->email = $request->email;
+            $user->country_id = $request->country_id;
+            $user->phone = $request->phone;
+            $user->qualifications = $request->qualifications;
             $user->save();
-        }
 
-        if ($request->track_ids)
-            $user->tracks()->attach($request->track_ids);
 
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+            if ($request->hasFile('image')) {
 
-        }
-        else {
-        Toastr::error(__('msg_not_permitted'), __('msg_error'));
+                $thumbnail = $request->image;
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+                $user->image = 'uploads/instructors/' . $filename;
+                $user->save();
+            }
+
+            if ($request->track_ids)
+                $user->tracks()->attach($request->track_ids);
+
+            if ($request->hasFile('cv')) {
+
+                $thumbnail = $request->cv;
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+                $user->cv = 'uploads/instructors/' . $filename;
+                $user->save();
+            }
+
+
+            if ($request->password != null) {
+                $user->password = Bcrypt($request->password);
+                $user->save();
+            }
+
+
+            Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        } else {
+            Toastr::error(__('msg_not_permitted'), __('msg_error'));
         }
 
         return redirect()->back();

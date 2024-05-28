@@ -34,7 +34,7 @@
             <div class="col-md-6">
                 <div class="intro container p-5 pt-3">
                     <div class="d-flex justify-content-between align-items-center mb-5">
-                        <a href="{{url('sign_step2')}}" class="text-decoration-none fw-bold" style="color:#696F79">
+                        <a href="{{url(url()->previous())}}" class="text-decoration-none fw-bold" style="color:#696F79">
                             <i class="fa-solid fa-angle-right ms-2"></i> عودة 
                         </a>
                         <div class="text-center">

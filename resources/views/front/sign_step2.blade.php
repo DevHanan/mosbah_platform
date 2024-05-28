@@ -32,7 +32,7 @@
             <div class="col-md-6">
                 <div class="intro container p-5 pt-3">
                     <div class="d-flex justify-content-between align-items-center mb-5">
-                        <a href="{{url('sign_step1')}}" class="text-decoration-none fw-bold" style="color:#696F79">
+                        <a href="{{url(url()->previous())}}" class="text-decoration-none fw-bold" style="color:#696F79">
                             <i class="fa-solid fa-angle-right ms-2"></i> عودة 
                         </a>
                         <div class="text-center">
@@ -45,9 +45,9 @@
                     <form action="{{url('sign_step2')}}" method="POST">
                         @csrf
                         <label for="" class="mb-3"> الاسم الاول* </label>
-                        <input type="text"  name="first_name" class="form-control mb-3 p-3" placeholder="محمد ">
+                        <input type="text"  name="first_name" class="form-control mb-3 p-3" placeholder="محمد " required>
                         <label for="" class="mb-3"> الاسم الاخير* </label>
-                        <input type="text"  name="last_name" class="form-control mb-3 p-3" placeholder=" علي">
+                        <input type="text"  name="last_name" class="form-control mb-3 p-3" placeholder=" علي" required>
                         <label for="" class="mb-3">بلد الإقامة</label>
                         <select class="form-control mb-3 p-3" name="country_id">
                             <option selected disabled>يرجى الاختيار</option>

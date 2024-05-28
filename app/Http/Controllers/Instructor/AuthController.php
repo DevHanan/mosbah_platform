@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Instructor;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Toastr;
+use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
@@ -52,7 +54,7 @@ class AuthController extends Controller
     {
 
         $data['row'] = auth()->guard('instructors-login')->user();
-        return view('instrucotr.profile', $data);
+        return view('instructor.profile', $data);
     }
     public function profile(Request $request)
     {

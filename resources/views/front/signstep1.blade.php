@@ -9,14 +9,14 @@
         @endif
         {{ $setting->title }}
     </title>
-    <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">
-    <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">
+    <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <link rel="stylesheet" href="public/front/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="public/front/css/custom.css">
-    <link rel="stylesheet" href="public/front/css/media.css">
+    <link rel="stylesheet" href="{{asset('front/css/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/media.css')}}">
 </head>
 
 <body>
@@ -25,10 +25,10 @@
             <div class="col-md-6 p-0 position-relative">
                 <div class="welcome d-flex flex-column align-items-center justify-content-center">
                     <div class="layout position-absolute"></div>
-                    <img src="public/front/img/Group 327.svg" class="position-absolute img-fluid h-100" alt="">
-                    <img src="public/front/img/logo.svg" class="logo img-fluid position-absolute" alt="">
+                    <img src="{{asset('front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
+                    <img src="{{asset('front/img/logo.svg')}}" class="logo img-fluid position-absolute" alt="">
                     <div class="data text-center text-white">
-                        <img src="public/front/img/sign_step1.svg" class="img-fluid" alt="">
+                        <img src="{{asset('front/img/sign_step1.svg')}}" class="img-fluid" alt="">
                         <h2>فقط بضع خطوات وننتهي </h2>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل حساب</a>
                     </form>
                     <p class="text-center">او</p>
-                    <button type="submit" class="btn shadow border fw-bold w-100 my-3 py-3">التسجيل عن طريق جوجل <img src="public/front/img/icons/google.png" class="mx-3" alt=""></button>
+                    <button type="submit" class="btn shadow border fw-bold w-100 my-3 py-3">التسجيل عن طريق جوجل <img src="{{asset('front/img/icons/google.png')}}" class="mx-3" alt=""></button>
                 </div>
             </div>
         </div>

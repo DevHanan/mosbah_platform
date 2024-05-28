@@ -70,10 +70,11 @@ class AuthController extends Controller
             'photo' => 'nullable|image',
         ]);
 
-        if($request->id == Auth::guard('students-login')->user()->id){
+        $user = Auth::guard('students-login')->user();
+
+        if($request->id == $user->id){
 
         // Update data
-        $user = Auth::guard('students-login')->user()->id;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;

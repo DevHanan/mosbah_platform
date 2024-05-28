@@ -86,7 +86,7 @@ class RegisterController extends Controller
 
     public function signstep3(Request $request)
     {
-        return $request->all();
+        return auth()->guard('students-login')->user();
         if (Auth::guard('students-login')->check()) {
             $directory = '/uploads/students/';
             $guard = 'students-login';

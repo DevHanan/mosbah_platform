@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1 class="navbar-brand navbar-brand-autodark">
-      <a href="{{url('/')}}" >
+      <a href="{{url('/')}}">
         <img src="{{asset($setting->logoFullPath)}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
       </a>
     </h1>
@@ -175,7 +175,8 @@
         </li>
 
 
-        <li class="nav-item  @if(request()->routeIs('instructor.instructorProfile')) active @endif          <a class="nav-link " href="{{ url('instructor/profile')}}">
+        <li class="nav-item  @if(request()->routeIs('instructor.instructorProfile')) active @endif ">
+          <a class="nav-link " href="{{ url('instructor/profile')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -291,7 +292,7 @@
               </svg>
             </span>
             <span class="nav-link-title">
-            {{ __('navbar.instructors_side.profits_requests') }}
+              {{ __('navbar.instructors_side.profits_requests') }}
             </span>
           </a>
         </li>
@@ -306,13 +307,13 @@
               </svg>
             </span>
             <span class="nav-link-title">
-            {{ __('navbar.instructors_side.paid_profits_requests') }}
+              {{ __('navbar.instructors_side.paid_profits_requests') }}
             </span>
           </a>
         </li>
-        
 
-        
+
+
 
       </ul>
     </div>

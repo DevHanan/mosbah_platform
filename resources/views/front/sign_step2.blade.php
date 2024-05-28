@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  @if(isset($title))
-  {{ $title }} -
-  @endif
-  {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">  
+    <title> @if(isset($title))
+        {{ $title }} -
+        @endif
+        {{ $setting->title }}
+    </title>
+    <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">
     <link rel="stylesheet" href="{{asset('public/front/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="{{asset('public/front/css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('public/front/css/media.css')}}">
     <link rel="stylesheet" href="public/front/styles.css" />
 </head>
+
 <body>
     <div class="register sign_step2">
         <div class="row p-0 m-0">
@@ -33,7 +36,7 @@
                 <div class="intro container p-5 pt-3">
                     <div class="d-flex justify-content-between align-items-center mb-5">
                         <a href="{{url(url()->previous())}}" class="text-decoration-none fw-bold" style="color:#696F79">
-                            <i class="fa-solid fa-angle-right ms-2"></i> عودة 
+                            <i class="fa-solid fa-angle-right ms-2"></i> عودة
                         </a>
                         <div class="text-center">
                             <span style="color: #BDBDBD;">خطوة 02/03</span>
@@ -45,9 +48,9 @@
                     <form action="{{url('sign_step2')}}" method="POST">
                         @csrf
                         <label for="" class="mb-3"> الاسم الاول* </label>
-                        <input type="text"  name="first_name" class="form-control mb-3 p-3" placeholder="محمد " required>
+                        <input type="text" name="first_name" class="form-control mb-3 p-3" placeholder="محمد " required>
                         <label for="" class="mb-3"> الاسم الاخير* </label>
-                        <input type="text"  name="last_name" class="form-control mb-3 p-3" placeholder=" علي" required>
+                        <input type="text" name="last_name" class="form-control mb-3 p-3" placeholder=" علي" required>
                         <label for="" class="mb-3">بلد الإقامة</label>
                         <select class="form-control mb-3 p-3" name="country_id">
                             <option selected disabled>يرجى الاختيار</option>
@@ -60,7 +63,7 @@
                         @if($type != 'instructor')
                         <label for="" class="mb-3">المسارات التي تهتم بها (مع الطالب والمنظمة)</label>
                         <div class="multiselect w-100">
-                            <div class="selectBox position-relative" onclick="showCheckboxes('checkboxes1')">
+                            <!-- <div class="selectBox position-relative" onclick="showCheckboxes('checkboxes1')">
                                 <select class="form-control py-2">
                                     <option> حدد المسارات  </option>
                                 </select>
@@ -74,7 +77,15 @@
                                 </label>
                                 @endforeach
                                
-                            </div>
+                            </div> -->
+                            <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
+                            <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
+                                <option value="">{{ __('select') }}</option>
+                                @foreach($tracks as $track)
+                                <option value="{{ $track->id }}"> {{ $track->name }}</option>
+
+                                @endforeach
+                            </select>
                         </div>
                         @endif
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </button>
@@ -84,10 +95,10 @@
             </div>
         </div>
     </div>
-    
+
     <script>
-          
         var expanded = false;
+
         function showCheckboxes(id) {
             var checkboxes = document.getElementById(id);
             if (!expanded) {
@@ -100,4 +111,5 @@
         }
     </script>
 </body>
+
 </html>

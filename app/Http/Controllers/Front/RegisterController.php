@@ -82,10 +82,10 @@ class RegisterController extends Controller
     public function signstep3(Request $request)
     {
         if (Auth::guard('students-login')->check()) {
-            $directory = 'uploads/students/';
+            $directory = '/uploads/students/';
             $guard = 'students-login';
         } else {
-            $directory = 'uploads/instructors/';
+            $directory = '/uploads/instructors/';
             $guard = 'instructors-login';
         }
         if ($request->hasFile('image')) {

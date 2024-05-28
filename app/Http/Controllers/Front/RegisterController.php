@@ -73,6 +73,11 @@ class RegisterController extends Controller
                 'country_id' => $request->country_id,
                 'qualifications' => $request->qualifications
             ]);
+
+            if ($request->track_ids)
+            $model->tracks()->attach($request->track_ids);
+
+
         }
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return view('front.sign_step3');

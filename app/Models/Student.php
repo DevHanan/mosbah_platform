@@ -13,7 +13,7 @@ class Student extends Authenticatable
     public $timestamps = true;
 
     protected $fillable = array(
-        'first_name', 'last_name', 'email', 'userName', 'phone', 'active',
+        'first_name', 'last_name', 'email', 'phone', 'active',
         'country_id', 'qualifications', 'about_student'
     );
 

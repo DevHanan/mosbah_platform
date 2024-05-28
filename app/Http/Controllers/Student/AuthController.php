@@ -6,6 +6,8 @@ use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Toastr;
+use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
@@ -57,7 +59,36 @@ class AuthController extends Controller
         return view('student.profile', $data);
 
     }
-    public function profile(){
+    public function profile(Request $request)
+    {
+        // Field Validation
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'photo' => 'nullable|image',
+        ]);
 
+        if($request->id == Auth::guard('students-login')->user()->id){
+
+        // Update data
+        $user = User::find($id);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->country_id = $request->country_id;
+        $user->phone = $request->phone;
+        $user->qualifications = $request->qualifications;
+        $user->save();
+
+        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+
+        }
+        else {
+        Toastr::error(__('msg_not_permitted'), __('msg_error'));
+        }
+
+        return redirect()->back();
     }
 }

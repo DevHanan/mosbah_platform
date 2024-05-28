@@ -50,4 +50,14 @@ class AuthController extends Controller
         Toastr::success(__('admin.msg_logout_successfully'), __('admin.msg_success'));
         return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
+
+    public function getProfile(){
+
+        $data['row'] = auth()->guard('students-login')->user();
+        return view('student.profile', $data);
+
+    }
+    public function profile(){
+
+    }
 }

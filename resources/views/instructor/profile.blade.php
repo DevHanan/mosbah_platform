@@ -33,7 +33,7 @@
       <div class="col-md-12">
 
 
-        <form class="card" action="{{ url('instructor/profile'}}" method="post" enctype="multipart/form-data">
+        <form class="card" action="{{ url('instructor/profile')}}" method="post" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="id" value="{{$row->id}}">
 

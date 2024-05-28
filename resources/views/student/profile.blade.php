@@ -8,7 +8,7 @@
     <div class="row g-2 align-items-center">
       <div class="col">
         <!-- Page pre-title -->
-        {{ Breadcrumbs::render('update-students',$row) }}
+        {{ Breadcrumbs::render('update-student-profile') }}
 
       </div>
       <!-- Page title actions -->
@@ -17,7 +17,7 @@
 
           <div class="card-header">
             <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+              <a href="{{ url('student/dashboard') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>

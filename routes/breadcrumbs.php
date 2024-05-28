@@ -322,6 +322,10 @@ Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
 });
 
+Breadcrumbs::for('update-student-profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('student-home');
+    $trail->push(trans('navbar.students_side.profile'), route('student.profile'));
+});
 
 Breadcrumbs::for('studentexternalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');

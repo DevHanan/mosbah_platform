@@ -90,7 +90,7 @@
           <a class="nav-link @if(Request::is('about-us')) active @endif" href="{{ url('/about-us')}}">من نحن</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is(['courses','course/*']) ) active @endif" href="{{url('/courses')}}">دوراتنا</a>
+          <a class="nav-link  @if(Request::is(['courses','course/*']) ) active @endif" href="{{url('/courses')}}">الدورات</a>
         </li>
         <li class="nav-item">
           <a class="nav-link  @if(Request::is('blogs')) active @endif" href="{{url('/blogs')}}">المدونة</a>
@@ -99,11 +99,11 @@
           <a class="nav-link" href="#">حساب التنسيق</a>
         </li>
         <li class="nav-item">
-          <!-- <a class="nav-link" href="#">تحقق من الشهادة</a>
+          <a class="nav-link" href="#">تحقق من الشهادة</a>
             </li>
 			<li class="nav-item">
             <a class="nav-link" href="#">صانع CV</a>
-            </li> -->
+            </li>
         <li class="nav-item">
           <a class="nav-link  @if(Request::is('policies')) active @endif" href="{{ url('/policies') }}">سياساتنا</a>
         </li>

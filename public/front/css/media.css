@@ -1,0 +1,44 @@
+@media (max-width:1200px) and (min-width:991px) {
+    footer .logo img{width: 250px;}
+    footer .social ul{flex-wrap: wrap;}
+    footer .social a {margin: 0 0 10px;}
+}
+@media (min-width:991px) {
+    .register .welcome{position: fixed;width: 50%;}
+}
+@media (max-width:991px) {
+    .hero_sec .img img{margin-top: 0;}
+    .hero_sec p{font-size: 25px;line-height: 40px;}
+    .swiper-button-prev {left: 10px;}
+    .swiper-button-next {right: 10px;}
+    
+    .contact-us .d-flex{display: block !important;}
+    .contact-us .queText{direction: rtl;}
+    .contact-us .queText p{direction: rtl;}
+    
+    .left-class{order: 0;}
+    .right-class{order: 1;}
+}
+
+@media (max-width:768px) {
+    .courses .swiper-button-prev {left: 20%;}
+    .courses .swiper-button-next {right: 20%;}
+    .books_list .card__article{width: 100%;}
+}
+
+@media (max-width:575px) {
+    section.about .achievement .data h3{font-size: 18px;}
+    section.about .achievement .data p{font-size: 14px;}
+    section.about .achievement .data .img{padding: 10px !important;}
+    section.about .achievement .data img{width: 30px;}
+    .swiper-button-prev, .swiper-button-next{display: none;}
+    .nav.nav-tabs{font-size: 10px;}
+    .sign-completed .logo{max-width: 170px;}
+    section.about .hero_sec .content {line-height: 30px;font-size: 14px;width: 100%;}
+    section.about .achievementSec .info .data{direction: ltr;}
+    section.about .achievementSec .info .text-start{text-align: center !important;}
+}
+
+@media (max-width:400px) {
+    section.about .achievementSec .info .row{flex-direction: column;}
+}

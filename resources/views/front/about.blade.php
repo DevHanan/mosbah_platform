@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="{{ asset('public/'.$setting->background_image)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="{{ asset($setting->backgroundImageFullPath)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">

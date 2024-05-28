@@ -48,7 +48,7 @@
                         @csrf
                         <div class="px-5 mb-4 d-flex flex-column align-items-center">
                             <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
-                                <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="profile" alt="">
+                                <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="image" alt="">
                                 <p>اضف صورة</p>
                             </div>
                            

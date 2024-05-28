@@ -35,7 +35,6 @@
 
         <form class="card" action="{{ url('student/profile') }}" method="post" enctype="multipart/form-data">
           @csrf
-          @method('PUT')
           <input type="hidden" name="id" value="{{$row->id}}">
 
           <div class="card-body">

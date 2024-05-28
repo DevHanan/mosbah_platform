@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="img"><img src="{{ asset( 'public/'.$setting->mission_image )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
+                    <div class="img"><img src="{{ asset( $setting->missionimageFullPath )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
                 </div>
             </div>
 

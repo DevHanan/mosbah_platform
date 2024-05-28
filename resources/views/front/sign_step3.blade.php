@@ -48,13 +48,13 @@
                         @csrf
                         <div class="px-5 mb-4 d-flex flex-column align-items-center">
                             <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
-                                <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="image" alt="">
+                                <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="profile" alt="">
                                 <p>اضف صورة</p>
                             </div>
                            
 
                             <div class="choose_img position-relative d-flex justify-content-center my-3">
-                                <input type="file" class="position-absolute" id="fileInput">
+                                <input type="file" class="position-absolute"  name="image" id="fileInput">
                                 <div class="py-2 text-center rounded">اختر الملف</div>
                             </div>                            
                         </div>

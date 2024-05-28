@@ -86,24 +86,22 @@ class RegisterController extends Controller
 
     public function signstep3(Request $request)
     {
-        return auth()->guard('students-login')->user();
-        if (Auth::guard('students-login')->check()) {
-            $directory = '/uploads/students/';
-            $guard = 'students-login';
-        } else {
-            $directory = '/uploads/instructors/';
-            $guard = 'instructors-login';
-        }
-        if ($request->image) {
-
+        if (Auth::guard('students-login')->user() && $request->image ) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path($directory, $filename));
-             Auth::guard($guard)->user()->image = $directory . $filename;
-             Auth::guard($guard)->user()->save();
+            $thumbnail->move(public_path('/uploads/students/'), $filename);
+            $student = auth()->guard('students-login')->user();
+            $student->image = 'uploads/students/' . $filename;
+            $student->save();
+        } elseif (Auth::guard('instructors-login')->user() && $request->image ) {
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+            $instructor = auth()->guard('instructors-login')->user();
+            $instructor->image = 'uploads/instructors/' . $filename;
+            $instructor->save();
         }
-
-
+       
         return view('front.sign-completed');
     }
 

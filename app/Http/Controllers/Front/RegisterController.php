@@ -43,7 +43,6 @@ class RegisterController extends Controller
             $model = 'App\Models\Instructor';
         else
             $model = 'App\Models\Student';
-        $request->merge(['userName' => $request->email]);
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
         $item->save();

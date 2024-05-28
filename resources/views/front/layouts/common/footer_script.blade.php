@@ -85,6 +85,10 @@
             </div>
 
         </div>
+        <div class="row">
+            <p> Developed with ♥️ by Brain Soft Solutions </p>
+        </div>
+
     </div>
 </footer>
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">

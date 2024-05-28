@@ -15,7 +15,8 @@ class AboutSetting extends Model
 
 );
 
-protected $appends = ['missionimageFullPath','footerImageFullPath'];
+protected $appends = ['missionimageFullPath','backgroundImageFullPath','msgImage1FullPath'
+,'msgImage2FullPath','msgImage3FullPath','msgImage4FullPath'];
 
 public function getmissionimageFullPathAttribute($value)
 {
@@ -23,6 +24,35 @@ public function getmissionimageFullPathAttribute($value)
     return asset('public/' . $this->mission_image);
 }
 
+public function getbackgroundImageFullPathAttribute($value)
+{
+
+    return asset('public/' . $this->background_image);
+}
+
+public function getmsgImage1FullPathAttribute($value)
+{
+
+    return asset('public/' . $this->msg_image1);
+}
+
+public function getmsgImage2FullPathAttribute($value)
+{
+
+    return asset('public/' . $this->msg_image2);
+}
+
+public function getmsgImage3FullPathAttribute($value)
+{
+
+    return asset('public/' . $this->msg_image3);
+}
+
+public function getmsgImage4FullPathAttribute($value)
+{
+
+    return asset('public/' . $this->msg_image4);
+}
 
 
 }

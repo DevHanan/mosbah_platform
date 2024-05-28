@@ -58,7 +58,7 @@
                             <input type="file" class="form-control" name="background_image" id="logo">
                             @if(isset($row->background_image))
                             @if(is_file($row->background_image))
-                            <img src="{{ asset($row->background_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->backgroundImageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                             @endif
@@ -190,7 +190,7 @@
                             <input type="file" class="form-control" name="mission_image" id="logo">
                             @if(isset($row->mission_image))
                             @if(is_file($row->mission_image))
-                            <img src="{{ asset($row->mission_image) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->missionimageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                             @endif
@@ -255,7 +255,7 @@
                             <input type="file" class="form-control" name="msg_image1" id="logo">
                             @if(isset($row->msg_image1))
                             @if(is_file($row->msg_image1))
-                            <img src="{{ asset($row->msg_image1) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->msgImage1FullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                             @endif
@@ -289,7 +289,7 @@
                             <input type="file" class="form-control" name="msg_image3" id="logo">
                             @if(isset($row->msg_image3))
                             @if(is_file($row->msg_image3))
-                            <img src="{{ asset($row->msg_image3) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->msgImage3FullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                             @endif
@@ -328,7 +328,7 @@
                             <input type="file" class="form-control" name="msg_image2" id="logo">
                             @if(isset($row->msg_image2))
                             @if(is_file($row->msg_image2))
-                            <img src="{{ asset($row->msg_image2) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->msgImage2FullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                             @endif
@@ -362,7 +362,7 @@
                             <input type="file" class="form-control" name="msg_image4" id="logo">
                             @if(isset($row->msg_image4))
                             @if(is_file($row->msg_image4))
-                            <img src="{{ asset($row->msg_image4) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                            <img src="{{ asset($row->msgImage4FullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                             <div class="clearfix"></div>
                             @endif
                             @endif

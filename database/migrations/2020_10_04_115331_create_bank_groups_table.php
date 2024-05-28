@@ -16,7 +16,10 @@ class CreateBankGroupsTable extends Migration
         Schema::create('bank_groups', function (Blueprint $table) {
             $table->id();
             $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreignId('track_id')->references('id')->on('tracks')->onDelete('cascade');
             $table->string('name');
+            $table->boolean('active');
+
             $table->timestamps();
         });
     }

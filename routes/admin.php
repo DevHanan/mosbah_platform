@@ -115,19 +115,20 @@ Route::group(
             Route::resource('cvs', CvController::class);
 
 
-
-            //Questions Bank Groups
-            Route::resource('questions-bank-groups', QuestionBankGroupsController::class);
-            Route::resource('questions-bank', QuestionBankQuestionsController::class);
-
-
-
             /** finical  */
             Route::get('course/profit', [ProfitController::class, 'courseProfit'])->name('courseprofits');
             Route::get('student-payments', [ProfitController::class, 'studentPayment'])->name('studentspayment');
             Route::get('list-payment-requests', [ProfitController::class, 'listRequest'])->name('listRequest');
             Route::get('list-paid-payment-requests', [ProfitController::class, 'listPaidRequest'])->name('listPaidRequest');
 
+
+
+        //Questions Bank Groups
+       
+        Route::resource('bank-groups', QuestionBankGroupsController::class);
+        Route::resource('questions-bank-groups/{group}/questions-bank', QuestionBankQuestionsController::class);
+
+    
         
         });
     }

@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
+use Toastr;
 
 class QuestionBankGroupsController extends Controller
 {
@@ -20,15 +21,33 @@ class QuestionBankGroupsController extends Controller
      *
      * @return Application|Factory|Response|View
      */
+    public function __construct()
+    {
+        $this->title = trans('admin.bankgroups.title');
+        $this->route = 'admin.bank-groups';
+        $this->view = 'admin.questions_bank.groups';
+        $this->path = 'bank-groups';
+        $this->access = 'bank-groups';
+        // $this->middleware('permission:bank-groups-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:bank-groups-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:bank-groups-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:bank-groups-delete',   ['only' => ['delete']]);
+    }
     public function index()
     {
-        $courses = Course::where('instructor_id', auth()->user()->id)->get();
-        $courses_ids = $courses->pluck('id')->toArray();
-        $groups = BankGroup::with('course')->whereIn('course_id', $courses_ids)->withCount('questions')->get();
+        $data['route'] = $this->route;
+        $data['title'] = $this->title;
+        $data['rows'] = BankGroup::with('course')->withCount('questions')->paginate(10);
         
-        return view('admin.questions_bank.groups.index', compact('groups', 'courses'));
+        return view($this->view.'.index', $data);
     }
 
+    public function create(BankGroup $track)
+    {
+        $data['title'] = trans('admin.bankgroups.add');
+        $data['route'] = $this->route;
+        return view($this->view .'.create',$data);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,9 +57,11 @@ class QuestionBankGroupsController extends Controller
      */
     public function store(BankGroupRequest $request)
     {
-        BankGroup::create($request->validated());
-        session()->flash('success', __('site.bank_group_created'));
-        return redirect()->route('admin.questions_bank.groups.index');
+        $active = $request->active ? '1' : '0';
+        $request->merge(['active' => $active]);
+        BankGroup::create($request->all());
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.bank-groups.index');
     }
 
     /**
@@ -49,10 +70,12 @@ class QuestionBankGroupsController extends Controller
      * @param BankGroup $group
      * @return Application|Factory|View|void
      */
-    public function edit(BankGroup $group)
+    public function edit($id)
     {
-        $courses = Course::where('instructor_id', auth()->user()->id)->get();
-        return view('admin.questions_bank.groups.edit', compact('group', 'courses'));
+        $data['row'] = BankGroup::find($id);
+        $data['route'] = $this->route;
+        $data['title'] = trans('admin.bankgroups.edit');
+        return view($this->view.'.edit', $data);
     }
 
     /**
@@ -64,9 +87,11 @@ class QuestionBankGroupsController extends Controller
      */
     public function update(BankGroupRequest $request, BankGroup $group)
     {
-        $group->update($request->validated());
-        session()->flash('success', __('site.bank_group_updated'));
-        return redirect()->route('admin.questions_bank.groups.index');
+        $active = $request->active ? '1' : '0';
+        $request->merge(['active' => $active]);
+        $group->update($request->all());
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.bank-groups.index');
     }
 
     /**
@@ -78,7 +103,7 @@ class QuestionBankGroupsController extends Controller
     public function destroy($group_id)
     {
         BankGroup::destroy($group_id);
-        session()->flash('success', __('site.bank_group_deleted'));
-        return redirect()->back();
+        Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
+        return redirect()->route($this->route.'.index');
     }
 }

@@ -287,6 +287,27 @@ Breadcrumbs::for('edit-externalCertifications', function (BreadcrumbTrail $trail
 
 
 
+// Home > Courses
+Breadcrumbs::for('bankgroups', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.bankgroups.list'), route('admin.bank-groups.index'));
+});
+
+Breadcrumbs::for('add-bankgroups', function (BreadcrumbTrail $trail) {
+    $trail->parent('bankgroups');
+    $trail->push(trans('navbar.bankgroups.add'), route('admin.bank-groups.create'));
+});
+
+Breadcrumbs::for('show-bankgroups', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('courses');
+    $trail->push($row->name, route('admin.courses.show', $row));
+});
+
+Breadcrumbs::for('update-bankgroups', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('show-courses',$row);
+    $trail->push(trans('navbar.courses.edit_course'), route('admin.courses.edit', $row));
+});
+
 
 
 

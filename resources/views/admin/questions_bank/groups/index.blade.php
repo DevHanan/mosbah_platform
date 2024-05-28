@@ -1,98 +1,109 @@
 @extends('admin.layouts.master')
+@section('title', $title)
 @section('content')
-    <div class="dashboard-content-wrap">
-        <div class="container-fluid">
-            @include('admin.questions_bank.groups._create')
-            <div class="row mt-3">
-                <div class="col-lg-12">
-                    <div class="card-box-shared">
-                        <div class="card-box-shared-title">
-                            <h3 class="widget-title">@lang('site.questions_bank_groups')</h3>
-                        </div>
-                        <div class="card-box-shared-body">
-                            <div class="statement-table purchase-table table-responsive mb-5">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">@lang('site.course')</th>
-                                        <th scope="col">@lang('site.group_name')</th>
-                                        <th scope="col">@lang('site.number_of_questions')</th>
-                                        <th scope="col">@lang('site.created_at')</th>
-                                        <th scope="col">@lang('site.action')</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @forelse($groups as $group)
-                                        <tr>
-                                            <td>{{ $group->course->getTranslation('title', 'en') }}</td>
-                                            <td>{{ $group->name }}</td>
-                                            <td>{{ $group->questions_count }}</td>
-                                            <td>{{ $group->created_at->format('d/m/Y h:i A') }}</td>
-                                            <td>
-                                                <a href="{{ route('admin.questions_bank.groups.questions.index', ['group' => $group->id]) }}">
-                                                    <button class="btn btn-sm btn-info">
-                                                        <i class="la la-question-circle"></i>
-                                                        @lang('site.questions')
-                                                    </button>
-                                                </a>
-                                                <a href="{{ route('admin.questions_bank.groups.edit', ['group' => $group->id]) }}">
-                                                    <button class="btn btn-sm btn-warning">
-                                                        <i class="la la-edit"></i>
-                                                        @lang('site.edit')
-                                                    </button>
-                                                </a>
-                                                <form
-                                                    action="{{ route('admin.questions_bank.groups.delete', ['group' => $group->id]) }}"
-                                                    method="post"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="btn btn-sm btn-danger delete" type="submit">
-                                                        <i class="las la-trash-alt"></i>
-                                                        @lang('site.delete')
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="7" class="text-center">@lang('site.no_groups')</td>
-                                        </tr>
-                                    @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div><!-- end card-box-shared-body -->
-                    </div><!-- end card-box-shared -->
-                </div><!-- end col-lg-12 -->
-            </div>
-        </div><!-- end container-fluid -->
-    </div><!-- end dashboard-content-wrap -->
+
+
+<div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        {{ Breadcrumbs::render('bankgroups') }}
+
+      </div>
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+
+          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 5l0 14" />
+              <path d="M5 12l14 0" />
+            </svg>
+            {{__('admin.btn_add_new')}} </a>
+
+        </div>
+      </div>
+      <!-- Page title actions -->
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-deck row-cards">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">{{ $title }}</h3>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="table card-table table-vcenter text-nowrap datatable">
+              <thead>
+                <tr>
+                  <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                  <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M6 15l6 -6l6 6"></path>
+                    </svg>
+                  </th>
+                  <th> {{__('admin.bankgroups.bank_name')}}</th>
+                  <th> {{__('admin.bankgroups.course_name')}}</th>
+                  <th> {{__('admin.bankgroups.track_name')}}</th>
+                  <th> {{__('admin.bankgroups.status')}}</th>
+
+                  <th>{{ __('admin.bankgroups.actions') }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($rows as $row)
+
+                <tr>
+                  <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                  <td><span class="text-secondary">{{$loop->iteration}}</span></td>
+                  <td>{{$row->name}}</td>
+                  <td>{{ optional($row->course)->name}}</td>
+                  <td>{{ optional($row->track)->name}}</td>
+
+
+                  <td>
+
+
+                    <div class="form-check form-switch md-3" style="margin:10px">
+
+                      <input data-id="{{$row->id}}" data-type='App\Models\BankGroup' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                    </div>
+                  </td>
+
+
+                  <td style="width: 270px;">
+
+
+
+                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                      <span class="far fa-edit "></span>
+                    </a>
+
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <!-- Include Delete modal -->
+                    @include('admin.layouts.inc.delete')
+                  </td>
+                </tr>
+                @endforeach
+
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer d-flex align-items-center">
+            {{ $rows->links()}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 @endsection
-
-@push('scripts')
-    <script>
-        $('.delete').click(function (e) {
-            let that = $(this);
-
-            e.preventDefault();
-
-            let n = new Noty({
-                text: "{{ __('site.question_group_delete_confirm') }}",
-                type: "warning",
-                killer: true,
-                buttons: [
-                    Noty.button("{{ __('site.yes') }}", 'btn btn-success mr-2', function () {
-                        that.closest('form').submit();
-                    }),
-
-                    Noty.button("{{ __('site.no') }}", 'btn btn-info mr-2', function () {
-                        n.close();
-                    })
-                ]
-            });
-            n.show();
-        });//end of delete
-    </script>
-@endpush
-

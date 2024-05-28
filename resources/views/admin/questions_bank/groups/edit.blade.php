@@ -1,84 +1,142 @@
-@extends('layouts.teacher.app')
-@section('title', setting('website_name') . ' Edit Group')
+@extends('admin.layouts.master')
+@section('title', trans('edit_staff') )
+
 @section('content')
-    <div class="dashboard-content-wrap">
-        <div class="container-fluid">
-            <div class="row mt-3">
-                <div class="col-lg-12">
-                    <div class="card-box-shared">
-                        <div class="card-box-shared-title d-flex justify-content-between">
-                            <h3 class="widget-title">@lang('site.edit_group')</h3>
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <!-- Page pre-title -->
+                {{ Breadcrumbs::render('update-bankgroups',$row) }}
+
+            </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+
+                    <div class="card-header">
+                        <div class="card-block">
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+
                         </div>
-                        <form
-                            action="{{ route('teacher.questions_bank.groups.update', ['group' => $group->id]) }}"
-                            method="POST">
-                            @csrf
-                            @method('put')
-                            <div class="card-box-shared-body">
-                                <div class="user-form">
-                                    <div class="contact-form-action">
-                                        <div class="row form-content">
-                                            <div class="col-lg-12 col-sm-12">
-                                                <div class="input-box">
-                                                    <label class="label-text">@lang('site.group_name')
-                                                        <span class="primary-color-2 ml-1">*</span>
-                                                    </label>
-                                                    <div class="form-group">
-                                                        <input class="form-control @error('name') error @enderror"
-                                                               type="text" name="name"
-                                                               value="{{ $group->name }}"
-                                                               placeholder="@lang('site.group_name')">
-                                                        <span class="la la-question input-icon"></span>
-                                                        @error('name')
-                                                        <span class="text-danger error_message">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-sm-12">
-                                                <div class="input-box">
-                                                    <label class="label-text" for="course_id">@lang('site.courses')
-                                                        <span class="primary-color-2 ml-1">*</span>
-                                                    </label>
-                                                    <div class="form-group">
-                                                        <div class="sort-ordering user-form-short">
-                                                            <select name="course_id" id="course_id"
-                                                                    class="sort-ordering-select">
-                                                                @foreach($courses as $course)
-                                                                    <option
-                                                                        value="{{ $course->id }}">{{ $course->getTranslation('title', 'en') }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('name')
-                                                            <span
-                                                                class="text-danger error_message">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @if($errors->any())
-                                                <div class="row mt-3">
-                                                    <div class="col-12">
-                                                        <div class="alert alert-danger" role="alert">
-                                                            <ul>
-                                                                @foreach ($errors->all() as $error)
-                                                                    <li>{{ $error }}</li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        </div><!-- end row -->
-                                    </div>
-                                </div>
-                                <button type="submit" class="theme-btn">@lang('site.edit_group')</button>
-                            </div><!-- end card-box-shared-body -->
-                        </form>
-                    </div><!-- end card-box-shared -->
-                </div><!-- end col-lg-12 -->
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-md-12">
+
+
+                <form class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="card-body">
+                        <div class="row ">
+                            <div class="col-md-6">
+
+                                <div class="col-md-12">
+                                    <label class="form-label" class="form-label" for="name"> {{__('admin.bankgroups.bank_name')}} <span>*</span></label>
+                                    <input type="text" class="form-control" name="name" id="title" value="{{$row->name }}" required>
+
+                                    @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="track_id">{{ __('admin.bankgroups.track_name') }} <span>*</span></label>
+                                    <select class="form-control" name="track_id" id="track_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($tracks as $track)
+                                        <option value="{{$track->id}}" @if($row->track_id == $track->id)  selected="selected" @endif>{{ $track->name }}</option>
+                                        @endforeach
+
+                                    </select>
+
+                                    @error('track_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                              
+
+
+                            </div>
+                            <div class="col-md-6">
+                          
+
+                            <div class="form-group ">
+                                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                                    <div>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" value="1" @if($row->active == 1) checked="checked" @endif type="radio" name="active">
+                                            <span class="form-check-label"> {{ __('admin.active')}}</span>
+                                        </label>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" value="0"   @if($row->active == 0) checked="checked" @endif type="radio" name="active">
+                                            <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="course_id">{{ __('admin.bankgroups.course_name') }} <span>*</span></label>
+                                    <select class="form-control" name="course_id" id="courses" required>
+                                        <option value="{{ $row->course_id }}"  selected="selected" > {{ optional($row->course)->name }}</option>
+                                    </select>
+
+                                    @error('course_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                              
+                           
+
+                             
+
+
+
+
+                                <input type="hidden" value="{{$row->id}}" name="id">
+
+
+                              
+
+
+
+                            </div>
+
+
+
+                        </div>
+                   
+                    </div>
+                    <div class="card-footer text-end">
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
+                        </div>
+                    </div>
+
+
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 @endsection

@@ -29,6 +29,8 @@ Route::group(
             Route::get('list-request-profit', [ProfitController::class, 'listRequest'])->name('listRequest');
             Route::get('list-paid-request-profit', [ProfitController::class, 'listPaidRequest'])->name('listPaidRequest');
 
+            Route::get('profile', [AuthController::class, 'getProfile'])->name('getProfile');
+            Route::post('profile', [AuthController::class, 'profile'])->name('instructorProfile');
         });
 
        

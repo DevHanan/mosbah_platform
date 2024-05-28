@@ -19,6 +19,11 @@ Breadcrumbs::for('instructors', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.instructors.list'), route('admin.instructors.index'));
 });
 
+Breadcrumbs::for('update-instructor-profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('instructors');
+    $trail->push(trans('navbar.instructors_side.profile'), route('instructor.getProfile'));
+});
+
 Breadcrumbs::for('add-instructors', function (BreadcrumbTrail $trail) {
     $trail->parent('instructors');
     $trail->push(trans('navbar.instructors.add'), route('admin.instructors.create'));

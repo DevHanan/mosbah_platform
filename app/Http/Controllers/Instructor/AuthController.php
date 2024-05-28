@@ -45,4 +45,57 @@ class AuthController extends Controller
         Toastr::success(__('admin.msg_logout_successfully'), __('admin.msg_success'));
         return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
+
+    public function getProfile(){
+
+        $data['row'] = auth()->guard('instructors-login')->user();
+        return view('student.profile', $data);
+
+    }
+    public function profile(Request $request)
+    {
+        // Field Validation
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'photo' => 'nullable|image',
+        ]);
+
+        $user = Auth::guard('instructors-login')->user();
+
+        if($request->id == $user->id){
+
+        // Update data
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->country_id = $request->country_id;
+        $user->phone = $request->phone;
+        $user->qualifications = $request->qualifications;
+        $user->save();
+
+
+        if ($request->hasFile('image')) {
+
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+            $user->image = 'uploads/instructors/' . $filename;
+            $user->save();
+        }
+
+        if ($request->track_ids)
+            $user->tracks()->attach($request->track_ids);
+
+        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+
+        }
+        else {
+        Toastr::error(__('msg_not_permitted'), __('msg_error'));
+        }
+
+        return redirect()->back();
+    }
 }

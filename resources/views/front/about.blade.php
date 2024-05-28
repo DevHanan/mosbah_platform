@@ -16,9 +16,9 @@
                     <div class="info position-relative py-5">
                         <img src="public/front/img/completed-bg.svg" class="position-absolute img-fluid" alt="">
                         <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $setting-> title}} </h4>
-                        <div class="content fw-bold text-white">
+                        <span class="content fw-bold text-white">
                             {!! $setting->description !!}
-                        </div>
+</span>
                     </div>
                 </div>
             </div>

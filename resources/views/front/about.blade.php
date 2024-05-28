@@ -9,16 +9,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="img">
-                        <img src="{{ asset($setting->backgroundImageFullPath)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                        <img src="{{ asset($setting->backgroundImageFullPath)}}" style="padding-top:90px;" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="info position-relative py-5">
                         <img src="public/front/img/completed-bg.svg" class="position-absolute img-fluid" alt="">
                         <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $setting-> title}} </h4>
-                        <span class="content fw-bold text-white">
+                        <div class="content fw-bold text-white">
                             {!! $setting->description !!}
-</span>
+                        </div>
                     </div>
                 </div>
             </div>

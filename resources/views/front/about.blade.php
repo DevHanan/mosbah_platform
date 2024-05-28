@@ -291,3 +291,7 @@
 
 </section>
 @endsection
+
+@push('front-script')
+<script src="{{asset('public/front/js/jquery.min.js')}}"></script>
+@endpush

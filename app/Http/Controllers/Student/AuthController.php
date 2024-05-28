@@ -73,7 +73,7 @@ class AuthController extends Controller
         if($request->id == Auth::guard('students-login')->user()->id){
 
         // Update data
-        $user = User::find($id);
+        $user = Auth::guard('students-login')->user()->id;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;

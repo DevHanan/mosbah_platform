@@ -49,7 +49,7 @@
                                         <th>{{ __('admin.subscriptions.field_date') }}</th>
                                         <th>{{ __('admin.subscriptions.field_status') }}</th>
                                         <th>{{ __('admin.subscriptions.type') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_paymenttype') }}</th>
+                                        <th>{{ __('admin.subscriptions.field_payment_attachmend') }}</th>
                                         <th>{{ __('admin.subscriptions.field_action') }}</th>
 
 

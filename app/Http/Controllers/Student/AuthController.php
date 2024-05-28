@@ -83,6 +83,19 @@ class AuthController extends Controller
         $user->qualifications = $request->qualifications;
         $user->save();
 
+
+        if ($request->hasFile('image')) {
+
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/students/'), $filename);
+            $user->image = 'uploads/students/' . $filename;
+            $user->save();
+        }
+
+        if ($request->track_ids)
+            $user->tracks()->attach($request->track_ids);
+
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
 
         }

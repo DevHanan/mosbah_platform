@@ -324,7 +324,7 @@ Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('update-student-profile', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');
-    $trail->push(trans('navbar.students_side.profile'), route('student.profile'));
+    $trail->push(trans('navbar.students_side.profile'), route('student.getProfile'));
 });
 
 Breadcrumbs::for('studentexternalCertifications', function (BreadcrumbTrail $trail) {

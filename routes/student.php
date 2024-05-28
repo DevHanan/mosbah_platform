@@ -26,7 +26,7 @@ Route::group(
             Route::get('platform-certifications', [CertificationController::class, 'platformCertifications'])->name('platformCertifications');
             Route::get('externel-certifications', [CertificationController::class, 'externalCertifications'])->name('externalCertifications');
             Route::resource('certifications',CertificationController::class);
-            Route::get('profile', [AuthController::class, 'getProfile']);
+            Route::get('profile', [AuthController::class, 'getProfile'])->name('getProfile');
             Route::post('profile', [AuthController::class, 'profile'])->name('studentProfile');
 
             

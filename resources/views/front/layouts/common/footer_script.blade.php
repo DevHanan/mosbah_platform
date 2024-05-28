@@ -42,13 +42,13 @@
             <div class="col-lg-3 col-12">
                 <div class="contact text-white">
                     <div class="logo"><a href="{{ url('/')}}"><img src="
-  {{ asset($setting->logo_path) }}" alt="" style="max-height:140px;max-width:fit-content;"></a></div>
+                   {{ asset($setting->LogoFullPath) }}" alt="" style="max-height:140px;max-width:fit-content;"></a></div>
                     <h4 class="text-white pb-2">تواصل معنا</h4>
                     <p>
-                        <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> {{ $setting->phone }} </a>
+                        <a href="tel:{{ $setting->phone }}" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> {{ $setting->phone }} </a>
                     </p>
                     <p>
-                        <a href="tel:01287848630" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $setting->whatsapp }} </a>
+                        <a href="tel:{{ $setting->whatsapp }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $setting->whatsapp }} </a>
                     </p>
                     <p class="mt-1"><i class="fa fa-envelope ms-2"></i> {{ $setting->email }}</p>
 
@@ -244,86 +244,85 @@
     });
 </script>
 <script>
-        $(document).ready(function() {
-            $('.select2').select2();
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+
+
+    let categoryCards = document.querySelector('.categoryCards');
+    let rowsCards = document.querySelector('.rowsCards');
+    let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
+    let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
+    let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+
+    rowsCards.addEventListener('click', function() {
+        categoryCards.classList.remove('active');
+        rowsCards.classList.add('active');
+
+        paginationCards.forEach(paginationCard => {
+            paginationCard.classList.add('col-sm-12');
+        });
+        paginationCardsImg.forEach(paginationCardImg => {
+            paginationCardImg.classList.remove('col-12');
+            paginationCardImg.classList.add('col-4');
+        });
+        paginationCardsData.forEach(paginationCardData => {
+            paginationCardData.classList.remove('col-12');
+            paginationCardData.classList.add('col-8');
         });
 
+        let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
 
-        let categoryCards = document.querySelector('.categoryCards');
-        let rowsCards = document.querySelector('.rowsCards');
-        let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
-        let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
-        let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+        paginationCardsDesc.forEach(paginationCardDesc => {
+            paginationCardDesc.style.cssText = 'white-space: normal;';
+        });
+    });
 
-        rowsCards.addEventListener('click', function() {
-            categoryCards.classList.remove('active');
-            rowsCards.classList.add('active');
+    categoryCards.addEventListener('click', function() {
+        rowsCards.classList.remove('active');
+        categoryCards.classList.add('active');
 
-            paginationCards.forEach(paginationCard => {
-                paginationCard.classList.add('col-sm-12');
-            });
+        paginationCards.forEach(paginationCard => {
+            paginationCard.classList.remove('col-sm-12');
+
             paginationCardsImg.forEach(paginationCardImg => {
-                paginationCardImg.classList.remove('col-12');
-                paginationCardImg.classList.add('col-4');
+                paginationCardImg.classList.remove('col-4');
+                paginationCardImg.classList.add('col-12');
             });
             paginationCardsData.forEach(paginationCardData => {
-                paginationCardData.classList.remove('col-12');
-                paginationCardData.classList.add('col-8');
-            });
-
-            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
-
-            paginationCardsDesc.forEach(paginationCardDesc => {
-                paginationCardDesc.style.cssText = 'white-space: normal;';
+                paginationCardData.classList.remove('col-8');
+                paginationCardData.classList.add('col-12');
             });
         });
 
-        categoryCards.addEventListener('click', function() {
-            rowsCards.classList.remove('active');
-            categoryCards.classList.add('active');
+        let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
 
-            paginationCards.forEach(paginationCard => {
-                paginationCard.classList.remove('col-sm-12');
-
-                paginationCardsImg.forEach(paginationCardImg => {
-                    paginationCardImg.classList.remove('col-4');
-                    paginationCardImg.classList.add('col-12');
-                });
-                paginationCardsData.forEach(paginationCardData => {
-                    paginationCardData.classList.remove('col-8');
-                    paginationCardData.classList.add('col-12');
-                });
-            });
-
-            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
-
-            paginationCardsDesc.forEach(paginationCardDesc => {
-                paginationCardDesc.style.cssText = 'white-space: nowrap;';
-            });
+        paginationCardsDesc.forEach(paginationCardDesc => {
+            paginationCardDesc.style.cssText = 'white-space: nowrap;';
         });
-    </script>
+    });
+</script>
 
-    <script>
-        function checkAll(filterClass) {
-            // Get the "Check All" checkbox and all other checkboxes
-            const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
-            const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
-    
-            // Add event listener to the "Check All" checkbox
-            checkAllCheckbox.addEventListener('change', function() {
-                checkboxes.forEach(function(checkbox) {
-                    checkbox.checked = checkAllCheckbox.checked;
-                });
-            });
-    
-            // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
+<script>
+    function checkAll(filterClass) {
+        // Get the "Check All" checkbox and all other checkboxes
+        const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
+        const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
+
+        // Add event listener to the "Check All" checkbox
+        checkAllCheckbox.addEventListener('change', function() {
             checkboxes.forEach(function(checkbox) {
-                checkbox.addEventListener('change', function() {
-                    if (!this.checked) {
-                        checkAllCheckbox.checked = false;
-                    }
-                });
+                checkbox.checked = checkAllCheckbox.checked;
             });
-        }
-    </script>
-  
+        });
+
+        // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (!this.checked) {
+                    checkAllCheckbox.checked = false;
+                }
+            });
+        });
+    }
+</script>

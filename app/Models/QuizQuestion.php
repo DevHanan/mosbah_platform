@@ -7,15 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class QuizQuestion extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ['quiz_section_id', 'title', 'type', 'mark', 'choices', 'picture'];
+    protected $fillable = ['section_id', 'quiz_id','question_id'];
 
     public function section()
     {
-        return $this->belongsTo(QuizSection::class, 'quiz_section_id');
+        return $this->belongsTo(Quiz::class, 'uiz_id');
     }
 
-    public function getChoicesAttribute($value)
-    {
-        return json_decode($value);
-    }
+
 }

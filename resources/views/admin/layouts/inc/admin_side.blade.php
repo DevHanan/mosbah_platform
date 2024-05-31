@@ -315,8 +315,8 @@
         </li>
 
 
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.bank-groups.index','admin.bank-groups.create','admin.quizzes.*'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-question-mark">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -328,19 +328,19 @@
               {{ __('navbar.exams.exam_management') }}
             </span>
           </a>
-          <div class="dropdown-menu  @if(request()->routeIs(['admin.instructors-tickets','admin.students-tickets']))  show @endif ">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.bank-groups.index','admin.bank-groups.create','admin.quizzes.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.bank-groups.index'))   active @endif" href="{{url('admin/bank-groups')}}">
                   {{ __('navbar.exams.quections_list') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.bank-groups.create'))   active @endif" href="{{url('admin/bank-groups/create')}}">
                   {{ __('navbar.exams.add_question') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.quizzes.index'))   active @endif" href="{{url('admin/quizzes')}}">
                   {{ __('navbar.exams.list_exam') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.quizzes.create'))   active @endif" href="{{url('admin/quizzes/create')}}">
                   {{ __('navbar.exams.add_exam') }}
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
@@ -355,7 +355,7 @@
               </div>
             </div>
           </div>
-        </li> -->
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.index','admin.studentscertifications','admin.externelstudentscertifications'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">

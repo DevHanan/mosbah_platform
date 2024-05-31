@@ -15,6 +15,8 @@ use App\Exports\CourseExport;
 use App\Models\CourseInstructor;
 use App\Models\CourseTrack;
 use App\Models\Instructor;
+use App\Models\Lecture;
+use App\Models\Level;
 use Toastr;
 
 
@@ -265,6 +267,20 @@ class CourseController extends Controller
             $q->where('track_id',$track_id);
         })->get();
         return response()->json($courses);
+    }
+
+    public function getlevels(Request $request)
+    {
+        $course_id = $request->course_id;
+        $levels = Level::where('course_id',$course_id)->get();
+        return response()->json($levels);
+    }
+
+    public function getlectures(Request $request)
+    {
+        $level_id = $request->level_id;
+        $lectures = Lecture::where('level_id',$level_id)->get();
+        return response()->json($lectures);
     }
 
     

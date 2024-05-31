@@ -28,6 +28,12 @@ class CreateBankQuestionsTable extends Migration
             $table->text('answer_notes')->nullable();
             $table->string('answer_declare_img')->nullable();
             $table->string('answer_video_link')->nullable();
+            $table->text('answer1')->nullable();
+            $table->text('answer2')->nullable();
+            $table->text('answer3')->nullable();
+            $table->text('answer1')->nullable();
+            $table->integer('correct_answer')->nullable();
+
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ class QuestionBankGroupsController extends Controller
     {
         $this->title = trans('admin.bankgroups.title');
         $this->route = 'admin.bank-groups';
-        $this->view = 'admin.questions_bank.groups';
+        $this->view = 'admin.bankgroups';
         $this->path = 'bank-groups';
         $this->access = 'bank-groups';
         // $this->middleware('permission:bank-groups-create', ['only' => ['create','store']]);
@@ -38,15 +38,15 @@ class QuestionBankGroupsController extends Controller
         $data['route'] = $this->route;
         $data['title'] = $this->title;
         $data['rows'] = BankGroup::with('course')->withCount('questions')->paginate(10);
-        
-        return view($this->view.'.index', $data);
+
+        return view($this->view . '.index', $data);
     }
 
     public function create(BankGroup $track)
     {
         $data['title'] = trans('admin.bankgroups.add');
         $data['route'] = $this->route;
-        return view($this->view .'.create',$data);
+        return view($this->view . '.create', $data);
     }
 
     /**
@@ -59,9 +59,9 @@ class QuestionBankGroupsController extends Controller
     {
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
-        BankGroup::create($request->all());
+        $row = BankGroup::create($request->all());
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.bank-groups.index');
+        return redirect('admin/bank-groups/' . $row->id . '/bank-questions');
     }
 
     /**
@@ -70,12 +70,22 @@ class QuestionBankGroupsController extends Controller
      * @param BankGroup $group
      * @return Application|Factory|View|void
      */
+
+
+    public function show($id)
+    {
+        $data['route'] = $this->route;
+        $data['title'] = $this->title;
+        $data['row'] = BankGroup::find($id);
+
+        return view($this->view . '.show', $data);
+    }
     public function edit($id)
     {
         $data['row'] = BankGroup::find($id);
         $data['route'] = $this->route;
         $data['title'] = trans('admin.bankgroups.edit');
-        return view($this->view.'.edit', $data);
+        return view($this->view . '.edit', $data);
     }
 
     /**
@@ -104,6 +114,6 @@ class QuestionBankGroupsController extends Controller
     {
         BankGroup::destroy($group_id);
         Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
-        return redirect()->route($this->route.'.index');
+        return redirect()->route($this->route . '.index');
     }
 }

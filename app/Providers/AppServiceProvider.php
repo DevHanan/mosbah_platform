@@ -19,6 +19,8 @@ use App\Models\Ticket;
 use App\Models\Policy;
 use App\Models\Question;
 use App\Models\Team;
+use App\Models\BankGroup;
+
 use View;
 
 
@@ -59,6 +61,7 @@ class AppServiceProvider extends ServiceProvider
         $subscriptions = Subscription::all();
         $landingSetting = LandingSetting::first();
         $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
+        $bankgroup = BankGroup::active()->latest()->get();
 
 
 
@@ -66,6 +69,7 @@ class AppServiceProvider extends ServiceProvider
         $policies = Policy::active()->get();
 
         View::share([
+            'bankgroups' => $bankgroup,
             'latest' =>$latest,
             'setting' => $setting, 'courses' => $courses,
             'tracks' => $tracks, 'countries' => $countries,

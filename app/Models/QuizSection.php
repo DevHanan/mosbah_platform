@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class QuizSection extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ['quiz_id', 'title'];
+    protected $fillable = ['quiz_id', 'title','active','description'];
 
     public function quiz()
     {
         return $this->belongsTo(Quiz::class, 'quiz_id');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', '1');
     }
 
     public function questions()

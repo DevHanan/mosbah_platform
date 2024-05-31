@@ -14,12 +14,17 @@ class BankGroup extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('active', '1');
+    }
+
     public function track()
     {
         return $this->belongsTo(Track::class, 'track_id');
     }
     public function questions()
     {
-        return $this->hasMany(BankQuestion::class, 'group_id');
+        return $this->hasMany(BankQuestion::class, 'bank_group_id');
     }
 }

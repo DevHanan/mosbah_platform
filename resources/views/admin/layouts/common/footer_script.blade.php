@@ -541,6 +541,46 @@ $(document).ready(function() {
             })
         }
     });
+	$('#course_id').on('change', function() {
+        var course_id = $(this).val();
+        if (course_id) {
+            $.ajax({
+                url: "{{ route('admin.getLevels') }}",
+                type: "GET",
+                data: {
+                    'course_id': course_id
+                },
+                dataType: "json",
+                success: function(data) {
+					var html = '<option value="">Select Level</option>';
+                    $.each(data, function (index, value) {
+                        html += '<option value="' + value.id + '">' + value.name + '</option>';
+                    });
+                    $('#levels').html(html);
+                }
+            })
+        }
+    });
+	$('#levels').on('change', function() {
+        var level_id = $(this).val();
+        if (level_id) {
+            $.ajax({
+                url: "{{ route('admin.getLectures') }}",
+                type: "GET",
+                data: {
+                    'level_id': level_id
+                },
+                dataType: "json",
+                success: function(data) {
+					var html = '<option value="">Select Lecture</option>';
+                    $.each(data, function (index, value) {
+                        html += '<option value="' + value.id + '">' + value.title + '</option>';
+                    });
+                    $('#lectures').html(html);
+                }
+            })
+        }
+    });
 	
 
 	document.querySelector('#start_date').addEventListener('keydown', (e) => {

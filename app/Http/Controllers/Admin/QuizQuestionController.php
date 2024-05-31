@@ -1,143 +1,88 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreQuestionsRequest;
-use App\Models\Course;
+use App\Models\BankQuestion;
 use App\Models\Quiz;
 use App\Models\QuizQuestion;
-use App\Services\ImageService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Toastr;
+
 
 class QuizQuestionController extends Controller
 {
-    public function store_question(StoreQuestionsRequest $request, $course, Quiz $quiz)
+
+    public function __construct()
     {
-        if ($quiz->start_time->gt(now())) {
-            $data = [];
-            $type = $request->type;
-            $data['quiz_section_id'] = $request->section_id;
-            $data['type'] = $request->type;
-            $data['title'] = $request->title;
-            $data['mark'] = $request->mark;
-            if ($type == 'mcq') {
-                $choices = [];
-                foreach ($request['answers'] as $key => $answer) {
-                    if ($request->correct_answer == $key + 1) {
-                        array_push($choices, ['title' => $answer, 'correct' => true]);
-                    } else {
-                        array_push($choices, ['title' => $answer, 'correct' => false]);
-                    }
-                }
-                $data['choices'] = json_encode($choices);
-            } elseif ($type == 'true_false') {
-                $data['choices'] = json_encode(['correct_val' => $request->correct_answer]);
-            }
-            if ($request->hasFile('image')) {
-                $data['picture'] = ImageService::storeQuestionImage($request->image);
-            }
-            DB::transaction(function () use ($data, $quiz) {
-                $question = QuizQuestion::create($data);
-                $quiz->update([
-                    'total_mark' => ((int)$quiz->total_mark + (int)$question->mark),
-                    'start_time' => $quiz->start_time,
-                    'end_time' => $quiz->end_time,
-                ]);
-            });
-            session()->flash('success', __('site.question_added'));
-        } else {
-            session()->flash('error', __('site.cant_add_question'));
-        }
-        return redirect()->back();
+        $this->title = trans('admin.bankquestions.list');
+        $this->route = 'admin.quizzes.questions';
+        $this->view = 'admin.quizquestions';
+        $this->path = 'quizquestions';
+        $this->access = 'quizquestions';
+        // $this->middleware('permission:quizquestions-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:quizquestions-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:quizquestions-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:quizquestions-delete',   ['only' => ['delete']]);
+    }
+    public function index(Request $request,$quiz_id)
+    {
+        $data['route'] = $this->route;
+        $data['title'] = $this->title;
+        $data['rows'] =BankQuestion::whereHas('quizzes', function ($query)use($quiz_id) {
+            $query->where('quiz_id',$quiz_id);
+        })->get();
+        $data['quiz'] = Quiz::find($quiz_id);
+        return view($this->view.'.index', $data);
     }
 
-    public function edit_question(Course $course, $quiz, QuizQuestion $question)
+    public function create(BankQuestion $question,$quiz_id)
     {
-        $quiz = Quiz::with('sections')->where('id', $quiz)->first();
-        if ($quiz->start_time->gt(now())) {
-            $sections = $quiz->sections;
-            return view('teacher.courses.quizzes.questions.edit_question', compact('course', 'quiz', 'question', 'sections'));
-        }
-        session()->flash('error', __('site.cant_edit_question'));
-        return redirect()->back();
+        $data['title'] = trans('admin.questions.add');
+        $data['route'] = $this->route;
+        $data['quiz'] = Quiz::find($quiz_id);
+        return view($this->view .'.create',$data);
     }
 
-    public function update_question(StoreQuestionsRequest $request, $course, Quiz $quiz, QuizQuestion $question)
+    public function store(Request $request)
     {
-        if ($quiz->start_time->gt(now())) {
-            $data = [];
-            $data['type'] = $request->type;
-            $data['title'] = $request->title;
-            $data['mark'] = $request->mark;
-            $data['quiz_section_id'] = $request->section_id;
-            DB::transaction(function () use ($question, $quiz, $request, $data) {
-                if ($request->mark > $question->mark) {
-                    $difference_between_values = ((int)$request->mark - (int)$question->mark);
-                    $total_mark = ((int)$quiz->total_mark + (int)$difference_between_values) < 0 ? 0 : ((int)$quiz->total_mark + (int)$difference_between_values);
-                    $quiz->update([
-                        'total_mark' => $total_mark,
-                        'start_time' => $quiz->start_time,
-                        'end_time' => $quiz->end_time,
-                    ]);
-                } elseif ($request->mark < $question->mark) {
-                    $difference_between_values = (int)$question->mark - (int)$request->mark;
-                    $total_mark = ((int)$quiz->total_mark - (int)$difference_between_values) < 0 ? 0 : ((int)$quiz->total_mark - (int)$difference_between_values);
-                    $quiz->update([
-                        'total_mark' => $total_mark,
-                        'start_time' => $quiz->start_time,
-                        'end_time' => $quiz->end_time,
-                    ]);
-                }
-                if ($request->type == 'mcq') {
-                    $choices = [];
-                    foreach ($request['answers'] as $key => $answer) {
-                        if ($request->correct_answer == ($key + 1)) {
-                            array_push($choices, ['title' => $answer, 'correct' => true]);
-                        } else {
-                            array_push($choices, ['title' => $answer, 'correct' => false]);
-                        }
-                    }
-                    $data['choices'] = json_encode($choices);
-                } elseif ($request->type == 'true_false') {
-                    $data['choices'] = json_encode(['correct_val' => $request->correct_answer]);
-                } else {
-                    $data['choices'] = null;
-                }
-                if ($request->hasFile('image')) {
-                    if ($question->picture && ImageService::deleteQuestionImage($question->picture)) {
-                        $data['picture'] = ImageService::storeQuestionImage($request->image);
-                    }
-                }
-                $question->update($data);
-            });
-            session()->flash('success', __('site.question_updated'));
-            return redirect()->route('teacher.courses.quizzes.create_questions', ['course' => $course, 'quiz' => $quiz->id]);
-        }
-        session()->flash('error', __('site.cant_edit_question'));
-        return redirect()->back();
+        $request->merge(['bank_group_id'=>0]);
+        $question = BankQuestion::create($request->all());
+
+        QuizQuestion::create([
+            'quiz_id'=>$request->quiz_id,
+            'question_id' =>$question->id
+        ]);
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+        return redirect("admin/quizzes/".$request->quiz_id."/questions");
+     
     }
 
-    public function delete_question($course, Quiz $quiz, QuizQuestion $question)
+   
+
+    public function edit($quiz_id,$id)
+    {   
+        $data['row'] = BankQuestion::find($id);
+        $data['route'] = $this->route;
+        $data['quiz'] = Quiz::find($quiz_id);
+        $data['title'] = trans('admin.questions.edit');
+        return view($this->view.'.edit',$data);
+    }
+
+    public function update(Request $request)
     {
-        if ($quiz->start_time->gt(now())) {
-            DB::transaction(function () use ($quiz, $question) {
-                if (ImageService::deleteQuestionImage($question->picture)) {
-                    $quiz->update([
-                        'total_mark' => ((int)$quiz->total_mark - (int)$question->mark),
-                        'start_time' => $quiz->start_time,
-                        'end_time' => $quiz->end_time,
-                    ]);
-                    $question->delete();
-                    session()->flash('success', __('site.question_deleted'));
-                } else {
-                    session()->flash('error', __('site.bank_question_delete_error'));
-                }
-            });
-        } else {
-            session()->flash('error', __('site.cant_delete_question'));
-        }
-        return redirect()->back();
+        $question = BankQuestion::find($request->id);
+        $question->update($request->all());
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect("admin/quizzes/".$request->quiz_id."/questions");
+    }
+
+    public function destroy (Request $request)
+    {
+       $question =  QuizQuestion::where('question_id',$request->id)->where('quiz_id',$request->quiz_id)->first();
+       if($question)
+       $question->delete();
+       Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
+       return redirect()->route($this->route.'.index');    
     }
 }

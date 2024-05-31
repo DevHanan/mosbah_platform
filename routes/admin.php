@@ -22,11 +22,14 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\PartenerController;
 use App\Http\Controllers\Admin\TeamController;
-use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\CvController;
 use App\Http\Controllers\Admin\QuestionBankGroupsController;
-use App\Http\Controllers\Admin\QuestionBankQuestionsController;
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\QuestionsController;
 use App\Http\Controllers\Admin\ProfitController;
+use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\QuizSectionController;
+use App\Http\Controllers\Admin\QuizQuestionController;
 
 
 
@@ -49,6 +52,8 @@ Route::group(
             'verify'   => false,  // for email verification
         ]);
         Route::get('admin/get-courses', [CourseController::class, 'getcourses'])->name('admin.getCourses');
+        Route::get('admin/get-levels-by-coure', [CourseController::class, 'getlevels'])->name('admin.getLevels');
+        Route::get('admin/get-lecture-by-level', [CourseController::class, 'getlectures'])->name('admin.getLectures');
 
         Route::name('admin.')->middleware(['auth:web', 'prevent-inactive-user'])->group(function () {
 
@@ -126,7 +131,13 @@ Route::group(
         //Questions Bank Groups
        
         Route::resource('bank-groups', QuestionBankGroupsController::class);
-        Route::resource('questions-bank-groups/{group}/questions-bank', QuestionBankQuestionsController::class);
+        Route::resource('bank-groups.bank-questions', QuestionsController::class);
+        Route::resource('quizzes', QuizController::class);
+        Route::resource('quizzes.sections', QuizSectionController::class);
+        Route::resource('quizzes.questions', QuizQuestionController::class);
+
+
+
 
     
         

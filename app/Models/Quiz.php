@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quiz extends Model
 {
-    const STEP_ONE = 'first_step';
-    const STEP_TWO = 'second_step';
-    const STEP_THREE = 'third_step';
+   
 
     protected $guarded = ['id'];
-    protected $fillable = ['course_id', 'step', 'name', 'start_time', 'end_time', 'duration_in_minutes', 'total_mark', 'passed', 'failed', 'student_group_id'];
+    protected $fillable = ['course_id','level_id','lecture_id' ,'active', 'name', 'start_time', 'end_time', 
+                            'duration_in_minutes', 'total_mark','pass_mark','active','quiz_type'];
 
     public function getStartTimeAttribute($value)
     {
@@ -29,6 +28,15 @@ class Quiz extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
+    public function level()
+    {
+        return $this->belongsTo(Level::class, 'level_id');
+    }
+
+    public function lecture()
+    {
+        return $this->belongsTo(Lecture::class, 'lecture_id');
+    }
     public function sections()
     {
         return $this->hasMany(QuizSection::class, 'quiz_id');

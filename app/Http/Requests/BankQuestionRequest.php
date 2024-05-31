@@ -25,11 +25,7 @@ class BankQuestionRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:1',
-            'mark' => 'required|numeric',
-            'type' => 'required|string|in:mcq,true_false,essay',
-            'answers' => 'required_if:type,mcq',
-            'answers.*' => 'required',
-            'correct_answer' => 'required_if:type,mcq,true_false',
+            'mark' => 'required|numeric'
         ];
     }
 }

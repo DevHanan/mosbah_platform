@@ -13,7 +13,8 @@ class Lecture extends Model
 
     protected $fillable = array(
         'title', 'level_id', 'course_id', 'type', 'active',
-        'description', 'short_description', 'type', 'goals', 'conclusion', 'appointment', 'link', 'provider', 'period', 'free'
+        'description', 'short_description', 'type', 'goals', 
+        'conclusion', 'appointment', 'link', 'provider', 'period', 'free'
     );
 
 

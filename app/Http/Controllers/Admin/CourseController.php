@@ -123,7 +123,7 @@ class CourseController extends Controller
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://player.vimeo.com/video/646085504?h='.$video_id]);
+            $request->merge(['videoId'=>'https://player.vimeo.com/video/'.$video_id]);
         }
 
 
@@ -211,7 +211,7 @@ class CourseController extends Controller
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://player.vimeo.com/video/646085504?h='.$video_id]);
+            $request->merge(['videoId'=>'https://player.vimeo.com/video/'.$video_id]);
         }
 
         $request->merge(['active' => $active, 'recommend' => $recommend]);

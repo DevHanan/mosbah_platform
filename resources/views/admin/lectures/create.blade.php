@@ -120,7 +120,7 @@
                     <option value="1"> {{ __('admin.lectures.viemo')}}</option>
                     <option value="2"> {{ __('admin.lectures.Youtube')}}</option>
 
-                    <option value="2"> {{ __('admin.lectures.external_link')}}</option>
+                    <option value="3"> {{ __('admin.lectures.external_link')}}</option>
                   </select>
 
                   @error('provider')

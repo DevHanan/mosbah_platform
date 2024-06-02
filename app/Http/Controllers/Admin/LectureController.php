@@ -52,8 +52,8 @@ class LectureController extends Controller
     }
     public function store(Request $request, $level_id)
     {
-        $free = $request->free ? '1' :'0';
-        $request->merge(['free'=>$free]);
+        $free = $request->free ? '1' : '0';
+        $request->merge(['free' => $free]);
         $lecture = Lecture::create($request->except(['img', 'bookFiles']));
         if (count($request->imgTitle) && $request->imgTitle[0] != null) {
             for ($i = 0; $i < count($request->imgTitle); $i++) {
@@ -84,11 +84,33 @@ class LectureController extends Controller
                     BookLecture::create([
                         'title' => $request->bookTitles[$i],
                         'file' => 'public/uploads/lectures/books/' . $filename,
-                        'link'  =>$request->bookLinks[$i],
+                        'link'  => $request->bookLinks[$i],
                         'lecture_id'  => $lecture->id
                     ]);
                 }
             }
+        }
+
+        if ($request->link && $request->provider == 2) {
+            if (preg_match('/v=([^&]+)/', $request->link, $matches)) {
+                $video_id = $matches[1];
+            } else {
+                $video_id = ''; // If no video code is found, set it to an empty string
+            }
+            $lecture->link = 'https://www.youtube.com/embed/' . $video_id;
+            $lecture->save();
+        } elseif ($request->link && $request->provider == 1) {
+
+            if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->link, $regs)) {
+                $video_id = $regs[3];
+            } else {
+                $video_id = ''; // If no video code is found, set it to an empty string
+            }
+            $lecture->link = 'https://player.vimeo.com/video/' . $video_id;
+            $lecture->save();
+        } else {
+            $lecture->link = $request->link;
+            $lecture->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect("admin/levels/$level_id/lectures");
@@ -105,8 +127,8 @@ class LectureController extends Controller
 
     public function update(Request $request, $level_id)
     {
-        $free = $request->free ? '1' :'0';
-        $request->merge(['free'=>$free]);
+        $free = $request->free ? '1' : '0';
+        $request->merge(['free' => $free]);
         $lecture = Lecture::find($request->id);
         $lecture->update($request->except(['img', 'bookFiles']));
 
@@ -140,20 +162,41 @@ class LectureController extends Controller
                     BookLecture::create([
                         'title' => $request->bookTitles[$i],
                         'file' => 'public/uploads/lectures/books/' . $filename,
-                        'link'  =>$request->bookLinks[$i],
+                        'link'  => $request->bookLinks[$i],
                         'lecture_id'  => $lecture->id
                     ]);
-                }else{
+                } else {
                     BookLecture::create([
                         'title' => $request->bookTitles[$i],
                         'file' => '',
-                        'link'  =>$request->bookLinks[$i],
+                        'link'  => $request->bookLinks[$i],
                         'lecture_id'  => $lecture->id
-                    ]);  
+                    ]);
                 }
-                   
-                
             }
+        }
+
+
+        if ($request->link && $request->provider == 2) {
+            if (preg_match('/v=([^&]+)/', $request->link, $matches)) {
+                $video_id = $matches[1];
+            } else {
+                $video_id = ''; // If no video code is found, set it to an empty string
+            }
+            $lecture->link = 'https://www.youtube.com/embed/' . $video_id;
+            $lecture->save();
+        } elseif ($request->link && $request->provider == 1) {
+
+            if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->link, $regs)) {
+                $video_id = $regs[3];
+            } else {
+                $video_id = ''; // If no video code is found, set it to an empty string
+            }
+            $lecture->link = 'https://player.vimeo.com/video/' . $video_id;
+            $lecture->save();
+        } else {
+            $lecture->link = $request->link;
+            $lecture->save();
         }
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

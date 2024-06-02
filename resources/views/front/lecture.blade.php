@@ -2,7 +2,7 @@
 @section('title', '')
 @section('content')
 @include('front.layouts.common.navbar')
-<div class="course-content-page">
+<div class="lecture-content-page">
 
     <h2 class="lec-title position-relative m-4 mb-5 fw-bold primary-color"> {{ $lecture->title }} </h2>
 
@@ -11,6 +11,18 @@
             <div class="row">
                 <div class="col-lg-8 right-class">
                     <div class="position-relative w-100 gallery-item mt-3" style="height: 400px;">
+                        @if($lecture->link && $lecture->provider == 2)
+                        <div class="position-relative w-100 h-100 gallery-item">
+
+                            <iframe type='text/html' style="max-height: 220px;" src="{{$lecture->link}}" width='100%' height='500' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                        </div>
+                        @elseif($lecture->link && $lecture->provider == 1)
+                        <div class="position-relative w-100 h-100 gallery-item">
+                            <iframe src="{{$lecture->link}}" style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+
+                        @else
                         <video id="myVideo" class="w-100 h-100" poster="{{asset('public/front/img/video-img.png')}}" style="object-fit: cover;">
                             <source src="" type="video/mp4">
                             Your browser does not support the video tag.
@@ -18,6 +30,8 @@
                         <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
                             <i class="fa-solid fa-play text-white"></i>
                         </div>
+                        @endif
+
                     </div>
 
                     <div class="lec-desc">
@@ -28,9 +42,9 @@
                 <div class="col-lg-4 left-class">
                     <div class="row">
                         <div class="col-lg-12 col-md-6">
-                            <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
+                            <div class="lecture_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
                                 <div class="info mt-3 px-4">
-                                    <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> الدورة : {{ optional($lecture->course)->name }} </span></p>
+                                    <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> الدورة : {{ optional($lecture->lecture)->name }} </span></p>
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> المرحلة : {{ optional($lecture->level)->name }} </span></p>
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-calendar.png')}}" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at->format('d/m/Y') }} </span></p>
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $lecture->period }} ساعة </span></p>

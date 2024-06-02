@@ -524,7 +524,7 @@
                             </div>
                             @elseif($course->videoId && $course->provider == 1) 
                             <div class="position-relative w-100 h-100 gallery-item">
-                            <iframe src="{{$course->videoId}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            <iframe src="{{$course->videoId}}"  style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                 </div>
 
                             @else

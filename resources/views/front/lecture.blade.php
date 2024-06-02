@@ -23,9 +23,11 @@
                             <source src="" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <a href="{{$lecture->link}}" target="_blank">
                         <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
                             <i class="fa-solid fa-play text-white"></i>
                         </div>
+                        </a>
                         @endif
 
                     </div>

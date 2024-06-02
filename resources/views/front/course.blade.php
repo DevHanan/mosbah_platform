@@ -522,7 +522,7 @@
                                 <iframe type='text/html'  style="max-height: 220px;" src="{{$course->videoId}}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
 
                             </div>
-                            @elseif()
+                            @elseif($course->videoId && $course->provider == 1) 
                             <div class="position-relative w-100 h-100 gallery-item">
                             <iframe src="{{$course->videoId}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                 </div>

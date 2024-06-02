@@ -516,14 +516,18 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-6">
                         <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
-                        @if($course->videoId)   
+                        @if($course->videoId && $course->provider == 2)   
                         <div class="position-relative w-100 h-100 gallery-item">
                              
                                 <iframe type='text/html'  style="max-height: 220px;" src="{{$course->videoId}}" width='100%' height='500' frameborder='0' allowfullscreen='true'></iframe>
 
                             </div>
-                            @else
+                            @elseif()
+                            <div class="position-relative w-100 h-100 gallery-item">
+                            <iframe src="{{$course->videoId}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
 
+                            @else
                             <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div>
                                                                 @endif
                             <div class="info mt-3 px-4">

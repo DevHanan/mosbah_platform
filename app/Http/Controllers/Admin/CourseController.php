@@ -117,13 +117,13 @@ class CourseController extends Controller
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
             $request->merge(['videoId'=>'https://www.youtube.com/embed/'.$video_id]);
-        }elseif($request->promo_url && $request->provider == 1){
+        }else{
                 if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {            
                 $video_id = $regs[3];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://vimeo.com/'.$video_id]);
+            $request->merge(['videoId'=>'https://player.vimeo.com/video/646085504?h='.$video_id]);
         }
 
 
@@ -205,13 +205,13 @@ class CourseController extends Controller
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
             $request->merge(['videoId'=>'https://www.youtube.com/embed/'.$video_id]);
-        }elseif($request->promo_url && $request->provider == 1){
+        }else{
                 if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {            
                 $video_id = $regs[3];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://vimeo.com/'.$video_id]);
+            $request->merge(['videoId'=>'https://player.vimeo.com/video/646085504?h='.$video_id]);
         }
 
         $request->merge(['active' => $active, 'recommend' => $recommend]);

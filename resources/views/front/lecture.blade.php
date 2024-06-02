@@ -12,15 +12,11 @@
                 <div class="col-lg-8 right-class">
                     <div class="position-relative w-100 gallery-item mt-3" style="height: 400px;">
                         @if($lecture->link && $lecture->provider == 2)
-                        <div class="position-relative w-100 h-100 gallery-item">
 
                             <iframe type='text/html' style="max-height: 220px;" src="{{$lecture->link}}" width='100%' height='500' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-                        </div>
                         @elseif($lecture->link && $lecture->provider == 1)
-                        <div class="position-relative w-100 h-100 gallery-item">
                             <iframe src="{{$lecture->link}}" style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                        </div>
 
                         @else
                         <video id="myVideo" class="w-100 h-100" poster="{{asset('public/front/img/video-img.png')}}" style="object-fit: cover;">

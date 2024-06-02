@@ -16,7 +16,7 @@ return [
     'select_instructor' => 'إختر المدرب',
     'download' => 'تنزيل الملف',
     'no_file' => 'لا يوجد ملف',
-    "btn_add_new" =>"إضافة حديد",
+    "btn_add_new" =>"إضافة جديد",
     "active" => "مفعل",
     "inactive" => "غير مفعل",
     "btn_save" => "حفظ",

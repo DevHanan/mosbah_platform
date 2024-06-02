@@ -20,7 +20,7 @@
 
                         @else
                         <video id="myVideo" class="w-100 h-100" poster="{{asset('public/front/img/video-img.png')}}" style="object-fit: cover;">
-                            <source src="" type="video/mp4">
+                            <source src="{{$lecture->link}}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <a href="{{$lecture->link}}" target="_blank">

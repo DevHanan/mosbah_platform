@@ -111,12 +111,13 @@ class CourseController extends Controller
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
         if($request->promo_url){
-            if (preg_match('/[?&]v=([a-zA-Z0-9_-]+)/', $request->promo_url, $matches)) {
+            if(preg_match('/v=([^&]+)/', $request->promo_url, $matches)){
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
         }
+
 
         $request->merge(['videoId'=>'https://www.youtube.com/embed/'.$video_id]);
         $course = Course::create($request->except(['image', 'background_image']));
@@ -191,7 +192,7 @@ class CourseController extends Controller
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         if($request->promo_url){
-            if (preg_match('/[?&]v=([a-zA-Z0-9_-]+)/', $request->promo_url, $matches)) {
+            if(preg_match('/v=([^&]+)/', $request->promo_url, $matches)){
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string

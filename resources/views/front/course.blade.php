@@ -129,7 +129,7 @@
                         <div class="tab-pane fade show active" id="navs-justified-content" role="tabpanel">
 
                             <!-- اختبار بداية الدورة -->
-                            <!-- <div class="accordion mb-4" id="course_start_exam">
+                            <div class="accordion mb-4" id="course_start_exam">
                         <div class="accordion-item">
                           <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
@@ -152,7 +152,7 @@
                             </div>
                           </div>
                         </div>
-                    </div> -->
+                    </div>
 
                             <!-- المرحلة الاولي -->
                             @if(count($course->levels))

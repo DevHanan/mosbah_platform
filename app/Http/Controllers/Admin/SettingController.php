@@ -148,6 +148,8 @@ class SettingController extends Controller
         $data->student_opinion = $request->student_opinion ? 1 : 0;
         $data->map_locations = $request->map_locations ? 1 : 0;
         $data->achievements = $request->achievements ? 1: 0;
+        $data->letter_news = $request->letter_news ? 1: 0;
+
 
         $data->save();
 

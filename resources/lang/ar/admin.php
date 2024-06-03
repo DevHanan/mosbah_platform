@@ -365,6 +365,7 @@ return [
         'field_whatsapp'  => 'رقم الواتساب'
     ],
     'landing' => [
+        'letter_news' => 'اشترك في نشرتنا الاخبارية',
         'start_soon_period' => 'مدة الدورات تبدا قريبا',
         'header_settings' => 'بيانات الهيدر',
         'footer_settings' => 'بيانات سكشن التعريف بالمنصة',

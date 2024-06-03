@@ -116,6 +116,7 @@
           <div class="header-info d-flex align-items-center">
             <a href="{{ url($landing_setting->book_shop_url)}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none">متجر الكتب</a>
           </div>
+          
         </li>
         @endif
     </div>

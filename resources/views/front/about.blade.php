@@ -217,7 +217,7 @@
                         @foreach($parteners as $partener)
 
                         <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img src="{{ asset('public/'.$partener->image )}}" class="img-fluid" alt="">
+                            <img style="height:130px;" src="{{ asset('public/'.$partener->image )}}" class="img-fluid" alt="">
                             <div class="fw-bold mt-3">{{ $partener->name }}</div>
                         </article>
                         @endforeach

@@ -393,7 +393,7 @@
                                     </div>
                                 </div>
                                 <div class="opinion my-3">
-                                    {!! $instructor->about_teacher !!}
+                                    {!! $instructor->qualifications !!}
                                 </div>
                                 <div class="rating d-flex justify-content-end align-items-center">
                                     <!-- <div class="fw-bold">تقييم عام </div> -->

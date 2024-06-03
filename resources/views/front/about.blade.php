@@ -43,7 +43,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #E9F8F3;"><img src="{{asset('/front/img/icons/GraduationCap.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->course_number}}"> 0</h3>
+                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->course_number}}"> {{ $aboutsetting->course_number}} </h3>
                                         <p class="fw-bold">دورات</p>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFFAF5;"><img src="{{asset('/front/img/icons/VideoCamera.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{$aboutsetting->lecture_number}}">0</h3>
+                                        <h3 class="fw-bold count" data-target="{{$aboutsetting->lecture_number}}">{{$aboutsetting->lecture_number}}</h3>
                                         <p class="fw-bold">محاضرات</p>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #F0F7FF;"><img src="{{asset('/front/img/icons/UsersThree.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->instructor_number}}">0</h3>
+                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->instructor_number}}">{{ $aboutsetting->instructor_number}}</h3>
                                         <p class="fw-bold">مدربين</p>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFEEF0;"><img src="{{asset('/front/img/icons/GraduationCap2.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->student_number}}"> 0</h3>
+                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->student_number}}"> {{ $aboutsetting->student_number}}</h3>
                                         <p class="fw-bold">طلاب</p>
                                     </div>
                                 </div>

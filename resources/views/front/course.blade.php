@@ -117,13 +117,11 @@
                             </button>
                         </li>
                         @endif
-                        <!-- @if(isset($course->comments) && count($course->comments)) -->
                         <li class="nav-item py-3">
                             <button type="button" class="nav-link border-0 p-0 m-0" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-rating" aria-controls="navs-justified-rating" aria-selected="false">
                                 <span class="d-sm-block fw-bold text-dark"> تقييمات الطلاب</span>
                             </button>
                         </li>
-                        <!-- @endif -->
                     </ul>
                     <div class="tab-content p-4">
                         <div class="tab-pane fade show active" id="navs-justified-content" role="tabpanel">

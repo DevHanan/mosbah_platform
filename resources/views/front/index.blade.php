@@ -116,13 +116,13 @@
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
                                 <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
                             </a>
-                            <div class="name primary-color mb-3" style="font-size: 14px;"> 
+                            <!-- <div class="name primary-color mb-3" style="font-size: 14px;"> 
                             @if($course->instructors)
                                             @foreach($course->instructors as $item)
                                             {{ $item->name }} 
                                             @endforeach
 
-                                            @endif                        </div>
+                                            @endif                        </div> -->
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
@@ -192,14 +192,14 @@
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
                                 <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
                             </a>
-                            <div class="name primary-color mb-3" style="font-size: 14px;"> 
+                            <!-- <div class="name primary-color mb-3" style="font-size: 14px;"> 
                             @if($course->instructors)
                                             @foreach($course->instructors as $item)
                                             {{ $item->name }} 
                                             @endforeach
 
                                             @endif
-                        </div>
+                        </div> -->
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
@@ -340,14 +340,14 @@
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none text-dark">
                                 <p class="card__description mb-1">  {{ $course->name }}</p>
                             </a>
-                            <div class="name primary-color mb-2" style="font-size: 14px;"> 
+                            <!-- <div class="name primary-color mb-2" style="font-size: 14px;"> 
                             @if($course->instructors)
                                             @foreach($course->instructors as $item)
                                             {{ $item->name }} 
                                             @endforeach
 
                                             @endif
-                        </div>
+                        </div> -->
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3"> ({{ $course->SubscriptionCount}})</span>
                                 <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>

@@ -152,7 +152,7 @@
 
                           <div class="mb-3">
                             <label class="form-label" for="book_shop_url">{{ __('admin.landing.book_shop_url') }} <span>*</span></label>
-                            <input type="number" class="form-control" name="book_shop_url" id="book_shop_url" value="{{ isset($row->book_shop_url)?$row->book_shop_url:'' }}">
+                            <input type="text" class="form-control" name="book_shop_url" id="book_shop_url" value="{{ isset($row->book_shop_url)?$row->book_shop_url:'' }}">
 
                             @error('book_shop_url')
                             <div class="invalid-feedback">

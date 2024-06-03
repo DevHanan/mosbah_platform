@@ -277,7 +277,7 @@
                     @foreach($instructors as $instructor)
                         @if($instructor->recommened == 1)
                     <article class="card__article swiper-slide shadow">
-                        <a href="#">
+                        <a href="{{ url('courses?instructor_id='.$instructor->id)}}">
                             <div class="card__image p-2">
                                 <img src="{{ $instructor->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1">{{ $instructor->courseNumber }} دورات</div>

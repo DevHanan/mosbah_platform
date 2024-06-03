@@ -42,6 +42,11 @@ class HomeController extends Controller
                 $q->whereHas('tracks', function ($l) use ($request) {
                     $l->where('tracks.id', $request->track_id);
                 });
+                if ($request->instructor_id)
+                $q->whereHas('instructors', function ($l) use ($request) {
+                    $l->where('instructors.id', $request->instructor_id);
+                });
+
 
             if ($request->type)
                 $q->where('course_type_id', $request->type);

@@ -49,7 +49,7 @@
 
                             @foreach($tracks as $track)
                             <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif id="">
+                                <input class="form-check-input" type="checkbox" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
                                 <label for="img-videos" class="d-flex">
                                     <p class="m-0 mx-2"> {{ $track->name }}</p>
                                     <span>( {{$track->courseCount }})</span>
@@ -92,7 +92,7 @@
                             </li>
                             @foreach($instructors as $instructor)
                             <li class="my-2 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" value="" id="teacher5">
+                                <input class="form-check-input" type="checkbox" value="{{ $instructor->id}}"   @if($instructor->id == request()->get('instructor_id')) checked="checked" @endif >
                                 <label for="teacher5">
                                     <p class="m-0 mx-2">{{ $instructor->name  }}</p>
                                 </label>

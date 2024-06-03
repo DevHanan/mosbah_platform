@@ -183,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="reading rounded d-flex justify-content-center align-items-center p-5 my-5 ">
+                <!-- <div class="reading rounded d-flex justify-content-center align-items-center p-5 my-5 ">
                         <div class="w-75">
                             <p class="text-center fw-bold" style="color: #1B3764;font-size: 30px;">اشترك فى نشرتنا الاخبارية</p>
                         <p class="text-center">يمكنك متابعة الكتب التي نقوم بنشرها باستمرار، اترك لنا ايميلك سنقوم بارسال كل ما هو جديد عبر بريدك الالكتروني</p>
@@ -194,7 +194,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

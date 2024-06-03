@@ -47,26 +47,26 @@
       </div>
       <div>
         <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-row align-items-center">
-          <li class="nav-item px-2">
+          <!-- <li class="nav-item px-2">
             <a class="nav-link position-relative" aria-current="page" href="{{ url('/cart') }}">
               <i class="fa-solid fa-cart-shopping primary-color fa-lg"></i>
               <span class="position-absolute bg-white fw-bold rounded-pill">0</span>
             </a>
+          </li> -->
+          <li class="nav-item px-2">
+            <a class="nav-link primary-color" target="_blank" href="{{ $setting->facebook_url }}"><i class="fa-brands fa-facebook-f"></i></a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link primary-color" href="{{ $setting->facebook_url }}"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="nav-link primary-color" target="_blank" href="{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link primary-color" href="{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="nav-link primary-color" target="_blank" href="{{ $setting->instgram_url }}"><i class="fa-brands fa-instagram"></i></a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link primary-color" href="{{ $setting->instgram_url }}"><i class="fa-brands fa-instagram"></i></a>
+            <a class="nav-link primary-color" target="_blank" href="{{ $setting->youtube_url }}"><i class="fa-brands fa-youtube"></i></a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link primary-color" href="{{ $setting->youtube_url }}"><i class="fa-brands fa-youtube"></i></a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link primary-color" href="{{ $setting->twitter_url }}"><i class="fa-brands fa-x-twitter"></i></a>
+            <a class="nav-link primary-color" target="_blank" href="{{ $setting->twitter_url }}"><i class="fa-brands fa-x-twitter"></i></a>
           </li>
         </ul>
       </div>

@@ -10,7 +10,8 @@ class LandingSetting extends Model
     use HasFactory;
     protected $fillable=['header_title','header_description','footer_description','most_required_courses',
     'recommend_courses','top_rated_courses','star_recently_courses','tracks','instructors',
-    'workteam','parteners','student_opinion','map_locations','achievements','start_soon_period'
+    'workteam','parteners','student_opinion','map_locations','achievements','start_soon_period',
+    'letter_news'
 ];
 
 protected $appends = ['headerImageFullPath','footerImageFullPath'];

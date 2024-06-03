@@ -27,12 +27,12 @@
 
                     <p class="desc fw-bold text-white">
 
-                    {{ $landing_setting->header_title }}
+                        {{ $landing_setting->header_title }}
                     </p>
 
                     <div class="content my-5">
-                {!!   $landing_setting->header_description !!}
-                </div>
+                        {!! $landing_setting->header_description !!}
+                    </div>
                     <div class="search position-relative">
                         <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟">
                         <i class="fa-solid fa-search p-2 h-100 position-absolute rounded-circle d-flex align-items-center text-white secondary-bg"></i>
@@ -104,10 +104,11 @@
                             <div class="card__image p-2">
                                 <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
-                                            @foreach ($course->tracks as $item)
-                                           {{ $item->name  }} 
-                                            @endforeach
-                                            @endif </div>
+                                    @foreach ($course->tracks as $item)
+                                    {{ $item->name  }}
+                                    @endforeach
+                                    @endif
+                                </div>
                                 <div class="card__shadow"></div>
                             </div>
                         </a>
@@ -180,10 +181,11 @@
                             <div class="card__image p-2">
                                 <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
-                                            @foreach ($course->tracks as $item)
-                                           {{ $item->name  }} 
-                                            @endforeach
-                                            @endif </div>
+                                    @foreach ($course->tracks as $item)
+                                    {{ $item->name  }}
+                                    @endforeach
+                                    @endif
+                                </div>
                                 <div class="card__shadow"></div>
                             </div>
                         </a>
@@ -249,7 +251,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-dark">
                     <div class="data bg-white d-flex justify-content-between align-items-center my-4 p-3">
-                        <div> <img  style="max-height:20px;" src="{{ $track->ImageFullPath }}" class="mx-2" alt=""> {{ $track->name}}</div>
+                        <div> <img style="max-height:20px;" src="{{ $track->ImageFullPath }}" class="mx-2" alt=""> {{ $track->name}}</div>
                         <div class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></div>
                     </div>
                 </a>
@@ -275,7 +277,7 @@
             <div class="card__content">
                 <div class="swiper-wrapper">
                     @foreach($instructors as $instructor)
-                        @if($instructor->recommened == 1)
+                    @if($instructor->recommened == 1)
                     <article class="card__article swiper-slide shadow">
                         <a href="{{ url('courses?instructor_id='.$instructor->id)}}">
                             <div class="card__image p-2">
@@ -328,17 +330,18 @@
                             <div class="card__image p-2">
                                 <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
-                                            @foreach ($course->tracks as $item)
-                                           {{ $item->name  }} 
-                                            @endforeach
-                                            @endif </div>
+                                    @foreach ($course->tracks as $item)
+                                    {{ $item->name  }}
+                                    @endforeach
+                                    @endif
+                                </div>
                                 <div class="card__shadow"></div>
                             </div>
                         </a>
 
                         <div class="card__data p-3">
                             <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none text-dark">
-                                <p class="card__description mb-1">  {{ $course->name }}</p>
+                                <p class="card__description mb-1"> {{ $course->name }}</p>
                             </a>
                             <!-- <div class="name primary-color mb-2" style="font-size: 14px;"> 
                             @if($course->instructors)
@@ -465,6 +468,23 @@
 </div>
 @endif
 
+
+@if($landing_setting->letter_news == 1)
+<div class="reading rounded d-flex justify-content-center align-items-center p-5 my-5" style="background-color:#CFFFFD;
+;">
+    <div class="w-75">
+        <p class="text-center fw-bold" style="color: #1B3764;font-size: 30px;">اشترك فى نشرتنا الاخبارية</p>
+        <p class="text-center">يمكنك متابعة الكتب التي نقوم بنشرها باستمرار، اترك لنا ايميلك سنقوم بارسال كل ما هو جديد عبر بريدك الالكتروني</p>
+        <form action="">
+            <div class="d-flex justify-content-center align-items-center mt-5">
+                <a href="#" class="btn text-white border-0 w-50 p-3" style="background-color: #1B3764;">اشترك</a>
+                <input type="text" class="form-control p-3 w-50" required placeholder="البريد الإلكتروني الخاص بك...">
+            </div>
+        </form>
+    </div>
+</div>
+@endif
+
 <div class="join_us my-5">
     <div class="container">
         <div class="row">
@@ -480,7 +500,7 @@
             <div class="col-lg-6">
                 <div class="data h-100 d-flex flex-column justify-content-center">
                     <p class="title fw-bold"> انضم الى <span class="primary-color"> منصة دوافير التعليمية</span> اختيارك الأفضل اليوم، متوافقة مع شروط ومعايير المركز الوطني للتعليم الالكتروني</p>
-                                        {!! $landing_setting->footer_description !!}
+                    {!! $landing_setting->footer_description !!}
                     <div>
                         <a href="{{ url('signup')}}" class="btn rounded-pill secondary-bg text-white mt-4">سجل الآن مجانا وابدأ التعلم</a>
                     </div>

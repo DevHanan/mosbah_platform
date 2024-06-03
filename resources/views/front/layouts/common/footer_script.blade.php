@@ -19,7 +19,7 @@
                     <h4 class="text-white">المسارات النشطة</h4>
                     <ul class="list-unstyled p-0">
                         @foreach($tracks as $track)
-                        <li class="py-2"><a href="#" class="text-white text-decoration-none">{{ $track->name }}</a></li>
+                        <li class="py-2"><a href="{{url('courses?track_id='.$track->id)}}" class="text-white text-decoration-none">{{ $track->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -55,31 +55,31 @@
                     <div class="social">
                         <ul class="list-unstyled d-flex w-100 m-0 p-0">
                             <li>
-                                <a href="{{ $setting->facebook_url}}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->facebook_url}}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-facebook-f fa-lg primary-color"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-whatsapp fa-lg primary-color"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-instagram fa-lg primary-color"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-youtube fa-lg primary-color"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-x-twitter fa-lg primary-color"></i>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> 
                     </div>
                 </div>
             </div>

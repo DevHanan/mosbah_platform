@@ -37,7 +37,7 @@
                     <div class="info">
                         <h2 class="position-relative"> إنجازاتنا <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute" alt=""></h2>
                         <h5 class="my-5 mb-5 ">خلال فترة قصيرة حققنا هذه الإنجازات، نحن بكم ولكم وفي خدمتكم على الدوام.</h5>
-                        <div class="row">
+                        <!-- <div class="row">
 
                             <div class="col-6">
                                 <div class="data mb-4 d-flex align-items-center">
@@ -53,7 +53,7 @@
                                 <div class="data mb-4 d-flex align-items-center">
                                     <div class="img rounded p-3" style="background-color: #FFFAF5;"><img src="{{asset('/front/img/icons/VideoCamera.svg')}}" alt=""></div>
                                     <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->lecture_number}}">0</h3>
+                                        <h3 class="fw-bold count" data-target="{{$aboutsetting->lecture_number}}">0</h3>
                                         <p class="fw-bold">محاضرات</p>
                                     </div>
                                 </div>
@@ -78,7 +78,46 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="d-flex justify-content-center my-2">
+                    <div class="img"><img src="public/front/img/courses.svg" class="img-fluid" alt=""></div>
+                    <div class="info d-flex flex-column mx-3">
+                        <h4 class="count fw-bold" data-target="{{ $about->course_number}}"> 0</h4>
+                        <p class="fw-bold">دورات</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="d-flex justify-content-center my-2">
+                    <div class="img"><img src="public/front/img/video.svg" class="img-fluid" alt=""></div>
+                    <div class="info d-flex flex-column mx-3">
+                        <h4 class="count fw-bold" data-target="{{ $about->lecture_number}}">0</h4>
+                        <p class="fw-bold">محاضرات</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="d-flex justify-content-center my-2">
+                    <div class="img"><img src="public/front/img/students.svg" class="img-fluid" alt=""></div>
+                    <div class="info d-flex flex-column mx-3">
+                        <h4 class="count fw-bold" data-target="{{ $about->student_number}}">0</h4>
+                        <p class="fw-bold">طلاب</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="d-flex justify-content-center my-2">
+                    <div class="img"><img src="public/front/img/graduation.svg" class="img-fluid" alt=""></div>
+                    <div class="info d-flex flex-column mx-3">
+                        <h4 class="count fw-bold" data-target="{{ $about->instructor_number}}">0</h4>
+                        <p class="fw-bold">مدربين</p>
+                    </div>
+                </div>
+            </div>
+        </div>
                     </div>
                 </div>
             </div>

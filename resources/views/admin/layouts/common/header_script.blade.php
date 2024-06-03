@@ -7,7 +7,7 @@
   @endif
   {{ $setting->title }}
 </title>
-<link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">
+<link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">
 <!-- CSS files -->
 
 

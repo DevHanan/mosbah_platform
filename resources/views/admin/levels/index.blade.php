@@ -71,6 +71,7 @@
                   <th>{{ __('admin.levels.end_date') }}</th>
 
                   <th>{{ __('admin.levels.period') }}</th>
+                  <th>{{ __('admin.levels.lectures_number') }}</th>
                   <th>{{ __('admin.levels.status') }}</th>
 
 
@@ -90,6 +91,7 @@
                   <td>{{$row->start_date}}</td>
                   <td>{{$row->end_date}}</td>
                   <td>{{$row->period}} {{ __($row->periodLabel)}}</td>
+                  <td> {{ $row->lectures()->count()}}</td>
 
 
                   <td>

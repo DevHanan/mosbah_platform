@@ -1,6 +1,6 @@
 <?php
 return [
-    'date'=> 'تاريخ الطلب',
+    'date' => 'تاريخ الطلب',
     'pending' => 'معلقة',
     'accepted' => 'تم الموافقة',
     'refaused' => 'مرفوضة',
@@ -16,7 +16,7 @@ return [
     'select_instructor' => 'إختر المدرب',
     'download' => 'تنزيل الملف',
     'no_file' => 'لا يوجد ملف',
-    "btn_add_new" =>"إضافة جديد",
+    "btn_add_new" => "إضافة جديد",
     "active" => "مفعل",
     "inactive" => "غير مفعل",
     "btn_save" => "حفظ",
@@ -25,8 +25,8 @@ return [
     'btn_confirm' => 'تأكيد',
     "btn_update" => "تعديل",
     "edit_password" => "تعديل كلمة المرور",
-    "msg_deleted_successfully"=>"تم جذف العنصر بنجاح",
-    "msg_delete_successfully"=>"تم جذف العنصر بنجاح",
+    "msg_deleted_successfully" => "تم جذف العنصر بنجاح",
+    "msg_delete_successfully" => "تم جذف العنصر بنجاح",
     "msg_created_successfully" => "تم إضافة العنصر بنجاح",
     "msg_create_successfully" => "تم إضافة العنصر بنجاح",
     "msg_updated_successfully"  => "تم تعديل بيانات العنصر بنجاح",
@@ -44,7 +44,7 @@ return [
         'inactive_confirm_title' => 'تأكيد عملية الغاء التفعيل ',
         'inactive_confirm_msg' => 'هل أنت متأكد من إتمام إلغاء التفعيل?',
     ],
-    "users" =>[
+    "users" => [
         "list" => "عرض المستخدمين",
         "field_name" => "الاسم",
         "field_email" => "البريد الإلكترونى",
@@ -55,12 +55,12 @@ return [
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور"
     ],
-    "roles" =>[
+    "roles" => [
         'title' => 'الصلاحيات و الأدوار',
         'field_title'  => "العنوان",
         'field_action' => 'الحدث'
     ],
-    "coursetypes" =>[
+    "coursetypes" => [
         'title' => 'أنواع الدورات',
         'add' => 'إضافة جديد',
         'edit' => 'تعديل نوع',
@@ -68,17 +68,18 @@ return [
         'status' => 'حالة الظهور',
         'actions' => 'الحدث'
     ],
-    
-    "tracks" =>[
+
+    "tracks" => [
         'title' => 'المسارات',
         'add' => 'إضافة مسار',
         'edit' => 'تعديل مسار',
         'name'  => "الاسم",
         'status' => 'حالة الظهور',
         'actions' => 'الحدث',
-        'field_photo' => 'الصورة'
+        'field_photo' => 'الصورة',
+        'courses_number' => 'عدد الدورات'
     ],
-    "levels" =>[
+    "levels" => [
         'title' => 'مستويات الدورة',
         'add' => 'مستوى جديد',
         'edit' => 'تعديل مستوى',
@@ -88,6 +89,7 @@ return [
         'course' => 'الدورة',
         'track' => 'المسار',
         'instructor' => 'المدرب',
+        'lectures_number' => 'عدد المحاضرات',
 
         'start_date' => 'تاريخ البدايه',
         'end_date' => 'تاريخ النهاية',
@@ -97,7 +99,7 @@ return [
         'day' => 'يوم',
         'hour' => 'ساعه'
     ],
-    "lectures" =>[
+    "lectures" => [
         'field_period' => 'مدة المحاضرة(بالساعة)',
         'goals' => 'اهداف المحاضرة',
         'conclusion'  => 'الخاتمة',
@@ -133,7 +135,7 @@ return [
         'edit'  => 'تعديل بيانات '
 
     ],
-    "countries" =>[
+    "countries" => [
         "title" => "عرض الدول",
         "name"  => "الاسم",
         "code" => "الكود",
@@ -143,7 +145,7 @@ return [
         'add'  => 'إضافة دولة',
         'edit'  => 'تعديل دولة'
     ],
-    "students" =>[
+    "students" => [
         'subscribed_amount' => ' قيمة الاشتراك ',
         'course_number' => 'عدد الدورات المشترك بها ',
         'current_course_number' => 'دورات جارية',
@@ -168,7 +170,7 @@ return [
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور",
         'country_id'  => 'الدولة',
-        'track' =>'المسار',
+        'track' => 'المسار',
         "qualifications" => "المؤهلات",
         'about' => "عن الطالب",
         'field_photo' => 'صورة البروفايل',
@@ -177,13 +179,13 @@ return [
         'course_name' => 'إسم الدورة',
         'subscribed_date' => 'تاريخ الإشتراك بالدورة'
     ],
-    "instructors" =>[
+    "instructors" => [
         'field_cv' => 'ملف السيرة الذاتية',
         'is_employee' => 'هل المدرب موظف',
         'salary' => 'المرتب',
         'yes'  => 'نعم',
         'total_course' => 'إجمالى عدد الكورسات',
-        'total_balance' =>'اجمالي أرباح المدرب',
+        'total_balance' => 'اجمالي أرباح المدرب',
         'current_balance' => 'الرصيد الحالى',
         'no'  => 'لا',
         'recommend'  => 'مرشح',
@@ -205,13 +207,13 @@ return [
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور",
         'country_id'  => 'الدولة',
-        'track' =>'المسار',
+        'track' => 'المسار',
         "qualifications" => "المؤهلات",
         'about' => "درجة علمية ",
         'field_photo' => 'الصورة',
         "userName" => "إسم المستخدم",
         'paypall_account_number' => 'رابط حساب باي بال',
-        'cash_wallet_number' => 'رقم محفظة كاش' ,
+        'cash_wallet_number' => 'رقم محفظة كاش',
         'student' => 'طالب',
         'Bachelor' => 'بكالوريس',
         'Graduated' => 'خريج',
@@ -239,9 +241,9 @@ return [
         "field_payment_attachmend" => 'مرفق الدفع'
 
     ],
-    "courses"=>[
+    "courses" => [
         'create_date' => 'تاريخ الإنشاء',
-         'instructor_prectange' => 'نسبة المدرب',
+        'instructor_prectange' => 'نسبة المدرب',
         'buy_course_instructor' => 'القيمة الشرائية من المدرب',
         'add_instructors' => 'إضافة المدربين',
         'price_with_discount' => 'السعر بعد الخصم',
@@ -251,7 +253,7 @@ return [
         "name"  => "عنوان الدورة",
         "type"  => 'نوع الدورة',
         'status'  => 'حالة الظهور',
-        "track"  => "المسار",
+        "track"  => "المسارات",
         "instructor" => "المدرب",
         "student_number"  => "عدد الطلاب المشتركين",
         "price" => "سعر الدورة",
@@ -264,7 +266,7 @@ return [
         "start_date" => "تاريخ بدء الدورة",
         "end_date" => "تاريخ إنتهاء الدورة",
         "image" => "صورة الدورة",
-        "promo_url" => "رابط  فیدیو",
+        "promo_url" => " رابط برومو فيديو",
         "background_image" => "صورة خلفية الدورة",
         "descriptions"  => "وصف الدورة",
         "directedTo"  => "الدورة موجه إلى",
@@ -278,8 +280,8 @@ return [
         'advanced' => 'مستوى متقدم',
         'prerequisites' => 'متطلبات مسبقة للدورة',
         'provider' => 'مزود الخدمة',
-        'viemo' =>'فيمو',
-        'Youtube'=> 'يوتيوب',
+        'viemo' => 'فيمو',
+        'Youtube' => 'يوتيوب',
     ],
     'dashboard' => [
         'student_number' => 'عدد الطلاب',
@@ -287,10 +289,10 @@ return [
         'course_number'  => 'عدد الدورات',
         'instructor_number'  => 'عدد المدربين',
         'subscriptions_count' => 'عدد الاشتراكات',
-    'subscriptions_total' => 'قيمة الاشتراكات',
-    'today_subscriptions_total'  => 'إجمالى إشتراكات اليوم',
-    'this_year_subscriptions_total' => 'إجمالى إشتراكات العام',
-    'this_month_subscriptions_total' => 'إجمالى إشتراكات الشهر الحالى'
+        'subscriptions_total' => 'قيمة الاشتراكات',
+        'today_subscriptions_total'  => 'إجمالى إشتراكات اليوم',
+        'this_year_subscriptions_total' => 'إجمالى إشتراكات العام',
+        'this_month_subscriptions_total' => 'إجمالى إشتراكات الشهر الحالى'
 
 
     ],
@@ -304,7 +306,7 @@ return [
     'select_recommend' => 'هل الدورة مرشحة',
     "coupons"  => [
         'track' => 'اسم المسار',
-        "code" => "نص الكوبون" , 
+        "code" => "نص الكوبون",
         'discount'  => 'نسبة الخصم(%) ',
         'create_date' => 'تاريخ الإضافة',
         'start_date'  => 'تاريخ بدء التفعيل',
@@ -318,7 +320,7 @@ return [
     ],
 
     "questions"  => [
-        "list" => "الأسئلة الشائعة" , 
+        "list" => "الأسئلة الشائعة",
         'add'  => 'إضافة سؤال',
         'edit'  => 'تعديل سؤال',
         'status' => 'حالة الظهور',
@@ -326,13 +328,13 @@ return [
         'answer' => 'الإجابة',
         'action' => 'الحدث'
     ],
-    'payments' =>[
-      'transactionnumber' => 'رقم العملية',
-      'transcation_date' => 'تاريخ العملية',
-      'course_name' => 'اسم الدورة',
-      'paid_amount' => ' القيمة المدفوعة',
-      'payment_attachment' => 'مرفق اثبات الدفع',
-      'list' => 'سجل مدفوعات الطالب'
+    'payments' => [
+        'transactionnumber' => 'رقم العملية',
+        'transcation_date' => 'تاريخ العملية',
+        'course_name' => 'اسم الدورة',
+        'paid_amount' => ' القيمة المدفوعة',
+        'payment_attachment' => 'مرفق اثبات الدفع',
+        'list' => 'سجل مدفوعات الطالب'
 
     ],
     'settings' => [
@@ -363,7 +365,7 @@ return [
         'field_whatsapp'  => 'رقم الواتساب'
     ],
     'landing' => [
-        'start_soon_period' =>'مدة الدورات تبدا قريبا',
+        'start_soon_period' => 'مدة الدورات تبدا قريبا',
         'header_settings' => 'بيانات الهيدر',
         'footer_settings' => 'بيانات سكشن التعريف بالمنصة',
         'header_title' => 'عنوان  الهيدر',
@@ -383,10 +385,10 @@ return [
         'student_opinion' => 'آراء الطلاب',
         'map_locations' => 'لوكيشن على الخريطة',
         'achievements' => 'الإنجازات'
-        
+
 
     ],
-    'policies' =>[
+    'policies' => [
         'field_title' => 'العنوان',
         'title' => 'السياسات والشروط',
         'add'  => 'سياسة جديدة',
@@ -425,8 +427,8 @@ return [
         'msg_image4' => 'صورة الرساله الرابعه',
         'msg_desc4' => 'وصف الرساله الرابعه',
     ],
-    
-    "parteners" =>[
+
+    "parteners" => [
         'title' => 'شركاء النجاح',
         'add' => 'إضافة شريك',
         'edit' => 'تعديل شريك',
@@ -435,7 +437,7 @@ return [
         'actions' => 'الحدث',
         'field_photo' => 'الصورة'
     ],
-    "teams" =>[
+    "teams" => [
         'title' => ' فريقنا',
         'add' => 'إضافة شخص',
         'edit' => 'تعديل شخص',
@@ -457,7 +459,7 @@ return [
         'date' => 'تاريخ الحصول على الشهادة ',
         'file' => 'ملف الشهادة ',
         'authority' => 'اسم الجهة الصادر عنها الشهادة',
-        'notes' =>'ملاحظات ',
+        'notes' => 'ملاحظات ',
         'actions' => 'الحدث',
         'create_date' => 'تاريخ الإنشاء',
         'name' => 'عنوان الشهادة',
@@ -468,12 +470,12 @@ return [
         'platform_certification' => 'شهادات منصة دوافير',
         'externel_certification' => 'شهادات خارجية',
         'student_certification' => 'شهادات الطلاب من المنصة',
-        'accepted' =>'مقبولة',
+        'accepted' => 'مقبولة',
         'pending' => 'معلقة',
         'refaused' => 'مرفوضة',
         'status' => 'الحالة'
     ],
-    "cv" =>[
+    "cv" => [
         'title' => 'قوالب السيرة الذاتية',
         'add' => 'إضافة قالب جديد',
         'edit' => 'تعديل قالب',
@@ -512,7 +514,7 @@ return [
     'course_price' => 'قيمة الشراء من المدرب',
     'course_prectange' => 'نسبة ربح المدرب من كل اشتراك',
     'total_profit' => 'إجمالى الارباح من الدورة',
-    'bankgroups'=> [
+    'bankgroups' => [
 
         'list' => 'عرض بنوك الأسئلة',
         'title' => 'بنوك الأسئلة',
@@ -520,35 +522,35 @@ return [
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
         'status' => 'الحالة',
-        'actions' =>'الحدث',
+        'actions' => 'الحدث',
         'bank_question' => 'أسئلة البنك',
         'bank_questions_number' => 'عدد الأسئلة المضافة',
-        
+
     ],
     'bankquestions' => [
-           'title'  => 'السؤال',
-           'title_notes'  => 'ملاحظات نصية لشرح السؤال',
-           'answer_notes' => 'ملاحظات نصيه لشرح إجابة السؤال',
-           'title_notes_img'  => 'صورة توضحية لشرح السؤال',
-           'title_photo' => 'صورة السؤال',
-           'question_photo' => 'صورة توضيحية لشرح السؤال',
-           'ban_group' => 'البنك التابع له',
-           'active' => 'مفعل',
-           'mark' => 'درجة لسؤال',
-           'optiomal_answer'  => 'الأجابة النموذجية',
-           'answer1' => 'الأختيار الأول',
-           'answer2' => 'الأختيار التانى',
-           'answer3' => 'الأختيار التالت',
-           'answer4' => 'الأختيار الرابع',
-           'answer_photo' => 'صورة توضيحية لشرح إجابه السؤال',
-           'link' => 'رابط فيديو لشرح إجابة السؤال',
-           'question_data' => 'بيانات السؤال',
-           'answer_data' => 'بيانات الاختيارات',
-           'correct_answer' => 'الأختيار الصحيح',
-           'options' => 'كل الاختيارات',
-           'list'  => 'عرض جميع الاسئلة',
-           'add'  => 'إضافة سؤال',
-           'edit'  => 'تحديث سؤال'
+        'title'  => 'السؤال',
+        'title_notes'  => 'ملاحظات نصية لشرح السؤال',
+        'answer_notes' => 'ملاحظات نصيه لشرح إجابة السؤال',
+        'title_notes_img'  => 'صورة توضحية لشرح السؤال',
+        'title_photo' => 'صورة السؤال',
+        'question_photo' => 'صورة توضيحية لشرح السؤال',
+        'ban_group' => 'البنك التابع له',
+        'active' => 'مفعل',
+        'mark' => 'درجة لسؤال',
+        'optiomal_answer'  => 'الأجابة النموذجية',
+        'answer1' => 'الأختيار الأول',
+        'answer2' => 'الأختيار التانى',
+        'answer3' => 'الأختيار التالت',
+        'answer4' => 'الأختيار الرابع',
+        'answer_photo' => 'صورة توضيحية لشرح إجابه السؤال',
+        'link' => 'رابط فيديو لشرح إجابة السؤال',
+        'question_data' => 'بيانات السؤال',
+        'answer_data' => 'بيانات الاختيارات',
+        'correct_answer' => 'الأختيار الصحيح',
+        'options' => 'كل الاختيارات',
+        'list'  => 'عرض جميع الاسئلة',
+        'add'  => 'إضافة سؤال',
+        'edit'  => 'تحديث سؤال'
 
 
     ],
@@ -566,7 +568,7 @@ return [
         'course' => 'الدورة التابع لها',
         'level' => 'المستوى التابع لها',
         'lecture' => 'المحاضرة التابع لها',
-        'end_date'=> 'وقت الإنتهاء',
+        'end_date' => 'وقت الإنتهاء',
         'start_date' => 'تاريخ البدء',
         'actions' => 'الحدث',
         'title' => 'عرض قائمة الاختبارات',
@@ -599,14 +601,14 @@ return [
         'advanced' => 'مستوى متقدم',
         'prerequisites' => 'متطلبات مسبقة للدورة',
         'provider' => 'مزود الخدمة',
-        'viemo' =>'فيمو',
-        'Youtube'=> 'يوتيوب',
+        'viemo' => 'فيمو',
+        'Youtube' => 'يوتيوب',
         'add_sections' => 'إضافات مراحل الأختبار',
         'section_name' => "إسم المرحلة",
         'simulator' => "اختبار قدرات محاكي",
         'platform' => "اختبار قدرات المنصة"
     ],
-    'sections' =>[
+    'sections' => [
         'title' => 'عرض أقسام الاختبار',
         'field_title' => 'إسم القسم',
         'add'  => 'إضافة قسم جديد',
@@ -619,5 +621,5 @@ return [
     ],
 
 
-  
+
 ];

@@ -48,6 +48,7 @@
                     </svg>
                   </th>
                   <th> {{__('admin.tracks.name')}}</th>
+                  <th> {{__('admin.tracks.courses_number')}}</th>
                   <th> {{__('admin.tracks.status')}}</th>
                   <th>{{ __('admin.tracks.field_photo') }}</th>
 
@@ -61,6 +62,8 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{$row->name}}</td>
+                  <td>{{ $row->courses()->count() }}</td>
+
 
 
                   <td>

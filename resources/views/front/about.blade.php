@@ -249,7 +249,7 @@
                         <li>
                             <p class="m-0">
                                 <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right_{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_right1">
-                                    {{ $item->question }}
+                                    {!! $item->question !!}
                                 </a>
                             </p>
                             <div class="collapse" id="collapse_right_{{$item->id}}">
@@ -270,12 +270,12 @@
                         <li>
                             <p class="m-0">
                                 <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_left1">
-                                    {{ $item->question }}
+                                    {!! $item->question !!}
                                 </a>
                             </p>
                             <div class="collapse" id="collapse_left{{$item->id}}">
                                 <div class="card card-body bg-transparent border-0">
-                                    {{ $item->answer }}
+                                    {!! $item->answer !!}
                                 </div>
                             </div>
                         </li>

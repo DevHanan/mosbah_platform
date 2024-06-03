@@ -265,9 +265,9 @@
                             <img src="{{asset('front/img/icons/Layer.svg')}}" class="img-fluid rowsCards cardShape p-1 rounded" alt="">
                         </div>
                     </div>
+                    @if($courses)
 
                     <div class="row" id="paginationCard">
-                        @if($courses)
                         @foreach($list_courses as $course)
                         <div class="col-sm-6 card_pagination">
                             <article class="rounded mt-4 shadow">
@@ -330,11 +330,12 @@
                             </article>
                         </div>
                         @endforeach
-                        @else
-                                <p> لا توجد بيانات للعرض</p>
-                        @endif
+                      
 
                     </div>
+                    @else
+                                <p> لا توجد بيانات للعرض</p>
+                        @endif
 
                     <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
                         <ul id="pagination" class="pagination align-items-center">

@@ -462,21 +462,20 @@
                                 </div>
                             </div> -->
 
-                            <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
+                            <!-- <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
                                 <ul id="pagination" class="pagination align-items-center">
                                     <li class="page-item">
                                         <a id="prevPageBtn" class="page-link" href="#" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <!-- Numbered pagination buttons will be added dynamically here -->
                                     <li class="page-item">
                                         <a id="nextPageBtn" class="page-link" href="#" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> -->
 
                             <div class="comment mt-5">
                                 <h3 class="primary-color">اضف تعليقك</h2>

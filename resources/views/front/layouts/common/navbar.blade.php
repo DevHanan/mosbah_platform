@@ -111,10 +111,10 @@
         <li class="nav-item">
           <a class="nav-link  @if(Request::is('contact-us')) active @endif" href="{{url('/contactus')}}">تواصل معنا</a>
         </li>
-        @if($landingSetting->book_shop_url &&  $landingSetting->book_shop_url != null)
+        @if($landing_setting->book_shop_url && $landing_setting->book_shop_url != null)
         <li class="nav-item">
           <div class="header-info d-flex align-items-center">
-            <a href="{{ url($landingSetting->book_shop_url)}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none">متجر الكتب</a>
+            <a href="{{ url($landing_setting->book_shop_url)}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none">متجر الكتب</a>
           </div>
         </li>
         @endif

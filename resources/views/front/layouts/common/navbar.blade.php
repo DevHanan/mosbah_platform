@@ -11,6 +11,8 @@
         document.getElementById('student-logout-form').submit();">
 
           تسجيل الخروج
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+
         </a>
 
         <form id="student-logout-form" action="{{ route('student.student-logout') }}" method="POST">
@@ -24,7 +26,8 @@
         document.getElementById('instructor-logout-form').submit();">
 
           تسجيل الخروج
-        </a>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </a>
 
         <form id="instructor-logout-form" action="{{ route('instructor.instructor-logout') }}" method="POST">
           @csrf
@@ -36,7 +39,8 @@
                                                  document.getElementById('logout-form').submit();">
 
           تسجيل الخروج
-        </a>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
           @csrf

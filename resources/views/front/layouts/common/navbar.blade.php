@@ -3,9 +3,10 @@
     <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
       <div class="header-info d-flex align-items-center">
         @if(auth()->guard('students-login')->user() )
-        <a href="{{url('/student/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم الطالب </a>
+        <a href="{{url('/student/dashboard')}}" class="
+        mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم الطالب </a>
         <a href="javascript:void(0);" 
-        class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
+        class="mx-3 p-2 text-decoration-none text-dark" 
         href="#" onclick="event.preventDefault();
         document.getElementById('student-logout-form').submit();">
 
@@ -18,7 +19,7 @@
         @elseif(auth()->guard('instructors-login')->user())
         <a href="{{url('/instructor/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم المحاضر </a>
         <a href="javascript:void(0);" 
-        class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" 
+        class="mx-3 p-2 text-decoration-none text-dark" 
         href="#" onclick="event.preventDefault();
         document.getElementById('instructor-logout-form').submit();">
 
@@ -31,7 +32,7 @@
         @elseif(auth()->guard('web')->user())
 
         <a href="{{url('/admin/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم الادمن </a>
-        <a href="javascript:void(0);" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a href="javascript:void(0);" class="mx-3 p-2 text-decoration-none text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
 
           تسجيل الخروج

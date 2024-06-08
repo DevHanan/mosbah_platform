@@ -275,7 +275,7 @@
                                     <div class="col-12 paginationCardImg">
                                         <div class="card__image h-100 p-2">
                                             <a href="{{ url('course/'.$course->id)}}">
-                                                <img src="{{asset('public/'.$course->image)}}" style="max-height:175px;" alt="image" class="card__img img-fluid w-100 h-100">
+                                                <img src="{{asset('public/'.$course->image)}}"  alt="image" class="card__img img-fluid w-100 h-100">
                                             </a>
                                             <div class="card_category position-absolute rounded text-dark px-2 py-1">
                                                 @if($course->tracks)
@@ -373,7 +373,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="{{ url('course/'.$course->id)}}">
                                 <div class="card__image p-2">
-                                    <img src="{{asset('public/'.$course->image)}}" style="max-height:175px;" alt="image" class="card__img img-fluid w-100">
+                                    <img src="{{asset('public/'.$course->image)}}"  alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1">
                                         @if($course->tracks)
                                         @foreach ($course->tracks as $item)

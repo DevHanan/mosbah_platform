@@ -32,11 +32,11 @@
                             <div class="persons mx-3">
                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                    
-                                    @foreach($course->SubscriptionCount as $student)
+                                    @for($i=0 ; $i<$course->SubscriptionCount ;$i++ )
                                     <li class="avatar avatar-xs pull-up position-relative">
                                         <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
                                     </li>
-                                    @endforeach
+                                    @endfor
                                 </ul>
                             </div>
                             @endif

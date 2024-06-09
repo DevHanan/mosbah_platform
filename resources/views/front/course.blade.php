@@ -180,7 +180,7 @@
                                                       
                                                          {{ $lecture->title }}
                                                          @if($lecture->free == 0)
-                                                         <span style="padding:0px 5px;"><i class="fas fa-lock"></i>  </span>
+                                                         <span style="padding:0px 5px;margin:0px 0px 0px -135px;"><i class="fas fa-lock"></i>  </span>
                                                         @endif
                                                     </button>
                                                 </h2>

@@ -20,9 +20,11 @@
                     <img src="{{ asset('public/front/img/completed-bg.svg')}}" class="position-absolute img-fluid" alt="">
                     <div class="info position-relative py-5">
                         <h2 class="title py-3 pb-1 fw-bold secondary-color text-center"> {{ $course->name }} </h2>
+                       @foreach($course->tracks as $track)
                         <h3 class="fw-bold text-center mb-4">
-                            <a href="{{url('/courses')}}" class="text-decoration-none text-white">الأختبارات</a>
+                            <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-white">{{ $track->name }}</a>
                         </h3>
+                        @endforeach
                         <div class="d-flex justify-content-center align-items-center">
                             @if($course->SubscriptionCount > 0)
                             <div class="persons mx-3">

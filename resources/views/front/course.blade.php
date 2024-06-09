@@ -128,29 +128,29 @@
 
                             <!-- اختبار بداية الدورة -->
                             <div class="accordion mb-4" id="course_start_exam">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="heading">
-                            <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
-                                <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt="">  اختبار بداية الدورة
-                            </button>
-                          </h2>
-                          <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#course_start_exam">
-                            <div class="accordion-body">
-                                <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                    <div class="my-2">المحاولات : <span>0/3</span></div>
-                                    <div class="my-2">درجات الاجتياز : <span>70/100</span></div>
-                                    <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
-                                    <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
-                                </div>                                            
-                                <div class="d-flex flex-wrap justify-content-end mt-2">
-                                    <div class="mt-2">
-                                        <button class="btn secondary-bg px-3 text-white">ابدء الأختبار</button>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading">
+                                        <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
+                                            <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt=""> اختبار بداية الدورة
+                                        </button>
+                                    </h2>
+                                    <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#course_start_exam">
+                                        <div class="accordion-body">
+                                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                                <div class="my-2">المحاولات : <span>0/3</span></div>
+                                                <div class="my-2">درجات الاجتياز : <span>70/100</span></div>
+                                                <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
+                                                <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
+                                            </div>
+                                            <div class="d-flex flex-wrap justify-content-end mt-2">
+                                                <div class="mt-2">
+                                                    <button class="btn secondary-bg px-3 text-white">ابدء الأختبار</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                          </div>
-                        </div>
-                    </div>
 
                             <!-- المرحلة الاولي -->
                             @if(count($course->levels))
@@ -176,13 +176,14 @@
                                                 <h2 class="accordion-header" id="headingOne{{$level->id}}">
                                                     <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec{{$lecture->id}}
                                         " aria-expanded="true" aria-controls="stage1_lec1">
-                                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> 
-                                                      
-                                                         {{ $lecture->title }}
-                                                         @if($lecture->free == 0)
-                                                         <span style="padding:0px 5px;margin:0px 0px 0px -135px;"><i class="fas fa-lock"></i>  </span>
-                                                        @endif
+                                                        <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt="">
+
+                                                        {{ $lecture->title }}
+                                                        
                                                     </button>
+                                                    @if($lecture->free == 0)
+                                                        <span style="padding:0px 5px;margin:0px 0px 0px -135px;"><i class="fas fa-lock"></i> </span>
+                                                        @endif
                                                 </h2>
                                                 <div id="stage1_lec{{$lecture->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">
                                                     <div class="accordion-body">
@@ -207,16 +208,16 @@
                                         </div>
                                     </div>
                                     @endforeach
-                               
+
 
                                 </div>
                             </div>
                             @endforeach
                             @else
-                                                                    لا يوجد محتوى للعرض
+                            لا يوجد محتوى للعرض
                             @endif
 
-                          
+
 
                         </div>
 
@@ -378,20 +379,20 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-6">
                         <div class="course_content shadow-sm border my-4 p-2" style="border-radius: 24px;">
-                        @if($course->videoId && $course->provider == 2)   
-                        <div class="position-relative w-100 h-100 gallery-item">
-                             
-                                <iframe type='text/html'  style="max-height: 220px;" src="{{$course->videoId}}" width='100%' height='500' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            @if($course->videoId && $course->provider == 2)
+                            <div class="position-relative w-100 h-100 gallery-item">
+
+                                <iframe type='text/html' style="max-height: 220px;" src="{{$course->videoId}}" width='100%' height='500' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                             </div>
-                            @elseif($course->videoId && $course->provider == 1) 
+                            @elseif($course->videoId && $course->provider == 1)
                             <div class="position-relative w-100 h-100 gallery-item">
-                            <iframe src="{{$course->videoId}}"  style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                </div>
+                                <iframe src="{{$course->videoId}}" style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
 
                             @else
                             <div class="img"><img src="{{ asset('public/front/img/video-img.png')}}" class="img-fluid w-100" alt=""></div>
-                                                                @endif
+                            @endif
                             <div class="info mt-3 px-4">
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> {{ $course->lectures()->count()}} محاضرة</span></p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-money.svg')}}" class="ms-2" width="20" alt="">
@@ -413,7 +414,7 @@
                                     </span>
                                 </p>
                                 <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ optional($course->courseType)->name  }} </span></p>
-                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span>   {{ $course->difficultyLevelLabel }} </span></p>
+                                <p> <img src="{{ asset('public/front/img/icons/fi-rr-graduation-cap.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $course->difficultyLevelLabel }} </span></p>
                                 @if( $course->isSubscribed == 0)
 
                                 <div class="d-flex justify-content-center mb-3">

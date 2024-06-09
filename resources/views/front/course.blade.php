@@ -239,7 +239,10 @@
                                     <div class="title primary-color fw-bold mb-4">الدورة موجهة الي :</div>
                                     {!! $course->directedTo !!}
                                 </div>
-                                <div class="col-lg-6">
+                                
+                            </div>
+                            <div class="row">
+                            <div class="col-lg-6">
                                     <div class="title primary-color fw-bold mb-4"> متطلبات مسبقة للدورة</div>
                                     {!! $course->prerequisites !!}
                                 </div>

@@ -12,7 +12,7 @@ class Level extends Model
     public $timestamps = true;
 
     protected $fillable = array('name','course_id','track_id','instructor_id','active','start_date','end_date','period_type','period');
-    protected $appends = ['PeriodLabel'];
+    protected $appends = ['periodLabel'];
 
     public function scopeActive($query)
     {
@@ -20,7 +20,7 @@ class Level extends Model
     }
 
     public function getPeriodLabelAttribute(){
-        if ($this->period ==1)
+        if ($this->period_type ==1)
          return  trans('admin.levels.day');
        
         else

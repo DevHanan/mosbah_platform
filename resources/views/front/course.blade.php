@@ -240,6 +240,9 @@
                                     {!! $course->directedTo !!}
                                 </div>
                             </div>
+                            <p class="my-4">
+                                {!! $course->prerequisites !!}
+                            </p>
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-trainsers" role="tabpanel">

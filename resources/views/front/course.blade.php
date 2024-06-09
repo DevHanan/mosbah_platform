@@ -177,11 +177,11 @@
                                                     <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec{{$lecture->id}}
                                         " aria-expanded="true" aria-controls="stage1_lec1">
                                                         <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt=""> 
-                                                        @if($lecture->free == 0)
+                                                      
+                                                         {{ $lecture->title }}
+                                                         @if($lecture->free == 0)
                                                          <span style="padding:0px 5px;"><i class="fas fa-lock"></i>  </span>
                                                         @endif
-                                                         {{ $lecture->title }}
-                                                       
                                                     </button>
                                                 </h2>
                                                 <div id="stage1_lec{{$lecture->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">

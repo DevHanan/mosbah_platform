@@ -127,7 +127,7 @@ return [
         'metting' => 'اجتماع'
     ],
     "paymenttypes" => [
-        "title" => "عرض أنواع الدفع",
+        "title" => "عرض وسائل الدفع",
         "name"  => "الإسم",
         "field_action" => "الحدث",
         "status"  => "حالة الظهور",

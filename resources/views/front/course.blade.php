@@ -31,21 +31,12 @@
                             @if($course->SubscriptionCount > 0)
                             <div class="persons mx-3">
                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                    <li class="avatar avatar-xs pull-up position-relative">
-                                        <img src="{{ asset('public/front/img/user4.png')}}" alt="Avatar" class="rounded-circle w-100 h-100" />
-                                    </li>
-                                    <li class="avatar avatar-xs pull-up position-relative">
-                                        <img src="{{ asset('public/front/img/user1.png')}}" alt="Avatar" class="rounded-circle w-100 h-100" />
-                                    </li>
-                                    <li class="avatar avatar-xs pull-up position-relative">
-                                        <img src="{{ asset('public/front/img/user2.png')}}" alt="Avatar" class="rounded-circle w-100 h-100" />
-                                    </li>
-                                    <li class="avatar avatar-xs pull-up position-relative">
-                                        <img src="{{ asset('public/front/img/user3.png')}}" alt="Avatar" class="rounded-circle w-100 h-100" />
-                                    </li>
+                                   
+                                    @foreach($course->SubscriptionCount as $student)
                                     <li class="avatar avatar-xs pull-up position-relative">
                                         <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
                                     </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             @endif

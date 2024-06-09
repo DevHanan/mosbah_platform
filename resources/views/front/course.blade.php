@@ -182,7 +182,7 @@
                                                         {{ $lecture->title }}
 
                                                         @if($lecture->free == 0)
-                                                        <p style="padding:0px 5px;margin:0px 0px 0px -135px;"><i class="fas fa-lock"></i> </p>
+                                                        <p style="margin:0px;"><i class="fas fa-lock"></i> </p>
                                                         @endif
 
                                                     </button>

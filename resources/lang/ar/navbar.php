@@ -5,7 +5,7 @@ return [
     'add_user' => "إضافة مستخدم",
     "user_managment" => "المستخدمين",
     "countries" => "الدول",
-    "paymenttypes" => "وسائل  الدفع ",
+    "paymenttypes" => "وسائل الدفع ",
     "master_data"  => "الإعدادت",
     'students' => [
         "student_managment"  => "إدارة الطلاب",

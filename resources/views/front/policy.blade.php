@@ -27,10 +27,10 @@
                   <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                       <div>
                           <h3> {{ $policy->title }}</h2>
-                          <p class="mt-4">  {{ $policy->description }}</p>
+                          <p class="mt-4">  {!! $policy->description !!}</p>
                       </div>
                       <div>
-                          <a href="{{ asset($policy->file )}}" class="btn btn-success primary-bg" download="{{ asset($policy->file )}}">
+                          <a href="{{ asset($policy->file )}}" class="btn btn-success primary-bg"  target="_blank" download="{{ asset($policy->file )}}">
                              <!-- <img src="{{ asset($policy->file )}}" alt=""> -->
                               تنزيل </a>
                       </div>

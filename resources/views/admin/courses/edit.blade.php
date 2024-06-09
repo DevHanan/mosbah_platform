@@ -48,7 +48,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                <input type="number" class="form-control" name="price" id="price" value="{{ old('price',$row) }}" required>
+                <input type="number" min="0" class="form-control" name="price" id="price" value="{{ old('price',$row) }}" required>
 
                 @error('price')
                 <div class="invalid-feedback">
@@ -59,7 +59,7 @@
 
               <div class="mb-3">
                 <label class="form-label" for="period"> {{ __('admin.courses.period') }} <span>*</span></label>
-                <input type="number" class="form-control" name="period" id="period" value="{{ old('period',$row) }}" required>
+                <input type="number" min="0" class="form-control" name="period" id="period" value="{{ old('period',$row) }}" required>
 
                 @error('period')
                 <div class="invalid-feedback">
@@ -157,7 +157,7 @@
 
               <div class="mb-3">
                 <label class="form-label" for="price_with_discount"> {{ __('admin.courses.price_with_discount') }} <span>*</span></label>
-                <input type="number" class="form-control" name="price_with_discount" id="price_with_discount" value="{{ old('price_with_discount',$row) }}" required>
+                <input type="number" min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="{{ old('price_with_discount',$row) }}" required>
 
                 @error('price_with_discount')
                 <div class="invalid-feedback">
@@ -217,7 +217,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" for="seat_number"> {{ __('admin.courses.seat_number') }} <span>*</span></label>
-                <input type="number" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number',$row) }}" required>
+                <input type="number" min="0" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number',$row) }}" required>
 
                 @error('seat_number')
                 <div class="invalid-feedback">
@@ -328,8 +328,8 @@
                             @endforeach
                           </select>
                         </td>
-                        <td><input type="number" name="instructorsprice[]" value="0" placeholder="قيمة شراء الدورة من المدرب" /></td>
-                        <td><input type="number" name="instructorsprecentage[]" value="0" placeholder="ربح المدرب من كل اشتراك" /></td>
+                        <td><input type="number" min="0" name="instructorsprice[]" value="0" placeholder="قيمة شراء الدورة من المدرب" /></td>
+                        <td><input type="number" min="0" name="instructorsprecentage[]" value="0" placeholder="ربح المدرب من كل اشتراك" /></td>
                         <td><a type="button" value="Delete" onclick="deleteRow(this)">
                             <i class="fas fa-trash-alt"></i>
                           </a></td>
@@ -341,8 +341,8 @@
                             <option value="{{$item->id}}" selected> {{ $item->name }}</option>
                           </select>
                         </td>
-                        <td><input type="number" name="instructorsprice[]" value="{{$item->pivot->course_price}}" placeholder="قيمة شراء الدورة من المدرب" /></td>
-                        <td><input type="number" name="instructorsprecentage[]" value="{{$item->pivot->course_prectange}}" placeholder="ربح المدرب من كل اشتراك" /></td>
+                        <td><input type="number" min="0" name="instructorsprice[]" value="{{$item->pivot->course_price}}" placeholder="قيمة شراء الدورة من المدرب" /></td>
+                        <td><input type="number" min="0" name="instructorsprecentage[]" value="{{$item->pivot->course_prectange}}" placeholder="ربح المدرب من كل اشتراك" /></td>
                         <td><a type="button" value="Delete" onclick="deleteRow(this)">
                             <i class="fas fa-trash-alt"></i>
                           </a></td>

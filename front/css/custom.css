@@ -450,7 +450,7 @@ ol.que_answer > li:nth-child(28)::before { content: "غـ"; }
   filter: blur(45px);
 }
 img.card__img.img-fluid.w-100.h-100 {
-  height: 175px !important;
+  height: 170px !important;
 }
 .card__description {font-weight: 500;margin-bottom: 1.75rem;}
 /* Swiper class */

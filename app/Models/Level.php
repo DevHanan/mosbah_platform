@@ -22,7 +22,8 @@ class Level extends Model
         if ($this->period ==1)
          return  trans('admin.levels.day');
        
-        else
+        elseif ($this->period ==2 )
+
         return  trans('admin.levels.hour');   
        }
     public function course()

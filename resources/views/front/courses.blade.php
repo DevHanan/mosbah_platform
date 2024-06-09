@@ -33,7 +33,7 @@
                         <button class="btn w-100 rounded-pill fw-bold text-center secondary-bg text-white" type="submit"> تصفية النتائج</button>
                         <div class="search position-relative">
                             <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟" name="name">
-                            <i class="fa-solid fa-search p-2 h-100 position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top: 0;"></i>
+                            <i class="fa-solid fa-search p-2  position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top: 0;"></i>
                         </div>
 
                         <div class="my-5 p-4 pb-1 category rounded">
@@ -273,9 +273,9 @@
                             <article class="rounded mt-4 shadow">
                                 <div class="row">
                                     <div class="col-12 paginationCardImg">
-                                        <div class="card__image h-100 p-2">
+                                        <div class="card__image  p-2">
                                             <a href="{{ url('course/'.$course->id)}}">
-                                                <img src="{{asset('public/'.$course->image)}}"  alt="image" class="card__img img-fluid w-100 h-100">
+                                                <img src="{{asset('public/'.$course->image)}}"  alt="image" class="card__img img-fluid w-100 ">
                                             </a>
                                             <div class="card_category position-absolute rounded text-dark px-2 py-1">
                                                 @if($course->tracks)

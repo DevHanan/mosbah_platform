@@ -109,6 +109,8 @@
                     @if($lecture->photos)
                     <section class="container py-3 mb-3 gallay-all">
                         <div class="row">
+                        <h3 class="fw-bold primary-color position-relative mb-5">الصور المرفقة</h3>
+
                             @foreach($lecture->photos as $item)
                             @if($loop->iteration == 1)
                             <div class="col-md-5 mb-4">

@@ -23,7 +23,7 @@
                         <h3 class="fw-bold text-center mb-4">
                         @foreach($course->tracks as $track)
 
-                            <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-white">{{ $track->name }}</a>
+                            <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none btn-info">{{ $track->name }}</a>
                             @endforeach
 
                         </h3>

@@ -23,15 +23,17 @@
 
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
-        <script>
-			    $(document).ready(function(){
-            ClassicEditor
-                .create(document.querySelectorAll('textarea'))
-                .catch(error => {
-                    console.error(error);
-                });
-			});
-        </script>
+<script>
+	$(document).ready(function() {
+		document.querySelectorAll('textarea').forEach(textarea => {
+			ClassicEditor
+				.create(textarea)
+				.catch(error => {
+					console.error(error);
+				});
+		});
+	});
+</script>
 
 <script>
 	// @formatter:off
@@ -429,166 +431,165 @@
 	'use strict';
 	$(document).ready(function() {
 		$('.export-table').DataTable({
-                dom: 'Bfrtip',
-                language: {
-        url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
-    },
-                buttons: [
-                   
-                    // {
-                    //     extend: 'excelHtml5',
-                    //     className: 'btn btn-primary excel-export-button',
-                    //     text: 'إكسل',
-                    //     exportOptions: {
-                    //         columns: ':not(:last-child)',
-                    //     },
-                        
+			dom: 'Bfrtip',
+			language: {
+				url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
+			},
+			buttons: [
 
-                    // },
-                   
-                    // {
-                    //     extend: 'pdfHtml5',
-                    //     text: 'PDF',
-                    //     exportOptions: {
-                    //         columns: ':not(:last-child)',
-                    //     }
-                    // },
-                    
-                ]
-            });
+				// {
+				//     extend: 'excelHtml5',
+				//     className: 'btn btn-primary excel-export-button',
+				//     text: 'إكسل',
+				//     exportOptions: {
+				//         columns: ':not(:last-child)',
+				//     },
+
+
+				// },
+
+				// {
+				//     extend: 'pdfHtml5',
+				//     text: 'PDF',
+				//     exportOptions: {
+				//         columns: ':not(:last-child)',
+				//     }
+				// },
+
+			]
+		});
 	});
-	
 </script>
 
 <script>
-        $(document).ready(function() {
-            $('.select2').select2();
-        });
+	$(document).ready(function() {
+		$('.select2').select2();
+	});
 
 
-        let categoryCards = document.querySelector('.categoryCards');
-        let rowsCards = document.querySelector('.rowsCards');
-        let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
-        let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
-        let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+	let categoryCards = document.querySelector('.categoryCards');
+	let rowsCards = document.querySelector('.rowsCards');
+	let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
+	let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
+	let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
 
-        rowsCards.addEventListener('click', function() {
-            categoryCards.classList.remove('active');
-            rowsCards.classList.add('active');
+	rowsCards.addEventListener('click', function() {
+		categoryCards.classList.remove('active');
+		rowsCards.classList.add('active');
 
-            paginationCards.forEach(paginationCard => {
-                paginationCard.classList.add('col-sm-12');
-            });
-            paginationCardsImg.forEach(paginationCardImg => {
-                paginationCardImg.classList.remove('col-12');
-                paginationCardImg.classList.add('col-4');
-            });
-            paginationCardsData.forEach(paginationCardData => {
-                paginationCardData.classList.remove('col-12');
-                paginationCardData.classList.add('col-8');
-            });
+		paginationCards.forEach(paginationCard => {
+			paginationCard.classList.add('col-sm-12');
+		});
+		paginationCardsImg.forEach(paginationCardImg => {
+			paginationCardImg.classList.remove('col-12');
+			paginationCardImg.classList.add('col-4');
+		});
+		paginationCardsData.forEach(paginationCardData => {
+			paginationCardData.classList.remove('col-12');
+			paginationCardData.classList.add('col-8');
+		});
 
-            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+		let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
 
-            paginationCardsDesc.forEach(paginationCardDesc => {
-                paginationCardDesc.style.cssText = 'white-space: normal;';
-            });
-        });
+		paginationCardsDesc.forEach(paginationCardDesc => {
+			paginationCardDesc.style.cssText = 'white-space: normal;';
+		});
+	});
 
-        categoryCards.addEventListener('click', function() {
-            rowsCards.classList.remove('active');
-            categoryCards.classList.add('active');
+	categoryCards.addEventListener('click', function() {
+		rowsCards.classList.remove('active');
+		categoryCards.classList.add('active');
 
-            paginationCards.forEach(paginationCard => {
-                paginationCard.classList.remove('col-sm-12');
+		paginationCards.forEach(paginationCard => {
+			paginationCard.classList.remove('col-sm-12');
 
-                paginationCardsImg.forEach(paginationCardImg => {
-                    paginationCardImg.classList.remove('col-4');
-                    paginationCardImg.classList.add('col-12');
-                });
-                paginationCardsData.forEach(paginationCardData => {
-                    paginationCardData.classList.remove('col-8');
-                    paginationCardData.classList.add('col-12');
-                });
-            });
+			paginationCardsImg.forEach(paginationCardImg => {
+				paginationCardImg.classList.remove('col-4');
+				paginationCardImg.classList.add('col-12');
+			});
+			paginationCardsData.forEach(paginationCardData => {
+				paginationCardData.classList.remove('col-8');
+				paginationCardData.classList.add('col-12');
+			});
+		});
 
-            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+		let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
 
-            paginationCardsDesc.forEach(paginationCardDesc => {
-                paginationCardDesc.style.cssText = 'white-space: nowrap;';
-            });
-        });
-    </script>
-	<script>
-$(document).ready(function() {
-    $('#track_id').on('change', function() {
-        var track_id = $(this).val();
-        if (track_id) {
-            $.ajax({
-                url: "{{ route('admin.getCourses') }}",
-                type: "GET",
-                data: {
-                    'track_id': track_id
-                },
-                dataType: "json",
-                success: function(data) {
-					var html = '<option value="">Select Course</option>';
-                    $.each(data, function (index, value) {
-                        html += '<option value="' + value.id + '">' + value.name + '</option>';
-                    });
-                    $('#courses').html(html);
-                }
-            })
-        }
-    });
-	$('#course_id').on('change', function() {
-        var course_id = $(this).val();
-        if (course_id) {
-            $.ajax({
-                url: "{{ route('admin.getLevels') }}",
-                type: "GET",
-                data: {
-                    'course_id': course_id
-                },
-                dataType: "json",
-                success: function(data) {
-					var html = '<option value="">Select Level</option>';
-                    $.each(data, function (index, value) {
-                        html += '<option value="' + value.id + '">' + value.name + '</option>';
-                    });
-                    $('#levels').html(html);
-                }
-            })
-        }
-    });
-	$('#levels').on('change', function() {
-        var level_id = $(this).val();
-        if (level_id) {
-            $.ajax({
-                url: "{{ route('admin.getLectures') }}",
-                type: "GET",
-                data: {
-                    'level_id': level_id
-                },
-                dataType: "json",
-                success: function(data) {
-					var html = '<option value="">Select Lecture</option>';
-                    $.each(data, function (index, value) {
-                        html += '<option value="' + value.id + '">' + value.title + '</option>';
-                    });
-                    $('#lectures').html(html);
-                }
-            })
-        }
-    });
-	
-
-	document.querySelector('#start_date').addEventListener('keydown', (e) => {
-  e.preventDefault();
-});
-document.querySelector('#end_date').addEventListener('keydown', (e) => {
-  e.preventDefault();
-});
-});
+		paginationCardsDesc.forEach(paginationCardDesc => {
+			paginationCardDesc.style.cssText = 'white-space: nowrap;';
+		});
+	});
 </script>
-	</script>
+<script>
+	$(document).ready(function() {
+		$('#track_id').on('change', function() {
+			var track_id = $(this).val();
+			if (track_id) {
+				$.ajax({
+					url: "{{ route('admin.getCourses') }}",
+					type: "GET",
+					data: {
+						'track_id': track_id
+					},
+					dataType: "json",
+					success: function(data) {
+						var html = '<option value="">Select Course</option>';
+						$.each(data, function(index, value) {
+							html += '<option value="' + value.id + '">' + value.name + '</option>';
+						});
+						$('#courses').html(html);
+					}
+				})
+			}
+		});
+		$('#course_id').on('change', function() {
+			var course_id = $(this).val();
+			if (course_id) {
+				$.ajax({
+					url: "{{ route('admin.getLevels') }}",
+					type: "GET",
+					data: {
+						'course_id': course_id
+					},
+					dataType: "json",
+					success: function(data) {
+						var html = '<option value="">Select Level</option>';
+						$.each(data, function(index, value) {
+							html += '<option value="' + value.id + '">' + value.name + '</option>';
+						});
+						$('#levels').html(html);
+					}
+				})
+			}
+		});
+		$('#levels').on('change', function() {
+			var level_id = $(this).val();
+			if (level_id) {
+				$.ajax({
+					url: "{{ route('admin.getLectures') }}",
+					type: "GET",
+					data: {
+						'level_id': level_id
+					},
+					dataType: "json",
+					success: function(data) {
+						var html = '<option value="">Select Lecture</option>';
+						$.each(data, function(index, value) {
+							html += '<option value="' + value.id + '">' + value.title + '</option>';
+						});
+						$('#lectures').html(html);
+					}
+				})
+			}
+		});
+
+
+		document.querySelector('#start_date').addEventListener('keydown', (e) => {
+			e.preventDefault();
+		});
+		document.querySelector('#end_date').addEventListener('keydown', (e) => {
+			e.preventDefault();
+		});
+	});
+</script>
+</script>

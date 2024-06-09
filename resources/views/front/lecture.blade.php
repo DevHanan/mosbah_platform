@@ -13,21 +13,21 @@
                     <div class="position-relative w-100 gallery-item mt-3" style="height: 400px;">
                         @if($lecture->link && $lecture->provider == 2)
 
-                            <iframe type='text/html' style="max-height: 220px;" src="{{$lecture->link}}" width='100%' height='500' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe type='text/html' style="max-height: 220px;" src="{{$lecture->link}}" width='100%' height='500' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                         @elseif($lecture->link && $lecture->provider == 1)
-                            <iframe src="{{$lecture->link}}" style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe src="{{$lecture->link}}" style="max-height: 220px;" frameborder="0" width='100%' height='500' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                         @else
                         <a href="{{$lecture->link}}" target="_blank">
 
-                        <video id="myVideo" class="w-100 h-100" poster="{{asset('public/front/img/video-img.png')}}" style="object-fit: cover;">
-                            <source src="{{$lecture->link}}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
-                            <i class="fa-solid fa-play text-white"></i>
-                        </div>
+                            <video id="myVideo" class="w-100 h-100" poster="{{asset('public/front/img/video-img.png')}}" style="object-fit: cover;">
+                                <source src="{{$lecture->link}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div id="playButton" class="position-absolute play-icon p-3 rounded-pill d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-play text-white"></i>
+                            </div>
                         </a>
                         @endif
 
@@ -74,6 +74,38 @@
                             {!! $lecture->description !!}
                         </p>
                     </div>
+
+                    @if($lecture->books)
+
+                    <div class="content-book">
+                        <h3 class="fw-bold primary-color position-relative mb-5">الكتب المرفقة</h3>
+                        <div class="container">
+                            <div class="row">
+                                @foreach($lecture->books as $book)
+                                <div class="col-lg-6">
+                                    <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
+                                        <div>
+                                            <h3> {{ $book->title }}</h2>
+                                        </div>
+                                        <div>
+                                            @if(isset($book->link))
+                                            <a href="{{asset($book->link)}}" target="_blank" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
+                                            @elseif($book->file)
+                                            <a href="{{asset($book->file)}}" target="_blank" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
+                                            @else
+                                            لا يوجد محتوى للعرض
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+
+
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
                     @if($lecture->photos)
                     <section class="container py-3 mb-3 gallay-all">
                         <div class="row">
@@ -98,36 +130,6 @@
                                     </div>
                     </section>
                     @endif
-
-                    <div class="content-book">
-                        <h3 class="fw-bold primary-color position-relative mb-5">الكتب المرفقة</h3>
-                        <div class="container">
-                            <div class="row">
-                                @if($lecture->books)
-                                @foreach($lecture->books as $book)
-                                <div class="col-lg-6">
-                                    <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                                        <div>
-                                            <h3> {{ $book->title }}</h2>
-                                        </div>
-                                        <div>
-                                            @if(isset($book->link))
-                                            <a href="{{asset($book->link)}}" target="_blank" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
-                                            @elseif($book->file)
-                                            <a href="{{asset($book->file)}}" target="_blank" class="btn btn-success primary-bg" download=""> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
-                                            @else
-                                            لا يوجد محتوى للعرض
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                                @endif
-
-
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
             </div>

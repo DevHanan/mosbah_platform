@@ -344,7 +344,7 @@ return [
         'telegram_number' => 'رقم تليجرام',
         'linkedin_url' => 'لينكد ان',
         'tiktok_url' => 'تيك توك',
-        "field_register_image" => "صورة الخاصة بإنشاء حساب بواجهه الزوار",
+        "field_register_image" => "صورة الخاصة بإنشاء حساب جديد ",
         "field_login_image" => "صورة الخاصة بتسجيل حساب  بواجهه الزوار",
         'title'  => 'الاعدادت',
         'general_setting' => 'إعدادات عامة',

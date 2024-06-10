@@ -4,7 +4,7 @@
 @include('front.layouts.common.navbar')
 <div class="blogs">
         
-        <section class="news-titles titles d-flex justify-content-between p-5" style="direction: ltr;">
+        <section class="news-titles titles d-flex justify-content-between p-5" style="direction: rtl;">
             <div class="mb-2" style="direction: rtl;">
               <label for="" class="form-label">تصفية حسب التاريخ</label>
               <div class="d-flex align-items-center filter-by-date">

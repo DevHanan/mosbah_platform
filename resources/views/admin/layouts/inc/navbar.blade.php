@@ -57,11 +57,11 @@
 
 
           @if(auth()->guard('web')->user())
-          <span class="avatar avatar-sm" style="background-image: asset(auth()->guard('web')->user()->photo)"></span>
+          <span class="avatar avatar-sm" style="background-image: asset({{auth()->guard('web')->user()->photo}})"></span>
           @elseif(auth()->guard('instructors-login')->user())
-          <span class="avatar avatar-sm" style="background-image: asset(auth()->guard('instructors-login')->user()->photo)"></span>
+          <span class="avatar avatar-sm" style="background-image: asset({{auth()->guard('instructors-login')->user()->imageFullPath}})"></span>
           @else
-          <span class="avatar avatar-sm" style="background-image: asset(auth()->guard('students-login')->user()->photo)"></span>
+          <span class="avatar avatar-sm" style="background-image: asset({{auth()->guard('students-login')->user()->imageFullPath}})"></span>
           @endif
 
           <span>

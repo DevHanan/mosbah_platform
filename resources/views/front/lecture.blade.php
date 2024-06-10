@@ -89,9 +89,9 @@
                                         </div>
                                         <div>
                                             @if(isset($book->link))
-                                            <a href="{{asset($book->link)}}" target="_blank" class="btn btn-success primary-bg" > <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
+                                            <a href="{{asset($book->link)}}"  style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg" > <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
                                             @elseif($book->file)
-                                            <a href="{{asset($book->file)}}" target="_blank" class="btn btn-success primary-bg" download="{{asset($book->file)}}"> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
+                                            <a href="{{asset($book->file)}}" style="padding:10px 5px 10px 5px;"  target="_blank" class="btn btn-success primary-bg" download="{{asset($book->file)}}"> <img src="{{asset('public/front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
                                             @else
                                             لا يوجد محتوى للعرض
                                             @endif

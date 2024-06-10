@@ -73,7 +73,7 @@
                                         </td>
                                         <td> {{ optional($row->paymentType)->name }}</td>
                                         <td>
-                                            @if($row->billFullPath)
+                                            @if($row->bill )
                                             <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
                                                 <img src="{{asset($row->billFullPath)}}" style="width:40px"> </a>
                                             @else

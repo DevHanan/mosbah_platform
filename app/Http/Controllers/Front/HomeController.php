@@ -68,7 +68,7 @@ class HomeController extends Controller
     
     public function blog($id)
     {
-        $blog = Blog::active()->where('id',$id)->get();
+        $blog = Blog::active()->where('id',$id)->first();
         return view('front.blog',compact('blog'));
     }
 

@@ -3,31 +3,35 @@
 @section('content')
 @include('front.layouts.common.navbar')
 <div class="blog-details">
-        <div class="header text-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="header-content container d-flex justify-content-center flex-column h-100 mb-4">
-                            <h2 class="mb-4"> {{ $blog->title }}</h2>
-                            <p>
-        {!!  $blog->description !!}
+    <div class="header text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="header-content container d-flex justify-content-center flex-column h-100 mb-4">
+                        <h2 class="mb-4"> {{ $blog->title }}</h2>
+                        <p>
+                            {!! $blog->description !!}
                         </p>
-                            <p style="font-size: 14px;">{{ $blog->published_at->format('l, F j, Y')  }}</p>
-                        </div>
+                        <p style="font-size: 14px;">{{ $blog->published_at->format('l, F j, Y')  }}</p>
                     </div>
-                    <div class="col-lg-7">
-                        <img src="public/front/img/image 44.png" class="img-fluid" alt="">
-                    </div>
+                </div>
+                <div class="col-lg-7">
+                    @if($blog->main_image)
+                    <img class="img-fluid" src="{{ asset($blog->imageFullPath)}}" >
+                    @else
+                    <img src="{{asset('front/img/image 44.png')}}" class="img-fluid" alt="">
+                    @endif
                 </div>
             </div>
         </div>
-    
-        <section class="container">
-           <div class="more-news p-4 my-5">
-                <h2>المزيد عن الخبر</h2>
-                            <p> {!! $blog->more_details  !!}</p>
-            </div>
-           <!-- <section class="container pt-3 gallay-all">
+    </div>
+
+    <section class="container">
+        <div class="more-news p-4 my-5">
+            <h2>المزيد عن الخبر</h2>
+            <p> {!! $blog->more_details !!}</p>
+        </div>
+        <!-- <section class="container pt-3 gallay-all">
             <div class="row">
               <div class="col-md-5 mb-4">
                   <div class="position-relative w-100 h-100 gallery-item">
@@ -57,9 +61,9 @@
               </div>
             </div>
           </section> -->
-        </section>
-    
-        <!-- <section class="container my-5 news-cards">
+    </section>
+
+    <!-- <section class="container my-5 news-cards">
           <h1 class="text-center fw-bold primary-color mb-5"> أخبار ذات صلة </h1>
           <div class="row">
             <div class="col-lg-4 col-sm-6">
@@ -110,5 +114,5 @@
           </div>
     
         </section> -->
-    </div>
+</div>
 @endsection

@@ -77,8 +77,8 @@
                             <div class="row">
                                 <div class="form-group mb-3 position-relative">
                                     <i class="fa-solid fa-user secondary-color position-absolute" style="top: 13px ; right: 25px;"></i>
-                                    @if(auth()->user())
-                                    <input type="text" class="form-control pe-5 py-2" value="{{auth()->user()->name}}" name="name">
+                                    @if( auth()->guard('students-login')->user() )
+                                    <input type="text" class="form-control pe-5 py-2" value="{{ auth()->guard('students-login')->user() ->name}}" name="name">
                                     @else
                                     <input type="text" class="form-control pe-5 py-2" placeholder="الاسم" name="name" required>
                                     @endif
@@ -86,8 +86,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3 position-relative">
                                         <i class="fa-solid fa-envelope secondary-color position-absolute" style="top: 13px; right: 14px;"></i>
-                                        @if(auth()->user())
-                                        <input type="email" class="form-control pe-5 py-2" value="{{auth()->user()->email}}" name="email" readonly>
+                                        @if( auth()->guard('students-login')->user() )
+                                        <input type="email" class="form-control pe-5 py-2" value="{{ auth()->guard('students-login')->user() ->email}}" name="email" readonly>
 
                                         @else
                                         <input type="email" class="form-control pe-5 py-2" placeholder="البريد الالكتروني" name="email" required>
@@ -97,8 +97,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3 position-relative">
                                         <i class="fa-solid fa-phone secondary-color position-absolute" style="top: 13px; right: 17px;"></i>
-                                        @if(auth()->user())
-                                        <input type="text" class="form-control pe-5 py-2" value="{{ auth()->user()->phone }}" name="phone" readonly>
+                                        @if( auth()->guard('students-login')->user() )
+                                        <input type="text" class="form-control pe-5 py-2" value="{{  auth()->guard('students-login')->user() ->phone }}" name="phone" readonly>
                                         @else
                                         <input type="text" class="form-control pe-5 py-2" placeholder="رقم الهاتف" name="phone" required>
                                         @endif

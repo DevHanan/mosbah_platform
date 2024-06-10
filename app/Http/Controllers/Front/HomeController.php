@@ -185,7 +185,7 @@ class HomeController extends Controller
         $coupon = Coupon::where('code', $request->code)->where('course_id', $request->course_id)->first();
         $course = Course::find($request->course_id);
         if ($coupon){
-             if($coupon->activ == '0' ||  $coupon->start_date > Carbon::today()  || $coupon->end_date < Carbon::today() ){
+             if($coupon->active == '0' ||  $coupon->start_date > Carbon::today()  || $coupon->end_date < Carbon::today() ){
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Coupon has been deactivated',

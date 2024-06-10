@@ -294,6 +294,7 @@
 
 @push('frontscript')
 <script>
+    $('document').ready(function(){
         // counter
         const counters = document.querySelectorAll(".count");
         const speed = 700;
@@ -335,5 +336,6 @@
         };
         
         counters.forEach(startCounterIfVisible);
+    });
     </script>
 @endpush

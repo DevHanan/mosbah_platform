@@ -33,7 +33,7 @@
                             </a>
                             <p class="card-text" style="color: #6C757D;"> {!!  $blog->description !!}</p>
                             <div class="cardFooter d-flex justify-content-between align-items-center">
-                                <div class="card-date primary-color fw-bold">04:30 - 18 نوفمبر 2023</div>
+                                <div class="card-date primary-color fw-bold">{{ $blog->published_at->toDayDateTimeString() }} </div>
                                 <a href="{{url('/blog/'.$blog->id)}}" class="btn btn-success primary-bg border-0">عرض التفاصيل</a>
                             </div>
                         </div>
@@ -42,21 +42,7 @@
                   @endforeach
     
                   
-                  <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
-                    <ul id="pagination" class="pagination align-items-center">
-                        <li class="page-item">
-                            <a id="prevPageBtn" class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <!-- Numbered pagination buttons will be added dynamically here -->
-                        <li class="page-item">
-                            <a id="nextPageBtn" class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                 {{ $blogs->links() }}
               </div>
           </section>
         </div>   

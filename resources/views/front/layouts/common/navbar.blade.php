@@ -90,16 +90,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is('/')) active @endif" href="{{url('/')}}">الرئيسية</a>
+          <a class="nav-link  @if(Request::url() === '/') active @endif" href="{{url('/')}}">الرئيسية</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if(Request::is('about-us')) active @endif" href="{{ url('/about-us')}}">من نحن</a>
+          <a class="nav-link @if(Request::url() === 'about-us' ) active @endif" href="{{ url('/about-us')}}">من نحن</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is(['courses','course/*']) ) active @endif" href="{{url('/courses')}}">الدورات</a>
+          <a class="nav-link  @if(Request::is(['courses','course/*'])) active @endif" href="{{url('/courses')}}">الدورات</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is(['blogs','blog/*']) ) active @endif" href="{{url('/blogs')}}">المدونة</a>
+          <a class="nav-link  @if(Request::is(['blogs','blog/*'])) active @endif" href="{{url('/blogs')}}">المدونة</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">حساب التنسيق</a>

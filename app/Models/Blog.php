@@ -13,6 +13,9 @@ class Blog extends Model
 
     protected $fillable = array('title','description','more_details','active');
 
+    protected $casts = [
+        'published_at' => 'datetime', // Update or remove this line
+    ];
     public function getImageFullPathAttribute($value)
     {
 

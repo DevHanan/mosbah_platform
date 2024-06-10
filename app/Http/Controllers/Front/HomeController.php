@@ -62,6 +62,7 @@ class HomeController extends Controller
     public function blogs()
     {
         $blogs = Blog::active()->get();
+        return $blogs;
         return view('front.blogs',compact('blogs'));
     }
 

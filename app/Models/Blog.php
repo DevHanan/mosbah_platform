@@ -18,10 +18,7 @@ class Blog extends Model
 
     protected  function getCustomPublishdateAttribute()
     {
-        // $formatter = new  \IntlDateFormatter('ar',  \IntlDateFormatter::NONE,  \IntlDateFormatter::SHORT, 'Asia/Riyadh',  \IntlDateFormatter::TRADITIONAL);
-        // $formatter->setPattern('d MMMM yyyy'); // custom pattern
-        // return $formatter->format(strtotime($this->published_at));
-
+       
 
         $dateFormatter = new \IntlDateFormatter('ar', \IntlDateFormatter::SHORT, \IntlDateFormatter::SHORT, 'Asia/Riyadh', \IntlDateFormatter::TRADITIONAL);
         $dateFormatter->setPattern('HH:mm - d MMMM yyyy');

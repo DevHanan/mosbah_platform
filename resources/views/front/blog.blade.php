@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-7">
                     @if($blog->main_image)
-                    <img class="img-fluid" src="{{ asset($blog->imageFullPath)}}" >
+                    <img class="img-fluid" src="{{ asset($blog->imageFullPath)}}"  style="width:100%;">
                     @else
                     <img src="{{asset('front/img/image 44.png')}}" class="img-fluid" alt="">
                     @endif

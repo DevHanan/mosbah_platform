@@ -83,11 +83,11 @@ a[data-title]:hover::after {
   white-space: nowrap;
 }
 
-button[data-title] {
+button.btn.btn-icon.btn-danger.btn-sm[data-title] {
   position: relative;
 }
 
-button[data-title]:hover::after {
+button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
   content: attr(data-title);
   font-size: 14px;
   color: white;

@@ -33,6 +33,8 @@ Route::get('/contactus', [HomeController::class, 'contactus']);
 Route::get('/books', [HomeController::class, 'books']);
 Route::get('/book', [HomeController::class, 'book']);
 Route::get('/blogs', [HomeController::class, 'blogs']);
+Route::get('/blog/{id}', [HomeController::class, 'blog']);
+
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 

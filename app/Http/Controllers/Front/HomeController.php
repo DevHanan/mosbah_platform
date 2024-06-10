@@ -65,6 +65,13 @@ class HomeController extends Controller
         return view('front.blogs',compact('blogs'));
     }
 
+    
+    public function blog($id)
+    {
+        $blog = Blog::active()->where('id',$id)->get();
+        return view('front.blog',compact('blog'));
+    }
+
     public function policy()
     {
         $title = 'السياسات والشروط';
@@ -84,10 +91,7 @@ class HomeController extends Controller
     {
         return view('front.book');
     }
-    public function blog()
-    {
-        return view('front.blog');
-    }
+  
     public function course($id)
     {
 

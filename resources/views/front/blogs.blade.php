@@ -33,7 +33,7 @@
                             </a>
                             <p class="card-text" style="color: #6C757D;"> {!!  $blog->description !!}</p>
                             <div class="cardFooter d-flex justify-content-between align-items-center">
-                                <div class="card-date primary-color fw-bold">{{ $blog->published_at->toDayDateTimeString() }} </div>
+                                <div class="card-date primary-color fw-bold">{{ Carbon::parse($blog->published_at)->toDayDateTimeString() }} </div>
                                 <a href="{{url('/blog/'.$blog->id)}}" class="btn btn-success primary-bg border-0">عرض التفاصيل</a>
                             </div>
                         </div>

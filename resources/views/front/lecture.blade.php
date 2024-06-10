@@ -91,7 +91,7 @@
 
                                             @if($book->file)
                                             <a href="{{asset($book->file)}}" style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg" download="{{asset($book->file)}}"> <img src="{{asset('front/img/icons/material-symbols_download.png')}}" alt=""> تنزيل </a>
-                                            @else if(isset($book->link))
+                                            @elseif(isset($book->link))
                                             <a href="{{asset($book->link)}}" style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg"> <img src="{{asset('front/img/icons/material-symbols_download.png')}}" alt=""> فتح الرابط </a>
                                             @else
                                             لا يوجد محتوى للعرض

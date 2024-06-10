@@ -67,9 +67,9 @@
 <style>
   a[data-title]:hover::after {
   content: attr(data-title);
-  font-size: 14px;
+  font-size: 10px;
   color: white;
-  background-color: blue;
+  background-color: #32577b;
   padding: 5px;
   border-radius: 5px;
 }

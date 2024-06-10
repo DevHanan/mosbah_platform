@@ -81,7 +81,7 @@
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm" title="Edit">
                       <span class="far fa-edit "></span>
                     </a>
 

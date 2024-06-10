@@ -55,6 +55,16 @@
       <div class="nav-item dropdown">
         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" href="#navbar-layout" data-bs-toggle="dropdown" aria-label="Open user menu">
           <span class="avatar avatar-sm" style="background-image: asset(dist/static/avatars/000m.jpg)"></span>
+          <span>
+
+            @if(auth()->guard('web')->user())
+            {{ auth()->user()->name }}
+            @elseif(auth()->guard('instructors-login')->user())
+            {{ auth()->guard('instructors-login')->user()->name }}
+            @else
+            {{ auth()->guard('students-login')->user()->name }}
+            @endif
+          </span>
           <div class="d-none d-xl-block ps-2">
             <div>
               @if(auth()->guard('web')->user())

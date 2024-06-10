@@ -42,7 +42,6 @@
                   @endforeach
     
                   
-                 {{ $blogs->links() }}
               </div>
           </section>
         </div>   

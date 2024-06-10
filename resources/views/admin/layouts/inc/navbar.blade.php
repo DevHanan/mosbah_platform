@@ -88,7 +88,37 @@
             {{ auth()->guard('students-login')->user()->name }}
             @endif
           </a>
-          <!-- <div class="dropdown-divider"></div> -->
+          <div class="dropdown-divider"></div>
+
+          @if(auth()->guard('students-login')->user() )
+          <a href="javascript:void(0);" 
+        class="mx-3 p-2 text-decoration-none text-dark" 
+        href="#" onclick="event.preventDefault();
+        document.getElementById('student-logout-form').submit();">
+
+          تسجيل الخروج
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+
+        </a>
+
+        <form id="student-logout-form" action="{{ route('student.student-logout') }}" method="POST">
+          @csrf
+        </form>
+          @elseif(auth()->guard('instructors-login')->user() )
+          <a href="javascript:void(0);" 
+        class="mx-3 p-2 text-decoration-none text-dark" 
+        href="#" onclick="event.preventDefault();
+        document.getElementById('instructor-logout-form').submit();">
+
+          تسجيل الخروج
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </a>
+
+        <form id="instructor-logout-form" action="{{ route('instructor.instructor-logout') }}" method="POST">
+          @csrf
+        </form>
+          @else
+          
           <a href="javascript:void(0);" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
 
@@ -98,6 +128,8 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
           </form>
+          @endif
+
         </div>
       </div>
 

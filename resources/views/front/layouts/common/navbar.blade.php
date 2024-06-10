@@ -90,10 +90,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link  @if(Request::url() === '/') active @endif" href="{{url('/')}}">الرئيسية</a>
+          <a class="nav-link  @if(Request::path() === '/') active @endif" href="{{url('/')}}">الرئيسية</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if(Request::url() === 'about-us' ) active @endif" href="{{ url('/about-us')}}">من نحن</a>
+          <a class="nav-link @if(Request::path() === '/about-us' ) active @endif" href="{{ url('/about-us')}}">من نحن</a>
         </li>
         <li class="nav-item">
           <a class="nav-link  @if(Request::is(['courses','course/*'])) active @endif" href="{{url('/courses')}}">الدورات</a>

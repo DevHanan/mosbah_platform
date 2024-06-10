@@ -68,11 +68,11 @@ class TicketController extends Controller
 
     public function destroy(Request $request)
     {
-        $coupon =  Coupon::find($request->id);
-        if ($coupon)
-            $coupon->delete();
+        $ticket =  Ticket::find($request->id);
+        if ($ticket)
+            $ticket->delete();
         Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
-        return redirect()->route($this->route . '.index');
+        return redirect()->back();
     }
 
     public function changeStatus(Request $request){

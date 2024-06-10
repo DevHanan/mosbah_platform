@@ -63,6 +63,15 @@
           @else
           <span class="avatar avatar-sm" style="background-image: url({{auth()->guard('students-login')->user()->imageFullPath}})"></span>
           @endif
+          <span>
+            @if(auth()->guard('web')->user())
+            {{ auth()->user()->name }}
+            @elseif(auth()->guard('instructors-login')->user())
+            {{ auth()->guard('instructors-login')->user()->name }}
+            @else
+            {{ auth()->guard('students-login')->user()->name }}
+            @endif
+          </span>
 
 
 

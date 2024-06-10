@@ -20,7 +20,7 @@
       @yield('content')
 
 
-      @include('admin.layouts.inc.footer')
+      <!-- @include('admin.layouts.inc.footer') -->
     </div>
   </div>
 

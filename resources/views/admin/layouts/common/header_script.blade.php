@@ -64,6 +64,9 @@
     margin: 25px;
   }
 </style>
+
+
+<!--  ToolTip custom style  -->
 <style>
  a[data-title] {
   position: relative;
@@ -102,3 +105,13 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
 }
 </style>
 
+<!-- -->
+@if(app()->getLocale() == 'ar')
+<style>
+  .dropdown-menu-end[data-bs-popper]{
+  left: 0;
+  right: auto;
+}
+</style>
+
+@endif

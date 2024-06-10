@@ -14,7 +14,7 @@
               </div>
             </div>
           </section>
-          @if($blogs)
+          @if(count($blogs))
 
           <section class="container-fluid px-5 mb-5 news-cards">
             @foreach($blogs as $blog)

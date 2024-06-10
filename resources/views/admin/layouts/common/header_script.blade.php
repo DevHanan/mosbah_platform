@@ -82,5 +82,23 @@ a[data-title]:hover::after {
   transform: translateX(-50%);
   white-space: nowrap;
 }
+
+button[data-title] {
+  position: relative;
+}
+
+button[data-title]:hover::after {
+  content: attr(data-title);
+  font-size: 14px;
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
 </style>
 

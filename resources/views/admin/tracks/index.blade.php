@@ -35,7 +35,7 @@
           <div class="card-header">
             <h3 class="card-title">{{ $title }}</h3>
           </div>
-
+          
           <div class="table-responsive">
             <table class="table card-table table-vcenter text-nowrap datatable">
               <thead>
@@ -74,19 +74,22 @@
                       <input data-id="{{$row->id}}" data-type='App\Models\Track' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                     </div>
                   </td>
-                  <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
+                  <td><img  src="{{$row->imageFullPath}}" style="width:40px"></td>
 
 
                   <td style="width: 270px;">
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm" title="{{__('admin.edit')}}"
-                     data-placement="top" style="background-color: #f0f0f0; padding: 5px; border-radius: 5px;">
+                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm" 
+                    data-placement="top" 
+   data-original-title="{{__('admin.edit')}}" 
+   style="background-color: #f0f0f0; padding: 5px; border-radius: 5px;"
+                    >
                       <span class="far fa-edit "></span>
                     </a>
 
-                    <button type="button" title="{{__('admin.delete')}}" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button"  title="{{__('admin.delete')}}" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->

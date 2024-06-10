@@ -111,7 +111,7 @@
             <a class="nav-link" href="#">صانع CV</a>
             </li>
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is('policies')) active @endif" href="{{ url('/policies') }}">سياساتنا</a>
+          <a class="nav-link  @if(Request::is('policies')) active @endif" href="{{ url('/policies') }}" target="_blank">سياساتنا</a>
         </li>
         <li class="nav-item">
           <a class="nav-link  @if(Request::is('contact-us')) active @endif" href="{{url('/contactus')}}">تواصل معنا</a>

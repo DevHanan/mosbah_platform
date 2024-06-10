@@ -115,56 +115,7 @@
             </div>
         </div>
 
-        <!-- <div class="que mt-5 py-5 mb-3">
-            <div class="container">
-                <h2 class="text-center mb-5">أسئلة متكررة؟</h2>
-                <div class="d-flex justify-content-between">
-                    <div class="w-100">
-                    @foreach($questions as $item)
-                        @if($loop->odd)
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right_{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_right1">
-                                    {{ $item->question }}  
-                                </a>
-                                </p>
-                                <div class="collapse" id="collapse_right_{{$item->id}}">
-                                    <div class="card card-body bg-transparent border-0">
-                                    {{ $item->answer }}  
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        @endif
-                        @endforeach
-                       
-                    </div>
-                    <div class="w-100">
-                        @foreach($questions as $item)
-                        @if($loop->even)
-                        <ul>
-                            <li>
-                                <p class="m-0">
-                                    <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_left1">
-                                    {{ $item->question }}  
-                                    </a>
-                                </p>
-                                <div class="collapse" id="collapse_left{{$item->id}}">
-                                    <div class="card card-body bg-transparent border-0">
-                                    {{ $item->answer }}  
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        @endif
-                        @endforeach
-                        
-                    </div>
-                </div>
-                
-            </div>     
-        </div> -->
+       
         @if($landing_setting->map_locations == 1)
 
         <div class="row col-md-12">
@@ -174,11 +125,10 @@
 @endif
     </section>
 @endsection
-@push('front-script')
-<script src="{{asset('public/front/js/jquery.min.js')}}"></script>
+@push('frontscript')
 <script src="https://developers.google.com/maps/marker/advanced-marker-element/latest/advanced-marker-element.min.js"></script>
 <script>
-	$('document').ready(function() {
+	$(document).ready(function() {
 		let map;
 
 		function initMap() {

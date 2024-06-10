@@ -12,7 +12,7 @@
                         <p>
                             {!! $blog->description !!}
                         </p>
-                        <p style="font-size: 14px;">{{ $blog->published_at->format('l, F j, Y')  }}</p>
+                        <p style="font-size: 14px;">{{ $blog->CustomPublishdate  }}</p>
                     </div>
                 </div>
                 <div class="col-lg-7">

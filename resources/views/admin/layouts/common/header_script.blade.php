@@ -73,7 +73,7 @@ a[data-title]:hover::after {
   content: attr(data-title);
   font-size: 14px;
   color: white;
-  background-color: blue;
+  background-color: black;
   padding: 5px;
   border-radius: 5px;
   position: absolute;
@@ -91,7 +91,7 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
   content: attr(data-title);
   font-size: 14px;
   color: white;
-  background-color: red;
+  background-color: black;
   padding: 5px;
   border-radius: 5px;
   position: absolute;

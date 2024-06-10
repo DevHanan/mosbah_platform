@@ -16,7 +16,7 @@
           </section>
       
           <section class="container-fluid px-5 mb-5 news-cards">
-              <div class="row justify-content-center" id="paginationCard">
+              <div class="row justify-content-center" id="paginationCardd">
                 @foreach($blogs as $blog)
                   <div class="col-lg-4 col-md-6 card_pagination">
                     <div class="card shadow-sm mb-5 mx-3">

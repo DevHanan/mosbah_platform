@@ -293,7 +293,6 @@
 @endsection
 
 @push('front-script')
-<script src="{{asset('public/front/js/jquery.min.js')}}"></script>
 <script>
         // counter
         const counters = document.querySelectorAll(".count");

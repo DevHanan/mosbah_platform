@@ -17,7 +17,7 @@ class Blog extends Model
 
     protected  function getCustomPublishdateAttribute(){
        $formatter = new  \IntlDateFormatter('ar',  \IntlDateFormatter::NONE,  \IntlDateFormatter::SHORT, 'Asia/Riyadh',  \IntlDateFormatter::TRADITIONAL);
-       $formatter->setPattern('d MMMM yyyy'); // custom pattern
+       $formatter->setPattern('d MMMM yyyy - H:i'); // custom pattern
        return $formatter->format(strtotime($this->published_at));
     }
     public function getImageFullPathAttribute($value)

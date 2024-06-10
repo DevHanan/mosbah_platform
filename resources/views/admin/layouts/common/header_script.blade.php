@@ -65,13 +65,22 @@
   }
 </style>
 <style>
-  a[data-title]:hover::after {
+ a[data-title] {
+  position: relative;
+}
+
+a[data-title]:hover::after {
   content: attr(data-title);
-  font-size: 10px;
+  font-size: 14px;
   color: white;
-  background-color: #32577b;
-  padding-top: 10px;
+  background-color: blue;
+  padding: 5px;
   border-radius: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 </style>
 

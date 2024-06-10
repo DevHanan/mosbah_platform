@@ -32,7 +32,7 @@ Route::get('/policies', [HomeController::class, 'policy']);
 Route::get('/contactus', [HomeController::class, 'contactus']);
 Route::get('/books', [HomeController::class, 'books']);
 Route::get('/book', [HomeController::class, 'book']);
-Route::get('/blog', [HomeController::class, 'blog']);
+Route::get('/blogs', [HomeController::class, 'blogs']);
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 

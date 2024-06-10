@@ -79,6 +79,19 @@ return [
         'field_photo' => 'الصورة',
         'courses_number' => 'عدد الدورات'
     ],
+    "blogs" => [
+        'blogs_management' => 'المدونة',
+        'list' => 'عرض المقالات',
+        'title' => 'عنوان المقال',
+        'add' => 'إضافة مقال',
+        'description' => 'تفاصيل',
+        'edit' => 'تعديل مقال',
+        'status' => 'حالة الظهور',
+        'actions' => 'الحدث',
+        'field_photo' => 'الصورة',
+        'published_at' => 'تاريخ النشر',
+        'more_details' => 'مزيد من التفاصيل'
+    ],
     "levels" => [
         'title' => 'مستويات الدورة',
         'add' => 'مستوى جديد',

@@ -29,7 +29,9 @@ use App\Http\Controllers\Admin\QuestionsController;
 use App\Http\Controllers\Admin\ProfitController;
 use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\QuizSectionController;
-use App\Http\Controllers\Admin\QuizQuestionController;
+use App\Http\Controllers\Admin\QuizQuestionContr;
+use App\Http\Controllers\Admin\BlogController;
+
 
 
 
@@ -61,7 +63,8 @@ Route::group(
             Route::resource('courses', CourseController::class);
 
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
-            Route::resource('tracks', TrackController::class);
+            Route::resource('tracks', TrackController::class);          
+              Route::resource('blogs', BlogController::class);
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
 

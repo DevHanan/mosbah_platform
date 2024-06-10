@@ -70,7 +70,23 @@ Breadcrumbs::for('update-tracks', function (BreadcrumbTrail $trail,$row) {
 });
 
 
-// Home > tracks
+// Home > blogs
+Breadcrumbs::for('blogs', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.blogs.list'), route('admin.blogs.index'));
+});
+
+Breadcrumbs::for('add-blogs', function (BreadcrumbTrail $trail) {
+    $trail->parent('blogs');
+    $trail->push(trans('navbar.blogs.add'), route('admin.blogs.create'));
+});
+Breadcrumbs::for('update-blogs', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('blogs');
+    $trail->push($row->title, route('admin.blogs.edit', $row));
+});
+
+
+// Home > coupons
 Breadcrumbs::for('coupons', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(trans('navbar.coupons.list'), route('admin.coupons.index'));

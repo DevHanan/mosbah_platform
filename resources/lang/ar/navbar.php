@@ -63,6 +63,11 @@ return [
         'notifications'  => 'إشعارات',
 
     ],
+    'blogs' =>[
+        'blogs_management' => 'المدونة',
+        'list' => 'عرض المقالات',
+        'add' => 'إضافة مقال'
+    ],
     "courses" => [
         'start_soon_courses' => 'دورات تبدا قريبا',
         'edit_course' => 'تعديل بيانات الدورة',

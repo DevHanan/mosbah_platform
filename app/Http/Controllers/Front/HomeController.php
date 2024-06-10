@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Cors;
 use App\Models\AboutSetting;
+use App\Models\Blog;
 use App\Models\Coupon;
 use App\Models\Course;
 use App\Models\Partener;
@@ -60,7 +61,8 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        return view('front.blogs');
+        $blogs = Blog::active()->get();
+        return view('front.blogs',compact('blogs'));
     }
 
     public function policy()

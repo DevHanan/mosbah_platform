@@ -7,11 +7,13 @@
         <section class="news-titles titles d-flex justify-content-between p-5" style="direction: rtl;">
             <div class="mb-2" style="direction: rtl;">
               <label for="" class="form-label">تصفية حسب التاريخ</label>
+              <form method="get" action="{{url('blogs')}}">
               <div class="d-flex align-items-center filter-by-date">
-                <span>من</span> <input type="date" class="form-control mx-2 mb-2"> 
-                <span>الى</span> <input type="date" class="form-control mx-2 mb-2"> 
-                <button class="btn border p-2 px-4 mx-2 mb-2 reset_btn"> إلغاء </button>
+                <span>من</span> <input type="date" class="form-control mx-2 mb-2" name="start"> 
+                <span>الى</span> <input type="date" class="form-control mx-2 mb-2" name="end"> 
+                <button type="submit" class="btn border p-2 px-4 mx-2 mb-2 reset_btn"> بحث </button>
               </div>
+              </form>
             </div>
           </section>
       

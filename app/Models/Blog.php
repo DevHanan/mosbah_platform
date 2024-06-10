@@ -5,20 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use DateTime;
+
 class Blog extends Model
 {
     use HasFactory;
     protected $table = 'blogs';
     public $timestamps = true;
 
-    protected $fillable = array('title','description','more_details','active');
+    protected $fillable = array('title', 'description', 'more_details', 'active');
 
-    protected $appends = [ 'imageFullPath', 'CustomPublishdate'];
+    protected $appends = ['imageFullPath', 'CustomPublishdate'];
 
-    protected  function getCustomPublishdateAttribute(){
-       $formatter = new  \IntlDateFormatter('ar',  \IntlDateFormatter::NONE,  \IntlDateFormatter::SHORT, 'Asia/Riyadh',  \IntlDateFormatter::TRADITIONAL);
-       $formatter->setPattern('g:i - d MMMM yyyy'); // custom pattern
-       return $formatter->format(strtotime($this->published_at));
+    protected  function getCustomPublishdateAttribute()
+    {
+        // $formatter = new  \IntlDateFormatter('ar',  \IntlDateFormatter::NONE,  \IntlDateFormatter::SHORT, 'Asia/Riyadh',  \IntlDateFormatter::TRADITIONAL);
+        // $formatter->setPattern('d MMMM yyyy'); // custom pattern
+        // return $formatter->format(strtotime($this->published_at));
+
+
+        $dateFormatter = new \IntlDateFormatter('ar', \IntlDateFormatter::SHORT, \IntlDateFormatter::SHORT, 'Asia/Riyadh', \IntlDateFormatter::TRADITIONAL);
+        $dateFormatter->setPattern('HH:mm - d MMMM yyyy');
+
+        $timestamp = strtotime($this->published_at);
+        return $dateFormatter->format($timestamp);
     }
     public function getImageFullPathAttribute($value)
     {
@@ -30,6 +39,4 @@ class Blog extends Model
     {
         return $query->where('active', '1');
     }
-
-
 }

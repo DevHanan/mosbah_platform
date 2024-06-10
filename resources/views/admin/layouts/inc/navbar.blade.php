@@ -64,16 +64,8 @@
           <span class="avatar avatar-sm" style="background-image: url({{auth()->guard('students-login')->user()->imageFullPath}})"></span>
           @endif
 
-          <span>
 
-            @if(auth()->guard('web')->user())
-            {{ auth()->user()->name }}
-            @elseif(auth()->guard('instructors-login')->user())
-            {{ auth()->guard('instructors-login')->user()->name }}
-            @else
-            {{ auth()->guard('students-login')->user()->name }}
-            @endif
-          </span>
+        
           <div class="d-none d-xl-block ps-2">
             <div>
               @if(auth()->guard('web')->user())
@@ -87,7 +79,15 @@
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-          <!-- <a href="./profile.html" class="dropdown-item">Profile</a> -->
+          <a href="#" class="dropdown-item">
+          @if(auth()->guard('web')->user())
+            {{ auth()->user()->name }}
+            @elseif(auth()->guard('instructors-login')->user())
+            {{ auth()->guard('instructors-login')->user()->name }}
+            @else
+            {{ auth()->guard('students-login')->user()->name }}
+            @endif
+          </a>
           <!-- <div class="dropdown-divider"></div> -->
           <a href="javascript:void(0);" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

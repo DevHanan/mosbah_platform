@@ -1,5 +1,5 @@
 @extends('front.layouts.master')
-@section('title', '')
+@section('title', $title)
 @section('content')
 @include('front.layouts.common.navbar')
 <div class="blogs">

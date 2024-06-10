@@ -135,15 +135,15 @@
 
 			map = new google.maps.Map(document.getElementById('mapelement'), {
 				center: {
-					lat: <?php echo $setting->lat ?>,
-					lng: <?php echo  $setting->lng ?>
+					lat: 37.7749,
+					lng: -122.4194
 				},
 				zoom: 8,
 			});
 			const marker = new google.maps.Marker({
 				position: {
-					lat: <?php echo $setting->lat ?>,
-					lng: <?php echo  $setting->lng ?>
+					lat: 37.7749,
+					lng: -122.4194
 				},
 				map: map,
 				title: 'Hello World!'

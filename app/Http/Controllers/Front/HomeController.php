@@ -59,10 +59,15 @@ class HomeController extends Controller
         return view('front.courses', compact('title', 'list_courses'));
     }
 
-    public function blogs()
+    public function blogs(Request $request)
     {
         $title = ' المقالات';
-        $blogs = Blog::active()->paginate(10);
+        $blogs = Blog::where(function($q)use($request){
+            if($request->start)
+            $q->whereDate('published_at','>=',$request->start);
+            if($request->end)
+            $q->whereDate('published_at','<=',$request->end);
+        })->active()->paginate(10);
         return view('front.blogs',compact(['blogs','title']));
     }
 

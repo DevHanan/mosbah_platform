@@ -294,7 +294,7 @@
 
 @push('frontscript')
 <script>
-    $('document').ready(function(){
+    $(document).ready(function() {
         // counter
         const counters = document.querySelectorAll(".count");
         const speed = 700;

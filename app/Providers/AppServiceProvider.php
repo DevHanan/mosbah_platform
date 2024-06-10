@@ -62,7 +62,6 @@ class AppServiceProvider extends ServiceProvider
         $landingSetting = LandingSetting::first();
         $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
         $bankgroup = BankGroup::active()->latest()->get();
-        $blogs = Blog::all();
 
 
 
@@ -79,7 +78,7 @@ class AppServiceProvider extends ServiceProvider
             'policies' => $policies, 'tickets' => $tickets, 'teams' => $teams,
             'about' => $about ,'questions'=> $questions,'most_required'=>$most_required,
             'recommened_courses'=> $recommened_courses,'subscriptions'=>$subscriptions,
-            'landing_setting' => $landingSetting,'lectures'=>$lectures,'blogs'=>$blogs
+            'landing_setting' => $landingSetting,'lectures'=>$lectures
 
 
         ]);

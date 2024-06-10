@@ -201,7 +201,7 @@
                 </a>
 
                 @foreach($courseTypes as $type)
-                <a class="dropdown-item" href="{{ url('admin/courses?type='. $type->id)}}">
+                <a class="dropdown-item {{ request()->input('type') == $type->id ? 'active' : '' }}"  href="{{ url('admin/courses?type='. $type->id)}}">
                   {{ $type->name }}
 
                 </a>

@@ -68,6 +68,7 @@ class HomeController extends Controller
             if($request->end)
             $q->whereDate('published_at','<=',$request->end);
         })->active()->paginate(10);
+        return $blogs;
         return view('front.blogs',compact(['blogs','title']));
     }
 

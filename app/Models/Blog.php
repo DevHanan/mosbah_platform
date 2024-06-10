@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use DateTime;
 class Blog extends Model
 {
     use HasFactory;
@@ -13,9 +13,11 @@ class Blog extends Model
 
     protected $fillable = array('title','description','more_details','active');
 
-    protected $casts = [
-        'published_at' => 'datetime', // Update or remove this line
-    ];
+    protected $appends = [ 'imageFullPath', 'CustomPublishdate'];
+
+    protected  function getCustomPublishdateAttribute(){
+       return  DateTime::createFromFormat('Y-m-d H:i:s', $this->published_at)->setLocale('ar');
+    }
     public function getImageFullPathAttribute($value)
     {
 

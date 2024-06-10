@@ -65,7 +65,7 @@
           @endif
 
 
-        
+
           <div class="d-none d-xl-block ps-2">
             <div>
               @if(auth()->guard('web')->user())
@@ -80,7 +80,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
           <a href="#" class="dropdown-item">
-          @if(auth()->guard('web')->user())
+            @if(auth()->guard('web')->user())
             {{ auth()->user()->name }}
             @elseif(auth()->guard('instructors-login')->user())
             {{ auth()->guard('instructors-login')->user()->name }}
@@ -91,34 +91,30 @@
           <div class="dropdown-divider"></div>
 
           @if(auth()->guard('students-login')->user() )
-          <a href="javascript:void(0);" 
-        class="mx-3 p-2 text-decoration-none text-dark" 
-        href="#" onclick="event.preventDefault();
+          <a href="javascript:void(0);" class="mx-3 p-2 text-decoration-none text-dark" href="#" onclick="event.preventDefault();
         document.getElementById('student-logout-form').submit();">
 
-          تسجيل الخروج
-          <i class="fa fa-sign-out" aria-hidden="true"></i>
+            تسجيل الخروج
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
 
-        </a>
-
-        <form id="student-logout-form" action="{{ route('student.student-logout') }}" method="POST">
-          @csrf
-        </form>
-          @elseif(auth()->guard('instructors-login')->user() )
-          <a href="javascript:void(0);" 
-        class="mx-3 p-2 text-decoration-none text-dark" 
-        href="#" onclick="event.preventDefault();
-        document.getElementById('instructor-logout-form').submit();">
-
-          تسجيل الخروج
-          <i class="fa fa-sign-out" aria-hidden="true"></i>
           </a>
 
-        <form id="instructor-logout-form" action="{{ route('instructor.instructor-logout') }}" method="POST">
-          @csrf
-        </form>
+          <form id="student-logout-form" action="{{ route('student.student-logout') }}" method="POST">
+            @csrf
+          </form>
+          @elseif(auth()->guard('instructors-login')->user() )
+          <a href="javascript:void(0);" class="mx-3 p-2 text-decoration-none text-dark" href="#" onclick="event.preventDefault();
+        document.getElementById('instructor-logout-form').submit();">
+
+            تسجيل الخروج
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </a>
+
+          <form id="instructor-logout-form" action="{{ route('instructor.instructor-logout') }}" method="POST">
+            @csrf
+          </form>
           @else
-          
+
           <a href="javascript:void(0);" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
 

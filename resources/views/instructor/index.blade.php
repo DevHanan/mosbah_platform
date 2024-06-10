@@ -96,7 +96,7 @@
   </div>
 </div>
 
-@include('admin.layouts.inc.footer')
+<!-- @include('admin.layouts.inc.footer') -->
 @endsection
 
 @push('custom-scripts')

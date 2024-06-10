@@ -8,11 +8,11 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="header-content container d-flex justify-content-center flex-column h-100 mb-4">
-                            <h2 class="mb-4">عنوان الخبر</h2>
+                            <h2 class="mb-4"> {{ $blog->title }}</h2>
                             <p>
-                                Earlier this month, a viral video depicting hyper-realistic cakes as everyday items had folks on social media double-guessing every other post, and sometimes even their own realities, effectively launching the next meme : “Is this real or is this cake?”
-                            </p>
-                            <p style="font-size: 14px;">04:30 - 18 نوفمبر 2023</p>
+        {!!  $blog->description !!}
+                        </p>
+                            <p style="font-size: 14px;">{{ $blog->published_at->format('l, F j, Y')  }}</p>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -25,9 +25,9 @@
         <section class="container">
            <div class="more-news p-4 my-5">
                 <h2>المزيد عن الخبر</h2>
-                <p>تعد جمعية البر من أقدم الجمعيات الخيرية بالمملكة العربية السعوديةحيث تأسست في شهر رجب من عام 1379 هـ بإسم صندوق البر بالمدينة المنورة و تم تعديل إسمها إلى جمعية البر بالمدينة المنورة بعد أن سجلت بوزارة العمل و الشؤون الإجتماعية برقم (22) و تاريخ 04/06/1396هـ . و تعتبر حلقة الوصل بين المحسنين الداعمين و المحتاجين في نطاق عملها داخل المدينة المنورة. وتهدف الجمعية إلى رعاية المحتاجين من الأرامل و الأيتام و الفقراء و تأهيلهم والوصول بهم إلى تحقيق الإكتفاء الذاتي لهم و ذلك من خلال البرامج والمشاريع المتنوعة الموضحة ضمن موقع الجمعية.</p>
-           </div>
-           <section class="container pt-3 gallay-all">
+                            <p> {!! $blog->more_details  !!}</p>
+            </div>
+           <!-- <section class="container pt-3 gallay-all">
             <div class="row">
               <div class="col-md-5 mb-4">
                   <div class="position-relative w-100 h-100 gallery-item">
@@ -56,10 +56,10 @@
                   </div>
               </div>
             </div>
-          </section>
+          </section> -->
         </section>
     
-        <section class="container my-5 news-cards">
+        <!-- <section class="container my-5 news-cards">
           <h1 class="text-center fw-bold primary-color mb-5"> أخبار ذات صلة </h1>
           <div class="row">
             <div class="col-lg-4 col-sm-6">
@@ -109,6 +109,6 @@
             </div>
           </div>
     
-        </section>
+        </section> -->
     </div>
 @endsection

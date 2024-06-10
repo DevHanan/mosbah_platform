@@ -16,8 +16,9 @@ class Blog extends Model
     protected $appends = [ 'imageFullPath', 'CustomPublishdate'];
 
     protected  function getCustomPublishdateAttribute(){
-       $formatter = new  \IntlDateFormatter('ar',  \IntlDateFormatter::SHORT,  \IntlDateFormatter::SHORT, 'Asia/Riyadh',  \IntlDateFormatter::TRADITIONAL);
-        return $formatter->format(strtotime($this->published_at));
+       $formatter = new  \IntlDateFormatter('ar',  \IntlDateFormatter::NONE,  \IntlDateFormatter::SHORT, 'Asia/Riyadh',  \IntlDateFormatter::TRADITIONAL);
+       $formatter->setPattern('d MMMM yyyy'); // custom pattern
+       return $formatter->format(strtotime($this->published_at));
     }
     public function getImageFullPathAttribute($value)
     {

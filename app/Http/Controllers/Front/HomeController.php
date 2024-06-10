@@ -62,7 +62,7 @@ class HomeController extends Controller
     public function blogs()
     {
         $blogs = Blog::active()->paginate(10);
-        return view('front.blogs',compact('blog'));
+        return view('front.blogs',compact('blogs'));
     }
 
     public function policy()

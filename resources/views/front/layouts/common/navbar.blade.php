@@ -99,7 +99,7 @@
           <a class="nav-link  @if(Request::is(['courses','course/*']) ) active @endif" href="{{url('/courses')}}">الدورات</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is('blogs')) active @endif" href="{{url('/blogs')}}">المدونة</a>
+          <a class="nav-link  @if(Request::is(['blogs','blog/*']) ) active @endif" href="{{url('/blogs')}}">المدونة</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">حساب التنسيق</a>

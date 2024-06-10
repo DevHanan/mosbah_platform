@@ -14,11 +14,11 @@
               </div>
             </div>
           </section>
-          @if(count($blogs))
 
           <section class="container-fluid px-5 mb-5 news-cards">
+          <div class="row justify-content-center" id="paginationCard">
+
             @foreach($blogs as $blog)
-              <div class="row justify-content-center" id="paginationCard">
                   <div class="col-lg-4 col-md-6 card_pagination">
                     <div class="card shadow-sm mb-5 mx-3">
                         <a href="{{url('/blog')}}" class="position-relative">
@@ -40,9 +40,7 @@
 
               </div>
           </section>
-          @else
-          <p> لا توجد بيانات للعرض </p>
-          @endif      
+             
 
         </div>   
 @endsection

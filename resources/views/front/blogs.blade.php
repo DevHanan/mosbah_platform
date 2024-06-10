@@ -14,9 +14,9 @@
               </div>
             </div>
           </section>
-      
+          @if($blogs)
+
           <section class="container-fluid px-5 mb-5 news-cards">
-            @if($blogs)
             @foreach($blogs as $blog)
               <div class="row justify-content-center" id="paginationCard">
                   <div class="col-lg-4 col-md-6 card_pagination">
@@ -28,7 +28,7 @@
                             <a href="{{url('/blog')}}" class="text-decoration-none text-dark">
                                 <h5 class="card-title mb-3 fw-bold"> {{ $blog->title }} </h5>
                             </a>
-                            <p class="card-text" style="color: #6C757D;">  {{ $blog->description }} </p>
+                            <p class="card-text" style="color: #6C757D;">  {!1 $blog->description !!} </p>
                             <div class="cardFooter d-flex justify-content-between align-items-center">
                                 <div class="card-date primary-color fw-bold">04:30 - 18 نوفمبر 2023</div>
                                 <a href="{{url('/blog')}}" class="btn btn-success primary-bg border-0">عرض التفاصيل</a>
@@ -37,10 +37,13 @@
                     </div>
                   </div>
             @endforeach
-            @endif      
 
               </div>
           </section>
+          @else
+          <p> لا توجد بيانات للعرض </p>
+          @endif      
+
         </div>   
 @endsection
 

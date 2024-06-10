@@ -66,7 +66,7 @@ class TicketController extends Controller
     }
 
 
-    public function destory(Request $request)
+    public function destroy(Request $request)
     {
         $coupon =  Coupon::find($request->id);
         if ($coupon)

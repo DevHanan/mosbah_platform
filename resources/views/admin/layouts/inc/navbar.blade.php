@@ -54,7 +54,16 @@
       </div>
       <div class="nav-item dropdown">
         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" href="#navbar-layout" data-bs-toggle="dropdown" aria-label="Open user menu">
-          <span class="avatar avatar-sm" style="background-image: asset(dist/static/avatars/000m.jpg)"></span>
+
+
+          @if(auth()->guard('web')->user())
+          <span class="avatar avatar-sm" style="background-image: asset(auth()->guard('web')->user()->photo)"></span>
+          @elseif(auth()->guard('instructors-login')->user())
+          <span class="avatar avatar-sm" style="background-image: asset(auth()->guard('instructors-login')->user()->photo)"></span>
+          @else
+          <span class="avatar avatar-sm" style="background-image: asset(auth()->guard('students-login')->user()->photo)"></span>
+          @endif
+
           <span>
 
             @if(auth()->guard('web')->user())

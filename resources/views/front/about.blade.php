@@ -292,7 +292,7 @@
 </section>
 @endsection
 
-@push('front-script')
+@push('frontscript')
 <script>
         // counter
         const counters = document.querySelectorAll(".count");

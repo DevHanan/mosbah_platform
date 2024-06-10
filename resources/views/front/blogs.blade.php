@@ -22,9 +22,9 @@
                     <div class="card shadow-sm mb-5 mx-3">
                         <a href="{{url('/blog/'.$blog->id)}}" class="position-relative">
                             @if($blog->main_image)
-                            <img class="card-img-top w-100 p-2" src="{{asset('front/img/Book.svg')}}" style="max-height: 500px;" alt="Card image cap">
+                            <img class="card-img-top w-100 p-2" src="{{ asset($blog->imageFullPath)}}" style="height: 200px;" alt="Card image cap">
                             @else
-                            <img class="card-img-top w-100 p-2" src="{{ asset($blog->imageFullPath)}}" style="max-height: 500px;" alt="Card image cap">
+                            <img class="card-img-top w-100 p-2" src="{{asset('front/img/Book.svg')}}" style="height: 200px;" alt="Card image cap">
                             @endif
                         </a>
                         <div class="card-body">

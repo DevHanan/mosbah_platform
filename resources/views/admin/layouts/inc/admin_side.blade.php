@@ -219,7 +219,7 @@
                   {{ __('navbar.courses.recommened_courses') }}
 
                 </a>
-                <a class="dropdown-item @if( request()->routeIs('admin.courses.index') && request()->query()->all() === []) active @endif" href="{{ url('admin/courses')}}">
+                <a class="dropdown-item @if( request()->url() === 'admin/courses') active @endif" href="{{ url('admin/courses')}}">
                   {{ __('navbar.courses.all_courses') }}
 
                 </a>

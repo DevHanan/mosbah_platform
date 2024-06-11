@@ -49,7 +49,7 @@ class AuthController extends Controller
     public function logout(){
 
         Auth::guard('students-login')->logout();
-        Toastr::success(__('admin.msg_logout_successfully'), __('admin.msg_success'));
+        Toastr::success(__('admin.auth_logged_out'), __('admin.msg_success'));
         return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 

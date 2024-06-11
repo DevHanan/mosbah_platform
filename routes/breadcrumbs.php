@@ -15,7 +15,7 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 
 // Home > instructors
 Breadcrumbs::for('instructors', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
+    $trail->push(trans('navbar.Home'), route('instructor.dashboard.index'));
     // $trail->push(trans('navbar.instructors.list'), route('admin.instructors.index'));
 });
 

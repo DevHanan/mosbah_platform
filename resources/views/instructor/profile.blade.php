@@ -210,6 +210,14 @@
 
               </div>
 
+          
+
+            
+              <div class="col-md-12">
+                <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
+                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>
+              </div>
+
               <div class="mb-3">
                   <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
                   <input type="file" class="form-control" name="image" id="logo">
@@ -237,15 +245,6 @@
                   </div>
                   @enderror
                 </div>
-
-              <!-- <div class="col-md-12">
-                <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
-                <textarea class="form-control" name="about_teacher" rows="6" placeholder="Content.."> {{ $row->about_teacher }}</textarea>
-              </div> -->
-              <div class="col-md-12">
-                <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
-                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>
-              </div>
             </div>
           </div>
           <div class="card-footer text-end">

@@ -44,7 +44,8 @@
                   <th>{{ __('admin.amount') }}</th>
 
                   <th>{{ __('admin.status') }}</th>
-                
+
+                  <th>{{ __('admin.actions') }}</th>
 
                 </tr>
               </thead>
@@ -55,13 +56,13 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{$row->date}}</td>
-                 
+
 
 
                   <td>{{$row->value}} {{ $setting->currency }}</td>
                   <td>{{$row->statusLabel }} </td>
+<td></td>
 
-            
 
 
                 </tr>

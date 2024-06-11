@@ -67,7 +67,7 @@
 
 
 <!--  ToolTip custom style  -->
-<style>
+<!-- <style>
  a[data-title] {
   position: relative;
 }
@@ -103,7 +103,7 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
   transform: translateX(-50%);
   white-space: nowrap;
 }
-</style>
+</style> -->
 
 <!-- -->
 @if(app()->getLocale() == 'ar')

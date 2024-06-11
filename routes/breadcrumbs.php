@@ -373,6 +373,11 @@ Breadcrumbs::for('studentexternalCertifications', function (BreadcrumbTrail $tra
     $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));
 });
 
+Breadcrumbs::for('studentplatformCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('student-home');
+    $trail->push(trans('navbar.certifications.platform_certification'), route('student.platformCertifications'));
+});
+
 
 // Quiz
 Breadcrumbs::for('quizzes', function (BreadcrumbTrail $trail) {

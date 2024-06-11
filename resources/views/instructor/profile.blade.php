@@ -66,7 +66,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
-                  <input type="password" class="form-control" name="password" id="password" >
+                  <input type="password" class="form-control" name="password" id="password">
 
                   @error('password')
                   <div class="invalid-feedback">
@@ -74,9 +74,17 @@
                   </div>
                   @enderror
                 </div>
+                <div class="mb-3">
+                  <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
+                  @if($row->employee == 1)
+                  <label class="form-label" for="type">{{ __('admin.instructors.yes')}} <span>*</span></label>
+                 @else
+                 <label class="form-label" for="type">{{ __('admin.instructors.no')}} <span>*</span></label>
+                @endif
+                </div>
 
 
-
+                @if($row->is_employee == 1)
                 <div class="mb-3">
                   <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
                   <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" readonly>
@@ -87,11 +95,12 @@
                   </div>
                   @enderror
                 </div>
+                @endif
 
 
                 <div class="mb-3">
                   <label class="form-label" for="about_teacher">{{ __('admin.instructors.about') }} <span>*</span></label>
-                  <select class="select2 form-control" name="about_teacher" id="about_teacher" >
+                  <select class="select2 form-control" name="about_teacher" id="about_teacher">
                     <option value="">{{ __('select') }}</option>
                     <option value="0" @if($row->about_teacher == 0) selected="selected" @endif>{{ __('admin.instructors.student') }}</option>
                     <option value="1" @if($row->about_teacher == 1) selected="selected" @endif>{{ __('admin.instructors.Bachelor') }}</option>
@@ -108,7 +117,7 @@
                   @enderror
                 </div>
 
-            
+
 
                 <div class="mb-3">
                   <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
@@ -178,7 +187,7 @@
                   </div>
                   @enderror
                 </div>
-             
+
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
                   <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
@@ -217,47 +226,47 @@
                   @enderror
                 </div>
 
-             
+
 
 
 
               </div>
 
-          
 
-            
+
+
               <div class="col-md-12">
                 <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
                 <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>
               </div>
 
               <div class="mb-3">
-                  <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
-                  <input type="file" class="form-control" name="image" id="logo">
+                <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
+                <input type="file" class="form-control" name="image" id="logo">
 
-                  @if(isset($row->image))
-                  <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-                  <div class="clearfix"></div>
-                  @endif
-                  @error('image')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+                @if(isset($row->image))
+                <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                <div class="clearfix"></div>
+                @endif
+                @error('image')
+                <div class="invalid-feedback">
+                  {{ $message }}
                 </div>
+                @enderror
+              </div>
 
-                <div class="mb-3">
+              <div class="mb-3">
 
 
-                  <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
-                  <input type="file" class="form-control" name="cv" id="cv">
+                <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
+                <input type="file" class="form-control" name="cv" id="cv">
 
-                  @error('cv')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+                @error('cv')
+                <div class="invalid-feedback">
+                  {{ $message }}
                 </div>
+                @enderror
+              </div>
             </div>
           </div>
           <div class="card-footer text-end">

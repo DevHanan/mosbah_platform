@@ -76,6 +76,19 @@
                 </div>
 
 
+
+                <div class="mb-3">
+                  <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
+                  <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" readonly>
+
+                  @error('salary')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+
                 <div class="mb-3">
                   <label class="form-label" for="about_teacher">{{ __('admin.instructors.about') }} <span>*</span></label>
                   <select class="select2 form-control" name="about_teacher" id="about_teacher" >

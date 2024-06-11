@@ -377,7 +377,7 @@ Breadcrumbs::for('studentplatformCertifications', function (BreadcrumbTrail $tra
 
 /**  */
 Breadcrumbs::for('instrucor-home', function (BreadcrumbTrail $trail) {
-    $trail->push(trans('navbar.Home'), route('instrucor.dashboard.index'));
+    $trail->push(trans('navbar.Home'), route('instructor.dashboard.index'));
 });
 
 Breadcrumbs::for('update-instructor-profile', function (BreadcrumbTrail $trail) {

@@ -80,17 +80,13 @@
                   <td style="width: 270px;">
 
 
-
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm" data-title="{{__('admin.edit')}}">
-                      <span class="far fa-edit "></span>
-                    </a>
                     <a href="{{ route($route.'.edit',$row->id) }}"   title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm" data-title="{{__('admin.edit')}}">
                       <span class="far fa-edit "></span>
                     </a>
 
                    
 
-                    <button type="button"  data-title="{{__('admin.delete')}}" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button"  title="{{__('admin.delete')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->

@@ -19,11 +19,6 @@ Breadcrumbs::for('instructors', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.instructors.list'), route('admin.instructors.index'));
 });
 
-Breadcrumbs::for('update-instructor-profile', function (BreadcrumbTrail $trail) {
-    $trail->parent('instructors');
-    $trail->push(trans('navbar.instructors_side.profile'), route('instructor.getProfile'));
-});
-
 Breadcrumbs::for('add-instructors', function (BreadcrumbTrail $trail) {
     $trail->parent('instructors');
     $trail->push(trans('navbar.instructors.add'), route('admin.instructors.create'));
@@ -377,6 +372,19 @@ Breadcrumbs::for('studentplatformCertifications', function (BreadcrumbTrail $tra
     $trail->parent('student-home');
     $trail->push(trans('navbar.certifications.platform_certification'), route('student.platformCertifications'));
 });
+
+
+
+/**  */
+Breadcrumbs::for('instrucor-home', function (BreadcrumbTrail $trail) {
+    $trail->push(trans('navbar.Home'), route('instrucor.dashboard.index'));
+});
+
+Breadcrumbs::for('update-instructor-profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('instrucor-home');
+    $trail->push(trans('navbar.instructors_side.profile'), route('instructor.getProfile'));
+});
+
 
 
 // Quiz

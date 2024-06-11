@@ -21,6 +21,7 @@ return [
     'lecture_details' => 'تفاصيل المحاضرة',
     'signin' => 'تسجيل الدخول',
     'signup' => 'تسجيل حساب جديد',
-    'Questions'  => 'الأسئلة الشائعة'
+    'Questions'  => 'الأسئلة الشائعة',
+    'instructor_course_subscribe' => 'يمكنك إنشاء حساب كطالب للتمكن من الاشتراك بالدورات'
 
 ];

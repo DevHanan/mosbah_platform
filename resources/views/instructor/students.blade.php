@@ -6,7 +6,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <!-- Page pre-title -->
-                <!-- @include('admin.layouts.inc.breadcrumb') -->
+                {{ Breadcrumbs::render('instructor-students') }}
 
             </div>
             <!-- Page title actions -->

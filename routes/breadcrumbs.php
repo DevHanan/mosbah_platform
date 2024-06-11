@@ -385,6 +385,16 @@ Breadcrumbs::for('update-instructor-profile', function (BreadcrumbTrail $trail) 
     $trail->push(trans('navbar.instructors_side.profile'), route('instructor.getProfile'));
 });
 
+Breadcrumbs::for('instructor-students', function (BreadcrumbTrail $trail) {
+    $trail->parent('instrucor-home');
+    $trail->push(trans('navbar.instructors_side.mystudents'), route('instructor.students'));
+});
+
+Breadcrumbs::for('instructor-courses', function (BreadcrumbTrail $trail) {
+    $trail->parent('instrucor-home');
+    $trail->push(trans('navbar.instructors_side.mycourses'), route('instructor.students'));
+});
+
 
 
 // Quiz

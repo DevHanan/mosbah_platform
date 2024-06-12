@@ -99,9 +99,9 @@
                                         <th>{{ __('admin.students.field_status') }}
 
                                             @if($row->active == 1)
-                                            <span class="badge bg-green text-green-fg">Green</span>
+                                            <span class="badge bg-green text-green-fg">{{ __('admin.active')}}</span>
                                             @else
-                                            <span class="badge bg-red text-red-fg">Red</span>
+                                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive')}}</span>
                                             @endif
                                         </th>
                                         <td>

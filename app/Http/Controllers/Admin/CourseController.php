@@ -173,11 +173,14 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        $course = Course::find($id);
-        if ($course)
-            return $this->okApiResponse(new CourseResource($course), __('course loades successfully'));
-        else
-            return $this->notFoundApiResponse([], __('Data Not Found'));
+        $data['row'] = Course::find($id);
+        $data['title'] = trans('admin.courses.show');
+        $data['route'] = $this->route;
+        $data['view'] = $this->view;
+        $data['path'] = $this->path;
+        $data['access'] = $this->access;
+        return view($this->view . '.show', $data);
+     
     }
 
     public function edit($id)

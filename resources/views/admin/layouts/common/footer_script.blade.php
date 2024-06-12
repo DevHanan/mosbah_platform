@@ -378,7 +378,9 @@
 						icon: 'success',
 						title: 'Success!',
 						text: data.success,
-					})
+					});
+					window.location.reload();
+
 
 				}
 			});
@@ -411,7 +413,9 @@
 						icon: 'success',
 						title: 'Success!',
 						text: data.success,
-					})
+					});
+					window.location.reload();
+
 
 				}
 			});

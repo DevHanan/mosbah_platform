@@ -123,16 +123,16 @@
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ route($route.'.edit',$row->id) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
 
-                    <a href="{{ url('admin/courses/'.$row->id .'/levels') }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/courses/'.$row->id .'/levels') }}"  title="{{__('admin.show_level')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
 
 
-                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button"  title="{{__('admin.delete')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->

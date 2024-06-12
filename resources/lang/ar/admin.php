@@ -10,6 +10,7 @@ return [
     'status' => 'حالة الطلب',
     'intructor_name' => 'إسم المدرب ',
     'intructor_current_balance' => ' الرصيد الحالى',
+    'show_level' => 'عرض مراحل الدورة',
 
     'amount' => 'القيمة المطلوب سحيها',
     'available_amount' => 'الرصيد لمتاح',

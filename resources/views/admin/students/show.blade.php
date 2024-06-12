@@ -96,16 +96,19 @@
 
 
 
-                                        <th>{{ __('admin.students.field_status') }}</th>
+                                        <th>{{ __('admin.students.field_status') }}
+
+                                            @if($row->active == 1)
+                                            <span class="badge bg-green text-green-fg">Green</span>
+                                            @else
+                                            <span class="badge bg-red text-red-fg">Red</span>
+                                            @endif
+                                        </th>
                                         <td>
 
 
                                             <div class="form-check form-switch md-3" style="margin:10px">
-                                                @if($row->active == 1)
-                                                <span class="badge bg-green text-green-fg">Green</span>
-                                                @else
-                                                <span class="badge bg-red text-red-fg">Red</span>
-                                                @endif
+
                                                 <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                             </div>
                                         </td>

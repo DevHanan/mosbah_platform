@@ -85,6 +85,7 @@ class InstructorController extends Controller
 
         if ($request->password) {
             $instructor->password = Bcrypt($request->password);
+            $instructor->active = 0;
             $instructor->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));

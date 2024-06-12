@@ -58,6 +58,8 @@ class StudentController extends Controller
     {
         $student = Student::create($request->except(['image', 'password']));
         $student->password = Bcrypt($request->password);
+        $student->active = 1;
+
         $student->save();
         if ($request->hasFile('image')) {
 
@@ -70,8 +72,8 @@ class StudentController extends Controller
 
         if ($request->track_ids)
             $student->tracks()->attach($request->track_ids);
-     
-            Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+
+        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.students.index');
     }
 

@@ -33,7 +33,10 @@
                                     <tr>
 
                                         <th>{{ __('admin.students.field_photo') }}</th>
-                                        <td> <img src="{{ $row->imageFullPath }}" style="width:40px"></td>
+                                        <td><a href="{{ $row->imageFullPath }}" target="_blank">
+                                             <img src="{{ $row->imageFullPath }}" style="width:40px">
+                                             </a>
+                                            </td>
 
                                     </tr>
                                     <tr>

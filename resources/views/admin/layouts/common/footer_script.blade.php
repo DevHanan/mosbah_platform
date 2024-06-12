@@ -379,7 +379,9 @@
 						title: 'Success!',
 						text: data.success,
 					});
-					window.location.reload();
+					setTimeout(function() {
+						window.location.reload();
+					}, 3000);
 
 
 				}
@@ -414,7 +416,9 @@
 						title: 'Success!',
 						text: data.success,
 					});
-					window.location.reload();
+					setTimeout(function() {
+						window.location.reload();
+					}, 3000);
 
 
 				}

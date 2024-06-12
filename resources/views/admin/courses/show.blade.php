@@ -6,7 +6,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <!-- Page pre-title -->
-                {{ Breadcrumbs::render('show-course',$row) }}
+                {{ Breadcrumbs::render('show-courses',$row) }}
 
             </div>
             <!-- Page title actions -->

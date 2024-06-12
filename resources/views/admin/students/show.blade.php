@@ -18,7 +18,7 @@
     <div class="container-xl">
         <div class="row row-deck row-cards">
             <div class="col-sm-12">
-               <div class="card">
+                <div class="card">
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
@@ -34,9 +34,9 @@
 
                                         <th>{{ __('admin.students.field_photo') }}</th>
                                         <td><a href="{{ $row->imageFullPath }}" target="_blank">
-                                             <img src="{{ $row->imageFullPath }}" style="width:40px">
-                                             </a>
-                                            </td>
+                                                <img src="{{ $row->imageFullPath }}" style="width:40px">
+                                            </a>
+                                        </td>
 
                                     </tr>
                                     <tr>
@@ -101,8 +101,11 @@
 
 
                                             <div class="form-check form-switch md-3" style="margin:10px">
-                                            <label for="toggle_id">Toggle Button Label</label>
-
+                                                @if($row->active == 1)
+                                                <span class="badge bg-green text-green-fg">Green</span>
+                                                @else
+                                                <span class="badge bg-red text-red-fg">Red</span>
+                                                @endif
                                                 <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                             </div>
                                         </td>
@@ -126,10 +129,10 @@
 
             </div>
             <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3> الدورات المشترك بها </h3>
-                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3> الدورات المشترك بها </h3>
+                    </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class=" export-table table card-table table-vcenter text-nowrap datatable">

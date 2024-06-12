@@ -399,7 +399,8 @@
 			$.ajax({
 				type: "POST",
 				dataType: "json",
-				url: 'changerecommened',
+				url: "{{url('admin/changerecommened')}}",
+
 				data: {
 					'recommened': status,
 					'id': id,

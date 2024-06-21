@@ -22,7 +22,7 @@
                     <img src="{{asset('front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
                     <img src="{{asset('front/img/logo.svg')}}" class="logo img-fluid position-absolute" alt="">
                     <div class="data text-center text-white">
-                        <img src="{{asset('front/img/male.svg')}}" class="img-fluid" alt="">
+                        <img src="{{asset($setting->loginImageFullPath)}}" class="img-fluid" alt="">
                         <h2>مرحبا بك  يا صديقي </h2>
                     </div>
                 </div>

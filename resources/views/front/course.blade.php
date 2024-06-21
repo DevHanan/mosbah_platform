@@ -21,7 +21,7 @@
                     <div class="info position-relative py-5">
                         <h2 class="title py-3 pb-1 fw-bold secondary-color text-center"> {{ $course->name }} </h2>
                         <h3 class="fw-bold text-center mb-4">
-                        @foreach($course->tracks as $track)
+                            @foreach($course->tracks as $track)
 
                             <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none btn-info">{{ $track->name }}</a>
                             @endforeach
@@ -31,12 +31,12 @@
                             @if($course->SubscriptionCount > 0)
                             <div class="persons mx-3">
                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                   
+
                                     @for($i=0 ; $i<$course->SubscriptionCount ;$i++ )
-                                    <li class="avatar avatar-xs pull-up position-relative">
-                                        <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
-                                    </li>
-                                    @endfor
+                                        <li class="avatar avatar-xs pull-up position-relative">
+                                            <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
+                                        </li>
+                                        @endfor
                                 </ul>
                             </div>
                             @endif
@@ -171,14 +171,14 @@
                                                 <h2 class="accordion-header" id="headingOne{{$level->id}}">
                                                     <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage1_lec{{$lecture->id}}
                                         " aria-expanded="true" aria-controls="stage1_lec1">
-                                                       
+
                                                         <img src="{{ asset('public/front/img/icons/fi-rr-bell.png')}}" class="ms-2" alt="">
 
                                                         {{ $lecture->title }}
 
                                                         @if($lecture->free == 0)
-                                                        <span style="float: left !important;font-size:18px;">
-                                                        <i class="fas fa-lock" ></i> 
+                                                        <span style="float: left !important;font-size:18px;margin: -38px 50px 0px 50px;">
+                                                            <i class="fas fa-lock"></i>
                                                         </span>
                                                         @endif
 
@@ -236,15 +236,15 @@
                                     <div class="title primary-color fw-bold mb-4">الدورة موجهة الي :</div>
                                     {!! $course->directedTo !!}
                                 </div>
-                                
+
                             </div>
                             <div class="row">
-                            <div class="col-lg-6">
+                                <div class="col-lg-6">
                                     <div class="title primary-color fw-bold mb-4"> متطلبات مسبقة للدورة</div>
                                     {!! $course->prerequisites !!}
                                 </div>
                             </div>
-                           
+
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-trainsers" role="tabpanel">

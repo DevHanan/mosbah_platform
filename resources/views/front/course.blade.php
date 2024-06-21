@@ -177,8 +177,8 @@
                                                         {{ $lecture->title }}
 
                                                         @if($lecture->free == 0)
-                                                        <span>
-                                                        <i class="fas fa-lock" style="direction: ltr;"></i> 
+                                                        <span style="float: left !important;font-size:18px;">
+                                                        <i class="fas fa-lock" ></i> 
                                                         </span>
                                                         @endif
 

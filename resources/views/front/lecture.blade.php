@@ -13,10 +13,10 @@
                     <div class="position-relative w-100 gallery-item mt-3" style="height: 400px;">
                         @if($lecture->link && $lecture->provider == 2)
 
-                        <iframe type='text/html' style="max-height: 220px;" src="{{$lecture->link}}" width='100%' height='100vh' frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe type='text/html' style="max-height: 220px;" src="{{$lecture->link}}" width='100%' style="height:100% !important;" frameborder='0' allowfullscreen='true' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                         @elseif($lecture->link && $lecture->provider == 1)
-                        <iframe src="{{$lecture->link}}" style="max-height: 220px;" frameborder="0" width='100%' height='100vh' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe src="{{$lecture->link}}" style="max-height: 220px;" frameborder="0" width='100%'  style="height:100% !important;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                         @else
                         <a href="{{$lecture->link}}" target="_blank">

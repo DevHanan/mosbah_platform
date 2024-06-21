@@ -177,7 +177,9 @@
                                                         {{ $lecture->title }}
 
                                                         @if($lecture->free == 0)
-                                                       <i class="fas fa-lock" style="direction: ltr;"></i> 
+                                                        <span>
+                                                        <i class="fas fa-lock" style="direction: ltr;"></i> 
+                                                        </span>
                                                         @endif
 
                                                     </button>

@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="" class="paypalForm d-none">
                     <div class="payment shadow-sm p-4 my-3">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="" class="cashForm d-none">
                     <div class="payment shadow-sm p-4 my-3">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="" class="visaForm d-none">
                     <div class="payment shadow-sm p-4 my-3">
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الكتاب الآن</button>
+                    <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -289,7 +289,7 @@
                                 <hr>
                                 <div class="d-flex justify-content-around" style="font-size: 14px;">
                                     <p> <i class="fa-solid fa-graduation-cap ms-1"></i> {{ $course->difficultyLevelLabel }}</p>
-                                    <p> <i class="fa-regular fa-clock ms-1"></i> {{ $course->period }} {{ $course->PeriodTypeLabel }}</p>
+                                    <p> <i class="fa-regular fa-clock ms-1"></i> {{ $course->period }} {{ $course->periodLabel }}</p>
                                     <p> <i class="fa-solid fa-laptop ms-1"></i> {{ $course->lectures()->count()}} محاضرة</p>
                                 </div>
                             </div>

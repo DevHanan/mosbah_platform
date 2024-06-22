@@ -12,6 +12,7 @@ use Auth;
 use Yoeunes\Toastr\Toastr;
 use Illuminate\Support\Str;
 use App\Mail\VerifyEmail;
+use App\Models\LandingSetting;
 
 use Mail;
 
@@ -48,6 +49,10 @@ class RegisterController extends Controller
         else
             $model = 'App\Models\Student';
 
+
+            $landingSetting = LandingSetting::first();
+
+
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
         $item->verification_code = Str::random(6); // generate a 6-digit verification code
@@ -63,7 +68,7 @@ class RegisterController extends Controller
         Mail::to($item->email)->send(new VerifyEmail($item));
 
         toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
-        return view('front.sign_verify', compact(['type', 'item']));
+        return view('front.sign_verify', compact(['type', 'item','landingSetting']));
 
         // return view('front.sign_step2', compact(['type', 'item']));
     }

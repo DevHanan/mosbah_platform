@@ -48,7 +48,7 @@
                                 </div>
                                 <span class="timer">30 ث</span>
                             </div>
-                            <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('sign_step1')}}">ارسال مرة اخري</a></div>
+                            <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('sign_step1')}}" disabled>ارسال مرة اخري</a></div>
                             <div class="card-footer border-0">
                                 <a href="{{url('sign_step2')}}" type="button" class="btn primary-color w-100"></a>
                             </div>

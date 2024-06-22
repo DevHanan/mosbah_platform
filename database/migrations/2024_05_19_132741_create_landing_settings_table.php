@@ -34,6 +34,7 @@ return new class extends Migration
             $table->integer('start_soon_period')->default('30');
             $table->integer('letter_news')->default('1');
             $table->string('book_shop_url')->nullable();
+            $table->integer('verification_expire_time_in_seconds')->default(30);
 
 
 

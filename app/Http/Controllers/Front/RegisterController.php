@@ -51,6 +51,8 @@ class RegisterController extends Controller
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
         $item->verification_code = Str::random(6); // generate a 6-digit verification code
+        $startTime = time(); // get the current timestamp
+        $item->verification_expire_time = $startTime + $landingSetting->verification_expire_time_in_seconds; 
 
         $item->save();
         // $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';

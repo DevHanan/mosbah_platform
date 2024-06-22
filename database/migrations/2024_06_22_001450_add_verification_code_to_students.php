@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->string('verification_code')->nullable();
+            $table->string('verification_expire_time')->nullable();
+
         });
     }
 

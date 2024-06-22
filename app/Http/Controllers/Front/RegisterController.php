@@ -13,6 +13,7 @@ use Yoeunes\Toastr\Toastr;
 use Illuminate\Support\Str;
 use App\Mail\VerifyEmail;
 use App\Models\LandingSetting;
+use App\Mail\VerifyStudentEmail;
 
 use Mail;
 
@@ -50,38 +51,47 @@ class RegisterController extends Controller
             $model = 'App\Models\Student';
 
 
-            $landingSetting = LandingSetting::first();
+        $landingSetting = LandingSetting::first();
+        $randomIntegers = [];
+        for ($i = 0; $i < 4; $i++) {
+            $randomIntegers[] = mt_rand(1, 100); // generates a random integer between 1 and 100
+        }
 
 
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
-        $item->verification_code = Str::random(4); // generate a 6-digit verification code
+        $item->verification_code = $randomIntegers; // generate a 6-digit verification code
         $startTime = time(); // get the current timestamp
-        $item->verification_expire_time = $startTime + $landingSetting->verification_expire_time_in_seconds; 
+        $item->verification_expire_time = $startTime + $landingSetting->verification_expire_time_in_seconds;
 
         $item->save();
         // $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
         // Auth::guard($guard)->loginUsingId($item->id);
 
-        
+
         // Send the verification email
-        Mail::to($item->email)->send(new VerifyEmail($item), [
-            'subject' => 'Verify Email'
-        ]);
+        if ($type == 'instructor')
+            Mail::to($item->email)->send(new VerifyEmail($item), [
+                'subject' => 'Verify Email'
+            ]);
+        else
+            Mail::to($item->email)->send(new VerifyStudentEmail($item), [
+                'subject' => 'Verify Email'
+            ]);
 
         toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
-        return view('front.sign_verify', compact(['type', 'item','landingSetting']));
+        return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
 
         // return view('front.sign_step2', compact(['type', 'item']));
     }
 
 
 
-    public function verifyEmail(Request  $request){
+    public function verifyEmail(Request  $request)
+    {
 
         return $request->all();
-     return view('front.sign_step2', compact(['type', 'item']));
-
+        return view('front.sign_step2', compact(['type', 'item']));
     }
 
     public function signstep2(Request $request)
@@ -106,9 +116,7 @@ class RegisterController extends Controller
             ]);
 
             if ($request->track_ids)
-            $model->tracks()->attach($request->track_ids);
-
-
+                $model->tracks()->attach($request->track_ids);
         }
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return view('front.sign_step3');
@@ -117,14 +125,14 @@ class RegisterController extends Controller
 
     public function signstep3(Request $request)
     {
-        if (Auth::guard('students-login')->user() && $request->image ) {
+        if (Auth::guard('students-login')->user() && $request->image) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/students/'), $filename);
             $student = auth()->guard('students-login')->user();
             $student->image = 'uploads/students/' . $filename;
             $student->save();
-        } elseif (Auth::guard('instructors-login')->user() && $request->image ) {
+        } elseif (Auth::guard('instructors-login')->user() && $request->image) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/instructors/'), $filename);

@@ -72,7 +72,7 @@
       setTimeout(countdown, 1000); // call countdown every 1 second
     } else {
       // timer expired, do something here
-      alert('Time\'s up!');
+    //   alert('Time\'s up!');
     }
   }
 

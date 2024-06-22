@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Instructor;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -12,9 +13,9 @@ class VerifyEmail extends Mailable
 
     public $user;
 
-    public function __construct(User $user)
+    public function __construct(Instructor $instructor)
     {
-        $this->user = $user;
+        $this->user = $instructor;
     }
 
     public function build()

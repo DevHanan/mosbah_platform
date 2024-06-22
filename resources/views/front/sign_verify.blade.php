@@ -34,9 +34,9 @@
             <div class="col-md-6">
                 <div class="intro container p-5 pt-3">
                     <div class="d-flex justify-content-between align-items-center mb-5">
-                        <a href="{{  url('sign_step1')}}" class="text-decoration-none fw-bold" style="color:#696F79">
+                        <!-- <a href="{{  url('sign_step1')}}" class="text-decoration-none fw-bold" style="color:#696F79">
                             <i class="fa-solid fa-angle-right ms-2"></i> عودة
-                        </a>
+                        </a> -->
                     </div>
                     <h1>تأكيد الحساب !</h1>
                     <p class="mt-3 mb-5">تم ارسال كود تفعيل على الايميل أو رقم الهاتف الخاص بك قم بنسخه ولصقه هنا لمتابعة إنشاء حسابك </p>

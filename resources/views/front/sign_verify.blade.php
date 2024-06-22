@@ -47,7 +47,7 @@
                                     <input type="text" maxlength="1" class="form-control mx-2 text-center">
                                     <input type="text" maxlength="1" class="form-control mx-2 text-center">
                                 </div>
-                                <span class="timer" id="timer">{{ $landingSetting->verification_expire_time_in_seconds }} </span> <span>ث</span>
+                                <span class="timer" id="timer">{{ $landingSetting->verification_expire_time_in_seconds }} </span>ث
                                 </div>
                             <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('sign_step1')}}" disabled>ارسال مرة اخري</a></div>
                             <div class="card-footer border-0">

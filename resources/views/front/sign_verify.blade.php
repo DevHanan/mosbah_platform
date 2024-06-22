@@ -36,7 +36,8 @@
                     </div>
                     <h1>تأكيد الحساب !</h1>
                     <p class="mt-3 mb-5">تم ارسال كود تفعيل على الايميل أو رقم الهاتف الخاص بك قم بنسخه ولصقه هنا لمتابعة إنشاء حسابك </p>
-                    <form action="">
+                    <form action="{{url('verify-email')}}" method="POST">
+                        @csrf
 
                         <div class="card-content">
                             <div class="card-body">
@@ -53,7 +54,7 @@
                                 <a href="{{url('sign_step2')}}" type="button" class="btn primary-color w-100"></a>
                             </div>
                         </div>    
-                        <a href="{{url('sign_step2')}}" type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">متابعة</a>
+                        <a  type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">متابعة</a>
                     </form>
                 </div>
             </div>

@@ -55,7 +55,7 @@ class RegisterController extends Controller
 
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
-        $item->verification_code = Str::random(6); // generate a 6-digit verification code
+        $item->verification_code = Str::random(4); // generate a 6-digit verification code
         $startTime = time(); // get the current timestamp
         $item->verification_expire_time = $startTime + $landingSetting->verification_expire_time_in_seconds; 
 
@@ -65,7 +65,9 @@ class RegisterController extends Controller
 
         
         // Send the verification email
-        Mail::to($item->email)->send(new VerifyEmail($item));
+        Mail::to($item->email)->send(new VerifyEmail($item), [
+            'subject' => 'Verify Email'
+        ]);
 
         toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
         return view('front.sign_verify', compact(['type', 'item','landingSetting']));

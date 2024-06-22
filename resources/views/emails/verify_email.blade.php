@@ -7,7 +7,7 @@ Hello {{ $user->name }},
 
 To complete your registration, please enter the following verification code:
 
-{{ $verification_code }}
+print_r($verification_code)
 
 Thank you for registering!
 

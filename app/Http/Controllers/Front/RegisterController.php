@@ -61,7 +61,9 @@ class RegisterController extends Controller
         Mail::to($item->email)->send(new VerifyEmail($item));
 
         toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
-        return view('front.sign_step2', compact(['type', 'item']));
+        return view('front.sign_verify', compact(['type', 'item']));
+
+        // return view('front.sign_step2', compact(['type', 'item']));
     }
 
 

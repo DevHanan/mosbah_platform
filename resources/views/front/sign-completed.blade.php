@@ -7,7 +7,7 @@
   {{ $title }} -
   @endif
   {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">    <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">    <link rel="stylesheet" href="public/front/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="public/front/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="public/front/css/custom.css">

@@ -7,11 +7,11 @@
   {{ $title }} -
   @endif
   {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->favicon_path) }}">    <link rel="stylesheet" href="PUBLIC/FRONT/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">    <link rel="stylesheet" href="{{asset('public/front/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="PUBLIC/FRONT/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="PUBLIC/FRONT/css/custom.css">
-    <link rel="stylesheet" href="PUBLIC/FRONT/css/media.css">
+    <link rel="stylesheet" href="{{asset('public/front/css/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('public/front/css/media.css')}}">
 </head>
 <body>
     <div class="register sign_step1">
@@ -19,10 +19,10 @@
             <div class="col-md-6 p-0 position-relative">
                 <div class="welcome d-flex flex-column align-items-center justify-content-center">
                     <div class="layout position-absolute"></div>
-                    <img src="PUBLIC/FRONT/img/Group 327.svg" class="position-absolute img-fluid h-100" alt="">
-                    <img src="PUBLIC/FRONT/img/logo.svg" class="logo img-fluid position-absolute" alt="">
+                    <img src="{{asset('public/front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
+                    <img src="{{asset('public/front/img/logo.svg')}}" class="logo img-fluid position-absolute" alt="">
                     <div class="data text-center text-white">
-                        <img src="PUBLIC/FRONT/img/sign_step1.svg" class="img-fluid" alt="">
+                        <img src="{{asset('public/front/img/sign_step1.svg')}}" class="img-fluid" alt="">
                         <h2>فقط بضع خطوات وننتهي </h2>
                     </div>
                 </div>

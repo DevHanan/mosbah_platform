@@ -11,6 +11,7 @@ use App\Models\Instructor;
 use Auth;
 use Yoeunes\Toastr\Toastr;
 use Illuminate\Support\Str;
+use Mail;
 
 class RegisterController extends Controller
 {

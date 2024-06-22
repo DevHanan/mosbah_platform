@@ -54,7 +54,7 @@ class RegisterController extends Controller
         $landingSetting = LandingSetting::first();
         $randomIntegers = [];
         for ($i = 0; $i < 4; $i++) {
-            $randomIntegers[] = mt_rand(1, 100); // generates a random integer between 1 and 100
+            $randomIntegers[] = mt_rand(0, 9); // generates a random integer between 1 and 100
         }
 
 

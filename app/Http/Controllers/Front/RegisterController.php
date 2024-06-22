@@ -10,6 +10,7 @@ use App\Models\Student;
 use App\Models\Instructor;
 use Auth;
 use Yoeunes\Toastr\Toastr;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -36,18 +37,26 @@ class RegisterController extends Controller
     }
 
 
-    public function registerStudent(RegisterRequest $request)
+    public function register(RegisterRequest $request)
     {
         $type = $request->input('type');
         if ($type == 'instructor')
             $model = 'App\Models\Instructor';
         else
             $model = 'App\Models\Student';
+
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
+        $item->verification_code = Str::random(6); // generate a 6-digit verification code
+
         $item->save();
-        $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
-        Auth::guard($guard)->loginUsingId($item->id);
+        // $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
+        // Auth::guard($guard)->loginUsingId($item->id);
+
+        
+        // Send the verification email
+        Mail::to($user->email)->send(new VerifyEmail($user));
+
         toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
         return view('front.sign_step2', compact(['type', 'item']));
     }

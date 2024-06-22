@@ -46,7 +46,7 @@ Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 
 Route::get('/sign_step1', [RegisterController::class, 'getsignstep1']);
-Route::post('/sign_step1', [RegisterController::class, 'registerStudent']);
+Route::post('/sign_step1', [RegisterController::class, 'register']);
 
 Route::get('/sign_step2', [RegisterController::class, 'getsignstep2']);
 Route::post('/sign_step2', [RegisterController::class, 'signstep2']);

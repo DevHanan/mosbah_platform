@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class Student extends Authenticatable
+
+class Student extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory;
     protected $table = 'students';

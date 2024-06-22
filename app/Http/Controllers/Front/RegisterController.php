@@ -76,6 +76,14 @@ class RegisterController extends Controller
     }
 
 
+
+    public function verifyEmail(Request  $request){
+
+        return $request->all();
+     return view('front.sign_step2', compact(['type', 'item']));
+
+    }
+
     public function signstep2(Request $request)
     {
 

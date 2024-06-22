@@ -11,6 +11,8 @@ use App\Models\Instructor;
 use Auth;
 use Yoeunes\Toastr\Toastr;
 use Illuminate\Support\Str;
+use App\Mail\VerifyEmail;
+
 use Mail;
 
 class RegisterController extends Controller
@@ -56,7 +58,7 @@ class RegisterController extends Controller
 
         
         // Send the verification email
-        Mail::to($user->email)->send(new VerifyEmail($user));
+        Mail::to($item->email)->send(new VerifyEmail($item));
 
         toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
         return view('front.sign_step2', compact(['type', 'item']));

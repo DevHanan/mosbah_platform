@@ -47,19 +47,36 @@
                                     <input type="text" maxlength="1" class="form-control mx-2 text-center">
                                     <input type="text" maxlength="1" class="form-control mx-2 text-center">
                                 </div>
-                                <span class="timer">30 ث</span>
-                            </div>
+                                <span class="timer" id="timer">30 ث</span>
+                                </div>
                             <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('sign_step1')}}" disabled>ارسال مرة اخري</a></div>
                             <div class="card-footer border-0">
                                 <a href="{{url('sign_step2')}}" type="button" class="btn primary-color w-100"></a>
                             </div>
                         </div>    
-                        <a  type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">متابعة</a>
+                        <button  type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">متابعة</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
+
+<script>
+  var timer = document.getElementById('timer');
+  var seconds = 30; // initial time in seconds
+
+  function countdown() {
+    seconds--;
+    timer.innerHTML = seconds + '';
+    if (seconds > 0) {
+      setTimeout(countdown, 1000); // call countdown every 1 second
+    } else {
+      // timer expired, do something here
+      alert('Time\'s up!');
+    }
+  }
+
+  countdown(); // start the countdown
+</script>
 </body>
 </html>

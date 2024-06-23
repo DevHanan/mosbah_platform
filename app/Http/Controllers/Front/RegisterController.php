@@ -34,7 +34,11 @@ class RegisterController extends Controller
     }
     public function signVerify()
     {
-        return view('front.sign_verify');
+        $landingSetting = ''; // or some default value
+        $type = ''; // or some default value
+        $item = ''; // or some default value
+
+        return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
     }
     public function signcomplete()
     {

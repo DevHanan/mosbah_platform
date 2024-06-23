@@ -51,10 +51,16 @@
                                     <input type="text"   style="padding:0px;" required maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
                                     <input type="text"  style="padding:0px;" required maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
                                 </div>
+                                @if(isset($landingSetting))
                                 <span class="timer" id="timer">{{ $landingSetting->verification_expire_time_in_seconds }} </span>ث
+                                @endif
                             </div>
+                            @if(isset($type))
                             <input type="hidden" name="model" value="{{$type}}">
+                            @endif
+                            @if(isset($item))
                             <input type="hidden" name="email" value="{{$item->email}}">
+                            @endif
 
                             <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('sign_step1')}}" disabled>ارسال مرة اخري</a></div>
                             <div class="card-footer border-0">

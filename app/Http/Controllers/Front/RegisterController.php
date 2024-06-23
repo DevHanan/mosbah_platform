@@ -34,7 +34,7 @@ class RegisterController extends Controller
     }
     public function signVerify()
     {
-        return view('front.sign-verfiy');
+        return view('front.sign_verfiy');
     }
     public function signcomplete()
     {

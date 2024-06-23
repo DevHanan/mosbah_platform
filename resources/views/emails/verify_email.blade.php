@@ -7,7 +7,7 @@ Hello {{ $user->name }},
 
 To complete your registration, please enter the following verification code:
 
-{{ implode(' ', $verification_code) }}
+{{  $verification_code }}
 
 Thank you for registering!
 

@@ -34,9 +34,9 @@ class RegisterController extends Controller
     }
     public function signVerify()
     {
-        $landingSetting = ''; // or some default value
-        $type = ''; // or some default value
-        $item = ''; // or some default value
+        $landingSetting = null; // or some default value
+        $type = null; // or some default value
+        $item = null; // or some default value
 
         return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
     }

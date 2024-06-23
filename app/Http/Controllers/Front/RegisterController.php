@@ -105,7 +105,8 @@ class RegisterController extends Controller
             return view('front.sign_step2', compact(['type', 'item']));
        }else{
         toastr()->success(__('front.account_verified_failed'), __('front.msg_error'));
-        return redirect()->back();
+        return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
+
        }
     }
 

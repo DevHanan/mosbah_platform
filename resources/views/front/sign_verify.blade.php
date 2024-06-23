@@ -76,7 +76,11 @@
 
     <script>
         var timer = document.getElementById('timer');
-        var seconds = <?php echo $landingSetting->verification_expire_time_in_seconds ?>; // initial time in seconds
+        var seconds = <?php 
+        if($landingSetting != null )
+        echo $landingSetting->verification_expire_time_in_seconds;
+    
+     ?>; // initial time in seconds
 
         function countdown() {
             seconds--;

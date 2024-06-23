@@ -46,10 +46,10 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="d-flex justify-content-around verification_number mb-3">
-                                    <input type="text"  required maxlength="1" class="form-control mx-2 text-center" name="verify[]">
-                                    <input type="text" required  maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
-                                    <input type="text"  required maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
-                                    <input type="text" required maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
+                                    <input type="text"  style="padding:0px;" required maxlength="1" class="form-control mx-2 text-center" name="verify[]">
+                                    <input type="text" style="padding:0px;" required  maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
+                                    <input type="text"   style="padding:0px;" required maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
+                                    <input type="text"  style="padding:0px;" required maxlength="1" class="form-control mx-2 text-center"  name="verify[]">
                                 </div>
                                 <span class="timer" id="timer">{{ $landingSetting->verification_expire_time_in_seconds }} </span>ث
                             </div>

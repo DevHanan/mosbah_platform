@@ -85,8 +85,26 @@ class RegisterController extends Controller
     public function verifyEmail(Request  $request)
     {
 
-        return $request->all();
-        return view('front.sign_step2', compact(['type', 'item']));
+        $type = $request->input('type');
+        if ($type == 'instructor')
+            $model = 'App\Models\Instructor';
+        else
+            $model = 'App\Models\Student';
+            $landingSetting = LandingSetting::first();
+            $expire_time = time() + $landingSetting->verification_expire_time_in_seconds;
+    
+            $expire_time = time() + $landingSetting->verification_expire_time_in_seconds;
+            $item = $model::where('email',$request->email)->where('verification_code',implode(' ', $request->code))->where('verification_expire_time','>=',$expire_time)->first();        
+       if($item){
+        $item->verification_code = '';
+        $item->verification_expire_time = '';
+        $item->save();
+        toastr()->success(__('front.account_verified_successfully'), __('front.msg_success'));
+            return view('front.sign_step2', compact(['type', 'item']));
+       }else{
+        toastr()->success(__('front.account_verified_failed'), __('front.msg_error'));
+        return redirect()->back();
+       }
     }
 
     public function signstep2(Request $request)

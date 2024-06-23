@@ -20,12 +20,12 @@ class VerifyStudentEmail extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.verify_email')
-        ->subject('Verify Your Email Address') // Set the subject line here
+        return $this->subject('Verify Your Email Address')
+            ->markdown('emails.verify_email')
+            // Set the subject line here
             ->with([
                 'user' => $this->user,
                 'verification_code' => $this->user->verification_code,
             ]);
     }
 }
-

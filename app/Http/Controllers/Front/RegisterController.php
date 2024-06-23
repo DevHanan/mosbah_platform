@@ -52,15 +52,10 @@ class RegisterController extends Controller
 
 
         $landingSetting = LandingSetting::first();
-        $randomIntegers = [];
-        for ($i = 0; $i < 4; $i++) {
-            $randomIntegers[] = mt_rand(0, 9); // generates a random integer between 1 and 100
-        }
-
-
+    
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
-        $item->verification_code = $randomIntegers; // generate a 6-digit verification code
+        $item->verification_code = Str::random(4); // generate a 6-digit verification code
         $startTime = time(); // get the current timestamp
         $item->verification_expire_time = $startTime + $landingSetting->verification_expire_time_in_seconds;
 

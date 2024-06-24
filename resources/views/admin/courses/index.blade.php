@@ -99,10 +99,10 @@
                     </select>
                   </div>
                   <div class=" form-group col-md-2">
-                    <button type="submit" class="btn btn-success">{{__('admin.search')}}</button>
+                    <button type="submit" class="btn btn-primary">{{__('admin.search')}}</button>
                   </div>
                   <div class=" form-group col-md-2">
-                    <a href="{{url('admin/courses')}}" class="btn btn-success">{{__('admin.reset')}}</button>
+                    <a href="{{url('admin/courses')}}" class="btn btn-success">{{__('admin.reset')}}</a>
                   </div>
                   </form>
                 </div>

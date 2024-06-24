@@ -39,11 +39,11 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <div class="col-md-11">
+            <div class="col-md-10">
               <h3 class="card-title">{{ $title }}</h3>
             </div>
 
-            <div class="col-md-1">
+            <div class="col-md-2">
 
 
               <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">

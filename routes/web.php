@@ -60,7 +60,7 @@ Route::get('/sign-complete', [RegisterController::class, 'signcomplete']);
 
 Route::post('/signin', [RegisterController::class, 'signin']);
 
-Route::post('/verify-email', [RegisterController::class, 'verifyEmail']);
+// Route::post('/verify-email', [RegisterController::class, 'verifyEmail']);
 
 
 Route::get('/questions', [HomeController::class, 'questions']);

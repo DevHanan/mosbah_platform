@@ -39,11 +39,11 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <div class="col-md-6">
+            <div class="col-md-9">
               <h3 class="card-title">{{ $title }}</h3>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                   {{__('admin.advanced_search')}}
                 </button>

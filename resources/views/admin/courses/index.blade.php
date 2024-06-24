@@ -62,7 +62,7 @@
 
                 <div class="col-md-12">
 
-                <form class=" form-inline col-md-12" action="{{url('admin/courses')}}">
+                <form class=" row col-md-12" action="{{url('admin/courses')}}">
                   <div class="form-group col-md-2">
                     <select class="select2 form-control" name="course_id" id="course_id">
                       <option value="">{{ __('select') }}</option>

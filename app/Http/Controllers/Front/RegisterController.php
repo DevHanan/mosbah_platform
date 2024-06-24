@@ -91,9 +91,9 @@ class RegisterController extends Controller
 
         $type = $request->input('type');
         if ($type == 'instructor')
-            $model = 'Instructor';
+            $model = 'App\Models\Instructor';
         else
-            $model = 'Student';
+            $model = 'App\Models\Student';
             $landingSetting = LandingSetting::first();
             $expire_time = time() + $landingSetting->verification_expire_time_in_seconds;
             $item = $model::where('verification_code',implode(' ', (array)$request->verify))->first();    

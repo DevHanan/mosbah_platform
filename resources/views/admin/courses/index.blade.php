@@ -39,7 +39,24 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">{{ $title }}</h3>
+            <div class="col-md-6">
+              <h3 class="card-title">{{ $title }}</h3>
+            </div>
+
+            <div class="col-md-6">
+              <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                  {{__('admin.advanced_search')}}
+                </button>
+              </p>
+              <div style="min-height: 120px;">
+                <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                  <div class="card card-body" style="width: 300px;">
+                    This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="table-responsive">
@@ -122,19 +139,19 @@
                   <td style="width: 270px;">
 
 
-                  <a href="{{ url('admin/courses/'.$row->id) }}"  title="{{__('admin.show')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/courses/'.$row->id) }}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-eye "></span>
                     </a>
-                    <a href="{{ route($route.'.edit',$row->id) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
 
-                    <a href="{{ url('admin/courses/'.$row->id .'/levels') }}"  title="{{__('admin.show_level')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/courses/'.$row->id .'/levels') }}" title="{{__('admin.show_level')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
 
 
-                    <button type="button"  title="{{__('admin.delete')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button" title="{{__('admin.delete')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->

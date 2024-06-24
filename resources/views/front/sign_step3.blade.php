@@ -59,7 +59,7 @@
                             </div>                            
                         </div>
 
-
+                        @if(type == 'instructor')
                         <div class="px-5 mb-4 d-flex flex-column align-items-center">
                             <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
                                 <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="profile" alt="">
@@ -72,6 +72,7 @@
                                 <div class="py-2 text-center rounded"> السيرة الذاتية</div>
                             </div>                            
                         </div>
+                        @endif
                                                 
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </button>
                         <p class="text-center">يتم تأمين معلوماتك بأمان <i class="fa-solid fa-lock mx-3"></i></p>

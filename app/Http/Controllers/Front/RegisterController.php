@@ -56,7 +56,7 @@ class RegisterController extends Controller
 
 
         $landingSetting = LandingSetting::first();
-    
+
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
         $item->verification_code = Str::random(4); // generate a 6-digit verification code
@@ -94,21 +94,19 @@ class RegisterController extends Controller
             $model = 'App\Models\Instructor';
         else
             $model = 'App\Models\Student';
-            $landingSetting = LandingSetting::first();
-            $expire_time = time() + $landingSetting->verification_expire_time_in_seconds;
-            $item = $model::where('verification_code',implode('', array_reverse((array)$request->verify)))->first();    
-      return $item;
-            if($item){
-        $item->verification_code = '';
-        $item->verification_expire_time = '';
-        $item->save();
-        toastr()->success(__('front.account_verified_successfully'), __('front.msg_success'));
+        $landingSetting = LandingSetting::first();
+        $expire_time = time() + $landingSetting->verification_expire_time_in_seconds;
+        $item = $model::where('verification_code', implode('', array_reverse((array)$request->verify)))->first();
+        if ($item) {
+            $item->verification_code = '';
+            $item->verification_expire_time = '';
+            $item->save();
+            toastr()->success(__('front.account_verified_successfully'), __('front.msg_success'));
             return view('front.sign_step2', compact(['type', 'item']));
-       }else{
-        toastr()->success(__('front.account_verified_failed'), __('front.msg_error'));
-        return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
-
-       }
+        } else {
+            toastr()->success(__('front.account_verified_failed'), __('front.msg_error'));
+            return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
+        }
     }
 
     public function signstep2(Request $request)

@@ -47,7 +47,7 @@ Route::get('/cart/{id}', [HomeController::class, 'cart']);
 
 Route::get('/signup/step1', [RegisterController::class, 'getsignstep1']);
 Route::post('/signup/step1', [RegisterController::class, 'register']);
-
+Route::post('signup/verify-email', [RegisterController::class, 'verifyEmail']);
 Route::get('/signup/step2', [RegisterController::class, 'getsignstep2']);
 Route::post('/signup/step2', [RegisterController::class, 'signstep2']);
 
@@ -55,12 +55,11 @@ Route::post('/signup/step2', [RegisterController::class, 'signstep2']);
 Route::get('/signup/step3', [RegisterController::class, 'getsignstep3']);
 Route::post('/signup/step3', [RegisterController::class, 'signstep3']);
 
-Route::get('/sign-verify', [RegisterController::class, 'signVerify']);
-Route::get('/sign-complete', [RegisterController::class, 'signcomplete']);
+Route::get('/signup/verify', [RegisterController::class, 'signVerify']);
+Route::get('/signup/complete', [RegisterController::class, 'signcomplete']);
 
 Route::post('/signin', [RegisterController::class, 'signin']);
 
-// Route::post('/verify-email', [RegisterController::class, 'verifyEmail']);
 
 
 Route::get('/questions', [HomeController::class, 'questions']);

@@ -40,7 +40,7 @@
                     </div>
                     <h1>تأكيد الحساب !</h1>
                     <p class="mt-3 mb-5">تم ارسال كود تفعيل على الايميل أو رقم الهاتف الخاص بك قم بنسخه ولصقه هنا لمتابعة إنشاء حسابك </p>
-                    <form action="{{url('verify-email')}}" method="POST">
+                    <form action="{{url('signup/verify-email')}}" method="POST">
                         @csrf
 
                         <div class="card-content">

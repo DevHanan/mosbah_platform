@@ -53,10 +53,10 @@
 
             </div>
 
-            <div class="row">
+            <div class="col-md-12">
               <div class="collapse card" id="collapseExample">
 
-                <div class="row>
+                <div class="col-md-12">
 
                 <form class=" form-inline col-md-12" action="{{url('admin/courses')}}">
                   <div class="form-group col-md-2">

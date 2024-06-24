@@ -59,7 +59,7 @@
                             </div>                            
                         </div>
 
-                        @if($type == 'instructor')
+                        @if(Auth::guard('instructor-logins')->user())
                         <div class="px-5 mb-4 d-flex flex-column align-items-center">
                             <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">
                                 <img src="{{asset('public/front/img/fi-rr-camera.svg')}}"  name="profile" alt="">

@@ -60,7 +60,7 @@
               <div class="col-sm-12 col-md-12 text-center">
 
                 <form class="form-inline" action="{{url('admin/courses')}}">
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <select class="select2 form-control" name="course_id" id="course_id">
                       <option value="">{{ __('select') }}</option>
                       @foreach($courses as $course)
@@ -69,7 +69,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <select class="select2 " name="course_type_id" id="course_type_id" required>
                       <option value="">{{ __('select') }}</option>
                       @foreach($courseTypes as $type)
@@ -78,7 +78,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <select class="select2 " name="track_id" id="track_id">
                       <option value="">{{ __('select') }}</option>
                       @foreach($tracks as $track)
@@ -87,7 +87,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <select class=" " name="instructor_id" style="padding:3px;">
                       <option value="0"> {{ __('admin.select_instructor')}}</option>
                       @foreach($instructors as $instructor)

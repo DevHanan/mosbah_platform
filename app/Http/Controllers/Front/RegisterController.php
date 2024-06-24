@@ -101,6 +101,8 @@ class RegisterController extends Controller
             $item->verification_code = '';
             $item->verification_expire_time = '';
             $item->save();
+             $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
+        Auth::guard($guard)->loginUsingId($item->id);
             toastr()->success(__('front.account_verified_successfully'), __('front.msg_success'));
             return view('front.sign_step2', compact(['type', 'item']));
         } else {

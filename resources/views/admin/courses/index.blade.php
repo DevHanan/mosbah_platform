@@ -78,7 +78,7 @@
                     @if($row->tracks)
                     <ul class="list-unstyled">
                       @foreach($row->tracks as $item)
-                      <li class="badge badge-primary"> {{ $item->name  }}</li>
+                      <li style="background-color: blue;"> {{ $item->name  }}</li>
                       @endforeach
                     </ul>
                     @endif
@@ -88,7 +88,7 @@
                     @if($row->instructors)
                     <ul class="list-unstyled">
                       @foreach($row->instructors as $item)
-                      <li class="badge badge-primary"> {{ $item->name  }}</li>
+                      <li style="background-color: blue;"> {{ $item->name  }}</li>
                       @endforeach
                     </ul>
                     @endif

@@ -60,24 +60,9 @@
                         </select>
                         <label for="" class="mb-3">المؤهل الدراسي</label>
                         <input type="text" name="qualifications" class="form-control mb-3 p-3" placeholder="الرجاء إدخال المؤهل الدراسي">
-                        @if($type != 'instructor')
                         <label for="" class="mb-3">المسارات التي تهتم بها (مع الطالب والمنظمة)</label>
                         <div class="multiselect w-100">
-                            <!-- <div class="selectBox position-relative" onclick="showCheckboxes('checkboxes1')">
-                                <select class="form-control py-2">
-                                    <option> حدد المسارات  </option>
-                                </select>
-                                <div class="overSelect position-absolute"></div>
-                            </div>
-                            <div id="checkboxes1" class="checkboxes py-1">
-                                @foreach($tracks as $track)
-                                <label for="one" class="py-1">
-                                    <input type="checkbox" id="{{ $track->id }}" class="mx-2"/>
-                                    {{ $track->name }} 
-                                </label>
-                                @endforeach
-                               
-                            </div> -->
+
                             <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
                             <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
                                 <option value="">{{ __('select') }}</option>
@@ -87,7 +72,26 @@
                                 @endforeach
                             </select>
                         </div>
-                        @endif
+
+
+                        <div class="mb-3">
+                            <label class="form-label" for="about">{{ __('admin.instructors.about') }} <span>*</span></label>
+                            <select class="select2 form-control" name="about" id="about" required>
+                                <option value="">{{ __('select') }}</option>
+                                <option value="0">{{ __('admin.instructors.student') }}</option>
+                                <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
+                                <option value="2 ">{{ __('admin.instructors.Graduated') }}</option>
+                                <option value="3">{{ __('admin.instructors.Doctorate') }}</option>
+                                <option value="4">{{ __('admin.instructors.Master') }}</option>
+
+                            </select>
+                            @error('about')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">حفظ ومتابعة </button>
                         <p class="text-center">يتم تأمين معلوماتك بأمان <i class="fa-solid fa-lock mx-3"></i></p>
                     </form>

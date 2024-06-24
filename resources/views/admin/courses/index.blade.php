@@ -52,11 +52,12 @@
 
 
             </div>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
+            
+          </div>
+          <div class="row">
+          <div class="collapse" id="collapseExample">
                 Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-              </div>
-            </div>
+         </div>
           </div>
 
           <div class="table-responsive">

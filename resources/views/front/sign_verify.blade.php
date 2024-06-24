@@ -62,9 +62,9 @@
                             <input type="hidden" name="email" value="{{$item->email}}">
                             @endif
 
-                            <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('sign_step1')}}" disabled>ارسال مرة اخري</a></div>
+                            <div style="font-size:14px;padding:48px 0 0;"> لم تتلقى الرمز ؟ <a href="{{url('resend-code')}}" disabled>ارسال مرة اخري</a></div>
                             <div class="card-footer border-0">
-                                <a href="{{url('sign_step2')}}" disabled type="button" class="btn primary-color w-100"></a>
+                                <a href="{{url('signup/step2')}}" disabled type="button" class="btn primary-color w-100"></a>
                             </div>
                         </div>
                         <button type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">متابعة</button>

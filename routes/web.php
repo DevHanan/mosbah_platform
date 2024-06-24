@@ -45,15 +45,15 @@ Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 
-Route::get('/sign_step1', [RegisterController::class, 'getsignstep1']);
-Route::post('/sign_step1', [RegisterController::class, 'register']);
+Route::get('/signup/step1', [RegisterController::class, 'getsignstep1']);
+Route::post('/signup/step1', [RegisterController::class, 'register']);
 
-Route::get('/sign_step2', [RegisterController::class, 'getsignstep2']);
-Route::post('/sign_step2', [RegisterController::class, 'signstep2']);
+Route::get('/signup/step2', [RegisterController::class, 'getsignstep2']);
+Route::post('/signup/step2', [RegisterController::class, 'signstep2']);
 
 
-Route::get('/sign_step3', [RegisterController::class, 'getsignstep3']);
-Route::post('/sign_step3', [RegisterController::class, 'signstep3']);
+Route::get('/signup/step3', [RegisterController::class, 'getsignstep3']);
+Route::post('/signup/step3', [RegisterController::class, 'signstep3']);
 
 Route::get('/sign-verify', [RegisterController::class, 'signVerify']);
 Route::get('/sign-complete', [RegisterController::class, 'signcomplete']);

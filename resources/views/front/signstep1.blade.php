@@ -46,7 +46,7 @@
                     </div>
                     <h1>تسجيل حساب مدرب!</h1>
                     <p class="mt-3 mb-5">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
-                    <form action="{{url('sign_step1')}}" method="POST" autocomplete="off">
+                    <form action="{{url('signup/step1')}}" method="POST" autocomplete="off">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6"></div>

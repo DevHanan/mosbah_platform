@@ -44,7 +44,7 @@
                     </div>
                     <h1>أكمل ملفك الشخصي!</h1>
                     <p class="mt-3 mb-5">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
-                    <form action="{{url('sign_step3')}}" method="POST" enctype="multipart/form-data" >
+                    <form action="{{url('signup/step3')}}" method="POST" enctype="multipart/form-data" >
                         @csrf
                         <div class="px-5 mb-4 d-flex flex-column align-items-center">
                             <div class="img_box rounded d-flex flex-column align-items-center justify-content-center">

@@ -45,7 +45,7 @@
                     </div>
                     <h1>أكمل ملفك الشخصي!</h1>
                     <p class="mt-3 mb-5">قم بادخال بياناتك الشخصية ، التفاصيل الخاصة بك مطلوبة.</p>
-                    <form action="{{url('sign_step2')}}" method="POST">
+                    <form action="{{url('signup/step2')}}" method="POST">
                         @csrf
                         <label for="" class="mb-3"> الاسم الاول* </label>
                         <input type="text" name="first_name" class="form-control mb-3 p-3" placeholder="محمد " required>

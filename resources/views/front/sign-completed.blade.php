@@ -19,7 +19,7 @@
         <div class="welcome w-100 d-flex flex-column align-items-center justify-content-center">
             <div class="layout position-absolute"></div>
             <img src="{{asset('{{asset('{{asset('public/front/img/completed-bg.svg')}}" class="position-absolute img-fluid h-100" alt="">
-            <img src="{{asset('{{asset('{{asset('public/front/img/logo.svg')}}" class="logo img-fluid position-absolute" alt="">
+            <img src="{{asset($setting->logoFullPath)}}"  style="height:120px;" class="logo img-fluid position-absolute" alt="">
             <div class="data text-center text-white">
                 <div class="img mb-4 position-relative">
                     <div class="img-back rounded-circle secondary-bg position-absolute"></div>

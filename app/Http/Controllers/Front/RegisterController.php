@@ -97,7 +97,7 @@ class RegisterController extends Controller
             $landingSetting = LandingSetting::first();
             $expire_time = time() + $landingSetting->verification_expire_time_in_seconds;
             $item = $model::where('verification_code',implode(' ', (array)$request->verify))->first();    
-            return $item;    
+            return $model;    
        if($item){
         $item->verification_code = '';
         $item->verification_expire_time = '';

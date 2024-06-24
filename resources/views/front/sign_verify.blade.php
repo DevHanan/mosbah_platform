@@ -56,7 +56,7 @@
                                 @endif
                             </div>
                             @if(isset($type) && $type != null )
-                            <input type="hidden" name="model" value="{{$type}}">
+                            <input type="hidden" name="type" value="{{$type}}">
                             @endif
                             @if(isset($item) && $item != null )
                             <input type="hidden" name="email" value="{{$item->email}}">

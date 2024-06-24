@@ -43,7 +43,7 @@
               <h3 class="card-title">{{ $title }}</h3>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
 
 
               <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -53,13 +53,12 @@
 
             </div>
 
-          </div>
-          <div class="row">
-            <div class="collapse card" id="collapseExample">
+            <div class="row">
+              <div class="collapse card" id="collapseExample">
 
-              <div class="row>
+                <div class="row>
 
-                <form class="form-inline col-md-12" action="{{url('admin/courses')}}">
+                <form class=" form-inline col-md-12" action="{{url('admin/courses')}}">
                   <div class="form-group col-md-2">
                     <select class="select2 form-control" name="course_id" id="course_id">
                       <option value="">{{ __('select') }}</option>
@@ -96,13 +95,16 @@
                     </select>
                   </div>
                   <div class=" form-group col-md-2">
-                  <button type="submit" class="btn btn-success">{{__('admin.search')}}</button>
+                    <button type="submit" class="btn btn-success">{{__('admin.search')}}</button>
                   </div>
-                </form>
-              </div>
+                  </form>
+                </div>
 
+              </div>
             </div>
+
           </div>
+
 
           <div class="table-responsive">
             <table class=" export-table table card-table table-vcenter text-nowrap datatable">

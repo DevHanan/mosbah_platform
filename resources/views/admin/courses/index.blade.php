@@ -52,11 +52,54 @@
 
 
             </div>
-            
+
           </div>
           <div class="row">
-          <div class="collapse card" id="collapseExample">
-         </div>
+            <div class="collapse card" id="collapseExample">
+
+              <div class="col-sm-12 col-md-12 text-center">
+
+                <form class="form-inline" action="{{url('admin/courses')}}">
+                  <div class="form-group">
+                    <select class="select2 form-control" name="course_id" id="course_id">
+                      <option value="">{{ __('select') }}</option>
+                      @foreach($courses as $course)
+                      <option value="{{ $course->id }}"> {{ $course->name }}</option>
+
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="select2 form-control" name="course_type_id" id="course_type_id" required>
+                      <option value="">{{ __('select') }}</option>
+                      @foreach($courseTypes as $type)
+                      <option value="{{ $type->id }}"> {{ $type->name }}</option>
+
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="select2 form-control" name="track_id" id="track_id">
+                      <option value="">{{ __('select') }}</option>
+                      @foreach($tracks as $track)
+                      <option value="{{ $track->id }}"> {{ $track->name }}</option>
+
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class=" form-control" name="instructors[]" style="padding:3px;" required>
+                      <option value="0"> {{ __('admin.select_instructor')}}</option>
+                      @foreach($instructors as $instructor)
+                      <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-success">Send</button>
+                </form>
+              </div>
+
+            </div>
           </div>
 
           <div class="table-responsive">

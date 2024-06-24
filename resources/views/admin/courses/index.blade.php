@@ -53,7 +53,11 @@
 
             </div>
 
-            <div class="col-md-12">
+          
+
+          </div>
+
+          <div class="col-md-12">
               <div class="collapse card" id="collapseExample">
 
                 <div class="col-md-12">
@@ -102,8 +106,6 @@
 
               </div>
             </div>
-
-          </div>
 
 
           <div class="table-responsive">

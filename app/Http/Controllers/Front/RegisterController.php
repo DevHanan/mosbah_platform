@@ -121,7 +121,9 @@ class RegisterController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'country_id' => $request->country_id,
-                'qualifications' => $request->qualifications
+                'qualifications' => $request->qualifications,
+                'about_teacher' => $request->about
+
             ]);
         } else {
             $model = Student::find(Auth::guard('students-login')->user()->id);
@@ -129,7 +131,8 @@ class RegisterController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'country_id' => $request->country_id,
-                'qualifications' => $request->qualifications
+                'qualifications' => $request->qualifications,
+                'about_student' => $request->about
             ]);
 
             if ($request->track_ids)
@@ -156,7 +159,18 @@ class RegisterController extends Controller
             $instructor = auth()->guard('instructors-login')->user();
             $instructor->image = 'uploads/instructors/' . $filename;
             $instructor->save();
+
+            if ($request->hasFile('cv')) {
+
+                $thumbnail = $request->cv;
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move(public_path('/uploads/instructors/'), $filename);
+                $instructor->cv = 'uploads/instructors/' . $filename;
+                $instructor->save();
+            }
         }
+
+        
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return view('front.sign-completed');
     }

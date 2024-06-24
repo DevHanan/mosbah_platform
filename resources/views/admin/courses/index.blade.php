@@ -122,7 +122,9 @@
                   <td style="width: 270px;">
 
 
-
+                  <a href="{{ route($route.,$row->id) }}"  title="{{__('admin.show')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                      <span class="far fa-eye "></span>
+                    </a>
                     <a href="{{ route($route.'.edit',$row->id) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>

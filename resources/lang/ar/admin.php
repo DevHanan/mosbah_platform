@@ -638,7 +638,9 @@ return [
         'actions' => 'الحدث',
         'description' => 'وصف'
     ],
-    'advanced_search' => 'بحث متقدم'
+    'advanced_search' => 'بحث متقدم',
+    'search' => 'بحث',
+    'reset' => 'رجوع'
 
 
 

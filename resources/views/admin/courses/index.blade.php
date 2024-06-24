@@ -57,10 +57,10 @@
           <div class="row">
             <div class="collapse card" id="collapseExample">
 
-              <div class="col-sm-12 col-md-12 text-center">
+              <div class="row>
 
-                <form class="form-inline" action="{{url('admin/courses')}}">
-                  <div class=" col-md-3">
+                <form class="form-inline col-md-12" action="{{url('admin/courses')}}">
+                  <div class="form-group col-md-2">
                     <select class="select2 form-control" name="course_id" id="course_id">
                       <option value="">{{ __('select') }}</option>
                       @foreach($courses as $course)
@@ -69,7 +69,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class=" col-md-3">
+                  <div class=" form-group col-md-2">
                     <select class="select2 " name="course_type_id" id="course_type_id" required>
                       <option value="">{{ __('select') }}</option>
                       @foreach($courseTypes as $type)
@@ -78,7 +78,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class=" col-md-3">
+                  <div class=" form-group col-md-2">
                     <select class="select2 " name="track_id" id="track_id">
                       <option value="">{{ __('select') }}</option>
                       @foreach($tracks as $track)
@@ -87,7 +87,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class=" col-md-3">
+                  <div class=" form-group col-md-2">
                     <select class="select2" name="instructor_id" style="padding:3px;">
                       <option value="0"> {{ __('admin.select_instructor')}}</option>
                       @foreach($instructors as $instructor)
@@ -95,7 +95,9 @@
                       @endforeach
                     </select>
                   </div>
-                  <button type="submit" class="btn btn-success">Send</button>
+                  <div class=" form-group col-md-2">
+                  <button type="submit" class="btn btn-success">{{__('admin.search')}}</button>
+                  </div>
                 </form>
               </div>
 

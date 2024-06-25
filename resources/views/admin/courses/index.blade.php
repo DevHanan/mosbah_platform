@@ -77,7 +77,7 @@
                       <form class="card" action="{{url('admin/courses')}}">
                         <div class="card-body">
                           <div class="row row-cards">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{__('admin.courses.name')}}</label>
                                 <input type="text" class="form-control" placeholder="course" name="name">
@@ -87,7 +87,7 @@
 
 
 
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.course_type')}}</label>
                                 <select class="form-control form-select" name="course_type_id" id="course_type_id" required>
@@ -99,21 +99,21 @@
                                 </select>
                               </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.course_type')}}</label>
-                                <select class="form-control form-select" name="name">
+                                <select class="form-control form-select" name="track_id">
                                   <option value="">{{ __('select') }}</option>
-                                  @foreach($courseTypes as $type)
-                                  <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                  @foreach($tracks as $track)
+                                  <option value="{{ $track->id }}"> {{ $track->name }}</option>
 
                                   @endforeach
                                 </select>
                               </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                               <div class="mb-3">
-                                <label class="form-label">{{ __('admin.courses.course_type')}}</label>
+                                <label class="form-label">{{ __('admin.courses.instructor')}}</label>
                                 <select class="form-control form-select" name="instructor_id">
                                   @foreach($instructors as $instructor)
                                   <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>

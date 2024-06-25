@@ -79,17 +79,15 @@ class CourseController extends Controller
         $data['access'] = $this->access;
 
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
-            if ($request->type)
-                $q->where('course_type_id', $request->type);
-            if ($request->recommend)
+            if (isset($request->recommend))
                 $q->where('recommened', $request->recommend);
-            if ($request->name)
+            if (isset($request->name))
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)
                 $q->where('instructor_id', $request->instructor_id);
             if ($request->track_id)
                 $q->where('track_id', $request->track_id);
-            if ($request->course_type)
+            if (isset($request->course_type_id))
                 $q->where('course_type_id', $request->course_type);
         })->paginate(10);
 

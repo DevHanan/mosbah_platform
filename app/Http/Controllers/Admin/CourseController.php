@@ -69,8 +69,8 @@ class CourseController extends Controller
         return view($this->view . '.index', $data);
     }
 
-   
-  public function startSoonCourses(Request $request)
+
+    public function startSoonCourses(Request $request)
     {
         $data['title'] = 'دورات تبدأ قريبا';
         $data['route'] = $this->route;
@@ -79,16 +79,18 @@ class CourseController extends Controller
         $data['access'] = $this->access;
 
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
-            if (isset($request->recommend))
-                $q->where('recommened', $request->recommend);
-            if (isset($request->name))
-                $q->Where('name', 'like', '%' . $request->name  . '%');
-            if ($request->instructor_id)
-                $q->where('instructor_id', $request->instructor_id);
-            if ($request->track_id)
-                $q->where('track_id', $request->track_id);
-            if (isset($request->course_type_id))
+            if (isset($request->course_type_id) && $request->course_type_id != null)
                 $q->where('course_type_id', $request->course_type_id);
+            if (isset($request->name) &&  $request->name != null)
+                $q->Where('name', 'like', '%' . $request->name  . '%');
+            if ($request->instructor_id &&  $request->instructor_id != null)
+                $q->whereHas('instructors', function ($q) use ($request) {
+                    $q->where('instructor_id', $request->instructor_id);
+                });
+            if ($request->track_id &&  $request->track_id != null)
+                $q->whereHas('tracks', function ($q) use ($request) {
+                    $q->where('track_id', $request->track_id);
+                });
         })->paginate(10);
 
         return view($this->view . '.index', $data);
@@ -108,20 +110,20 @@ class CourseController extends Controller
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
-        if($request->promo_url && $request->provider == 2){
-            if(preg_match('/v=([^&]+)/', $request->promo_url, $matches)){
+        if ($request->promo_url && $request->provider == 2) {
+            if (preg_match('/v=([^&]+)/', $request->promo_url, $matches)) {
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://www.youtube.com/embed/'.$video_id]);
-        }else{
-                if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {            
+            $request->merge(['videoId' => 'https://www.youtube.com/embed/' . $video_id]);
+        } else {
+            if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {
                 $video_id = $regs[3];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://player.vimeo.com/video/'.$video_id]);
+            $request->merge(['videoId' => 'https://player.vimeo.com/video/' . $video_id]);
         }
 
 
@@ -130,9 +132,9 @@ class CourseController extends Controller
         if ($request->track_ids)
             $course->tracks()->attach($request->track_ids);
 
-        if (count($request->instructors) ) {
+        if (count($request->instructors)) {
             for ($i = 0; $i < count($request->instructors); $i++) {
-                if ($request->instructors[$i] != 0){
+                if ($request->instructors[$i] != 0) {
                     CourseInstructor::create([
                         'course_id' => $course->id,
                         'instructor_id' => $request->instructors[$i],
@@ -140,12 +142,12 @@ class CourseController extends Controller
                         'course_prectange' => $request->instructorsprecentage[$i]
 
                     ]);
-                $instructor = Instructor::find($request->instructors[$i]);
-                $instructor->current_balance = $instructor->current_balance + $request->instructorsprice[$i];
-                $instructor->total_balance = $instructor->total_balance + $request->instructorsprice[$i];
-                $instructor->save();
+                    $instructor = Instructor::find($request->instructors[$i]);
+                    $instructor->current_balance = $instructor->current_balance + $request->instructorsprice[$i];
+                    $instructor->total_balance = $instructor->total_balance + $request->instructorsprice[$i];
+                    $instructor->save();
+                }
             }
-        }
         }
 
         if ($request->hasFile('image')) {
@@ -178,7 +180,6 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
         return view($this->view . '.show', $data);
-     
     }
 
     public function edit($id)
@@ -199,20 +200,20 @@ class CourseController extends Controller
         $course = Course::find($request->id);
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
-        if($request->promo_url && $request->provider == 2){
-            if(preg_match('/v=([^&]+)/', $request->promo_url, $matches)){
+        if ($request->promo_url && $request->provider == 2) {
+            if (preg_match('/v=([^&]+)/', $request->promo_url, $matches)) {
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://www.youtube.com/embed/'.$video_id]);
-        }else{
-                if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {            
+            $request->merge(['videoId' => 'https://www.youtube.com/embed/' . $video_id]);
+        } else {
+            if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {
                 $video_id = $regs[3];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
             }
-            $request->merge(['videoId'=>'https://player.vimeo.com/video/'.$video_id]);
+            $request->merge(['videoId' => 'https://player.vimeo.com/video/' . $video_id]);
         }
 
         $request->merge(['active' => $active, 'recommend' => $recommend]);
@@ -280,8 +281,8 @@ class CourseController extends Controller
     public function getcourses(Request $request)
     {
         $track_id = $request->track_id;
-        $courses = Course::whereHas('tracks',function($q)use($track_id){
-            $q->where('track_id',$track_id);
+        $courses = Course::whereHas('tracks', function ($q) use ($track_id) {
+            $q->where('track_id', $track_id);
         })->get();
         return response()->json($courses);
     }
@@ -289,16 +290,14 @@ class CourseController extends Controller
     public function getlevels(Request $request)
     {
         $course_id = $request->course_id;
-        $levels = Level::where('course_id',$course_id)->get();
+        $levels = Level::where('course_id', $course_id)->get();
         return response()->json($levels);
     }
 
     public function getlectures(Request $request)
     {
         $level_id = $request->level_id;
-        $lectures = Lecture::where('level_id',$level_id)->get();
+        $lectures = Lecture::where('level_id', $level_id)->get();
         return response()->json($lectures);
     }
-
-    
 }

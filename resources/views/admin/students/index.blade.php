@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            {{ Breadcrumbs::render('students') }}
+                {{ Breadcrumbs::render('students') }}
 
 
             </div>
@@ -91,6 +91,11 @@
 
                                             <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                         </div>
+                                        @if($row->active == 1)
+                                        <span class="badge bg-green text-green-fg">{{ __('admin.active')}}</span>
+                                        @else
+                                        <span class="badge bg-red text-red-fg">{{ __('admin.inactive')}}</span>
+                                        @endif
                                     </td>
                                     <td>
 

@@ -46,41 +46,31 @@
             <div class="col-md-2">
 
 
-              <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                {{__('admin.advanced_search')}}
-              </a>
 
               <div class="accordion" id="accordion-example">
-                 
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading-4">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false">
-                        Accordion Item #4
-                      </button>
-                    </h2>
-                    
-                  </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading-4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false">
+                      {{__('admin.advanced_search')}}
+                    </button>
+                  </h2>
+
                 </div>
+              </div>
 
             </div>
 
-          
+
 
           </div>
 
           <div class="col-md-12">
-          <div id="collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
-                      <div class="accordion-body pt-0">
-                        <strong>This is the fourth item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                      </div>
-                    </div>
-              <div class="collapse card" id="collapseExample">
-
-                <div class="col-md-12">
-
-                <form class=" row col-md-12" action="{{url('admin/courses')}}">
+            <div id="collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
+              <div class="accordion-body pt-0">
+              <form class=" row col-md-12" action="{{url('admin/courses')}}">
                   <div class="form-group col-md-2">
-                   <input type="text" name="name" placeholder="اسم الدورة">
+                    <input type="text" name="name" placeholder="اسم الدورة">
                   </div>
                   <div class=" form-group col-md-2">
                     <select class="select2 " name="course_type_id" id="course_type_id" required>
@@ -114,11 +104,11 @@
                   <div class=" form-group col-md-2">
                     <a href="{{url('admin/courses')}}" class="btn btn-success">{{__('admin.reset')}}</a>
                   </div>
-                  </form>
-                </div>
-
-              </div>
+                </form>
             </div>
+            </div>
+          
+          </div>
 
 
           <div class="table-responsive">

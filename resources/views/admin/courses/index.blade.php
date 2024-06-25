@@ -85,9 +85,11 @@
                             </div>
 
 
-
-
-                            <div class="col-md-3">
+                            @if(request()->has('type'))
+    <input type="hidden" name="course_type_id" value="{{request()->input('type') }}">
+    @else
+    
+    <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.course_type')}}</label>
                                 <select class="form-control form-select" name="course_type_id" id="course_type_id" >
@@ -99,6 +101,8 @@
                                 </select>
                               </div>
                             </div>
+@endif
+
                             <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.track')}}</label>

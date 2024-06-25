@@ -57,7 +57,6 @@ class CourseController extends Controller
 
             if ($request->course_type_id)
                 $q->where('course_type_id', $request->course_type_id);
-
             if (isset($request->name) &&  $request->name != null)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id &&  $request->instructor_id != null)

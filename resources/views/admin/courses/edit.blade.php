@@ -396,6 +396,7 @@
     alert(rowCount);
     if (rowCount > 1) {
       var rowIndex = row.parentNode.parentNode.rowIndex;
+      console.log(rowIndex);
       document.getElementById("instructorstable").deleteRow(rowIndex);
     } else {
       alert("Please specify at least one value.");

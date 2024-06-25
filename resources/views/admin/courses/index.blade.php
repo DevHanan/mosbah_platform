@@ -51,7 +51,7 @@
 
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading-4">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false">
+                    <button  style="padding:10px;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false">
                       {{__('admin.advanced_search')}}
                     </button>
                   </h2>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-md-3">
                               <div class="mb-3">
-                                <label class="form-label">{{ __('admin.courses.course_type')}}</label>
+                                <label class="form-label">{{ __('admin.courses.track')}}</label>
                                 <select class="form-control form-select" name="track_id">
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($tracks as $track)

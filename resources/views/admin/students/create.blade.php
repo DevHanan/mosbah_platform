@@ -77,7 +77,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
-                                    <select class="form-control select2" name="track_ids[]" id="track_id" required multiple>
+                                    <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
                                     <option value="" selected disabled hidden>Please select an Track</option>   
                                     @foreach($tracks as $track)
                                         <option value="{{ $track->id }}"> {{ $track->name }}</option>
@@ -91,6 +91,30 @@
                                     </div>
                                     @enderror
                                 </div>
+
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="degree">{{ __('admin.students.degree') }} <span>*</span></label>
+                                    <select class="select2 form-control" name="degree" id="degree" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        <option value="0">{{ __('admin.instructors.student') }}</option>
+                                        <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
+                                        <option value="2 ">{{ __('admin.instructors.Graduated') }}</option>
+                                        <option value="3">{{ __('admin.instructors.Doctorate') }}</option>
+                                        <option value="4">{{ __('admin.instructors.Master') }}</option>
+
+                                    </select>
+                                    @error('degree')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6">
+                                <label class="form-label">{{ __('admin.instructors.qualifications') }} <span class="form-label-description"></span></label>
+                                <input class="form-control" name="qualifications"  placeholder="Content..">
+                            </div>
 
                                 <div class="mb-3">
 

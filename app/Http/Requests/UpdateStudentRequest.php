@@ -31,7 +31,7 @@ class UpdateStudentRequest extends FormRequest
                 Rule::unique('students', 'email')->ignore($this->id)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'country_id' => 'required|exists:countries,id'
+            'country_id' => 'exists:countries,id'
 
 
 

@@ -78,7 +78,10 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
+        return $request->all();
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
+            if (isset($request->type) && $request->type != null)
+            $q->where('type', $request->type);
             if (isset($request->course_type_id) && $request->course_type_id != null)
                 $q->where('course_type_id', $request->course_type_id);
             if (isset($request->name) &&  $request->name != null)

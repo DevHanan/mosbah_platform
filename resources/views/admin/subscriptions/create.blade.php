@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-md-6">
 
-                            <div class="mb-3">
+                                <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
@@ -125,30 +125,28 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="price">{{ __('admin.coupons.course_price_after_discount') }} <span>*</span></label>
-                                     <input type="number"  class="form-control" name="course_price" id="course_price">   
-
-                                  
+                                    <input type="number" class="form-control" name="course_price" id="course_price">
                                 </div>
 
-                              
+
 
 
                                 <div class="mb-3">
-                                <label class="form-label" for="payment_type_id">{{ __('admin.subscriptions.field_paymenttype') }} <span>*</span></label>
-                                <select class="form-control" name="payment_type_id" id="payment_type_id" required>
-                                    <option value="">{{ __('select') }}</option>
-                                    @foreach($paymenttypes as $paymenttype)
-                                    <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }}</option>
+                                    <label class="form-label" for="payment_type_id">{{ __('admin.subscriptions.field_paymenttype') }} <span>*</span></label>
+                                    <select class="form-control" name="payment_type_id" id="payment_type_id" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        @foreach($paymenttypes as $paymenttype)
+                                        <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }}</option>
 
-                                    @endforeach
-                                </select>
+                                        @endforeach
+                                    </select>
 
-                                @error('payment_type_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
+                                    @error('payment_type_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
-                                @enderror
-                            </div>
 
 
 
@@ -157,7 +155,7 @@
 
 
                             </div>
-                           
+
 
 
 

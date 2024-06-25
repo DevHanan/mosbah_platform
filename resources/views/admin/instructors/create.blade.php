@@ -108,7 +108,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control select2" name="country_id" id="country_id" required>
+                                    <select class="form-control select2" name="country_id" id="country_id" >
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
                                         <option value="{{ $country->id }}"> {{ $country->name }}</option>
@@ -125,7 +125,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="paypall_account_number">{{ __('admin.instructors.paypall_account_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number') }}" required>
+                                    <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number') }}">
 
 
                                     @error('paypall_account_number')
@@ -199,7 +199,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                                    <input type="salary" value="0" class="form-control" name="salary" id="salary" value="{{ old('salary') }}" required>
+                                    <input type="salary" value="0" class="form-control" name="salary" id="salary" value="{{ old('salary') }}" >
 
                                     @error('salary')
                                     <div class="invalid-feedback">
@@ -210,7 +210,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="about_teacher">{{ __('admin.instructors.about') }} <span>*</span></label>
-                                    <select class="select2 form-control" name="about_teacher" id="about_teacher" required>
+                                    <select class="select2 form-control" name="about_teacher" id="about_teacher" >
                                         <option value="">{{ __('select') }}</option>
                                         <option value="0">{{ __('admin.instructors.student') }}</option>
                                         <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
@@ -228,7 +228,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="bank_account">{{ __('admin.instructors.bank_account') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ old('bank_account') }}" required>
+                                    <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ old('bank_account') }}" >
 
 
                                     @error('bank_account')
@@ -240,7 +240,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number') }}" required>
+                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number') }}" >
 
 
                                     @error('cash_wallet_number')

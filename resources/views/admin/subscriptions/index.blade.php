@@ -3,28 +3,28 @@
 @section('content')
 
 <div class="page-header d-print-none">
-  <div class="container-xl">
-    <div class="row g-2 align-items-center">
-      <div class="col">
-        {{ Breadcrumbs::render('subscribtions') }}
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                {{ Breadcrumbs::render('subscribtions') }}
 
-      </div>
-      <div class="col-auto ms-auto d-print-none">
-        <div class="btn-list">
+            </div>
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
 
-          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 5l0 14" />
-              <path d="M5 12l14 0" />
-            </svg>
-            {{__('admin.btn_add_new')}} </a>
+                    <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                        </svg>
+                        {{__('admin.btn_add_new')}} </a>
 
+                </div>
+            </div>
+            <!-- Page title actions -->
         </div>
-      </div>
-      <!-- Page title actions -->
     </div>
-  </div>
 </div>
 <div class="page-body">
     <div class="container-xl">
@@ -86,7 +86,7 @@
 
 
 
-                                            <a style="margin-bottom: 2px;" target="_blank"  title="{{__('admin.student_profile')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" href="{{ url('admin/students/'.$row->student_id) }}" class="btn btn-icon btn-primary btn-sm">
+                                            <a style="margin-bottom: 2px;" target="_blank" title="{{__('admin.student_profile')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" href="{{ url('admin/students/'.$row->student_id) }}" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="fa-solid fa-person"></i>
                                             </a>
                                             @if($row->bill)
@@ -94,6 +94,12 @@
                                                 <i class="far fa-file"></i>
                                             </a>
                                             @endif
+
+                                            <button type="button" class="btn btn-icon btn-danger btn-sm" title="{{__('admin.delete')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            <!-- Include Delete modal -->
+                                            @include('admin.layouts.inc.delete')
 
 
 

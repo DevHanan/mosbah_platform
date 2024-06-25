@@ -241,6 +241,7 @@ return [
 
     ],
     'subscriptions' => [
+        'course_price_after_discount'=> 'سعر الدورة بعد الخصم',
         'title'  => 'الإشتراكات',
         "list" => "عرض الإشتراكات",
         "add"  => "إضافة إشتراك",

@@ -59,6 +59,19 @@
 
 
                                 <div class="mb-3">
+                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
+                                    <select class="form-control select2" name="course_id" id="courses" required>
+                                       
+                                    </select>
+
+                                    @error('course_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
 
 
                                     <label class="form-label" for="logo">{{ __('admin.subscriptions.field_payment_attachmend') }}</label>
@@ -91,18 +104,14 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control select2" name="course_id" id="courses" required>
-                                       
-                                    </select>
 
-                                    @error('course_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                <div class="mb-3">
+                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.course_price_after_discount') }} <span>*</span></label>
+                                   <input type="number" readonly name="course_price" id="course_price">
+
                                 </div>
+
+                             
 
 
                                 <div class="mb-3">

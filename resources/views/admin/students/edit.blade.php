@@ -68,7 +68,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="password">{{ __('admin.students.field_password') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}">
+                                    <input type="password" class="form-control" name="password" id="password">
 
                                     @error('password')
                                     <div class="invalid-feedback">
@@ -143,7 +143,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="password">{{ __('admin.students.field_password_confirmation') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" value="{{ old('password_confirmation') }}">
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
 
                                     @error('password')
                                     <div class="invalid-feedback">

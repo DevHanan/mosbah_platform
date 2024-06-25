@@ -133,7 +133,7 @@ class LectureController extends Controller
         $lecture->update($request->except(['img', 'bookFiles']));
 
         if (count($request->imgTitle) && $request->imgTitle[0] != null) {
-            // PhotoLecture::where('lecture_id',$lecture->id)->delete();
+             PhotoLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->imgTitle); $i++) {
                 if ($request->img[$i] != null) {
 
@@ -152,7 +152,7 @@ class LectureController extends Controller
 
 
         if ($request->bookTitles &&  $request->bookTitles[0] != null) {
-            // BookLecture::where('lecture_id',$lecture->id)->delete();
+             BookLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->bookTitles); $i++) {
                 if (isset($request->bookFiles[$i])) {
 

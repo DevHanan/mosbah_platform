@@ -86,11 +86,11 @@
 
 
 
-                                            <a style="margin-bottom: 2px;" target="_blank" href="{{ url('admin/students/'.$row->student_id) }}" class="btn btn-icon btn-primary btn-sm">
+                                            <a style="margin-bottom: 2px;" target="_blank"  title="{{__('admin.student_profile')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" href="{{ url('admin/students/'.$row->student_id) }}" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="fa-solid fa-person"></i>
                                             </a>
                                             @if($row->bill)
-                                            <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">
+                                            <a href="{{ asset($row->billFullPath)}}" target="_blank" title="{{__('admin.attachment')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-file"></i>
                                             </a>
                                             @endif

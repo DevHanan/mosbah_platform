@@ -644,7 +644,9 @@ return [
     'advanced_search' => 'بحث متقدم',
     'search' => 'بحث',
     'reset' => 'رجوع',
-    'login_as_student' => 'تسجيل كطالب'
+    'login_as_student' => 'تسجيل كطالب',
+    'student_profile' => 'عرض بروفايل الطالب',
+    'attachment' => 'عرض مرفق الدفع'
 
 
 

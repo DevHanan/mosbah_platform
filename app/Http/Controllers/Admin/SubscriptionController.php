@@ -60,7 +60,7 @@ class SubscriptionController extends Controller
             $thumbnail = $request->bill;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/subscriptions/main/'),$filename);
-            $subscription->image ='uploads/subscriptions/main/'.$filename;
+            $subscription->bill ='uploads/subscriptions/main/'.$filename;
             $subscription->save();
         }
         $course= Course::find($request->course_id);
@@ -102,7 +102,7 @@ class SubscriptionController extends Controller
             $thumbnail = $request->bill;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/subscriptions/main/'),$filename);
-            $subscription->image ='uploads/subscriptions/main/'.$filename;
+            $subscription->bill ='uploads/subscriptions/main/'.$filename;
             $subscription->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

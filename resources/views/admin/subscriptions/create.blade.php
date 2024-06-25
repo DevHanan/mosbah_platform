@@ -57,38 +57,6 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control select2" name="course_id" id="courses" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($courses as $course)
-                                        <option value="{{ $course->id }}"> {{ $course->name }} - {{ $course->price_with_discount }} {{ $setting->currency }}</option>
-
-                                        @endforeach
-                                    </select>
-
-                                    @error('course_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                                <!-- <div class="mb-3">
-                                <label class="form-label" for="track_id">{{ __('admin.subscriptions.field_track') }} <span>*</span></label>
-                                <select class="form-control" name="track_id" id="track_id" required>
-                                    <option value="">{{ __('select') }}</option>
-                                    @foreach($tracks as $track)
-                                    <option value="{{ $track->id }}"> {{ $track->name }}</option>
-
-                                    @endforeach
-                                </select>
-
-                                @error('track_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div> -->
 
                                 <div class="mb-3">
 
@@ -106,7 +74,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <div class="mb-3">
+                            <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
@@ -124,29 +92,39 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="price">{{ __('admin.coupons.course_price_after_discount') }} <span>*</span></label>
-                                    <input type="number" class="form-control" name="course_price" id="course_price">
-                                </div>
-
-
-
-
-                                <div class="mb-3">
-                                    <label class="form-label" for="payment_type_id">{{ __('admin.subscriptions.field_paymenttype') }} <span>*</span></label>
-                                    <select class="form-control" name="payment_type_id" id="payment_type_id" required>
+                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
+                                    <select class="form-control select2" name="course_id" id="courses" required>
                                         <option value="">{{ __('select') }}</option>
-                                        @foreach($paymenttypes as $paymenttype)
-                                        <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }}</option>
+                                        @foreach($courses as $course)
+                                        <option value="{{ $course->id }}"> {{ $course->name }} </option>
 
                                         @endforeach
                                     </select>
 
-                                    @error('payment_type_id')
+                                    @error('course_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
+
+
+                                <div class="mb-3">
+                                <label class="form-label" for="payment_type_id">{{ __('admin.subscriptions.field_paymenttype') }} <span>*</span></label>
+                                <select class="form-control" name="payment_type_id" id="payment_type_id" required>
+                                    <option value="">{{ __('select') }}</option>
+                                    @foreach($paymenttypes as $paymenttype)
+                                    <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }}</option>
+
+                                    @endforeach
+                                </select>
+
+                                @error('payment_type_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
 
 
 
@@ -155,7 +133,7 @@
 
 
                             </div>
-
+                           
 
 
 

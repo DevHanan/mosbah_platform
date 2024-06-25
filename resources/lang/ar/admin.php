@@ -257,7 +257,8 @@ return [
         "field_action" => "الحدث ",
         "student" => "الطالب",
         "field_paymenttype"  => "وسيلة الدفع",
-        "field_payment_attachmend" => 'مرفق الدفع'
+        "field_payment_attachmend" => 'مرفق الدفع',
+        'course_price' => 'سعر الدورة قبل الخصم'
 
     ],
     "courses" => [

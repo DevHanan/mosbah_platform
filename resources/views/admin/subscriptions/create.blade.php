@@ -71,6 +71,12 @@
                                     @enderror
                                 </div>
 
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="course_price">{{ __('admin.subscriptions.course_price_after_discount') }} <span>*</span></label>
+                                   <input type="number" class="form-control" readonly name="course_price" id="course_price">
+
+                                </div>
                                 <div class="mb-3">
 
 
@@ -103,13 +109,15 @@
                                     </div>
                                     @enderror
                                 </div>
-
-
                                 <div class="mb-3">
-                                    <label class="form-label" for="course_price">{{ __('admin.subscriptions.course_price_after_discount') }} <span>*</span></label>
-                                   <input type="number" class="form-control" readonly name="course_price" id="course_price">
+                                    <label class="form-label" for="course_main_price">{{ __('admin.subscriptions.course_price') }} <span>*</span></label>
+                                   <input type="number" class="form-control" readonly name="course_main_price" id="course_main_price">
 
                                 </div>
+
+                              
+
+  
 
                              
 

@@ -604,6 +604,8 @@
 					dataType: "json",
 					success: function(data) {
 						$('#course_price').val(data.price_with_discount);
+						$('#course_main_price').val(data.price);
+
 
 					}
 				})

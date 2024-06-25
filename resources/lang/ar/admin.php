@@ -253,10 +253,10 @@ return [
         "field_status" => "حالة الإشتراك",
         "field_course_price" => "قيمة الإشتراك",
         "field_date" => "تاريخ الإشتراك",
-        'type' => ' نوع الدفع',
+        'type' => ' وسيلة الدفع',
         "field_action" => "الحدث ",
         "student" => "الطالب",
-        "field_paymenttype"  => "نوع الدفع",
+        "field_paymenttype"  => "وسيلة الدفع",
         "field_payment_attachmend" => 'مرفق الدفع'
 
     ],

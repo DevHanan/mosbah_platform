@@ -45,8 +45,8 @@
 
                                         <th>{{ __('admin.instructors.field_name') }}</th>
                                         <th>{{ __('admin.instructors.field_photo') }}</th>
-                                        <th>{{ __('admin.instructors.field_email') }}</th>
                                         <th>{{ __('admin.instructors.phone_number') }}</th>
+                                        <th>{{ __('admin.instructors.field_email') }}</th>
                                         <th>{{ __('admin.instructors.field_country') }}</th>
                                         <th>{{ __('admin.students.field_join_date') }}</th>
                                         <th>{{ __('admin.instructors.total_course') }}</th>

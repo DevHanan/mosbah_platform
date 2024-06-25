@@ -115,6 +115,7 @@
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.instructor')}}</label>
                                 <select class="form-control form-select" name="instructor_id">
+                                <option value="">{{ __('select') }}</option>
                                   @foreach($instructors as $instructor)
                                   <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
                                   @endforeach

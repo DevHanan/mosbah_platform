@@ -78,7 +78,8 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
                                     <select class="form-control select2" name="track_ids[]" id="track_id" required multiple>
-                                        @foreach($tracks as $track)
+                                    <option value="" selected disabled hidden>Please select an Track</option>   
+                                    @foreach($tracks as $track)
                                         <option value="{{ $track->id }}"> {{ $track->name }}</option>
 
                                         @endforeach

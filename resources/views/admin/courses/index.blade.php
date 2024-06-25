@@ -68,52 +68,16 @@
           <div class="col-md-12">
             <div id="collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
               <div class="accordion-body pt-0">
-                <form class=" row col-md-12" action="{{url('admin/courses')}}">
-                  <div class="form-group col-md-2">
-                    <input type="text" name="name" placeholder="اسم الدورة">
-                  </div>
-                  <div class=" form-group col-md-2">
-                    <select class="select2 " name="course_type_id" id="course_type_id" required>
-                      <option value="">{{ __('select') }}</option>
-                      @foreach($courseTypes as $type)
-                      <option value="{{ $type->id }}"> {{ $type->name }}</option>
-
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class=" form-group col-md-2">
-                    <select class="select2 " name="track_id" id="track_id">
-                      <option value="">{{ __('select') }}</option>
-                      @foreach($tracks as $track)
-                      <option value="{{ $track->id }}"> {{ $track->name }}</option>
-
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class=" form-group col-md-2">
-                    <select class="select2" name="instructor_id" style="padding:3px;">
-                      <option value="0"> {{ __('admin.select_instructor')}}</option>
-                      @foreach($instructors as $instructor)
-                      <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class=" form-group col-md-2">
-                    <button type="submit" class="btn btn-primary">{{__('admin.search')}}</button>
-                  </div>
-                  <div class=" form-group col-md-2">
-                    <a href="{{url('admin/courses')}}" class="btn btn-success">{{__('admin.reset')}}</a>
-                  </div>
-                </form>
+               
 
 
                 <div class="col-lg-12">
                   <div class="row row-cards">
                     <div class="col-12">
-                      <form class="card">
+                      <form class="card" action="{{url('admin/courses')}}">
                         <div class="card-body">
                           <div class="row row-cards">
-                            <div class="col-md-5">
+                            <div class="col-md-2">
                               <div class="mb-3">
                                 <label class="form-label">{{__('admin.courses.name')}}</label>
                                 <input type="text" class="form-control" placeholder="course" name="name">
@@ -123,10 +87,9 @@
 
 
 
-                            <div class="col-md-5">
+                            <div class="col-md-2">
                               <div class="mb-3">
-                                <label class="form-label">Country</label>
-
+                                <label class="form-label">{{ __('admin.course.course_type')}}</label>
                                 <select class="form-control form-select" name="course_type_id" id="course_type_id" required>
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($courseTypes as $type)
@@ -136,11 +99,33 @@
                                 </select>
                               </div>
                             </div>
+                            <div class="col-md-2">
+                              <div class="mb-3">
+                                <label class="form-label">{{ __('admin.course.course_type')}}</label>
+                                <select class="form-control form-select" name="name">
+                                  <option value="">{{ __('select') }}</option>
+                                  @foreach($courseTypes as $type)
+                                  <option value="{{ $type->id }}"> {{ $type->name }}</option>
+
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="mb-3">
+                                <label class="form-label">{{ __('admin.course.course_type')}}</label>
+                                <select class="form-control form-select" name="instructor_id">
+                                  @foreach($instructors as $instructor)
+                                  <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
 
                           </div>
                         </div>
                         <div class="card-footer text-end">
-                          <button type="submit" class="btn btn-primary">Update Profile</button>
+                          <button type="submit" class="btn btn-primary">{{ __('admin.search')}}</button>
                         </div>
                       </form>
                     </div>

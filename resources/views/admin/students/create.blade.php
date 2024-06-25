@@ -95,20 +95,12 @@
 
 
 
-
-
                                 <div class="mb-3">
-
-
-                                    <label class="form-label" for="logo">{{ __('admin.students.field_photo') }}</label>
-                                    <input type="file" class="form-control" name="image" id="logo">
-
-                                    @error('image')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                    <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
+                                    <input type="text" class="form-control" name="qualifications">
                                 </div>
+
+
 
                             </div>
                             <div class="col-md-6">
@@ -170,8 +162,8 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="degree">{{ __('admin.students.degree') }} <span>*</span></label>
-                                    <select class="select2 form-control" name="degree" id="degree" required>
+                                    <label class="form-label" for="about_student">{{ __('admin.students.degree') }} <span>*</span></label>
+                                    <select class="select2 form-control" name="about_student" id="about_student" required>
                                         <option value="">{{ __('select') }}</option>
                                         <option value="0">{{ __('admin.instructors.student') }}</option>
                                         <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
@@ -180,7 +172,7 @@
                                         <option value="4">{{ __('admin.instructors.Master') }}</option>
 
                                     </select>
-                                    @error('degree')
+                                    @error('about_student')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -190,11 +182,19 @@
 
                             </div>
 
+                            <div class="mb-3">
 
-                            <div class="col-md-12">
-                                <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content.."></textarea>
+
+                                <label class="form-label" for="logo">{{ __('admin.students.field_photo') }}</label>
+                                <input type="file" class="form-control" name="image" id="logo">
+
+                                @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
+
                         </div>
                     </div>
                     <div class="card-footer text-end">

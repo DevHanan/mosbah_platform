@@ -188,13 +188,14 @@ return [
         "field_password_confirmation" => "تأكيد كلمة المرور",
         'country_id'  => 'الدولة',
         'track' => 'المسارات المفضلة',
-        "qualifications" => "المؤهلات",
+        "qualifications" => "المؤهل الدراسي",
         'about' => "عن الطالب",
         'field_photo' => 'صورة البروفايل',
         "userName" => "إسم المستخدم",
         'field_total_subscription' => 'إجمالى قيمة الإشتراكات',
         'course_name' => 'إسم الدورة',
-        'subscribed_date' => 'تاريخ الإشتراك بالدورة'
+        'subscribed_date' => 'تاريخ الإشتراك بالدورة',
+        'degree' =>'الدرجة العلمية'
     ],
     "instructors" => [
         'field_cv' => 'ملف السيرة الذاتية',

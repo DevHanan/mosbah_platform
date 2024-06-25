@@ -108,7 +108,7 @@ class SubscriptionController extends Controller
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.countries.index');     }
 
-    public function destory(Request $request)
+    public function destroy(Request $request)
     {
        $subscription=  Subscription::find($request->id);
        if($subscription)

@@ -99,9 +99,9 @@
 
 
                                 <div class="mb-3">
-                                <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
-                                <input type="text" class="form-control" name="qualifications" value="{{ $row->qualifications }}">
-                            </div>
+                                    <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
+                                    <input type="text" class="form-control" name="qualifications" value="{{ $row->qualifications }}">
+                                </div>
 
 
 
@@ -148,7 +148,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control select2" name="country_id" id="country_id" required>
+                                    <select class="form-control select2" name="country_id" id="country_id">
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
                                         <option value="{{ $country->id }}" @if($row->country_id == $country->id) selected="selected" @endif> {{ $country->name }}</option>
@@ -164,7 +164,24 @@
                                 </div>
 
 
+                                <div class="mb-3">
+                                    <label class="form-label" for="about_student">{{ __('admin.students.degree') }} <span>*</span></label>
+                                    <select class="select2 form-control" name="about_student" id="about_student" required>
+                                        <option value="">{{ __('select') }}</option>
+                                        <option value="0" @if($row->about_student == 0) selected="selected" @endif>{{ __('admin.instructors.student') }}</option>
+                                        <option value="1" @if($row->about_student == 1) selected="selected" @endif>{{ __('admin.instructors.Bachelor') }}</option>
+                                        <option value="2" @if($row->about_student == 2) selected="selected" @endif>{{ __('admin.instructors.Graduated') }}</option>
+                                        <option value="3" @if($row->about_student == 3) selected="selected" @endif>{{ __('admin.instructors.Doctorate') }}</option>
+                                        <option value="4" @if($row->about_student == 4) selected="selected" @endif>{{ __('admin.instructors.Master') }}</option>
 
+
+                                    </select>
+                                    @error('about_student')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
 
 
                             </div>
@@ -186,7 +203,7 @@
                                 </div>
                                 @enderror
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="card-footer text-end">

@@ -204,7 +204,7 @@
                                         </th>
                                         <th> {{__('admin.courses.name')}}</th>
                                         <th> {{__('admin.courses.image')}}</th>
-                                        \ <th> {{__('admin.courses.type')}}</th>
+                                         <th> {{__('admin.courses.type')}}</th>
                                         <th>{{ __('admin.courses.period') }}</th>
                                         <th>{{ __('admin.courses.price') }}</th>
                                         <th>{{ __('admin.courses.price_with_discount') }}</th>

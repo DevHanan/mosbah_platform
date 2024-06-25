@@ -647,7 +647,8 @@ return [
     'reset' => 'رجوع',
     'login_as_student' => 'تسجيل كطالب',
     'student_profile' => 'عرض بروفايل الطالب',
-    'attachment' => 'عرض مرفق الدفع'
+    'attachment' => 'عرض مرفق الدفع',
+    'login_as_instructor' =>'تسجيل الدخول كمدرب'
 
 
 

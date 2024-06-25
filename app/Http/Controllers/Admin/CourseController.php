@@ -71,7 +71,7 @@ class CourseController extends Controller
 
 
 
-        return view($this->view . '.index', $data);
+        return redirect()->back()->withInput(['data' => '$data']);
     }
 
 

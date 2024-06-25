@@ -51,7 +51,7 @@
 
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading-4">
-                    <button  style="padding:10px;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false">
+                    <button style="padding:10px;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false">
                       {{__('admin.advanced_search')}}
                     </button>
                   </h2>
@@ -68,7 +68,7 @@
           <div class="col-md-12">
             <div id="collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
               <div class="accordion-body pt-0">
-               
+
 
 
                 <div class="col-lg-12">
@@ -86,13 +86,13 @@
 
 
                             @if(request()->has('type'))
-    <input type="hidden" name="course_type_id" value="{{request()->input('type') }}">
-    @else
-    
-    <div class="col-md-3">
+                            <input type="hidden" name="type" value="{{request()->input('type') }}">
+                            @else
+
+                            <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.course_type')}}</label>
-                                <select class="form-control form-select" name="course_type_id" id="course_type_id" >
+                                <select class="form-control form-select" name="course_type_id" id="course_type_id">
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($courseTypes as $type)
                                   <option value="{{ $type->id }}"> {{ $type->name }}</option>
@@ -101,7 +101,7 @@
                                 </select>
                               </div>
                             </div>
-@endif
+                            @endif
 
                             <div class="col-md-3">
                               <div class="mb-3">
@@ -119,7 +119,7 @@
                               <div class="mb-3">
                                 <label class="form-label">{{ __('admin.courses.instructor')}}</label>
                                 <select class="form-control form-select" name="instructor_id">
-                                <option value="">{{ __('select') }}</option>
+                                  <option value="">{{ __('select') }}</option>
                                   @foreach($instructors as $instructor)
                                   <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
                                   @endforeach
@@ -134,7 +134,7 @@
                         </div>
                       </form>
                     </div>
-                
+
                   </div>
                 </div>
 

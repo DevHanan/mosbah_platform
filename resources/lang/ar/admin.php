@@ -641,7 +641,8 @@ return [
     ],
     'advanced_search' => 'بحث متقدم',
     'search' => 'بحث',
-    'reset' => 'رجوع'
+    'reset' => 'رجوع',
+    'login_as_student' => 'تسجيل كطالب'
 
 
 

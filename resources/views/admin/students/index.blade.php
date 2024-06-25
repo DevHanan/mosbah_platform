@@ -102,21 +102,21 @@
 
 
 
-                                        <a href="{{url('student-login-by-id/'.$row->id)}}" class="btn btn-icon btn-primary btn-sm" href="#">
+                                        <a href="{{url('student-login-by-id/'.$row->id)}}"  title="{{__('admin.login_as_student')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm" href="#">
 
                                             <i class="fa fa-sign-in" aria-hidden="true"></i>
 
                                         </a>
 
-                                        <a href="{{ route($route.'.edit', $row->id) }}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                        <a href="{{ route($route.'.edit', $row->id) }}"  title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                             <i class="far fa-edit"></i>
                                         </a>
 
-                                        <a href="{{ url('admin/students/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                        <a href="{{ url('admin/students/'.$row->id)}}"  title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
                                             <i class="far fa-eye"></i>
                                         </a>
 
-                                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
+                                        <button type="button" class="btn btn-icon btn-danger btn-sm"  title="{{__('admin.delete')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                         <!-- Include Delete modal -->

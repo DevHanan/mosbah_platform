@@ -4,41 +4,41 @@
 @section('content')
 
 <div class="page-header d-print-none">
-  <div class="container-xl">
-    <div class="row g-2 align-items-center">
-      <div class="col">
-        <!-- Page pre-title -->
-        {{ Breadcrumbs::render('update-students',$row) }}
-
-      </div>
-      <!-- Page title actions -->
-      <div class="col-auto ms-auto d-print-none">
-        <div class="btn-list">
-
-          <div class="card-header">
-            <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <!-- Page pre-title -->
+                {{ Breadcrumbs::render('update-students',$row) }}
 
             </div>
-          </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
 
+                    <div class="card-header">
+                        <div class="card-block">
+                            <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <div class="page-body">
-  <div class="container-xl">
-    <div class="row row-cards">
-      <div class="col-md-12">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-md-12">
 
 
-        <form class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
-          @csrf
-          @method('PUT')
-          <input type="hidden" name="id" value="{{$row->id}}">
+                <form class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="id" value="{{$row->id}}">
 
-          <div class="card-body">
+                    <div class="card-body">
                         <div class="row ">
                             <div class="col-md-6">
 
@@ -77,15 +77,15 @@
                                     @enderror
                                 </div>
 
-                              
+
 
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
-                                    <select class="form-control select2" name="track_ids[]" id="track_id"  multiple>
-                                    <option value="" disabled hidden>Please select an Track</option>
-    
-                                    @foreach($tracks as $track)
-                                        <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray()))  selected @endif> {{ $track->name }}</option>
+                                    <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
+                                        <option value="" disabled hidden>Please select an Track</option>
+
+                                        @foreach($tracks as $track)
+                                        <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray())) selected @endif> {{ $track->name }}</option>
 
                                         @endforeach
                                     </select>
@@ -97,22 +97,13 @@
                                     @enderror
                                 </div>
 
+
                                 <div class="mb-3">
+                                <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
+                                <input type="text" class="form-control" name="qualifications" value="{{ $row->qualifications }}">
+                            </div>
 
 
-                                    <label class="form-label" for="logo">{{ __('admin.students.field_photo') }}</label>
-                                    <input type="file" class="form-control" name="image" id="logo">
-
-                                    @if(isset($row->image))
-                <img src="{{ asset($row->imageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-                <div class="clearfix"></div>
-                @endif
-                                    @error('image')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
 
                             </div>
                             <div class="col-md-6">
@@ -153,14 +144,14 @@
                                     @enderror
                                 </div>
 
-                                
+
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
                                     <select class="form-control select2" name="country_id" id="country_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
-                                        <option value="{{ $country->id }}"  @if($row->country_id == $country->id) selected="selected" @endif> {{ $country->name }}</option>
+                                        <option value="{{ $country->id }}" @if($row->country_id == $country->id) selected="selected" @endif> {{ $country->name }}</option>
 
                                         @endforeach
                                     </select>
@@ -178,11 +169,24 @@
 
                             </div>
 
-                           
-                            <div class="col-md-12">
-                                <label class="form-label">{{ __('admin.students.qualifications') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="qualifications" rows="6" placeholder="Content..">{{ $row->qualifications }}</textarea>
+
+                            <div class="mb-3">
+
+
+                                <label class="form-label" for="logo">{{ __('admin.students.field_photo') }}</label>
+                                <input type="file" class="form-control" name="image" id="logo">
+
+                                @if(isset($row->image))
+                                <img src="{{ asset($row->imageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                                <div class="clearfix"></div>
+                                @endif
+                                @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
+                            
                         </div>
                     </div>
                     <div class="card-footer text-end">
@@ -191,11 +195,11 @@
                         </div>
                     </div>
 
-        </form>
-      </div>
+                </form>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>
 
 

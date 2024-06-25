@@ -88,7 +88,7 @@ class CourseController extends Controller
             if ($request->track_id)
                 $q->where('track_id', $request->track_id);
             if (isset($request->course_type_id))
-                $q->where('course_type_id', $request->course_type);
+                $q->where('course_type_id', $request->course_type_id);
         })->paginate(10);
 
         return view($this->view . '.index', $data);

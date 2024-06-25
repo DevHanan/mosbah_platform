@@ -323,6 +323,7 @@ return [
     'inrecommend' => 'غير مرشح',
     'select_recommend' => 'هل الدورة مرشحة',
     "coupons"  => [
+        'course_price_after_discount' => 'سعر الدورة بعد الخصم',
         'track' => 'اسم المسار',
         "code" => "نص الكوبون",
         'discount'  => 'نسبة الخصم(%) ',

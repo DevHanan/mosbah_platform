@@ -53,7 +53,9 @@ Route::group(
             'confirm'  => false,  // for additional password confirmations
             'verify'   => false,  // for email verification
         ]);
+      
         Route::get('admin/get-courses', [CourseController::class, 'getcourses'])->name('admin.getCourses');
+        Route::get('admin/get-course', [CourseController::class, 'getcourse'])->name('admin.getcourse');
         Route::get('admin/get-levels-by-coure', [CourseController::class, 'getlevels'])->name('admin.getLevels');
         Route::get('admin/get-lecture-by-level', [CourseController::class, 'getlectures'])->name('admin.getLectures');
 

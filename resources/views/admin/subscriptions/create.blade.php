@@ -60,7 +60,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="course_id">{{ __('admin.subscriptions.field_course') }} <span>*</span></label>
-                                    <select class="form-control select2" name="course_id" id="courses" required>
+                                    <select class="form-control select2" name="course_id" id="course_details" required>
                                        
                                     </select>
 
@@ -106,8 +106,8 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="course_id">{{ __('admin.subscriptions.course_price_after_discount') }} <span>*</span></label>
-                                   <input type="number" readonly name="course_price" id="course_price">
+                                    <label class="form-label" for="course_price">{{ __('admin.subscriptions.course_price_after_discount') }} <span>*</span></label>
+                                   <input type="number" class="form-control" readonly name="course_price" id="course_price">
 
                                 </div>
 

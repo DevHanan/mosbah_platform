@@ -592,6 +592,24 @@
 			}
 		});
 
+		$('#course_details').on('change', function() {
+			var course_id = $(this).val();
+			if (course_id) {
+				$.ajax({
+					url: "{{ route('admin.getcourse') }}",
+					type: "GET",
+					data: {
+						'course_id': course_id
+					},
+					dataType: "json",
+					success: function(data) {
+						$('#course_price').val(data.price_with_discount);
+
+					}
+				})
+			}
+		});
+
 
 		document.querySelector('#start_date').addEventListener('keydown', (e) => {
 			e.preventDefault();

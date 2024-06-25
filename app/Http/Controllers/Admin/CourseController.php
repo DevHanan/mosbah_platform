@@ -295,6 +295,12 @@ class CourseController extends Controller
         return response()->json($courses);
     }
 
+    public function getcourse(Request $request)
+    {
+        $course = Course::find($request->course_id);
+        return response()->json($course);
+    }
+
     public function getlevels(Request $request)
     {
         $course_id = $request->course_id;

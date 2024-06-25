@@ -72,7 +72,6 @@ class CourseController extends Controller
 
 
         return view($this->view . '.index', $data);
-
     }
 
 
@@ -141,9 +140,11 @@ class CourseController extends Controller
         if (count($request->instructors)) {
             for ($i = 0; $i < count($request->instructors); $i++) {
                 if ($request->instructors[$i] != 0) {
-                    CourseInstructor::create([
+
+                    CourseInstructor::updateOrCreate([
                         'course_id' => $course->id,
                         'instructor_id' => $request->instructors[$i],
+                    ], [
                         'course_price' => $request->instructorsprice[$i],
                         'course_prectange' => $request->instructorsprecentage[$i]
 
@@ -231,16 +232,17 @@ class CourseController extends Controller
         }
 
         if (count($request->instructors)) {
-            CourseInstructor::where('course_id', $course->id)->delete();
+            // CourseInstructor::where('course_id', $course->id)->delete();
             for ($i = 0; $i < count($request->instructors); $i++) {
                 if ($request->instructors[$i] != 0)
-                    CourseInstructor::create([
-                        'course_id' => $course->id,
-                        'instructor_id' => $request->instructors[$i],
-                        'course_price' => $request->instructorsprice[$i],
-                        'course_prectange' => $request->instructorsprecentage[$i]
+                CourseInstructor::updateOrCreate([
+                    'course_id' => $course->id,
+                    'instructor_id' => $request->instructors[$i],
+                ], [
+                    'course_price' => $request->instructorsprice[$i],
+                    'course_prectange' => $request->instructorsprecentage[$i]
 
-                    ]);
+                ]);
             }
         }
         if ($request->hasFile('image')) {

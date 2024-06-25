@@ -89,7 +89,7 @@
 
                             <div class="col-md-2">
                               <div class="mb-3">
-                                <label class="form-label">{{ __('admin.course.course_type')}}</label>
+                                <label class="form-label">{{ __('admin.courses.course_type')}}</label>
                                 <select class="form-control form-select" name="course_type_id" id="course_type_id" required>
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($courseTypes as $type)
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-md-2">
                               <div class="mb-3">
-                                <label class="form-label">{{ __('admin.course.course_type')}}</label>
+                                <label class="form-label">{{ __('admin.courses.course_type')}}</label>
                                 <select class="form-control form-select" name="name">
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($courseTypes as $type)
@@ -113,7 +113,7 @@
                             </div>
                             <div class="col-md-2">
                               <div class="mb-3">
-                                <label class="form-label">{{ __('admin.course.course_type')}}</label>
+                                <label class="form-label">{{ __('admin.courses.course_type')}}</label>
                                 <select class="form-control form-select" name="instructor_id">
                                   @foreach($instructors as $instructor)
                                   <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>

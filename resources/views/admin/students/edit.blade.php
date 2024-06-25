@@ -82,7 +82,7 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.students.track') }} <span>*</span></label>
                                     <select class="form-control select2" name="track_ids[]" id="track_id"  multiple>
-                                        <option disabled>{{ __('select') }}</option>
+                                        <option disabled selected>{{ __('select') }}</option>
                                         @foreach($tracks as $track)
                                         <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray()))  selected @endif> {{ $track->name }}</option>
 

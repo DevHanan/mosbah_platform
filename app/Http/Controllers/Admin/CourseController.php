@@ -54,17 +54,23 @@ class CourseController extends Controller
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
             if ($request->type)
                 $q->where('course_type_id', $request->type);
-            if ($request->recommend)
-                $q->where('recommened', $request->recommend);
-            if ($request->name)
+
+            if ($request->course_type_id)
+                $q->where('course_type_id', $request->course_type_id);
+
+            if (isset($request->name) &&  $request->name != null)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
-            if ($request->instructor_id)
-                $q->where('instructor_id', $request->instructor_id);
-            if ($request->track_id)
-                $q->where('track_id', $request->track_id);
-            if ($request->course_type)
-                $q->where('course_type_id', $request->course_type);
+            if ($request->instructor_id &&  $request->instructor_id != null)
+                $q->whereHas('instructors', function ($q) use ($request) {
+                    $q->where('instructor_id', $request->instructor_id);
+                });
+            if ($request->track_id &&  $request->track_id != null)
+                $q->whereHas('tracks', function ($q) use ($request) {
+                    $q->where('track_id', $request->track_id);
+                });
         })->latest()->paginate(10);
+
+
 
         return view($this->view . '.index', $data);
     }
@@ -78,22 +84,19 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
-        return $request->all();
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
-            if (isset($request->type) && $request->type != null)
-            $q->where('type', $request->type);
-            if (isset($request->course_type_id) && $request->course_type_id != null)
-                $q->where('course_type_id', $request->course_type_id);
-            if (isset($request->name) &&  $request->name != null)
+            if ($request->type)
+                $q->where('course_type_id', $request->type);
+            if ($request->recommend)
+                $q->where('recommened', $request->recommend);
+            if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
-            if ($request->instructor_id &&  $request->instructor_id != null)
-                $q->whereHas('instructors', function ($q) use ($request) {
-                    $q->where('instructor_id', $request->instructor_id);
-                });
-            if ($request->track_id &&  $request->track_id != null)
-                $q->whereHas('tracks', function ($q) use ($request) {
-                    $q->where('track_id', $request->track_id);
-                });
+            if ($request->instructor_id)
+                $q->where('instructor_id', $request->instructor_id);
+            if ($request->track_id)
+                $q->where('track_id', $request->track_id);
+            if ($request->course_type)
+                $q->where('course_type_id', $request->course_type);
         })->paginate(10);
 
         return view($this->view . '.index', $data);

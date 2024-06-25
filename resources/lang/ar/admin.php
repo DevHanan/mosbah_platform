@@ -187,7 +187,7 @@ return [
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور",
         'country_id'  => 'الدولة',
-        'track' => 'المسار',
+        'track' => 'المسارات المفضلة',
         "qualifications" => "المؤهلات",
         'about' => "عن الطالب",
         'field_photo' => 'صورة البروفايل',

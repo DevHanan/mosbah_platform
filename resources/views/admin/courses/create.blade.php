@@ -379,7 +379,7 @@
     var rowCount = table.rows.length;
     if (rowCount > 1) {
       var rowIndex = row.parentNode.parentNode.rowIndex;
-      document.getElementById("instructorstable").deleteRow(rowIndex);
+      document.getElementById("instructorstable").deleteRow(rowIndex - 1);
     } else {
       alert("Please specify at least one value.");
     }

@@ -393,7 +393,6 @@
   function deleteRow(row) {
     var table = document.getElementById("instructorstable");
     var rowCount = table.rows.length;
-    alert(rowCount);
     if (rowCount > 1) {
       var rowIndex = row.parentNode.parentNode.rowIndex;
       document.getElementById("instructorstable").deleteRow(rowIndex- 1);

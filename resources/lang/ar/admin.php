@@ -16,7 +16,7 @@ return [
     'available_amount' => 'الرصيد لمتاح',
     'change_status_model_msg' => 'هل أنت متأكد من تغير الحالة للعنصر؟',
     'no_file' => 'لا يوجد ملف',
-    'show' => 'عرض الملف',
+    // 'show' => 'عرض الملف',
     'select_instructor' => 'إختر المدرب',
     'download' => 'تنزيل الملف',
     'no_file' => 'لا يوجد ملف',

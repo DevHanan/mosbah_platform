@@ -225,7 +225,7 @@ return [
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور",
         'country_id'  => 'الدولة',
-        'track' => 'المسار',
+        'track' => 'المسارات المفضلة',
         "qualifications" => "المؤهلات",
         'about' => "درجة علمية ",
         'field_photo' => 'الصورة',

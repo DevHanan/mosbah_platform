@@ -232,7 +232,7 @@ class CourseController extends Controller
         }
 
         if (count($request->instructors)) {
-            // CourseInstructor::where('course_id', $course->id)->delete();
+            CourseInstructor::where('course_id', $course->id)->delete();
             for ($i = 0; $i < count($request->instructors); $i++) {
                 if ($request->instructors[$i] != 0)
                 CourseInstructor::updateOrCreate([

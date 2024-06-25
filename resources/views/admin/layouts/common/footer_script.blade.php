@@ -592,7 +592,7 @@
 			}
 		});
 
-		$('#course_details').on('change', function() {
+		$('#courses').on('change', function() {
 			var course_id = $(this).val();
 			if (course_id) {
 				$.ajax({

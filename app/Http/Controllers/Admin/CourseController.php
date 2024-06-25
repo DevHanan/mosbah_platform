@@ -18,7 +18,7 @@ use App\Models\Instructor;
 use App\Models\Lecture;
 use App\Models\Level;
 use Toastr;
-
+use Illuminate\Support\Facades\Redirect;
 
 
 class CourseController extends Controller
@@ -71,7 +71,8 @@ class CourseController extends Controller
 
 
 
-        return redirect()->back()->withInput(['data' => '$data']);
+        return Redirect::route('admin.courses.index', ['data' => $data, 'param2' => 'value2']);
+
     }
 
 

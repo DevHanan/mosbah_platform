@@ -10,7 +10,7 @@ class BankQuestion extends Model
 
     protected $fillable = [
         'title', 'mark', 'bank_group_id', 'active', 'model_answer', 'answer_notes',
-        'answer_video_link', 'question_notes', 'correct_answer', 'answer1', 'answer2', 'answer3', 'answer4','correct_answer'
+        'answer_video_link', 'question_notes', 'correct_answer', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
     ];
 
     protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath', 'correctAnswer'];
@@ -18,10 +18,18 @@ class BankQuestion extends Model
 
     public function getcorrectAnswerAttribute()
     {
+        if ($this->correct_answer == 1)
 
+            return $this->answer1;
+        elseif ($this->correct_answer == 2)
 
-            return $this->answer_id;
-       
+            return $this->answer2;
+        elseif ($this->correct_answer == 3)
+
+            return $this->answer3;
+        else
+
+            return $this->answer4;
     }
 
     public function getPictureFullPathAttribute($value)
@@ -54,6 +62,6 @@ class BankQuestion extends Model
 
     public function quizzes()
     {
-        return $this->belongsToMany(Quiz::class, 'quiz_questions','question_id','quiz_id');
+        return $this->belongsToMany(Quiz::class, 'quiz_questions', 'question_id', 'quiz_id');
     }
 }

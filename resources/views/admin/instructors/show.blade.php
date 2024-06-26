@@ -170,7 +170,7 @@
                                         @if($row->paypall_account_number)
                                         <p> {{ $row->paypall_account_number }}</p>
                                         @else
-                                        {{ __('admin.no_data')}}
+                                        <p> {{ __('admin.no_data')}} </p> 
                                         @endif
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                         @if($row->cash_wallet_number)
                                         <p> {{ $row->cash_wallet_number }}</p>
                                         @else
-                                        {{ __('admin.no_data')}}
+                                       <p> {{ __('admin.no_data')}} </p> 
                                         @endif
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                                         @if($row->bank_account)
                                         <p> {{ $row->bank_account }}</p>
                                         @else
-                                        {{ __('admin.no_data')}}
+                                        <p> {{ __('admin.no_data')}} </p> 
                                         @endif
                                     </div>
                                 </div>

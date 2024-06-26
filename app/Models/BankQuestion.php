@@ -13,17 +13,10 @@ class BankQuestion extends Model
         'answer_video_link', 'question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
     ];
 
-    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath', 'correctAnswer'];
+    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath'];
 
 
-    public function getcorrectAnswerAttribute()
-    {
-
-       
-
-            return '';
-    }
-
+  
     public function getPictureFullPathAttribute($value)
     {
 

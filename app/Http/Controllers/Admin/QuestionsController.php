@@ -40,7 +40,6 @@ class QuestionsController extends Controller
             if ($request->title)
                 $q->Where('title', 'like', '%' . $request->title  . '%');
         })->where('bank_group_id', $bank_group_id)->paginate(10);
-        return $data['rows'];
         return view($this->view . '.index', $data);
     }
 

@@ -105,6 +105,7 @@
 
                   </td>
                   <td>
+                    {{  $row->correct_answer }}
                     @if( $row->correct_answer == 1)
                     {{ $row->answer1 }}
                     @elseif( $row->correct_answer == 2)

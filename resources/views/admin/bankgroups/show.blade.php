@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="card-body">
-                                        <table class="table" id="products_table">
+                                        <table class="table table-responsive" id="products_table">
                                             <thead>
                                                 <tr>
                                                     <th>{{__('admin.questions.title')}} </th>

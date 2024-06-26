@@ -648,7 +648,8 @@ return [
     'login_as_student' => 'تسجيل كطالب',
     'student_profile' => 'عرض بروفايل الطالب',
     'attachment' => 'عرض مرفق الدفع',
-    'login_as_instructor' =>'تسجيل الدخول كمدرب'
+    'login_as_instructor' =>'تسجيل الدخول كمدرب',
+    'no_data' => 'لا توجد بيانات'
 
 
 

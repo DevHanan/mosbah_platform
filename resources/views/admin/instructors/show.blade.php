@@ -167,7 +167,11 @@
                                 <div class="card card-active">
                                     <div class="card-body">
                                         <h4> {{ __('admin.instructors.paypall_account_number') }} </h4>
+                                        @if($row->paypall_account_number)
                                         <p> {{ $row->paypall_account_number }}</p>
+                                        @else
+                                        {{ __('admin.no_data')}}
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +179,11 @@
                                 <div class="card card-active">
                                     <div class="card-body">
                                         <h4> {{ __('admin.instructors.cash_wallet_number') }} </h4>
+                                        @if($row->cash_wallet_number)
                                         <p> {{ $row->cash_wallet_number }}</p>
+                                        @else
+                                        {{ __('admin.no_data')}}
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +191,11 @@
                                 <div class="card card-active">
                                     <div class="card-body">
                                         <h4> {{ __('admin.instructors.bank_account') }} </h4>
+                                        @if($row->bank_account)
                                         <p> {{ $row->bank_account }}</p>
+                                        @else
+                                        {{ __('admin.no_data')}}
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -28,6 +28,10 @@ Breadcrumbs::for('update-instructors', function (BreadcrumbTrail $trail,$row) {
     $trail->push($row->first_name, route('admin.instructors.edit', $row));
 });
 
+Breadcrumbs::for('show-instructors', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('instructors');
+    $trail->push($row->name, route('admin.instructors.show', $row));
+});
 
 // Home > students
 Breadcrumbs::for('students', function (BreadcrumbTrail $trail) {

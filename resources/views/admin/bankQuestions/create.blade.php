@@ -167,7 +167,7 @@
 
               <div class="mb-3">
                 <label class="form-label" for="answer_id">{{ __('admin.bankquestions.correct_answer') }} <span>*</span></label>
-                <select class="select2 form-control" name="answer_id" id="answer_id" required>
+                <select class="select2 form-control" name="correct_answer" id="answer_id" required>
                   <option value="">{{ __('select') }}</option>
                   <option value="1">{{ __('admin.bankquestions.answer1') }}</option>
                   <option value="2">{{ __('admin.bankquestions.answer2') }}</option>
@@ -176,7 +176,7 @@
 
                 </select>
 
-                @error('answer_id')
+                @error('correct_answer')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>

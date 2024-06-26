@@ -78,18 +78,7 @@
                                     @enderror
                                 </div>
 
-                <div class="mb-3">
-                  <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
-                  <select class="select2 form-control" name="course_id" id="course_id">
-                    
-                  </select>
-
-                  @error('course_id')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
+                
                 <div class="mb-3">
                   <label class="form-label" for="lectures">{{ __('admin.quizzes.lecture') }} <span>*</span></label>
                   <select class="select2 form-control" name="lecture_id" id="lectures">
@@ -155,6 +144,18 @@
                   <input type="number" class="form-control" name="pass_mark" id="pass_mark" value="{{ old('pass_mark') }}" required>
 
                   @error('pass_mark')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
+                  <select class="select2 form-control" name="course_id" id="course_id">
+                    
+                  </select>
+
+                  @error('course_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>

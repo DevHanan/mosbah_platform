@@ -52,7 +52,7 @@
             <div class="row">
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.title')}}</label>
-                <input type="text" class="form-control" name="title" value="{{old('title')}}">
+                <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
                 @error('title')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -62,7 +62,7 @@
               <div class="col-lg-6 custom-style">
                 <div class="mb-3">
                   <label class="form-label">{{__('admin.bankquestions.mark')}}</label>
-                  <input type="number" class="form-control" name="mark" value="{{old('mark')}}">
+                  <input type="number" class="form-control" name="mark" value="{{old('mark')}}" required>
                   @error('mark')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -126,7 +126,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.answer1')}}</label>
-                <input type="text" class="form-control" name="answer1" value="{{old('answer1')}}">
+                <input type="text" class="form-control" name="answer1" value="{{old('answer1')}}" required>
              
                 @error('answer1')
                 <div class="invalid-feedback">
@@ -137,7 +137,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.answer2')}}</label>
-                <input type="text" class="form-control" name="answer2">
+                <input type="text" class="form-control" name="answer2" required>
                 @error('answer2')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -147,7 +147,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.answer3')}}</label>
-                <input type="text" class="form-control" name="answer3">
+                <input type="text" class="form-control" name="answer3" required>
                 @error('answer3')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -157,7 +157,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.answer4')}}</label>
-                <input type="text" class="form-control" name="answer4">
+                <input type="text" class="form-control" name="answer4" required>
                 @error('answer4')
                 <div class="invalid-feedback">
                   {{ $message }}

@@ -25,7 +25,6 @@ class BankGroupRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:1',
-            'course_id' => 'required|integer',
             'track_id' => 'required|integer',
 
         ];

@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="col-12">
                             <div class="row row-cards">
-                                <div class="col-sm-4 col-lg-2">
+                                <div class="col-sm-4 col-lg-3">
                                     <div class="card card-sm">
                                         <div class="card-body" style="min-height:90px;">
                                             <div class="row align-items-center">
@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-2">
+                                <div class="col-sm-4 col-lg-3">
                                     <div class="card card-sm">
                                         <div class="card-body" style="min-height:90px;">
                                             <div class="row align-items-center">
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-2">
+                                <div class="col-sm-4 col-lg-3">
                                     <div class="card card-sm">
                                         <div class="card-body" style="min-height:90px;">
                                             <div class="row align-items-center">

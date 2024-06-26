@@ -47,7 +47,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="courses">{{ __('admin.bankgroups.course_name') }} <span>*</span></label>
-                                    <select class="form-control" name="course_id" id="courses" required>
+                                    <select class="form-control" name="course_id" id="courses">
                                         <option value="">{{ __('select') }}</option>
 
                                     </select>

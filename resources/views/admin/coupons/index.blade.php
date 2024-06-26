@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            {{ Breadcrumbs::render('coupons') }}
+                {{ Breadcrumbs::render('coupons') }}
 
             </div>
             <!-- Page title actions -->
@@ -62,7 +62,7 @@
 
                                         <td>{{ $row->code }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
-                                        <td> {{ optional($row->track)->name }}                                         
+                                        <td> {{ optional($row->track)->name }}
                                         </td>
                                         <td>{{ $row->discount }}</td>
                                         <td>{{ $row->created_at }}</td>
@@ -72,11 +72,11 @@
                                         <td>
 
 
-<div class="form-check form-switch md-3" style="margin:10px">
+                                            <div class="form-check form-switch md-3" style="margin:10px">
 
-  <input data-id="{{$row->id}}" data-type='App\Models\Coupon' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-</div>
-</td>
+                                                <input data-id="{{$row->id}}" data-type='App\Models\Coupon' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                                            </div>
+                                        </td>
 
                                         <td>
 
@@ -84,11 +84,11 @@
 
 
 
-                                            <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                                            <a href="{{ route($route.'.edit', $row->id) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </a>
 
-                                            <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
+                                            <button type="button" class="btn btn-icon btn-danger btn-sm"  title="{{__('admin.delete')}}"   data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                             <!-- Include Delete modal -->

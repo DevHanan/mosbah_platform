@@ -83,7 +83,7 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration }}</span></td>
-                  <td>{{$row->title}}</td>
+                  <td> {{ substr($row->title, 0, 30) }} </td>
                   <td><img src="{{ $row->pictureFullPath }}" style="width:40px"></td>
                   <td>{{ optional($row->group)->name}}</td>
                   <td>
@@ -105,11 +105,11 @@
 
                   </td>
                   <td>
-                    @if( $row->correct_answer === 1)
+                    @if( $row->correct_answer == 1)
                     {{ $row->answer1 }}
-                    @elseif( $row->correct_answer === 2)
+                    @elseif( $row->correct_answer == 2)
                     {{ $row->answer2 }}
-                    @elseif( $row->correct_answer === 3)
+                    @elseif( $row->correct_answer == 3)
                     {{ $row->answer3 }}
                     @else
                     {{ $row->answer4 }}

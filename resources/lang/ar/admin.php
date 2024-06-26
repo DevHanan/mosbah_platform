@@ -551,6 +551,8 @@ return [
 
     ],
     'bankquestions' => [
+        'explain_question_data' =>'بيانات توضيحية للسؤال',
+        'explain_answer_data' =>'بيانات توضيحية لأجابة',
         'title'  => 'السؤال',
         'title_notes'  => 'ملاحظات نصية لشرح السؤال',
         'answer_notes' => 'ملاحظات نصيه لشرح إجابة السؤال',

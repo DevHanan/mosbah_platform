@@ -90,12 +90,7 @@
 
 
 
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">{{__('admin.bankquestions.title_notes')}}</label>
-                  <textarea class="form-control" rows="3" name="question_notes"></textarea>
-                </div>
-              </div>
+              
 
               <div class="form-group col-md-6 img-class">
 
@@ -109,6 +104,113 @@
                 </div>
                 @enderror
               </div>
+
+            
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+          <div class="card-body">
+            <div class="card-status-top bg-blue"></div>
+            <div class="card-header">
+              <h3 class="card-title"> {{__('admin.bankquestions.answer_data')}} </h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="mb-3">
+                <label class="form-label">{{__('admin.bankquestions.answer1')}}</label>
+                <input type="text" class="form-control" name="answer1" value="{{old('answer1')}}">
+             
+                @error('answer1')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">{{__('admin.bankquestions.answer2')}}</label>
+                <input type="text" class="form-control" name="answer2">
+                @error('answer2')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">{{__('admin.bankquestions.answer3')}}</label>
+                <input type="text" class="form-control" name="answer3">
+                @error('answer3')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">{{__('admin.bankquestions.answer4')}}</label>
+                <input type="text" class="form-control" name="answer4">
+                @error('answer4')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="answer_id">{{ __('admin.bankquestions.correct_answer') }} <span>*</span></label>
+                <select class="select2 form-control" name="answer_id" id="answer_id" required>
+                  <option value="">{{ __('select') }}</option>
+                  <option value="1">{{ __('admin.bankquestions.answer1') }}</option>
+                  <option value="2">{{ __('admin.bankquestions.answer2') }}</option>
+                  <option value="3 ">{{ __('admin.bankquestions.answer3') }}</option>
+                  <option value="4">{{ __('admin.bankquestions.answer4') }}</option>
+
+                </select>
+
+                @error('answer_id')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+              
+
+
+             
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-status-top bg-blue"></div>
+
+            <div class="card-header">
+              <h3 class="card-title"> {{__('admin.bankquestions.explain_question_data')}} </h3>
+
+            </div>
+            @csrf
+            <div class="row">
+              
+             
+             
+
+
+
+              <div class="col-lg-12">
+                <div>
+                  <label class="form-label">{{__('admin.bankquestions.title_notes')}}</label>
+                  <textarea class="form-control" rows="3" name="question_notes"></textarea>
+                </div>
+              </div>
+
 
               <div class="form-group col-md-6 img-class">
 
@@ -135,7 +237,7 @@
           <div class="card-body">
             <div class="card-status-top bg-blue"></div>
             <div class="card-header">
-              <h3 class="card-title"> {{__('admin.bankquestions.answer_data')}} </h3>
+              <h3 class="card-title"> {{__('admin.bankquestions.explain_answer_data')}} </h3>
 
             </div>
             <div class="card-body">

@@ -113,6 +113,7 @@
                     {{ $row->answer3 }}
                     @else
                     {{ $row->answer4 }}
+                    @endif
                   
                   </td>
 

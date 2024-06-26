@@ -52,6 +52,7 @@ class QuestionsController extends Controller
     }
     public function store(Request $request)
     {
+        $request->merge(['correct_answer'=>$request->correct_answer]);
         $question = BankQuestion::create($request->except(['picture', 'question_declare_img', 'answer_declare_img']));
         if ($request->hasFile('picture')) {
             $thumbnail = $request->picture;
@@ -103,6 +104,7 @@ class QuestionsController extends Controller
     public function update(Request $request, $ban_Group_id)
     {
        $question = BankQuestion::find($request->id);
+       $request->merge(['correct_answer'=>$request->correct_answer]);
        $question->update($request->except(['picture', 'question_declare_img', 'answer_declare_img']));
         if ($request->hasFile('picture')) {
             $thumbnail = $request->picture;

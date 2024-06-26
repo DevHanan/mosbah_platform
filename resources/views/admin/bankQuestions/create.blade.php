@@ -52,7 +52,8 @@
             <div class="row">
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.title')}}</label>
-                <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
+                <textarea class="form-control" rows="3" name="title" required> {{ $row->title }}</textarea>
+
                 @error('title')
                 <div class="invalid-feedback">
                   {{ $message }}

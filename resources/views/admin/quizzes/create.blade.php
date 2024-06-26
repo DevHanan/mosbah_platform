@@ -80,7 +80,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
-                  <select class="select2 form-control" name="course_id" id="courses">
+                  <select class="select2 form-control" name="course_id" id="course_id">
                     
                   </select>
 

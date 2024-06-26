@@ -551,6 +551,27 @@
 				})
 			}
 		});
+
+		$('#track_id').on('change', function() {
+			var track_id = $(this).val();
+			if (track_id) {
+				$.ajax({
+					url: "{{ route('admin.getCourses') }}",
+					type: "GET",
+					data: {
+						'track_id': track_id
+					},
+					dataType: "json",
+					success: function(data) {
+						var html = '<option value="">Select Course</option>';
+						$.each(data, function(index, value) {
+							html += '<option value="' + value.id + '">' + value.name + '</option>';
+						});
+						$('#course_id').html(html);
+					}
+				})
+			}
+		});
 		$('#course_id').on('change', function() {
 			var course_id = $(this).val();
 			if (course_id) {

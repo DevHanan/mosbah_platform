@@ -62,36 +62,37 @@
 
 
                 <div class="mb-3">
-                                    <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
-                                    <select class="form-control" name="track_id" id="track_id" required>
-                                        <option value="">{{ __('select') }}</option>
-                                        @foreach($tracks as $track)
-                                        <option value="{{$track->id}}">{{ $track->name }}</option>
-                                        @endforeach
-
-                                    </select>
-
-                                    @error('track_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-
-                
-                <div class="mb-3">
-                  <label class="form-label" for="lectures">{{ __('admin.quizzes.lecture') }} <span>*</span></label>
-                  <select class="select2 form-control" name="lecture_id" id="lectures">
+                  <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
+                  <select class="form-control" name="track_id" id="track_id" required>
                     <option value="">{{ __('select') }}</option>
+                    @foreach($tracks as $track)
+                    <option value="{{$track->id}}">{{ $track->name }}</option>
+                    @endforeach
 
                   </select>
 
-                  @error('lecture_id')
+                  @error('track_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
                 </div>
+
+
+                <div class="mb-3">
+                  <label class="form-label" for="levels">{{ __('admin.quizzes.level') }} <span>*</span></label>
+                  <select class="select2 form-control" name="level_id" id="levels">
+                    <option value="">{{ __('select') }}</option>
+
+                  </select>
+
+                  @error('level_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+               
 
                 <div class="mb-3">
                   <label class="form-label" for="bank">{{ __('admin.quizzes.bankgroup') }} <span>*</span></label>
@@ -152,7 +153,7 @@
                 <div class="mb-3">
                   <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
                   <select class="select2 form-control" name="course_id" id="course_id">
-                    
+
                   </select>
 
                   @error('course_id')
@@ -161,14 +162,15 @@
                   </div>
                   @enderror
                 </div>
+
                 <div class="mb-3">
-                  <label class="form-label" for="levels">{{ __('admin.quizzes.level') }} <span>*</span></label>
-                  <select class="select2 form-control" name="level_id" id="levels">
+                  <label class="form-label" for="lectures">{{ __('admin.quizzes.lecture') }} <span>*</span></label>
+                  <select class="select2 form-control" name="lecture_id" id="lectures">
                     <option value="">{{ __('select') }}</option>
 
                   </select>
 
-                  @error('level_id')
+                  @error('lecture_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>

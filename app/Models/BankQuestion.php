@@ -18,13 +18,14 @@ class BankQuestion extends Model
 
     public function getcorrectAnswerAttribute()
     {
+
         if ($this->correct_answer == 1)
 
             return $this->answer1;
-        elseif ($this->correct_answer == 2)
+        if ($this->correct_answer == 2)
 
             return $this->answer2;
-        elseif ($this->correct_answer == 3)
+        if ($this->correct_answer == 3)
 
             return $this->answer3;
         else

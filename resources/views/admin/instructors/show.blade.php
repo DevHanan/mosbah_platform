@@ -67,7 +67,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="font-weight-medium">
-                                                        {{ $row->{{ $row->total_balance }} {{ $setting->currency }} }}
+                                                        {{  $row->total_balance }} {{ $setting->currency }} }}
                                                     </div>
                                                     <div class="text-secondary">
                                                     {{ __('admin.instructors.total_balance') }}                                                    </div>

@@ -253,17 +253,7 @@
               </div>
 
 
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">{{__('admin.bankquestions.optiomal_answer')}}</label>
-                  <textarea class="form-control" rows="3" name="model_answer"></textarea>
-                </div>
-                @error('optiomal_answer')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div>
+             
 
               <div class="col-lg-12">
                 <div>

@@ -90,9 +90,9 @@
                                 <div class="card-status-top bg-red"></div>
                                 <div class="card-header">
                                     <h3 class="card-title"> {{__('admin.bankgroups.bank_question')}} </h3>
-                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-report">
+                                    <!-- <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-report">
                                         New Question
-                                    </a>
+                                    </a> -->
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="card-body">

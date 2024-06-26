@@ -104,7 +104,17 @@
                 
 
                   </td>
-                  <td> {{ $row->correctanswer}}</td>
+                  <td>
+                    @if( $row->correctanswer == 1)
+                    {{ $row->answer1 }}
+                    @elseif( $row->correctanswer == 2)
+                    {{ $row->answer2 }}
+                    @elseif( $row->correctanswer == 3)
+                    {{ $row->answer3 }}
+                    @else
+                    {{ $row->answer4 }}
+                  
+                  </td>
 
                   <td>{{$row->mark}}</td>
 

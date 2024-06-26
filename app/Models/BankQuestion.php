@@ -19,18 +19,9 @@ class BankQuestion extends Model
     public function getcorrectAnswerAttribute()
     {
 
-        if ($this->correct_answer == 1)
+       
 
-            return $this->answer1;
-        if ($this->correct_answer == 2)
-
-            return $this->answer2;
-        if ($this->correct_answer == 3)
-
-            return $this->answer3;
-        else
-
-            return $this->answer4;
+            return $this->correct_answer;
     }
 
     public function getPictureFullPathAttribute($value)

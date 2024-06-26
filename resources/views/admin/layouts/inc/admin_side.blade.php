@@ -622,7 +622,7 @@
               {{ __('navbar.master_data')}}
             </span>
           </a>
-          <div class="dropdown-menu @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.setting.landingSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.setting.contactUs','admin.questions.*','admin.settings.aboutUSSetting','admin.setting.landingSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="{{url('admin/setting')}}">

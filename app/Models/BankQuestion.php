@@ -21,7 +21,7 @@ class BankQuestion extends Model
 
        
 
-            return $this->correct_answer;
+            return '';
     }
 
     public function getPictureFullPathAttribute($value)

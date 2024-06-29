@@ -163,8 +163,8 @@ class HomeController extends Controller
         /** add teacher prectanage  */
         foreach($course->instructors as $instructor){
             $sub = Subscription::where('course_id',$course->id)->where('student_id',$item->student_id)->first();
-            $instructor->current_balance = $instructor->current_balance + (($course->price_price_with_discount /100)*$sub->course_prectange) ;
-            $instructor->total_balance = $instructor->total_balance + (($course->price_price_with_discount /100)*$sub->course_prectange) ;
+            $instructor->current_balance = $instructor->current_balance + (($course->price /100)*$sub->course_prectange) ;
+            $instructor->total_balance = $instructor->total_balance + (($course->price /100)*$sub->course_prectange) ;
             $instructor->save();
         }
 

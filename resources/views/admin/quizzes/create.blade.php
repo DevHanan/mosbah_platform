@@ -63,7 +63,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
-                  <select class="form-control" name="track_id" id="track_id" required>
+                  <select class="form-control" name="track_id" id="track_id" >
                     <option value="">{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{$track->id}}">{{ $track->name }}</option>
@@ -94,8 +94,21 @@
                 </div>
                
 
+               
+
                 <div class="mb-3">
-                  <label class="form-label" for="bank">{{ __('admin.quizzes.bankgroup') }} <span>*</span></label>
+                  <label class="form-label" for="prectange"> {{ __('admin.quizzes.question_number') }} <span>*</span></label>
+                  <input type="number" class="form-control" name="question_number" id="question_number" value="0">
+
+                  @error('question_number')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+                <div class="mb-3" id="bankgroupsList">
+                  <label class="form-label" for="bank">{{ __('admin.quizzes.select_bankgroups') }} <span>*</span></label>
                   <select class="select2 form-control" name="banks[]" id="bank" multiple>
                     <option value="">{{ __('select') }}</option>
                     @foreach($bankgroups as $bank)
@@ -103,23 +116,6 @@
                     @endforeach
 
                   </select>
-
-                  @error('banks')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label" for="prectange"> {{ __('admin.quizzes.prectange') }} <span>*</span></label>
-                  <input type="number" class="form-control" name="prectange" id="prectange" value="0">
-
-                  @error('prectange')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
                 </div>
 
 
@@ -132,6 +128,13 @@
                     <div class="form-check form-switch md-3" style="margin:10px">
 
                       <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
+                    <div class="form-check form-switch md-3" style="margin:10px">
+
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels" >
                     </div>
                   </div>
 
@@ -192,19 +195,13 @@
                   @enderror
                 </div>
 
-                <div class="col-md-6">
-                  <label class="form-label" for="title"> {{ __('admin.quizzes.select_is_random') }} <span>*</span></label>
-                  <div class="form-check form-switch md-3" style="margin:10px">
-
-                    <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="randmom">
-                  </div>
-                </div>
+              
 
               </div>
 
 
 
-              <div class="card" style="margin-top: 20px;">
+              <!-- <div class="card" style="margin-top: 20px;">
                 <div class="card-header">
                   <h3> {{ __('admin.quizzes.add_sections') }} </h3>
                 </div>
@@ -232,7 +229,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
 
             </div>

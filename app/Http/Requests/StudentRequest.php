@@ -27,6 +27,8 @@ class StudentRequest extends FormRequest
             'last_name' => 'required',
             'email'        => 'required|unique:students,email',
             'password' => 'required|confirmed',
+            'phone' => 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
+
             // 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'userName'        => 'required|unique:students,userName',
             // 'country_id' => 'required|exists:countries,id',

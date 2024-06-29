@@ -128,6 +128,7 @@ Route::group(
             /** finical  */
             Route::get('course/profit', [ProfitController::class, 'courseProfit'])->name('courseprofits');
             Route::get('student-payments', [ProfitController::class, 'studentPayment'])->name('studentspayment');
+            Route::get('instructor-profits', [ProfitController::class, 'instructorProfits'])->name('instructorProfits');
             Route::get('list-payment-requests', [ProfitController::class, 'listRequest'])->name('listRequest');
             Route::get('list-paid-payment-requests', [ProfitController::class, 'listPaidRequest'])->name('listPaidRequest');
 

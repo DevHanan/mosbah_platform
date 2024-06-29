@@ -7,7 +7,9 @@ use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\TrackResource;
 use App\Models\Quiz;
+use App\Models\BankQuestion;
 use App\Models\QuizSection;
+use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use Toastr;
 
@@ -44,9 +46,12 @@ class QuizSectionController extends Controller
 
     public function create(QuizSection $section,$quiz_id)
     {
+        
         $data['title'] = trans('admin.quiz-sections.add');
         $data['route'] = $this->route;
         $data['quiz'] = Quiz::find($quiz_id);
+        $bank_groups= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['questions'] = BankQuestion::whereIn('bank_group_id',$bank_groups)->get();
         return view($this->view .'.create',$data);
     }
     public function store(Request $request)
@@ -54,6 +59,10 @@ class QuizSectionController extends Controller
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
        $section = QuizSection::create($request->all());
+         if($request->questionids){
+            foreach($request->questionids as $id)
+            QuizQuestion::create(['section_id'=>$section->id , 'quiz_id'=>$section->quiz_id,'question_id'=>$id]);
+         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/quizzes/".$request->quiz_id."/sections");
     }
@@ -73,6 +82,9 @@ class QuizSectionController extends Controller
         $data['row'] = QuizSection::find($id);
         $data['route'] = $this->route;
         $data['quiz'] = Quiz::find($quiz_id);
+        $data['quizuestionsids']=QuizQuestion::where('section_id',$id)->pluck('question_id')->ToArray();
+        $bank_groups= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['questions'] = BankQuestion::whereIn('bank_group_id',$bank_groups)->get();
         $data['title'] = trans('admin.quiz-sections.edit');
         return view($this->view.'.edit',$data);
     }
@@ -83,7 +95,11 @@ class QuizSectionController extends Controller
         $request->merge(['active' => $active]);
        $section = QuizSection::find($request->id);
        $section->update($request->all());
-    
+       if($request->questionids){
+        QuizQuestion::where(['section_id' => $section->id,'quiz_id'=>$section->quiz_id])->delete();
+        foreach($request->questionids as $id)
+        QuizQuestion::firstOrCreate(['section_id' => $section->id,'quiz_id'=>$section->quiz_id,'question_id'=>$id]); 
+    }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/quizzes/".$quiz_id."/sections");
     

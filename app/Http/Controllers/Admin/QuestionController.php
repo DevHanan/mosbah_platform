@@ -66,7 +66,7 @@ class QuestionController extends Controller
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.questions.index');     }
 
-    public function destory(Request $request)
+    public function destroy(Request $request)
     {
        $question =  Question::find($request->id);
        if($question)

@@ -60,7 +60,20 @@
                   </div>
                   @enderror
                 </div>
+                <div class="form-group ">
+                                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                                    <div>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
+                                            <span class="form-check-label"> {{ __('admin.active')}}</span>
+                                        </label>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" value="0" type="radio" name="active">
+                                            <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                                        </label>
 
+                                    </div>
+                                </div>
 
 
 

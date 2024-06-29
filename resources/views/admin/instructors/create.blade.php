@@ -53,7 +53,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}">
+                                    <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
                                     @error('phone')
                                     <div class="invalid-feedback">
@@ -76,7 +76,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
-                                    <select class="form-control" name="is_employee" required>
+                                    <select class="form-control" name="is_employee" id="isemployee" required>
                                         <option value="">{{ __('select') }}</option>
                                         <option value="1"> {{ __('admin.instructors.yes')}}</option>
                                         <option value="0" selected> {{ __('admin.instructors.no')}}</option>
@@ -178,7 +178,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="email">{{ __('admin.instructors.field_email') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}" required>
+                                    <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
                                     @error('email')
                                     <div class="invalid-feedback">
@@ -199,7 +199,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                                    <input type="salary" value="0" class="form-control" name="salary" id="salary" value="{{ old('salary') }}" >
+                                    <input type="salary" value="0"  readonly class="form-control" name="salary" id="empsalary" value="{{ old('salary') }}" >
 
                                     @error('salary')
                                     <div class="invalid-feedback">
@@ -285,3 +285,4 @@
 
 
 @endsection
+

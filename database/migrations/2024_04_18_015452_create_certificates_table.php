@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('status')->default(0);
             $table->string('authority')->nullable();
             $table->string('file')->nullable();
+            $table->string('image')->nullable();
 
             
 

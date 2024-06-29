@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="col-12">
                             <div class="row row-cards">
-                                <div class="col-sm-4 col-lg-3">
+                                <div class="col-sm-4 col-lg-4">
                                     <div class="card card-sm">
                                         <div class="card-body" style="min-height:90px;">
                                             <div class="row align-items-center">
@@ -51,7 +51,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-3">
+                                <div class="col-sm-4 col-lg-4">
                                     <div class="card card-sm">
                                         <div class="card-body" style="min-height:90px;">
                                             <div class="row align-items-center">
@@ -75,7 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-3">
+                                <div class="col-sm-4 col-lg-4">
                                     <div class="card card-sm">
                                         <div class="card-body" style="min-height:90px;">
                                             <div class="row align-items-center">
@@ -93,6 +93,50 @@
                                                     </div>
                                                     <div class="text-secondary">
                                                         <th>{{ __('admin.instructors.current_balance') }}</th>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="card card-sm">
+                                        <div class="card-body" style="min-height:90px;">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <span class="bg-blue text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calculator"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M8 14l0 .01" /><path d="M12 14l0 .01" /><path d="M16 14l0 .01" /><path d="M8 17l0 .01" /><path d="M12 17l0 .01" /><path d="M16 17l0 .01" /></svg></span>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="font-weight-medium">
+                                                        <td>{{ $subscriptions->count() }}</td>
+                                                    </div>
+                                                    <div class="text-secondary">
+                                                        <th>{{ __('admin.instructors.susbscriptions_count') }}</th>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="card card-sm">
+                                        <div class="card-body" style="min-height:90px;">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <span class="bg-blue text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                            <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"></path>
+                                                            <path d="M12 3v3m0 12v3"></path>
+                                                        </svg> </span>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="font-weight-medium">
+                                                        <td>{{ $subscriptions->sum('paid') }} {{ $setting->currency }}</td>
+                                                    </div>
+                                                    <div class="text-secondary">
+                                                        <th>{{ __('admin.instructors.susbscriptions_total') }}</th>
                                                     </div>
                                                 </div>
                                             </div>

@@ -78,7 +78,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
-                  <select class="form-control" name="is_employee" required>
+                  <select class="form-control" name="is_employee" id="isemployee" required>
                     <option value="">{{ __('select') }}</option>
                     <option value="1" @if($row->is_employee == 1) selected="selected" @endif> {{ __('admin.instructors.yes')}}</option>
                     <option value="0" @if($row->is_employee == 0 ) selected="selected" @endif> {{ __('admin.instructors.no')}}</option>
@@ -183,7 +183,8 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                  <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" >
+                  
+                  <input type="salary"   class="form-control" name="salary" id="empsalary" value="{{ $row->salary }}" @if($row->is_employee == 0) readonly @endif >
 
                   @error('salary')
                   <div class="invalid-feedback">

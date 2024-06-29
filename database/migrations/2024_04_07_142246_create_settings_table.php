@@ -29,6 +29,9 @@ return new class extends Migration
             $table->string('instgram_url')->nullable();
             $table->string('youtube_url')->nullable();
             $table->text('description')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        {{ Breadcrumbs::render('update-courses',$row) }}
+        {{ Breadcrumbs::render('update-quizzes',$row) }}
 
       </div>
       <!-- Page title actions -->
@@ -58,38 +58,48 @@
                 </div>
 
 
-
-
                 <div class="mb-3">
-                  <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
-                  <select class="select2 form-control" name="course_id" id="course_id">
+                  <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
+                  <select class="form-control" name="track_id" id="track_id">
                     <option value="">{{ __('select') }}</option>
-                    @foreach($courses as $course)
-                    <option value="{{ $course->id }}" @if( $row->course_id != null && ($row->course_id == $course->id) )  selected  @endif> {{ $course->name }}</option>
-
+                    @foreach($tracks as $track)
+                    <option value="{{$track->id}}" @if( $row->track_id != null && ($row->track_id == $track->id) ) selected @endif>{{ $track->name }}</option>
                     @endforeach
+
                   </select>
 
-                  @error('course_id')
+                  @error('track_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
                 </div>
+
                 <div class="mb-3">
-                  <label class="form-label" for="lectures">{{ __('admin.quizzes.lecture') }} <span>*</span></label>
-                  <select class="select2 form-control" name="lecture_id" id="lectures">
-                  <option value="{{ $row->lecture_id }}"> {{ optional($row->lecture)->title }}</option>
+                  <label class="form-label" for="levels">{{ __('admin.quizzes.level') }} <span>*</span></label>
+                  <select class="select2 form-control" name="level_id" id="levels">
+                    <option value="{{ $row->level_id }}"> {{ optional($row->level)->name }}</option>
 
                   </select>
 
-                  @error('lecture_id')
+                  @error('level_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
                 </div>
 
+
+                <div class="mb-3">
+                  <label class="form-label" for="prectange"> {{ __('admin.quizzes.question_number') }} <span>*</span></label>
+                  <input type="number" class="form-control" name="question_number" id="question_number" value="{{ $row->question_number }}">
+
+                  @error('question_number')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
               </div>
               <div class="col-md-6">
@@ -99,17 +109,17 @@
                     <label class="form-label" for="title"> {{ __('admin.select_status') }} <span>*</span></label>
                     <div class="form-check form-switch md-3" style="margin:10px">
 
-                      <input   class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active" @if($row->active ==1 )  checked @endif>
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active" @if($row->active ==1 ) checked @endif>
                     </div>
                   </div>
 
-                  <!-- <div class="col-md-6">
-    <label class="form-label" for="title"> {{ __('admin.select_recommend') }} <span>*</span></label>
-    <div class="form-check form-switch md-3" style="margin:10px">
+                  <div class="col-md-6">
+                    <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
+                    <div class="form-check form-switch md-3" style="margin:10px">
 
-      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="recommened">
-    </div>
-  </div> -->
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels" @if($row->has_levels ==1 ) checked @endif>
+                    </div>
+                  </div>
                 </div>
 
 
@@ -124,26 +134,41 @@
                   </div>
                   @enderror
                 </div>
+
                 <div class="mb-3">
-                  <label class="form-label" for="levels">{{ __('admin.quizzes.level') }} <span>*</span></label>
-                  <select class="select2 form-control" name="level_id" id="levels">
-                  <option value="{{ $row->level_id }}"> {{ optional($row->level)->name }}</option>
+                  <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
+                  <select class="select2 form-control" name="course_id" id="course_id">
+                    <option value="">{{ __('select') }}</option>
+                    <option value="{{ $row->course_id }}" selected> {{ optional($row->course)->name }}</option>
+                  </select>
+
+                  @error('course_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="lectures">{{ __('admin.quizzes.lecture') }} <span>*</span></label>
+                  <select class="select2 form-control" name="lecture_id" id="lectures">
+                    <option value="{{ $row->lecture_id }}"> {{ optional($row->lecture)->title }}</option>
 
                   </select>
 
-                  @error('level_id')
+                  @error('lecture_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
                 </div>
 
+
                 <div class="mb-3">
                   <label class="form-label" for="quiz_type">{{ __('admin.quizzes.quiz_type') }} <span>*</span></label>
                   <select class="form-control" name="quiz_type" id="quiz_type" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1" @if($row->quiz_type ==1 )  selected @endif> {{ __('admin.quizzes.simulator') }}</option>
-                    <option value="2" @if($row->quiz_type ==2 )  selected @endif> {{ __('admin.quizzes.platform') }}</option>
+                    <option value="1" @if($row->quiz_type ==1 ) selected @endif> {{ __('admin.quizzes.simulator') }}</option>
+                    <option value="2" @if($row->quiz_type ==2 ) selected @endif> {{ __('admin.quizzes.platform') }}</option>
                   </select>
 
                   @error('quiz_type')
@@ -152,55 +177,75 @@
                   </div>
                   @enderror
                 </div>
+                @if($row->has_levels == 1)
+                <div class="mb-3" id="bankgroupsList">
+                  <label class="form-label" for="bank">{{ __('admin.quizzes.select_bankgroups') }} <span>*</span></label>
+                  <select class="select2 form-control" name="banks[]" id="bank" multiple>
+                    <option value="">{{ __('select') }}</option>
+                    @foreach($bankgroups as $bank)
+                    <option value="{{$bank->id}}" @if(in_array($bank->id , $bank_groups)) selected @endif> {{ $bank->name }}</option>
+                    @endforeach
 
-
+                  </select>
+                </div>
+                @endif
 
               </div>
               <input type="hidden" name="id" value="{{$row->id}}">
 
-              <!-- <div class="card" style="margin-top: 20px;">
-                <div class="card-header">
-                <h3> {{ __('admin.quizzes.add_sections') }} </h3>
-                </div>
-                <div class="card-body">
-                  <div class="main">
-                    <table class=" table data-table data-table-horizontal data-table-highlight">
-                      <thead>
-                        <tr>
-                        <td style="width: 100%;"> {{ __('admin.quizzes.section_name') }}</td>
-                          <td></td>
-                        </tr>
-                      </thead>
-                      <tbody id="instructorstable">
-
-                        <tr>
-                         
-                        <td><input type="text" name="sections[]" value=""  placeholder="إسم المرحلة" /></td>
-                          <td><a type="button" value="Delete" onclick="deleteRow(this)">
-                              <i class="fas fa-trash-alt"></i>
-                            </a></td>
-                        </tr>
-                        @foreach($row->sections as $item)
-                        <tr>
-                         
-                          <td><input type="text" name="sections[]" value="{{$item->title}}" placeholder="قيمة شراء الدورة من المدرب" /></td>
-                          <td><a type="button" value="Delete" onclick="deleteRow(this)">
-                              <i class="fas fa-trash-alt"></i>
-                            </a></td>
-                        </tr>
-                        @endforeach
-                    </table>
-                    <div class="pull-right">
-                      <input type="button" value="إضافة" class="top-buffer" onclick="addRow('instructorstable')" />
-                    </div>
-                  </div>
-                </div>
-              </div> -->
 
 
             </div>
-          </div>
 
+          </div>
+          @if($groups && $row->has_levels == 0)
+          <div class="card-body">
+
+            <div class="card-status-top bg-blue"></div>
+
+            <div class="card-header">
+              <h3 class="card-title"> بنوك الأسئلة  فى الاختبار </h3>
+
+            </div>
+            <div class="table-responsive">
+              <table class="  table card-table table-vcenter text-nowrap ">
+                <thead>
+                  <tr>
+                    <th class="w-1">#
+                    </th>
+                    <th> {{__('admin.bankgroups.bank_name')}}</th>
+                    <th>{{ __('admin.bankgroups.question_number') }}</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($groups as $group)
+
+                  <tr>
+
+                    <td>
+                      <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices" name="groupids[]" value="{{ $group->id }}" checked>
+
+                      <span class="text-secondary">{{$loop->iteration}}</span>
+                    </td>
+
+                    <td>
+                      {!! $group->name !!}
+                    </td>
+                    <td> 
+
+                    <input type="number" name="groupquestions[]" min="0">
+
+                    </td>
+
+                  </tr>
+                  @endforeach
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          @endif
 
           <div class="card-footer">
             <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('admin.btn_Back') }}</button>-->

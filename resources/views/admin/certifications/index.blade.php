@@ -8,6 +8,19 @@
             <div class="col">
                 {{ Breadcrumbs::render('platformCertifications') }}
             </div>
+            <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+
+          <a href="{{ route($route.'.create') }}" class="btn btn-primary d-none d-sm-inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 5l0 14" />
+              <path d="M5 12l14 0" />
+            </svg>
+            {{__('admin.btn_add_new')}} </a>
+
+        </div>
+      </div>
 
         </div>
     </div>
@@ -32,6 +45,7 @@
                                     <th> {{__('admin.certifications.create_date')}}</th>
                                     <th> {{__('admin.tracks.status')}}</th>
                                     <th> {{__('admin.certifications.file')}}</th>
+                                    <th> {{__('admin.certifications.image')}}</th>
                                     <th>{{ __('admin.certifications.actions') }}</th>
                                 </tr>
                             </thead>
@@ -51,9 +65,24 @@
                                             <input data-id="{{$row->id}}" data-type='App\Models\Certificate' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                                         </div>
                                     </td>
-                                    <td><a href="{{asset($row->FileFullPath)}}" style="width:40px">
-                                            عرض الملف
+                                    <td>
+                                    @if($row->file)    
+                                    <a href="{{asset($row->FileFullPath)}}" style="width:40px" target="_blank">
+                                            عرض النموذج
                                         </a>
+                                        @else
+                                        لا يوجد
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                    @if($row->image)    
+                                    <a href="{{asset($row->ImageFullPath)}}" style="width:40px" target="_blank">
+                                            عرض الصورة
+                                        </a>
+                                        @else
+                                        لا يوجد
+                                        @endif
                                     </td>
 
 

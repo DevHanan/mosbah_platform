@@ -45,7 +45,7 @@
 
                   <th>{{ __('admin.status') }}</th>
 
-                  <th>{{ __('admin.action') }}</th>
+                  <th>{{ __('admin.field_action') }}</th>
 
                 </tr>
               </thead>

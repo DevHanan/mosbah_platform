@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                @include('admin.layouts.inc.breadcrumb')
+            {{ Breadcrumbs::render('add-policies') }}
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -60,7 +60,7 @@
                                 <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active">
                                 </div>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <div class=" md-3">
 
 

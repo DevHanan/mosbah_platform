@@ -38,7 +38,7 @@ class TeamController extends Controller
         $data['rows'] = Team::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->paginate(10);
+        })->latest()->paginate(10);
         return view($this->view.'.index', $data);
     }
 
@@ -50,7 +50,7 @@ class TeamController extends Controller
     }
     public function store(Request $request)
     {
-        $team = Team::create(['name'=>$request->name,'job'=>$request->job]);
+        $team = Team::create(['name'=>$request->name,'job'=>$request->job,'active'=>$request->active]);
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();

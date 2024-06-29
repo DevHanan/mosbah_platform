@@ -75,6 +75,9 @@
 
 
                   <td style="width: 270px;">
+                  <a href="{{ url('admin/tickets/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                                <i class="far fa-eye"></i>
+                                            </a>
                   <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
                   <i class="fa fa-refresh" aria-hidden="true"></i>
 
@@ -83,7 +86,7 @@
                     @include('admin.tickets.changestatus')
 
                     <a href="{{ url('admin/instructors/'.$row->instructor_id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                      <i class="far fa-eye"></i>
+                      <i class="fa-solid fa-person"></i>
                     </a>
 
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">

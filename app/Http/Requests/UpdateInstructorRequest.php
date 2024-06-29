@@ -28,10 +28,13 @@ class UpdateInstructorRequest extends FormRequest
             'last_name' => 'required',
             'email' => [
                 'required',
+                'email',
                 Rule::unique('instructors', 'email')->ignore($this->id)
             ],
             'password' => 'confirmed',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'phone' => 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
+
 
 
 

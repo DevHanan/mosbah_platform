@@ -358,6 +358,42 @@
         </li>
 
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+            <span class="nav-link-icon d-md-none d-lg-inline-block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-question-mark">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4" />
+                <path d="M12 19l0 .01" />
+              </svg>
+            </span>
+            <span class="nav-link-title">
+              {{ __('navbar.calculate_equation.management') }}
+            </span>
+          </a>
+          <div class="dropdown-menu   ">
+            <div class="dropdown-menu-columns">
+              <div class="dropdown-menu-column">
+                <a class="dropdown-item " href="#">
+                  {{ __('navbar.calculate_equation.first_secondary_subjects') }}
+                </a>
+                <a class="dropdown-item " href="#">
+                  {{ __('navbar.calculate_equation.second_secondary_subjects') }}
+                </a>
+                <a class="dropdown-item " href="#">
+                  {{ __('navbar.calculate_equation.third_secondary_subjects') }}
+                </a>
+                <a class="dropdown-item " href="#">
+                  {{ __('navbar.calculate_equation.settings') }}
+                </a>
+                <a class="dropdown-item " href="#">
+                  {{ __('navbar.calculate_equation.list_of_colleges') }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.certifications.index','admin.studentscertifications','admin.externelstudentscertifications'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
@@ -429,7 +465,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructorProfits','admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report-money">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -443,7 +479,7 @@
               {{ __('navbar.finances.finances_management') }}
             </span>
           </a>
-          <div class="dropdown-menu  @if(request()->routeIs(['admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest']))  show @endif ">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.instructorProfits','admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.courseprofits'))   active @endif" href="{{url('admin/course/profit')}}">
@@ -452,7 +488,7 @@
                 <a class="dropdown-item @if(request()->routeIs('admin.studentspayment'))   active @endif" href="{{url('admin/student-payments')}}">
                   {{ __('navbar.finances.students_payment') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.instructorProfits'))   active @endif" href="{{url('admin/instructor-profits')}}">
                   {{ __('navbar.finances.instructors_profit') }}
                 </a>
                 <a class="dropdown-item @if(request()->routeIs('admin.listRequest'))   active @endif" href="{{url('admin/list-payment-requests')}}">

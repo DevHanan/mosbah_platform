@@ -2,28 +2,28 @@
     @section('title', $title)
     @section('content')
     <div class="page-header d-print-none">
-  <div class="container-xl">
-    <div class="row g-2 align-items-center">
-      <div class="col">
-      {{ Breadcrumbs::render('update-teams',$row) }}
+      <div class="container-xl">
+        <div class="row g-2 align-items-center">
+          <div class="col">
+            {{ Breadcrumbs::render('update-teams',$row) }}
 
-      </div>
-      <!-- Page title actions -->
-      <div class="col-auto ms-auto d-print-none">
-        <div class="btn-list">
+          </div>
+          <!-- Page title actions -->
+          <div class="col-auto ms-auto d-print-none">
+            <div class="btn-list">
 
-          <div class="card-header">
-            <div class="card-block">
-              <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+              <div class="card-header">
+                <div class="card-block">
+                  <a href="{{ route($route.'.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+
+                </div>
+              </div>
 
             </div>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-</div>
     <div class="page-body">
       <div class="row row-cards">
         <div class="card">
@@ -49,27 +49,43 @@
 
 
                   <div class="mb-3">
-                  <label class="form-label" for="name"> {{ __('admin.teams.job') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="job" id="job" value="{{ $row->job }}" required>
+                    <label class="form-label" for="name"> {{ __('admin.teams.job') }} <span>*</span></label>
+                    <input type="text" class="form-control" name="job" id="job" value="{{ $row->job }}" required>
 
-                  @error('job')
-                  <div class="invalid-feedback">
-                    {{ $message }}
+                    @error('job')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
-                  @enderror
-                </div>
 
+
+
+                  <div class="form-group ">
+                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                    <div>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" value="1" type="radio" name="active" @if($row->active==1)checked="checked" @endif>
+                        <span class="form-check-label"> {{ __('admin.active')}}</span>
+                      </label>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" value="0" type="radio" name="active" @if($row->active==0)checked="checked" @endif>
+                        <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                      </label>
+
+                    </div>
+                  </div>
 
                   <div class="mb-3 ">
 
 
+
+                    <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
+                    <input type="file" class="form-control" name="image" id="logo">
                     @if(isset($row->image))
                     <img src="{{ asset($row->imageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                     <div class="clearfix"></div>
                     @endif
-                    <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
-                    <input type="file" class="form-control" name="image" id="logo">
-
                     @error('image')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -80,8 +96,8 @@
 
 
                 </div>
-               
-               
+
+
 
 
               </div>

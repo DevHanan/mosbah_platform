@@ -30,11 +30,11 @@
           </div>
 
           <div class="table-responsive">
-            <table class=" export-table table card-table table-vcenter text-nowrap datatable">
-              <thead>
+          <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
+          <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
-                  <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                  <th class="w-1"># <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                       <path d="M6 15l6 -6l6 6"></path>

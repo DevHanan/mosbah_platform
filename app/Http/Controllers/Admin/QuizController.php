@@ -9,6 +9,7 @@ use App\Traits\FileUploader;
 use App\Models\Quiz;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CourseExport;
+use App\Models\BankGroup;
 use App\Models\QuizBankGroup;
 use App\Models\QuizQuestion;
 use App\Models\QuizSection;
@@ -70,30 +71,35 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         $active = $request->active ? '1' : '0';
-        $random = $request->random ? '1' : '0';
-        $request->merge(['active' => $active]);
+        $has_levels = $request->has_levels ? '1' : '0';
+        $request->merge(['active' => $active,'has_levels'=>$has_levels]);
 
         $quiz = Quiz::create($request->all());
-        if (count($request->sections)) {
-            for ($i = 0; $i < count($request->sections); $i++) {
-                if ($request->sections[$i] != null)
-                    QuizSection::create([
-                        'quiz_id' => $quiz->id,
-                        'title' => $request->sections[$i]
-                    ]);
-            }
-        }
+        // if (count($request->sections)) {
+        //     for ($i = 0; $i < count($request->sections); $i++) {
+        //         if ($request->sections[$i] != null)
+        //             QuizSection::create([
+        //                 'quiz_id' => $quiz->id,
+        //                 'title' => $request->sections[$i]
+        //             ]);
+        //     }
+        // }
+
          if($request->banks)
          foreach($request->banks as $bank)  
          QuizBankGroup::create([
             'quiz_id'  => $quiz->id,
             'bank_group_id' => $bank,
-            'random'  => $random,
-            'prectange' => $request->prectange
+            'random'  => ' ',
+            'prectange' => ' '
         ]);  
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect('admin/quizzes/');
+        if($request->has_levels == 1)
+        return redirect('admin/quizzes/'.$quiz->id .'/sections');
+        else
+        return redirect('admin/quizzes/'.$quiz->id . '/edit');
+
     }
 
 
@@ -114,18 +120,26 @@ class QuizController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
         $data['row'] = Quiz::find($id);
-
-
+        $data['bank_groups']= $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['groups'] = BankGroup::wherein('id',$data['bank_groups'])->get();
         return view($this->view . '.edit', $data);
     }
     public function update(Request $request)
     {
         $quiz = Quiz::find($request->id);
         $active = $request->active ? '1' : '0';
-
-        $request->merge(['active' => $active]);
-
+        $has_levels = $request->has_levels ? '1' : '0';
+        $request->merge(['active' => $active,'has_levels'=>$has_levels]);
         $quiz->update($request->all());
+
+        if($request->banks)
+        foreach($request->banks as $bank)  
+        QuizBankGroup::create([
+           'quiz_id'  => $quiz->id,
+           'bank_group_id' => $bank,
+           'random'  => ' ',
+           'prectange' => ' '
+       ]); 
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.quizzes.index');

@@ -149,6 +149,7 @@ class CourseController extends Controller
                         'course_prectange' => $request->instructorsprecentage[$i]
 
                     ]);
+                    /** Add profits to each instructors  */
                     $instructor = Instructor::find($request->instructors[$i]);
                     $instructor->current_balance = $instructor->current_balance + $request->instructorsprice[$i];
                     $instructor->total_balance = $instructor->total_balance + $request->instructorsprice[$i];

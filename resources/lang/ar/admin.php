@@ -198,6 +198,8 @@ return [
         'degree' =>'الدرجة العلمية'
     ],
     "instructors" => [
+        'susbscriptions_total' => 'إجمالى قيمة اشتراكات الدورات',
+        'susbscriptions_count' => 'إجمالي عدد اشتراكات الدورات',
         'field_cv' => 'ملف السيرة الذاتية',
         'is_employee' => 'هل المدرب موظف',
         'salary' => 'المرتب',
@@ -237,7 +239,8 @@ return [
         'Graduated' => 'خريج',
         'Doctorate' => 'دكتوراه',
         'Master' => 'ماجستير',
-        'favourite_tracks' => 'المسارات المفضلة'
+        'favourite_tracks' => 'المسارات المفضلة',
+        'student_number' => 'عدد الطلاب'
 
     ],
     'subscriptions' => [
@@ -325,6 +328,7 @@ return [
     'inrecommend' => 'غير مرشح',
     'select_recommend' => 'هل الدورة مرشحة',
     "coupons"  => [
+        'times_used' => 'طلاب استخدموا الكوبون',
         'course_price_after_discount' => 'سعر الدورة بعد الخصم',
         'track' => 'اسم المسار',
         "code" => "نص الكوبون",
@@ -347,7 +351,9 @@ return [
         'status' => 'حالة الظهور',
         'question' => 'سؤال',
         'answer' => 'الإجابة',
-        'action' => 'الحدث'
+        'action' => 'الحدث',
+        'title' => 'عنوان السؤال',
+        'bank_group' => 'البنك التابع له'
     ],
     'payments' => [
         'transactionnumber' => 'رقم العملية',
@@ -359,6 +365,8 @@ return [
 
     ],
     'settings' => [
+        'lng_value' => 'قيمة خط العرض',
+        'lat_value' => 'قيمة خط الطول',
         'address_on_map' => 'العنوان على الخريطة',
         'map_link' => '(الرابط)لوكيشن الخريطة',
         'telephone' => 'رقم الهاتف الارضى',
@@ -480,7 +488,8 @@ return [
         'externel_certification' => 'شهاداتي من جهات خارجية ',
         'add' => 'إضافة شهادة',
         'date' => 'تاريخ الحصول على الشهادة ',
-        'file' => 'ملف الشهادة ',
+        'file' => 'نموذج الشهادة ',
+        'image' => 'صورة الشهادة ',
         'authority' => 'اسم الجهة الصادر عنها الشهادة',
         'notes' => 'ملاحظات ',
         'actions' => 'الحدث',
@@ -548,6 +557,7 @@ return [
         'actions' => 'الحدث',
         'bank_question' => 'أسئلة البنك',
         'bank_questions_number' => 'عدد الأسئلة المضافة',
+        'question_number' => 'عدد الأسئلة من عدد الكلى'
 
     ],
     'bankquestions' => [
@@ -583,7 +593,11 @@ return [
         'title' => 'عرض جميع الأسئلة',
     ],
     'quizzes'  => [
-        'bankgroup' => 'بنك الأسئلة',
+        'add' => 'إضافة اختبار',
+        'date' => 'تاريخ الإضافة',
+        'question_number' => 'عدد الأسئلة',
+        'has_levels' => 'هل الأختبار مقسم الى مراحل؟',
+        'select_bankgroups' => 'إختر بنوك الأسئلة',
         'select_is_random'  => 'إحتر الاسئلة عشوائيا',
         'prectange' => 'نسبة الاسئلة المختارة',
         'name'  => 'عنوان الاختبار',
@@ -634,6 +648,7 @@ return [
         'platform' => "اختبار قدرات المنصة"
     ],
     'sections' => [
+        'question_number' =>'عدد الأسئلة (من إجمالى عدد الأسئلة للاختبار)',
         'title' => 'عرض أقسام الاختبار',
         'field_title' => 'إسم القسم',
         'add'  => 'إضافة قسم جديد',
@@ -651,8 +666,27 @@ return [
     'student_profile' => 'عرض بروفايل الطالب',
     'attachment' => 'عرض مرفق الدفع',
     'login_as_instructor' =>'تسجيل الدخول كمدرب',
-    'no_data' => 'لا توجد بيانات'
+    'no_data' => 'لا توجد بيانات',
+    'field_action' => 'الحدث',
+    'studentPayments' => [
+        "student" => " الطالب",
+        "field_course"  => "عنوان الدورة",
+        "field_email" => "البريد الإلكترونى",
+        "field_track" => "المسار",
+        "phone_number" => "الهاتف",
+        "field_status" => "حالة الإشتراك",
+        "field_paid" => "قيمة المدفوعة",
+        "field_date" => "تاريخ الدفع",
+        'type' => ' وسيلة الدفع',
+        "field_action" => "الحدث ",
+        "student" => "الطالب",
+        "field_paymenttype"  => "وسيلة الدفع",
+        "field_payment_attachmend" => 'مرفق إثبات الدفع',
+        'course_price' => 'سعر الدورة قبل الخصم'
 
+    ],
+
+    "field_action" => "الحدث ",
 
 
 ];

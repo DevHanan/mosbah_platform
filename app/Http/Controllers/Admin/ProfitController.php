@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Models\Course;
+use App\Models\Instructor;
 use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use App\Models\Subscription;
@@ -57,6 +58,13 @@ class ProfitController extends Controller
         return view('admin.finicals.listpaidRequest', $data);
 
     }
+
+    public function instructorProfits(){
+            $data['title'] = trans('admin.finances.instructors_profit');        
+            $data['rows']=Instructor::latest()->paginate(10);
+            return view('admin.finicals.instructorProfits', $data);
+    }
+
     }
 
     

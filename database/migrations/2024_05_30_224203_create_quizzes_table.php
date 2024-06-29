@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('track_id')->nullable();
             $table->integer('course_id')->nullable();
             $table->integer('level_id')->nullable();
             $table->integer('lecture_id')->nullable();

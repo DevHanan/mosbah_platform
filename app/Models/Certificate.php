@@ -11,9 +11,9 @@ class Certificate extends Model
     protected $table = "certificates";
     public $timestamps = true;
     protected $guarded = ['id'];
-    protected $fillable = array('name', 'course_id','date' ,'authority','student_id', 'track_id', 'platform_certification','notes');
+    protected $fillable = array('name', 'course_id','date' ,'authority','student_id', 'track_id', 'platform_certification','notes','active');
 
-    protected $appends = ['FileFullPath','statusLabel'] ;   
+    protected $appends = ['FileFullPath','imageFullPath','statusLabel'] ;   
     
 
     public function getstatusLabelAttribute()
@@ -29,6 +29,11 @@ class Certificate extends Model
     public function getFileFullPathAttribute($value)
     {
             return asset('public/'.$this->file);
+    }
+
+    public function getImageFullPathAttribute($value)
+    {
+            return asset('public/'.$this->image);
     }
 
     public function student()

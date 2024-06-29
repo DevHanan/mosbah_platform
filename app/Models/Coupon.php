@@ -28,4 +28,8 @@ class Coupon extends Model
     {
         return $this->belongsTo(Track::class);
     }
+
+    public function subscriptions(){
+        return $this->hasMany(Subscription::class);
+    }
 }

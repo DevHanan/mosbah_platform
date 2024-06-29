@@ -70,9 +70,13 @@ class SubscriptionController extends Controller
         /** add instructor prectange if exist */
         $instructors = CourseInstructor::where('course_id',$course->id)->get();
         foreach($instructors as $item){
-            if($item->prectange)
+            if($item->prectange){
             $instructor = Instructor::find($item->instructor_id);
-            
+            $instructor_profit = ($course->price/100) * $item->prectange;
+            $instructor->current_balance = $instructor->current_balance + $instructor_profit;
+            $instructor->total_balance = $instructor->total_balance + $instructor_profit;
+            $instructor->save();
+            }
         }
      
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));

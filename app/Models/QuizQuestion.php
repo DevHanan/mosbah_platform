@@ -11,7 +11,12 @@ class QuizQuestion extends Model
 
     public function section()
     {
-        return $this->belongsTo(Quiz::class, 'uiz_id');
+        return $this->belongsTo(QuizSection::class, 'section_id');
+    }
+
+    public function quiz()
+    {
+        return $this->belongsTo(Quiz::class, 'quiz_id');
     }
 
 

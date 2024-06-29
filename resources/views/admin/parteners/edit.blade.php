@@ -50,19 +50,32 @@
 
 
 
+                  <div class="form-group ">
+                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                    <div>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" value="1" type="radio" name="active" @if($row->active==1)checked="checked" @endif>
+                        <span class="form-check-label"> {{ __('admin.active')}}</span>
+                      </label>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" value="0" type="radio" name="active" @if($row->active==0)checked="checked" @endif>
+                        <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                      </label>
 
+                    </div>
+                  </div>
 
 
                   <div class="mb-3 ">
 
 
+                   
+                    <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
+                    <input type="file" class="form-control" name="image" id="logo">
                     @if(isset($row->image))
                     <img src="{{ asset($row->imageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                     <div class="clearfix"></div>
                     @endif
-                    <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
-                    <input type="file" class="form-control" name="image" id="logo">
-
                     @error('image')
                     <div class="invalid-feedback">
                       {{ $message }}

@@ -11,6 +11,7 @@ class Setting extends Model
     protected $fillable=['title','email','address','phone','facebook_url',
     'twitter_url','instgram_url','youtube_url','currency','whatsapp',
     'telephone','telegram_number','linkedin_url','tiktok_url','address_on_map','map_link','book_shop_link'
+    ,'lat','lng'
 ];
 protected $appends = ['loginImageFullPath','registerImageFullPath' ,'logoFullPath', 'iconFullPath'];
 

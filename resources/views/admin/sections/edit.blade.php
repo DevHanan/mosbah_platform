@@ -48,30 +48,74 @@
                 </div>
                 @enderror
               </div>
+              <div class="mb-3">
+                <label class="form-label" for="question_number"> {{ __('admin.sections.question_number') }} <span>*</span></label>
+
+                <input type="text" class="form-control" name="question_number" id="question_number" value="{{ old('question_number',$row) }}" required>
+
+                @error('question_number')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
               <div class="form-group col-md-12">
                 <label class="form-label" for="active" class="form-label">{{ __('admin.sections.status') }}</label>
                 <div>
                   <label class="form-check form-check-inline">
-                    <input class="form-check-input" value="1" type="radio" name="active" @if($row->active ==1 )checked @endif>
+                    <input class="form-check-input" value="1" type="radio" name="active"  @if($row->active == 1)checked @endif>
                     <span class="form-check-label"> {{ __('admin.active')}}</span>
                   </label>
                   <label class="form-check form-check-inline">
-                    <input class="form-check-input" value="0" type="radio" name="active" @if($row->active ==0 )checked @endif>
+                    <input class="form-check-input" value="0" type="radio" name="active" @if($row->active == 0)checked @endif>
                     <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
                   </label>
 
                 </div>
               </div>
+            </div>
+            <div class="card-body">
 
-              <div class="mb-3">
-                <label class="form-label">{{ __('admin.sections.description') }} <span class="form-label-description"></span></label>
-                <textarea dir="auto" class="form-control richtext" name="description" rows="4" placeholder="Content..">
+              <div class="card-status-top bg-blue"></div>
 
-                {!! $row->description !!}
-                </textarea>
+              <div class="card-header">
+                <h3 class="card-title"> الاسئلة </h3>
+
               </div>
+              <div class="table-responsive">
+                <table class="  table card-table table-vcenter text-nowrap ">
+                  <thead>
+                    <tr>
+                      <th class="w-1">#
+                      </th>
+                      <th> {{__('admin.questions.title')}}</th>
+                      <th>{{ __('admin.questions.bank_group') }}</th>
 
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($questions as $question)
 
+                    <tr>
+
+                      <td>
+                        <input class="form-check-input m-0 align-middle" type="checkbox" 
+                        aria-label="Select all invoices" name="questionids[]" value="{{ $question->id }}"
+                        @if(in_array($question->id,$quizuestionsids))  checked @endif
+                        >
+
+                        <span class="text-secondary">{{$loop->iteration}}</span>
+                      </td>
+
+                      <td> {!! $question->title !!}</td>
+                      <td> {{ optional($question->group)->name }}</td>
+
+                    </tr>
+                    @endforeach
+
+                  </tbody>
+                </table>
+              </div>
             </div>
           <div class="card-footer">
             <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>

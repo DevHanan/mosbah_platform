@@ -13,7 +13,7 @@
     <div class="row g-2 align-items-center">
 
       <div class="col">
-      {{ Breadcrumbs::render('quizzes') }}
+        {{ Breadcrumbs::render('quizzes') }}
 
       </div>
       <!-- Page title actions -->
@@ -54,6 +54,9 @@
                     </svg>
                   </th>
                   <th> {{__('admin.quizzes.name')}}</th>
+                  <th>{{ __('admin.quizzes.question_number') }}</th>
+                  <th>{{ __('admin.quizzes.date') }}</th>
+                  <th>{{ __('admin.quizzes.track') }}</th>
                   <th>{{ __('admin.quizzes.course') }}</th>
                   <th>{{ __('admin.quizzes.level') }}</th>
                   <th> {{__('admin.quizzes.lecture')}}</th>
@@ -70,6 +73,13 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{$row->name}}</td>
+                  <td>{{$row->question_number}}</td>
+                  <td>{{$row->created_at}}</td>
+
+                  <td>
+                    {{ optional($row->track)->name}}
+
+                  </td>
                   <td>
                     {{ optional($row->course)->name}}
 
@@ -94,7 +104,7 @@
                     </div>
                   </td>
 
-                 
+
 
 
 
@@ -105,16 +115,15 @@
                     <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
-
-                    @if($row->sections)
+                    @if($row->has_levels == 1)
                     <a href="{{ url('admin/quizzes/'.$row->id .'/sections') }}" class="btn btn-icon btn-primary btn-sm">
                       <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
                     @endif
 
-                    <a href="{{ url('admin/quizzes/'.$row->id .'/questions') }}" class="btn btn-icon btn-primary btn-sm">
+                    <!-- <a href="{{ url('admin/quizzes/'.$row->id .'/questions') }}" class="btn btn-icon btn-primary btn-sm">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
-                    </a>
+                    </a> -->
 
 
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">

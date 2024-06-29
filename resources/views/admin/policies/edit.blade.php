@@ -5,7 +5,7 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        @include('admin.layouts.inc.breadcrumb')
+        {{ Breadcrumbs::render('update-policies',$row) }}
 
       </div>
       <!-- Page title actions -->
@@ -38,43 +38,44 @@
             <div class="row">
 
 
-            <div class="col-md-12">
-              <label class="form-label" for="title"> {{__('admin.policies.field_title')}} <span>*</span></label>
-              <input type="text" class="form-control" name="title" id="title" value="{{ $row->title }}" required>
+              <div class="col-md-12">
+                <label class="form-label" for="title"> {{__('admin.policies.field_title')}} <span>*</span></label>
+                <input type="text" class="form-control" name="title" id="title" value="{{ $row->title }}" required>
 
-              @error('title')
-              <div class="invalid-feedback">
-                {{ $message }}
+                @error('title')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
-              @enderror
-            </div>
 
 
-            <div class="mb-3">
-              <label class="form-label">{{ __('admin.policies.descriptions') }} <span class="form-label-description"></span></label>
-              <textarea class="form-control" name="description" rows="6" placeholder="Content.."> {{ $row->description }}</textarea>
-            </div>
-
-            <div class="col-md-3">
-              <div class="form-check form-switch md-3" style="margin:10px">
-                <label class="form-check-label form-label" for="flexSwitchCheckDefault">{{ __('admin.policies.status') }}</label>
-                <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+              <div class="mb-3">
+                <label class="form-label">{{ __('admin.policies.descriptions') }} <span class="form-label-description"></span></label>
+                <textarea class="form-control" name="description" rows="6" placeholder="Content.."> {{ $row->description }}</textarea>
               </div>
-            </div>
-            <div class="col-md-9">
+
+              <div class="mb-3">
+                <div class="form-check form-switch md-3" style="margin:10px">
+                  <label class="form-check-label form-label" for="flexSwitchCheckDefault">{{ __('admin.policies.status') }}</label>
+                  <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                </div>
+              </div>
               <div class=" md-3">
 
 
                 <label for="logo form-label">{{ __('admin.policies.field_file') }}</label>
                 <input type="file" class="form-control" name="file" id="logo">
-
+                @if($row->file)
+                <a href="{{ asset($row->file) }}" target="_blank"> {{ __('admin.show') }}</a> </td>
+                @endif
                 @error('file')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>
                 @enderror
               </div>
-            </div>
+
 
             </div>
             <!-- Form End -->

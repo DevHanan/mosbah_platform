@@ -152,6 +152,19 @@ Breadcrumbs::for('instructor-messages', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.tickets.instrutor_msg'), route('admin.instructorstickets'));
 });
 
+
+
+Breadcrumbs::for('show-tickets', function (BreadcrumbTrail $trail,$row) {
+    if($row->student_id != null)
+    $trail->parent('student-messages');
+    elseif($row->instructor_id != null)
+    $trail->parent('instructor-messages');
+    else
+    $trail->parent('visitor-messages');
+    $trail->push(trans('navbar.tickets.show'), route('admin.tickets.show', $row));
+});
+
+
 Breadcrumbs::for('teams', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(trans('navbar.teams.list'), route('admin.teams.index'));
@@ -461,3 +474,44 @@ Breadcrumbs::for('show-quiz-questions', function (BreadcrumbTrail $trail,$quiz,$
     $trail->parent('quiz-questions',$quiz);
     $trail->push($row->title, route('admin.quizzes.edit', $row));
 });
+
+
+Breadcrumbs::for('all-student-payments', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.finances.students_payment'), route('admin.studentspayment'));
+});
+
+
+
+/** Faqs Questions  */
+Breadcrumbs::for('faq-questions', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.settings.questions'), route('admin.questions.index'));
+});
+
+Breadcrumbs::for('add-faq-questions', function (BreadcrumbTrail $trail) {
+    $trail->parent('faq-questions');
+    $trail->push(trans('navbar.settings.add_faq_questions'), route('admin.questions.create'));
+});
+Breadcrumbs::for('update-faq-questions', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('faq-questions');
+    $trail->push($row->question, route('admin.questions.edit', $row));
+});
+
+
+/** policies Questions  */
+Breadcrumbs::for('policies', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.settings.policies'), route('admin.policies.index'));
+});
+
+Breadcrumbs::for('add-policies', function (BreadcrumbTrail $trail) {
+    $trail->parent('policies');
+    $trail->push(trans('navbar.settings.add_policies'), route('admin.policies.create'));
+});
+Breadcrumbs::for('update-policies', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('policies');
+    $trail->push($row->title, route('admin.policies.edit', $row));
+});
+
+

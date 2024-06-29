@@ -77,25 +77,25 @@
                 <div class="mb-3">
                   <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
                   @if($row->employee == 1)
-                  <label class="form-label" for="type">{{ __('admin.instructors.yes')}} <span>*</span></label>
-                 @else
-                 <label class="form-label" for="type">{{ __('admin.instructors.no')}} <span>*</span></label>
-                @endif
-                </div>
+                  <label class="form-label" for="type">{{ __('admin.instructors.yes')}} </label>
 
 
-                @if($row->is_employee == 1)
+
                 <div class="mb-3">
                   <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
                   <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" readonly>
 
-                  @error('salary')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
                 </div>
+              
+                  
+                  
+                 @else
+                 <label class="form-label" for="type">{{ __('admin.instructors.no')}} </label>
                 @endif
+                </div>
+
+
+               
 
 
                 <div class="mb-3">

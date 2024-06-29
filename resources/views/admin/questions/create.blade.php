@@ -8,7 +8,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <!-- Page pre-title -->
-                @include('admin.layouts.inc.breadcrumb')
+                {{ Breadcrumbs::render('add-faq-questions') }}
 
             </div>
             <!-- Page title actions -->
@@ -61,7 +61,7 @@
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="1" type="radio" name="active">
+                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
                                             <span class="form-check-label"> {{ __('admin.active')}}</span>
                                         </label>
                                         <label class="form-check form-check-inline">
@@ -71,20 +71,15 @@
 
                                     </div>
                                 </div>
-
-
-
-
-
                             </div>
 
 
 
                         </div>
                         <div class="mb-3">
-                <label class="form-label">{{ __('admin.questions.answer') }} <span class="form-label-description"></span></label>
-                <textarea class="form-control" name="answer" rows="6" placeholder="Content.."></textarea>
-              </div>
+                            <label class="form-label">{{ __('admin.questions.answer') }} <span class="form-label-description"></span></label>
+                            <textarea class="form-control" name="answer" rows="6" placeholder="Content.."></textarea>
+                        </div>
                     </div>
                     <div class="card-footer text-end">
                         <div class="d-flex">

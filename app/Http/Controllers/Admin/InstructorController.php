@@ -9,9 +9,11 @@ use App\Traits\FileUploader;
 use App\Http\Resources\InstructorResource;
 use App\Http\Requests\InstructorRequest;
 use App\Http\Requests\UpdateInstructorRequest;
+use App\Models\CourseInstructor;
 use App\Models\Instructor;
 
 use App\Models\InstructorTrack;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Bcrypt;
 use Toastr;
@@ -97,6 +99,8 @@ class InstructorController extends Controller
     {
         $data['row'] = Instructor::find($id);
         $data['title'] = 'عرض بروفايل المحاضر';
+        $courses_id = CourseInstructor::where('instructor_id',$id)->pluck('course_id')->ToArray();
+        $data['subscribtions'] = Subscription::where('course_id',$courses_id)->get();
         return view($this->view . '.show', $data);
 
     }

@@ -115,6 +115,16 @@
                                                         </div>
                                                         @enderror
                                                     </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="lat">{{ __('admin.settings.lat_value') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="lat" id="lat" value="{{ isset($row->lat)?$row->lat:'' }}">
+
+                                                        @error('lat')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
@@ -189,6 +199,20 @@
                                                         <input type="text" class="form-control" name="map_link" id="map_link" value="{{ isset($row->map_link)?$row->map_link:'' }}">
 
                                                         @error('map_link')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+
+                                                    
+                                                   
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="lng">{{ __('admin.settings.lng_value') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="lng" id="lng" value="{{ isset($row->lng)?$row->lng:'' }}">
+
+                                                        @error('lng')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
                                                         </div>

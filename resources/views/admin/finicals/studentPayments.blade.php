@@ -2,11 +2,11 @@
 @section('title', $title)
 @section('content')
 
-<div class="page-header d-print-none">
+<div class="page-header ">
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        {{ Breadcrumbs::render('subscribtions') }}
+        {{ Breadcrumbs::render('all-student-payments') }}
 
       </div>
      
@@ -22,18 +22,22 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-block">
+                <div class="card-header">
+                        <h3 class="card-title">{{ $title }}</h3>
+                    </div>
+                    <div class="card-body">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
                             <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ __('admin.subscriptions.field_date') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_name') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_course') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_course_price') }}</th>
-                                        <th>{{ __('admin.subscriptions.field_paymenttype') }}</th>
+                                        <th>{{ __('admin.studentPayments.student') }}</th>
+                                        <th>{{ __('admin.studentPayments.field_course') }}</th>
+                                        <th>{{ __('admin.studentPayments.field_paid') }}</th>
+                                        <th>{{ __('admin.studentPayments.field_date') }}</th>
+                                        <th>{{ __('admin.studentPayments.field_paymenttype') }}</th>
+                                        <th>{{ __('admin.studentPayments.field_payment_attachmend') }}</th>
 
 
                                     </tr>
@@ -42,12 +46,12 @@
                                     @foreach( $rows as $key => $row )
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
-
                                         <td>{{ optional($row->student)->name }}</td>
                                         <td>{{ optional($row->course)->name }}</td>
                                         <td>{{ $row->paid }} {{ $setting->currency }}</td>
-                                        
+                                        <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
+
+                                        <td>{{ optional($row->payment)->name }}</td>
                                         <td>
                                             @if($row->bill)
                                             <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">

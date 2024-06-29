@@ -8,7 +8,7 @@
     <div class="row g-2 align-items-center">
       <div class="col">
         <!-- Page pre-title -->
-        @include('admin.layouts.inc.breadcrumb')
+        {{ Breadcrumbs::render('update-faq-questions',$row) }}
 
       </div>
       <!-- Page title actions -->
@@ -38,48 +38,64 @@
           @method('PUT')
 
           <div class="card-body">
-                        <div class="row ">
-                            <div class="col-md-6">
+            <div class="row ">
+              <div class="col-md-6">
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="question"> {{ __('admin.questions.question') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="question" id="question" value="{{ $row->question }}" required>
+                <div class="mb-3">
+                  <label class="form-label" for="question"> {{ __('admin.questions.question') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="question" id="question" value="{{ $row->question }}" required>
 
-                                    @error('question')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-
-
-
-<input type="hidden" value="{{$row->id}}" name="id">
-                            </div>
-                            <div class="col-md-6">
+                  @error('question')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
+                <div class="col-md-6">
 
-                          
+                  <div class="form-group ">
+                    <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
+                    <div>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" value="1" type="radio" name="active"  @if($row->active ==1)checked @endif>
+                        <span class="form-check-label"> {{ __('admin.active')}}</span>
+                      </label>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" value="0" type="radio" name="active" @if($row->active ==0)checked @endif>
+                        <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
+                      </label>
 
-
-
-
-
-                            </div>
-
-                            <div class="col-md-12">
-                                <label class="form-label">{{ __('admin.questions.answer') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="answer" rows="6" placeholder="Content.."> {{ $row->answer }}</textarea>
-                            </div>
-                          
-                        </div>
                     </div>
-                    <div class="card-footer text-end">
-                        <div class="d-flex">
-                            <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
-                        </div>
-                    </div>
+                  </div>
+                </div>
+                <input type="hidden" value="{{$row->id}}" name="id">
+              </div>
+              <div class="col-md-6">
+
+
+
+
+
+
+
+
+
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">{{ __('admin.questions.answer') }} <span class="form-label-description"></span></label>
+                <textarea class="form-control" name="answer" rows="6" placeholder="Content.."> {{ $row->answer }}</textarea>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-footer text-end">
+            <div class="d-flex">
+              <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
+            </div>
+          </div>
 
         </form>
       </div>

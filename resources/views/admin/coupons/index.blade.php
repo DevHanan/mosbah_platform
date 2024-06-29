@@ -45,6 +45,7 @@
                                         <th>{{ __('admin.coupons.code') }}</th>
                                         <th>{{ __('admin.coupons.course') }}</th>
                                         <th>{{ __('admin.coupons.track') }}</th>
+                                        <th>{{ __('admin.coupons.times_used') }}</th>
                                         <th>{{ __('admin.coupons.discount') }}</th>
                                         <th>{{ __('admin.coupons.create_date') }}</th>
                                         <th>{{ __('admin.coupons.start_date') }}</th>
@@ -64,6 +65,7 @@
                                         <td>{{ optional($row->course)->name }}</td>
                                         <td> {{ optional($row->track)->name }}
                                         </td>
+                                        <td> {{ $row->subscriptions()->count() }}</td>
                                         <td>{{ $row->discount }}</td>
                                         <td>{{ $row->created_at }}</td>
                                         <td>{{ $row->start_date }}</td>

@@ -643,3 +643,34 @@
 	});
 </script>
 </script>
+<script>
+	$(document).ready(function() {
+		$('#isemployee').on('change', function() {
+			var is_emp = $(this).val();
+			if (is_emp == 1) {
+				$('#empsalary').removeAttr('readonly');
+			} else {
+				$('#empsalary').attr('readonly', 'readonly');
+				$('#empsalary').val(0);
+			}
+
+		});
+	});
+</script>
+
+<script>
+	$(document).ready(function() {
+
+		$('#flexHasLevelSwitchCheckDefault').on('change', function() {
+			if ($(this).is(':checked')) {
+				const myDiv = document.getElementById('bankgroupsList');
+				myDiv.style.display = 'none';
+
+			} else {
+				const myDiv = document.getElementById('bankgroupsList');
+				myDiv.style.display = 'block';
+
+			}
+		});
+	});
+</script>

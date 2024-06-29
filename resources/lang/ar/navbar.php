@@ -61,6 +61,16 @@ return [
         "student_msg" => "مراسلات الطلاب",
         'visitors'  => 'مراسلات الزوار',
         'notifications'  => 'إشعارات',
+        'show' => 'عرض تفاصيل الرسالة'
+
+    ],
+    'calculate_equation' =>[
+        'management' => 'حساب المعادلة',
+        'first_secondary_subjects' => 'قائمة مواد الأول الثانوى',
+        'second_secondary_subjects' => 'قائمة مواد الثانى الثانوى',
+        'third_secondary_subjects' => 'قائمة مواد الثالث الثانوى',
+        'settings' => 'إعدادات حساب المعادلة',
+        'list_of_colleges' => 'قائمة الكليات',
 
     ],
     'blogs' =>[
@@ -94,8 +104,11 @@ return [
     'settings' => [
         'general_settings' => 'إعدادت عامة ',
         'policies' => 'السياسات',  
+        'add_policies' => 'إضافة سياية جديدة',  
+
         'about_us_settings' => 'من نحن',
         'questions' =>'الأسئلة المتكررة',
+        'add_faq_questions' => 'إضافة سؤال',
         'teams' => 'فريق العمل ',
         'parteners' => 'الشركاء والداعمين',
         'language_setting' => 'إعدادات اللغة',
@@ -103,7 +116,8 @@ return [
         'zoom_settings' => 'اعدادات زووم',
         'home_settings' => 'اعدادات الصفحة الرئيسية',
         'contactus_settings' => 'تواصل معنا',
-        'reviews' =>'التقييمات والآراء'
+        'reviews' =>'التقييمات والآراء',
+
 
     ],
     'parteners' => [

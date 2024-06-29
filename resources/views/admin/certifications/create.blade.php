@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            {{ Breadcrumbs::render('add-externalCertifications') }}
+                {{ Breadcrumbs::render('add-externalCertifications') }}
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -36,7 +36,7 @@
 
                         <div class=" form-group col-md-6">
                             <label class="form-label" for="name"> {{__('admin.certifications.name')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="name" value="{{ old('title') }}" required>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
 
                             @error('name')
                             <div class="invalid-feedback">
@@ -48,7 +48,7 @@
                         <div class=" form-group col-md-6">
                             <label class="form-label" for="active" class="form-label">{{ __('admin.certifications.Status') }}</label>
                             <label class="form-check form-check-inline">
-                                <input class="form-check-input" value="1" @ type="radio" name="active">
+                                <input class="form-check-input" value="1"  type="radio" name="active" checked>
                                 <span class="form-check-label"> {{ __('admin.active')}}</span>
                             </label>
                             <label class="form-check form-check-inline">
@@ -80,7 +80,7 @@
                             <label class="form-label" for="courses">{{__('admin.certifications.courses')}} <span>*</span></label>
                             <select class="form-control select2" name="course_id" id="courses">
                                 <option value="">{{ __('select') }}</option>
-                              
+
                             </select>
 
                             @error('course_id')
@@ -97,6 +97,19 @@
                             <input type="file" class="form-control" name="file" id="logo">
 
                             @error('file')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+
+
+                            <label for="logo">{{__('admin.certifications.image')}}</label>
+                            <input type="file" class="form-control" name="image" id="image">
+
+                            @error('image')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

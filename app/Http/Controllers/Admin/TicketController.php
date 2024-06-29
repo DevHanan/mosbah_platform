@@ -75,6 +75,15 @@ class TicketController extends Controller
         return redirect()->back();
     }
 
+    public function show($id)
+    {
+        $data['row'] = Ticket::find($id);
+        $data['title'] = 'عرض تفاصيل ';
+        return view($this->view . '.show', $data);
+
+    }
+
+
     public function changeStatus(Request $request){
         $ticket= Ticket::find($request->id);
         $ticket->read = $ticket->read == 0 ? 1 : 0;

@@ -68,7 +68,9 @@ class CertificationController extends Controller
     public function store(Request $request)
     {
         $request->merge(['platform_certification'=>'1']);
-        $certificate = Certificate::create($request->except('image'));
+        if($request->active)
+        $request->merge (['active'=>'1']) ;
+        $certificate = Certificate::create($request->except(['image','file']));
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -76,8 +78,16 @@ class CertificationController extends Controller
             $certificate->file ='uploads/certifications/main/'.$filename;
             $certificate->save();
         }
+
+        if ($request->hasFile('image')) {
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/certifications/images/'),$filename);
+            $certificate->image ='uploads/certifications/images/'.$filename;
+            $certificate->save();
+        }
         
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+        Toastr::success(__('msg_added_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.certifications.index');
     }
 
@@ -95,22 +105,35 @@ class CertificationController extends Controller
     {   
         $data['row'] = Certificate::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit Country';
+        $data['title'] = 'edit Certification';
         return view($this->view.'.edit',$data);
     }
 
-    public function update(CountryRequest $request)
+
+    
+    public function update(Request $request)
     {
         $certificate = Certificate::find($request->id);
-        $certificate->update($request->except('image'));
-        if ($request->hasFile('image')) {
-            $directory = 'certifications';
-            $attach = 'image';
-            $certificate->image = 'uploads/certifications/'.$this->uploadMedia($request, $attach, $directory);
+        $certificate->update($request->except(['image','file']));
+        if ($request->hasFile('file')) {
+            $thumbnail = $request->file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/certifications/main/'),$filename);
+            $certificate->file ='uploads/certifications/main/'.$filename;
             $certificate->save();
         }
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
-        return redirect()->route('admin.certifications.index');    }
+
+        if ($request->hasFile('image')) {
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/certifications/images/'),$filename);
+            $certificate->image ='uploads/certifications/images/'.$filename;
+            $certificate->save();
+        }
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.certifications.index');
+          
+    }
 
     public function destroy (Request $request)
     {
@@ -118,7 +141,7 @@ class CertificationController extends Controller
         if ($certificate)
             $certificate->delete();
 
-            Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+            Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
 }

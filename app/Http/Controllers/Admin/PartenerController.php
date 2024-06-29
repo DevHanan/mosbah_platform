@@ -50,7 +50,7 @@ class PartenerController extends Controller
     }
     public function store(Request $request)
     {
-        $partener = Partener::create(['name'=>$request->name,'active'=>'1']);
+        $partener = Partener::create($request->except('image'));
       
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;

@@ -52,7 +52,7 @@
             <div class="row">
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.title')}}</label>
-                <textarea class="form-control" rows="3" name="title" required> {{ $row->title }}</textarea>
+                <textarea class="form-control" rows="3" name="title" required> </textarea>
 
                 @error('title')
                 <div class="invalid-feedback">

@@ -28,10 +28,13 @@ class UpdateStudentRequest extends FormRequest
             'last_name' => 'required',
             'email' => [
                 'required',
+                'email',
                 Rule::unique('students', 'email')->ignore($this->id)
             ],
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'country_id' => 'exists:countries,id'
+            'country_id' => 'exists:countries,id',
+            'phone' => 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
+
 
 
 

@@ -35,6 +35,8 @@ Route::get('/book', [HomeController::class, 'book']);
 Route::get('/blogs', [HomeController::class, 'blogs']);
 Route::get('/blog/{id}', [HomeController::class, 'blog']);
 
+Route::get('/masarat', [HomeController::class, 'calcMasarat']);
+
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
 

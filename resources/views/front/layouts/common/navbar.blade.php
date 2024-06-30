@@ -102,7 +102,7 @@
           <a class="nav-link  @if(Request::is(['blogs','blog/*']) ) active @endif" href="{{url('/blogs')}}">المدونة</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">حساب التنسيق</a>
+          <a class="nav-link @if(Request::is('masarat') ) active @endif" href="{{url('/masarat')}}">حساب التنسيق</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">تحقق من الشهادة</a>

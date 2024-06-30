@@ -229,13 +229,15 @@
     </div>
     <div class="row">
       <!-- In your view (chart.blade.php) -->
-<div>
-    <canvas id="chart" style="height:250px"></canvas>
+<div class="row">
+  <div class="col-md-6">
+  <canvas id="chart" style="height:250px"></canvas>
+  </div>
+  <div class="col-md-6">
+  <canvas id="susbscriotionchart" style="height:250px"></canvas>
+  </div>
 </div>
 
-<div>
-    <canvas id="susbscriotionchart" style="height:250px"></canvas>
-</div>
 
 
 <div style="width: 80%; margin: auto;">

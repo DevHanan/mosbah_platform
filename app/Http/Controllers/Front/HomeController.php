@@ -218,4 +218,8 @@ class HomeController extends Controller
             ]);
         }
     }
+
+    public function calcMasarat(){
+        return view('front.calcmasart');
+    }
 }

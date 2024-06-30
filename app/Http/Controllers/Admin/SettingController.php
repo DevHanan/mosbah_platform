@@ -7,6 +7,9 @@ use App\Models\AboutSetting;
 use App\Models\LandingSetting;
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use App\Models\MailSetting;
+use App\Models\ZoomSetting;
+
 use Toastr;
 use Image;
 use File;
@@ -247,4 +250,43 @@ class SettingController extends Controller
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->back();
     }
+
+    public function mailSettings()
+    {
+        $data['title'] = 'إعدادت  البريد الإلكترونى ';
+        $data['route'] = $this->route;
+        $data['row'] = MailSetting::first();
+        return view($this->view . '.mail', $data);
+    }
+
+    public function SaveMailSetting(Request $request)
+    {
+        $data = MailSetting::first();
+        if($data == null) 
+        $data = new MailSetting();
+        $data->update($request->all());
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->back();
+
+    }
+
+
+    public function zoomSettings()
+    {
+        $data['title'] = 'إعدادت   زوم';
+        $data['route'] = $this->route;
+        $data['row'] = ZoomSetting::first();
+        return view($this->view . '.zoom', $data);
+    }
+
+    public function SaveZoomSetting(Request $request)
+    {
+        $data = ZoomSetting::first();
+        if($data == null) 
+        $data = new ZoomSetting();
+        $data->update($request->all());
+        Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
+        return redirect()->back();
+    }
+
 }

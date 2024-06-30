@@ -227,11 +227,145 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <!-- In your view (chart.blade.php) -->
+<div>
+    <canvas id="chart" style="height:250px"></canvas>
+</div>
+
+<div>
+    <canvas id="susbscriotionchart" style="height:250px"></canvas>
+</div>
+
+
+<div style="width: 80%; margin: auto;">
+        <canvas id="barChart"></canvas>
+    </div>
+
+
+
+
+    </div>
   </div>
 </div>
 
 @endsection
 
-@push('custom-scripts')
+@push('scripts')
+<script>
+	  $(document).ready(function(){
+    var ctx = document.getElementById('chart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($labels); ?>,
+            datasets: [{
+                label: 'Most Selling Courses',
+                data: <?php echo json_encode($subscriptions_count); ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(22,160,133, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(51,105,232, 0.2)',
+                    'rgba(244,67,54, 0.2)',
+                    'rgba(34,198,246, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(233,30,99, 0.2)',
+                    'rgba(205,220,57, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(22,160,133, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(51,105,232, 1)',
+                    'rgba(244,67,54, 1)',
+                    'rgba(34,198,246, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(233,30,99, 1)',
+                    'rgba(205,220,57, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 
+
+	var ctx = document.getElementById('susbscriotionchart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($subscriptionslabels); ?>,
+            datasets: [{
+                label: 'Most subscription ',
+                data: <?php echo json_encode($subscriptionscount); ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(22,160,133, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(51,105,232, 0.2)',
+                    'rgba(244,67,54, 0.2)',
+                    'rgba(34,198,246, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(233,30,99, 0.2)',
+                    'rgba(205,220,57, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(22,160,133, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(51,105,232, 1)',
+                    'rgba(244,67,54, 1)',
+                    'rgba(34,198,246, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(233,30,99, 1)',
+                    'rgba(205,220,57, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?php echo json_encode($studentname) ?>,
+                datasets: [{
+                    label: 'most subscribrd student',
+                    data: <?php echo json_encode($studentSubscriptionCount) ?>,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+	});
+  
+</script>
 @endpush

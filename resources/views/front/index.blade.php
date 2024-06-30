@@ -407,52 +407,32 @@
     <div class="card__container swiper mt-4">
         <div class="container">
 
+            @if($reviews)
             <div class="card__content">
                 <div class="swiper-wrapper">
+                    @foreach($reviews as $review)
                     <article class="card__article swiper-slide shadow">
                         <div class="d-flex align-items-center justify-content-end position-relative px-3 pt-3">
                             <img src="public/front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
                             <div class="person_info text-start mx-2">
-                                <p class="fw-bold m-0">Guy Hawkins</p>
-                                <p class="m-0">UI-UX Designer</p>
+                                <p class="fw-bold m-0">{{ $review->name }}</p>
+                                <p class="m-0"> {{ $review->job}}</p>
                             </div>
                             <div class="img"><img src="public/front/img/person1.svg" class="img-fluid rounded-circle" alt=""></div>
                         </div>
                         <div class="card__data p-3">
-                            <p class="card__description my-3"> لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . </p>
+                            <p class="card__description my-3"> 
+                                        {!!  $review->comment !!}
+                            </p>
                         </div>
                     </article>
+                    @endforeach
 
-                    <article class="card__article swiper-slide shadow">
-                        <div class="d-flex align-items-center justify-content-end position-relative px-3 pt-3">
-                            <img src="public/front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
-                            <div class="person_info text-start mx-2">
-                                <p class="fw-bold m-0">Guy Hawkins</p>
-                                <p class="m-0">UI-UX Designer</p>
-                            </div>
-                            <div class="img"><img src="public/front/img/person2.svg" class="img-fluid rounded-circle" alt=""></div>
-                        </div>
-                        <div class="card__data p-3">
-                            <p class="card__description my-3"> لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . </p>
-                        </div>
-                    </article>
-
-                    <article class="card__article swiper-slide shadow">
-                        <div class="d-flex align-items-center justify-content-end position-relative px-3 pt-3">
-                            <img src="public/front/img/quotes.svg" class="img-fluid position-absolute" style="top: 20px;right: 22px;" alt="">
-                            <div class="person_info text-start mx-2">
-                                <p class="fw-bold m-0">Guy Hawkins</p>
-                                <p class="m-0">UI-UX Designer</p>
-                            </div>
-                            <div class="img"><img src="public/front/img/person3.svg" class="img-fluid rounded-circle" alt=""></div>
-                        </div>
-                        <div class="card__data p-3">
-                            <p class="card__description my-3"> لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . </p>
-                        </div>
-                    </article>
 
                 </div>
             </div>
+            @endif
+
         </div>
 
         <div class="swiper-button-next">

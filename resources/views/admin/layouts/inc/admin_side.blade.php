@@ -201,7 +201,7 @@
                 </a>
 
                 @foreach($courseTypes as $type)
-                <a class="dropdown-item {{ request()->input('type') == $type->id ? 'active' : '' }}"  href="{{ url('admin/courses?type='. $type->id)}}">
+                <a class="dropdown-item {{ request()->input('type') == $type->id ? 'active' : '' }}" href="{{ url('admin/courses?type='. $type->id)}}">
                   {{ $type->name }}
 
                 </a>
@@ -373,19 +373,19 @@
           <div class="dropdown-menu   ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item " href="#">
+                <a class="dropdown-item  @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.first_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item " href="#">
+                <a class="dropdown-item @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.second_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item " href="#">
+                <a class="dropdown-item @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=2')}}">
                   {{ __('navbar.calculate_equation.third_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item " href="#">
+                <!-- <a class="dropdown-item @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.settings') }}
-                </a>
-                <a class="dropdown-item " href="#">
+                </a> -->
+                <a class="dropdown-item @if(request()->routeIs(['admin.faculities.*'])) active @endif" href="{{url('admin/faculities')}}">
                   {{ __('navbar.calculate_equation.list_of_colleges') }}
                 </a>
               </div>
@@ -407,18 +407,18 @@
               </svg>
             </span>
             <span class="nav-link-title">
-            {{ __('navbar.certifications.certifications_management') }}
+              {{ __('navbar.certifications.certifications_management') }}
             </span>
           </a>
           <div class="dropdown-menu  @if(request()->routeIs(['admin.certifications.index','admin.studentscertifications','admin.externelstudentscertifications'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.index'])) active @endif" href="{{url('admin/certifications')}}">
-                {{ __('navbar.certifications.list_dwafer') }}
+                  {{ __('navbar.certifications.list_dwafer') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.studentscertifications.*'])) active @endif" href="{{url('admin/students-certifications')}}">
-                {{ __('navbar.certifications.student_certifications') }}
+                  {{ __('navbar.certifications.student_certifications') }}
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.externelstudentscertifications'])) active @endif" href="{{url('admin/externel-students-certifications')}}">
@@ -479,7 +479,7 @@
               {{ __('navbar.finances.finances_management') }}
             </span>
           </a>
-          <div class="dropdown-menu  @if(request()->routeIs(['admin.instructorProfits','admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest']))  show @endif ">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.listRequest','admin.listPaidRequest','admin.instructorProfits','admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item @if(request()->routeIs('admin.courseprofits'))   active @endif" href="{{url('admin/course/profit')}}">
@@ -491,18 +491,18 @@
                 <a class="dropdown-item @if(request()->routeIs('admin.instructorProfits'))   active @endif" href="{{url('admin/instructor-profits')}}">
                   {{ __('navbar.finances.instructors_profit') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.listRequest'))   active @endif" href="{{url('admin/list-payment-requests')}}">
+
+                <a class="dropdown-item @if(request()->routeIs('admin.listRequest')) active @endif" href="{{url('admin/list-payment-requests')}}">
                   {{ __('navbar.finances.instructors_request') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.listPaidRequest'))   active @endif" href="">
+                <a class="dropdown-item @if(request()->routeIs('admin.listPaidRequest')) active @endif" href="{{url('admin/list-paid-payment-requests')}}">
                   {{ __('navbar.finances.instructor_paid') }}
                 </a>
-
               </div>
             </div>
           </div>
         </li>
-     
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.cvs.*'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -550,8 +550,8 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.blogs.index','admin.blogs.edit','admin.blogs.create']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-               
-              <a class="dropdown-item @if(request()->routeIs(['admin.blogs.index','admin.blogs.edit'])) active @endif" href="{{ url('admin/blogs')}}">
+
+                <a class="dropdown-item @if(request()->routeIs(['admin.blogs.index','admin.blogs.edit'])) active @endif" href="{{ url('admin/blogs')}}">
                   {{ __('navbar.blogs.list') }}
 
                 </a>
@@ -646,7 +646,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.settings.zoom','admin.settings.mail','admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-settings">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -658,7 +658,7 @@
               {{ __('navbar.master_data')}}
             </span>
           </a>
-          <div class="dropdown-menu @if(request()->routeIs(['admin.settings.contactUs','admin.questions.*','admin.settings.aboutUSSetting','admin.setting.landingSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
+          <div class="dropdown-menu @if(request()->routeIs(['admin.settings.zoom','admin.settings.mail','admin.reviews.*','admin.langauges.*','admin.settings.contactUs','admin.questions.*','admin.settings.aboutUSSetting','admin.setting.landingSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="{{url('admin/setting')}}">
@@ -680,17 +680,21 @@
 
                   {{ __('navbar.settings.contactus_settings') }}
                 </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="#">
+                <a class="dropdown-item  @if(request()->routeIs('admin.languages.index')) active @endif " href="{{ url('admin/languages')}}">
 
                   {{ __('navbar.settings.language_setting') }}
                 </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="#">
+                <!-- <a class="dropdown-item  @if(request()->routeIs('admin.setting.sendemail')) active @endif " href="{{ url('admin/send-email-settings')}}">
 
-                  {{ __('navbar.settings.payment_settings') }}
-                </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="#">
+                  {{ __('navbar.settings.email_send_settings') }}
+                </a> -->
+                <a class="dropdown-item  @if(request()->routeIs('admin.settings.zoom')) active @endif " href="{{ url('admin/zoom-settings')}}">
 
                   {{ __('navbar.settings.zoom_settings') }}
+                </a>
+                <a class="dropdown-item  @if(request()->routeIs('admin.settings.mail')) active @endif " href="{{ url('admin/mail-settings')}}">
+
+                  {{ __('navbar.settings.mail_settings') }}
                 </a>
                 <a class="dropdown-item  @if(request()->routeIs('admin.policies.*')) active @endif " href="{{url('admin/policies')}}">
 
@@ -711,7 +715,7 @@
 
                   {{ __('navbar.settings.questions') }}
                 </a>
-                <a class="dropdown-item  @if(request()->routeIs('admin.questions.*')) active @endif " href="#">
+                <a class="dropdown-item  @if(request()->routeIs('admin.reviews.*')) active @endif " href="{{url('admin/reviews')}}">
 
                   {{ __('navbar.settings.reviews') }}
                 </a>

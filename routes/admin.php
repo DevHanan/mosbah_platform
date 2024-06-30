@@ -31,11 +31,23 @@ use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\QuizSectionController;
 use App\Http\Controllers\Admin\QuizQuestionContr;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\TranslateController;
+use App\Http\Controllers\Admin\FacultyController;
+use App\Http\Controllers\Admin\SubjectController;
 
 
+// Set Lang Version
+Route::get('locale/language/{locale}', function ($locale){
 
+    \Session::put('locale', $locale);
 
+    \App::setLocale($locale);
 
+    return redirect()->back();
+    
+})->name('version');
 
 Route::group(
     [
@@ -53,7 +65,7 @@ Route::group(
             'confirm'  => false,  // for additional password confirmations
             'verify'   => false,  // for email verification
         ]);
-      
+
         Route::get('admin/get-courses', [CourseController::class, 'getcourses'])->name('admin.getCourses');
         Route::get('admin/get-course', [CourseController::class, 'getcourse'])->name('admin.getcourse');
         Route::get('admin/get-levels-by-coure', [CourseController::class, 'getlevels'])->name('admin.getLevels');
@@ -65,8 +77,8 @@ Route::group(
             Route::resource('courses', CourseController::class);
 
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
-            Route::resource('tracks', TrackController::class);          
-              Route::resource('blogs', BlogController::class);
+            Route::resource('tracks', TrackController::class);
+            Route::resource('blogs', BlogController::class);
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
 
@@ -114,6 +126,14 @@ Route::group(
             Route::get('contact-us-settings', [SettingController::class, 'contactUs'])->name('settings.contactUs');
             Route::post('contact-us-settings', [SettingController::class, 'SaveContactUs'])->name('setting.SaveContactUs');
 
+            Route::get('mail-settings', [SettingController::class, 'mailSettings'])->name('settings.mail');
+            Route::post('mail-settings', [SettingController::class, 'SaveMailSetting'])->name('setting.SaveMail');
+
+
+            Route::get('zoom-settings', [SettingController::class, 'zoomSettings'])->name('settings.zoom');
+            Route::post('zoom-settings', [SettingController::class, 'SaveZoomSetting'])->name('setting.SaveZoom');
+
+
             Route::get('landing-page-settings', [SettingController::class, 'landingSetting'])->name('setting.landingSetting');
             Route::post('landing-settings', [SettingController::class, 'SaveLandingSetting'])->name('setting.SaveContactUs');
 
@@ -123,6 +143,8 @@ Route::group(
             Route::resource('teams', TeamController::class);
             Route::resource('parteners', PartenerController::class);
             Route::resource('cvs', CvController::class);
+            Route::resource('reviews', ReviewController::class);
+            Route::resource('languages', LanguageController::class);
 
 
             /** finical  */
@@ -134,19 +156,29 @@ Route::group(
 
 
 
-        //Questions Bank Groups
-       
-        Route::resource('bank-groups', QuestionBankGroupsController::class);
-        Route::resource('bank-groups.bank-questions', QuestionsController::class);
-        Route::resource('quizzes', QuizController::class);
-        Route::resource('quizzes.sections', QuizSectionController::class);
-        Route::resource('quizzes.questions', QuizQuestionController::class);
+            //Questions Bank Groups
+
+            Route::resource('bank-groups', QuestionBankGroupsController::class);
+            Route::resource('bank-groups.bank-questions', QuestionsController::class);
+            Route::resource('quizzes', QuizController::class);
+            Route::resource('quizzes.sections', QuizSectionController::class);
+            Route::resource('quizzes.questions', QuizQuestionController::class);
 
 
 
 
-    
-        
+            Route::resource('faculities', FacultyController::class);
+            Route::resource('subjects', SubjectController::class);
+            Route::get('subjects/create/{classroom?}', [SubjectController::class, 'create'])->name('subjects.create');
+
+
+            // Translations Routes
+            Route::get('translations', [TranslateController::class, 'index'])->name('translations.index');
+
+            Route::post('translations/create', 'TranslateController@store')->name('translations.create');
+            Route::post('translations/update', 'TranslateController@transUpdate')->name('translation.update.json');
+            Route::post('translations/updateKey', 'TranslateController@transUpdateKey')->name('translation.update.json.key');
+            Route::delete('translations/destroy/{key}', 'TranslateController@destroy')->name('translations.destroy');
         });
     }
 );

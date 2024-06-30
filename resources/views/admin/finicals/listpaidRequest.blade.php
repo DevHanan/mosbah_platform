@@ -40,12 +40,10 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
+                  <th> {{__('admin.number')}}</th>
                   <th> {{__('admin.date')}}</th>
-                  <th>{{ __('admin.amount') }}</th>
                   <th> {{__('admin.intructor_name')}}</th>
-
-                  <th> {{__('admin.date')}}</th>
-
+                  <th>{{ __('admin.amount') }}</th>
 
                   <th>{{ __('admin.intructor_current_balance') }}</th>
                 
@@ -58,14 +56,11 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
+                  <td>{{$row->id}}</td>
                   <td>{{$row->date}}</td>
-                 
-
-
-                  <td>{{$row->value}} {{ $setting->currency }}</td>
-                  <td>{{$row->statusLabel }} </td>
                   <td>{{ optional($row->instructor)->name  }} </td>
-                  <td>{{ optional($row->instructor)->current_bana
+                  <td>{{$row->value}} {{ $setting->currency }}</td>
+                  <td>{{ optional($row->instructor)->current_balance
                       }}    {{ $setting->currency }} </td>
 
 

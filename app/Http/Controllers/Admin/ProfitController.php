@@ -41,18 +41,20 @@ class ProfitController extends Controller
         return view('admin.finicals.studentPayments', $data);
     }
 
+  
+
+
     public function listRequest(){
         $data['title'] = trans('admin.finances.list_reuests');
         
-        $data['rows']=Withdrawal::where('status','!=','1')->latest()->paginate(10);
+        $data['rows']=Withdrawal::latest()->paginate(10);
         return view('admin.finicals.listRequest', $data);
 
-
-        
     }
 
+
     public function listPaidRequest(){
-        $data['title'] = trans('admin.finances.instructors_request');
+        $data['title'] = trans('admin.finances.instructor_paid');
         
         $data['rows']=Withdrawal::where('status','1')->latest()->paginate(10);
         return view('admin.finicals.listpaidRequest', $data);

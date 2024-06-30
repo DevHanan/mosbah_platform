@@ -4,6 +4,8 @@
 <script src="{{asset('dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
 <!-- Tabler Core -->
 
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
@@ -11,6 +13,8 @@
 <script>
 	AOS.init();
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 <script src="{{asset('dist/js/tabler.min.js?1692870487')}}" defer></script>
@@ -674,3 +678,4 @@
 		});
 	});
 </script>
+

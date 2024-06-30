@@ -515,3 +515,66 @@ Breadcrumbs::for('update-policies', function (BreadcrumbTrail $trail,$row) {
 });
 
 
+/** reviews  */
+Breadcrumbs::for('reviews', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.settings.reviews'), route('admin.reviews.index'));
+});
+
+Breadcrumbs::for('add-reviews', function (BreadcrumbTrail $trail) {
+    $trail->parent('reviews');
+    $trail->push(trans('navbar.settings.add_reviews'), route('admin.reviews.create'));
+});
+Breadcrumbs::for('update-reviews', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('reviews');
+    $trail->push($row->name, route('admin.reviews.edit', $row));
+});
+
+
+/** languages  */
+Breadcrumbs::for('languages', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.settings.languages'), route('admin.languages.index'));
+});
+
+Breadcrumbs::for('add-languages', function (BreadcrumbTrail $trail) {
+    $trail->parent('languages');
+    $trail->push(trans('navbar.settings.add_languages'), route('admin.languages.create'));
+});
+Breadcrumbs::for('update-languages', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('languages');
+    $trail->push($row->name, route('admin.languages.edit', $row));
+});
+
+
+
+// Home > Parteners
+Breadcrumbs::for('faculities', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.faculities.list'), route('admin.faculities.index'));
+});
+
+Breadcrumbs::for('add-faculities', function (BreadcrumbTrail $trail) {
+    $trail->parent('faculities');
+    $trail->push(trans('navbar.faculities.add'), route('admin.faculities.create'));
+});
+Breadcrumbs::for('update-faculities', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('faculities');
+    $trail->push($row->name, route('admin.faculities.edit', $row));
+});
+
+
+
+Breadcrumbs::for('subjects', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.subjects.list'), route('admin.subjects.index'));
+});
+
+Breadcrumbs::for('add-subjects', function (BreadcrumbTrail $trail) {
+    $trail->parent('subjects');
+    $trail->push(trans('navbar.subjects.add'), route('admin.subjects.create'));
+});
+Breadcrumbs::for('update-subjects', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('subjects');
+    $trail->push($row->name, route('admin.subjects.edit', $row));
+});

@@ -687,6 +687,72 @@ return [
     ],
 
     "field_action" => "الحدث ",
+    'reviews' => [
+        'title'  => 'الاراء والتعليقات',
+        'field_name' => 'إسم المستخدم',
+        'title' => 'السياسات والشروط',
+        'add'  => 'تعليق جديدة',
+        'edit'  => 'تعديل بيانات تعليق',
+        'field_comment' => 'التعليق',
+        'field_job' => 'الوظيفة',
+        'status' => 'حالة الظهور',
+        'actions'  => 'الحدث'
+    ],
+
+    'languages' => [
+        'title'  => ' إعدادت اللغة',
+        'name' => 'إسم ',
+        'title' => ' اللغات',
+        'add'  => 'لغة جديدة',
+        'edit'  => 'تعديل بيانات لغة',
+        'status' => 'حالة الظهور',
+        'actions'  => 'الحدث',
+        'field_photo'  => 'اللوجو'
+    ],
+
+
+    "field_mail_driver"=> "Mail Driver",
+    "field_mail_encryption"=> "Mail Encryption",
+    "field_mail_host"=> "Mail Host",
+    "field_mail_password"=> "Mail Password",
+    "field_mail_port"=> "Mail Port",
+    "field_mail_reply_email"=> "Reply Email",
+    "field_mail_sender_email"=> "Sender Email",
+    "field_mail_sender_name"=> "Sender Name",
+    "field_mail_subject"=> "Subject",
+    "field_mail_username"=> "Mail Username",
+    "field_client_secret"  => "Client Secret",
+    "field_client_id"  => "Client Id",
+    "field_base_url"  => "BAse Url",
+    "field_account_id" => "Account Id",
+    "number" => "رقم الطلب",
+    "notes" => " ملاحظات",
+    'faculities' =>[
+        'title'=>'قائمة الكليات',
+        'name'  => 'إسم الكلية',
+        'status'=> 'حالة الظهور',
+        'gender' => 'النوع',
+        'male' => 'بنين',
+        'female' =>'بنات',
+        'min_degree' => 'درجة الحد الأدنى للقبول',
+        'actions' => 'الحدث'
+    ],
+    'subjects' =>[
+        'title'=>'قائمة المواد الدراسية',
+
+        'name'  => 'إسم المادة',
+        'status'=> 'حالة الظهور',
+        'degree' => ' الدرجة الكلية',
+        'actions' => 'الحدث',
+        'first_classroom_title' => 'قائمة مواد الأول الثانوي',
+        'second_classroom_title' => 'قائمة مواد التانى الثانوي',
+        'third_classroom_title' => 'قائمة مواد الثالت الثانوي'
+    ]
+
+
+
+
+
 
 
 ];

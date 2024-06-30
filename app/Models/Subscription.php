@@ -25,6 +25,7 @@ class Subscription extends Model
         return asset('public/' . $this->bill);
     }
 
+    
     public function course()
     {
         return $this->belongsTo(Course::class);

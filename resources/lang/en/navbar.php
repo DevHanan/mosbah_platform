@@ -1,183 +1,235 @@
 <?php
 return [
-    "Home" => "الرئيسية",
-    'users' => "المستخدمين",
-    'add_user' => "إضافة مستخدم",
-    "user_managment" => "المستخدمين",
-    "countries" => "الدول",
-    "paymenttypes" => "أنواع الدفع ",
-    "master_data"  => "الإعدادت",
+    "Home" => "Home",
+    'users' => "Users",
+    'add_user' => "New User",
+    "user_managment" => "User Managment",
+    "countries" => "Countries",
+    "paymenttypes" => " Payment Methods",
+    "master_data"  => "Settings",
     'students' => [
-        "student_managment"  => "إدارة الطلاب",
-        "list" => "قائمة الطلاب",
-        "add"   => "إضافة طالب"
+        "student_managment"  => "Student Management",
+        "list" => "List Students",
+        "add"   => "New Student"
     ],
     'users' => [
-        "list" => "المستخدمين",
-        "add"   => "إضافة مستخدم"
+        "list" => "Users",
+        "add"   => "New User"
     ],
     'roles' => [
-        "list" => "الأدوار",
-        "add"   => "إضافة دور",
-        'show' => 'عر تفاصيل الدور'
+        "list" => "List Roles",
+        "add"   => "New Role",
+        'show' => 'Role Details'
     ],
 
     'instructors' => [
-        "instructor_management"  => "إدارة المدربين",
-        "list" => "قائمة المدربين",
-        "add"   => "إضافة محاضر"
+        "instructor_management"  => "Instructor Management",
+        "list" => "List Instructors",
+        "add"   => "New Instructor"
     ],
     'subscriptions' => [
-        'title'  => 'اشتراكات الطلاب',
-        "list" => "اشتراكات الطلاب بالدورات",
-        "add"  => "إضافة اشتراك طالب بدورة"
+        'title' => 'List Subscriptions',
+        "list" => "Student subscriptions to courses",
+        "add" => "Add a student's subscription to a course"
 
     ],
     'coupons' => [
-        "coupons_management"  => "إدارة الكوبونات",
-        "list" => "قائمة الكوبونات",
-        "add"   => "إضافة كوبون",
-        "edit"   => "تعديل كوبون",
+        "coupons_management"  => "Coupons Management",
+        "list" => " List Coupons",
+        "add"   => "New Coupon",
+        "edit"   => "Update Coupon",
 
     ],
     'certifications' => [
-        "certifications_management" => " الشهادات",
-        "list_dwafer" => " قائمة شهادات دوافير",
-        "student_certifications" => "شهادات الطلاب من دوافير",
-        "add"   => "إضافة شهادة",
-        'student_certifications_from_out'  => 'شهادات الطلاب من جهات خارجية',
-        'name' => 'إسم الشهادة',
-        'course_name' => 'إسم الدورة',
-        'track_name' => 'إسم المسار',
-        'platform_certification' => 'شهادات منصة دوافير ',
-        'externel_certification' => 'شهادات خارجية',
-        'add' => 'إضافة شهادة'
+        "certifications_management" => "Certifications",
+        "list_dwafer" => "List of Dwafer Certificates",
+        "student_certifications" => "Student Certifications from Dover",
+        "add" => "Add certificate",
+        'student_certifications_from_out' => 'Student certificates from third parties',
+        'name' => 'Certification Name',
+        'course_name' => 'Course Name',
+        'track_name' => 'Track Name',
+        'platform_certification' => 'Dawafir Platform Certifications',
+        'external_certification' => 'external certificates',
+        'add' => 'New Certification'
     ],
     'tickets' => [
-        "tickets_management"  => " الدعم",
-        "list" => "عرض الدعم الفنى",
-        "add"   => "",
-        "instrutor_msg" => "مراسلات المدربين",
-        "student_msg" => "مراسلات الطلاب",
-        'visitors'  => 'مراسلات الزوار',
-        'notifications'  => 'إشعارات',
+        "tickets_management" => "Ticket Management",
+        "list" => "List Ticket Management",
+        "add" => "",
+        "instrutor_msg" => "Instructor Ticket",
+        "student_msg" => "Students Ticket",
+        'visitors' => 'Visitor Tickets',
+        'notifications' => 'Notifications',
+        'show' => 'Show message details'
 
     ],
+    'calculate_equation' => [
+        'management' => 'calculate equation',
+        'first_secondary_subjects' => 'List of Secondary Subjects',
+        'second_secondary_subjects' => 'Secondary Subjects List',
+        'third_secondary_subjects' => 'List of third-secondary subjects',
+        'settings' => 'Equation Calculation Settings',
+        'list_of_colleges' => 'List of colleges',
+
+    ],
+    'blogs' => [
+        'blogs_management' => 'Blogs Management',
+        'list' => 'List Blogs',
+        'add' => 'New Blog'
+    ],
     "courses" => [
-        'start_soon_courses' => 'دورات تبدا قريبا',
-        'edit_course' => 'تعديل بيانات الدورة',
-        'all_courses' => 'كل الدورات',
-        "title"  => "الدورات التدريبية",
-        "list_tracks" => "المسارات",
-        "add_track" => " إضافه مسار",
-        "list_course_types"  => "أنواع الدورات",
-        "add_course_types" => "إضافة نوع",
-        "list_lectures"  => "عرض المحاضرات",
-        "add_lecture" => " إضافه محاضره",
-        'edit_lecture' => 'تعديل محاضرة',
-        "list_levels" => "عرض المستويات",
-        "add_level" => "إضافه مستوي",
-        "add_course"  => "إضافة دوره",
-        'recommened_courses' => 'دورات مرشحة',
-        'reviews'  => 'ريفيوهات الدورات',
-        "list_courses" => "الدورات التدريبية",
+        'start_soon_courses' => 'Courses starting soon',
+        'edit_course' => 'Edit course data',
+        'all_courses' => 'all courses',
+        "title" => "Training courses",
+        "list_tracks" => "tracks",
+        "add_track" => "Add track",
+        "list_course_types" => "Course Types",
+        "add_course_types" => "Add type",
+        "list_lectures" => "View lectures",
+        "add_lecture" => "Add lecture",
+        'edit_lecture' => 'edit lecture',
+        "list_levels" => "show levels",
+        "add_level" => "Add level",
+        "add_course" => "Add course",
+        'recommend_courses' => 'recommended courses',
+        'reviews' => 'course reviews',
+        "list_courses" => "Training courses",
 
 
 
 
     ],
     'settings' => [
-        'general_settings' => 'إعدادت عامة ',
-        'policies' => 'السياسات',  
-        'about_us_settings' => 'من نحن',
-        'questions' =>'الأسئلة المتكررة',
-        'teams' => 'فريق العمل ',
-        'parteners' => 'الشركاء والداعمين',
-        'language_setting' => 'إعدادات اللغة',
-        'payment_settings' => 'إعدادات وسائل الدفع',
-        'zoom_settings' => 'اعدادات زووم',
-        'home_settings' => 'اعدادات الصفحة الرئيسية',
-        'contactus_settings' => 'تواصل معنا',
-        'reviews' =>'التقييمات والآراء'
+        'general_settings' => 'General Settings',
+        'policies' => 'policies',
+        'add_policies' => 'Add a new policy',
+        'add_reviews' => 'Add a review',
+        'languages' => 'languages',
+        'add_languages' => 'Add language',
+        'mail_settings' => 'Email settings',
+
+        'about_us_settings' => 'About us',
+        'questions' => 'Frequently Asked Questions',
+        'add_faq_questions' => 'Add a question',
+        'teams' => 'work team',
+        'parteners' => 'partners and supporters',
+        'language_setting' => 'Language Settings',
+        'payment_settings' => 'Payment method settings',
+        'zoom_settings' => 'Zoom Settings',
+        'home_settings' => 'Home page settings',
+        'contactus_settings' => 'Contact us',
+        'reviews' => 'ratings and opinions',
+
 
     ],
-    'parteners' => [
-        'list' => 'عرض الشركاء والداعمين',
-        'add' => 'إضافة شريك جديد',
+    'partners' => [
+        'list' => 'View partners and supporters',
+        'add' => 'Add a new partner',
+    ],
+    'faculties' => [
+        'title' => 'Show list of colleges',
+        'list' => 'View list of colleges',
+        'add' => 'Add a new college',
     ],
     'teams' => [
-        'list' => 'عرض فريق العمل',
-        'add' => 'إضافة عضو جديد',
+        'list' => 'View staff',
+        'add' => 'Add a new member',
     ],
     'exams'  => [
-        'exam_management' => 'الاختبارات',
-        'quections_list' => 'قائمة بنوك الأسئلة',
-        'add_question'   => 'إضافة بنك أسئلة',
-        'list_exam' => 'قائمة الاختبارات ',
-        'add_exam' => 'إضافة اختبار',
-        'exam_result' => 'نتائج اختبارات الطلاب',
-        'exam_setting' => 'اعدادات الاختبارات',
-
+        'exam_management' => 'exams',
+        'quections_list' => 'Question bank list',
+        'add_question' => 'Add question bank',
+        'list_exam' => 'list of exams',
+        'add_exam' => 'Add test',
+        'exam_result' => 'student test results',
+        'exam_setting' => 'Exam Settings',
     ],
     'finances' => [
-        'finances_management' => 'الماليات',
-        'course_profit' => 'ايرادات الدورات',
-        'students_payment' => 'مدفوعات الطلاب',
-        'instructors_profit' => 'أرباح المدربين',
-        'instructors_request' => 'طلبات سحب المدربين',
-        'instructor_paid' => 'مدفوعات أرباح المدربين',
+        'finances_management' => 'finances',
+        'course_profit' => 'course revenue',
+        'students_payment' => 'Student Payments',
+        'instructors_profit' => 'instructors profits',
+        'instructors_request' => 'Instructors Pull Requests',
+        'instructor_paid' => 'Instructor Earnings Payment',
 
     ],
     'processing_account' => [
-        'processing_account_management' => 'حساب المعادلة',
-        'course_profit' => 'قائمة المواد',
-        'students_payment' => 'اعدادات حساب المعادلة'
+        'processing_account_management' => 'account equation',
+        'course_profit' => 'list of materials',
+        'students_payment' => 'Equation Calculation Settings'
 
     ],
     'cvmaker' => [
-        'cvmaker_management' => 'صانع السيرة الذاتية',
-        'cvmaker_template' => 'قوالب السيرة الذاتية ',
-        'add_cvmaker_template' => 'إضافة قالب'
+        'cvmaker_management' => 'CV Maker',
+        'cvmaker_template' => 'CV Templates',
+        'add_cvmaker_template' => 'Add Template'
+    ],
+    'instructors_side' => [
+        'Home' => 'Home',
+        'profile' => 'Profile',
+        'mystudents' => 'My Students',
+        'mycourses' => 'My Courses',
+        'tests' => 'Exams',
+        'studentTestResult' => 'Student Test Results',
+        'profits' => 'Profits',
+        'profits_requests' => 'Profits Withdrawal Requests',
+        'paid_profits' => 'Profit Payments',
+        'add_profits_requests' => 'Add withdrawal request',
 
     ],
-    'instructors_side'=>[
-        'Home' => 'الرئيسية',
-        'profile' => 'ملفى الشخصى',
-        'mystudents' => 'طلابي',
-        'mycourses' => 'دوراتي',
-        'tests' => 'الاختبارات',
-        'studentTestResult' => 'نتائج اختبارات الطلاب',
-        'profits' => 'أرباحي',
-        'profits_requests' => 'طلبات سحب الأرباح',
-        'paid_profits' => 'مدفوعات الارباح',
-        'add_profits_requests' => 'إضافة طلب سحب',
-        'paid_profits_requests' => 'مدفوعات المحاضرين'
+    'students_side' => [
+        'Home' => 'Home',
+        'profile' => 'Profile',
+        'mycourses' => 'Subscribed courses',
+        'tests' => 'Exams',
+        'courses_payment' => 'courses_payment',
+        'certificationfromin' => 'Platform Certification',
+        'certificationfromout' => 'My certificates from third parties',
+        'studentTestResult' => 'Exam Result'
 
     ],
-    'students_side'=>[
-        'Home' => 'الرئيسية',
-        'profile' => 'ملفى الشخصى',
-        'mycourses' => 'الدورات المشترك بها',
-        'tests' => 'الاختبارات',
-        'courses_payment' => 'مدفوعات الدورات',
-        'certificationfromin' => 'شهاداتي من المنصة',
-        'certificationfromout' => 'شهاداتي من جهات خارجية',
-        'studentTestResult' => 'نتائج الاختبارات'
+    'payments' => [
+        'transactionnumber' => 'Transcation Number',
+        'transcation_date' => 'Transcation Date',
+        'course_name' => 'Course Name',
+        'paid_amount' => 'Paid amount',
+        'payment_attachment' => 'Payment Attachment',
+        'list' => 'Student payment history'
 
     ],
-    'payments' =>[
-        'transactionnumber' => 'رقم العملية',
-        'transcation_date' => 'تاريخ العملية',
-        'course_name' => 'اسم الدورة',
-        'paid_amount' => ' القيمة المدفوعة',
-        'payment_attachment' => 'مرفق اثبات الدفع',
-        'list' => 'سجل مدفوعات الطالب'
-  
-      ],
-     
-      'cvs' => [
-        'list' => 'قوالب السيرة الذاتية',
-        'add' => 'إضافة قالب جديد',
-        'edit' => 'تعديل قالب'
+
+    'cvs' => [
+        'list' => 'List Cv Templates ',
+        'add' => 'New Template',
+        'edit' => 'Update Template'
     ],
+    'bankgroups' => [
+
+        'list' => 'BankGroup List',
+        'title' => 'BankGroups',
+        'add'  => 'New Bank Group'
+    ],
+    'bankquestions' => [
+        'list' => 'Question List',
+        'add'  => 'New Question',
+        'edit' => 'Update Question'
+    ],
+    'quizzes' => [
+        'list' => 'Exams list',
+        'add'  => 'New Exam',
+        'edit' => 'Update Exam'
+    ],
+    'sections' => [
+        'list' => 'Sections List',
+        'add'  => 'New Section',
+        'edit' => 'Update Section '
+    ],
+    'subjects' => [
+        'list' => 'ٍSubjects List',
+        'add' => 'New Subject'
+    ]
+
+
 ];

@@ -51,7 +51,7 @@
         @endif
       </div>
       <div>
-        <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-row align-items-center">
+        <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-row align-items-center responsive-list">
           <!-- <li class="nav-item px-2">
             <a class="nav-link position-relative" aria-current="page" href="{{ url('/cart') }}">
               <i class="fa-solid fa-cart-shopping primary-color fa-lg"></i>

@@ -17,3 +17,32 @@
     <link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('public/front/css/media.css')}}">
 </head>
+
+<style>
+  /* Default styles for large screens */
+.responsive-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.responsive-list li {
+  width: 25%; /* 4 columns on large screens */
+  margin: 10px;
+}
+
+/* Media query for small screens (e.g., mobile devices) */
+@media only screen and (max-width: 768px) {
+ .responsive-list {
+    flex-direction: column; /* Stack list items vertically on small screens */
+  }
+  
+ .responsive-list li {
+    width: 100%; /* Take full width on small screens */
+    margin: 10px 0;
+  }
+}
+</style>

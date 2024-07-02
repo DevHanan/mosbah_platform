@@ -115,3 +115,4 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
 </style>
 
 @endif
+

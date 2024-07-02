@@ -30,7 +30,7 @@
 
 .hero_sec .row{position: relative;}
 .hero_sec .img img{margin-top: -8rem;}
-.hero_sec p{font-size: 22px;}
+.hero_sec p{font-size: 47px;line-height: 72px;}
 .hero_sec .img-line{bottom: -6px;right:0;}
 .hero_sec .content{color: #CFD3D6;}
 .hero_sec .search i{width: 40px;font-size: 20px;top: 0;}
@@ -38,8 +38,12 @@
 .statistics .img{width: 60px;}
 
 .popular-courses p{color: #222222;}
-.popular-courses article p{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 100%;}
 .popular-courses .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
+.popular-courses article p,
+.nominated-courses article p
+{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 100%;}
+.popular-courses .card__article,
+.nominated-courses .card__article{background-color: #fff;}
 
 .categories .data{border-radius: 20px;}
 .categories i{color: #999999;}
@@ -120,8 +124,10 @@ footer .social a{height: 40px;width: 40px;}
 .header {background-color: var(--primary);padding: 100px 0;background-image: url(../images/store_bd.png);}
 .header h1{font-size: 70px;}
 .header p{font-size: 20px;}
+
 .policies{background-color: #f4f4f4a6;}
 .policy-card{box-shadow: 0 1px 8px #ccccccbd;padding: 25px 20px 10px;}
+.policy-card .btn{background-color: orange !important;border: 0;}
 
 /* ============== books =============== */
 section.books .hero_sec p{font-size: 35px;}
@@ -134,6 +140,8 @@ section.books .hero_sec p{font-size: 35px;}
 .books_list .reading{background-color: #CFFFFD;}
 
 /* ============== about =============== */
+section.about {overflow-x: hidden;}
+section.about .hero_sec .img{height: 400px;}
 section.about .hero_sec .content{line-height: 50px;font-size: 18px;width: 80%;}
 section.about :is(.achievementSec,.aim,.messages) h2 img{bottom: -19px;right: 0;}
 section.about :is(.achievement,.team,.aim, .messages) h2 img,
@@ -142,6 +150,14 @@ section.about .aim{background-image: url(../img/aim-bg.svg);background-size: 100
 section.about .achievementSec .info{font-size: 14px;}
 section.about .achievementSec .info h3{font-size: 20px;}
 section.about .achievementSec .info img{width: 35px;}
+
+section.about .que{background-color: #DBFFFE;}
+section.about .que ul{border-bottom: 1px solid #cdd8ea;padding-bottom: 18px;margin: 0 30px 18px 70px;}
+section.about .queText{direction: ltr;}
+section.about .queText p{direction: rtl;}
+section.about .collapseQue{color: #1B3764;}
+section.about .collapse .card-body {background-color: transparent;border: 0;color: #969AA0;}
+section.about li::marker{color: var(--secondary);}
 
 /* ================= courses =============== */
 section.coursesPage .hero_sec .info .content{line-height: 2.8;font-size: 18px;}
@@ -161,18 +177,29 @@ section.coursesPage .cardShape.active{background-color: var(--secondary);}
 section.coursesPage #paginationCard .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
 section.coursesPage #paginationCard .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
 section.coursesPage label{cursor: pointer;}
+.course-content-page :is(.lec-title,.content-lec h3)::before{    
+  content: '';
+  display: block;
+  position: absolute;
+  width: 130px;
+  height: 3px;
+  bottom: -20px;
+  right: 0;
+  background-color: var(--secondary);
+  box-shadow: 0 0 3px var(--secondary);
+}
+
+.course-content-page :is(.content-lec h3)::before {
+  width: 55px;
+  bottom: -10px;
+}
+
+
 .trainers .card_category{top: 18px;left: 18px;z-index: 99;background-color: #dbfffe8c;}
 
 /* =================== contact =============== */
 .contact-us .icons img{background-color: #DBFFFE;}
-.contact-us .que{background-color: #DBFFFE;}
 .contact-us li{position: relative;}
-.contact-us .collapseQue{color: #1B3764;}
-.contact-us .collapse .card-body {background-color: transparent;border: 0;color: #969AA0;}
-.contact-us li::marker{color: var(--secondary);}
-.contact-us .que ul{border-bottom: 1px solid #cdd8ea;padding-bottom: 18px;margin: 0 30px 18px 70px;}
-.contact-us .queText{direction: ltr;}
-.contact-us .queText p{direction: rtl;}
 .contact-us .social a{width: 40px;height: 40px;transition: all .3s ease-in-out;}
 .contact-us .social a:hover{background-color: #fff;color: var(--primary) !important;}
 
@@ -205,7 +232,7 @@ section.coursesPage label{cursor: pointer;}
 .accordion-button:focus{box-shadow: 0 0 0;}
 .accordion-button::after, .accordion-button:not(.collapsed)::after{margin: 0 auto 0 0;}
 .course-content-page .play-icon{cursor: pointer;top:50%; left: 50%;transform: translate(-50%, -50%); width: 55px; height: 55px; background-color: #292929c9;}
-
+.course-content-page .video_parent{height: 300px;}
 
 /* ================= questions =============== */
 :is(.questions,.course-content-page) .users-list .avatar{width: 2.375rem;height: 2.375rem;margin-left: -1.4rem;}
@@ -259,8 +286,8 @@ ol.que_answer > li:nth-child(28)::before { content: "غـ"; }
 
 /* ======================================= */
 .statistics,.categories{background-color: var(--gray-bg);}
-:is(.popular-courses,.courses,.coursesPage,.books_list ) .link-arrow{background-color: #DBFFFE !important;color: var(--secondary);padding: 10px 16px;transform: rotate(50deg);cursor: pointer;}
-:is(.popular-courses,.courses,.coursesPage,.books_list) .link-arrow:hover{background-color: var(--secondary) !important;color: #fff;}
+:is(.popular-courses,.courses,.coursesPage,.books_list,.nominated-courses) .link-arrow{background-color: #DBFFFE !important;color: var(--secondary);padding: 10px 16px;transform: rotate(50deg);cursor: pointer;}
+:is(.popular-courses,.courses,.coursesPage,.books_list,.nominated-courses) .link-arrow:hover{background-color: var(--secondary) !important;color: #fff;}
 .courses,section.about .team{background-color: #E9FFFE;}
 :is(.statistics,.achievement,section.about .messages) p{color: var(--gray-text);font-size: 18px;}
 /* height: 10px !important; */
@@ -436,7 +463,7 @@ ol.que_answer > li:nth-child(28)::before { content: "غـ"; }
 .card__article {width: 300px;border-radius: 1.25rem;overflow: hidden;}
 .card__image {position: relative;background-color: var(--first-color-light);padding-top: 1.5rem;margin-bottom: -.75rem;overflow: hidden;}
 .card__data {background-color: var(--container-color);padding: 1.5rem 2rem;border-radius: 1rem;position: relative;z-index: 10;}
-.card__img {width: 180px;margin: 0 auto;position: relative;z-index: 5;height:170px ; }
+.card__img {width: 180px;margin: 0 auto;position: relative;z-index: 5; }
 .card__shadow {
   width: 200px;
   height: 200px;
@@ -448,9 +475,6 @@ ol.que_answer > li:nth-child(28)::before { content: "غـ"; }
   right: 0;
   margin-inline: auto;
   filter: blur(45px);
-}
-img.card__img.img-fluid.w-100.h-100 {
-  height: 170px !important;
 }
 .card__description {font-weight: 500;margin-bottom: 1.75rem;}
 /* Swiper class */

@@ -188,3 +188,63 @@ let partners = new Swiper(".partners .card__content", {
     },
   },
 });
+
+
+/*=============== SWIPER JS ===============*/
+let questions = new Swiper(".questions .card__content", {
+  loop: false,
+  spaceBetween: 30,
+  grabCursor: true,
+
+  pagination: {
+    el: ".questions .swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".questions .swiper-button-next",
+    prevEl: ".questions .swiper-button-prev",
+  },
+
+  breakpoints:{
+    600: {
+      slidesPerView: 1,
+    },
+    968: {
+      slidesPerView: 1,
+    },
+  },
+});
+
+
+/*=============== SWIPER JS ===============*/
+let nominated_courses = new Swiper(".nominated-courses .card__content", {
+  loop: true,
+  spaceBetween: 30,
+  grabCursor: true,
+  autoplay: {
+    delay: 3000, // Adjust the delay as needed (in milliseconds)
+    disableOnInteraction: false, // Set to false to keep autoplaying even when user interacts with Swiper
+  },
+
+  pagination: {
+    el: ".nominated-courses .swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".nominated-courses .swiper-button-next",
+    prevEl: ".nominated-courses .swiper-button-prev",
+  },
+
+  breakpoints:{
+    600: {
+      slidesPerView: 2,
+    },
+    968: {
+      slidesPerView: 4,
+    },
+  },
+});

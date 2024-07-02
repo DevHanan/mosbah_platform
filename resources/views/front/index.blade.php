@@ -2,7 +2,6 @@
 @section('title', '')
 @section('content')
 @include('front.layouts.common.navbar')
-<div class="row">
 <div class="hero_sec pb-5">
     <div class="container">
         <div class="row">
@@ -489,6 +488,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

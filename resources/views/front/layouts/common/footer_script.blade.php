@@ -5,8 +5,8 @@
                 <div class="subscribe w-75">
                     <h4 class="text-white"> اشترك فى نشرتنا الاخبارية </h4>
                     <p class="text-white py-3"> سجل ايميلك ليصلك كل ما هو جديد عن دورات وتخفيضات دوافير </p>
-                    <form action="">
-                        <input type="email" class="form-control p-3" placeholder="البريد الألكتروني" required>
+                    <form action="{{url('/subscribe')}}" method="POST">
+                        <input type="email" class="form-control p-3"  name="email" placeholder="البريد الألكتروني" required>
                         <div>
                             <button type="submit" class="btn rounded-pill secondary-bg text-white my-4">اشترك الان</button>
                         </div>

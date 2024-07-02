@@ -12,7 +12,7 @@ use App\Models\Partener;
 use App\Models\Team;
 use App\Models\Lecture;
 use App\Models\Subscription;
-use App\Models\Subsctiption;
+use App\Models\MailList;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Auth;
@@ -187,6 +187,11 @@ class HomeController extends Controller
             $request->merge(['read' => '0']);
 
         Ticket::create($request->all());
+
+        MailList::updateOrCreate(
+            ['email' => $request->email]
+        );
+
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return redirect()->back();
     }
@@ -221,5 +226,14 @@ class HomeController extends Controller
 
     public function calcMasarat(){
         return view('front.calcmasart');
+    }
+
+
+    public function mailList(Request $request){
+        MailList::updateOrCreate(
+            ['email' => $request->email]
+        );
+        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
+        return redirect('course/' . $request->course_id);
     }
 }

@@ -5,6 +5,9 @@
 <!-- Tabler Core -->
 
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!--animation-->
 <script>
@@ -470,48 +473,6 @@
 		});
 	});
 </script>
-
-<script type="text/javascript">
-        'use strict';
-        $(document).ready(function() {
-            // [ Zero-configuration ] start
-    //         $('#basic-table').DataTable({
-    //             language: {
-    //     url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
-    // },
-    //         });
-
-            // [ HTML5-Export ] start
-            $('.table').DataTable({
-                dom: 'Bfrtip',
-                language: {
-        url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
-    },
-                buttons: [
-                   
-                    {
-                        extend: 'excelHtml5',
-                        className: 'btn btn-primary excel-export-button',
-                        text: 'إكسل',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                        },
-                        
-
-                    },
-                   
-                    {
-                        extend: 'pdfHtml5',
-                        text: 'PDF',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                        }
-                    },
-                   
-                ]
-            });
-        });
-    </script>
 
 <script>
 	$(document).ready(function() {

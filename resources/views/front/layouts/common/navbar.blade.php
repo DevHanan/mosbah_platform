@@ -1,4 +1,4 @@
-<div class="nav-hero">
+<div class="nav-hero" style="overflow-x: auto;">
   <div class="container-fluid">
     <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
       <div class="header-info d-flex align-items-center">

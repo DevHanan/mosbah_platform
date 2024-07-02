@@ -370,7 +370,7 @@
               {{ __('navbar.calculate_equation.management') }}
             </span>
           </a>
-          <div class="dropdown-menu   ">
+          <div class="dropdown-menu  @if(request()->routeIs(['admin.subjects.*'])) show @endif  ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
                 <a class="dropdown-item  @if(request()->routeIs('admin/subjects?classroom=1')) active @endif" href="{{url('admin/subjects?classroom=1')}}">

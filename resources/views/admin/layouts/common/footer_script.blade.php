@@ -474,6 +474,74 @@
 	});
 </script>
 
+<script type="text/javascript">
+        'use strict';
+        $(document).ready(function() {
+            // [ Zero-configuration ] start
+    //         $('#basic-table').DataTable({
+    //             language: {
+    //     url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
+    // },
+    //         });
+
+            // [ HTML5-Export ] start
+            $('#basic-table').DataTable({
+                dom: 'Bfrtip',
+                language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
+    },
+                buttons: [
+                   
+                    {
+                        extend: 'excelHtml5',
+                        className: 'btn btn-primary excel-export-button',
+                        text: 'إكسل',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
+                        
+
+                    },
+                   
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'طباعة',
+                        autoPrint: true,
+                        // title: '',
+                        footer: false,
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
+                        customize: function ( win ) {
+                            $(win.document.body)
+                                .css( 'font-size', '15pt' )
+                                /*.prepend(
+                                    '<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />'
+                                );*/
+         
+                            $(win.document.body).find( 'table' )
+                                .addClass( 'compact' )
+                                .css( 'font-size', 'inherit' );
+
+                            $(win.document.body).find( 'caption' )
+                                .css( 'font-size', '10px' );
+
+                            $(win.document.body).find('h1')
+                                .css({"text-align": "center", "font-size": "16pt"});
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
 <script>
 	$(document).ready(function() {
 		$('.select2').select2();

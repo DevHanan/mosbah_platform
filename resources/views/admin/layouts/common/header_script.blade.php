@@ -25,8 +25,15 @@
 <!-- select2 css -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+
+<!-- Include JavaScript files -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
 
 <style>
   @import url('https://rsms.me/inter/inter.css');
@@ -66,46 +73,6 @@
 </style>
 
 
-<!--  ToolTip custom style  -->
-<!-- <style>
- a[data-title] {
-  position: relative;
-}
-
-a[data-title]:hover::after {
-  content: attr(data-title);
-  font-size: 14px;
-  color: white;
-  background-color: black;
-  padding: 5px;
-  border-radius: 5px;
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-button.btn.btn-icon.btn-danger.btn-sm[data-title] {
-  position: relative;
-}
-
-button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
-  content: attr(data-title);
-  font-size: 14px;
-  color: white;
-  background-color: black;
-  padding: 5px;
-  border-radius: 5px;
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-</style> -->
-
-<!-- -->
 @if(app()->getLocale() == 'ar')
 <style>
   .dropdown-menu-end[data-bs-popper]{

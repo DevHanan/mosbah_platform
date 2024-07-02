@@ -50,7 +50,7 @@
         <a href="{{url('signin')}}" class="mx-3 p-2 text-decoration-none text-dark"> تسجيل الدخول <i class="fa-solid fa-lock mx-2"></i> </a>
         @endif
       </div>
-      <div style="overflow-x: auto !important;">
+      <div>
         <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-row align-items-center responsive-list">
           <!-- <li class="nav-item px-2">
             <a class="nav-link position-relative" aria-current="page" href="{{ url('/cart') }}">

@@ -9,10 +9,12 @@
 </head>
 
 <body>
+  <div class="container">
 @yield('content')
 
   @include('front.layouts.common.footer_script')
   @stack('frontscript')
+  </div>
 </body>
 
 </html>

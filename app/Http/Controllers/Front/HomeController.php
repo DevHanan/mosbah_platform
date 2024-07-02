@@ -234,6 +234,6 @@ class HomeController extends Controller
             ['email' => $request->email]
         );
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
-        return redirect()->back();
+        return redirect('/');
     }
 }

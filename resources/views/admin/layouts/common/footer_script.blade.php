@@ -485,7 +485,7 @@
     //         });
 
             // [ HTML5-Export ] start
-            $('#basic-table').DataTable({
+            $('.table').DataTable({
                 dom: 'Bfrtip',
                 language: {
         url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',

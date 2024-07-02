@@ -68,7 +68,7 @@ Route::get('/questions', [HomeController::class, 'questions']);
 Route::post('/subscribe', [HomeController::class, 'subscribe']);
 
 Route::post('/contactus', [HomeController::class, 'saveMessage']);
-Route::post('/subscribe', [HomeController::class, 'mailList']);
+Route::post('/post-maillist', [HomeController::class, 'mailList']);
 
 
 

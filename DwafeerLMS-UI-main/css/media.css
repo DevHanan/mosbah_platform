@@ -1,0 +1,81 @@
+@media (max-width:1200px) and (min-width:991px) {
+    footer .logo img{width: 250px;}
+    footer .social ul{flex-wrap: wrap;}
+    footer .social a {margin: 0 0 10px;}
+}
+@media (min-width:991px) {
+    .register .welcome{position: fixed;width: 50%;}
+}
+@media (max-width:991px) {
+    .hero_sec .img img{margin-top: 0;}
+    .hero_sec p{font-size: 25px;line-height: 40px;}
+    .swiper-button-prev {left: 10px;}
+    .swiper-button-next {right: 10px;}
+    
+    .nav-hero .lang{position: relative !important;margin: 10px 0;}
+
+    section.about .que_content{display: block !important;}
+    section.about .queText{direction: rtl;}
+    section.about .queText p{direction: rtl;}
+    
+    .left-class{order: 0;}
+    .right-class{order: 1;}
+    .center-class{order:2}
+}
+
+@media (max-width:768px) {
+    .courses .swiper-button-prev {left: 20%;}
+    .courses .swiper-button-next {right: 20%;}
+    .books_list .card__article{width: 100%;}
+
+    .section_title{font-size: 34px;}
+    .courses .card__content{padding: 0;}
+    .join_us .title{font-size: 20px;}
+    section.about .hero_sec .img{height: 250px;}
+    section:is(.about,.coursesPage) .hero_sec .info{padding: 0 !important;}
+    section.coursesPage .hero_sec .info .content,
+    section.coursesPage .filter :is(.category,.trainers,.rating,.coursesFilter,.prices, .dateFilter) p{font-size: 14px;}
+    section.coursesPage .filter .rating img{width: 14px;} 
+    section.coursesPage #paginationCard .card_category{left: 30px;top: 23px;}
+    .blog-details .header{padding: 40px 0;}
+    .blog-details .header p{font-size: 16px;}
+    .contact-us .icons img{width: 38px;}
+    section.about .que ul{margin: 0 0 18px 0;}
+    .register .intro{padding: 40px 20px !important;}
+    .register .intro{padding: 40px 20px !important;}
+    .register section{padding: 0 !important;}
+    .course-content-page .course_content {padding: 0 10px !important;}
+    .course-content-page .video_parent{height: auto;}
+    section.coursesPage .filter{padding: 0 10px !important;}
+    .policies {padding: 0 15px !important;}
+    .coursesPage .list_view{display: none !important;}
+}
+
+@media (max-width:575px) {
+    section.about .achievement .data h3{font-size: 18px;}
+    section.about .achievement .data p{font-size: 14px;}
+    section.about .achievement .data .img{padding: 10px !important;}
+    section.about .achievement .data img{width: 30px;}
+    .swiper-button-prev, .swiper-button-next{display: none;}
+    .nav.nav-tabs{font-size: 12px;padding: 0;}
+    .sign-completed .logo{max-width: 170px;}
+    section.about .hero_sec .content {line-height: 30px;font-size: 14px;width: 100%;}
+    section.about .achievementSec .info .data{direction: ltr;}
+    section.about .achievementSec .info .text-start{text-align: center !important;}
+
+    .lang_nav{display: block;margin: 0 22px !important;padding: 0;}
+    .nav-hero .social_nav{padding: 0 22px;}
+    .blogs .news-cards{padding: 0 10px !important;}
+    .blogs .filter-by-date{flex-wrap: wrap;}
+    .policies_page .header h1 {font-size: 50px;}
+    /* .nav-hero .header-info a{font-size: 13px;margin: 0 10px !important;} */
+    .course-content-page :is(.content-lec p,.lec-desc){font-size: 14px;}
+    .register.sign-completed .img-back{width: 150px;height: 150px;}
+    .register.sign-completed .img img{width: 300px;}
+    .register.sign-completed :is(h2,h4){font-size: 20px;}
+    .register.sign-completed a.btn{padding: 8px 0 !important;margin: 6px 0 !important;}
+}
+
+@media (max-width:400px) {
+    section.about .achievementSec .info .row{flex-direction: column;}
+}

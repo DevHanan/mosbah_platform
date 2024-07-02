@@ -8,13 +8,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="img">
-                        <img src="{{ asset($aboutsetting->backgroundImageFullPath)}}" style="padding-top:90px;" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                    <div class="img d-flex justify-content-center">
+                        <img src="{{ asset($aboutsetting->backgroundImageFullPath)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="info position-relative py-5">
-                        <img src="{{asset('/front/img/completed-bg.svg')}}" class="position-absolute img-fluid" alt="">
+                        <img src="{{asset('/front/img/completed-bg.svg')}}" class="position-absolute w-100 h-100 img-fluid" alt="">
                         <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $aboutsetting-> title}} </h4>
                         <div class="content fw-bold text-white">
                             {!! $aboutsetting->description !!}
@@ -241,7 +242,7 @@
     <div class="que mt-5 py-5 mb-3" style="background-color: #DBFFFE;">
         <div class="container">
             <h2 class="text-center mb-5">أسئلة متكررة؟</h2>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between que_content">
                 <div class="w-100">
                     @foreach($questions as $item)
                     @if($loop->odd)

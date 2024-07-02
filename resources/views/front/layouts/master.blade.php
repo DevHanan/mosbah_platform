@@ -10,11 +10,15 @@
 
 <body>
   <div class="container">
+  <div class="row">
+
 @yield('content')
+</div>
+  </div>
+
 
   @include('front.layouts.common.footer_script')
   @stack('frontscript')
-  </div>
 </body>
 
 </html>

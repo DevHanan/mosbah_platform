@@ -55,8 +55,8 @@ class DashboardController extends Controller
          return $subscription->created_at->format('Y-m-d');
       });
 
-      $data['subscriptionslabels'][] = '';
-         $data['subscriptionscount'][] = '';
+      $data['subscriptionslabels'][] = array();
+         $data['subscriptionscount'][] = array();
       foreach ($subscriptionsByDay as $day => $subscriptions) {
          $data['subscriptionslabels'][] = $day;
          $data['subscriptionscount'][] = $subscriptions->count();

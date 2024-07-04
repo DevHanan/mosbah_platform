@@ -456,11 +456,7 @@
 						
 
                 buttons: [
-					{
-                    extend: 'colvis',
-                    columns: ':not(.noVis)',
-                    popoverTitle: 'Column visibility selector'
-                },
+				
                     {
                         extend: 'copyHtml5',
 						title: 'print',
@@ -523,7 +519,8 @@
                             $(win.document.body).find('h1')
                                 .css({"text-align": "center", "font-size": "16pt"});
                         }
-                    }
+                    },
+					'colvis'
                 ],
          
                 language: {

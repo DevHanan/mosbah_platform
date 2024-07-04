@@ -446,7 +446,7 @@
 			"columnDefs": [
                          {
       			"targets": "_all",
-     			 "className": $lang_direction == 'rtl' ? 'dt-head-right' : 'dt-head-left'
+     			 "className": 'rtl' ? 'dt-head-right' : 'dt-head-left'
               }
                 ],
 			dom: 'Bfrtip',

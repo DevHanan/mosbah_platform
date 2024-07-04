@@ -119,24 +119,69 @@ new DataTable('#tracks', {
         topStart: {
             buttons: [
                'colvis',
-                {
-                    extend: 'copyHtml5',
-                    exportOptions: {
-                        columns: [0, ':visible']
-                    }
-                },
-                {
-                    extend: 'excelHtml5',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'pdfHtml5',
-                    exportOptions: {
-                        columns: [0, 1, 2, 5]
-                    }
-                },
+               {
+                        extend: 'copyHtml5',
+						title: 'print',
+                        text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+						title: 'Excel',
+                        text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+						title: 'CSV',
+                        text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        }
+                    },
+					{
+               extend: 'pdfHtml5',
+               text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+               titleAttr: 'Export to PDF',
+               className: 'btn-light',
+               exportOptions: {
+                   orthogonal: 'export'
+               },
+               customize: function(doc){
+                   doc.defaultStyle.font = 'Courier'
+               }
+           },
+                    {
+                        extend: 'print',
+                        text: '<i class="fas fa-print text-primary" style="font-size:large;"></i>',
+                        autoPrint: true,
+                        title: 'print',
+                        footer: false,
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
+                        customize: function ( win ) {
+                            $(win.document.body)
+                                .css( 'font-size', '10pt' )
+                                /*.prepend(
+                                    '<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />'
+                                );*/
+         
+                            $(win.document.body).find( 'table' )
+                                .addClass( 'compact' )
+                                .css( 'font-size', 'inherit' );
+
+                            $(win.document.body).find( 'caption' )
+                                .css( 'font-size', '10px' );
+
+                            $(win.document.body).find('h1')
+                                .css({"text-align": "center", "font-size": "16pt"});
+                        }
+                    },
                
             ]
         }

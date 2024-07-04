@@ -37,7 +37,7 @@
           </div>
           
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap datatable" id="tracks">
+            <table class="table card-table table-vcenter text-nowrap" id="tracks">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -109,3 +109,37 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+
+
+new DataTable('#tracks', {
+    layout: {
+        topStart: {
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: [0, ':visible']
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: [0, 1, 2, 5]
+                    }
+                },
+                'colvis'
+            ]
+        }
+    }
+});
+</script>
+@endpush

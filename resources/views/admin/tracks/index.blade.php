@@ -118,6 +118,7 @@ new DataTable('#tracks', {
     layout: {
         topStart: {
             buttons: [
+               'colvis',
                 {
                     extend: 'copyHtml5',
                     exportOptions: {
@@ -136,7 +137,7 @@ new DataTable('#tracks', {
                         columns: [0, 1, 2, 5]
                     }
                 },
-                'colvis'
+               
             ]
         }
     }

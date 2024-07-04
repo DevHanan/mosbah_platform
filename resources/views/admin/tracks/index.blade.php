@@ -121,9 +121,9 @@ new DataTable('#tracks', {
               {
                     extend: 'colvis',
                     columns: ':not(.noVis)',
-                    popoverTitle: 'Column visibility selector',
-                    text:'Show/Hide',
-className:'btn-primary'
+                    text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
+                    
+                    className:'btn-primary'
                 },
                 {
                     extend: 'copyHtml5',

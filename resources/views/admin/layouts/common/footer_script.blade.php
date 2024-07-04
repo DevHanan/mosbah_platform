@@ -451,11 +451,14 @@
     }
   ],
 			dom: 'Bfrtip',
+			buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
 			language: {
 				url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
 			},
-			buttons:['copy','excel','csv','pdf']
-		});
+			
+				});
 	});
 </script>
 

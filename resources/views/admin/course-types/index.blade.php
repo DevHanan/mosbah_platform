@@ -73,7 +73,7 @@
                       <span class="far fa-edit "></span>
                     </a>
 
-                    <button type="button" class="btn btn-icon btn-danger btn-sm"  title="{{__('admin.delete')}}" data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button" class="btn btn-icon btn-danger btn-sm"  title="{{__('admin.delete')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->

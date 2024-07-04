@@ -120,11 +120,10 @@ new DataTable('#tracks', {
             buttons: [
               {
                     extend: 'colvis',
-                    columns: ':not(.noVis)',
                     text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
                     
-                    className:'btn-primary'
-                },
+                    columns: ":not(':first,:last')"
+                  },
                 {
                     extend: 'copyHtml5',
                     text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',

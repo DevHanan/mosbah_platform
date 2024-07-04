@@ -448,8 +448,8 @@
                 buttons: [
                     {
                         extend: 'copyHtml5',
-						title: 'Copy',
-                        text: '<i class="fas fa-copy"></i>Copy',
+						title: 'print',
+                        text: '<i class="fas fa-copy text-primary"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
@@ -457,7 +457,7 @@
                     {
                         extend: 'excelHtml5',
 						title: 'Excel',
-                        text: '<i class="fas fa-file-excel"></i>EXCEL',
+                        text: '<i class="fas fa-file-excel text-primary"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
@@ -465,7 +465,7 @@
                     {
                         extend: 'csvHtml5',
 						title: 'CSV',
-                        text: '<i class="fas fa-file"></i>CSV',
+                        text: '<i class="fas fa-file text-primary"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
@@ -473,14 +473,14 @@
                     {
                         extend: 'pdfHtml5',
 						title: 'PDF',
-                        text: '<i class="fas fa-file-pdf"></i>PDF',
+                        text: '<i class="fas fa-file-pdf text-primary"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
                     },
                     {
                         extend: 'print',
-                        text: '<i class="fas fa-print"></i>PRINT',
+                        text: '<i class="fas fa-print text-primary"></i>',
                         autoPrint: true,
                         title: 'print',
                         footer: false,

@@ -128,7 +128,7 @@ new DataTable('#tracks', {
                     extend: 'colvis',
                     text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
                     
-                    columns: ":not(':first,:last')"
+                    columns: ":not(':first')"
                   },
                   
                 {

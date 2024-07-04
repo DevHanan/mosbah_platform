@@ -470,20 +470,22 @@
                             columns: ':not(:last-child)',
                         }
                     },
-                    {
-                        extend: 'pdfHtml5',
-						title: 'PDF',
-                        text: '<i class="fas fa-file-pdf text-primary" style="font-size:large;"></i>',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                        },
-						customize: function (doc) {
-                  doc.defaultStyle =
-                  {
-                    font: 'Cairo',
-                  };
-                }
-                    },
+					{
+               extend: 'pdfHtml5',
+               text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+               titleAttr: 'Export to PDF',
+               className: 'btn-light',
+               exportOptions: {
+                   columns: [7, 5, 6, 1, 2, 0, 3, 4],
+                   orthogonal: 'export',
+                   modifier: {
+                       selected: false
+                   }
+               },
+               customize: function(doc){
+                   doc.defaultStyle.font = 'Courier'
+               }
+           },
                     {
                         extend: 'print',
                         text: '<i class="fas fa-print text-primary" style="font-size:large;"></i>',

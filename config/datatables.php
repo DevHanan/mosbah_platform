@@ -51,6 +51,15 @@ return [
         'resource' => Yajra\DataTables\ApiResourceDataTable::class,
     ],
 
+    'language' => [
+        'url' => '//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json',
+        'buttons' => [
+            'print' => 'Print',
+            'excel' => 'Export to Excel',
+            'csv' => 'Export to CSV',
+            'pdf' => 'Export to PDF',
+        ],
+    ],
     /*
      * DataTables accepted builder to engine mapping.
      * This is where you can override which engine a builder should use

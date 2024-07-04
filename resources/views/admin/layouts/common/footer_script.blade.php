@@ -442,20 +442,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#basic-table').DataTable({
-			"columnDefs": [
-                         {
-      			"targets": "_all",
-     			 "className": 'rtl' ? 'dt-head-right' : 'dt-head-left'
-              }
-                ],
-			dom: 'Bfrtip',
-			buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-			
-			
-				});
+		$('#basic-table').DataTable();
 	});
 </script>
 

@@ -476,7 +476,13 @@
                         text: '<i class="fas fa-file-pdf text-primary" style="font-size:large;"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
-                        }
+                        },
+						customize: function (doc) {
+                  doc.defaultStyle =
+                  {
+                    font: 'Cairo',
+                  };
+                }
                     },
                     {
                         extend: 'print',

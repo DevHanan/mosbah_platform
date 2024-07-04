@@ -443,7 +443,7 @@
 <script type="text/javascript">
 	'use strict';
 	$(document).ready(function() {
-		$('.export-table').DataTable({
+		$('.datatable').DataTable({
 			"columnDefs": [
     {
       "targets": "_all",

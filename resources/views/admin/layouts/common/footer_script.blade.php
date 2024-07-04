@@ -449,7 +449,7 @@
                     {
                         extend: 'copyHtml5',
 						title: 'print',
-                        text: '<i class="fas fa-copy text-primary"></i>',
+                        text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
@@ -457,7 +457,7 @@
                     {
                         extend: 'excelHtml5',
 						title: 'Excel',
-                        text: '<i class="fas fa-file-excel text-primary"></i>',
+                        text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
@@ -465,7 +465,7 @@
                     {
                         extend: 'csvHtml5',
 						title: 'CSV',
-                        text: '<i class="fas fa-file text-primary"></i>',
+                        text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
@@ -473,14 +473,14 @@
                     {
                         extend: 'pdfHtml5',
 						title: 'PDF',
-                        text: '<i class="fas fa-file-pdf text-primary"></i>',
+                        text: '<i class="fas fa-file-pdf text-primary" style="font-size:large;"></i>',
                         exportOptions: {
                             columns: ':not(:last-child)',
                         }
                     },
                     {
                         extend: 'print',
-                        text: '<i class="fas fa-print text-primary"></i>',
+                        text: '<i class="fas fa-print text-primary" style="font-size:large;"></i>',
                         autoPrint: true,
                         title: 'print',
                         footer: false,

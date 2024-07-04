@@ -130,12 +130,7 @@ new DataTable('#tracks', {
                     
                     columns: ":not(':first,:last')"
                   },
-                  {
-                        text: 'Delete',
-                        action: function(e, dt, node, config){
-                            $('#DeleteSelectedDocsModal').modal('show');
-                        }
-                    },
+                  
                 {
                     extend: 'copyHtml5',
                     text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',

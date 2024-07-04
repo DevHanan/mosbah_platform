@@ -445,6 +445,10 @@
 	$(document).ready(function() {
 		  $('.datatable').DataTable({
                 dom: 'Bfrtip',
+				columnDefs: [
+      
+        { className: 'dt-center', targets: '_all' },
+    ],
                 buttons: [
                     {
                         extend: 'copyHtml5',

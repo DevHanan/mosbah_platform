@@ -115,6 +115,12 @@
 
 
 new DataTable('#tracks', {
+  
+  columnDefs: [
+                      {className: 'dt-center', targets: '_all' ,
+
+                      }
+                        ],
     layout: {
         topStart: {
             buttons: [

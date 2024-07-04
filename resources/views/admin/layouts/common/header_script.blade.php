@@ -69,6 +69,9 @@
   div#DataTables_Table_0_filter{
     margin: 25px;
   }
+  .table-responsive{
+    padding:15px 5px 5px 5px;
+  }
 </style>
 
 

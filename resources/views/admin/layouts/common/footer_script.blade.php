@@ -476,11 +476,7 @@
                titleAttr: 'Export to PDF',
                className: 'btn-light',
                exportOptions: {
-                   columns: [7, 5, 6, 1, 2, 0, 3, 4],
-                   orthogonal: 'export',
-                   modifier: {
-                       selected: false
-                   }
+                   orthogonal: 'export'
                },
                customize: function(doc){
                    doc.defaultStyle.font = 'Courier'

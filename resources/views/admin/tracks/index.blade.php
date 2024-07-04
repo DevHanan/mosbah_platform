@@ -123,7 +123,7 @@ new DataTable('#tracks', {
                     extend: 'copyHtml5',
                     text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
                     exportOptions: {
-                        columns: [0, ':visible']
+                      columns: ':visible'
                     }
                 },
                 {
@@ -137,9 +137,19 @@ new DataTable('#tracks', {
                     extend: 'pdfHtml5',
                     text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
                     exportOptions: {
-                        columns: [0, 1, 2, 5]
+                      columns: ':visible'
                     }
                 },
+                {
+                        extend: 'csvHtml5',
+						title: 'CSV',
+                        text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                            columns: ':visible'
+
+                        }
+                    },
                
             ]
         }

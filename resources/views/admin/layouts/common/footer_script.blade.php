@@ -454,21 +454,16 @@
 
         }
     ],
-    layout: {
-        topStart: {
-            buttons: [
-                {
-                    extend: 'colvis',
-                    columns: ':not(.noVis)',
-                    popoverTitle: 'Column visibility selector'
-                }
-            ]
-        }
-    },
+
 
 
 
                 buttons: [
+					{
+                    extend: 'colvis',
+                    columns: ':not(.noVis)',
+                    popoverTitle: 'Column visibility selector'
+                },
                     {
                         extend: 'copyHtml5',
 						title: 'print',

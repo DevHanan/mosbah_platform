@@ -441,15 +441,14 @@
 
 
 <script type="text/javascript">
-	'use strict';
 	$(document).ready(function() {
-		$('.datatable').DataTable({
+		$('.export-table').DataTable({
 			"columnDefs": [
-    {
-      "targets": "_all",
-      "className": $lang_direction == 'rtl' ? 'dt-head-right' : 'dt-head-left'
-    }
-  ],
+                         {
+      			"targets": "_all",
+     			 "className": $lang_direction == 'rtl' ? 'dt-head-right' : 'dt-head-left'
+              }
+                ],
 			dom: 'Bfrtip',
 			buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'

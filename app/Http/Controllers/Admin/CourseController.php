@@ -52,6 +52,11 @@ class CourseController extends Controller
         $data['access'] = $this->access;
 
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
+          
+            if ($request->type)
+                $q->where('course_type_id', $request->type);
+            if ($request->recommend)
+                $q->where('recommened', $request->recommend);
             if ($request->type)
                 $q->where('course_type_id', $request->type);
 
@@ -83,7 +88,6 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
-        return $request->all();
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
             if ($request->type)
                 $q->where('course_type_id', $request->type);

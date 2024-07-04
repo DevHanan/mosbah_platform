@@ -442,7 +442,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.export-table').DataTable({
+		$('#basic-table').DataTable({
 			"columnDefs": [
                          {
       			"targets": "_all",

@@ -118,7 +118,11 @@ new DataTable('#tracks', {
     layout: {
         topStart: {
             buttons: [
-               'colvis',
+              {
+                    extend: 'colvis',
+                    columns: ':not(.noVis)',
+                    popoverTitle: 'Column visibility selector'
+                }
                 {
                     extend: 'copyHtml5',
                     text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',

@@ -444,32 +444,17 @@
 	'use strict';
 	$(document).ready(function() {
 		$('.export-table').DataTable({
+			"columnDefs": [
+    {
+      "targets": "_all",
+      "className": $lang_direction == 'rtl' ? 'dt-head-right' : 'dt-head-left'
+    }
+  ],
 			dom: 'Bfrtip',
 			language: {
 				url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
 			},
-			buttons: [
-
-				// {
-				//     extend: 'excelHtml5',
-				//     className: 'btn btn-primary excel-export-button',
-				//     text: 'إكسل',
-				//     exportOptions: {
-				//         columns: ':not(:last-child)',
-				//     },
-
-
-				// },
-
-				// {
-				//     extend: 'pdfHtml5',
-				//     text: 'PDF',
-				//     exportOptions: {
-				//         columns: ':not(:last-child)',
-				//     }
-				// },
-
-			]
+			buttons:['copy','excel','csv','pdf']
 		});
 	});
 </script>

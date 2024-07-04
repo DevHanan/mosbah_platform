@@ -445,10 +445,29 @@
 	$(document).ready(function() {
 		  $('.datatable').DataTable({
                 dom: 'Bfrtip',
-				columnDefs: [
-      
-        { className: 'dt-center', targets: '_all' },
+
+				 columnDefs: [
+        {
+            targets: 1,
+            className: 'noVis',
+			className: 'dt-center', targets: '_all' ,
+
+        }
     ],
+    layout: {
+        topStart: {
+            buttons: [
+                {
+                    extend: 'colvis',
+                    columns: ':not(.noVis)',
+                    popoverTitle: 'Column visibility selector'
+                }
+            ]
+        }
+    }
+
+
+
                 buttons: [
                     {
                         extend: 'copyHtml5',

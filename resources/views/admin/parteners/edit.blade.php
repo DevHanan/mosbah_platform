@@ -29,7 +29,7 @@
         <div class="card">
 
 
-          <form class="needs-validation" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
+          <form class="needs-validation"  action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="card-body">

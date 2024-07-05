@@ -78,7 +78,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card" novalidate action="{{ route($route.'.store',$level->id) }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card"  action="{{ route($route.'.store',$level->id) }}" method="post" enctype="multipart/form-data">
           @csrf
 
 

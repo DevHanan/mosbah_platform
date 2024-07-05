@@ -36,7 +36,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card" novalidate action="{{ url('admin/quizzes/$quiz->id/questions' ) }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card"  action="{{ url('admin/quizzes/$quiz->id/questions' ) }}" method="post" enctype="multipart/form-data">
           @csrf
 
 

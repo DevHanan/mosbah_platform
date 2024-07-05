@@ -32,7 +32,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card" novalidate action="{{ url('admin/courses/$course_id/levels' ) }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card"  action="{{ url('admin/courses/$course_id/levels' ) }}" method="post" enctype="multipart/form-data">
           @csrf
 
 

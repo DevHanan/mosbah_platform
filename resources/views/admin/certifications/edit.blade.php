@@ -28,7 +28,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form class="card" novalidate action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
+                <form class="card"  action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
                     <input type="hidden" name="id" value="{{$row->id}}">

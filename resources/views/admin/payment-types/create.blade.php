@@ -34,7 +34,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form class="card" novalidate action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+                <form class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <!-- Form Start -->

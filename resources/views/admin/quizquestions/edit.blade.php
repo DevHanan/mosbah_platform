@@ -31,7 +31,7 @@
   <div class="container-xl">
     <div class="row row-cards">
       <div class="col-md-12">
-        <form class="card" novalidate action="{{ route($route.'.update',[$quiz->id,$row]) }}" method="post" enctype="multipart/form-data">
+        <form class="card"  action="{{ route($route.'.update',[$quiz->id,$row]) }}" method="post" enctype="multipart/form-data">
 
           @csrf
 

@@ -24,7 +24,7 @@
             <div class="container-xl">
               <div class="row row-cards">
                 <div class="col-md-12">
-                  <form class="needs-validation" novalidate action="{{ url('admin/landing-settings') }}" method="post" enctype="multipart/form-data">
+                  <form class="needs-validation"  action="{{ url('admin/landing-settings') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="col-12">
                       <div class="row row-cards row-deck">

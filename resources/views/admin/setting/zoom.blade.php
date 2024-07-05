@@ -18,7 +18,7 @@
     <div class="row row-cards">
       <div class="col-md-12" style="margin-top: 30px;">
 
-        <form class="needs-validation" class="card" novalidate action="{{ route('admin.setting.SaveZoom') }}" method="post" enctype="multipart/form-data">
+        <form class="needs-validation" class="card"  action="{{ route('admin.setting.SaveZoom') }}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="card">
 

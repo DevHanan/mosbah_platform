@@ -1,7 +1,7 @@
 <!-- [ Main Content ] start -->
 <div class="card">
     <div class="card-body">
-        <form class="needs-validation" novalidate action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
+        <form class="needs-validation"  action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <!-- Form Start -->

@@ -19,7 +19,7 @@
     <div class="row row-cards">
       <div class="col-md-12" style="margin-top: 30px;">
 
-        <form autocomplete="off" class="card" novalidate action="{{ route('admin.setting.saveAboutSetting') }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card"  action="{{ route('admin.setting.saveAboutSetting') }}" method="post" enctype="multipart/form-data">
           @csrf
 
 

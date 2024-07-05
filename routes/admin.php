@@ -76,7 +76,10 @@ Route::group(
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
 
+          
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
+            Route::get('recommend-courses?{recommend}', [CourseController::class, 'index'])->name('recommendCourses');
+
             Route::resource('tracks', TrackController::class);
             Route::resource('blogs', BlogController::class);
             Route::resource('course-types', CourseTypeController::class);

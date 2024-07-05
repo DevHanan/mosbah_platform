@@ -214,7 +214,7 @@
 
                 </a>
 
-                <a class="dropdown-item {{ request()->input('recommend') == '1'? 'active' : '' }}" href="{{ url('admin/courses?recommend=1')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.recommendCourses'])) active @endif" href="{{ url('admin/recommend-courses?recommend=1')}}">
 
                   {{ __('navbar.courses.recommened_courses') }}
 

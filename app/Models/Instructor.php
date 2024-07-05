@@ -61,7 +61,11 @@ class Instructor extends Authenticatable implements MustVerifyEmail
     public function getImageFullPathAttribute($value)
     {
 
+        if($this->image)
         return asset('public/' . $this->image);
+        else
+        return asset('public/instructors/teacher.png');
+
     }
 
     public function getCvFullPathAttribute($value)

@@ -18,8 +18,8 @@ class CourseType extends Model
         return $query->where('active', '1');
     }
 
-    public function courses($query)
+    public function courses()
     {
-        return $query->hasMany(Course::class);
+        return $this->hasMany(Course::class,'course_type_id','id');
     }
 }

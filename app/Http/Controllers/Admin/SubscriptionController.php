@@ -80,7 +80,7 @@ class SubscriptionController extends Controller
             }
         }
      
-        $subscriptioncount = Subscription::where(['student_id'=>$subscription->student_id,'instructor_id'=>$request->instructor_id])->count();
+        $subscriptioncount = Subscription::where(['student_id'=>$subscription->student_id,'course_id'=>$subscription->course_id])->count();
         if($subscriptioncount > 1)
         Toastr::success(__('admin.subscribtion_added_again'), __('admin.msg_success'));
         else

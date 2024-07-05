@@ -59,7 +59,7 @@ class SubscriptionController extends Controller
 
         $subscriptioncount = Subscription::where(['student_id' => $request->student_id, 'course_id' => $request->course_id])->count();
         if ($subscriptioncount > 0) {
-            Toastr::error(__('admin.subscribtion_added_again'), __('admin.msg_failed'));
+            Toastr::error(__('admin.subscribtion_added_again'), __('admin.msg_error'));
             return redirect()->back();
         } else {
             $subscription = Subscription::create($request->except('bill'));

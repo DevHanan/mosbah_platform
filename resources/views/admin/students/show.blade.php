@@ -156,7 +156,7 @@
                                         <td>{{optional($row->course)->name}}</td>
                                         <td><img src="{{optional($row->course)->imageFullPath}}" style="width:40px"></td>
                                         <td>{{ optional(optional($row->course)->coursetype)->name}}</td>
-                                        <th>{{ optional($row->course)->period }} {{ __($row->periodLabel) }}</th>
+                                        <th>{{ optional($row->course)->period }} {{ __(optional($row->course)->periodLabel) }}</th>
                                         <td>{{ optional($row->course)->price}} {{ $setting->currency }}</td>
                                         <td>{{ optional($row->course)->price_with_discount}} {{ $setting->currency }}</td>
 

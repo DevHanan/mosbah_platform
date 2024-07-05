@@ -105,7 +105,28 @@ class CourseController extends Controller
 
         return view($this->view . '.index', $data);
     }
-    public function create()
+
+    public function recommendCourses(Request $request)
+    {
+        $data['title'] = 'دورات  مرشحة';
+        $data['route'] = $this->route;
+        $data['view'] = $this->view;
+        $data['path'] = $this->path;
+        $data['access'] = $this->access;
+
+        $data['rows'] = Course::where('recommened','1')->with('tracks', 'instructors')->where(function ($q) use ($request) {
+            if ($request->name)
+                $q->Where('name', 'like', '%' . $request->name  . '%');
+            if ($request->instructor_id)
+                $q->where('instructor_id', $request->instructor_id);
+            if ($request->track_id)
+                $q->where('track_id', $request->track_id);
+            if ($request->course_type)
+                $q->where('course_type_id', $request->course_type);
+        })->paginate(10);
+
+        return view($this->view . '.index', $data);
+    }    public function create()
     {
         $data['title'] = trans('admin.courses.add');
         $data['route'] = $this->route;

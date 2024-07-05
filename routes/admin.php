@@ -78,7 +78,7 @@ Route::group(
 
           
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
-            Route::get('recommend-courses?{recommend}', [CourseController::class, 'index'])->name('recommendCourses');
+            Route::get('recommend-courses', [CourseController::class, 'recommendCourses'])->name('recommendCourses');
 
             Route::resource('tracks', TrackController::class);
             Route::resource('blogs', BlogController::class);

@@ -38,7 +38,7 @@
 
                         <div class="col-md-12">
                             <label class="form-label" for="title"> {{__('admin.coursetypes.name')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="title" value="{{ old('title') }}" required>
+                            <input type="text" class="form-control" name="name" id="title" value="{{ old('title') }}" required="required">
 
                             @error('name')
                             <div class="invalid-feedback">

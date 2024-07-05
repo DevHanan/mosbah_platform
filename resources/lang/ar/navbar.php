@@ -34,7 +34,7 @@ return [
 
     ],
     'coupons' => [
-        "coupons_management"  => "إدارة الكوبونات",
+        "coupons_management"  => "كوبونات الخصم",
         "list" => "قائمة الكوبونات",
         "add"   => "إضافة كوبون",
         "edit"   => "تعديل كوبون",

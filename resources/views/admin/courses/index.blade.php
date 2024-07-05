@@ -146,7 +146,7 @@
 
 
           <div class="table-responsive">
-            <table class=" export-table table card-table table-vcenter text-nowrap datatable">
+            <table class=" export-table table card-table table-vcenter text-nowrap datatable" id="courses">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -156,8 +156,8 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.courses.name')}}</th>
                   <th> {{__('admin.courses.image')}}</th>
+                  <th> {{__('admin.courses.name')}}</th>
                   <th>{{ __('admin.courses.track') }}</th>
                   <th>{{ __('admin.courses.instructor') }}</th>
                   <th> {{__('admin.courses.type')}}</th>
@@ -175,8 +175,8 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                  <td>{{$row->name}}</td>
                   <td><img src="{{$row->imageFullPath}}" style="width:40px"></td>
+                  <td>{{$row->name}}</td>
                   <td>
                     @if($row->tracks)
                     <ul class="list-unstyled">
@@ -259,4 +259,84 @@
   </div>
 </div>
 
+<?php 
+if(app()->getLocale() == 'ar'){
+$locale = 'Arabic';
+$dir = 'right to left';
+}
+else
+{ 
+$locale = 'English';
+$dir = 'left to right';
+}
+
+?>
 @endsection
+
+@push('scripts')
+<script>
+
+let locale = '<?= $locale?>'; // assuming this is set by your PHP code
+let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
+let dir = '<?= $dir?>'; 
+console.log(url);
+
+new DataTable('#courses', {
+  language: {
+
+    url: url
+  },
+  'direction': dir,
+  columnDefs: [
+                      {className: 'dt-center', targets: '_all' ,
+
+                      }
+                        ],
+    layout: {
+        topStart: {
+            buttons: [
+              {
+                    extend: 'colvis',
+                    text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
+                    
+                    columns: ":not(':first')"
+                  },
+                  
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
+                    exportOptions: {
+                      columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+                    exportOptions: {
+                      columns: ':visible'
+                    }
+                },
+                {
+                        extend: 'csvHtml5',
+						title: 'CSV',
+                        text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                            columns: ':visible'
+
+                        }
+                    },
+               
+            ]
+        }
+    }
+});
+</script>
+@endpush

@@ -24,7 +24,8 @@ class CourseTypeRequest extends FormRequest
     {
         return [
             
-            'name'=>'unique:course_types,name'
+            'name'        => 'required|unique:course_types,name',
+
 
 
         ];

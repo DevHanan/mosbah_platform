@@ -49,12 +49,12 @@ class AuthController extends Controller
                 Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
                 return redirect('student/dashboard');
             }else{
-            Toastr::success(__('admin.student_no_active'), __('admin.msg_error'));
+            Toastr::error(__('admin.student_no_active'), __('admin.msg_error'));
             return redirect()->back();
             }
 
         } else {
-            Toastr::success(__('admin.student_not_exist'), __('admin.msg_error'));
+            Toastr::error(__('admin.student_not_exist'), __('admin.msg_error'));
             return redirect()->back();
         }
     }

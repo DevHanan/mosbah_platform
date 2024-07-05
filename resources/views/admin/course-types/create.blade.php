@@ -30,7 +30,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form class="card" novalidate action="{{ route('admin.course-types.store') }}" method="post" enctype="multipart/form-data">
+                <form class="card"  action="{{ route('admin.course-types.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <!-- Form Start -->
@@ -38,7 +38,7 @@
 
                         <div class="col-md-12">
                             <label class="form-label" for="name"> {{__('admin.coursetypes.name')}} <span>*</span></label>
-                            <input  required type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" require>
+                            <input  required type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" >
 
                             @error('name')
                             <div class="invalid-feedback">

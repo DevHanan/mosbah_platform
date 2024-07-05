@@ -70,7 +70,9 @@ return [
         'edit' => 'edit type',
         'name' => "name",
         'status' => 'appearance status',
-        'actions' => 'event'
+        'actions' => 'event',
+        'course_numbers' => ' Course Number'
+
     ],
 
     "tracks" => [

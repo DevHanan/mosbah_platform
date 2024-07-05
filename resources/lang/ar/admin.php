@@ -70,7 +70,8 @@ return [
         'edit' => 'تعديل نوع',
         'name'  => "الإسم",
         'status' => 'حالة الظهور',
-        'actions' => 'الحدث'
+        'actions' => 'الحدث',
+        'course_numbers' => 'عدد الدورات'
     ],
 
     "tracks" => [

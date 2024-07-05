@@ -81,7 +81,7 @@
 
 
                                     <label class="form-label" for="logo">{{ __('admin.subscriptions.field_payment_attachmend') }}</label>
-                                    <input type="file" class="form-control" name="bill" id="logo">
+                                    <input type="file" class="form-control" name="bill" id="logo" required>
 
                                     @error('bill')
                                     <div class="invalid-feedback">

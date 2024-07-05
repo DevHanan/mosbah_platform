@@ -26,7 +26,8 @@ class SubscriptionRequest extends FormRequest
             'course_id' => 'required|exists:courses,id',
             'student_id' => 'required|exists:students,id',
             'payment_type_id' => 'required|exists:payment_types,id',
-            'id' => 'nullable|exists:subscriptions,id'
+            'id' => 'nullable|exists:subscriptions,id',
+            'bill' => 'required'
 
 
         ];

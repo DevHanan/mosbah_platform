@@ -106,11 +106,11 @@
 
                                         </a>
 
-                                        <a href="{{ route($route.'.edit', $row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                        <a href="{{ route($route.'.edit', $row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
                                             <i class="far fa-edit"></i>
                                         </a>
 
-                                        <a href="{{ url('admin/students/'.$row->id)}}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                                        <a href="{{ url('admin/students/'.$row->id)}}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
                                             <i class="far fa-eye"></i>
                                         </a>
 

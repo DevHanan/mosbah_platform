@@ -43,10 +43,13 @@ class Student extends Authenticatable  implements MustVerifyEmail
     public function getImageFullPathAttribute($value)
     {
 
+        if($this->image)
         return asset('public/' . $this->image);
+        else
+        return asset('public/uploads/students/default.jpg');
     }
 
-    protected $hidden = ['password'];
+    protected $hidden = ['password']; 
 
     public function scopeActive($query)
     {

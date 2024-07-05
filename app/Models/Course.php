@@ -55,12 +55,18 @@ class Course extends Model
     public function getImageFullPathAttribute($value)
     {
 
+        if($this->image)
         return asset('public/' . $this->image);
+        else
+        return asset('public/uploads/courses/default.png');
     }
     public function getBackgroundImageFullPathAttribute($value)
     {
 
+        if($this->background_image)
         return asset('public/' . $this->background_image);
+        else
+        return asset('public/uploads/courses/default.png');
     }
 
 

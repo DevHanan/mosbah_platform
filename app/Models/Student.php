@@ -19,10 +19,25 @@ class Student extends Authenticatable  implements MustVerifyEmail
         'country_id', 'qualifications', 'about_student'
     );
 
-    protected $appends = ['name', 'imageFullPath'];
+    protected $appends = ['name', 'imageFullPath','aboutLabel'];
     protected function getNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function getAboutLabelAttribute()
+    {
+        if ($this->about_student == 0)
+            return  trans('admin.instructors.student');
+        elseif ($this->about_student == 1)
+
+        return  trans('admin.instructors.Bachelor');
+        elseif ($this->about_student == 2)
+        return  trans('admin.instructors.Graduated');
+        elseif ($this->about_student == 3)
+        return  trans('admin.instructors.Doctorate');
+        else
+        return  trans('admin.instructors.Master');
     }
 
     public function getImageFullPathAttribute($value)

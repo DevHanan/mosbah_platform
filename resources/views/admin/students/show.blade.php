@@ -95,22 +95,13 @@
 
 
 
-                                        <th>{{ __('admin.students.field_status') }}
+                                        <th>{{ __('admin.students.degree') }}
 
                                           
                                         </th>
                                         <td>
 
-
-                                            <div class="form-check form-switch md-3" style="margin:10px;display:inline;">
-
-                                                <input data-id="{{$row->id}}" data-type='App\Models\Student' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-                                            </div>
-                                            @if($row->active == 1)
-                                            <span class="badge bg-green text-green-fg">{{ __('admin.active')}}</span>
-                                            @else
-                                            <span class="badge bg-red text-red-fg">{{ __('admin.inactive')}}</span>
-                                            @endif
+                                                        {{ $row->aboutLabel }}
                                         </td>
 
 

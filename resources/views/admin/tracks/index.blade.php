@@ -135,7 +135,7 @@ new DataTable('#tracks', {
 
     url: url
   },
-  'direction': ${dir}// or 'ltr' for left-to-right direction
+  'direction': ${dir},
 ,
   columnDefs: [
                       {className: 'dt-center', targets: '_all' ,

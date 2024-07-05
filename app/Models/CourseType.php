@@ -17,4 +17,9 @@ class CourseType extends Model
     {
         return $query->where('active', '1');
     }
+
+    public function courses($query)
+    {
+        return $query->hasMany(Course::class);
+    }
 }

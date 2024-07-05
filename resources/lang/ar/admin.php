@@ -205,7 +205,7 @@ return [
         'is_employee' => 'هل المدرب موظف',
         'salary' => 'المرتب',
         'yes'  => 'نعم',
-        'total_course' => 'إجمالى عدد الدورات المقدمة',
+        'total_course' => 'دورات مقدمة',
         'total_balance' => 'اجمالي أرباح المدرب',
         'current_balance' => 'الرصيد الحالى',
         'no'  => 'لا',

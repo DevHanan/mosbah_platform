@@ -42,9 +42,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-
-                                    <th>{{ __('admin.instructors.field_name') }}</th>
                                     <th>{{ __('admin.instructors.field_photo') }}</th>
+                                    <th>{{ __('admin.instructors.field_name') }}</th>
                                     <th>{{ __('admin.instructors.phone_number') }}</th>
                                     <th>{{ __('admin.instructors.field_email') }}</th>
                                     <th>{{ __('admin.instructors.field_country') }}</th>
@@ -63,9 +62,8 @@
                                 @foreach( $rows as $key => $row )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-
-                                    <td>{{ $row->name }}</td>
                                     <td><img src="{{$row->imageFullPath }}" style="width:40px"></td>
+                                    <td>{{ $row->name }}</td>
                                     <td>{{ $row->phone }}</td>
                                     <td>{{ $row->email }}</td>
                                     <td>{{ optional($row->country)->name }}</td>

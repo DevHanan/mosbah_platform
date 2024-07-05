@@ -55,6 +55,7 @@ class SubscriptionController extends Controller
 
     public function store(SubscriptionRequest $request)
     {
+
         $subscription= Subscription::create($request->except('bill'));
         if ($request->hasFile('bill')) {
             $thumbnail = $request->bill;
@@ -79,6 +80,10 @@ class SubscriptionController extends Controller
             }
         }
      
+        $subscriptioncount = Subscription::where(['student_id'=>$subscription->student_id,'instructor_id'=>$request->instructor_id])->count();
+        if($subscriptioncount > 1)
+        Toastr::success(__('admin.subscribtion_added_again'), __('admin.msg_success'));
+        else
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.subscriptions.index');    }
 

@@ -755,6 +755,7 @@ return [
     'msg_login_successfully' => 'تم تسجيل الدخول بنجاح',
     'instructor_no_active' => 'المحاضر غير مفعل يمكن تفعيله أولا لتسجيل الدخول لحسابه',
     'instructor_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
+    'subscribtion_added_again' => 'تم إاضافة إشتراك الطالب مره أخرى بنجاح'
 
 
 

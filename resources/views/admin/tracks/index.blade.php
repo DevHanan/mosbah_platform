@@ -108,7 +108,13 @@
   </div>
 </div>
 
-<?php $locale = app()->getLocale(); ?>
+<?php 
+if(app()->getLocale() == 'ar')
+$locale = 'Arabic';
+else 
+$locale = 'English';
+
+?>
 @endsection
 
 @push('scripts')

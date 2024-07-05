@@ -111,12 +111,12 @@
 <?php 
 if(app()->getLocale() == 'ar'){
 $locale = 'Arabic';
-$dir = 'rtl';
+$dir = 'right to left';
 }
 else
 { 
 $locale = 'English';
-$dir = 'ltr';
+$dir = 'left to right';
 }
 
 ?>

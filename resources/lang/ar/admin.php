@@ -442,7 +442,7 @@ return [
         'course_number'  => 'عدد الدورات التدريبية',
         'student_number' => 'عدد الطلاب',
         'instructor_number' => 'عدد المدربين',
-        'lecture_number' => 'عدد المدربات',
+        'lecture_number' => 'عدد المحاضرات',
         'mission_title' => 'العنوان',
         'mission_image' => 'الصورة',
         'mission_descriptions' => 'الوصف',

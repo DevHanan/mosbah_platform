@@ -95,7 +95,7 @@
                                         <span class="badge bg-red text-red-fg">{{ __('admin.inactive')}}</span>
                                         @endif
                                     </td>
-                                    <td style="display:inline-block;">
+                                    <td>
 
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Toastr;
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 
 class AuthController extends Controller
@@ -36,24 +37,39 @@ class AuthController extends Controller
      *
      * @return void
      */
-  
 
-    public function login($id){
-        Auth::guard('web')->logout();
-        Auth::guard('students-login')->loginUsingId($id);
-        Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
-        return redirect('student/dashboard');
+
+    public function login($id)
+    {
+        $student = Student::find($id);
+        if ($student) {
+            if ($student->active == 1) {
+                Auth::guard('web')->logout();
+                Auth::guard('students-login')->loginUsingId($id);
+                Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
+                return redirect('student/dashboard');
+            }else{
+            Toastr::success(__('admin.student_no_active'), __('admin.msg_error'));
+            return redirect()->back();
+            }
+
+        } else {
+            Toastr::success(__('admin.student_not_exist'), __('admin.msg_error'));
+            return redirect()->back();
+        }
     }
-  
 
-    public function logout(){
+
+    public function logout()
+    {
 
         Auth::guard('students-login')->logout();
         Toastr::success(__('admin.auth_logged_out'), __('admin.msg_success'));
         return redirect('/')->with('admin.success', __('admin.auth_logged_out'));
     }
 
-    public function getProfile(){
+    public function getProfile()
+    {
 
         $data['row'] = auth()->guard('students-login')->user();
         return view('student.profile', $data);
@@ -72,40 +88,39 @@ class AuthController extends Controller
 
         $user = Auth::guard('students-login')->user();
 
-        if($request->id == $user->id){
+        if ($request->id == $user->id) {
 
-        // Update data
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->country_id = $request->country_id;
-        $user->phone = $request->phone;
-        $user->qualifications = $request->qualifications;
-        $user->save();
-
-
-        if ($request->hasFile('image')) {
-
-            $thumbnail = $request->image;
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/students/'), $filename);
-            $user->image = 'uploads/students/' . $filename;
+            // Update data
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->email = $request->email;
+            $user->country_id = $request->country_id;
+            $user->phone = $request->phone;
+            $user->qualifications = $request->qualifications;
             $user->save();
-        }
 
-        if ($request->track_ids)
-            $user->tracks()->attach($request->track_ids);
+
+            if ($request->hasFile('image')) {
+
+                $thumbnail = $request->image;
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move(public_path('/uploads/students/'), $filename);
+                $user->image = 'uploads/students/' . $filename;
+                $user->save();
+            }
+
+            if ($request->track_ids)
+                $user->tracks()->attach($request->track_ids);
 
             if ($request->password != null) {
                 $user->password = Bcrypt($request->password);
                 $user->save();
             }
 
-        Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+            Toastr::success(__('msg_updated_successfully'), __('msg_success'));
 
-        }
-        else {
-        Toastr::error(__('msg_not_permitted'), __('msg_error'));
+        } else {
+            Toastr::error(__('msg_not_permitted'), __('msg_error'));
         }
 
         return redirect()->back();

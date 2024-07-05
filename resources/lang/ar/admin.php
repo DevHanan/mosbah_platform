@@ -748,7 +748,10 @@ return [
         'first_classroom_title' => 'قائمة مواد الأول الثانوي',
         'second_classroom_title' => 'قائمة مواد التانى الثانوي',
         'third_classroom_title' => 'قائمة مواد الثالت الثانوي'
-    ]
+    ],
+    'student_no_active' => 'الطالب غير مفعل يمكن تفعيله أولا لتسجيل الدخول لحسابه',
+    'student_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
+    'msg_error' => 'خطأ !'
 
 
 

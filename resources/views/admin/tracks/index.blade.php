@@ -114,11 +114,13 @@
 @push('scripts')
 <script>
 
+let locale = '<?= $locale?>'; // assuming this is set by your PHP code
+let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
 
 new DataTable('#tracks', {
   language: {
-    
-    url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/'. <?=  $locale ?>.'.json'
+
+    url: url
   },
   columnDefs: [
                       {className: 'dt-center', targets: '_all' ,

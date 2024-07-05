@@ -49,10 +49,15 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         $type = $request->input('type');
-        if ($type == 'instructor')
+        if ($type == 'instructor'){
             $model = 'App\Models\Instructor';
+            $request->merge(['active'=>'0']);
+        }
         else
+        {
             $model = 'App\Models\Student';
+            $request->merge(['active'=>'1']);
+        }
 
 
         $landingSetting = LandingSetting::first();

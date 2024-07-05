@@ -34,10 +34,22 @@ class AuthController extends Controller
 
     public function login($id)
     {
-        Auth::guard('web')->logout();
-        Auth::guard('instructors-login')->loginUsingId($id);
-        Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
-        return redirect('instructor/dashboard');
+        $instructor = Instructor::find($id);
+        if ($instructor) {
+            if ($instructor->active == 1) {
+                Auth::guard('web')->logout();
+                Auth::guard('instructors-login')->loginUsingId($id);
+                Toastr::success(__('admin.msg_login_successfully'), __('admin.msg_success'));
+                return redirect('instructor/dashboard');
+            } else {
+                Toastr::error(__('admin.instructor_no_active'), __('admin.msg_error'));
+                return redirect()->back();
+            }
+
+        } else {
+            Toastr::error(__('admin.instructor_not_exist'), __('admin.msg_error'));
+            return redirect()->back();
+        }
     }
 
 

@@ -109,10 +109,15 @@
 </div>
 
 <?php 
-if(app()->getLocale() == 'ar')
+if(app()->getLocale() == 'ar'){
 $locale = 'Arabic';
-else 
+$dir = 'rtl';
+}
+else
+{ 
 $locale = 'English';
+$dir = 'ltr';
+}
 
 ?>
 @endsection
@@ -122,6 +127,7 @@ $locale = 'English';
 
 let locale = '<?= $locale?>'; // assuming this is set by your PHP code
 let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
+let dir = '<?= $dir?>'; 
 console.log(url);
 
 new DataTable('#tracks', {
@@ -129,6 +135,8 @@ new DataTable('#tracks', {
 
     url: url
   },
+  'direction': ${dir}// or 'ltr' for left-to-right direction
+,
   columnDefs: [
                       {className: 'dt-center', targets: '_all' ,
 

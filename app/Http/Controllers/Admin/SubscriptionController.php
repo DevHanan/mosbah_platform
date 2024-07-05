@@ -35,110 +35,118 @@ class SubscriptionController extends Controller
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
-        $data['rows']  = Subscription::where(function($q)use($request){
+        $data['rows'] = Subscription::where(function ($q) use ($request) {
             if ($request->student_id)
-            $q->Where('student_id',  $request->student_id );
+                $q->Where('student_id', $request->student_id);
             if ($request->course_id)
-            $q->Where('course_id',  $request->course_id );
+                $q->Where('course_id', $request->course_id);
             if ($request->track_id)
-            $q->Where('track_id',  $request->track_id );
+                $q->Where('track_id', $request->track_id);
         })->get();
-        return view($this->view.'.index', $data);
+        return view($this->view . '.index', $data);
     }
 
     public function create(Subscription $subscription)
     {
-        $data['title'] =trans('admin.subscriptions.add');
+        $data['title'] = trans('admin.subscriptions.add');
         $data['route'] = $this->route;
-        return view($this->view .'.create',$data);
+        return view($this->view . '.create', $data);
     }
 
     public function store(SubscriptionRequest $request)
     {
 
-        $subscription= Subscription::create($request->except('bill'));
-        if ($request->hasFile('bill')) {
-            $thumbnail = $request->bill;
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/subscriptions/main/'),$filename);
-            $subscription->bill ='uploads/subscriptions/main/'.$filename;
-            $subscription->save();
-        }
-        $course= Course::find($request->course_id);
-        $subscription->update(['paid'=>$course->price_with_discount]);
 
-
-        /** add instructor prectange if exist */
-        $instructors = CourseInstructor::where('course_id',$course->id)->get();
-        foreach($instructors as $item){
-            if($item->prectange){
-            $instructor = Instructor::find($item->instructor_id);
-            $instructor_profit = ($course->price/100) * $item->prectange;
-            $instructor->current_balance = $instructor->current_balance + $instructor_profit;
-            $instructor->total_balance = $instructor->total_balance + $instructor_profit;
-            $instructor->save();
+        $subscriptioncount = Subscription::where(['student_id' => $subscription->student_id, 'course_id' => $subscription->course_id])->count();
+        if ($subscriptioncount > 0) {
+            Toastr::error(__('admin.subscribtion_added_again'), __('admin.msg_failed'));
+            return redirect()->back();
+        } else {
+            $subscription = Subscription::create($request->except('bill'));
+            if ($request->hasFile('bill')) {
+                $thumbnail = $request->bill;
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move(public_path('/uploads/subscriptions/main/'), $filename);
+                $subscription->bill = 'uploads/subscriptions/main/' . $filename;
+                $subscription->save();
             }
-        }
-     
-        $subscriptioncount = Subscription::where(['student_id'=>$subscription->student_id,'course_id'=>$subscription->course_id])->count();
-        if($subscriptioncount > 1)
-        Toastr::success(__('admin.subscribtion_added_again'), __('admin.msg_success'));
-        else
-        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.subscriptions.index');    }
+            $course = Course::find($request->course_id);
+            $subscription->update(['paid' => $course->price_with_discount]);
 
-    public function show($id){
-        $subscription= Subscription::find($id);
-        if($subscription)
-        return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription loades successfully'));
+
+            /** add instructor prectange if exist */
+            $instructors = CourseInstructor::where('course_id', $course->id)->get();
+            foreach ($instructors as $item) {
+                if ($item->prectange) {
+                    $instructor = Instructor::find($item->instructor_id);
+                    $instructor_profit = ($course->price / 100) * $item->prectange;
+                    $instructor->current_balance = $instructor->current_balance + $instructor_profit;
+                    $instructor->total_balance = $instructor->total_balance + $instructor_profit;
+                    $instructor->save();
+                }
+            }
+
+            Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+            return redirect()->route('admin.subscriptions.index');
+        }
+    }
+
+    public function show($id)
+    {
+        $subscription = Subscription::find($id);
+        if ($subscription)
+            return $this->okApiResponse(new SubscriptionResource($subscription), __('Subscription loades successfully'));
         else
-        return $this->notFoundApiResponse([],__('Data Not Found'));
+            return $this->notFoundApiResponse([], __('Data Not Found'));
 
     }
 
     public function edit($id)
-    {   
+    {
         $data['row'] = Subscription::find($id);
         $data['route'] = $this->route;
         $data['title'] = 'edit Subscription';
-        return view($this->view.'.edit',$data);
+        return view($this->view . '.edit', $data);
     }
     public function update(SubscriptionRequest $request)
     {
-        $subscription= Subscription::find($request->id);
+        $subscription = Subscription::find($request->id);
         $subscription->update($request->except('bill'));
         if ($request->hasFile('bill')) {
             $thumbnail = $request->bill;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move(public_path('/uploads/subscriptions/main/'),$filename);
-            $subscription->bill ='uploads/subscriptions/main/'.$filename;
+            $thumbnail->move(public_path('/uploads/subscriptions/main/'), $filename);
+            $subscription->bill = 'uploads/subscriptions/main/' . $filename;
             $subscription->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->route('admin.countries.index');     }
+        return redirect()->route('admin.countries.index');
+    }
 
     public function destroy(Request $request)
     {
-       $subscription=  Subscription::find($request->id);
-       if($subscription)
-       $subscription->delete();
-       Toastr::success(__('msg_delete_successfully'), __('msg_success'));
-       return redirect()->route($this->route.'.index'); 
-       }
+        $subscription = Subscription::find($request->id);
+        if ($subscription)
+            $subscription->delete();
+        Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+        return redirect()->route($this->route . '.index');
+    }
 
 
-       public  function changeStatus(Request $request){
+    public function changeStatus(Request $request)
+    {
         $item = $request->type::find($request->id);
         $item->active = $request->status;
         $item->save();
-        return response()->json(['success'=>'Status change successfully.']);
+        return response()->json(['success' => 'Status change successfully.']);
     }
-       
-    public  function changerecommened(Request $request){
-        
+
+    public function changerecommened(Request $request)
+    {
+
         $item = $request->type::find($request->id);
         $item->recommened = $request->recommened;
         $item->save();
-        return response()->json(['success'=>'Recommened change successfully.']);
+        return response()->json(['success' => 'Recommened change successfully.']);
     }
 }

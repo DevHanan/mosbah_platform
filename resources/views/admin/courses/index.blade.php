@@ -80,7 +80,7 @@
                             <div class="col-md-3">
                               <div class="mb-3">
                                 <label class="form-label">{{__('admin.courses.name')}}</label>
-                                <input type="text" class="form-control" placeholder="course" name="name">
+                                <input type="text" class="form-control" placeholder="course" name="name" value="{{old('name')}}">
                               </div>
                             </div>
 

@@ -64,7 +64,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
         if($this->image)
         return asset('public/' . $this->image);
         else
-        return asset('public/instructors/teacher.png');
+        return asset('public/uploads/instructors/teacher.png');
 
     }
 

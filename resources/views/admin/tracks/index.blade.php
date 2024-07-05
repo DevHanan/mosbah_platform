@@ -136,7 +136,6 @@ new DataTable('#tracks', {
     url: url
   },
   'direction': dir,
-,
   columnDefs: [
                       {className: 'dt-center', targets: '_all' ,
 

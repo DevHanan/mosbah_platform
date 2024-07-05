@@ -116,6 +116,7 @@
 
 let locale = '<?= $locale?>'; // assuming this is set by your PHP code
 let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
+console.log(url);
 
 new DataTable('#tracks', {
   language: {

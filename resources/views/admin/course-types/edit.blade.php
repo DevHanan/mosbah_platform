@@ -31,7 +31,7 @@
         <div class="col-md-12">
 
 
-      <form class="card" novalidate action="{{ route('admin.course-types.update',$coursetype) }}" method="post" enctype="multipart/form-data">
+      <form class="card" action="{{ route('admin.course-types.update',$coursetype) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <div class="card-body">

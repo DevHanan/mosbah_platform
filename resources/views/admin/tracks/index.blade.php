@@ -117,7 +117,7 @@
 
 new DataTable('#tracks', {
   language: {
-    url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/'<?=  $locale ?>'.json'
+    url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/' + <?=  $locale ?> +'.json'
   },
   columnDefs: [
                       {className: 'dt-center', targets: '_all' ,

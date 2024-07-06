@@ -62,7 +62,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">{{ __('admin.reviews.field_comment') }} <span class="form-label-description"></span></label>
-                                <textarea class="form-control" name="comment" rows="6" placeholder="Content.."></textarea>
+                                <textarea class="form-control" name="comment" rows="6" placeholder="Content.." required></textarea>
                             </div>
 
                             <div class="col-md-3">

@@ -73,7 +73,8 @@
                         </td>
                       
                         <td>
-                          {!! $row->comment !!}
+                          {{ str_limit($row->comment, 100) }}
+
                           
                         </td>
                       

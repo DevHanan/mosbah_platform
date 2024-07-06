@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use Toastr;
+use Illuminate\Support\Facades\Validator;
 
 
 class QuestionController extends Controller
@@ -43,6 +44,14 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'question'=> 'required',
+            'answer' => 'required',
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $question = Question::create($request->all());
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.questions.index');
@@ -61,6 +70,13 @@ class QuestionController extends Controller
 
     public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'question'=> 'required',
+            'answer' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $question = Question::find($request->id);
         $question->update($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

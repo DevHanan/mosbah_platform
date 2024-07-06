@@ -63,6 +63,7 @@ class SettingController extends Controller
     {
        
 
+        return $request->all();
         $data = Setting::where('id', 1)->first();
         if (!$data)
             $data = new Setting();

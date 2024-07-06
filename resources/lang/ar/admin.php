@@ -428,7 +428,6 @@ return [
         'edit'  => 'تعديل بيانات سياسة',
         'descriptions' => 'الوصف',
         'field_file' => 'الملف الملحق',
-        'field_title'  => 'عنوان',
         'status' => 'حالة الظهور',
         'actions'  => 'الحدث'
     ],

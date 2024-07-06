@@ -5,15 +5,17 @@
 <section class="header">
         <div class="text-center text-white">
           <h1 class="pb-3">سياساتنا</h1>
-          <p>تعرف على السياسات و اللوائح وكل ما يخص المؤسسة</p>
+          <!-- <p>تعرف على السياسات و اللوائح وكل ما يخص المؤسسة</p> -->
         </div>
       </section>
   
       <section class="policies container my-5 p-5 rounded">
           <div class="policy-info d-flex justify-content-between align-items-center mb-5">
               <div>
-                  <h1 class="fw-bold">السياسات واللوائح</h1>
-                  <p class="fw-bold mt-4">تعرف على أدلة السياسات للمؤسسة الخاصة بعام 2024....</p>
+                  <!-- <h1 class="fw-bold">السياسات واللوائح</h1> -->
+                  <p class="fw-bold mt-4">
+                  تعرف على السياسات واللوائح الخاصة بنا
+                  </p>
               </div>
               <div>
                   <img src="public/front/img/docs.png" alt="">

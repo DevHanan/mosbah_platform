@@ -52,6 +52,8 @@ class PolicyController extends Controller
     {
         if($request->active)
         $request->merge (['active'=>'1']) ;
+        else
+        $request->merge (['active'=>'0']) ;
         $policy = Policy::create($request->except('file'));
         if ($request->hasFile('file')) {
             $directory = 'policies';

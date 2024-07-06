@@ -67,7 +67,7 @@
                         </td>
                         <td>
                           @if($row->file)
-                        <a href="{{ asset($row->file) }}" target="_blank"> {{ __('admin.show') }}</a>                        </td>					
+                        <a href="{{ asset($row->file) }}" target="_blank"> {{ __('admin.show_file') }}</a>                        </td>					
                         @else
                         {{ __('admin.no_file')}}
 

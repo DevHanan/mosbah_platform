@@ -391,8 +391,8 @@ return [
         'field_facebook_url' => 'رابط حساب الفيس بوك',
         'field_currency' => 'العملة',
         'about_settings' => 'من نحن',
-        'policy_settings' => 'السياسات والشروط',
-        'policies'  => 'السياسات والشروط',
+        'policy_settings' => 'السياسات واللوائح',
+        'policies'  => 'السياسات واللوائح',
         'field_whatsapp'  => 'رقم الواتساب'
     ],
     'landing' => [
@@ -423,7 +423,7 @@ return [
     ],
     'policies' => [
         'field_title' => 'العنوان',
-        'title' => 'السياسات والشروط',
+        'title' => 'السياسات واللوائح',
         'add'  => 'سياسة جديدة',
         'edit'  => 'تعديل بيانات سياسة',
         'descriptions' => 'الوصف',
@@ -692,7 +692,7 @@ return [
     'reviews' => [
         'title'  => 'الاراء والتعليقات',
         'field_name' => 'إسم المستخدم',
-        'title' => 'السياسات والشروط',
+        'title' => 'السياسات واللوائح',
         'add'  => 'تعليق جديدة',
         'edit'  => 'تعديل بيانات تعليق',
         'field_comment' => 'التعليق',
@@ -756,7 +756,8 @@ return [
     'msg_login_successfully' => 'تم تسجيل الدخول بنجاح',
     'instructor_no_active' => 'المحاضر غير مفعل يمكن تفعيله أولا لتسجيل الدخول لحسابه',
     'instructor_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
-    'subscribtion_added_again' => 'هذا الطالب مشترك بالدورة بالفعل'
+    'subscribtion_added_again' => 'هذا الطالب مشترك بالدورة بالفعل',
+    'show_file' => 'عرض الملف'
 
 
 

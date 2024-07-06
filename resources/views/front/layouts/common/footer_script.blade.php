@@ -91,6 +91,13 @@
                                 </a>
                             </li>
                             @endif
+                            @if($setting->snapchat_url != null)
+                            <li>
+                                <a  target="_blank" href="{{ $setting->snapchat_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                    <i class="fa-brands fa-snapchat fa-lg primary-color"></i>
+                                </a>
+                            </li>
+                            @endif
                         </ul> 
                     </div>
                 </div>

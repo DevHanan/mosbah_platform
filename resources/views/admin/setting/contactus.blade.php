@@ -105,7 +105,7 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="mb-3">
+                                                    <!-- <div class="mb-3">
                                                         <label class="form-label" for="address_on_map">{{ __('admin.settings.address_on_map') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="address_on_map" id="address_on_map" value="{{ isset($row->address_on_map)?$row->address_on_map:'' }}">
 
@@ -114,7 +114,7 @@
                                                             {{ $message }}
                                                         </div>
                                                         @enderror
-                                                    </div>
+                                                    </div> -->
                                                     <div class="mb-3">
                                                         <label class="form-label" for="lat">{{ __('admin.settings.lat_value') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="lat" id="lat" value="{{ isset($row->lat)?$row->lat:'' }}">

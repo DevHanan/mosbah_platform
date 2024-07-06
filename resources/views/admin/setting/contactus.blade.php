@@ -210,7 +210,12 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="mb-3">
+                                                    
+
+
+
+                                                </div>
+                                                <div class="mb-3">
                                                         <label class="form-label" for="map_link">{{ __('admin.settings.map_link') }} <span>*</span></label>
                                                         <input type="text" class="form-control" name="map_link" id="map_link" value="{{ isset($row->map_link)?$row->map_link:'' }}">
 
@@ -220,10 +225,6 @@
                                                         </div>
                                                         @enderror
                                                     </div>
-
-
-
-                                                </div>
                                             </div>
 
                                             <!-- Form Start -->

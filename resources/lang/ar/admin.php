@@ -366,6 +366,7 @@ return [
 
     ],
     'settings' => [
+        'snapchat_url' => 'سناب شات',
         'lng_value' => 'قيمة خط العرض',
         'lat_value' => 'قيمة خط الطول',
         'address_on_map' => 'العنوان على الخريطة',

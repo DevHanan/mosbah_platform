@@ -194,6 +194,17 @@
                                                         @enderror
                                                     </div>
 
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="snapchat_url">{{ __('admin.settings.snapchat_url') }} <span>*</span></label>
+                                                        <input type="text" class="form-control" name="snapchat_url" id="snapchat_url" value="{{ isset($row->snapchat_url)?$row->snapchat_url:'' }}">
+
+                                                        @error('snapchat_url')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+
                                                    
 
                                                     

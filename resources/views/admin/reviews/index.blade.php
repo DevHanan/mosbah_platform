@@ -73,7 +73,8 @@
                         </td>
                       
                         <td>
-                          {{ str_limit($row->comment, 100) }}
+                          {{ \Illuminate\Support\Str::limit($row->comment, 100) }}
+
 
                           
                         </td>

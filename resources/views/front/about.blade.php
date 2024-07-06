@@ -239,6 +239,7 @@
     </div>
     @endif
 
+    @if($landing_setting->question_list == 1)
     <div class="que mt-5 py-5 mb-3" style="background-color: #DBFFFE;">
         <div class="container">
             <h2 class="text-center mb-5">أسئلة متكررة؟</h2>
@@ -289,6 +290,7 @@
 
         </div>
     </div>
+    @endif
 
 </section>
 @endsection

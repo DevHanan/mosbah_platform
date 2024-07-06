@@ -152,6 +152,11 @@ class SettingController extends Controller
         $data->achievements = $request->achievements ? 1: 0;
         $data->letter_news = $request->letter_news ? 1: 0;
         $data->book_shop_url = $request->book_shop_url;
+        $data->question_list = $request->question_list ? 1 : 0;
+        $data->book_store_visiable = $request->book_store_visiable ? 1 : 0;
+
+        
+
 
         $data->save();
 

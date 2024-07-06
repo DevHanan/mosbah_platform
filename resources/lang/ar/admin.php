@@ -755,7 +755,8 @@ return [
     'instructor_no_active' => 'المحاضر غير مفعل يمكن تفعيله أولا لتسجيل الدخول لحسابه',
     'instructor_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
     'subscribtion_added_again' => 'هذا الطالب مشترك بالدورة بالفعل',
-    'show_file' => 'عرض الملف'
+    'show_file' => 'عرض الملف',
+    'book_store_visiable' => 'رابط متجر الكتب'
 
 
 

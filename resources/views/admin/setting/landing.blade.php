@@ -323,6 +323,33 @@
                                     </span>
                                   </label>
                                 </div>
+
+                                <div class="col-md-12">
+                                  <label class="form-control">
+                                    <span class="col">
+                                      {{ __('admin.questions.list')}}
+                                    </span>
+                                    <span class="col-auto">
+                                      <label class="form-check form-check-single form-switch">
+                                        <input class="form-check-input" type="checkbox" name="question_list" @if($row->question_list==1) checked="checked" @endif>
+                                      </label>
+                                    </span>
+                                  </label>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                  <label class="form-control">
+                                    <span class="col">
+                                      {{ __('admin.book_store_visiable')}}
+                                    </span>
+                                    <span class="col-auto">
+                                      <label class="form-check form-check-single form-switch">
+                                        <input class="form-check-input" type="checkbox" name="book_store_visiable" @if($row->book_store_visiable==1) checked="checked" @endif>
+                                      </label>
+                                    </span>
+                                  </label>
+                                </div>
                               </div>
 
                               <!-- Form Start -->

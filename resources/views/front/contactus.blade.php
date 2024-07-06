@@ -52,7 +52,7 @@
                             @endif
                             @if($setting->whatsapp != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-whatsapp fa-lg primary-color"></i>
                                 </a>
                             </li>
@@ -60,35 +60,35 @@
 
                             @if($setting->instgram_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-instagram fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->youtube_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-youtube fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->twitter_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-x-twitter fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->snapchat_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->snapchat_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->snapchat_url }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-snapchat fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->telegram_number != null)
                             <li>
-                                <a  target="_blank" href="tel: {{ $setting->telegram_number }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="tel: {{ $setting->telegram_number }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-telegram fa-lg primary-color"></i>
                                 </a>
                             </li>
@@ -96,7 +96,7 @@
 
                             @if($setting->linkedin_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->linkedin_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->linkedin_url }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-linkedin fa-lg primary-color"></i>
                                 </a>
                             </li>
@@ -104,7 +104,7 @@
 
                             @if($setting->tiktok_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->tiktok_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="{{ $setting->tiktok_url }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-tiktok fa-lg primary-color"></i>
                                 </a>
                             </li>

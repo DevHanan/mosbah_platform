@@ -180,9 +180,9 @@
        
         @if($landing_setting->map_locations == 1)
 
-        <div class="row col-md-12">
+        <div class="container">
 
-            <iframe src="http://maps.google.com/maps?q=<?= $setting->lat ?>,<?= $setting->lng ?>&z=16&output=embed" height="450" width="600"></iframe>
+            <iframe src="http://maps.google.com/maps?q=<?= $setting->lat ?>,<?= $setting->lng ?>&z=16&output=embed" height="400" width="600" class="google-map w-100 my-5"></iframe>
 
 </div>
 @endif

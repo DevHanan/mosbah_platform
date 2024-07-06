@@ -87,6 +87,11 @@
               <div class="col-md-12">
                 <label class="form-label">{{ __('admin.questions.answer') }} <span class="form-label-description"></span></label>
                 <textarea class="form-control" name="answer" rows="6" placeholder="Content.."> {{ $row->answer }}</textarea>
+                @error('answer')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
               </div>
 
             </div>

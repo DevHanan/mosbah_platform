@@ -84,7 +84,7 @@
                 </div>
                 @enderror
               </div>
-
+<input type="hidden" name="id" value="{{$row->id}}">
 
             </fieldset>
 

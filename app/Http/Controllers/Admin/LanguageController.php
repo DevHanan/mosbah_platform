@@ -42,7 +42,7 @@ class LanguageController extends Controller
         return view($this->view.'.index', $data);
     }
 
-    public function create(Language $track)
+    public function create(Language $language)
     {
         $data['title'] = trans('admin.languages.add');
         $data['route'] = $this->route;
@@ -50,13 +50,13 @@ class LanguageController extends Controller
     }
     public function store(Request $request)
     {
-        $track = Language::create($request->except('image'));
+        $language = Language::create($request->except('image'));
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/languages/main/'),$filename);
-            $track->image ='uploads/languages/main/'.$filename;
-            $track->save();
+            $language->image ='uploads/languages/main/'.$filename;
+            $language->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.languages.index');
@@ -64,9 +64,9 @@ class LanguageController extends Controller
 
 
     public function show($id){
-        $track = Language::find($id);
-        if($track)
-        return $this->okApiResponse(new LanguageResource($track), __('Language loades successfully'));
+        $language = Language::find($id);
+        if($language)
+        return $this->okApiResponse(new LanguageResource($language), __('Language loades successfully'));
         else
         return $this->notFoundApiResponse([],__('Data Not Found'));
 
@@ -80,25 +80,26 @@ class LanguageController extends Controller
         return view($this->view.'.edit',$data);
     }
 
-    public function update(Request $request,Language $track)
+    public function update(Request $request)
     {
-        $track->update($request->except('image'));
+        $language = Language::find($request->id);
+        $language->update($request->except('image'));
        
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/languages/main/'),$filename);
-            $track->image ='uploads/languages/main/'.$filename;
-            $track->save();
+            $language->image ='uploads/languages/main/'.$filename;
+            $language->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.languages.index');    }
 
     public function destroy (Request $request)
     {
-        $track = Language::find($request->id);
-        if ($track)
-            $track->delete();
+        $language = Language::find($request->id);
+        if ($language)
+            $language->delete();
 
             Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');

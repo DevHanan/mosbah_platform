@@ -50,6 +50,14 @@ class ReviewController extends Controller
     }
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'comment'=> 'required',
+            'name' => 'required',
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         if($request->active)
         $request->merge (['active'=>'1']) ;
         $review = Review::create($request->all());
@@ -77,6 +85,14 @@ class ReviewController extends Controller
 
     public function update(Request $request,Review $review)
     {
+        $validator = Validator::make($request->all(), [
+            'comment'=> 'required',
+            'name' => 'required',
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         if($request->active)
         $request->merge (['active'=>'1']) ;
     else

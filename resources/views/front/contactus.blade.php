@@ -27,7 +27,7 @@
                             <div><img src="public/front/img/icons/phone-call.svg" class="p-2 rounded" alt=""></div>
                             <div class="info mx-3">
                                 <p class="fw-bold m-0">تليفون ارضي :</p>
-                                <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: {{ $setting->phone }}</a>
+                                <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: {{ $setting->telephone }}</a>
                             </div>
                         </div>
 

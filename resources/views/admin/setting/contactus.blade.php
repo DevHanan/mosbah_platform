@@ -129,7 +129,7 @@
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="telephone ">{{ __('admin.settings.telephone') }} <span>*</span></label>
-                                                        <input type="text" class="form-control" name="telephone " id="telephone " value="{{ isset($row->telephone )?$row->telephone :'' }}">
+                                                        <input type="text" class="form-control" name="telephone" id="telephone " value="{{ isset($row->telephone )?$row->telephone :'' }}">
 
                                                         @error('telephone ')
                                                         <div class="invalid-feedback">

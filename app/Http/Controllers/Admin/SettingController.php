@@ -62,8 +62,6 @@ class SettingController extends Controller
     public function siteInfo(Request $request)
     {
        
-
-        return $request->all();
         $data = Setting::where('id', 1)->first();
         if (!$data)
             $data = new Setting();

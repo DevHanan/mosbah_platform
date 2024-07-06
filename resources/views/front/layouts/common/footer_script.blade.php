@@ -49,7 +49,7 @@
                         <a href="tel:{{ $setting->phone }}" class="text-white text-decoration-none"><i class="fa-solid fa-phone-flip ms-2"></i> {{ $setting->phone }} </a>
                     </p>
                     <p>
-                        <a href="'https://wa.me/{{ $setting->whatsapp }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $setting->whatsapp }} </a>
+                        <a href="https://wa.me/{{ $setting->whatsapp }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $setting->whatsapp }} </a>
                     </p>
                     <p class="mt-1"><i class="fa fa-envelope ms-2"></i> {{ $setting->email }}</p>
 
@@ -64,7 +64,7 @@
                             @endif
                             @if($setting->whatsapp != null)
                             <li>
-                                <a  target="_blank" href="'https://wa.me/{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="https://wa.me/{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-whatsapp fa-lg primary-color"></i>
                                 </a>
                             </li>

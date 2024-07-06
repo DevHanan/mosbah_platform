@@ -100,7 +100,7 @@
                             @endif
                             @if($setting->telegram_number != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->telegram_number }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a  target="_blank" href="tel: {{ $setting->telegram_number }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-telegram fa-lg primary-color"></i>
                                 </a>
                             </li>

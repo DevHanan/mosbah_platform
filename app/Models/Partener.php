@@ -20,8 +20,10 @@ class Partener extends Model
 
     public function getImageFullPathAttribute($value)
     {
-    
+            if($this->iamge)
             return asset('public/'.$this->image);
+            else
+            return asset('public/uploads/parteners/default.png');
     }
 
 }

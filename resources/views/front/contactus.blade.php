@@ -52,7 +52,7 @@
                             @endif
                             @if($setting->whatsapp != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center text-white primary-bg rounded-circle text-decoration-none mx-2">
+                            <a  target="_blank" href="https://wa.me/{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-whatsapp fa-lg "></i>
                                 </a>
                             </li>

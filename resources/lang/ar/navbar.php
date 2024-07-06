@@ -120,7 +120,7 @@ return [
         'zoom_settings' => 'اعدادات زووم',
         'home_settings' => 'اعدادات الصفحة الرئيسية',
         'contactus_settings' => 'تواصل معنا',
-        'reviews' =>'التقييمات والآراء',
+        'reviews' =>'تقييمات وآراء',
 
 
     ],

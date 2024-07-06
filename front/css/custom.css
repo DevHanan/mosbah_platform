@@ -29,7 +29,7 @@
 .navbar .active{color: var(--secondary) !important;}
 
 .hero_sec .row{position: relative;}
-.hero_sec .img img{margin-top: 8rem;}
+.hero_sec .img img{margin-top: 4rem;}
 .hero_sec p{font-size: 20px;line-height: 46px;}
 .hero_sec .img-line{bottom: -6px;right:0;}
 .hero_sec .content{color: #CFD3D6;}

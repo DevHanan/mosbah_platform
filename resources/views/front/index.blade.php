@@ -43,6 +43,7 @@
     </div>
 </div>
 
+@if($landing_setting->achievements == 1)
 <div class="statistics py-4">
     <div class="container">
         <div class="row">
@@ -85,6 +86,7 @@
         </div>
     </div>
 </div>
+@endif
 @if($landing_setting->most_required_courses == 1)
 
 <div class="popular-courses my-5">

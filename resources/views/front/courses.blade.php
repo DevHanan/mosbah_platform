@@ -356,7 +356,7 @@
             </div>
         </div>
     </div>
-
+    @if($landing_setting->most_required_courses == 1)
 
     <div class="popular-courses my-5">
         <div class="container">
@@ -433,6 +433,7 @@
             <div class="swiper-pagination"></div>
         </div>
     </div>
+    @endif
 
 </section>
 @endsection

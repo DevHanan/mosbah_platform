@@ -520,6 +520,7 @@ return [
         'field_photo' => 'نموذج'
     ],
     'tickets' => [
+        'job' => 'الوظيفة',
         'name' => 'إسم الراسل',
         'instructor_name' => 'إسم المدرب',
         'student_name'  => 'إسم الطالب',

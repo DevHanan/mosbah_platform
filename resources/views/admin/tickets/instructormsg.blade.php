@@ -40,6 +40,7 @@
                   <th> {{__('admin.tickets.instructor_name')}}</th>
                   <th> {{__('admin.tickets.phone')}}</th>
                   <th>{{ __('admin.tickets.email') }}</th>
+                  <th>{{ __('admin.tickets.job') }}</th>
                   <th>{{ __('admin.tickets.title') }}</th>
                   <th>{{ __('admin.tickets.subject') }}</th>
                   <th>{{ __('admin.tickets.send_date') }}</th>
@@ -57,6 +58,7 @@
                   <td>{{$row->name}}</td>
                   <td>{{$row->phone}}</td>
                   <td>{{$row->email}}</td>
+                  <td>{{$row->job}}</td>
                   <td>{{$row->title}}</td>
                   <td>
 

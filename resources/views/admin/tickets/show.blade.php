@@ -38,6 +38,15 @@
                                         <td>{{ $row->email }}</td>
 
                                     </tr>
+                                    <tr>
+                                        <th>{{ __('admin.tickets.job') }}</th>
+                                        <td>{{$row->job}}</td>
+
+                                    </tr>
+
+
+                                    
+
 
                                    
                                     <tr>

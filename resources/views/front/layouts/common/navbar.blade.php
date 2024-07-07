@@ -80,31 +80,31 @@
           </li>
           @endif
           @if($setting->snapchat_url != null)
-          <li>
-            <a target="_blank" href="{{ $setting->snapchat_url }}" class="nav-item px-2">
+          <li class="nav-item px-2">
+            <a target="_blank" href="{{ $setting->snapchat_url }}" class="nav-link primary-color">
               <i class="fa-brands fa-snapchat fa-lg "></i>
             </a>
           </li>
           @endif
           @if($setting->telegram_number != null)
-          <li>
-            <a target="_blank" href="tel: {{ $setting->telegram_number }}" class="nav-item px-2">
+          <li class="nav-item px-2">
+            <a target="_blank" href="tel: {{ $setting->telegram_number }}" class="nav-link primary-color">
               <i class="fa-brands fa-telegram fa-lg "></i>
             </a>
           </li>
           @endif
 
           @if($setting->linkedin_url != null)
-          <li>
-            <a target="_blank" href="{{ $setting->linkedin_url }}" class="nav-item px-2">
+          <li class="nav-item px-2">
+            <a target="_blank" href="{{ $setting->linkedin_url }}" class="nav-link primary-color>
               <i class="fa-brands fa-linkedin fa-lg "></i>
             </a>
           </li>
           @endif
 
           @if($setting->tiktok_url != null)
-          <li>
-            <a target="_blank" href="{{ $setting->tiktok_url }}" class="nav-item px-2">
+          <li class="nav-item px-2">
+            <a target="_blank" href="{{ $setting->tiktok_url }}" class="nav-link primary-color">
               <i class="fa-brands fa-tiktok fa-lg "></i>
             </a>
           </li>

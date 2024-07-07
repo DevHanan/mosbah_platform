@@ -763,7 +763,9 @@ return [
     'book_store_visiable' => 'رابط متجر الكتب',
     'msg_added_successfully' => 'تم إضافة بنجاح',
     'female_gender' => 'أنثى',
-    'male_gender' => 'ذكر'
+    'male_gender' => 'ذكر',
+    'make_msg_read'  => 'تحويل المراسلة إلى مقروءة',
+    'make_msg_unread' => 'تحويل الرسالة إلى غير مقروءة'
 
 
 

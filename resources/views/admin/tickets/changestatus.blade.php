@@ -15,10 +15,17 @@
                         <path d="M12 9v4" />
                         <path d="M12 17h.01" />
                     </svg>
-                    <h3>{{ __('admin.modal_are_you_sure') }} </h3>
+                    @if($row->read == 0)
+                    <h3>{{ __('admin.make_msg_read') }} </h3>
+                    <div class="text-secondary">
+                        {{ __('admin.modal_are_you_sure')}}
+                    </div>
+                    @else
+                    <h3>{{ __('admin.make_msg_unread') }} </h3>
                     <div class="text-secondary">
                         {{ __('admin.change_status_model_msg')}}
                     </div>
+                    @endif
                     <input type="hidden" value="{{$row->id}}" name="id">
 
                 </div>

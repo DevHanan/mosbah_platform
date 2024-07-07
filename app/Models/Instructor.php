@@ -30,10 +30,10 @@ class Instructor extends Authenticatable implements MustVerifyEmail
     }
 
 
-    public function subscriptions()
-    {
-        return $this->hasManyThrough(Subscription::class, Course::class, 'instructor_id', 'course_id', 'id', 'id');
-    }
+    // public function subscriptions()
+    // {
+    //     return $this->hasManyThrough(Subscription::class, Course::class, 'instructor_id', 'course_id', 'id', 'id');
+    // }
 
     public function getAboutLabelAttribute()
     {

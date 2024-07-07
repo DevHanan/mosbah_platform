@@ -33,8 +33,35 @@
                                         <td>{{ $row->name }}</td>
                                     </tr>
                                     <tr>
+                                        <th> {{__('admin.courses.type')}}</th>
+                                        <td>{{optional($row->coursetype)->name}}</td>
+
+                                    </tr>
+                                    <tr>
                                         <th> {{__('admin.courses.image')}}</th>
                                         <td> <img src="{{ $row->imageFullPath }}" style="width:40px"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.courses.price') }}</th>
+                                        <td>{{$row->price}} {{ $setting->currency }}</td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>{{ __('admin.courses.price_with_discount') }}</th>
+                                        <td>{{$row->price_with_discount}} {{ $setting->currency }}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.courses.seat_number') }}</th>
+                                        <td>{{$row->seat_number}} </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.courses.level') }}</th>
+                                        <td>{{$row->DifficultyLevelLabel}}</td>
+
                                     </tr>
                                     <tr>
                                         <th> {{__('admin.courses.create_date')}}</th>
@@ -81,29 +108,14 @@
                                         </td>
 
                                     </tr>
-                                    <tr>
-                                        <th> {{__('admin.courses.type')}}</th>
-                                        <td>{{optional($row->coursetype)->name}}</td>
-
-                                    </tr>
+                                   
                                     <tr>
                                         <th>{{ __('admin.courses.period') }}</th>
                                         <th>{{$row->period }} {{ __($row->periodLabel) }}</th>
 
                                     </tr>
 
-                                    <tr>
-                                        <th>{{ __('admin.courses.price') }}</th>
-                                        <td>{{$row->price}} {{ $setting->currency }}</td>
-
-                                    </tr>
-
-
-                                    <tr>
-                                        <th>{{ __('admin.courses.price_with_discount') }}</th>
-                                        <td>{{$row->price_with_discount}} {{ $setting->currency }}</td>
-
-                                    </tr>
+                                   
 
                                     <tr>
                                         <th>{{ __('admin.courses.status') }}</th>

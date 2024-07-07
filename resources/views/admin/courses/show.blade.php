@@ -211,8 +211,8 @@
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                                                     <td>{{$row->name}}</td>
-                                                    <td>{{$row->pivot->course_price}}</td>
-                                                    <td>{{$row->pivot->course_prectange}}</td>
+                                                    <td>{{$row->pivot->course_price}} {{ $setting->currency }}</td>
+                                                    <td>{{$row->pivot->course_prectange}} {{ $setting->currency }}</td>
 
 
 

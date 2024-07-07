@@ -266,6 +266,7 @@ return [
 
     ],
     "courses" => [
+        'instructors' => 'مدربين الدورة',
         'create_date' => 'تاريخ الإنشاء',
         'instructor_prectange' => 'نسبة المدرب',
         'buy_course_instructor' => 'القيمة الشرائية من المدرب',

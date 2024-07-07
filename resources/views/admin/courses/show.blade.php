@@ -41,7 +41,7 @@
                                         <td>{{ $row->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th> {{__('admin.courses.published_at')}}</th>
+                                        <th> {{__('admin.courses.field_published_at')}}</th>
                                         <td>{{ $row->published_at }}</td>
                                     </tr>
                                     <tr>
@@ -147,7 +147,7 @@
                                     </tr>
 
                                     <tr>
-                                        <th>{{ __('admin.courses.description') }}</th>
+                                        <th>{{ __('admin.courses.descriptions') }}</th>
                                         <td>{!! $row->description  !!} </td>
 
                                     </tr>

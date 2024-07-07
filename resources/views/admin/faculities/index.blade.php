@@ -6,7 +6,7 @@
     <div class="row g-2 align-items-center">
 
       <div class="col">
-      {{ Breadcrumbs::render('faculities') }}
+        {{ Breadcrumbs::render('faculities') }}
 
       </div>
       <!-- Page title actions -->
@@ -36,7 +36,7 @@
           </div>
 
           <div class="table-responsive">
-            <table  id="facultyTable" class="export-table table card-table table-vcenter text-nowrap datatable">
+            <table id="facultyTable" class="export-table table card-table table-vcenter text-nowrap datatable">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -64,7 +64,17 @@
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->name}}</td>
                   <td>{{$row->min_accept_degree}}</td>
-                  <td>{{$row->gender}}</td>
+                  <td>
+                    @if($row->gender == 'male')
+                    {{ __('admin.male_gender') }}
+
+                    @else
+                    {{ __('admin.female_gender') }}
+
+                    @endif
+
+
+                  </td>
 
 
                   <td>
@@ -79,11 +89,11 @@
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
 
-                    <button type="button" class="btn btn-icon btn-danger btn-sm"  title="{{__('admin.delete')}}"   data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" title="{{__('admin.delete')}}" data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->
@@ -105,15 +115,13 @@
   </div>
 </div>
 
-<?php 
-if(app()->getLocale() == 'ar'){
-$locale = 'Arabic';
-$dir = 'right to left';
-}
-else
-{ 
-$locale = 'English';
-$dir = 'left to right';
+<?php
+if (app()->getLocale() == 'ar') {
+  $locale = 'Arabic';
+  $dir = 'right to left';
+} else {
+  $locale = 'English';
+  $dir = 'left to right';
 }
 
 ?>
@@ -121,68 +129,66 @@ $dir = 'left to right';
 
 @push('scripts')
 <script>
+  let locale = '<?= $locale ?>'; // assuming this is set by your PHP code
+  let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
+  let dir = '<?= $dir ?>';
+  console.log(url);
 
-let locale = '<?= $locale?>'; // assuming this is set by your PHP code
-let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
-let dir = '<?= $dir?>'; 
-console.log(url);
+  new DataTable('#facultyTable', {
+    language: {
 
-new DataTable('#facultyTable', {
-  language: {
+      url: url
+    },
+    'direction': dir,
+    columnDefs: [{
+      className: 'dt-center',
+      targets: '_all',
 
-    url: url
-  },
-  'direction': dir,
-  columnDefs: [
-                      {className: 'dt-center', targets: '_all' ,
-
-                      }
-                        ],
+    }],
     layout: {
-        topStart: {
-            buttons: [
-              {
-                    extend: 'colvis',
-                    text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
-                    
-                    columns: ":not(':first')"
-                  },
-                  
-                {
-                    extend: 'copyHtml5',
-                    text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
-                    exportOptions: {
-                      columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'excelHtml5',
-                    text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'pdfHtml5',
-                    text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
-                    exportOptions: {
-                      columns: ':visible'
-                    }
-                },
-                {
-                        extend: 'csvHtml5',
-						title: 'CSV',
-                        text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                            columns: ':visible'
+      topStart: {
+        buttons: [{
+            extend: 'colvis',
+            text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
 
-                        }
-                    },
-               
-            ]
-        }
+            columns: ":not(':first')"
+          },
+
+          {
+            extend: 'copyHtml5',
+            text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'excelHtml5',
+            text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'pdfHtml5',
+            text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'csvHtml5',
+            title: 'CSV',
+            text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
+            exportOptions: {
+              columns: ':not(:last-child)',
+              columns: ':visible'
+
+            }
+          },
+
+        ]
+      }
     }
-});
+  });
 </script>
 @endpush

@@ -760,7 +760,9 @@ return [
     'subscribtion_added_again' => 'هذا الطالب مشترك بالدورة بالفعل',
     'show_file' => 'عرض الملف',
     'book_store_visiable' => 'رابط متجر الكتب',
-    'msg_added_successfully' => 'تم إضافة بنجاح'
+    'msg_added_successfully' => 'تم إضافة بنجاح',
+    'female_gender' => 'أنثى',
+    'male_gender' => 'ذكر'
 
 
 

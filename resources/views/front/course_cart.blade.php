@@ -264,7 +264,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-6">
                         <div class="course_content shadow-sm my-4 p-2">
-                            <div class="img"><img src="{{ $course->fullImagePath }}" class="img-fluid w-100" alt=""></div>
+                            <div class="img"><img src="{{ $course->imageFullPath }}" class="img-fluid w-100" alt=""></div>
                             <div class="info mt-4 px-4">
                                 <p class="course_title mb-0 fw-bold"> {{ $course->name }}</p>
                                 <p class="secondary-color" style="font-size: 14px;">

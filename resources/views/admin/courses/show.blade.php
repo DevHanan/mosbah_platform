@@ -206,13 +206,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($row->instructors as $row)
+                                                @foreach($row->instructors as $instructor)
 
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                                                    <td>{{$row->name}}</td>
-                                                    <td>{{$row->pivot->course_price}} {{ $setting->currency }}</td>
-                                                    <td>{{$row->pivot->course_prectange}} {{ $setting->currency }}</td>
+                                                    <td>{{$instructor->name}}</td>
+                                                    <td>{{$instructor->pivot->course_price}} {{ $setting->currency }}</td>
+                                                    <td>{{$instructor->pivot->course_prectange}} {{ $setting->currency }}</td>
 
 
 

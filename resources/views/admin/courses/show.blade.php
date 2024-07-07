@@ -33,10 +33,20 @@
                                         <td>{{ $row->name }}</td>
                                     </tr>
                                     <tr>
-
                                         <th> {{__('admin.courses.image')}}</th>
                                         <td> <img src="{{ $row->imageFullPath }}" style="width:40px"></td>
-
+                                    </tr>
+                                    <tr>
+                                        <th> {{__('admin.courses.create_date')}}</th>
+                                        <td>{{ $row->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th> {{__('admin.courses.start_date')}}</th>
+                                        <td>{{ $row->start_date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th> {{__('admin.courses.end_date')}}</th>
+                                        <td>{{ $row->end_date }}</td>
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.courses.track') }}</th>

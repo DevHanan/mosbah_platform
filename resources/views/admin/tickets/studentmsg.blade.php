@@ -60,7 +60,7 @@
                   <td>{{$row->title}}</td>
                   <td>
 
-                  {!! Str::words($row->description, 10, ' ...') !!}
+                  {!! Str::words($row->description, 8, ' ...') !!}
 
                   </td>
                   <td>{{$row->created_at}}</td>
@@ -85,7 +85,7 @@
 
                   <td style="width: 270px;">
 
-                    <a href="{{ url('admin/tickets/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/tickets/'.$row->id)}}"  class="btn btn-icon btn-primary btn-sm">
                       <i class="far fa-eye"></i>
                     </a>
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
@@ -95,7 +95,7 @@
                     <!-- Include Delete modal -->
                     @include('admin.tickets.changestatus')
 
-                    <a href="{{ url('admin/students/'.$row->student_id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/students/'.$row->student_id)}}"  class="btn btn-icon btn-primary btn-sm">
                       <i class="fa-solid fa-person"></i>
                     </a>
 

@@ -39,16 +39,7 @@
 
                                     </tr>
 
-                                    <tr>
-                                        <th>{{ __('admin.tickets.title') }}</th>
-                                        <td>{{ $row->title }}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>{{ __('admin.tickets.subject') }}</th>
-                                        <td>{{ $row->description }}</td>
-
-                                    </tr>
+                                   
                                     <tr>
                                         <th>{{ __('admin.tickets.send_date') }}</th>
                                         <td>{{ optional($row->created_at)->format('l, F j, Y')  }}</td>
@@ -59,6 +50,17 @@
                                         <th>{{ __('admin.tickets.status') }}</th>
                                         <td> {{ __($row->statusLabel) }}
                                         </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>{{ __('admin.tickets.title') }}</th>
+                                        <td>{{ $row->title }}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.tickets.subject') }}</th>
+                                        <td>{{ $row->description }}</td>
 
                                     </tr>
 

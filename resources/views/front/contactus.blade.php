@@ -136,7 +136,7 @@
                                     <input type="text" class="form-control pe-5 py-2" placeholder="الوظيفة" name="job" required>
                                 </div>
                             </div>
-                        </div>
+                        
                         <div class="col-sm-6">
                             <div class="form-group mb-3 position-relative">
                                 <i class="fa-solid fa-envelope secondary-color position-absolute" style="top: 13px; right: 14px;"></i>

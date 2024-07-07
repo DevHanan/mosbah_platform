@@ -61,7 +61,8 @@ return [
     "roles" => [
         'title' => 'الصلاحيات و الأدوار',
         'field_title'  => "العنوان",
-        'field_action' => 'الحدث'
+        'field_action' => 'الحدث',
+        'select_roles' => ' تحديد الصلاحيات'
     ],
     "coursetypes" => [
         'title' => 'أنواع الدورات',

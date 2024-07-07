@@ -429,7 +429,7 @@
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('admin/certifications/create')}}">
-                  {{ __('navbar.certifications.granting ') }}
+                  {{ __('navbar.certifications.granting') }}
                 </a>
                 
 

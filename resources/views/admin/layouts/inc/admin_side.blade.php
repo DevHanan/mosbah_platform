@@ -373,13 +373,13 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.subjects.*'])) show @endif  ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                <a class="dropdown-item  {{ request()->is('ar/admin/subjects?classroom=1') || request()->is('en/admin/subjects?classroom=1')? 'active' : '' }}" href="{{url('admin/subjects?classroom=1')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin.subjects.first-subjects')) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.first_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item  {{ request()->is('ar/admin/subjects?classroom=2') || request()->is('en/admin/subjects?classroom=2')? 'active' : '' }}" href="{{url('admin/subjects?classroom=2')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin.subjects.second-subjects')) active @endif" href="{{url('admin/subjects?classroom=2')}}">
                   {{ __('navbar.calculate_equation.second_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item {{ request()->is('ar/admin/subjects?classroom=3') ||request()->is('en/admin/subjects?classroom=3')? 'active' : '' }}" href="{{url('admin/subjects?classroom=3')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin.subjects.third-subjects')) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.third_secondary_subjects') }}
                 </a>
   

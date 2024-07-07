@@ -173,7 +173,10 @@ Route::group(
             Route::resource('faculities', FacultyController::class);
             Route::resource('subjects', SubjectController::class);
             Route::get('subjects/create/{classroom?}', [SubjectController::class, 'create'])->name('subjects.create');
+            Route::get('subjects?classroom=1', [SubjectController::class, 'index'])->name('subjects.first-subjects');
 
+            Route::get('subjects?classroom=2', [SubjectController::class, 'index'])->name('subjects.second-subjects');
+            Route::get('subjects?classroom=3', [SubjectController::class, 'index'])->name('subjects.third-subjects');
 
             // Translations Routes
             Route::get('translations', [TranslateController::class, 'index'])->name('translations.index');

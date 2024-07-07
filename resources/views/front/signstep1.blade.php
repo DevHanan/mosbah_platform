@@ -26,7 +26,9 @@
                 <div class="welcome d-flex flex-column align-items-center justify-content-center">
                     <div class="layout position-absolute"></div>
                     <img src="{{asset('front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
+                    <a href="{{url('/')}}">
                     <img src="{{asset($setting->logoFullPath)}}"  style="height:120px;" class="logo img-fluid position-absolute" alt="">
+                    </a>
                     <div class="data text-center text-white">
                         <img src="{{asset('front/img/sign_step1.svg')}}" class="img-fluid" alt="">
                         <h2>فقط بضع خطوات وننتهي </h2>

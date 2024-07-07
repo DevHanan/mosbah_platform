@@ -58,7 +58,11 @@
                   <td>{{$row->phone}}</td>
                   <td>{{$row->email}}</td>
                   <td>{{$row->title}}</td>
-                  <td>{{$row->description}}</td>
+                  <td>
+
+                    {!! Str::words($row->description, 10, ' ...') !!}
+
+                  </td>
                   <td>{{$row->created_at}}</td>
 
 
@@ -72,10 +76,10 @@
 
                       @else
                       <span class="badge bg-red text-red-fg">
-                      @endif
-                      {{ __($row->statusLabel) }}
+                        @endif
+                        {{ __($row->statusLabel) }}
 
-                    </span>
+                      </span>
                   </td>
 
 

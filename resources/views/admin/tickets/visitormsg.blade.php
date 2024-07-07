@@ -10,7 +10,7 @@
         {{ Breadcrumbs::render('visitor-messages') }}
 
       </div>
-  
+
       <!-- Page title actions -->
     </div>
   </div>
@@ -24,7 +24,7 @@
             <h3 class="card-title">{{ $title }}</h3>
           </div>
           <div class="card-body border-bottom py-3">
-          
+
           </div>
           <div class="table-responsive">
             <table class="table card-table table-vcenter text-nowrap datatable">
@@ -58,7 +58,11 @@
                   <td>{{$row->phone}}</td>
                   <td>{{$row->email}}</td>
                   <td>{{$row->title}}</td>
-                  <td>{{$row->description}}</td>
+                  <td>
+
+                    {!! Str::words($row->description, 10, ' ...') !!}
+
+                  </td>
                   <td>{{$row->created_at}}</td>
 
 
@@ -68,25 +72,25 @@
                   <td>
 
 
-                  <span class="badge bg-info text-info-fg">
-            {{ __($row->statusLabel) }}
+                    <span class="badge bg-info text-info-fg">
+                      {{ __($row->statusLabel) }}
 
-            </span>
+                    </span>
                   </td>
 
 
                   <td style="width: 270px;">
-                  <a href="{{ url('admin/tickets/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-eye"></i>
-                                            </a>
-                  <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
-                  <i class="fa fa-refresh" aria-hidden="true"></i>
+                    <a href="{{ url('admin/tickets/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                      <i class="far fa-eye"></i>
+                    </a>
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
+                      <i class="fa fa-refresh" aria-hidden="true"></i>
 
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.tickets.changestatus')
 
-                 
+
 
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
@@ -111,4 +115,3 @@
 </div>
 
 @endsection
-

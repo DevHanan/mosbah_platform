@@ -1,9 +1,8 @@
 <?php
 return [
     "Home" => "الرئيسية",
-    'users' => " المستخدمين والصلاحيات",
+    'user_managment' => " المستخدمين والصلاحيات",
     'add_user' => "إضافة مستخدم",
-    "user_managment" => "المستخدمين",
     "countries" => "الدول",
     "paymenttypes" => "وسائل الدفع ",
     "master_data"  => "الإعدادت",

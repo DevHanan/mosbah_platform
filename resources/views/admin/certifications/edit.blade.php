@@ -80,7 +80,7 @@
 
                         <div class="form-group col-md-6">
                             <label class="form-label" for="courses">{{__('admin.certifications.courses')}} <span>*</span></label>
-                            <select class="form-control select2" name="course_id" id="courses">
+                            <select class="form-control select2" name="course_id" id="courses" required>
                                 <option value="{{$row->course_id}}">{{ optional($row->course)->name}}</option>
 
 

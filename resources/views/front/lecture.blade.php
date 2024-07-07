@@ -45,8 +45,8 @@
                                 <div class="info mt-3 px-4">
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> الدورة : {{ optional($lecture->course)->name }} </span></p>
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> المرحلة : {{ optional($lecture->level)->name }} </span></p>
-                                    <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span> المدرب : {{ optional(optional($lecture->level)->instructor)->name }} </span></p>
-                                    <p> <img src="{{asset('public/front/img/icons/fi-rr-user.png')}}" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at->format('d/m/Y') }} </span></p>
+                                    <p> <img src="{{asset('public/front/img/icons/UsersThree.png')}}" class="ms-2" width="20" alt=""> <span> المدرب : {{ optional(optional($lecture->level)->instructor)->name }} </span></p>
+                                    <p> <img src="{{asset('public/front/img/icons/fi-rr-calendar.png')}}" class="ms-2" width="20" alt=""> <span> {{ $lecture->created_at->format('d/m/Y') }} </span></p>
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-time-quarter-to.svg')}}" class="ms-2" width="20" alt=""> <span> {{ $lecture->period }} ساعة </span></p>
                                     <p> <img src="{{asset('public/front/img/icons/fi-rr-e-learning.png')}}" class="ms-2" width="20" alt=""> <span>
                                             نوع المحاضرة :

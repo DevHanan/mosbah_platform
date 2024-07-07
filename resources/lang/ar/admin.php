@@ -759,7 +759,8 @@ return [
     'instructor_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
     'subscribtion_added_again' => 'هذا الطالب مشترك بالدورة بالفعل',
     'show_file' => 'عرض الملف',
-    'book_store_visiable' => 'رابط متجر الكتب'
+    'book_store_visiable' => 'رابط متجر الكتب',
+    'msg_added_successfully' => 'تم إضافة بنجاح'
 
 
 

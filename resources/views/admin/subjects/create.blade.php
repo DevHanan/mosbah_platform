@@ -52,7 +52,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="name"> {{ __('admin.subjects.degree') }} <span>*</span></label>
-                  <input type="number" class="form-control" name="degree" id="degree" value="{{ old('degree') }}" required>
+                  <input type="number" class="form-control" name="degree" id="degree" value="100" required>
 
                   @error('degree')
                   <div class="invalid-feedback">

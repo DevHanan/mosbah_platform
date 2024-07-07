@@ -52,7 +52,7 @@
 
 
                   <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
-                  <input type="file" class="form-control" name="image" id="logo">
+                  <input type="file" class="form-control" name="image" id="logo" required>
 
                   @error('img')
                   <div class="invalid-feedback">

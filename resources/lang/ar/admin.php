@@ -764,8 +764,8 @@ return [
     'msg_added_successfully' => 'تم إضافة بنجاح',
     'female_gender' => 'أنثى',
     'male_gender' => 'ذكر',
-    'make_msg_read'  => 'تحويل المراسلة إلى مقروءة',
-    'make_msg_unread' => 'تحويل الرسالة إلى غير مقروءة',
+    'make_msg_read'  => 'تعيين كمقروءة',
+    'make_msg_unread' => 'تعيين كغير مقروءة',
     'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح'
 
 

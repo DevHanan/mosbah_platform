@@ -30,10 +30,17 @@ class Instructor extends Authenticatable implements MustVerifyEmail
     }
 
 
-    // public function subscriptions()
-    // {
-    //     return $this->hasManyThrough(Subscription::class, Course::class, 'instructor_id', 'course_id', 'id', 'id');
-    // }
+    public function subscriptions()
+    {
+        return $this->hasManyThrough(
+            Subscription::class,
+            CourseInstructor::class,
+            'instructor_id', // foreign key on CourseInstructor table
+            'course_id', // foreign key on Subscription table
+            'id', // primary key on Instructor table
+            'id' // primary key on CourseInstructor table
+        );
+    }
 
     public function getAboutLabelAttribute()
     {

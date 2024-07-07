@@ -38,7 +38,11 @@
                                     </tr>
                                     <tr>
                                         <th> {{__('admin.courses.create_date')}}</th>
-                                        <td>{{ $row->name }}</td>
+                                        <td>{{ $row->created_at }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th> {{__('admin.courses.published_at')}}</th>
+                                        <td>{{ $row->published_at }}</td>
                                     </tr>
                                     <tr>
                                         <th> {{__('admin.courses.start_date')}}</th>
@@ -48,6 +52,7 @@
                                         <th> {{__('admin.courses.end_date')}}</th>
                                         <td>{{ $row->end_date }}</td>
                                     </tr>
+
                                     <tr>
                                         <th>{{ __('admin.courses.track') }}</th>
                                         <td>
@@ -134,9 +139,31 @@
 
                                     </tr>
 
+                                    
+                                    <tr>
+                                        <th>{{ __('admin.courses.prerequisites') }}</th>
+                                        <td>{!! $row->prerequisites  !!} </td>
 
+                                    </tr>
 
+                                    <tr>
+                                        <th>{{ __('admin.courses.description') }}</th>
+                                        <td>{!! $row->description  !!} </td>
 
+                                    </tr>
+
+                                    
+                                    <tr>
+                                        <th>{{ __('admin.courses.goals') }}</th>
+                                        <td>{!! $row->goals !!} </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>{{ __('admin.courses.directedTo') }}</th>
+                                        <td>{!! $row->directedTo !!} </td>
+
+                                    </tr>
 
 
                                     </tr>

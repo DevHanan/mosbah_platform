@@ -49,7 +49,7 @@ class Course extends Model
 
     public function getSubscriptionCountAttribute()
     {
-        return $count = $this->subscriptions()->count();
+         $count = $this->subscriptions()->count();
         if ($count > 0)
             return $count;
         else return 0;
@@ -89,7 +89,7 @@ class Course extends Model
 
     public function getTotalsubscriptionAttribute()
     {
-        return $total = $this->subscriptions()->count() * $this->price_with_discount;;
+         $total = $this->subscriptions()->count() * $this->price_with_discount;
         if ($total > 0)
             return $total;
         else return 0;

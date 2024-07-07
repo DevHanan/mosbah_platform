@@ -245,7 +245,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="font-weight-medium">
-                                                        {{ $row->Totalsubscription }} 
+                                                        {{ $row->Totalsubscription }}  {{ $setting->currency }}
                                                     </div>
                                                     <div class="text-secondary">
                                                         {{ __('admin.courses.total_subscriptions') }}

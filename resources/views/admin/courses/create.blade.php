@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
+                  <input type="number"  min="0" class="form-control" name="price" id="price" value="{{ old('price') }}" required value="0">
 
                   @error('price')
                   <div class="invalid-feedback">
@@ -93,7 +93,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="published_at">{{ __('admin.courses.field_published_at') }} <span>*</span></label>
-                  <input type="date" class="form-control" name="published_at" id="published_at" value="{{ old('published_at') }}" required>
+                  <input type="date" class="form-control" name="published_at" id="published_at" value="<?php echo date('Y-m-d');?>" required>
 
                   @error('published_at')
                   <div class="invalid-feedback">
@@ -160,7 +160,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="price_with_discount"> {{ __('admin.courses.price_with_discount') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="{{ old('price_with_discount') }}" required>
+                  <input type="number"  min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="0" required>
 
                   @error('price_with_discount')
                   <div class="invalid-feedback">
@@ -205,7 +205,7 @@
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
                   <select class="select2 form-control" name="track_ids[]" id="track_id" required multiple>
-                    <option value="">{{ __('select') }}</option>
+                    <option value="" selected disabled hidden>{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}"> {{ $track->name }}</option>
 

@@ -306,7 +306,7 @@ return [
         'intermediate' => 'مستوى متوسط',
         'advanced' => 'مستوى متقدم',
         'prerequisites' => 'متطلبات مسبقة للدورة',
-        'provider' => 'مزود الخدمة',
+        'provider' => 'موقع استضافة البرومو فيديو ',
         'viemo' => 'فيمو',
         'Youtube' => 'يوتيوب',
     ],

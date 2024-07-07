@@ -12,7 +12,7 @@ class Ticket extends Model
     public $timestamps = true;
 
     protected $fillable = array(
-        'instructor_id', 'student_id', 'title', 'description','phone','email','name','read'
+        'instructor_id', 'student_id', 'title', 'description','phone','email','name','read','job'
     );
     protected $appends = ['statusLabel'] ;   
 

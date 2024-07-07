@@ -94,7 +94,7 @@
 
                                     </tr>
 
-                                    <tr>
+                                    <!-- <tr>
                                         <th>{{ __('admin.courses.instructor') }}</th>
                                         <td>
                                             @if($row->instructors)
@@ -107,7 +107,7 @@
 
                                         </td>
 
-                                    </tr>
+                                    </tr> -->
                                    
                                     <tr>
                                         <th>{{ __('admin.courses.period') }}</th>
@@ -182,6 +182,49 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>  {{ __('admin.courses.instructor') }} </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class=" export-table table card-table table-vcenter text-nowrap datatable">
+                                <thead>
+                                    <tr>
+                                        <th class="w-1"># <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M6 15l6 -6l6 6"></path>
+                                            </svg>
+                                        </th>
+                                        <th> {{__('admin.instructors.field_name')}}</th>
+                                        <th> {{__('admin.instructors.field_name')}}</th>
+                                        <th> {{__('admin.instructors.field_name')}}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($row->instructors as $row)
+
+                                    <tr>
+                                        <td><span class="text-secondary">{{$loop->iteration}}</span></td>
+                                        <td>{{$row->name}}</td>
+                                        <td>{{$row}}</td>
+                                        <td>{{$row}}</td>
+                                        
+
+
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
                         <!-- [ Data table ] end -->
                     </div>
                 </div>

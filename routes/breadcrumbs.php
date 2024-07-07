@@ -364,6 +364,26 @@ Breadcrumbs::for('show-bankquestions', function (BreadcrumbTrail $trail,$bankgro
 
 
 
+
+// Home > payment types
+Breadcrumbs::for('payment-types', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.payment-types.list'), route('admin.payment-types.index'));
+});
+
+Breadcrumbs::for('add-payment-types', function (BreadcrumbTrail $trail) {
+    $trail->parent('payment-types');
+    $trail->push(trans('navbar.payment-types.add'), route('admin.payment-types.create'));
+});
+Breadcrumbs::for('update-payment-types', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('payment-types');
+    $trail->push($row->name, route('admin.payment-types.edit', $row));
+});
+
+
+
+
+
 /** Student dashboard  */
 
 // Home

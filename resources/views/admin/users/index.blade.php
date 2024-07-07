@@ -82,20 +82,7 @@
 
                                             @if($loop->iteration != $loop->last)
 
-                                            @if($row->status == 0)
-
-
-                                            <button class="btn btn-icon btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa-solid fa-lock-open"></i>
-                                            </button>
-                                            @else
-                                            <button class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{ $row->id }}">
-                                                <i class="fa fa-window-close" aria-hidden="true"></i>
-                                            </button>
-                                            @endif
-
-                                            <!-- Include Password Change modal -->
-                                            @include('admin.users.change-status')
+                                           
 
 
 

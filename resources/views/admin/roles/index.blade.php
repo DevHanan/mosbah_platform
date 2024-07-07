@@ -48,9 +48,9 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
                             <td>
-                                <a href="{{ route($route.'.show', $row->id) }}" class="btn btn-icon btn-success btn-sm">
+                                <!-- <a href="{{ route($route.'.show', $row->id) }}" class="btn btn-icon btn-success btn-sm">
                                     <i class="fas fa-eye"></i>
-                                </a>
+                                </a> -->
 
                                 <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
                                     <i class="far fa-edit"></i>

@@ -33,7 +33,9 @@
                         <li class="py-2"><a href="{{ url('/') }}" class="text-white text-decoration-none">الرئيسية</a></li>
                         <li class="py-2"><a href="{{ url('/about-us') }}" class="text-white text-decoration-none">من نحن</a></li>
                         <li class="py-2"><a href="{{ url('courses') }}" class="text-white text-decoration-none">الدورات</a></li>
-                        <li class="py-2"><a href="{{ url('books')}}" class="text-white text-decoration-none">متجر الكتب</a></li>
+                        @if($landing_setting->book_store_visiable==1 && $landing_setting->book_shop_url && $landing_setting->book_shop_url != null)
+                        <li class="py-2"><a href="{{ url($landing_setting->book_shop_url)}}" class="text-white text-decoration-none">متجر الكتب</a></li>
+                        @endif
                         <li class="py-2"><a href=" {{ url('/blogs') }}" class="text-white text-decoration-none">المدونة</a></li>
                         <li class="py-2"><a href="{{ url('/contactus') }}" class="text-white text-decoration-none">تواصل معنا</a></li>
                     </ul>

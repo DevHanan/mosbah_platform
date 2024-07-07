@@ -6,12 +6,8 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Overview
-                </div>
-                <h2 class="page-title">
-                    Combo layout
-                </h2>
+                {{ Breadcrumbs::render('add-payment-types') }}
+
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
@@ -34,7 +30,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+                <form class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <!-- Form Start -->
@@ -50,10 +46,22 @@
                             </div>
                             @enderror
                         </div>
+                        <div class="form-group col-md-12">
 
 
-                        
-                
+                            <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
+                            <input type="file" class="form-control" name="image" id="logo">
+
+                            @error('image')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+
+
+
 
 
                         <!-- Form End -->

@@ -53,9 +53,9 @@ return [
         "field_name" => "الاسم",
         "field_email" => "البريد الإلكترونى",
         "phone_number" => "الهاتف",
-        "field_status" => "حالة الظهور",
+        "field_status" => "حالة التفعيل",
         "field_action" => "الحدث",
-        "role" => "الصلاحية",
+        "role" => "الدور",
         "field_password" => "كلمة المرور",
         "field_password_confirmation" => "تأكيد كلمة المرور"
     ],
@@ -150,7 +150,8 @@ return [
         "field_action" => "الحدث",
         "status"  => "حالة الظهور",
         'add'  => 'إضافة جديد',
-        'edit'  => 'تعديل بيانات '
+        'edit'  => 'تعديل بيانات ',
+        'image'=> 'الصورة'
 
     ],
     "countries" => [

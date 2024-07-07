@@ -10,10 +10,17 @@ class PaymentType extends Model
     use HasFactory;
     public $timestamps = true;
 
-    protected $fillable = array('name','active');
+    protected $fillable = array('name', 'active');
 
     public function scopeActive($query)
     {
         return $query->where('active', '1');
+    }
+
+    protected $appends = ['ImageFullPath'];
+    public function getImageFullPathAttribute($value)
+    {
+
+        return asset('public/' . $this->image);
     }
 }

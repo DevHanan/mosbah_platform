@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="form-group mb-3 position-relative">
                                     <i class="fa-solid fa-user secondary-color position-absolute" style="top: 13px ; right: 25px;"></i>
-                                    <input type="text" class="form-control pe-5 py-2" placeholder="نص الرسالة" name="title" required>
+                                    <input type="text" class="form-control pe-5 py-2" placeholder="عنوان الرسالة" name="title" required>
                                 </div>
                                 <div class="form-group position-relative">
                                     <i class="fa-solid fa-edit secondary-color position-absolute" style="top: 13px; right: 25px;"></i>

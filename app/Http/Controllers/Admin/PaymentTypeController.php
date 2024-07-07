@@ -53,9 +53,10 @@ class PaymentTypeController extends Controller
     {
         $paymentType = PaymentType::create($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'payment-types';
-            $attach = 'image';
-            $paymentType->image = $this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/paymentType/main/'),$filename);
+            $paymentType->image ='uploads/paymentType/'.$filename;
             $paymentType->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -83,11 +84,11 @@ class PaymentTypeController extends Controller
     public function update(Request $request)
     {
         $paymentType = PaymentType::find($request->id);
-        $paymentType->update($request->except('image'));
         if ($request->hasFile('image')) {
-            $directory = 'payment-types';
-            $attach = 'image';
-            $paymentType->image = $this->uploadMedia($request, $attach, $directory);
+            $thumbnail = $request->image;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/paymentType/'),$filename);
+            $paymentType->image ='uploads/paymentType/'.$filename;
             $paymentType->save();
         }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

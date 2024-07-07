@@ -18,7 +18,7 @@ class Blog extends Model
 
     protected  function getCustomPublishdateAttribute()
     {
-       
+
 
         $dateFormatter = new \IntlDateFormatter('ar', \IntlDateFormatter::SHORT, \IntlDateFormatter::SHORT, 'Asia/Riyadh', \IntlDateFormatter::TRADITIONAL);
         $dateFormatter->setPattern('HH:mm - d MMMM yyyy');
@@ -29,11 +29,10 @@ class Blog extends Model
     public function getImageFullPathAttribute($value)
     {
 
-            if($this->image)
-        return asset('public/' . $this->main_image);
-    else
-    return asset('default/blogs/default.png');
-
+        if ($this->main_image)
+            return asset('public/' . $this->main_image);
+        else
+            return asset('default/blogs/default.png');
     }
 
     public function scopeActive($query)

@@ -17,10 +17,10 @@ class Course extends Model
 
     protected $fillable = array(
         'name', 'recommened', 'price', 'course_type_id', 'published_at', 'track_id', 'active',
-        'instructor_id', 'promo_url', 'start_date', 'end_date', 'level_id', 'description', 'goals', 'directedTo', 'period_type', 
-        'period', 'seat_number', 'price_with_discount', 'difficulty_level', 'prerequisites', 'provider','videoId'
+        'instructor_id', 'promo_url', 'start_date', 'end_date', 'level_id', 'description', 'goals', 'directedTo', 'period_type',
+        'period', 'seat_number', 'price_with_discount', 'difficulty_level', 'prerequisites', 'provider', 'videoId'
     );
-    protected $dates = ['deleted_at']; 
+    protected $dates = ['deleted_at'];
 
     protected $appends = ['backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
 
@@ -40,33 +40,36 @@ class Course extends Model
             return  trans('admin.courses.beginner');
         elseif ($this->difficulty_level == 1)
 
-           return  trans('admin.courses.intermediate');
+            return  trans('admin.courses.intermediate');
         elseif ($this->difficulty_level == 2)
-           return  trans('admin.courses.advanced');
+            return  trans('admin.courses.advanced');
         else
             return  trans('admin.courses.all');
     }
 
     public function getSubscriptionCountAttribute()
     {
-        return $this->subscriptions()->count();
+        return $count = $this->subscriptions()->count();
+        if ($count > 0)
+            return $count;
+        else return 0;
     }
 
     public function getImageFullPathAttribute($value)
     {
 
-        if($this->image)
-        return asset('public/' . $this->image);
+        if ($this->image)
+            return asset('public/' . $this->image);
         else
-        return asset('public/uploads/courses/default.png');
+            return asset('public/uploads/courses/default.png');
     }
     public function getBackgroundImageFullPathAttribute($value)
     {
 
-        if($this->background_image)
-        return asset('public/' . $this->background_image);
+        if ($this->background_image)
+            return asset('public/' . $this->background_image);
         else
-        return asset('public/uploads/courses/default.png');
+            return asset('public/uploads/courses/default.png');
     }
 
 
@@ -86,7 +89,10 @@ class Course extends Model
 
     public function getTotalsubscriptionAttribute()
     {
-        return $this->subscriptions()->count() * $this->price_with_discount;
+        return $total = $this->subscriptions()->count() * $this->price_with_discount;;
+        if ($total > 0)
+            return $total;
+        else return 0;
     }
 
     public function getTotalDiscountAttribute()

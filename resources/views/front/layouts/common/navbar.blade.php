@@ -5,9 +5,7 @@
         @if(auth()->guard('students-login')->user() )
         <a href="{{url('/student/dashboard')}}" class="
         mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم الطالب </a>
-        <a href="javascript:void(0);" 
-        class="mx-3 p-2 text-decoration-none text-dark" 
-        href="#" onclick="event.preventDefault();
+        <a href="javascript:void(0);" class="mx-3 p-2 text-decoration-none text-dark" href="#" onclick="event.preventDefault();
         document.getElementById('student-logout-form').submit();">
 
           تسجيل الخروج
@@ -20,14 +18,12 @@
         </form>
         @elseif(auth()->guard('instructors-login')->user())
         <a href="{{url('/instructor/dashboard')}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none"> لوحه تحكم المحاضر </a>
-        <a href="javascript:void(0);" 
-        class="mx-3 p-2 text-decoration-none text-dark" 
-        href="#" onclick="event.preventDefault();
+        <a href="javascript:void(0);" class="mx-3 p-2 text-decoration-none text-dark" href="#" onclick="event.preventDefault();
         document.getElementById('instructor-logout-form').submit();">
 
           تسجيل الخروج
           <i class="fa fa-sign-out" aria-hidden="true"></i>
-          </a>
+        </a>
 
         <form id="instructor-logout-form" action="{{ route('instructor.instructor-logout') }}" method="POST">
           @csrf
@@ -40,7 +36,7 @@
 
           تسجيل الخروج
           <i class="fa fa-sign-out" aria-hidden="true"></i>
-          </a>
+        </a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
           @csrf
@@ -58,21 +54,61 @@
               <span class="position-absolute bg-white fw-bold rounded-pill">0</span>
             </a>
           </li> -->
+          @if($setting->facebook_url != null)
           <li class="nav-item px-2">
             <a class="nav-link primary-color" target="_blank" href="{{ $setting->facebook_url }}"><i class="fa-brands fa-facebook-f"></i></a>
           </li>
+          @endif
+          @if($setting->whatsapp != null)
           <li class="nav-item px-2">
             <a class="nav-link primary-color" target="_blank" href="{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
           </li>
+          @endif
+          @if($setting->instgram_url != null)
           <li class="nav-item px-2">
             <a class="nav-link primary-color" target="_blank" href="{{ $setting->instgram_url }}"><i class="fa-brands fa-instagram"></i></a>
           </li>
+          @endif
+          @if($setting->youtube_url != null)
           <li class="nav-item px-2">
             <a class="nav-link primary-color" target="_blank" href="{{ $setting->youtube_url }}"><i class="fa-brands fa-youtube"></i></a>
           </li>
+          @endif
+          @if($setting->twitter_url != null)
           <li class="nav-item px-2">
             <a class="nav-link primary-color" target="_blank" href="{{ $setting->twitter_url }}"><i class="fa-brands fa-x-twitter"></i></a>
           </li>
+          @endif
+          @if($setting->snapchat_url != null)
+          <li>
+            <a target="_blank" href="{{ $setting->snapchat_url }}" class="nav-item px-2">
+              <i class="fa-brands fa-snapchat fa-lg "></i>
+            </a>
+          </li>
+          @endif
+          @if($setting->telegram_number != null)
+          <li>
+            <a target="_blank" href="tel: {{ $setting->telegram_number }}" class="nav-item px-2">
+              <i class="fa-brands fa-telegram fa-lg "></i>
+            </a>
+          </li>
+          @endif
+
+          @if($setting->linkedin_url != null)
+          <li>
+            <a target="_blank" href="{{ $setting->linkedin_url }}" class="nav-item px-2">
+              <i class="fa-brands fa-linkedin fa-lg "></i>
+            </a>
+          </li>
+          @endif
+
+          @if($setting->tiktok_url != null)
+          <li>
+            <a target="_blank" href="{{ $setting->tiktok_url }}" class="nav-item px-2">
+              <i class="fa-brands fa-tiktok fa-lg "></i>
+            </a>
+          </li>
+          @endif
         </ul>
       </div>
     </div>
@@ -82,8 +118,7 @@
 <nav class="navbar navbar-expand-lg navbar-light primary-bg sec-nav shadow-sm">
   <div class="container-fluid nav_content">
     <a class="navbar-brand" href="{{url('/')}}">
-      <img src="{{asset($setting->logoFullPath)}}"
-       alt="logo" style="max-height:140px;max-width:fit-content;"></a>
+      <img src="{{asset($setting->logoFullPath)}}" alt="logo" style="max-height:140px;max-width:fit-content;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -106,10 +141,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">تحقق من الشهادة</a>
-            </li>
-			<li class="nav-item">
-            <a class="nav-link" href="#">صانع CV</a>
-            </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">صانع CV</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link  @if(Request::is('policies')) active @endif" href="{{ url('/policies') }}" target="_blank">سياساتنا</a>
         </li>
@@ -121,7 +156,7 @@
           <div class="header-info d-flex align-items-center">
             <a href="{{ url($landing_setting->book_shop_url)}}" class="mx-3 p-2 rounded-pill secondary-bg text-white text-decoration-none">متجر الكتب</a>
           </div>
-          
+
         </li>
         @endif
     </div>

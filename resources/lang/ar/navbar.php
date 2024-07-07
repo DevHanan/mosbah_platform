@@ -42,16 +42,16 @@ return [
     ],
     'certifications' => [
         "certifications_management" => " الشهادات",
-        "list_dwafer" => " قائمة شهادات دوافير",
-        "student_certifications" => "شهادات الطلاب من دوافير",
-        "add"   => "إضافة شهادة",
+        "list_dwafer" => "نماذج شهادات المنصة",
+        "student_certifications" => "شهادات الطلاب من المنصة",
         'student_certifications_from_out'  => 'شهادات الطلاب من جهات خارجية',
         'name' => 'إسم الشهادة',
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
         'platform_certification' => 'شهادات منصة دوافير ',
         'externel_certification' => 'شهادات خارجية',
-        'add' => 'إضافة شهادة'
+        'add' => 'إضافة نموذج شهادة',
+        'granting'=> 'منح شهادة لطالب'
     ],
     'tickets' => [
         "tickets_management"  => " الدعم",

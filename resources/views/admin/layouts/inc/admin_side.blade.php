@@ -417,6 +417,9 @@
                   {{ __('navbar.certifications.list_dwafer') }}
 
                 </a>
+                <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('admin/certifications/create')}}">
+                  {{ __('navbar.certifications.add') }}
+                </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.studentscertifications.*'])) active @endif" href="{{url('admin/students-certifications')}}">
                   {{ __('navbar.certifications.student_certifications') }}
 
@@ -426,8 +429,9 @@
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('admin/certifications/create')}}">
-                  {{ __('navbar.certifications.add') }}
+                  {{ __('navbar.certifications.granting ') }}
                 </a>
+                
 
               </div>
             </div>

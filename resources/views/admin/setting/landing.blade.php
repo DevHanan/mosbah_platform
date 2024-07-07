@@ -124,7 +124,7 @@
                               <div class="col-md-6">
                                 <div class="mb-3">
                                   <label class="form-label">{{ __('admin.landing.footer_description') }} <span class="form-label-header_description"></span></label>
-                                  <textarea class="form-control" name="footer_description" rows="6" placeholder="Content.."> {{ $row->header_description }}</textarea>
+                                  <textarea class="form-control" name="footer_description" rows="6" placeholder="Content.."> {{ $row->footer_description }}</textarea>
                                 </div>
 
 

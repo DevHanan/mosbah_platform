@@ -35,7 +35,6 @@ return [
     "msg_create_successfully" => "تم إضافة العنصر بنجاح",
     "msg_updated_successfully"  => "تم تعديل بيانات العنصر بنجاح",
     "msg_update_successfully"  => "تم تعديل بيانات العنصر بنجاح",
-
     "msg_success" => "نجحت العملية",
     "btn_refresh" => 'إعادة تحميل',
     "modal_are_you_sure"  => "هل أنت متأكد من الاستمرار ?",

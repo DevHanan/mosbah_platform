@@ -32,7 +32,7 @@ class Blog extends Model
         if ($this->main_image)
             return asset('public/' . $this->main_image);
         else
-            return asset('default/blogs/default.png');
+            return asset('public/uploads/blogs/default.png');
     }
 
     public function scopeActive($query)

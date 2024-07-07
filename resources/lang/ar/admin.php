@@ -266,6 +266,7 @@ return [
 
     ],
     "courses" => [
+        'total_subscriptions' => 'عدد الإشتراكات',
         'instructors' => 'مدربين الدورة',
         'create_date' => 'تاريخ الإنشاء',
         'instructor_prectange' => 'نسبة المدرب',

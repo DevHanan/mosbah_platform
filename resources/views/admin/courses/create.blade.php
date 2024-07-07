@@ -205,7 +205,7 @@
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
                   <select class="select2 form-control" name="track_ids[]" id="track_id" required multiple>
-                    <option value="" selected disabled hidden>{{ __('select') }}</option>
+                    <option value=""  disabled hidden>{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}"> {{ $track->name }}</option>
 

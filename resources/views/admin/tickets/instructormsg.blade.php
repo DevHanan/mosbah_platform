@@ -71,7 +71,7 @@
                     <span class="badge bg-info text-info-fg">
 
                       @else
-                      <span class="badge  badge-danger text-danager-fg">
+                      <span class="badge bg-red text-red-fg">
                       @endif
                       {{ __($row->statusLabel) }}
 

@@ -10,7 +10,7 @@
         {{ Breadcrumbs::render('student-messages') }}
 
       </div>
-  
+
       <!-- Page title actions -->
     </div>
   </div>
@@ -24,7 +24,7 @@
             <h3 class="card-title">{{ $title }}</h3>
           </div>
           <div class="card-body border-bottom py-3">
-          
+
           </div>
           <div class="table-responsive">
             <table class="table card-table table-vcenter text-nowrap datatable">
@@ -66,29 +66,34 @@
 
 
                   <td>
-            <span class="badge bg-info text-info-fg">
-            {{ __($row->statusLabel) }}
+                    @if($row->read ==1 )
+                    <span class="badge bg-info text-info-fg">
 
-            </span>
+                      @else
+                      <span class="badge bg-red text-red-fg">
+                        @endif
+                        {{ __($row->statusLabel) }}
+
+                      </span>
 
                   </td>
 
 
                   <td style="width: 270px;">
 
-                  <a href="{{ url('admin/tickets/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-eye"></i>
-                                            </a>
-                  <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
-                  <i class="fa fa-refresh" aria-hidden="true"></i>
+                    <a href="{{ url('admin/tickets/'.$row->id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                      <i class="far fa-eye"></i>
+                    </a>
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
+                      <i class="fa fa-refresh" aria-hidden="true"></i>
 
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.tickets.changestatus')
 
-                  <a href="{{ url('admin/students/'.$row->student_id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="fa-solid fa-person"></i>
-                                            </a>
+                    <a href="{{ url('admin/students/'.$row->student_id)}}" style="margin-bottom:5px;" class="btn btn-icon btn-primary btn-sm">
+                      <i class="fa-solid fa-person"></i>
+                    </a>
 
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
@@ -113,4 +118,3 @@
 </div>
 
 @endsection
-

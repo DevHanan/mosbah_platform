@@ -376,12 +376,13 @@
                 <a class="dropdown-item  @if(request()->routeIs('admin/subjects?classroom=1')) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.first_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item @if(request()->url('admin/subjects?classroom=2')) active @endif" href="{{url('admin/subjects?classroom=2')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin/subjects?classroom=2')) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.second_secondary_subjects') }}
                 </a>
-                <a class="dropdown-item @if(request()->url('admin/subjects?classroom=3')) active @endif" href="{{url('admin/subjects?classroom=3')}}">
+                <a class="dropdown-item  @if(request()->routeIs('admin/subjects?classroom=3')) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.third_secondary_subjects') }}
                 </a>
+  
                 <!-- <a class="dropdown-item @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.settings') }}
                 </a> -->

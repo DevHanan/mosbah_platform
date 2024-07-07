@@ -29,7 +29,11 @@ class Blog extends Model
     public function getImageFullPathAttribute($value)
     {
 
+            if($this->image)
         return asset('public/' . $this->main_image);
+    else
+    return asset('default/blogs/default.png');
+
     }
 
     public function scopeActive($query)

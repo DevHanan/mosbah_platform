@@ -375,6 +375,18 @@ Breadcrumbs::for('send-emails', function (BreadcrumbTrail $trail) {
     $trail->parent('listmails');
     $trail->push(trans('navbar.tickets.sendMail'),route('admin.listemails.create'));
 });
+
+
+
+Breadcrumbs::for('notifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.notifications.list'),route('admin.notifications.index'));
+});
+
+Breadcrumbs::for('send-notifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('notifications');
+    $trail->push(trans('navbar.notifications.create'),route('admin.notifications.create'));
+});
 // Home > payment types
 Breadcrumbs::for('payment-types', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

@@ -12,7 +12,7 @@ class MailController extends Controller
 {
 
 
-    public function listemails(Request $request)
+    public function index(Request $request)
     {
         $data['route'] = 'listemails';
         $data['title'] =  trans('admin.mails.list');

@@ -45,7 +45,7 @@
 
                             @error('notifications')
                             <div class="invalid-feedback">
-                                {{ $message }}
+                                {{ $body }}
                             </div>
                             @enderror
                         </div>
@@ -56,7 +56,7 @@
 
                             @error('subject')
                             <div class="invalid-feedback">
-                                {{ $message }}
+                                {{ $body }}
                             </div>
                             @enderror
                         </div>
@@ -67,7 +67,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">{{ __('admin.notifications.body') }} <span class="form-label"></span></label>
-                            <textarea dir="auto" class="form-control richtext" name="message" rows="4" placeholder="Content.."></textarea>
+                            <textarea dir="auto" class="form-control richtext" name="body" rows="4" placeholder="Content.."></textarea>
                         </div>
 
 

@@ -60,6 +60,8 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
+                  <td>{{$row->created_at}}</td>
+
                   <td>{{$row->subject}}</td>
                   <td>{{$row->category}}</td>
 

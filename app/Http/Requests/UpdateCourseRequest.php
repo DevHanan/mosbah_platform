@@ -32,9 +32,9 @@ class UpdateCourseRequest extends FormRequest
             'track_id' => 'required|exists:tracks,id',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'background_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'published_at' => 'required|date|before:start_date',
-            'start_date' => 'required|date|before:end_date',
-            'end_date' => 'required|date',
+            'published_at' => 'required|date|lt:start_date',
+            'start_date' => 'required|date|gt:published_at|lt:end_date',
+            'end_date' => 'required|date|gt:start_date',
 
 
 

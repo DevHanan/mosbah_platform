@@ -60,8 +60,6 @@
                       <input data-id="{{$row->id}}" data-type='App\Models\MailList' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                     </div>
                   </td>
-                  <td><img  src="{{$row->imageFullPath}}" style="width:40px"></td>
-
 
                   <td style="width: 270px;">
                    

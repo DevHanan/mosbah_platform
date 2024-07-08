@@ -604,7 +604,7 @@
                   {{ __('navbar.tickets.notifications') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.listemails'))  active @endif" href="{{url('admin/subscribed-mails')}}">
+                <a class="dropdown-item @if(request()->routeIs('admin.listemails'))  active @endif" href="{{url('admin/listemails')}}">
                   {{ __('navbar.tickets.subscribedMail') }}
 
                 </a>

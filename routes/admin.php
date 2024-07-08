@@ -102,7 +102,7 @@ Route::group(
             Route::resource('tickets', TicketController::class);
             Route::post('change-ticket-status', [TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
 
-            Route::resource('subscribed-mails', MailController::class);
+            Route::resource('listemails', MailController::class);
             Route::get('get-send-mails', [MailController::class, 'sendMails'])->name('sendmails');
             Route::post('send-mails', [MailController::class, 'savesendMail'])->name('saveMail');
 

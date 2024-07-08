@@ -49,8 +49,9 @@
                   </th>
                   <th> {{__('admin.notifications.date')}}</th>
                   <th> {{__('admin.notifications.subject')}}</th>
+                  <th> {{__('admin.notifications.category')}}</th>
                   <th> {{__('admin.notifications.body')}}</th>
-                  <th>{{ __('admin.notifications.actions') }}</th>
+                  <th>{{ __('admin.notifications.action') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,7 +60,8 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                  <td>{{$row->title}}</td>
+                  <td>{{$row->subject}}</td>
+                  <td>{{$row->category}}</td>
 
                   <td>{{$row->body}}</td>
 

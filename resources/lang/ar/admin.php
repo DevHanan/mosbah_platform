@@ -102,6 +102,7 @@ return [
         'body' => 'نص الإشعار',
         'date' => 'تاريخ ووقت الإرسال',
         'action' => 'الحدث',
+        'category' => 'الفئة'
         
         
     ],
@@ -792,7 +793,9 @@ return [
     'male_gender' => 'ذكر',
     'make_msg_read'  => 'تعيين كمقروءة',
     'make_msg_unread' => 'تعيين كغير مقروءة',
-    'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح'
+    'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح',
+    'all'  => 'الكل',
+    'student' => 'طلاب',
 
 
 

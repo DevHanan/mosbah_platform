@@ -383,7 +383,7 @@ Breadcrumbs::for('notifications', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.notifications.list'),route('admin.notifications.index'));
 });
 
-Breadcrumbs::for('send-notifications', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('send-notification', function (BreadcrumbTrail $trail) {
     $trail->parent('notifications');
     $trail->push(trans('navbar.notifications.create'),route('admin.notifications.create'));
 });

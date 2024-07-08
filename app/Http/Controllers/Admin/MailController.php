@@ -27,6 +27,7 @@ class MailController extends Controller
     {
         $data['title'] = trans('admin.mails.send');
         $data['route'] = 'admin.listemails';
+        $data['emails'] = MailList::where('active','1')->get();
         return view('admin.mails.create', $data);
     }
     public function store(Request $request)

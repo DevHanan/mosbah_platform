@@ -91,7 +91,9 @@ return [
         'mail'  => "البريد الإلكترونى",
         'status' => 'حالة',
         'actions' => 'الحدث',
-        'created_dates' => ' وقت الإشتراك'
+        'created_dates' => ' وقت الإشتراك',
+        'subject' => 'عنوان البريد',
+        'message' => 'الرسالة'
     ],
     "blogs" => [
         'blogs_management' => 'المدونة',

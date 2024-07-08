@@ -84,6 +84,7 @@ class PaymentTypeController extends Controller
     public function update(Request $request)
     {
         $paymentType = PaymentType::find($request->id);
+        $paymentType->update($request->except('image'));
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();

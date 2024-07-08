@@ -69,6 +69,42 @@
               </div>
 
 
+              @if($row->type == 'externel')
+              <div class="form-group col-md-12">
+                <label class="form-label" for="paypal_link"> {{__('admin.paymenttypes.paypal_link')}} <span>*</span></label>
+                <input type="text" class="form-control" name="paypal_link" id="paypal_link" value="{{ old('paypal_link',$row) }}" required>
+                @error('paypal_link')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="form-group col-md-12">
+                <label class="form-label" for="mobile_cash_number"> {{__('admin.paymenttypes.mobile_cash_number')}} <span>*</span></label>
+                <input type="text" class="form-control" name="mobile_cash_number" id="mobile_cash_number" value="{{ old('mobile_cash_number',$row) }}" required>
+                @error('mobile_cash_number')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+
+              <div class="form-group col-md-12">
+                <label class="form-label" for="fawry_number"> {{__('admin.paymenttypes.fawry_number')}} <span>*</span></label>
+                <input type="text" class="form-control" name="fawry_number" id="fawry_number" value="{{ old('fawry_number',$row) }}" required>
+                @error('fawry_number')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+
+              @endif
+
+
               <div class="form-group col-md-6">
 
               

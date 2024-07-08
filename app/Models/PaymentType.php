@@ -10,7 +10,7 @@ class PaymentType extends Model
     use HasFactory;
     public $timestamps = true;
 
-    protected $fillable = array('name', 'active','type');
+    protected $fillable = array('name', 'active','type','mobile_cash_number','paypal_link','fawry_number');
 
     public function scopeActive($query)
     {

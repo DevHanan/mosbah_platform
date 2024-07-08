@@ -152,7 +152,10 @@ return [
         "status"  => "حالة الظهور",
         'add'  => 'إضافة جديد',
         'edit'  => 'تعديل بيانات ',
-        'image'=> 'الصورة'
+        'image'=> 'الصورة',
+        'fawry_number' => 'رقم قورى',
+        'paypal_link' => 'رابط حساب باى بال',
+        'mobile_cash_number' => 'رقم مجفظة كاش'
 
     ],
     "countries" => [

@@ -27,7 +27,6 @@ class CourseRequest extends FormRequest
             'price' => 'required',
             'course_type_id' => 'required|exists:course_types,id',
             'instructor_id' => 'required|exists:instructors,id',
-            'track_id' => 'required|exists:tracks,id',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'background_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'published_at' => 'required|date|before:start_date',

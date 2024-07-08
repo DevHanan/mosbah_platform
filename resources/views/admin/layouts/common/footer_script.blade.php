@@ -622,6 +622,9 @@
 		document.querySelector('#end_date').addEventListener('keydown', (e) => {
 			e.preventDefault();
 		});
+		document.querySelector('#published_at').addEventListener('keydown', (e) => {
+			e.preventDefault();
+		});
 	});
 </script>
 </script>

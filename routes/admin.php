@@ -73,8 +73,8 @@ Route::group(
         Route::get('admin/get-course', [CourseController::class, 'getcourse'])->name('admin.getcourse');
         Route::get('admin/get-levels-by-coure', [CourseController::class, 'getlevels'])->name('admin.getLevels');
         Route::get('admin/get-lecture-by-level', [CourseController::class, 'getlectures'])->name('admin.getLectures');
-
-        Route::name('admin.')->middleware(['auth:web', 'prevent-inactive-user'])->group(function () {
+//, 'prevent-inactive-user'
+        Route::name('admin.')->middleware(['auth:web'])->group(function () {
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);

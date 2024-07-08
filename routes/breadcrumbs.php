@@ -370,6 +370,11 @@ Breadcrumbs::for('listmails', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(trans('navbar.tickets.subscribedMail'),route('admin.listemails.index'));
 });
+
+Breadcrumbs::for('send-emails', function (BreadcrumbTrail $trail) {
+    $trail->parent('listmails');
+    $trail->push(trans('navbar.tickets.sendMail'),route('admin.listemails.create'));
+});
 // Home > payment types
 Breadcrumbs::for('payment-types', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

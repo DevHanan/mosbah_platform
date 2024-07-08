@@ -321,7 +321,6 @@ return array(
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\Localization' => $baseDir . '/app/Http/Middleware/Localization.php',
     'App\\Http\\Middleware\\LogoutOtherUsers' => $baseDir . '/app/Http/Middleware/LogoutOtherUsers.php',
-    'App\\Http\\Middleware\\PreventInactiveUser' => $baseDir . '/app/Http/Middleware/PreventInactiveUser.php',
     'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => $baseDir . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',

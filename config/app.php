@@ -161,7 +161,7 @@ return [
          * Package Service Providers...
          */
         
-        Spatie\Permission\PermissionServiceProvider::class,
+         Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -173,6 +173,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+
 
      
 

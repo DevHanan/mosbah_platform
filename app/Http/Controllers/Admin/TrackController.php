@@ -11,7 +11,6 @@ use App\Http\Requests\UpdateTrackRequest;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Toastr;
-use App\DataTables\TracksDataTable;
 
 
 class TrackController extends Controller

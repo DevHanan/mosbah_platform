@@ -26,7 +26,7 @@ class MailController extends Controller
     public function create()
     {
         $data['title'] = trans('admin.mails.send');
-        $data['route'] = 'sendmails';
+        $data['route'] = 'admin.listemails';
         return view('admin.mails.create', $data);
     }
     public function store(Request $request)

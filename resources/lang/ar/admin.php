@@ -796,7 +796,8 @@ return [
     'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح',
     'all'  => 'الكل',
     'studentlabel' => 'طلاب',
-    'instructorlabel' => 'مدربين'
+    'instructorlabel' => 'مدربين',
+    'notificaion_send_successfully'=>'تم إرسال الإشعار بنجاح'
 
 
 

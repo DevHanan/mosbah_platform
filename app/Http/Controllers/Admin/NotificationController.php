@@ -46,9 +46,9 @@ class NotificationController extends Controller
     }
     public function store(Request $request)
     {
-        $notify = Notification::create($request->except('image'));
+        $notify = Notification::create($request->all());
        
-        Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
+        Toastr::success(__('admin.notificaion_send_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.notifications.index');
     }
 

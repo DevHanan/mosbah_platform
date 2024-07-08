@@ -147,6 +147,7 @@ class HomeController extends Controller
 
     public function subscribe(Request $request)
     {
+        return $request->all();
         $course = Course::find($request->course_id);
         $request->merge([
             'student_id' => Auth::guard('students-login')->user()->id,

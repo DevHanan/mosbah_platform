@@ -21,6 +21,13 @@ class PaymentType extends Model
     public function getImageFullPathAttribute($value)
     {
 
+        if($this->image){
         return asset('public/' . $this->image);
+        }else{
+            if($this->type == 'visa')
+            return asset('public/uploads/paymenttypes/default.png');
+
+
+        }
     }
 }

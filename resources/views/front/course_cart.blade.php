@@ -92,6 +92,10 @@
                     <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="" class="paypalForm d-none">
+                <?php 
+                     $paypal = \App\Models\Subscription::where('type','paypal')->first();   
+                    ?>
+                    <input type="hidden" name="payment_type_id" value="{{$paypal->id}}">
                     <div class="payment shadow-sm p-4 my-3">
                         <h5 class="fw-bold">الدفع</h5>
                         <hr>
@@ -109,6 +113,10 @@
                     <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="" class="cashForm d-none">
+                <?php 
+                     $cash = \App\Models\Subscription::where('type','cash')->first();   
+                    ?>
+                    <input type="hidden" name="payment_type_id" value="{{$cash->id}}">
                     <div class="payment shadow-sm p-4 my-3">
                         <h5 class="fw-bold">الدفع</h5>
                         <hr>
@@ -139,6 +147,11 @@
                     <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
                 <form action="" class="visaForm d-none">
+                    @csrf
+                    <?php 
+                     $model = \App\Models\Subscription::where('type','visa')->first();   
+                    ?>
+                    <input type="hidden" name="payment_type_id" value="{{$model->id}}">
                     <div class="payment shadow-sm p-4 my-3">
                         <h5 class="fw-bold">الدفع</h5>
                         <hr>
@@ -215,6 +228,10 @@
                 </form>
                 <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <?php 
+                     $externel = \App\Models\Subscription::where('type','externel')->first();   
+                    ?>
+                    <input type="hidden" name="payment_type_id" value="{{$externel->id}}">
                     <div class="payment shadow-sm p-4 my-3">
                         <h5 class="fw-bold">تحويل خارجي</h5>
                         <hr>

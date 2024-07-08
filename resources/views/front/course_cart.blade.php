@@ -231,7 +231,7 @@
                                 <p> اسحب صورة الفاتورة هنا <img name="bill" src="{{asset('public/front/img/icons/upload.png')}}" alt=""></p>
                             </div>
                             <div class="choose_img position-relative d-flex justify-content-center my-3">
-                                <input type="file" class="position-absolute" id="fileInput" name="bill">
+                                <input type="file" class="position-absolute" id="fileInput" name="bill" required>
                                 <div class="btn secondary-bg text-white py-2 px-4 text-center rounded">اختر الملف</div>
                             </div>
                         </div>

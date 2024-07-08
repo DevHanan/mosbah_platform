@@ -39,6 +39,7 @@ Route::get('/masarat', [HomeController::class, 'calcMasarat']);
 
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
+Route::get('/home', [HomeController::class, 'index']);
 
 
 Route::get('/checkcoupon', [HomeController::class, 'checkCoupon']);

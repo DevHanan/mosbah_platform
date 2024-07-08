@@ -14,7 +14,7 @@ class MailController extends Controller
 
     public function index(Request $request)
     {
-        $data['route'] = 'listemails';
+        $data['route'] = 'admin.listemails';
         $data['title'] =  trans('admin.mails.list');
         $data['rows'] = MailList::where(function($q)use($request){
             if ($request->email)
@@ -23,17 +23,17 @@ class MailController extends Controller
         return view('admin.mails.index', $data);
     }
 
-    public function sendMails()
+    public function create()
     {
         $data['title'] = trans('admin.mails.send');
         $data['route'] = 'sendmails';
         return view('admin.mails.create', $data);
     }
-    public function savesendMail(Request $request)
+    public function store(Request $request)
     {
       return $request->all();
     }
-    public function destroy (Request $request ,$course_id)
+    public function destroy (Request $request)
     {
        $mail = MailList::find($request->id);
         if ($mail)

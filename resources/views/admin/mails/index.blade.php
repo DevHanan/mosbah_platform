@@ -7,7 +7,6 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        {{ Breadcrumbs::render('tracks') }}
 
       </div>
    

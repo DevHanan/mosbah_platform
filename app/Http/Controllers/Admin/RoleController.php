@@ -143,11 +143,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RoleRequest $request, $id)
+    public function update(Request $request, $id)
     {
        
 
         // Update Data
+        $request->validate([
+            'name'=>'required|unique:roles,name,'.$id,
+            'permission' => 'required'
+        ]);
         DB::beginTransaction();
         $role = Role::find($id);
         $role->name = $request->input('name');

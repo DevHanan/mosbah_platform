@@ -247,7 +247,7 @@
                         </div>
 
                         <input type="hidden"  name="paid" value="{{$course->TotalDiscount}}" id="finalPrice">
-                        <input type="hidden" name="course_id" value="{{$course->id}}" id="finalPrice">
+                        <input type="hidden" name="course_id" value="{{$course->id}}" id="course_id">
 
                         <label class="fw-bold mb-3">رقم العملية</label>
                         <input type="text" class="form-control mb-3" name="transcation_id">

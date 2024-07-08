@@ -34,7 +34,7 @@
                         <!-- Form Start -->
                         <div class="mb-3">
                             <label class="form-label" for="email_id">{{ __('admin.emails.mail') }} <span>*</span></label>
-                            <select class="select2 form-control" name="email_ids[]" id="email_id" required multiple>
+                            <select class="select2 form-control" name="emails[]" id="emails" required multiple>
                                 <option value="" disabled hidden>{{ __('select') }}</option>
                                 @foreach($emails as $email)
                                 <option value="{{ $email->id }}"> {{ $email->email }}</option>
@@ -42,7 +42,7 @@
                                 @endforeach
                             </select>
 
-                            @error('email_id')
+                            @error('emails')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

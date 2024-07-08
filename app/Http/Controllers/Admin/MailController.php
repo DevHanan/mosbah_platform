@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Toastr;
 use App\Http\Controllers\Controller;
 
+use Mail;
+use App\Mail\Websitemail;
 
 
 class MailController extends Controller
@@ -32,8 +34,14 @@ class MailController extends Controller
     }
     public function store(Request $request)
     {
-      return $request->all();
+        if($request->emails && count($request->emails)>0){
+        Mail::to($item->email)->send(new Websitemail($item), [
+            'subject' => 'News'
+        ]);
     }
+    toastr()->success(__('admin.email_send_success'), __('admins.msg_success'));
+        return redirect()->back();
+}
     public function destroy (Request $request)
     {
        $mail = MailList::find($request->id);

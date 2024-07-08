@@ -365,6 +365,11 @@ Breadcrumbs::for('show-bankquestions', function (BreadcrumbTrail $trail,$bankgro
 
 
 
+
+Breadcrumbs::for('listmails', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.tickets.subscribedMail'),route('admin.listemails.index'));
+});
 // Home > payment types
 Breadcrumbs::for('payment-types', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

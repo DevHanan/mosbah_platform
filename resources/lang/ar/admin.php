@@ -84,6 +84,14 @@ return [
         'field_photo' => 'الصورة',
         'courses_number' => 'عدد الدورات'
     ],
+
+    "emails" => [
+        'title' => 'إيميلات النشرة الاخبارية',
+        'email'  => "البريد الإلكترونى",
+        'status' => 'حالة الظهور',
+        'actions' => 'الحدث',
+        'created_dates' => ' تاريخ الإضافة'
+    ],
     "blogs" => [
         'blogs_management' => 'المدونة',
         'list' => 'عرض المقالات',

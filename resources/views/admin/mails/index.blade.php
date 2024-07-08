@@ -7,6 +7,7 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
+        {{ Breadcrumbs::render('listmails') }}
 
       </div>
    
@@ -36,8 +37,8 @@
                   </th>
                   <th> {{__('admin.emails.mail')}}</th>
                   <th> {{__('admin.emails.created_dates')}}</th>
-                  <th> {{__('admin.tracks.status')}}</th>
-                  <th>{{ __('admin.tracks.actions') }}</th>
+                  <th> {{__('admin.emails.status')}}</th>
+                  <th>{{ __('admin.emails.actions') }}</th>
                 </tr>
               </thead>
               <tbody>

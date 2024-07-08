@@ -25,6 +25,8 @@ Route::group(
     ],
     function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
+
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/courses', [HomeController::class, 'courses']);
 Route::get('/blogs', [HomeController::class, 'blogs']);
@@ -39,7 +41,6 @@ Route::get('/masarat', [HomeController::class, 'calcMasarat']);
 
 Route::get('/course/{id}', [HomeController::class, 'course']);
 Route::get('/lecture/{id}', [HomeController::class, 'lecture']);
-Route::get('/home', [HomeController::class, 'index']);
 
 
 Route::get('/checkcoupon', [HomeController::class, 'checkCoupon']);

@@ -66,7 +66,7 @@
                         <hr />
 
                         <div class="mb-3">
-                            <label class="form-label">{{ __('admin.notifications.message') }} <span class="form-label"></span></label>
+                            <label class="form-label">{{ __('admin.notifications.body') }} <span class="form-label"></span></label>
                             <textarea dir="auto" class="form-control richtext" name="message" rows="4" placeholder="Content.."></textarea>
                         </div>
 

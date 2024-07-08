@@ -36,6 +36,9 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\TranslateController;
 use App\Http\Controllers\Admin\FacultyController;
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\CommentController;
 
 
 // Set Lang Version
@@ -75,6 +78,7 @@ Route::group(
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
+            Route::resource('coursereviews', CommentController::class);
 
           
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
@@ -98,6 +102,13 @@ Route::group(
             Route::resource('tickets', TicketController::class);
             Route::post('change-ticket-status', [TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
 
+            Route::get('subscribed-mails', [MailController::class, 'listemails'])->name('listemails');
+            Route::get('get-send-mails', [MailController::class, 'sendMails'])->name('sendmails');
+            Route::post('send-mails', [MailController::class, 'savesendMail'])->name('saveMail');
+
+
+
+            Route::resource('notifications', NotificationController::class);
 
 
             Route::resource('coupons', CouponController::class);

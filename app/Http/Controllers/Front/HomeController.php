@@ -14,6 +14,7 @@ use App\Models\Lecture;
 use App\Models\Subscription;
 use App\Models\MailList;
 use App\Models\Ticket;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
@@ -230,7 +231,10 @@ class HomeController extends Controller
     }
 
     public function calcMasarat(){
-        return view('front.calcmasart');
+        $data['first'] = Subject::where('active','1')->where('classroom','1')->get();
+        $data['second'] = Subject::where('active','1')->where('classroom','2')->get();
+        $data['third'] = Subject::where('active','1')->where('classroom','3')->get();
+        return view('front.calcmasart',$data);
     }
 
 

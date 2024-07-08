@@ -65,7 +65,9 @@ return [
         "student_msg" => "مراسلات الطلاب",
         'visitors'  => 'مراسلات الزوار',
         'notifications'  => 'إشعارات',
-        'show' => 'عرض تفاصيل الرسالة'
+        'show' => 'عرض تفاصيل الرسالة',
+        'subscribedMail' => 'إيميلات النشرة الأخبارية',
+        'sendMail'  => 'إرسال بريد'
 
     ],
     'calculate_equation' =>[

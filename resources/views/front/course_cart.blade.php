@@ -93,7 +93,7 @@
                 </form>
                 <form action="" class="paypalForm d-none">
                 <?php 
-                     $paypal = \App\Models\Subscription::where('type','paypal')->first();   
+                     $paypal = \App\Models\PaymentType::where('type','paypal')->first();   
                     ?>
                     <input type="hidden" name="payment_type_id" value="{{$paypal->id}}">
                     <div class="payment shadow-sm p-4 my-3">
@@ -114,7 +114,7 @@
                 </form>
                 <form action="" class="cashForm d-none">
                 <?php 
-                     $cash = \App\Models\Subscription::where('type','cash')->first();   
+                     $cash = \App\Models\PaymentType::where('type','cash')->first();   
                     ?>
                     <input type="hidden" name="payment_type_id" value="{{$cash->id}}">
                     <div class="payment shadow-sm p-4 my-3">
@@ -149,7 +149,7 @@
                 <form action="" class="visaForm d-none">
                     @csrf
                     <?php 
-                     $model = \App\Models\Subscription::where('type','visa')->first();   
+                     $model = \App\Models\PaymentType::where('type','visa')->first();   
                     ?>
                     <input type="hidden" name="payment_type_id" value="{{$model->id}}">
                     <div class="payment shadow-sm p-4 my-3">
@@ -229,7 +229,7 @@
                 <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST" enctype="multipart/form-data">
                     @csrf
                     <?php 
-                     $externel = \App\Models\Subscription::where('type','externel')->first();   
+                     $externel = \App\Models\PaymentType::where('type','externel')->first();   
                     ?>
                     <input type="hidden" name="payment_type_id" value="{{$externel->id}}">
                     <div class="payment shadow-sm p-4 my-3">

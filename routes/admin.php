@@ -95,7 +95,11 @@ Route::group(
             Route::resource('certifications', CertificationController::class);
             Route::get('students-certifications', [CertificationController::class, 'studentCertificate'])->name('studentscertifications');
             Route::get('externel-students-certifications', [CertificationController::class, 'externelstudentCertificate'])->name('externelstudentscertifications');
+            Route::get('grantingcertificate', [CertificationController::class, 'grantingcertificate'])->name('grantingcertificate');
 
+
+
+            
             Route::get('instructors-tickets', [TicketController::class, 'listInstructorMsg'])->name('instructorstickets');
             Route::get('students-tickets', [TicketController::class, 'listStudentMsg'])->name('studentstickets');
             Route::get('visitors-tickets', [TicketController::class, 'listVisitorMsg'])->name('visitorstickets');

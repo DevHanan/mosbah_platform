@@ -430,7 +430,7 @@
                   {{ __('navbar.certifications.student_certifications_from_out') }}
 
                 </a>
-                <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('admin/certifications/create')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.grantingcertificate'])) active @endif" href="{{url('admin/grantingcertificate')}}">
                   {{ __('navbar.certifications.granting') }}
                 </a>
                 

@@ -25,7 +25,7 @@ Route::group(
     ],
     function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('default');
 
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/courses', [HomeController::class, 'courses']);

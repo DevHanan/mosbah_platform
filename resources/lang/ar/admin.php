@@ -803,7 +803,8 @@ return [
         'rate' => 'تقيم',
         'comment' => 'التعليق',
         'status'  => 'الحالة',
-        'action' => 'الحدث'
+        'actions' => 'الحدث',
+        'student' => 'الطالب'
     ] 
 
 

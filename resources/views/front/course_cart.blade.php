@@ -51,7 +51,7 @@
                     </div>
 
                 </div>
-                <form action="" class="normal">
+                <form action="" class="normal d-none">
                     <div class="payment shadow-sm p-4 my-3">
                         <h5 class="fw-bold">الدفع</h5>
                         <hr>

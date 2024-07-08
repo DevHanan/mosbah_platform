@@ -399,12 +399,12 @@
                     if (response.status === 'success') {
                         $('#coupon-message').html(response.discount + '%');
                         $('#total-message').html(response.total);
-                        $('#finalPrice').value = response.total;
+                        document.getElementById("finalPrice").value = response.total;
+
 
                     } else {
                         $('#coupon-message').html('Coupon Not vaild');
-                        $('#finalPrice').value = response.total;
-
+                        document.getElementById("finalPrice").value = response.total;
 
                     }
                 },

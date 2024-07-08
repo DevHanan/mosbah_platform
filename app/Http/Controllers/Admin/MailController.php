@@ -15,7 +15,7 @@ class MailController extends Controller
     public function index(Request $request)
     {
         $data['route'] = 'admin.listemails';
-        $data['title'] =  trans('admin.mails.list');
+        $data['title'] =  trans('admin.emails.list');
         $data['rows'] = MailList::where(function($q)use($request){
             if ($request->email)
             $q->Where('email', 'like', '%' . $request->email  . '%');

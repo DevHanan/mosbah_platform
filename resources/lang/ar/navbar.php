@@ -70,6 +70,15 @@ return [
         'sendMail'  => 'إرسال بريد'
 
     ],
+    "notifications" => [
+        'list' => 'الإشعارات',
+        'title' => 'عنوان الإشعار',
+        'body' => 'نص الإشعار',
+        'date' => 'تاريخ ووقت الإرسال',
+        'action' => 'الحدث',
+        
+        
+    ],
     'calculate_equation' =>[
         'management' => 'حساب المعادلة',
         'first_secondary_subjects' => 'قائمة مواد الأول الثانوى',

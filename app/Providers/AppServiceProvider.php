@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
         $courseTypes = CourseType::get();
         $countries = Country::active()->get();
         $tracks = Track::active()->get();
-        $paymenttypes = PaymentType::get();
+        $paymenttypes = PaymentType::where('active','1')->get();
         $students = Student::get();
         $levels = Level::get();
         $instructors = Instructor::get();

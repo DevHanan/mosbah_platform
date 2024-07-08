@@ -50,7 +50,7 @@
 
 
                             <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
-                            <input type="file" class="form-control" name="image" id="logo">
+                            <input type="file" class="form-control" name="image" id="logo" required>
 
                             @error('image')
                             <div class="invalid-feedback">

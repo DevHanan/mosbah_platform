@@ -9,36 +9,45 @@
                 <h5 class="fw-bold">تفاصيل الدفع</h5>
                 <div class="row">
                     <div class="col-12">
+                        @if($paymenttypes)
                         <div class="pay_methods shadow my-3 p-3 px-2 d-flex justify-content-around align-items-center flex-wrap">
-                            <div class="d-flex mb-1">
+                            @foreach ($paymenttypes  as $record )
+                            @if($record->type == 'visa')
+                          <div class="d-flex mb-1">
                                 <input type="radio" name="pay_method" value="a" id="visa" onclick="showForm('visaForm')">
                                 <label for="visa" class="p-2 rounded shadow-sm py-2 px-4 me-2 ">
-                                    <img src="{{asset('public/front/img/icons/visa-logo.png')}}" alt="">
+                                    <img src="{{ asset($record->ImageFullPath) }}" alt="">
                                 </label>
                             </div>
+                            @elseif($record->type == 'paypal')
 
                             <div class="d-flex mb-1">
                                 <input type="radio" name="pay_method" value="a" id="paypal" onclick="showForm('paypalForm')">
                                 <label for="paypal" class="p-2 rounded shadow-sm py-2 px-4 me-2 ">
-                                    <img src="{{asset('public/front/img/icons/PayPal.png')}}" alt="">
+                                    <img src="{{ asset($record->ImageFullPath) }}" alt="">
                                 </label>
                             </div>
-
+                            @elseif($record->type == 'cash')
                             <div class="d-flex">
                                 <input type="radio" name="pay_method" value="a" id="yandex" onclick="showForm('cashForm')">
                                 <label for="yandex" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center">
-                                    <img src="{{asset('public/front/img/icons/Yandex.png')}}" alt="">
+                                    <img src="{{ asset($record->ImageFullPath) }}" alt="">
                                     <p style="font-size: 10px;" class="m-0 secondary-color">موبايل كاش</p>
                                 </label>
                             </div>
+                            @else
 
                             <div class="d-flex mb-1">
                                 <input type="radio" name="pay_method" value="a" id="external" onclick="showForm('externalForm')">
                                 <label for="external" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center" style="cursor: pointer;">
-                                    <img src="{{asset('public/front/img/icons/add-square.png')}}" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
+                                    <img src="{{ asset($record->ImageFullPath) }}" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
                                 </label>
                             </div>
+
+                            @endif
+                            @endforeach
                         </div>
+                        @endif
                     </div>
 
                 </div>
@@ -312,7 +321,7 @@
                                 <p class="fw-bold">كوبون خصم</p>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control mb-3" placeholder="57CTWAY" id="couponinput">
+                                        <input type="text" class="form-control mb-3" placeholder="57CTWAY" name="coupon_id" id="couponinput">
                                     </div>
                                     <div class="col-6">
                                         <button data-id="{{$course->id}}"  id="check-discount-button" class="btn secondary-bg rounded text-white ">تطبيق الخصم</button>

@@ -796,6 +796,7 @@ return [
     'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح',
     'all'  => 'الكل',
     'student' => 'طلاب',
+    'instructor' => 'مدربين'
 
 
 

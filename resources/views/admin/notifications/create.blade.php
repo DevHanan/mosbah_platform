@@ -37,7 +37,7 @@
                             <select class="select2 form-control" name="category" id="category" required >
                                 <option value="" disabled hidden>{{ __('select') }}</option>
                                 <option value="student" >{{ __('admin.students') }}</option>
-                                <option value="instructors" >{{ __('admin.instructors') }}</option>
+                                <option value="instructors" >{{ __('admin.instructor') }}</option>
                                 <option value="all" >{{ __('admin.all') }}</option>
 
 

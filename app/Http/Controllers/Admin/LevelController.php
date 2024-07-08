@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
 use App\Traits\FileUploader;
 use App\Http\Resources\TrackResource;
-use App\Http\Requests\TrackRequest;
-use App\Http\Requests\UpdateTrackRequest;
 use App\Models\Course;
 use App\Models\Level;
 use Illuminate\Http\Request;
@@ -27,10 +25,10 @@ class LevelController extends Controller
         $this->view = 'admin.levels';
         $this->path = 'levels';
         $this->access = 'levels';
-        // $this->middleware('permission:levels-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:levels-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:levels-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:levels-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:levels-create', ['only' => ['create','store']]);
+        $this->middleware('permission:levels-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:levels-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:levels-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request,$course_id)
     {

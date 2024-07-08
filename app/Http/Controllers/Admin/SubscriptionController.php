@@ -26,10 +26,10 @@ class SubscriptionController extends Controller
         $this->view = 'admin.subscriptions';
         $this->path = 'subscriptions';
         $this->access = 'subscriptions';
-        // $this->middleware('permission:subscriptions-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:subscriptions-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:subscriptions-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:subscriptions-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:subscriptions-create', ['only' => ['create','store']]);
+        $this->middleware('permission:subscriptions-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:subscriptions-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:subscriptions-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

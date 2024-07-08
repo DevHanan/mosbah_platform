@@ -25,10 +25,10 @@ class TicketController extends Controller
         $this->view = 'admin.tickets';
         $this->path = 'tickets';
         $this->access = 'tickets';
-        // $this->middleware('permission:tickets-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:tickets-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:tickets-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:tickets-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:tickets-create', ['only' => ['create','store']]);
+        $this->middleware('permission:tickets-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:tickets-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:tickets-delete',   ['only' => ['delete']]);
     }
 
 

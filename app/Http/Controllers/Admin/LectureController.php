@@ -26,10 +26,10 @@ class LectureController extends Controller
         $this->view = 'admin.lectures';
         $this->path = 'lectures';
         $this->access = 'lectures';
-        // $this->middleware('permission:lectures-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:lectures-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:lectures-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:lectures-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:lectures-create', ['only' => ['create','store']]);
+        $this->middleware('permission:lectures-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:lectures-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:lectures-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request, $level_id)
     {

@@ -26,10 +26,10 @@ class PartenerController extends Controller
         $this->view = 'admin.parteners';
         $this->path = 'parteners';
         $this->access = 'parteners';
-        // $this->middleware('permission:parteners-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:parteners-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:parteners-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:parteners-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:parteners-create', ['only' => ['create','store']]);
+        $this->middleware('permission:parteners-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:parteners-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:parteners-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

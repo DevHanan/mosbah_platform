@@ -26,10 +26,10 @@ class TeamController extends Controller
         $this->view = 'admin.teams';
         $this->path = 'teams';
         $this->access = 'teams';
-        // $this->middleware('permission:teams-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:teams-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:teams-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:teams-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:teams-create', ['only' => ['create','store']]);
+        $this->middleware('permission:teams-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:teams-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:teams-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

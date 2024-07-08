@@ -26,10 +26,10 @@ class PolicyController extends Controller
         $this->view = 'admin.policies';
         $this->path = 'policies';
         $this->access = 'policies';
-        // $this->middleware('permission:policies-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:policies-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:policies-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:policies-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:policies-create', ['only' => ['create','store']]);
+        $this->middleware('permission:policies-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:policies-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:policies-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

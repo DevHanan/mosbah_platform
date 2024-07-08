@@ -25,10 +25,10 @@ class CountryController extends Controller
         $this->view = 'admin.countries';
         $this->path = 'countries';
         $this->access = 'countries';
-        // $this->middleware('permission:countries-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:countries-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:countries-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:countries-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:countries-create', ['only' => ['create','store']]);
+        $this->middleware('permission:countries-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:countries-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:countries-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

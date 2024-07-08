@@ -20,10 +20,10 @@ class CertificationController extends Controller
         $this->view = 'admin.certifications';
         $this->path = 'certifications';
         $this->access = 'certifications';
-        // $this->middleware('permission:certifications-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:certifications-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:certifications-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:certifications-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:certifications-create', ['only' => ['create','store']]);
+        $this->middleware('permission:certifications-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:certifications-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:certifications-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

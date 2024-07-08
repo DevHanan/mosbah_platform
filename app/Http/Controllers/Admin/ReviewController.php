@@ -26,10 +26,10 @@ class ReviewController extends Controller
         $this->view = 'admin.reviews';
         $this->path = 'reviews';
         $this->access = 'reviews';
-        // $this->middleware('permission:reviews-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:reviews-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:reviews-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:reviews-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:reviews-create', ['only' => ['create','store']]);
+        $this->middleware('permission:reviews-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:reviews-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:reviews-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

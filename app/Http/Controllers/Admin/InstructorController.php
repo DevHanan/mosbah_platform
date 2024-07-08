@@ -32,10 +32,10 @@ class InstructorController extends Controller
         $this->view = 'admin.instructors';
         $this->path = 'instructors';
         $this->access = 'instructors';
-        // $this->middleware('permission:instructors-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:instructors-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:instructors-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:instructors-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:instructors-create', ['only' => ['create','store']]);
+        $this->middleware('permission:instructors-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:instructors-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:instructors-delete',   ['only' => ['delete']]);
     }
 
 

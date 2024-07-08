@@ -26,10 +26,10 @@ class StudentController extends Controller
         $this->view = 'admin.students';
         $this->path = 'students';
         $this->access = 'students';
-        // $this->middleware('permission:students-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:students-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:students-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:students-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:students-create', ['only' => ['create','store']]);
+        $this->middleware('permission:students-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:students-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:students-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

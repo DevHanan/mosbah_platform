@@ -34,10 +34,10 @@ class UserController extends Controller
         $this->view      = 'admin.users';
         $this->path      = 'admins';
         $this->access    = 'admins';
-        // $this->middleware('permission:users-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:users-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:users-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:users-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:users-create', ['only' => ['create','store']]);
+        $this->middleware('permission:users-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:users-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:users-delete',   ['only' => ['delete']]);
 
     }
 

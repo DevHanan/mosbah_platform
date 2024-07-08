@@ -26,10 +26,10 @@ class PaymentTypeController extends Controller
         $this->view = 'admin.payment-types';
         $this->path = 'payment-types';
         $this->access = 'payment-types';
-        // $this->middleware('permission:payment-types-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:payment-types-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:payment-types-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:payment-types-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:payment-types-create', ['only' => ['create','store']]);
+        $this->middleware('permission:payment-types-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:payment-types-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:payment-types-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

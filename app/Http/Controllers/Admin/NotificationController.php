@@ -22,10 +22,10 @@ class NotificationController extends Controller
         $this->view = 'admin.notifications';
         $this->path = 'notifications';
         $this->access = 'notifications';
-        // $this->middleware('permission:notifications-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:notifications-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:notifications-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:notifications-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:notifications-create', ['only' => ['create','store']]);
+        $this->middleware('permission:notifications-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:notifications-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:notifications-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

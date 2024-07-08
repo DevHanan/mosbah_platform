@@ -24,10 +24,10 @@ class CouponController extends Controller
         $this->view = 'admin.coupons';
         $this->path = 'coupons';
         $this->access = 'coupons';
-        // $this->middleware('permission:coupons-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:coupons-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:coupons-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:coupons-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:coupons-create', ['only' => ['create','store']]);
+        $this->middleware('permission:coupons-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:coupons-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:coupons-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

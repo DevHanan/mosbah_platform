@@ -23,10 +23,10 @@ class BlogController extends Controller
         $this->view = 'admin.blogs';
         $this->path = 'blogs';
         $this->access = 'blogs';
-        // $this->middleware('permission:blogs-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:blogs-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:blogs-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:blogs-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:blogs-create', ['only' => ['create','store']]);
+        $this->middleware('permission:blogs-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:blogs-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:blogs-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request,)
     {

@@ -20,10 +20,10 @@ class CourseTypeController extends Controller
         $this->view = 'admin.course-types';
         $this->path = 'course-types';
         $this->access = 'course-types';
-        // $this->middleware('permission:course-types-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:course-types-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:course-types-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:course-types-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:course-types-create', ['only' => ['create','store']]);
+        $this->middleware('permission:course-types-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:course-types-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:course-types-delete',   ['only' => ['delete']]);
     }
     /**
      * Display a listing of the resource.

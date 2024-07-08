@@ -27,10 +27,10 @@ class TrackController extends Controller
         $this->view = 'admin.tracks';
         $this->path = 'tracks';
         $this->access = 'tracks';
-        // $this->middleware('permission:tracks-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:tracks-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:tracks-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:tracks-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:tracks-create', ['only' => ['create','store']]);
+        $this->middleware('permission:tracks-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:tracks-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:tracks-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request,)
     {

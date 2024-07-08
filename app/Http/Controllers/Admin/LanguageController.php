@@ -26,10 +26,10 @@ class LanguageController extends Controller
         $this->view = 'admin.languages';
         $this->path = 'languages';
         $this->access = 'languages';
-        // $this->middleware('permission:languages-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:languages-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:languages-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:languages-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:languages-create', ['only' => ['create','store']]);
+        $this->middleware('permission:languages-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:languages-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:languages-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request,)
     {

@@ -35,10 +35,10 @@ class CourseController extends Controller
         $this->view = 'admin.courses';
         $this->path = 'courses';
         $this->access = 'courses';
-        // $this->middleware('permission:courses-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:courses-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:courses-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:courses-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:courses-create', ['only' => ['create','store']]);
+        $this->middleware('permission:courses-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:courses-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:courses-delete',   ['only' => ['delete']]);
 
     }
 

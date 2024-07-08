@@ -20,10 +20,10 @@ class QuizQuestionController extends Controller
         $this->view = 'admin.quizquestions';
         $this->path = 'quizquestions';
         $this->access = 'quizquestions';
-        // $this->middleware('permission:quizquestions-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:quizquestions-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:quizquestions-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:quizquestions-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:quizquestions-create', ['only' => ['create','store']]);
+        $this->middleware('permission:quizquestions-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:quizquestions-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:quizquestions-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request,$quiz_id)
     {

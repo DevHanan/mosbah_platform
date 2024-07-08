@@ -25,10 +25,8 @@ class CommentController extends Controller
         $this->view = 'admin.comments';
         $this->path = 'comments';
         $this->access = 'comments';
-        // $this->middleware('permission:comments-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:comments-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:comments-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:comments-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:comments-view',   ['only' => ['show', 'index']]);
+      
     }
     public function index(Request $request)
     {

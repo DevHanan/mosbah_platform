@@ -92,7 +92,7 @@ return [
         'status' => 'حالة',
         'actions' => 'الحدث',
         'created_dates' => ' وقت الإشتراك',
-        'subject' => 'عنوان البريد',
+        'subject' => 'عنوان الرسالة',
         'message' => 'الرسالة'
     ],
     "blogs" => [

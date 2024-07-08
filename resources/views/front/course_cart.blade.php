@@ -226,7 +226,7 @@
                     </div>
                     <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
-                <form action="{{url('subscribe')}}" class="externalForm d-none" method="POST" enctype="multipart/form-data">
+                <form action="{{url('subscribe')}}" class="externalForm " method="POST" enctype="multipart/form-data">
                     @csrf
                     <?php 
                      $externel = \App\Models\PaymentType::where('type','externel')->first();   

@@ -97,8 +97,11 @@ return [
     ],
     "notifications" => [
         'list' => 'الإشعارات',
-        'title' => 'الإشعارات',
-      
+        'title' => 'عنوان الإشعار',
+        'body' => 'نص الإشعار',
+        'date' => 'تاريخ ووقت الإرسال',
+        'action' => 'الحدث'
+        
     ],
     "blogs" => [
         'blogs_management' => 'المدونة',

@@ -36,8 +36,8 @@
                             <label class="form-label" for="email_id">{{ __('admin.notifications.category') }} <span>*</span></label>
                             <select class="select2 form-control" name="category" id="category" required >
                                 <option value="" disabled hidden>{{ __('select') }}</option>
-                                <option value="student" >{{ __('admin.students') }}</option>
-                                <option value="instructors" >{{ __('admin.instructor') }}</option>
+                                <option value="student" >{{ __('admin.studentlabel') }}</option>
+                                <option value="instructors" >{{ __('admin.instructorlabel') }}</option>
                                 <option value="all" >{{ __('admin.all') }}</option>
 
 

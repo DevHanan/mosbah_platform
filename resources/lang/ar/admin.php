@@ -795,8 +795,8 @@ return [
     'make_msg_unread' => 'تعيين كغير مقروءة',
     'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح',
     'all'  => 'الكل',
-    'student' => 'طلاب',
-    'instructor' => 'مدربين'
+    'studentlabel' => 'طلاب',
+    'instructorlabel' => 'مدربين'
 
 
 

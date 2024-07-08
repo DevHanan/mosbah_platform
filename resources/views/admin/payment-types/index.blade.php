@@ -91,10 +91,6 @@
                                 <span class="far fa-edit "></span>
                             </a>
 
-                            <!-- <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                            @include('admin.layouts.inc.delete') -->
                         </td>
                         </tr>
                       @endforeach

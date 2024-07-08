@@ -48,7 +48,7 @@
                     </svg>
                   </th>
                   <th> {{__('admin.notifications.date')}}</th>
-                  <th> {{__('admin.notifications.title')}}</th>
+                  <th> {{__('admin.notifications.subject')}}</th>
                   <th> {{__('admin.notifications.body')}}</th>
                   <th>{{ __('admin.notifications.actions') }}</th>
                 </tr>

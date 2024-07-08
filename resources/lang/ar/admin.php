@@ -118,6 +118,7 @@ return [
         'hour' => 'ساعه'
     ],
     "lectures" => [
+        'published_at' => 'تاريخ النشر',
         'field_period' => 'مدة المحاضرة(بالساعة)',
         'goals' => 'اهداف المحاضرة',
         'conclusion'  => 'الخاتمة',

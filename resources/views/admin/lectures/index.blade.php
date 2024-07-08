@@ -7,7 +7,7 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-      {{ Breadcrumbs::render('lectures',$level->course,$level) }}
+        {{ Breadcrumbs::render('lectures',$level->course,$level) }}
 
       </div>
       <!-- Page title actions -->
@@ -69,6 +69,7 @@
                   <th> {{__('admin.lectures.field_period')}}</th>
                   <th>{{ __('admin.lectures.type') }}</th>
                   <th>{{ __('admin.lectures.opened_free') }}</th>
+                  <th>{{ __('admin.lectures.published_at') }}</th>
                   <th>{{ __('admin.lectures.actions') }}</th>
                 </tr>
               </thead>
@@ -82,13 +83,13 @@
                   <td>{{optional($row->level)->name}}</td>
                   <td>{{optional($row->course)->name}}</td>
                   <td> {{ $row->period }}</td>
-                  
+
                   <td>
                     {{ __($row->typeLabel) }}
                   </td>
                   <td> {{ __($row->freeLabel) }}</td>
 
-
+                  <td>{{ $row->created_at }}</td>
 
 
                   <td style="width: 270px;">
@@ -103,7 +104,7 @@
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.layouts.inc.custom-lecture-delete')
-                   
+
                   </td>
                 </tr>
                 @endforeach

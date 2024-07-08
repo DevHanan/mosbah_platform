@@ -49,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
         $countries = Country::active()->get();
         $tracks = Track::active()->get();
         $paymenttypes = PaymentType::where('active','1')->get();
+        $externelPayment = PaymentType::where('active','1')->where('type','externel')->first();
         $students = Student::get();
         $levels = Level::get();
         $instructors = Instructor::get();
@@ -63,12 +64,14 @@ class AppServiceProvider extends ServiceProvider
         $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
         $bankgroup = BankGroup::active()->latest()->get();
         $reviews = Review::active()->latest()->get();
+        
 
 
 
         $policies = Policy::active()->get();
 
         View::share([
+            'externelPayment' => $externelPayment,
             'bankgroups' => $bankgroup,
             'latest' =>$latest,
             'setting' => $setting, 'courses' => $courses,

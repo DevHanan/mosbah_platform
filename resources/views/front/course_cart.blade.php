@@ -238,12 +238,17 @@
                         <p class="fw-bold mb-3" for="">يمكنك ارسال المبلغ من خلال الوسايل التالية</p>
                         <label class="mb-3 fw-bold">رقم محفظة للتحويل</label>
                         <div class="d-flex align-items-baseline mb-3">
-                            <p class="fw-bold">0123456789</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
+                            <p class="fw-bold">{{ $externelPayment->mobile_cash_number }}</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
                         </div>
 
                         <label class="mb-3 fw-bold">رابط حساب باي بال</label>
                         <div class="d-flex align-items-center mb-3">
-                            <p class="fw-bold">paypal.link.com</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
+                            <p class="fw-bold">{{ $externelPayment->paypal_link }}</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
+                        </div>
+
+                        <label class="mb-3 fw-bold"> حساب فورى</label>
+                        <div class="d-flex align-items-center mb-3">
+                            <p class="fw-bold">{{ $externelPayment->fawry_number }}</p> <i class="fa-regular fa-copy mx-3 fa-lg" style="cursor: pointer;"></i>
                         </div>
 
                         <input type="hidden"  name="paid" value="{{$course->TotalDiscount}}" id="finalPrice">

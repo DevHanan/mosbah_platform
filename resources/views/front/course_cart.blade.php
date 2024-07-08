@@ -248,6 +248,7 @@
 
                         <input type="hidden"  name="paid" value="{{$course->TotalDiscount}}" id="finalPrice">
                         <input type="hidden" name="course_id" value="{{$course->id}}" id="course_id">
+                        <input type="hidden"  name="coupon_id" value="" id="coupon_id">
 
                         <label class="fw-bold mb-3">رقم العملية</label>
                         <input type="text" class="form-control mb-3" name="transcation_id">
@@ -400,11 +401,12 @@
                         $('#coupon-message').html(response.discount + '%');
                         $('#total-message').html(response.total);
                         document.getElementById("finalPrice").value = response.total;
-
+                        document.getElementById("coupon_id").value = response.coupon;
 
                     } else {
                         $('#coupon-message').html('Coupon Not vaild');
                         document.getElementById("finalPrice").value = response.total;
+                        document.getElementById("coupon_id").value = response.coupon;
 
                     }
                 },

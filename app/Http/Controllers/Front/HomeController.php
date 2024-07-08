@@ -147,7 +147,6 @@ class HomeController extends Controller
 
     public function subscribe(Request $request)
     {
-        return $request->all();
         $course = Course::find($request->course_id);
         $request->merge([
             'student_id' => Auth::guard('students-login')->user()->id,
@@ -215,14 +214,17 @@ class HomeController extends Controller
             return response()->json([
                 'status' => 'success',
                 'discount' => $coupon->discount,
-                'total' => (optional($coupon->course)->TotalDiscount) -  ((optional($coupon->course)->TotalDiscount / 100) * $coupon->discount)
+                'total' => (optional($coupon->course)->TotalDiscount) -  ((optional($coupon->course)->TotalDiscount / 100) * $coupon->discount),
+                'coupon' => $coupon->id
             ]);
         }
         } else {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Coupon not Vaild',
-                'total' => $course->TotalDiscount
+                'total' => $course->TotalDiscount,
+                'coupon' => ''
+
             ]);
         }
     }

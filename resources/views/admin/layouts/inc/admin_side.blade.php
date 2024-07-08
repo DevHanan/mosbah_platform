@@ -434,6 +434,7 @@
                   {{ __('navbar.certifications.granting') }}
                 </a>
                 
+                
 
               </div>
             </div>

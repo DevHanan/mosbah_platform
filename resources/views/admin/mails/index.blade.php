@@ -35,11 +35,9 @@
                       <path d="M6 15l6 -6l6 6"></path>
                     </svg>
                   </th>
-                  <th> {{__('admin.tracks.name')}}</th>
-                  <th> {{__('admin.tracks.courses_number')}}</th>
+                  <th> {{__('admin.emails.mail')}}</th>
+                  <th> {{__('admin.emails.created_dates')}}</th>
                   <th> {{__('admin.tracks.status')}}</th>
-                  <th>{{ __('admin.tracks.field_photo') }}</th>
-
                   <th>{{ __('admin.tracks.actions') }}</th>
                 </tr>
               </thead>
@@ -49,9 +47,9 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                  <td>{{$row->name}}</td>
-                  <td>{{ $row->courses()->count() }}</td>
+                  <td>{{$row->email}}</td>
 
+                  <td>{{$row->created_at}}</td>
 
 
                   <td>
@@ -59,7 +57,7 @@
 
                     <div class="form-check form-switch md-3" style="margin:10px">
 
-                      <input data-id="{{$row->id}}" data-type='App\Models\Track' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                      <input data-id="{{$row->id}}" data-type='App\Models\MailList' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                     </div>
                   </td>
                   <td><img  src="{{$row->imageFullPath}}" style="width:40px"></td>

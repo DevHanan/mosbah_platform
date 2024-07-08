@@ -135,11 +135,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
        
         
-        // Update data
+        $request->validate([
+            'name' => 'required',
+            'email'=>'required|unique:users,email,'.$id,
+            'password' => 'confirmed',
+            'phone'        => 'required|unique:users,phone,'.$id,
+            "roles"      => "required",
+
+        ]);
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;

@@ -95,6 +95,11 @@ return [
         'subject' => 'عنوان الرسالة',
         'message' => 'الرسالة'
     ],
+    "notifications" => [
+        'list' => 'الإشعارات',
+        'title' => 'الإشعارات',
+      
+    ],
     "blogs" => [
         'blogs_management' => 'المدونة',
         'list' => 'عرض المقالات',

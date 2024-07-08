@@ -136,8 +136,9 @@ class CourseController extends Controller
         return view($this->view . '.create', $data);
     }
 
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
+
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
@@ -229,7 +230,7 @@ class CourseController extends Controller
 
         return view($this->view . '.edit', $data);
     }
-    public function update(Request $request)
+    public function update(UpdateCourseRequest $request)
     {
         $course = Course::find($request->id);
         $active = $request->active ? '1' : '0';

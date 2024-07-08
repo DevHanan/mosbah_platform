@@ -38,7 +38,7 @@
                             @else
 
                             <div class="d-flex mb-1">
-                                <input type="radio" name="pay_method" value="a" id="external" onclick="showForm('externalForm')">
+                                <input type="radio" name="pay_method" value="a" id="external" onclick="showForm('externalForm')" checked>
                                 <label for="external" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center" style="cursor: pointer;">
                                     <img src="{{ asset($record->ImageFullPath) }}" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
                                 </label>

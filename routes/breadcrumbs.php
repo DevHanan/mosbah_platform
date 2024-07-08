@@ -378,6 +378,11 @@ Breadcrumbs::for('send-emails', function (BreadcrumbTrail $trail) {
 
 
 
+Breadcrumbs::for('comments', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.courses.reviews'),route('admin.comments.index'));
+});
+
 Breadcrumbs::for('notifications', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(trans('navbar.notifications.list'),route('admin.notifications.index'));

@@ -797,7 +797,14 @@ return [
     'all'  => 'الكل',
     'studentlabel' => 'طلاب',
     'instructorlabel' => 'مدربين',
-    'notificaion_send_successfully'=>'تم إرسال الإشعار بنجاح'
+    'notificaion_send_successfully'=>'تم إرسال الإشعار بنجاح',
+    'comments' => [
+        'date' => 'تاريخ النشر',
+        'rate' => 'تقيم',
+        'comment' => 'التعليق',
+        'status'  => 'الحالة',
+        'action' => 'الحدث'
+    ] 
 
 
 

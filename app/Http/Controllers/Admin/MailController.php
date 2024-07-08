@@ -34,10 +34,12 @@ class MailController extends Controller
     }
     public function store(Request $request)
     {
+        $subject = $request->subject;
+        $message = $request->message;
         if($request->emails && count($request->emails)>0){
-        Mail::to($item->email)->send(new Websitemail($item), [
-            'subject' => 'News'
-        ]);
+            foreach($request->emails as $email)
+            \Mail::to($email)->send(new Websitemail($subject,$message));
+
     }
     toastr()->success(__('admin.email_send_success'), __('admins.msg_success'));
         return redirect()->back();

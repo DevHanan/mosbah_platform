@@ -174,7 +174,7 @@
           </a>
         </li>
         <li class="nav-item  dropdown">
-          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.coursereviews','admin.courses.*','admin.recommendCourses','admin.startsoonCourses','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif" href="" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
+          <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.comments','admin.courses.*','admin.recommendCourses','admin.startsoonCourses','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif" href="" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -233,7 +233,7 @@
                 </a>
                 
 
-                <a class="dropdown-item @if(request()->routeIs(['admin.coursereviews.*'])) active @endif" href="{{url('admin/coursereviews')}}">
+                <a class="dropdown-item @if(request()->routeIs(['admin.comments.*'])) active @endif" href="{{url('admin/comments')}}">
 
                   {{ __('navbar.courses.reviews') }}
 

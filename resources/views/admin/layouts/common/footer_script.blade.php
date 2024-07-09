@@ -700,7 +700,7 @@
 
 <script>
 	$('document').ready(function() {
-		const passwordField = document.getElementById("password");
+		const passwordField = document.getElementsByClassName("password-field");
 		const togglePassword = document.querySelector(".password-toggle-icon i");
 
 		togglePassword.addEventListener("click", function() {

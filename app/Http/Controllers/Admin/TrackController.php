@@ -107,7 +107,7 @@ class TrackController extends Controller
 
     public function changeTrackFooter(Request $request){
         $item = $request->type::find($request->id);
-        $item->in_footer = $request->status;
+        $item->in_footer = $request->in_footer;
         $item->save();
         return response()->json(['success' => 'Status change successfully.']);
     }

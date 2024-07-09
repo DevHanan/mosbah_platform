@@ -300,7 +300,7 @@
                                 <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;display:block;">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="person d-flex align-items-center">
-                                            <div class="img"><img src="{{ optional($comment->student)->imageFullPath }}" alt=""></div>
+                                            <div class="img"><img style="width:120px;height:100px;" src="{{ optional($comment->student)->imageFullPath }}" alt=""></div>
                                             <p class="fw-bold mx-3">{{ optional($comment->student)->name }} </p>
                                         </div>
                                         <div class="rating d-flex">

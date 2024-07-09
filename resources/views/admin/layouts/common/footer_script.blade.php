@@ -466,9 +466,6 @@
 			});
 		})
 	})
-
-
-
 </script>
 
 
@@ -498,59 +495,59 @@
 	});
 	$(document).ready(function() {
 
-	let categoryCards = document.querySelector('.categoryCards');
-	let rowsCards = document.querySelector('.rowsCards');
-	let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
-	let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
-	let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+		let categoryCards = document.querySelector('.categoryCards');
+		let rowsCards = document.querySelector('.rowsCards');
+		let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
+		let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
+		let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
 
-	rowsCards.addEventListener('click', function() {
-		categoryCards.classList.remove('active');
-		rowsCards.classList.add('active');
+		rowsCards.addEventListener('click', function() {
+			categoryCards.classList.remove('active');
+			rowsCards.classList.add('active');
 
-		paginationCards.forEach(paginationCard => {
-			paginationCard.classList.add('col-sm-12');
-		});
-		paginationCardsImg.forEach(paginationCardImg => {
-			paginationCardImg.classList.remove('col-12');
-			paginationCardImg.classList.add('col-4');
-		});
-		paginationCardsData.forEach(paginationCardData => {
-			paginationCardData.classList.remove('col-12');
-			paginationCardData.classList.add('col-8');
-		});
-
-		let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
-
-		paginationCardsDesc.forEach(paginationCardDesc => {
-			paginationCardDesc.style.cssText = 'white-space: normal;';
-		});
-	});
-
-	categoryCards.addEventListener('click', function() {
-		rowsCards.classList.remove('active');
-		categoryCards.classList.add('active');
-
-		paginationCards.forEach(paginationCard => {
-			paginationCard.classList.remove('col-sm-12');
-
+			paginationCards.forEach(paginationCard => {
+				paginationCard.classList.add('col-sm-12');
+			});
 			paginationCardsImg.forEach(paginationCardImg => {
-				paginationCardImg.classList.remove('col-4');
-				paginationCardImg.classList.add('col-12');
+				paginationCardImg.classList.remove('col-12');
+				paginationCardImg.classList.add('col-4');
 			});
 			paginationCardsData.forEach(paginationCardData => {
-				paginationCardData.classList.remove('col-8');
-				paginationCardData.classList.add('col-12');
+				paginationCardData.classList.remove('col-12');
+				paginationCardData.classList.add('col-8');
+			});
+
+			let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+			paginationCardsDesc.forEach(paginationCardDesc => {
+				paginationCardDesc.style.cssText = 'white-space: normal;';
 			});
 		});
 
-		let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+		categoryCards.addEventListener('click', function() {
+			rowsCards.classList.remove('active');
+			categoryCards.classList.add('active');
 
-		paginationCardsDesc.forEach(paginationCardDesc => {
-			paginationCardDesc.style.cssText = 'white-space: nowrap;';
+			paginationCards.forEach(paginationCard => {
+				paginationCard.classList.remove('col-sm-12');
+
+				paginationCardsImg.forEach(paginationCardImg => {
+					paginationCardImg.classList.remove('col-4');
+					paginationCardImg.classList.add('col-12');
+				});
+				paginationCardsData.forEach(paginationCardData => {
+					paginationCardData.classList.remove('col-8');
+					paginationCardData.classList.add('col-12');
+				});
+			});
+
+			let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+			paginationCardsDesc.forEach(paginationCardDesc => {
+				paginationCardDesc.style.cssText = 'white-space: nowrap;';
+			});
 		});
 	});
-});
 </script>
 <script>
 	$(document).ready(function() {
@@ -701,3 +698,21 @@
 	});
 </script>
 
+<script>
+	$('document').ready(function() {
+		const passwordField = document.getElementById("password");
+		const togglePassword = document.querySelector(".password-toggle-icon i");
+
+		togglePassword.addEventListener("click", function() {
+			if (passwordField.type === "password") {
+				passwordField.type = "text";
+				togglePassword.classList.remove("fa-eye");
+				togglePassword.classList.add("fa-eye-slash");
+			} else {
+				passwordField.type = "password";
+				togglePassword.classList.remove("fa-eye-slash");
+				togglePassword.classList.add("fa-eye");
+			}
+		});
+	});
+</script>

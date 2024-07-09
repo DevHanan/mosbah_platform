@@ -20,6 +20,7 @@ use App\Models\Policy;
 use App\Models\Question;
 use App\Models\Team;
 use App\Models\BankGroup;
+use App\Models\Faculty;
 use App\Models\Review;
 use View;
 
@@ -45,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         $setting = Setting::where('status', '1')->first();
         $courses = Course::active()->latest()->get();
         $lectures = Lecture::active()->latest()->get();
+        $faculities  = Faculty::active()->get();
         $courseTypes = CourseType::get();
         $countries = Country::active()->get();
         $tracks = Track::active()->get();
@@ -71,6 +73,7 @@ class AppServiceProvider extends ServiceProvider
         $policies = Policy::active()->get();
 
         View::share([
+            'faculities' => $faculities,
             'externelPayment' => $externelPayment,
             'bankgroups' => $bankgroup,
             'latest' =>$latest,

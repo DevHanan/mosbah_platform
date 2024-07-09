@@ -51,19 +51,14 @@
                                     </ul>
                                 </div>
                                 <div class="followers_number mx-3">
-                                    <p class="text-white mb-1">5 طلاب </p>
-                                    <p class="text-white mb-0">يتابعون هذه الدورة </p>
-                                </div>
-                            </div>
-
-                            <div class="persons mx-3">
-
-                            </div>
-                            @endif
-                            <div class="followers_number mx-3">
                                 <p class="text-white mb-1">{{ $course->SubscriptionCount}} طلاب </p>
                                 <p class="text-white mb-0">يتابعون هذه الدورة </p>
                             </div>
+                            </div>
+
+                         
+                            @endif
+                          
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
                             <span class="text-white mx-4 fw-bold">(15) 4.5</span>

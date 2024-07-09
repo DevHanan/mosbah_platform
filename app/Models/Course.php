@@ -22,7 +22,7 @@ class Course extends Model
     );
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
+    protected $appends = ['avgrating','backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
 
     public function getperiodLabelAttribute()
     {
@@ -95,6 +95,10 @@ class Course extends Model
         else return 0;
     }
 
+    public function getavgratingAttribute(){
+            return $this->comments()->sum('rate')/$this->comments()->count();
+    }
+
     public function getTotalDiscountAttribute()
     {
         return $this->price_with_discount;
@@ -135,6 +139,8 @@ class Course extends Model
         return $this->hasMany(Subscription::class);
     }
 
+
+   
     public function comments()
     {
         return $this->hasMany(Comment::class);

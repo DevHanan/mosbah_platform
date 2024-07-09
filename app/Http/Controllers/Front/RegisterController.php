@@ -62,6 +62,7 @@ class RegisterController extends Controller
 
         $landingSetting = LandingSetting::first();
 
+        $request->merge(['active'=>'0']);
         $item = $model::create($request->except('password'));
         $item->password = Bcrypt($request->password);
         $item->verification_code = Str::random(4); // generate a 6-digit verification code
@@ -83,7 +84,7 @@ class RegisterController extends Controller
                 'subject' => 'Verify Email'
             ]);
 
-        toastr()->success(__('front.account_created_successfully'), __('front.msg_success'));
+        toastr()->success(__('admin.account_created_successfully'), __('admin.msg_success'));
         return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
 
         // return view('front.sign_step2', compact(['type', 'item']));
@@ -105,13 +106,14 @@ class RegisterController extends Controller
         if ($item) {
             $item->verification_code = '';
             $item->verification_expire_time = '';
+            $item->active = '1';
             $item->save();
              $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
             Auth::guard($guard)->loginUsingId($item->id);
-            toastr()->success(__('front.account_verified_successfully'), __('front.msg_success'));
+            toastr()->success(__('admin.account_verified_successfully'), __('admin.msg_success'));
             return view('front.sign_step2', compact(['type', 'item']));
         } else {
-            toastr()->success(__('front.account_verified_failed'), __('front.msg_error'));
+            toastr()->success(__('admin.account_verified_failed'), __('admin.msg_error'));
             return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
         }
     }
@@ -143,7 +145,7 @@ class RegisterController extends Controller
             if ($request->track_ids)
                 $model->tracks()->attach($request->track_ids);
         }
-        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
+        toastr()->success(__('admin.account_created_successfully'), __('admin.msg_success'));
         return view('front.sign_step3');
     }
 
@@ -176,7 +178,7 @@ class RegisterController extends Controller
         }
 
         
-        toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
+        toastr()->success(__('admin.msg_update_successfully'), __('admin.msg_success'));
         return view('front.sign-completed');
     }
 
@@ -205,7 +207,7 @@ class RegisterController extends Controller
             $token = $client->createToken('apiToken')->plainTextToken;
             $client->api_token = $token;
             $client->save();
-            toastr()->success(__('front.login_success'), __('front.msg_success'));
+            toastr()->success(__('admin.msg_login_successfully'), __('admin.msg_success'));
             return redirect('/');
         } elseif (auth()->guard('instructors-login')->attempt([$field => $value, 'password' => $request->password])) {
             $client = auth()->guard('instructors-login')->user();
@@ -220,10 +222,10 @@ class RegisterController extends Controller
             $token = $client->createToken('apiToken')->plainTextToken;
             $client->api_token = $token;
             $client->save();
-            toastr()->success(__('front.login_success'), __('front.msg_success'));
+            toastr()->success(__('admin.msg_login_successfully'), __('admin.msg_success'));
             return redirect('/');
         } else {
-            toastr()->error(__('front.login_failed'), __('front.msg_error'));
+            toastr()->error(__('admin.login_failed'), __('admin.msg_error'));
             return redirect('/signin');
         }
     }

@@ -11,7 +11,9 @@ return [
     'intructor_name' => 'إسم المدرب ',
     'intructor_current_balance' => ' الرصيد الحالى',
     'show_level' => 'عرض مراحل الدورة',
-
+    'login_failed' => 'خطأ أثاء محاولة تسجيل الدخول',
+'account_verified_successfully' => 'تم تفعيل الحساب بنجاح',
+'account_verified_failed' => 'فشل أثناء محاولة تفعيل الحساب',
     'amount' => 'القيمة المطلوب سحيها',
     'available_amount' => 'الرصيد لمتاح',
     'change_status_model_msg' => 'هل أنت متأكد من تغير الحالة للعنصر؟',
@@ -36,6 +38,7 @@ return [
     "msg_updated_successfully"  => "تم تعديل بيانات العنصر بنجاح",
     "msg_update_successfully"  => "تم تعديل بيانات العنصر بنجاح",
     "msg_success" => "نجحت العملية",
+    'account_created_successfully' =>'تم إنشاء الحساب بنجاح',
     "btn_refresh" => 'إعادة تحميل',
     "modal_are_you_sure"  => "هل أنت متأكد من الاستمرار ?",
     "delete_model_msg" => "بحذف هذا العنصر لن نتمكن من الرجوع عن العملية مره أخرى .",

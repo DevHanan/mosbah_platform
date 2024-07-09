@@ -496,7 +496,7 @@
 	$(document).ready(function() {
 		$('.select2').select2();
 	});
-
+	$(document).ready(function() {
 
 	let categoryCards = document.querySelector('.categoryCards');
 	let rowsCards = document.querySelector('.rowsCards');
@@ -550,6 +550,7 @@
 			paginationCardDesc.style.cssText = 'white-space: nowrap;';
 		});
 	});
+});
 </script>
 <script>
 	$(document).ready(function() {

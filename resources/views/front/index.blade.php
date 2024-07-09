@@ -128,12 +128,16 @@
                                             @endif                        </div> -->
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                <img src="public/front/img/grayStar.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
+                                @if($course->avgrating )
+                                @for($i=0; $i<(int)$course->avgrating; $i++)
+                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                    @endfor
+                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                        @endfor
+                                        @endif
+
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
@@ -206,12 +210,16 @@
                         </div> -->
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                <img src="public/front/img/grayStar.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
+                                @if($course->avgrating )
+                                @for($i=0; $i<(int)$course->avgrating; $i++)
+                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                    @endfor
+                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                        @endfor
+                                        @endif
+
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
@@ -354,13 +362,17 @@
                                             @endif
                         </div> -->
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3"> ({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                <img src="public/front/img/grayStar.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
-                                <img src="public/front/img/Star.svg" alt="">
+                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
+                                @if($course->avgrating )
+                                @for($i=0; $i<(int)$course->avgrating; $i++)
+                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                    @endfor
+                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                        @endfor
+                                        @endif
+
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
@@ -423,8 +435,8 @@
                             <div class="img"><img src="public/front/img/person1.svg" class="img-fluid rounded-circle" alt=""></div>
                         </div>
                         <div class="card__data p-3">
-                            <p class="card__description my-3"> 
-                                        {!!  $review->comment !!}
+                            <p class="card__description my-3">
+                                {!! $review->comment !!}
                             </p>
                         </div>
                     </article>
@@ -494,10 +506,10 @@
 @endsection
 @push('frontscript')
 <script>
-        // counter
+    // counter
     const counters = document.querySelectorAll(".statistics .count");
     const speed = 700;
-    
+
     const isElementInViewport = (el) => {
         const rect = el.getBoundingClientRect();
         return (
@@ -507,14 +519,14 @@
             rect.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     };
-    
+
     const startCounterIfVisible = (counter) => {
         if (isElementInViewport(counter)) {
             const updateCount = () => {
                 const target = parseInt(counter.getAttribute("data-target"));
                 const count = parseInt(counter.innerText);
                 const increment = Math.ceil(target / speed);
-    
+
                 if (count < target) {
                     counter.innerText = count + increment;
                     setTimeout(updateCount, 1);
@@ -533,7 +545,7 @@
             });
         }
     };
-    
+
     counters.forEach(startCounterIfVisible);
-    </script>
+</script>
 @endpush

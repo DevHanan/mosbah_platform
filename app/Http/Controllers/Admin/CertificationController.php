@@ -69,6 +69,7 @@ class CertificationController extends Controller
 
     public function grantingcertificate(){
         $data['title'] = 'granting certificate ';
+        $data['route'] = $this->route;
         return view('admin.certifications.grantingcertificate',$data);
     }
     public function store(Request $request)

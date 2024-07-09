@@ -14,7 +14,7 @@ Route::get('login-by-id/{id}', [AuthController::class, 'login'])->name('instruct
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath', 'prevent-inactive-user']
+        'middleware' => ['localeSessionRedirect', 'localize', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
         Route::name('instructor.')->prefix('instructor/')->middleware(['auth:instructors-login'])->group(function () {

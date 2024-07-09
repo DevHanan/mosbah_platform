@@ -2,7 +2,7 @@
 @section('title',__('admin.auth_login'))
 @section('content')
 <style>
-    .fa-eye {
+    .fa-eye-slash {
         position: absolute;
         top: 28%;
         right: 4%;

@@ -307,10 +307,12 @@
                                             <div class="mx-2 fw-bold"> {{ $comment->rate }}</div>
                                             <div class="img">
                                                 @if($comment->rate )
-                                                @foreach((int)$comment->rate as $rate)
+                                                @for($i=0; $i<(int)$comment->rate; $i++)
                                                 <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
-                                                @endforeach
+                                                @endfor
+                                                @for($i=0; $i<5-(int)$comment->rate; $i++)
                                                 <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
                                                 @endif
                                             </div>
                                         </div>

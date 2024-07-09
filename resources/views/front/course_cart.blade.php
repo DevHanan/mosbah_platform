@@ -423,4 +423,76 @@
     })
 })
 </script>
+<script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>  
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const imgBox = document.querySelector('.img_box');
+                    imgBox.innerHTML = ''; // Clear previous content
+                    const img = document.createElement('img');
+                    img.src = reader.result;
+                    img.alt = 'Selected Image';
+                    img.className = 'img-fluid rounded-circle';
+                    img.style.cssText = 'width: 100%; height: 100%;';
+                    imgBox.style.cssText = 'background: transparent; width:213px;height:200px;padding: 0';
+                    imgBox.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        });        
+    </script>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const imgBox = document.querySelector('.img_box');
+                    imgBox.innerHTML = ''; // Clear previous content
+                    const img = document.createElement('img');
+                    img.src = reader.result;
+                    img.alt = 'Selected Image';
+                    img.className = 'img-fluid rounded-circle';
+                    img.style.cssText = 'width: 100%; height: 100%;';
+                    imgBox.style.cssText = 'background: transparent; width:213px;height:200px;padding: 0';
+                    imgBox.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        }); 
+        
+        function showForm(formId) {
+            var forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.classList.add('d-none');
+            });
+            // Show the selected form
+            document.querySelector('.' + formId).classList.remove('d-none');
+        }
+    </script>   
+
+    <script>
+        //<!-- copy -->
+        document.addEventListener('DOMContentLoaded', function() {
+          const copyIcons = document.querySelectorAll('.fa-copy');
+    
+          copyIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+              const textToCopy = this.previousElementSibling.textContent.trim();
+              navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('copied successfully!');
+              }).catch(err => {
+                console.error('Error copying text: ', err);
+              });
+            });
+          });
+        });
+    </script>
 @endpush

@@ -44,14 +44,14 @@
                                     </ul>
                                 </div>
                                 <div class="followers_number mx-3">
-                                <p class="text-white mb-1">{{ $course->SubscriptionCount}} طلاب </p>
-                                <p class="text-white mb-0">يتابعون هذه الدورة </p>
-                            </div>
+                                    <p class="text-white mb-1">{{ $course->SubscriptionCount}} طلاب </p>
+                                    <p class="text-white mb-0">يتابعون هذه الدورة </p>
+                                </div>
                             </div>
 
-                         
+
                             @endif
-                          
+
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
                             <span class="text-white mx-4 fw-bold">(15) 4.5</span>
@@ -474,47 +474,46 @@
 @push('frontscript')
 
 <script>
-           
-           $('document').ready(function(){
-           var video = document.getElementById("myVideo");
-           var playButton = document.getElementById("playButton");
-           video.controls = false;
-       
-           // Add click event listener to the play button
-           playButton.addEventListener("click", function() {
-               if (video.paused) {
-                   video.play();
-                   playButton.style.display = "none"; 
-               } else {
-                   video.pause();
-               }
-           });
-           
-   
-           document.addEventListener('DOMContentLoaded', function () {
-               const ratingContainers = document.querySelectorAll('.rating-stars');
-   
-               ratingContainers.forEach(container => {
-                   const stars = container.querySelectorAll('img');
-                   const question = container.getAttribute('data-question');
-                   const ratingInput = document.querySelector(`#ratingInput-${question}`); // Assuming you have separate rating input for each question
-   
-                   stars.forEach((star, index) => {
-                       star.addEventListener('click', function () {
-                           // Set all stars to gray
-                           stars.forEach(s => s.src = "../img/emptyStar.png");
-                           // Set clicked and previous stars to yellow
-                           for (let i = 0; i <= index; i++) {
-                               stars[i].src = "../img/Star.svg";
-                           }
-                           // Update the rating input field with the selected index
-                           ratingInput.value = index + 1; // Assuming the rating starts from 1
-                       });
-                   });
-               });
-           });
+    $('document').ready(function() {
+        var video = document.getElementById("myVideo");
+        var playButton = document.getElementById("playButton");
+        video.controls = false;
+
+        // Add click event listener to the play button
+        playButton.addEventListener("click", function() {
+            if (video.paused) {
+                video.play();
+                playButton.style.display = "none";
+            } else {
+                video.pause();
+            }
         });
-         </script>
 
 
-         @endpush
+        document.addEventListener('DOMContentLoaded', function() {
+            const ratingContainers = document.querySelectorAll('.rating-stars');
+            console.log('rating');
+            ratingContainers.forEach(container => {
+                const stars = container.querySelectorAll('img');
+                const question = container.getAttribute('data-question');
+                const ratingInput = document.querySelector(`#ratingInput-${question}`); // Assuming you have separate rating input for each question
+
+                stars.forEach((star, index) => {
+                    star.addEventListener('click', function() {
+                        // Set all stars to gray
+                        stars.forEach(s => s.src = "../img/emptyStar.png");
+                        // Set clicked and previous stars to yellow
+                        for (let i = 0; i <= index; i++) {
+                            stars[i].src = "../img/Star.svg";
+                        }
+                        // Update the rating input field with the selected index
+                        ratingInput.value = index + 1; // Assuming the rating starts from 1
+                    });
+                });
+            });
+        });
+    });
+</script>
+
+
+@endpush

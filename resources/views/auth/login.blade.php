@@ -25,6 +25,20 @@
         color: #666;
     }
 </style>
+@if(app()->getLocale() == 'ar')
+
+<style>
+ .fa-eye-slash {
+      
+        left: 4%;
+       
+    }
+
+    .eye-icon {
+        left: 10px;      
+    }
+</style>
+@endif
 <div class="page page-center">
     <div class="container container-tight py-4">
         <div class="text-center mb-4">

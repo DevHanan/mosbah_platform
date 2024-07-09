@@ -447,3 +447,7 @@
 
 </section>
 @endsection
+@push('frontscript')
+<script src="{{asset('public/front/js/price_filter.js')}}"></script>
+<script src="{{asset('public/front/js/pagination.js')}}"></script>
+@endpush

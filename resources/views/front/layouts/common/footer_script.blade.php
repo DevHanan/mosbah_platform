@@ -149,8 +149,7 @@
 <script>
     AOS.init();
 </script>
-<script src="{{asset('public/front/js/price_filter.js')}}"></script>
-<script src="{{asset('public/front/js/pagination.js')}}"></script>
+
 <script src="{{asset('public/front/js/main.js')}}"></script>
 
 

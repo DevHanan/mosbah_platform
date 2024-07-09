@@ -28,8 +28,13 @@
 @if(app()->getLocale() == 'ar')
 
 <style>
+    .fa-eye-slash{
+        left: 4%;
+        right: 0;
+    }
     .eye-icon {
-        left: 10px;      
+        left: 10px;  
+        right: 0px;    
     }
 </style>
 @endif

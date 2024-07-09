@@ -71,10 +71,12 @@ class AppServiceProvider extends ServiceProvider
 
 
         $policies = Policy::active()->get();
-
-       $toprated= Course::where(function ($query) {
-        $query->orderBy(Course::getAttribute('avgrating'),'desc');
-    })->take(10)->get();
+       $toprated= Course::topRated()->take(10)->get();
+       $toprated = Course::selectRaw('*, AVG(comments.rating) as avgrating')
+       ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
+       ->groupBy('courses.id')
+       ->orderBy('avgrating', 'asc')
+       ->get();
         View::share([
             'toprated' => $toprated,
             'faculities' => $faculities,

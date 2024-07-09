@@ -246,6 +246,7 @@
     });
 </script>
 <script>
+    $('document').ready(function(){
     document.getElementById('fileInput').addEventListener('change', function() {
         const file = this.files[0];
         if (file) {
@@ -264,6 +265,7 @@
             reader.readAsDataURL(file);
         }
     });
+});
 </script>
 <script>
     function showForm(formId) {

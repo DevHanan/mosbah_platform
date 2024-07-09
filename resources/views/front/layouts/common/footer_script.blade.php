@@ -152,7 +152,7 @@
 <script src="{{asset('public/front/js/price_filter.js')}}"></script>
 <script src="{{asset('public/front/js/pagination.js')}}"></script>
 <script src="{{asset('public/front/js/main.js')}}"></script>
-<script>
+<!-- <script>
     // counter
     const counters = document.querySelectorAll(".statistics .count");
     const speed = 700;
@@ -194,14 +194,14 @@
     };
 
     counters.forEach(startCounterIfVisible);
-</script>
+</script> -->
 
 
 
 
 <!--  cart custtom script-->
 
-<script>
+<!-- <script>
     $(document).ready(function() {
         $('.select2').select2();
     });
@@ -240,7 +240,6 @@
 </script>
 
 <script>
-    //<!-- copy -->
     document.addEventListener('DOMContentLoaded', function() {
         const copyIcons = document.querySelectorAll('.fa-copy');
 
@@ -338,12 +337,12 @@
             });
         });
     }
-</script>
+</script> -->
 
 
 
 
-<script>
+<!-- <script>
     let btnSecondaryOne = document.getElementById("btnSecondaryOne")
     let btnSecondaryTwo = document.getElementById("btnSecondaryTwo")
     let btnSecondaryThree = document.getElementById("btnSecondaryThree")
@@ -473,5 +472,5 @@
             }
         });
     }
-</script>
+</script> -->
 

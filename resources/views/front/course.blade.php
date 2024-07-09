@@ -300,30 +300,31 @@
                                 <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;display:block;">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="person d-flex align-items-center">
-                                            <div class="img"><img src="{{ asset('public/front/img/user4.png')}}" alt=""></div>
-                                            <p class="fw-bold mx-3">{{ optional($comment->student)->name }} </p>
+                                            <div class="img"><img src="{{ optional($comment->student)->name }}" alt=""></div>
+                                            <p class="fw-bold mx-3">{{ optional($comment->student)->imageFullPath }} </p>
                                         </div>
                                         <div class="rating d-flex">
                                             <div class="mx-2 fw-bold"> {{ $comment->rate }}</div>
                                             <div class="img">
+                                                @if($comment->rate )
+                                                @foreach($comment->rate as $rate)
+                                                <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                                @endforeach
                                                 <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                     <div class="opinion my-3">
-                                                                {{ $comment->comment }}
-                                </div>
+                                        {{ $comment->comment }}
+                                    </div>
                                 </div>
                                 @endforeach
                                 @endif
 
                             </div>
 
-                             <!-- <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
+                            <!-- <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
                                 <ul id="pagination" class="pagination align-items-center">
                                     <li class="page-item">
                                         <a id="prevPageBtn" class="page-link" href="#" aria-label="Previous">
@@ -340,7 +341,7 @@
 
                             <div class="comment mt-5">
                                 <h3 class="primary-color">اضف تعليقك</h2>
-                                    <form action="{{url('course-comment')}}" method="POST" >
+                                    <form action="{{url('course-comment')}}" method="POST">
                                         @csrf
                                         <textarea name="comment" class="form-control w-100" id="" cols="30" rows="5"></textarea>
                                         <input type="hidden" name="course_id" value="{{ $course->id}}">
@@ -364,7 +365,7 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
                                         </div>
-                                        <button  @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                        <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
                                     </form>
                             </div>
                         </div>
@@ -455,29 +456,28 @@
 @push('frontscript')
 
 <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ratingContainers = document.querySelectorAll('.rating-stars');
-            console.log('rating');
-            ratingContainers.forEach(container => {
-                const stars = container.querySelectorAll('img');
-                const question = container.getAttribute('data-question');
-                const ratingInput = document.querySelector(`#ratingInput-${question}`); // Assuming you have separate rating input for each question
+    document.addEventListener('DOMContentLoaded', function() {
+        const ratingContainers = document.querySelectorAll('.rating-stars');
+        console.log('rating');
+        ratingContainers.forEach(container => {
+            const stars = container.querySelectorAll('img');
+            const question = container.getAttribute('data-question');
+            const ratingInput = document.querySelector(`#ratingInput-${question}`); // Assuming you have separate rating input for each question
 
-                stars.forEach((star, index) => {
-                    star.addEventListener('click', function() {
-                        // Set all stars to gray
-                        stars.forEach(s => s.src = "https://dwafeerlms.com/public/front/img/emptyStar.png");
-                        // Set clicked and previous stars to yellow
-                        for (let i = 0; i <= index; i++) {
-                            stars[i].src = "https://dwafeerlms.com/public/front/img/Star.svg";
-                        }
-                        // Update the rating input field with the selected index
-                        ratingInput.value = index + 1; // Assuming the rating starts from 1
-                    });
+            stars.forEach((star, index) => {
+                star.addEventListener('click', function() {
+                    // Set all stars to gray
+                    stars.forEach(s => s.src = "https://dwafeerlms.com/public/front/img/emptyStar.png");
+                    // Set clicked and previous stars to yellow
+                    for (let i = 0; i <= index; i++) {
+                        stars[i].src = "https://dwafeerlms.com/public/front/img/Star.svg";
+                    }
+                    // Update the rating input field with the selected index
+                    ratingInput.value = index + 1; // Assuming the rating starts from 1
                 });
             });
         });
-
+    });
 </script>
 
 

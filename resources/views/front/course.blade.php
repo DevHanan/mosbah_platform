@@ -294,15 +294,17 @@
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-rating" role="tabpanel">
-                            <!-- <div id="paginationCard">
+                            <div id="paginationCard">
+                                @if(course->comments)
+                                @foreach($course->comments as $comment)
                                 <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="person d-flex align-items-center">
                                             <div class="img"><img src="{{ asset('public/front/img/user4.png')}}" alt=""></div>
-                                            <p class="fw-bold mx-3">علي احمد</p>
+                                            <p class="fw-bold mx-3">{{ optional($comment->student)->name }} </p>
                                         </div>
                                         <div class="rating d-flex">
-                                            <div class="mx-2 fw-bold">4.5</div>
+                                            <div class="mx-2 fw-bold"> {{ $comment->rate }}</div>
                                             <div class="img">
                                                 <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                                 <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
@@ -313,38 +315,15 @@
                                         </div>
                                     </div>
                                     <div class="opinion my-3">
-                                        لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-                                        أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-                                        أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
-                                    </div>
+                                                                {{ $comment->comment }}
                                 </div>
-
-                                <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="person d-flex align-items-center">
-                                            <div class="img"><img src="{{ asset('public/front/img/user4.png')}}" alt=""></div>
-                                            <p class="fw-bold mx-3">علي احمد</p>
-                                        </div>
-                                        <div class="rating d-flex">
-                                            <div class="mx-2 fw-bold">4.5 </div>
-                                            <div class="img">
-                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="opinion my-3">
-                                        لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-                                        أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-                                        أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات .
-                                    </div>
                                 </div>
-                            </div> -->
+                                @endforeach
+                                @endif
 
-                            <!-- <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
+                            </div>
+
+                             <!-- <nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation example">
                                 <ul id="pagination" class="pagination align-items-center">
                                     <li class="page-item">
                                         <a id="prevPageBtn" class="page-link" href="#" aria-label="Previous">
@@ -357,7 +336,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav> -->
+                            </nav>  -->
 
                             <div class="comment mt-5">
                                 <h3 class="primary-color">اضف تعليقك</h2>

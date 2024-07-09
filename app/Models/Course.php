@@ -135,6 +135,12 @@ class Course extends Model
         return $this->hasMany(Subscription::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
     public function levels()
     {
         return $this->hasMany(Level::class);

@@ -307,7 +307,7 @@
                                             <div class="mx-2 fw-bold"> {{ $comment->rate }}</div>
                                             <div class="img">
                                                 @if($comment->rate )
-                                                @foreach($comment->rate as $rate)
+                                                @foreach((int)$comment->rate as $rate)
                                                 <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                                 @endforeach
                                                 <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">

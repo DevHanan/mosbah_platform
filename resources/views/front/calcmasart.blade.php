@@ -175,110 +175,31 @@
           </div>
         </div>
         <div class="mt-3 border p-3">
+          @foreach ($faculities  as $item4 )
+          @if($item->gender == 'male')
           <div class="row boys">
             <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
+              <p class="text-secondary text-center border-bottom fw-bold pb-3"> {{ $item4->name }}</p>
             </div>
             <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">411.0</div>
+              <div class="btn btn-secondary w-100" style="border-radius:15px ;">{{ $item4->min_accept_degree}} </div>
             </div>
           </div>
+          @endif
+          @endforeach
+        
+          @foreach ($faculities  as $item5 )
+          @if($item->gender == 'female')
           <div class="row girls">
             <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
+              <p class="text-secondary text-center border-bottom fw-bold pb-3">{{ $item5->name }} </p>
             </div>
             <div class="col-md-2 col-4">
-              <div class="btn btn-primary w-100" style="border-radius:15px ;">410.0</div>
+              <div class="btn btn-secondary w-100" style="border-radius:15px ;"> {{ $item->min_accept_degree }}</div>
             </div>
           </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
-          <div class="row girls">
-            <div class="col-md-10 col-8">
-              <p class="text-secondary text-center border-bottom fw-bold pb-3">طب القاهرة</p>
-            </div>
-            <div class="col-md-2 col-4">
-              <div class="btn btn-secondary w-100" style="border-radius:15px ;">410.0</div>
-            </div>
-          </div>
+          @endif
+          @endforeach
         </div>
       </div>
     </div>

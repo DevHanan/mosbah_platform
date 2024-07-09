@@ -485,10 +485,10 @@
                 stars.forEach((star, index) => {
                     star.addEventListener('click', function() {
                         // Set all stars to gray
-                        stars.forEach(s => s.src = "public/uploads/front/img/emptyStar.png");
+                        stars.forEach(s => s.src = "public/front/img/emptyStar.png");
                         // Set clicked and previous stars to yellow
                         for (let i = 0; i <= index; i++) {
-                            stars[i].src = "public/uploads/front/img/Star.svg";
+                            stars[i].src = "public/front/img/Star.svg";
                         }
                         // Update the rating input field with the selected index
                         ratingInput.value = index + 1; // Assuming the rating starts from 1

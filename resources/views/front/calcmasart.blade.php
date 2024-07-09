@@ -104,11 +104,11 @@
           @endforeach
         </div>
         <div class="secondary-two d-none">
-        @foreach ($first  as $item )
+        @foreach ($first  as $item2 )
 
           <div class="row mt-2">
             <div class="col-md-2 col-4 px-1 px-md-2">
-              <div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item->name }}</div>
+              <div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item2->name }}</div>
             </div>
             <div class="col-md-10 col-8">
               <div class="row">
@@ -122,10 +122,10 @@
 
         </div>
         <div class="secondary-three d-none">
-        @foreach ($third  as $item )
+        @foreach ($third  as $item3 )
           <div class="row mt-2">
             <div class="col-md-2 col-4 px-1 px-md-2">
-              <div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item->name }}</div>
+              <div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item3->name }}</div>
             </div>
             <div class="col-md-10 col-8">
               <div class="row">

@@ -492,3 +492,6 @@ ol.que_answer > li:nth-child(28)::before { content: "غـ"; }
     padding: 9px 12px;
 }
 .swiper-button-next i:hover, .swiper-button-prev i:hover {background-color: var(--secondary);color: #fff;}
+img.card__img.img-fluid.w-100{
+  height: 240px !important;
+}

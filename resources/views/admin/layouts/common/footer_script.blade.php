@@ -714,5 +714,20 @@
 				togglePassword.classList.add("eye-icon");
 			}
 		});
+
+		const passwordConfirmationField = document.getElementById("password_confirmation");
+		const togglePasswordconfirmation = document.querySelector(".password-confirmation-toggle-icon");
+
+		togglePasswordconfirmation.addEventListener("click", function() {
+			if (togglePasswordconfirmation.type === "password") {
+				togglePasswordconfirmation.type = "text";
+				togglePasswordconfirmation.classList.remove("eye-icon");
+				togglePasswordconfirmation.classList.add("fa-eye-slash");
+			} else {
+				togglePasswordconfirmation.type = "password";
+				togglePasswordconfirmation.classList.remove("fa-eye-slash");
+				togglePasswordconfirmation.classList.add("eye-icon");
+			}
+		});
 	});
 </script>

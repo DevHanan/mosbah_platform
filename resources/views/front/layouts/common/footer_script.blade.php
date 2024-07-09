@@ -152,4 +152,3 @@
 
 <script src="{{asset('public/front/js/main.js')}}"></script>
 
-

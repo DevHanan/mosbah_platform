@@ -701,7 +701,7 @@
 <script>
 	$('document').ready(function() {
 		const passwordField = document.getElementById("password");
-		const togglePassword = document.querySelector(".password-toggle-icon");
+		const togglePassword = document.querySelector(".password-toggle-icon i");
 
 		togglePassword.addEventListener("click", function() {
 			if (passwordField.type === "password") {

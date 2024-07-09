@@ -2,13 +2,13 @@
 @section('title',__('admin.auth_login'))
 @section('content')
 <style>
-    .fa-eye {
+    /* .fa-eye {
         position: absolute;
         top: 28%;
         right: 4%;
         cursor: pointer;
         color: #37374a;
-    }
+    } */
 
     .eye-icon {
         position: absolute;

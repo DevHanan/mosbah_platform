@@ -2,20 +2,33 @@
 @section('title',__('admin.auth_login'))
 @section('content')
 <style>
+    .fa-eye {
+        position: absolute;
+        top: 28%;
+        right: 4%;
+        cursor: pointer;
+        color: #37374a;
+    }
 
+    .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
 
-.fa-eye {
-  position: absolute;
-  top: 28%;
-  right: 4%;
-  cursor: pointer;
-  color: #37374a;
-}
+    .eye-icon:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f06e";
+        /* eye icon */
+        font-size: 18px;
+        color: #666;
+    }
 </style>
 <div class="page page-center">
     <div class="container container-tight py-4">
         <div class="text-center mb-4">
-                      
+
         </div>
         <!-- Start Content-->
         <div class="card">
@@ -25,11 +38,11 @@
                 </div>
                 @if(isset($setting))
                 @if(is_file($setting->logo_path))
-              
+
                 <img src="{{ asset($setting->logo_path) }}" style="width:120px;height:90px;" alt="{{ $setting->title }}" class="navbar-brand-image">
 
                 @endif
-                @endif 
+                @endif
                 <h3 class="mb-4"> {{ __('admin.auth_login')}} </h3>
 
 
@@ -45,11 +58,11 @@
                         </span>
                         @enderror
                     </div>
-             
+
                     <div class="input-group mb-4 password-container">
                         <input id="password" type="password" class="form-control password-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور">
-                        <span class="password-toggle-icon">
-                        <i class="fa-solid fa-eye" id="eye"></i></span>
+                        <span class="password-toggle-icon eye-icon">
+                        </span>
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">

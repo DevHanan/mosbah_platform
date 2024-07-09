@@ -2,13 +2,13 @@
 @section('title',__('admin.auth_login'))
 @section('content')
 <style>
-    /* .fa-eye {
+    .fa-eye {
         position: absolute;
         top: 28%;
         right: 4%;
         cursor: pointer;
         color: #37374a;
-    } */
+    }
 
     .eye-icon {
         position: absolute;
@@ -61,8 +61,9 @@
 
                     <div class="input-group mb-4 password-container">
                         <input id="password" type="password" class="form-control password-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور">
-                        <span class="password-toggle-icon eye-icon fa-solid fa-eye">
-                        </span>
+                        <span class="password-toggle-icon eye-icon fa-solid">
+                        <i class="fas fa-eye"></i>    
+                    </span>
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">

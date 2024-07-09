@@ -474,21 +474,6 @@
 @push('frontscript')
 
 <script>
-        var video = document.getElementById("myVideo");
-        var playButton = document.getElementById("playButton");
-        video.controls = false;
-
-        // Add click event listener to the play button
-        playButton.addEventListener("click", function() {
-            if (video.paused) {
-                video.play();
-                playButton.style.display = "none";
-            } else {
-                video.pause();
-            }
-        });
-
-
         document.addEventListener('DOMContentLoaded', function() {
             const ratingContainers = document.querySelectorAll('.rating-stars');
             console.log('rating');

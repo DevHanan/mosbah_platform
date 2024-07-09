@@ -75,16 +75,17 @@ class RegisterController extends Controller
 
 
         // Send the verification email
-        if ($type == 'instructor')
+        if ($type == 'instructor'){
             Mail::to($item->email)->send(new VerifyEmail($item), [
                 'subject' => 'Verify Email'
             ]);
-        else
+        }else{
             Mail::to($item->email)->send(new VerifyStudentEmail($item), [
                 'subject' => 'Verify Email'
             ]);
+        }
 
-        toastr()->success(__('admin.account_created_successfully'), __('admin.msg_success'));
+        toastr()->success('تم إنشاء الحساب من فضلك قم بتاكيد الحساب','نجحت العملية');
         return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
 
         // return view('front.sign_step2', compact(['type', 'item']));

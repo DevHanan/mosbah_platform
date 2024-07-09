@@ -61,8 +61,8 @@
 
                     <div class="input-group mb-4 password-container">
                         <input id="password" type="password" class="form-control password-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور">
-                        <span class="password-toggle-icon">
-                        <i class="fas fa-eye-slash"></i>    
+                        <span class="password-toggle-icon eye-icon ">
+                        
                     </span>
 
                         @error('password')

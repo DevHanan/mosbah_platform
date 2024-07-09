@@ -124,3 +124,57 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
 </style>
 
 @endif
+
+@if(app()->getLocale() == 'en')
+
+<style>
+    .fa-eye-slash {
+        position: absolute;
+        top: 28%;
+        right: 4%;
+        cursor: pointer;
+        color: #37374a;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .eye-icon:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f06e";
+        /* eye icon */
+        font-size: 18px;
+        color: #666;
+    }
+</style>
+@else
+
+<style>
+    .fa-eye-slash {
+        position: absolute;
+        top: 28%;
+        left: 4%;
+        cursor: pointer;
+        color: #37374a;
+    }
+
+    .eye-icon {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .eye-icon:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f06e";
+        /* eye icon */
+        font-size: 18px;
+        color: #666;
+    }
+</style>
+@endif

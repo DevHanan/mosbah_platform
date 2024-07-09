@@ -181,7 +181,7 @@
 
     <div class="card__container swiper mt-4">
         <div class="container">
-            
+
 
             <div class="card__content">
                 <div class="swiper-wrapper">
@@ -213,12 +213,12 @@
                                             @endif                        </div> -->
                             <div class="rating d-flex justify-content-end">
                                 <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
-                                @if($course->avgrating )
-                                @for($i=0; $i<(int)$course->avgrating; $i++)
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avg }}</span>
+                                @if($course->avg )
+                                @for($i=0; $i<(int)$course->avg; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
-                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                    @for($i=0; $i<5-(int)$course->avg; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
                                         @endif

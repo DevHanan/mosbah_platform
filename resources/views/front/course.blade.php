@@ -33,18 +33,11 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="persons mx-3">
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                        @foreach ($course->subscriptions as $subscribe )
                                         <li class="avatar avatar-xs pull-up position-relative">
                                             <img src="../img/user4.png" alt="Avatar" class="rounded-circle w-100 h-100">
                                         </li>
-                                        <li class="avatar avatar-xs pull-up position-relative">
-                                            <img src="../img/user1.png" alt="Avatar" class="rounded-circle w-100 h-100">
-                                        </li>
-                                        <li class="avatar avatar-xs pull-up position-relative">
-                                            <img src="../img/user2.png" alt="Avatar" class="rounded-circle w-100 h-100">
-                                        </li>
-                                        <li class="avatar avatar-xs pull-up position-relative">
-                                            <img src="../img/user3.png" alt="Avatar" class="rounded-circle w-100 h-100">
-                                        </li>
+                                        @endforeach
                                         <li class="avatar avatar-xs pull-up position-relative">
                                             <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
                                         </li>

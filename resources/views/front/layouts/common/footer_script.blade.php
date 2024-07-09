@@ -6,8 +6,8 @@
                     <h4 class="text-white"> اشترك فى نشرتنا الاخبارية </h4>
                     <p class="text-white py-3"> سجل ايميلك ليصلك كل ما هو جديد عن دورات وتخفيضات دوافير </p>
                     <form action="{{url('/post-maillist')}}" method="POST">
-                    @csrf   
-                    <input type="email" class="form-control p-3"  name="email" placeholder="البريد الألكتروني" required>
+                        @csrf
+                        <input type="email" class="form-control p-3" name="email" placeholder="البريد الألكتروني" required>
                         <div>
                             <button type="submit" class="btn rounded-pill secondary-bg text-white my-4">اشترك الان</button>
                         </div>
@@ -20,7 +20,9 @@
                     <h4 class="text-white">المسارات النشطة</h4>
                     <ul class="list-unstyled p-0">
                         @foreach($tracks as $track)
+                        @if($track->in_footer == 1)
                         <li class="py-2"><a href="{{url('courses?track_id='.$track->id)}}" class="text-white text-decoration-none">{{ $track->name }}</a></li>
+                        @endif
                         @endforeach
                     </ul>
                 </div>
@@ -66,7 +68,7 @@
                             @endif
                             @if($setting->whatsapp != null)
                             <li>
-                                <a  target="_blank" href="https://wa.me/{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="https://wa.me/{{ $setting->whatsapp }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-whatsapp fa-lg primary-color"></i>
                                 </a>
                             </li>
@@ -74,35 +76,35 @@
 
                             @if($setting->instgram_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->instgram_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-instagram fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->youtube_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->youtube_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-youtube fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->twitter_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-x-twitter fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->snapchat_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->snapchat_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->snapchat_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-snapchat fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
                             @if($setting->telegram_number != null)
                             <li>
-                                <a  target="_blank" href="tel: {{ $setting->telegram_number }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="tel: {{ $setting->telegram_number }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-telegram fa-lg primary-color"></i>
                                 </a>
                             </li>
@@ -110,7 +112,7 @@
 
                             @if($setting->linkedin_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->linkedin_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->linkedin_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-linkedin fa-lg primary-color"></i>
                                 </a>
                             </li>
@@ -118,12 +120,12 @@
 
                             @if($setting->tiktok_url != null)
                             <li>
-                                <a  target="_blank" href="{{ $setting->tiktok_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                <a target="_blank" href="{{ $setting->tiktok_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-tiktok fa-lg primary-color"></i>
                                 </a>
                             </li>
                             @endif
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -379,115 +381,118 @@
 
 
 <script>
-    let btnSecondaryOne =document.getElementById("btnSecondaryOne")
-let btnSecondaryTwo =document.getElementById("btnSecondaryTwo")
-let btnSecondaryThree =document.getElementById("btnSecondaryThree")
-let secondarySectionOne= document.querySelector(".secondary-one")
-let secondarySectionTwo= document.querySelector(".secondary-two")
-let secondarySectionThree= document.querySelector(".secondary-three")
+    let btnSecondaryOne = document.getElementById("btnSecondaryOne")
+    let btnSecondaryTwo = document.getElementById("btnSecondaryTwo")
+    let btnSecondaryThree = document.getElementById("btnSecondaryThree")
+    let secondarySectionOne = document.querySelector(".secondary-one")
+    let secondarySectionTwo = document.querySelector(".secondary-two")
+    let secondarySectionThree = document.querySelector(".secondary-three")
 
-function secondaryOneFunction(){
-    btnSecondaryOne.classList.add("btn-primary")
-    btnSecondaryOne.classList.add("text-white")
-    btnSecondaryTwo.classList.remove("btn-primary")
-    btnSecondaryTwo.classList.remove("text-white")
-    btnSecondaryThree.classList.remove("btn-primary")
-    btnSecondaryThree.classList.remove("text-white")
+    function secondaryOneFunction() {
+        btnSecondaryOne.classList.add("btn-primary")
+        btnSecondaryOne.classList.add("text-white")
+        btnSecondaryTwo.classList.remove("btn-primary")
+        btnSecondaryTwo.classList.remove("text-white")
+        btnSecondaryThree.classList.remove("btn-primary")
+        btnSecondaryThree.classList.remove("text-white")
 
-    secondarySectionOne.classList.remove("d-none")
-    secondarySectionTwo.classList.add("d-none")
-    secondarySectionThree.classList.add("d-none")
-}
+        secondarySectionOne.classList.remove("d-none")
+        secondarySectionTwo.classList.add("d-none")
+        secondarySectionThree.classList.add("d-none")
+    }
 
-function secondaryTwoFunction(){
-    btnSecondaryTwo.classList.add("btn-primary")
-    btnSecondaryTwo.classList.add("text-white")
-    btnSecondaryOne.classList.remove("btn-primary")
-    btnSecondaryOne.classList.remove("text-white")
-    btnSecondaryOne.classList.add("text-primary")
-    btnSecondaryThree.classList.remove("btn-primary")
-    btnSecondaryThree.classList.remove("text-white")
+    function secondaryTwoFunction() {
+        btnSecondaryTwo.classList.add("btn-primary")
+        btnSecondaryTwo.classList.add("text-white")
+        btnSecondaryOne.classList.remove("btn-primary")
+        btnSecondaryOne.classList.remove("text-white")
+        btnSecondaryOne.classList.add("text-primary")
+        btnSecondaryThree.classList.remove("btn-primary")
+        btnSecondaryThree.classList.remove("text-white")
 
-    secondarySectionTwo.classList.remove("d-none")
-    secondarySectionOne.classList.add("d-none")
-    secondarySectionThree.classList.add("d-none")
-}
+        secondarySectionTwo.classList.remove("d-none")
+        secondarySectionOne.classList.add("d-none")
+        secondarySectionThree.classList.add("d-none")
+    }
 
-function secondaryThreeFunction(){
-    btnSecondaryThree.classList.add("btn-primary")
-    btnSecondaryThree.classList.add("text-white")
-    btnSecondaryTwo.classList.remove("btn-primary")
-    btnSecondaryTwo.classList.remove("text-white")
-    btnSecondaryOne.classList.remove("btn-primary")
-    btnSecondaryOne.classList.add("text-primary")
-    btnSecondaryOne.classList.remove("text-white")
+    function secondaryThreeFunction() {
+        btnSecondaryThree.classList.add("btn-primary")
+        btnSecondaryThree.classList.add("text-white")
+        btnSecondaryTwo.classList.remove("btn-primary")
+        btnSecondaryTwo.classList.remove("text-white")
+        btnSecondaryOne.classList.remove("btn-primary")
+        btnSecondaryOne.classList.add("text-primary")
+        btnSecondaryOne.classList.remove("text-white")
 
-    secondarySectionTwo.classList.add("d-none")
-    secondarySectionOne.classList.add("d-none")
-    secondarySectionThree.classList.remove("d-none")
-}
-
-
-let popUp = document.querySelector(".pop-up")
-let overlay = document.querySelector(".overlay")
-function showPopUp(){
-    popUp.classList.remove("d-none")
-    overlay.classList.remove("d-none")
-}
-function hidePopUp(){
-    popUp.classList.add("d-none")
-    overlay.classList.add("d-none")
-}
-overlay.addEventListener("click", () => {
-    popUp.classList.add("d-none")
-    overlay.classList.add("d-none")
-  });
-  
+        secondarySectionTwo.classList.add("d-none")
+        secondarySectionOne.classList.add("d-none")
+        secondarySectionThree.classList.remove("d-none")
+    }
 
 
+    let popUp = document.querySelector(".pop-up")
+    let overlay = document.querySelector(".overlay")
+
+    function showPopUp() {
+        popUp.classList.remove("d-none")
+        overlay.classList.remove("d-none")
+    }
+
+    function hidePopUp() {
+        popUp.classList.add("d-none")
+        overlay.classList.add("d-none")
+    }
+    overlay.addEventListener("click", () => {
+        popUp.classList.add("d-none")
+        overlay.classList.add("d-none")
+    });
 
 
-let filterPage= document.querySelector(".filter-page")
-let resultsPage= document.querySelector(".results-page")
-function goToResults(){
-    popUp.classList.add("d-none")
-    overlay.classList.add("d-none")
-    resultsPage.classList.remove("d-none")
-    filterPage.classList.add("d-none")
-}
 
-let boysBtn = document.getElementById("boysBtn")
-let girlsBtn = document.getElementById("girlsBtn")
-let boys = document.querySelectorAll(".boys")
-let girls = document.querySelectorAll(".girls")
 
-function showBoys(){
-    boysBtn.classList.add("btn-primary")
-    boysBtn.classList.add("text-white")
-    girlsBtn.classList.add("text-primary")
-    girlsBtn.classList.remove("text-white")
-    girlsBtn.classList.remove("btn-primary")
-    boys.forEach((boy)=>{
-        boy.style.display="flex"
-    })
-    girls.forEach((boy)=>{
-        boy.style.display="none"
-    })
-}
 
-function showGirls(){
-    girlsBtn.classList.add("btn-primary")
-    girlsBtn.classList.add("text-white")
-    boysBtn.classList.remove("btn-primary")
-    boysBtn.classList.add("text-primary")
-    boysBtn.classList.remove("text-white")
-    girls.forEach((boy)=>{
-        boy.style.display="flex"
-    })
-    boys.forEach((boy)=>{
-        boy.style.display="none"
-    })
-}
+    let filterPage = document.querySelector(".filter-page")
+    let resultsPage = document.querySelector(".results-page")
+
+    function goToResults() {
+        popUp.classList.add("d-none")
+        overlay.classList.add("d-none")
+        resultsPage.classList.remove("d-none")
+        filterPage.classList.add("d-none")
+    }
+
+    let boysBtn = document.getElementById("boysBtn")
+    let girlsBtn = document.getElementById("girlsBtn")
+    let boys = document.querySelectorAll(".boys")
+    let girls = document.querySelectorAll(".girls")
+
+    function showBoys() {
+        boysBtn.classList.add("btn-primary")
+        boysBtn.classList.add("text-white")
+        girlsBtn.classList.add("text-primary")
+        girlsBtn.classList.remove("text-white")
+        girlsBtn.classList.remove("btn-primary")
+        boys.forEach((boy) => {
+            boy.style.display = "flex"
+        })
+        girls.forEach((boy) => {
+            boy.style.display = "none"
+        })
+    }
+
+    function showGirls() {
+        girlsBtn.classList.add("btn-primary")
+        girlsBtn.classList.add("text-white")
+        boysBtn.classList.remove("btn-primary")
+        boysBtn.classList.add("text-primary")
+        boysBtn.classList.remove("text-white")
+        girls.forEach((boy) => {
+            boy.style.display = "flex"
+        })
+        boys.forEach((boy) => {
+            boy.style.display = "none"
+        })
+    }
 
     // Function to toggle fill/empty behavior
     function toggleFill() {

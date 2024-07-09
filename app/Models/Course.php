@@ -102,6 +102,12 @@ class Course extends Model
         return 0;
     }
 
+
+    public function scopeTopRated($query)
+{
+    return $query->orderBy('avgrating', 'desc');
+}
+
     public function getTotalDiscountAttribute()
     {
         return $this->price_with_discount;

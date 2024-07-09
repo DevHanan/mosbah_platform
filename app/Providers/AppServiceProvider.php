@@ -71,8 +71,10 @@ class AppServiceProvider extends ServiceProvider
 
 
         $policies = Policy::active()->get();
+       $toprated= Course::topRated()->take(10)->get()
 
         View::share([
+            'toprated' => $toprated,
             'faculities' => $faculities,
             'externelPayment' => $externelPayment,
             'bankgroups' => $bankgroup,

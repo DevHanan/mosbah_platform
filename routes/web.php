@@ -48,7 +48,7 @@ Route::get('/checkcoupon', [HomeController::class, 'checkCoupon']);
 Route::get('/signin', [HomeController::class, 'signin']);
 Route::get('/signup', [HomeController::class, 'signup']);
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
-Route::get('/course-comment', [HomeController::class, 'comment']);
+Route::post('/course-comment', [HomeController::class, 'comment']);
 
 Route::get('/signup/step1', [RegisterController::class, 'getsignstep1']);
 Route::post('/signup/step1', [RegisterController::class, 'register']);

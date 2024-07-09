@@ -1,5 +1,3 @@
-<!-- resources/views/emails/verify-email.blade.php -->
-
 @component('mail::message')
 # Verify Your Email Address
 

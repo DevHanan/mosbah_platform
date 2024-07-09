@@ -12,8 +12,8 @@ return [
     'intructor_current_balance' => ' الرصيد الحالى',
     'show_level' => 'عرض مراحل الدورة',
     'login_failed' => 'خطأ أثاء محاولة تسجيل الدخول',
-'account_verified_successfully' => 'تم تفعيل الحساب بنجاح',
-'account_verified_failed' => 'فشل أثناء محاولة تفعيل الحساب',
+    'account_verified_successfully' => 'تم تفعيل الحساب بنجاح',
+    'account_verified_failed' => 'فشل أثناء محاولة تفعيل الحساب',
     'amount' => 'القيمة المطلوب سحيها',
     'available_amount' => 'الرصيد لمتاح',
     'change_status_model_msg' => 'هل أنت متأكد من تغير الحالة للعنصر؟',
@@ -38,7 +38,7 @@ return [
     "msg_updated_successfully"  => "تم تعديل بيانات العنصر بنجاح",
     "msg_update_successfully"  => "تم تعديل بيانات العنصر بنجاح",
     "msg_success" => "نجحت العملية",
-    'account_created_successfully' =>'تم إنشاء الحساب بنجاح',
+    'account_created_successfully' => 'تم إنشاء الحساب بنجاح',
     "btn_refresh" => 'إعادة تحميل',
     "modal_are_you_sure"  => "هل أنت متأكد من الاستمرار ?",
     "delete_model_msg" => "بحذف هذا العنصر لن نتمكن من الرجوع عن العملية مره أخرى .",
@@ -107,8 +107,8 @@ return [
         'date' => 'تاريخ ووقت الإرسال',
         'action' => 'الحدث',
         'category' => 'الفئة'
-        
-        
+
+
     ],
     "blogs" => [
         'blogs_management' => 'المدونة',
@@ -178,7 +178,7 @@ return [
         "status"  => "حالة الظهور",
         'add'  => 'إضافة جديد',
         'edit'  => 'تعديل بيانات ',
-        'image'=> 'الصورة',
+        'image' => 'الصورة',
         'fawry_number' => 'رقم قورى',
         'paypal_link' => 'رابط حساب باى بال',
         'mobile_cash_number' => 'رقم مجفظة كاش'
@@ -227,7 +227,7 @@ return [
         'field_total_subscription' => 'إجمالى قيمة الإشتراكات',
         'course_name' => 'إسم الدورة',
         'subscribed_date' => 'تاريخ الإشتراك بالدورة',
-        'degree' =>'الدرجة العلمية'
+        'degree' => 'الدرجة العلمية'
     ],
     "instructors" => [
         'susbscriptions_total' => 'إجمالى قيمة اشتراكات الدورات',
@@ -276,7 +276,7 @@ return [
 
     ],
     'subscriptions' => [
-        'course_price_after_discount'=> 'سعر الدورة بعد الخصم',
+        'course_price_after_discount' => 'سعر الدورة بعد الخصم',
         'title'  => 'الإشتراكات',
         "list" => "عرض الإشتراكات",
         "add"  => "إضافة إشتراك",
@@ -597,8 +597,8 @@ return [
 
     ],
     'bankquestions' => [
-        'explain_question_data' =>'بيانات توضيحية للسؤال',
-        'explain_answer_data' =>'بيانات توضيحية لأجابة',
+        'explain_question_data' => 'بيانات توضيحية للسؤال',
+        'explain_answer_data' => 'بيانات توضيحية لأجابة',
         'title'  => 'السؤال',
         'title_notes'  => 'ملاحظات نصية لشرح السؤال',
         'answer_notes' => 'ملاحظات نصيه لشرح إجابة السؤال',
@@ -684,7 +684,7 @@ return [
         'platform' => "اختبار قدرات المنصة"
     ],
     'sections' => [
-        'question_number' =>'عدد الأسئلة (من إجمالى عدد الأسئلة للاختبار)',
+        'question_number' => 'عدد الأسئلة (من إجمالى عدد الأسئلة للاختبار)',
         'title' => 'عرض أقسام الاختبار',
         'field_title' => 'إسم القسم',
         'add'  => 'إضافة قسم جديد',
@@ -701,7 +701,7 @@ return [
     'login_as_student' => 'تسجيل كطالب',
     'student_profile' => 'عرض بروفايل الطالب',
     'attachment' => 'عرض مرفق الدفع',
-    'login_as_instructor' =>'تسجيل الدخول كمدرب',
+    'login_as_instructor' => 'تسجيل الدخول كمدرب',
     'no_data' => 'لا توجد بيانات',
     'field_action' => 'الحدث',
     'studentPayments' => [
@@ -746,37 +746,37 @@ return [
     ],
 
 
-    "field_mail_driver"=> "Mail Driver",
-    "field_mail_encryption"=> "Mail Encryption",
-    "field_mail_host"=> "Mail Host",
-    "field_mail_password"=> "Mail Password",
-    "field_mail_port"=> "Mail Port",
-    "field_mail_reply_email"=> "Reply Email",
-    "field_mail_sender_email"=> "Sender Email",
-    "field_mail_sender_name"=> "Sender Name",
-    "field_mail_subject"=> "Subject",
-    "field_mail_username"=> "Mail Username",
+    "field_mail_driver" => "Mail Driver",
+    "field_mail_encryption" => "Mail Encryption",
+    "field_mail_host" => "Mail Host",
+    "field_mail_password" => "Mail Password",
+    "field_mail_port" => "Mail Port",
+    "field_mail_reply_email" => "Reply Email",
+    "field_mail_sender_email" => "Sender Email",
+    "field_mail_sender_name" => "Sender Name",
+    "field_mail_subject" => "Subject",
+    "field_mail_username" => "Mail Username",
     "field_client_secret"  => "Client Secret",
     "field_client_id"  => "Client Id",
     "field_base_url"  => "BAse Url",
     "field_account_id" => "Account Id",
     "number" => "رقم الطلب",
     "notes" => " ملاحظات",
-    'faculities' =>[
-        'title'=>'قائمة الكليات',
+    'faculities' => [
+        'title' => 'قائمة الكليات',
         'name'  => 'إسم الكلية',
-        'status'=> 'حالة الظهور',
+        'status' => 'حالة الظهور',
         'gender' => 'النوع',
         'male' => 'بنين',
-        'female' =>'بنات',
+        'female' => 'بنات',
         'min_degree' => 'درجة الحد الأدنى للقبول',
         'actions' => 'الحدث'
     ],
-    'subjects' =>[
-        'title'=>'قائمة المواد الدراسية',
+    'subjects' => [
+        'title' => 'قائمة المواد الدراسية',
 
         'name'  => 'إسم المادة',
-        'status'=> 'حالة الظهور',
+        'status' => 'حالة الظهور',
         'degree' => ' الدرجة الكلية',
         'actions' => 'الحدث',
         'first_classroom_title' => 'قائمة مواد الأول الثانوي',
@@ -797,11 +797,11 @@ return [
     'male_gender' => 'ذكر',
     'make_msg_read'  => 'تعيين كمقروءة',
     'make_msg_unread' => 'تعيين كغير مقروءة',
-    'msg_status_changed_successfully' =>'تم تغير الحالة بنجاح',
+    'msg_status_changed_successfully' => 'تم تغير الحالة بنجاح',
     'all'  => 'الكل',
     'studentlabel' => 'طلاب',
     'instructorlabel' => 'مدربين',
-    'notificaion_send_successfully'=>'تم إرسال الإشعار بنجاح',
+    'notificaion_send_successfully' => 'تم إرسال الإشعار بنجاح',
     'comments' => [
         'date' => 'تاريخ النشر',
         'rate' => 'تقيم',
@@ -810,7 +810,7 @@ return [
         'actions' => 'الحدث',
         'student' => 'الطالب',
         'title' => 'ريفيوهات الدورات'
-    ] 
+    ]
 
 
 

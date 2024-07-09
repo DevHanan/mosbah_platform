@@ -361,7 +361,7 @@
 
                             <div class="comment mt-5">
                                 <h3 class="primary-color">اضف تعليقك</h2>
-                                    <form action="">
+                                    <form action="{{url('course-comment')}}" method="POST" >
                                         <textarea name="" class="form-control w-100" id="" cols="30" rows="5"></textarea>
                                         <div class="d-flex flex-wrap my-3">
                                             <p class="fw-bold ms-3">ما تقييمك للدورة؟</p>
@@ -383,7 +383,7 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
                                         </div>
-                                        <button class="btn secondary-bg text-white mt-3"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                        <button  @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
                                     </form>
                             </div>
                         </div>

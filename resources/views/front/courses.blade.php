@@ -256,9 +256,19 @@
             </div>
             <div class="col-lg-7">
                 <div class="course_content">
-                    <h3 class="position-relative fw-bold primary-color mb-4"> قائمة الدورات <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute img-fluid" alt=""></h3>
+                    <h3 class="position-relative fw-bold primary-color mb-4">
+                        @if(request()->get('track_id'))
+                            <?php 
+                            $track  = \App\Models\Track::find(request()->get('track_id'));
+                            ?>
+                            {{ $track->name }}
+                        @else
+                        {{ $setting->title }} 
+
+                        @endif
+                        <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute img-fluid" alt=""></h3>
                     <div class="d-flex justify-content-between">
-                        <!-- <h3 class="fw-bold">قائمة الدورات</h3> -->
+                        <h3 class="fw-bold">قائمة الدورات</h3>
                         <div class="d-flex">
 
                             <img src="{{asset('front/img/icons/category.svg')}}" class="img-fluid categoryCards cardShape active p-1 rounded mx-2" alt="">

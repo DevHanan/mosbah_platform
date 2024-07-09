@@ -68,7 +68,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="password">{{ __('admin.users.field_password') }} <span>*</span></label>
                                 <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}" required>
-
+                                <span class="fa password-toggle-icon eye-icon ">
+                                <i class="fa password-icon" aria-hidden="true"></i>
                                 @error('password')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -78,7 +79,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="password">{{ __('admin.users.field_password_confirmation') }} <span>*</span></label>
                                 <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" value="{{ old('password_confirmation') }}" required>
-
+                                <span class="fa password-toggle-icon eye-icon ">
+                                <i class="fa password-icon" aria-hidden="true"></i>
                                 @error('password_confirmation')
                                 <div class="invalid-feedback">
                                     {{ $message }}

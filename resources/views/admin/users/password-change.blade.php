@@ -16,7 +16,8 @@
                     <div class="form-group">
                         <label for="password" class="form-label">{{ __('admin.users.field_password') }} <span>*</span></label>
                         <input type="password" class="form-control" name="password" id="password" value="" required autocomplete="new-password">
-
+                        <span class="fa password-toggle-icon eye-icon ">
+                        <i class="fa password-icon" aria-hidden="true"></i>
                             @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -28,7 +29,8 @@
                         <label for="password-confirm" class="form-label">
                         {{ __('admin.users.field_password_confirmation') }}                             <span>*</span></label>
                         <input type="password" class="form-control" name="password_confirmation" id="password-confirm" value="" required autocomplete="new-password">
-
+                        <span class="fa password-toggle-icon eye-icon ">
+                        <i class="fa password-icon" aria-hidden="true"></i>
                         @error('password_confirmation')
                         <div class="invalid-feedback">
                             {{ $message }}

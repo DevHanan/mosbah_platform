@@ -82,7 +82,8 @@ return [
         'status' => 'حالة الظهور',
         'actions' => 'الحدث',
         'field_photo' => 'الصورة',
-        'courses_number' => 'عدد الدورات'
+        'courses_number' => 'عدد الدورات',
+        'in_footer' => 'الظهور فى الفوتر'
     ],
 
     "emails" => [

@@ -85,6 +85,8 @@ Route::group(
             Route::get('recommend-courses', [CourseController::class, 'recommendCourses'])->name('recommendCourses');
 
             Route::resource('tracks', TrackController::class);
+            Route::post('changetrackfooter', [TrackController::class, 'changeTrackFooter']);
+
             Route::resource('blogs', BlogController::class);
             Route::resource('course-types', CourseTypeController::class);
             Route::resource('courses', CourseController::class);
@@ -124,6 +126,7 @@ Route::group(
             Route::post('changestatus', [SubscriptionController::class, 'changeStatus']);
             Route::post('changerecommened', [SubscriptionController::class, 'changerecommened']);
 
+            
 
             Route::resource('instructors', InstructorController::class);
             Route::get('instructors-status/{id}', [InstructorController::class, 'status'])->name('users.status');

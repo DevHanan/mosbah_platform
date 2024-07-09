@@ -103,4 +103,12 @@ class TrackController extends Controller
             Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
+
+
+    public function changeTrackFooter(Request $request){
+        $item = $request->type::find($request->id);
+        $item->in_footer = $request->status;
+        $item->save();
+        return response()->json(['success' => 'Status change successfully.']);
+    }
 }

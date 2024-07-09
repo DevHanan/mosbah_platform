@@ -69,7 +69,7 @@ class CertificationController extends Controller
 
     public function grantingcertificate(){
         $data['title'] = 'granting certificate ';
-        return view('admin.certificates.grantingcertificate',$data);
+        return view('admin.certifications.grantingcertificate',$data);
     }
     public function store(Request $request)
     {

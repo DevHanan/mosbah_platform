@@ -111,13 +111,15 @@ class RegisterController extends Controller
             $item->save();
              $guard = $type == 'instructor' ? 'instructors-login' : 'students-login';
             Auth::guard($guard)->loginUsingId($item->id);
-            toastr()->success(__('admin.account_verified_successfully'), __('admin.msg_success'));
+            toastr()->success('تم تفعيل الحساب بنجاح اكمل الملف الشخصى','نجحت العملية');
             return view('front.sign_step2', compact(['type', 'item']));
         } else {
-            toastr()->success(__('admin.account_verified_failed'), __('admin.msg_error'));
+            toastr()->success('فشل تفعيل الحساب','خطأ!');
             return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
         }
     }
+
+    
 
     public function signstep2(Request $request)
     {

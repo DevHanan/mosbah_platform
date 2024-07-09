@@ -55,7 +55,6 @@ Route::post('signup/verify-email', [RegisterController::class, 'verifyEmail']);
 Route::get('/signup/step2', [RegisterController::class, 'getsignstep2']);
 Route::post('/signup/step2', [RegisterController::class, 'signstep2']);
 
-
 Route::get('/signup/step3', [RegisterController::class, 'getsignstep3']);
 Route::post('/signup/step3', [RegisterController::class, 'signstep3']);
 

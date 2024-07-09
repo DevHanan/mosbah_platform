@@ -22,7 +22,7 @@
     <div class="register sign_step2">
         <div class="row p-0 m-0">
             <div class="col-md-6 p-0 position-relative">
-                < class="welcome d-flex flex-column align-items-center justify-content-center">
+                <div class="welcome d-flex flex-column align-items-center justify-content-center">
                     <div class="layout position-absolute"></div>
                     <img src="{{asset('public/front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
                     <a href="{{url('/')}}">

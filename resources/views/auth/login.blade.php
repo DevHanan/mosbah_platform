@@ -1,6 +1,8 @@
 @extends('auth.layouts.master')
 @section('title',__('admin.auth_login'))
 @section('content')
+@if(app()->getLocale() == 'en')
+
 <style>
     .fa-eye-slash {
         position: absolute;
@@ -25,16 +27,30 @@
         color: #666;
     }
 </style>
-@if(app()->getLocale() == 'ar')
+@else
 
 <style>
-    .fa-eye-slash{
+    .fa-eye-slash {
+        position: absolute;
+        top: 28%;
         left: 4%;
-        right: 0;
+        cursor: pointer;
+        color: #37374a;
     }
+
     .eye-icon {
-        left: 10px;  
-        right: 0px;    
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .eye-icon:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f06e";
+        /* eye icon */
+        font-size: 18px;
+        color: #666;
     }
 </style>
 @endif

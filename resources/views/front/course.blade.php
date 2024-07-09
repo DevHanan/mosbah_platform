@@ -362,7 +362,8 @@
                             <div class="comment mt-5">
                                 <h3 class="primary-color">اضف تعليقك</h2>
                                     <form action="{{url('course-comment')}}" method="POST" >
-                                        <textarea name="" class="form-control w-100" id="" cols="30" rows="5"></textarea>
+                                        <textarea name="comment" class="form-control w-100" id="" cols="30" rows="5"></textarea>
+                                        <input type="hidden" name="course_id" value="{{ $course->id}}">
                                         <div class="d-flex flex-wrap my-3">
                                             <p class="fw-bold ms-3">ما تقييمك للدورة؟</p>
                                             <div class="rating-stars" data-question="course">

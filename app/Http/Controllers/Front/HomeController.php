@@ -245,4 +245,9 @@ class HomeController extends Controller
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return redirect('/');
     }
+
+
+    public function comment(Request $request){
+        return $request->all();
+    }
 }

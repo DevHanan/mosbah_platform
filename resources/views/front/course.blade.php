@@ -295,6 +295,7 @@
 
                         <div class="tab-pane fade" id="navs-justified-rating" role="tabpanel">
                             <div id="paginationCard">
+                                <p>testttttttttttt</p>
                                 @if($course->comments)
                                 @foreach($course->comments as $comment)
                                 <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;">

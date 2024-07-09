@@ -125,7 +125,7 @@
         @foreach ($third  as $item )
           <div class="row mt-2">
             <div class="col-md-2 col-4 px-1 px-md-2">
-              <div class="btn btn-primary transition w-100" style="border-radius: 15px;">الرياضيات</div>
+              <div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item->name }}</div>
             </div>
             <div class="col-md-10 col-8">
               <div class="row">

@@ -71,7 +71,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         $policies = Policy::active()->get();
-       $toprated = Course::selectRaw('*, AVG(comments.rating) as avgrating')
+       $toprated = Course::selectRaw('*, AVG(comments.rate) as avgrating')
        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
        ->groupBy('courses.id')
        ->orderBy('avgrating', 'asc')

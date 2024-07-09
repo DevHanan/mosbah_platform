@@ -96,7 +96,10 @@ class Course extends Model
     }
 
     public function getavgratingAttribute(){
+        if($this->comments()->count() >0)
             return $this->comments()->sum('rate')/$this->comments()->count();
+        else
+        return 0;
     }
 
     public function getTotalDiscountAttribute()

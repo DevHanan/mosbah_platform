@@ -74,8 +74,8 @@ class AppServiceProvider extends ServiceProvider
        $toprated = Course::selectRaw('*, AVG(comments.rate) as avgrating')
        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
        ->groupBy('courses.id')
-       ->orderBy('avgrating', 'asc')
-       ->get();
+       ->orderBy('avgrating', 'desc')
+       ->take('5')->get();
         View::share([
             'toprated' => $toprated,
             'faculities' => $faculities,

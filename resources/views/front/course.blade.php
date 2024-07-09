@@ -23,7 +23,7 @@
                         <h3 class="fw-bold text-center mb-4">
                             @foreach($course->tracks as $track)
 
-                            <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-white" >{{ $track->name }}</a>
+                            <a href="{{ url('courses?track_id='.$track->id)}}" class="text-decoration-none text-white">{{ $track->name }}</a>
                             @endforeach
 
                         </h3>
@@ -34,37 +34,30 @@
                                 <div class="persons mx-3">
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li class="avatar avatar-xs pull-up position-relative">
-                                          <img src="../img/user4.png" alt="Avatar" class="rounded-circle w-100 h-100">
+                                            <img src="../img/user4.png" alt="Avatar" class="rounded-circle w-100 h-100">
                                         </li>
                                         <li class="avatar avatar-xs pull-up position-relative">
-                                          <img src="../img/user1.png" alt="Avatar" class="rounded-circle w-100 h-100">
+                                            <img src="../img/user1.png" alt="Avatar" class="rounded-circle w-100 h-100">
                                         </li>
                                         <li class="avatar avatar-xs pull-up position-relative">
-                                          <img src="../img/user2.png" alt="Avatar" class="rounded-circle w-100 h-100">
+                                            <img src="../img/user2.png" alt="Avatar" class="rounded-circle w-100 h-100">
                                         </li>
                                         <li class="avatar avatar-xs pull-up position-relative">
-                                          <img src="../img/user3.png" alt="Avatar" class="rounded-circle w-100 h-100">
+                                            <img src="../img/user3.png" alt="Avatar" class="rounded-circle w-100 h-100">
                                         </li>
                                         <li class="avatar avatar-xs pull-up position-relative">
-                                          <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+2</span>
+                                            <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="followers_number mx-3">
-                                    <p class="text-white mb-1">5 طلاب  </p>
+                                    <p class="text-white mb-1">5 طلاب </p>
                                     <p class="text-white mb-0">يتابعون هذه الدورة </p>
                                 </div>
                             </div>
 
                             <div class="persons mx-3">
-                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
 
-                                    @for($i=0 ; $i<$course->SubscriptionCount ;$i++ )
-                                        <li class="avatar avatar-xs pull-up position-relative">
-                                            <span class="rounded-circle w-100 h-100 bg-white d-flex justify-content-center align-items-center">+{{ $course->SubscriptionCount}}</span>
-                                        </li>
-                                        @endfor
-                                </ul>
                             </div>
                             @endif
                             <div class="followers_number mx-3">

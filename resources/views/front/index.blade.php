@@ -184,7 +184,7 @@
 
             <div class="card__content">
                 <div class="swiper-wrapper">
-                    @foreach($most_required as $course)
+                    @foreach($toprated as $course)
                     <article class="card__article swiper-slide shadow">
                         <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">

@@ -103,10 +103,7 @@ class Course extends Model
     }
 
 
-    public function scopeTopRated($query)
-{
-    return $query->orderBy('avgrating', 'desc');
-}
+ 
 
     public function getTotalDiscountAttribute()
     {

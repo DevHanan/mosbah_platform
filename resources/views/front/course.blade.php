@@ -474,7 +474,6 @@
 @push('frontscript')
 
 <script>
-    $('document').ready(function() {
         var video = document.getElementById("myVideo");
         var playButton = document.getElementById("playButton");
         video.controls = false;
@@ -512,7 +511,7 @@
                 });
             });
         });
-    });
+
 </script>
 
 

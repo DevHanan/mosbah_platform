@@ -96,6 +96,10 @@ class RegisterController extends Controller
     public function verifyEmail(Request  $request)
     {
 
+if(auth()->guard('students-login')->user()->active ==1  || auth()->guard('instructors-login')->user()->active == 1)
+{       
+    return redirect('/');
+    }else{
         $type = $request->input('type');
         if ($type == 'instructor')
             $model = 'App\Models\Instructor';
@@ -118,8 +122,9 @@ class RegisterController extends Controller
             return view('front.sign_verify', compact(['type', 'item', 'landingSetting']));
         }
     }
+    }
 
-    
+
 
     public function signstep2(Request $request)
     {

@@ -46,9 +46,9 @@
                         @enderror
                     </div>
              
-                    <div class="input-group mb-4 password-container">
+                    < class="input-group mb-4 password-container">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور">
-                        <i class="fa-solid fa-eye" id="eye"></i>
+                        <span class="password-toggle-icon"></span><i class="fa-solid fa-eye" id="eye"></i></span>
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">

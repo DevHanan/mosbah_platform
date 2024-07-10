@@ -135,7 +135,7 @@ class LectureController extends Controller
         if (count($request->imgTitle)) {
              PhotoLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->imgTitle); $i++) {
-                if ($request->img[$i] != null) {
+                if (isset($request->img[$i]) && $request->img[$i] != null) {
 
                     $thumbnail = $request->img[$i];
                     $filename = time() . '.' . $thumbnail->getClientOriginalExtension();

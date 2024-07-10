@@ -209,13 +209,13 @@
                     <table id="data" class=" table data-table data-table-horizontal data-table-highlight">
 
                       <tbody>
-                        <!-- <tr>
+                        <tr>
                           <td><input type="text" name="imgTitle[]" placeholder="عنوان الصورة" /></td>
                           <td><input type="file" name="img[]" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
-                        </tr> -->
+                        </tr>
                         @if($row->photos)
                         @foreach($row->photos as $photo)
                         <tr>
@@ -249,14 +249,14 @@
                     <table id="data2" class=" table data-table data-table-horizontal data-table-highlight">
 
                       <tbody>
-                        <!-- <tr>
+                        <tr>
                           <td><input type="text" name="bookTitles[]" placeholder="عنوان الكتاب" /></td>
                           <td><input type="file" name="bookFiles[]" /></td>
                           <td><input type="text" name="bookLinks[]" placeholder="رابط الكتاب" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow2(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
-                        </tr> -->
+                        </tr>
                         @if($row->books)
                         @foreach($row->books as $book)
                         <tr>

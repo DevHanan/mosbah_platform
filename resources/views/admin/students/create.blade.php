@@ -56,7 +56,7 @@
                                     <label class="form-label" for="phone">{{ __('admin.students.phone_number') }} <span>*</span></label>
                                     <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}">
 
-                                    
+
                                     @error('phone')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -221,10 +221,5 @@
 
 @endsection
 @push('scripts')
-<script>
-     const phoneInputField = document.querySelector("#phone");
-        const phoneInput = window.intlTelInput(phoneInputField, {
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        });
- </script>
+
 @endpush

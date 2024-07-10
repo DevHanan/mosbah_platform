@@ -81,9 +81,11 @@
 
 
                                     <td style="width: 270px;">
+                                        @if($row->student)
                                     <a href="{{ url('admin/students/'.optional($row->student)->id)}}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
                                             <i class="far fa-eye"></i>
                                         </a>
+                                        @endif
 
                                         <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                                             <i class="fas fa-trash-alt"></i>

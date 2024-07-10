@@ -130,10 +130,10 @@
                   @enderror
                 </div>
 
-                <div class="mb-3 hidden" id="appointment_div" style="padding-top: 18px;">
+                <div class="mb-3 hidden" id="appointment_div" style="padding-top: 42px;">
                   <label class="form-label" for="appointment"> {{ __('admin.lectures.appointment') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="appointment" id="appointment" value="{{ old('appointment') }}" required>
-
+                  <!-- <input type="text" class="form-control" name="appointment" id="appointment" value="{{ old('appointment') }}" required> -->
+                  <input type="text" name="appointment" id="appointment" class="form-control" data-mask="00/00/0000 00:00:00" data-mask-visible="true" placeholder="00/00/0000 00:00:00" autocomplete="off">
                   @error('appointment')
                   <div class="invalid-feedback">
                     {{ $message }}

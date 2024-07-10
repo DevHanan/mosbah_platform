@@ -2,7 +2,7 @@
     <div id="changePasswordModal-{{ $row->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <form class="needs-validation"data-remote="true"  action="{{ route($route.'-password-change') }}" method="post" enctype="multipart/form-data">
+              <form class="needs-validation" action="{{ route($route.'-password-change') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="modal-header">
@@ -46,14 +46,3 @@
             </div>
         </div>
     </div>
-
-    <script>
-  $('document').ready(function(){
-    $('form[data-remote]').on('ajax:error', function(e, xhr, status, error) {
-    var errorMessage = xhr.responseText;
-    // popup a modal with the error message
-    $('#changePasswordModal-<?= $row->id ?>').modal('show').find('.modal-body').text(errorMessage);
-});
-  });
-  
-</script>

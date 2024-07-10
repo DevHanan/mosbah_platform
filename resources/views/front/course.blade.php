@@ -54,13 +54,22 @@
 
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
-                            <span class="text-white mx-4 fw-bold">(15) 4.5</span>
+                            <span class="text-white mx-4 fw-bold"> {{ $course->SubscriptionCount}} {{ $course->avgrating}}</span>
                             <div class="stars">
-                                <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
+                                <!-- <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                 <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
                                 <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
                                 <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
-                                <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
+                                <img src="{{ asset('public/front/img/Star.svg')}}" alt=""> -->
+
+                                @if($course->avgrating )
+                                @for($i=0; $i<(int)$course->avgrating; $i++)
+                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                    @endfor
+                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                        @endfor
+                                        @endif
                             </div>
                         </div>
                         <div class="date text-center">
@@ -277,7 +286,7 @@
                                 </div>
                                 <div class="rating d-flex justify-content-end align-items-center">
                                     <!-- <div class="fw-bold">تقييم عام </div> -->
-                                    <div class="mx-2 fw-bold">4.5 </div>
+                                    <div class="mx-2 fw-bold">{{ $course->avgrating}} </div>
                                     <div class="img">
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
@@ -308,12 +317,12 @@
                                             <div class="img">
                                                 @if($comment->rate )
                                                 @for($i=0; $i<(int)$comment->rate; $i++)
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
-                                                @endfor
-                                                @for($i=0; $i<5-(int)$comment->rate; $i++)
-                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
-                                                @endfor
-                                                @endif
+                                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                                    @endfor
+                                                    @for($i=0; $i<5-(int)$comment->rate; $i++)
+                                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                        @endfor
+                                                        @endif
                                             </div>
                                         </div>
                                     </div>

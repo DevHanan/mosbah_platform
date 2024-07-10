@@ -35,6 +35,7 @@
                                         </svg>
                                     </th>
                                     <th> {{__('admin.certifications.name')}}</th>
+                                    <th> {{__('admin.certifications.student')}}</th>
                                     <th>{{ __('admin.certifications.course_name') }}</th>
                                     <th>{{ __('admin.certifications.track_name') }}</th>
                                     <th>{{ __('admin.certifications.authority') }}</th>
@@ -52,6 +53,9 @@
                                     <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                                     <td> {{ $loop->iteration }}</td>
                                     <td><span class="text-secondary">{{$row->name}}</span></td>
+                                    <td><span class="text-secondary">{{optional($row->student)->name}}</span></td>
+
+                                   
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->authority}}</td>
@@ -69,7 +73,11 @@
 
                                     <td style="width: 270px;">
 
-
+                                    @if($row->student)
+                                    <a href="{{ url('admin/students/'.optional($row->student)->id)}}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
+                                            <i class="far fa-eye"></i>
+                                        </a>
+                                        @endif
 
                                         @if($row->active != 1)
                                         

@@ -42,10 +42,12 @@
                                 <input type="text" class="form-control my-3 rounded-pill" placeholder="بحث">
                             </div>
                             <ul class="list-unstyled">
+                                @if(!request()->get('track_id'))
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('category')">
+                                    <input checked class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('category')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
+                                @endif
 
                                 @foreach($tracks as $track)
                                 <li class="my-2 d-flex align-items-center">

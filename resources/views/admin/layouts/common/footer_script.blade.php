@@ -738,3 +738,14 @@
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
  </script>
+
+<script>
+  $('document').ready(function(){
+    $('form[data-remote]').on('ajax:error', function(e, xhr, status, error) {
+    var errorMessage = xhr.responseText;
+    // popup a modal with the error message
+    $('#changePasswordModal-<?php $row->id ?>').modal('show').find('.modal-body').text(errorMessage);
+});
+  });
+  
+</script>

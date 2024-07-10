@@ -154,7 +154,7 @@ class LectureController extends Controller
         if (count($request->bookTitles)) {
              BookLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->bookTitles); $i++) {
-                if (isset($request->bookFiles[$i])) {
+                if (isset($request->bookFiles[$i]) && $request->bookFiles[$i] != null ) {
 
                     $thumbnail = $request->bookFiles[$i];
                     $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -166,6 +166,7 @@ class LectureController extends Controller
                         'lecture_id'  => $lecture->id
                     ]);
                 } else {
+                    if (isset($request->bookLinks[$i]) && $request->bookLinks[$i] != null ) 
                     BookLecture::create([
                         'title' => $request->bookTitles[$i],
                         'file' => '',

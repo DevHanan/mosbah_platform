@@ -45,7 +45,7 @@ class CertificationController extends Controller
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
         })->whereNotNull('student_id')->where('platform_certification','1')->paginate(10);
-        return view($this->view.'.index', $data);
+        return view($this->view.'.student_certification', $data);
     }
 
     public function externelStudentCertificate(Request $request)

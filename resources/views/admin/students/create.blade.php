@@ -54,9 +54,10 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="phone">{{ __('admin.students.phone_number') }} <span>*</span></label>
-                                    <input type="tel" class="form-control" name="phone" id="phone" value="{{ old('phone') }}">
+                                    <input type="tel" class="form-control" name="c" id="phone2" value="{{ old('phone') }}">
 
-                                    
+                                    <input id="phone" name="phone" required type="tel" name="phone" value="{{old('phone')}}" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
+
 
                                     @error('phone')
                                     <div class="invalid-feedback">

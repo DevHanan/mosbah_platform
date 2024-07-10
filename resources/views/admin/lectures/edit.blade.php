@@ -130,7 +130,8 @@
 
                 <div class="mb-3  @if($row->type!=2 )hidden @endif" id="appointment_div" style="padding-top: 18px;">
                   <label class="form-label" for="appointment"> {{ __('admin.lectures.appointment') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="appointment" id="appointment" value="{{ old('appointment',$row) }}">
+                  <!-- <input type="text" class="form-control" name="appointment" id="appointment" value="{{ old('appointment',$row) }}"> -->
+                  <input type="text" name="appointment" id="appointment" class="form-control"  value="{{ old('appointment',$row) }}" data-mask="00/00/0000 00:00:00" data-mask-visible="true" placeholder="00/00/0000 00:00:00" autocomplete="off">
 
                   @error('appointment')
                   <div class="invalid-feedback">

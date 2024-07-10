@@ -54,7 +54,7 @@
 
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
-                            <span class="text-white mx-4 fw-bold"> {{ $course->SubscriptionCount}} {{ $course->avgrating}}</span>
+                            <span class="text-white mx-4 fw-bold"> ( {{ $course->SubscriptionCount}} )  {{ $course->avgrating}}</span>
                             <div class="stars">
                                 <!-- <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                 <img src="{{ asset('public/front/img/Star.svg')}}" alt="">

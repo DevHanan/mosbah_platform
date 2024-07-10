@@ -132,9 +132,9 @@ class LectureController extends Controller
         $lecture = Lecture::find($request->id);
         $lecture->update($request->except(['img', 'bookFiles']));
 
-        if (count($request->imgTitle)>1) {
+        if (count($request->imgTitle)) {
              PhotoLecture::where('lecture_id',$lecture->id)->delete();
-            for ($i = 1; $i < count($request->imgTitle); $i++) {
+            for ($i = 0; $i < count($request->imgTitle); $i++) {
                 if ($request->img[$i] != null) {
 
                     $thumbnail = $request->img[$i];
@@ -151,9 +151,9 @@ class LectureController extends Controller
         }
 
 
-        if (count($request->bookTitles) >1) {
+        if (count($request->bookTitles)) {
              BookLecture::where('lecture_id',$lecture->id)->delete();
-            for ($i = 1; $i < count($request->bookTitles); $i++) {
+            for ($i = 0; $i < count($request->bookTitles); $i++) {
                 if (isset($request->bookFiles[$i])) {
 
                     $thumbnail = $request->bookFiles[$i];

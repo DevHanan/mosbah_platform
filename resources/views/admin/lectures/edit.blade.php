@@ -209,13 +209,13 @@
                     <table id="data" class=" table data-table data-table-horizontal data-table-highlight">
 
                       <tbody>
-                        <tr>
+                        <!-- <tr>
                           <td><input type="text" name="imgTitle[]" placeholder="عنوان الصورة" /></td>
                           <td><input type="file" name="img[]" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
-                        </tr>
+                        </tr> -->
                         @if($row->photos)
                         @foreach($row->photos as $photo)
                         <tr>

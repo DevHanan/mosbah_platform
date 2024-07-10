@@ -127,6 +127,7 @@ class LectureController extends Controller
 
     public function update(Request $request, $level_id)
     {
+        return $request->all();
         $free = $request->free ? '1' : '0';
         $request->merge(['free' => $free]);
         $lecture = Lecture::find($request->id);
@@ -152,7 +153,6 @@ class LectureController extends Controller
 
 
         if ($request->bookTitles &&  $request->bookTitles[0] != null) {
-            return "here";
              BookLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->bookTitles); $i++) {
                 if (isset($request->bookFiles[$i])) {

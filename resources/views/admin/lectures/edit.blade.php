@@ -295,7 +295,9 @@
 
 @endsection
 @push('scripts')
+
 <script>
+  
   document.getElementById("typeSelect").addEventListener("change", function() {
     var selectedValue = this.value;
     var option1Div = document.getElementById("appointment_div");

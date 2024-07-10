@@ -80,7 +80,7 @@
                         <div class="form-group col-md-6">
 
 
-                            <label for="logo">{{__('admin.certifications.file')}}</label>
+                            <label for="logo">{{__('admin.certifications.certification_file')}}</label>
                             <input type="file" class="form-control" name="file" id="logo">
 
                             @error('file')

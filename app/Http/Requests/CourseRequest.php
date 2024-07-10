@@ -31,7 +31,7 @@ class CourseRequest extends FormRequest
             'background_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'published_at' => 'required|date|before:start_date',
             'start_date' => 'required|date|after:published_at|before:end_date',
-            'end_date' => 'required|date|before:start_date',
+            'end_date' => 'required|date|after:start_date',
 
 
 

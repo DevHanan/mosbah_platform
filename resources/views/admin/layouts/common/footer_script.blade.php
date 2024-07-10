@@ -739,13 +739,3 @@
         });
  </script>
 
-<script>
-  $('document').ready(function(){
-    $('form[data-remote]').on('ajax:error', function(e, xhr, status, error) {
-    var errorMessage = xhr.responseText;
-    // popup a modal with the error message
-    $('#changePasswordModal-<?= $row->id ?>').modal('show').find('.modal-body').text(errorMessage);
-});
-  });
-  
-</script>

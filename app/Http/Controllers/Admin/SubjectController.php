@@ -59,7 +59,10 @@ class SubjectController extends Controller
     }
     public function store(Request $request)
     {
-        
+        $this->validate(request(), [
+            'name' => 'required',
+            'degree' => 'required',
+        ]);
         $subject = Subject::create($request->all());
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -86,6 +89,10 @@ class SubjectController extends Controller
 
     public function update(Request $request, Subject $subject)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:subjects,name,' . $request->id,
+            'degree' => 'required',
+        ]);
         $subject = Subject::find($request->id);
         $subject->update($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

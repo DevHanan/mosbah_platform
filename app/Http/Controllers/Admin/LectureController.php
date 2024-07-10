@@ -152,6 +152,7 @@ class LectureController extends Controller
 
 
         if ($request->bookTitles &&  $request->bookTitles[0] != null) {
+            return "here";
              BookLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->bookTitles); $i++) {
                 if (isset($request->bookFiles[$i])) {

@@ -127,13 +127,12 @@ class LectureController extends Controller
 
     public function update(Request $request, $level_id)
     {
-        return $request->all();
         $free = $request->free ? '1' : '0';
         $request->merge(['free' => $free]);
         $lecture = Lecture::find($request->id);
         $lecture->update($request->except(['img', 'bookFiles']));
 
-        if (count($request->imgTitle) && $request->imgTitle[0] != null) {
+        if (count($request->imgTitle)>1) {
              PhotoLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->imgTitle); $i++) {
                 if ($request->img[$i] != null) {
@@ -152,7 +151,7 @@ class LectureController extends Controller
         }
 
 
-        if ($request->bookTitles &&  $request->bookTitles[0] != null) {
+        if (count($request->bookTitles) >1) {
              BookLecture::where('lecture_id',$lecture->id)->delete();
             for ($i = 0; $i < count($request->bookTitles); $i++) {
                 if (isset($request->bookFiles[$i])) {

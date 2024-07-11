@@ -170,7 +170,7 @@
                                             <div class="d-flex justify-content-between flex-wrap mb-2">
                                                 <p> {{ $level->name }} </p>
                                                 <div class="d-flex flex-wrap">
-                                                    <p> {{ optional($level->instructor)->name  }} </p>
+                                                    <div class="parts"> {{ optional($level->instructor)->name  }} </div>
                                                     <div class="parts"> {{ $level->lectures()->count()}} محاضرات</div>
                                                     <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }} {{ __($level->periodLabel) }} </div>
                                                 </div>

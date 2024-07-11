@@ -50,7 +50,7 @@
                             <tbody>
                                 @foreach($rows as $row)
                                 <tr>
-                                    <td class="ui-state-default drag-handler" data-faq="{{$row->id}}">{{$row->id}}</td>
+                                    <td class="ui-state-default drag-handler" data-faq="{{$row->id}}">{{$loop->iteration}}</td>
                                     <td>{{$row->name}}</td>
                                     <td> {{ $row->questions()->count()}}</td>
                                     <td>{{ optional($row->course)->name }}</td>

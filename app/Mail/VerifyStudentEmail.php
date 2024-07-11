@@ -6,6 +6,7 @@ use App\Models\Instructor;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Student;
 
 class VerifyStudentEmail extends Mailable
 {
@@ -13,9 +14,9 @@ class VerifyStudentEmail extends Mailable
 
     public $user;
 
-    public function __construct(Instructor $instructor)
+    public function __construct(Student $student)
     {
-        $this->user = $instructor;
+        $this->user = $student;
     }
 
     public function build()

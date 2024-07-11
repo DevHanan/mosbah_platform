@@ -20,7 +20,11 @@ class BankQuestion extends Model
     public function getPictureFullPathAttribute($value)
     {
 
+        if($this->picture)
         return asset('public/' . $this->picture);
+    else
+    return asset('public/uploads/bankquestions/default.png');
+
     }
 
 

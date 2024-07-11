@@ -26,10 +26,10 @@ class QuestionsController extends Controller
         $this->view = 'admin.bankQuestions';
         $this->path = 'bankQuestions';
         $this->access = 'bankQuestions';
-        $this->middleware('permission:bankQuestions-create', ['only' => ['create','store']]);
-        $this->middleware('permission:bankQuestions-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:bankQuestions-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:bankQuestions-delete',   ['only' => ['delete']]);
+        // $this->middleware('permission:bankQuestions-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:bankQuestions-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:bankQuestions-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:bankQuestions-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request, $bank_group_id)
     {

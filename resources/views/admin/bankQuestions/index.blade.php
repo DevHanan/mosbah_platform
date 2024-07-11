@@ -83,7 +83,7 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration }}</span></td>
-                  <td>  {{Str::words({!!  $row->title !!}, 5)}}</td>
+                  <td>  {{ Str::words( $row->title, 7) }}</td>
                   <td><img src="{{ $row->pictureFullPath }}" style="width:40px"></td>
                   <td>{{ optional($row->group)->name}}</td>
                   <td>

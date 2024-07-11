@@ -25,7 +25,6 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <!-- @include('admin.quizzes.create_quiz_form') -->
 
                         </div>
                     </div>

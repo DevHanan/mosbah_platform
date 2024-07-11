@@ -96,8 +96,8 @@ class RegisterController extends Controller
     public function verifyEmail(Request  $request)
     {
 
-if(auth()->guard('students-login')->user()->active ==1  || auth()->guard('instructors-login')->user()->active == 1)
-{       
+if(auth()->guard('students-login')->user()  || auth()->guard('instructors-login')->user())
+{       if(auth()->guard('students-login')->user()->active ==1 || auth()->guard('instructors-login')->user()->active == 1 )
     return redirect('/');
     }else{
         $type = $request->input('type');

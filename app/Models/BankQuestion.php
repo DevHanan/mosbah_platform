@@ -13,7 +13,7 @@ class BankQuestion extends Model
         'answer_video_link', 'question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
     ];
 
-    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath'];
+    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath','cutomTitle'];
 
 
   
@@ -21,6 +21,13 @@ class BankQuestion extends Model
     {
 
         return asset('public/' . $this->picture);
+    }
+
+
+    public function getCustomTitleAttribute($value)
+    {
+
+        return {!!  $thus->title !!};
     }
 
     public function getQuestionFullPathAttribute($value)

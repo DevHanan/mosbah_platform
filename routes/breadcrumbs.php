@@ -373,7 +373,7 @@ Breadcrumbs::for('update-bankquestions', function (BreadcrumbTrail $trail,$bankg
 
 Breadcrumbs::for('show-bankquestions', function (BreadcrumbTrail $trail,$bankgroup,$row) {
     $trail->parent('bankquestions',$bankgroup);
-    $trail->push($row->title, route('admin.bankquestions.show', $row));
+    $trail->push($row->customTitle, route('admin.bankquestions.show', $row));
 });
 
 

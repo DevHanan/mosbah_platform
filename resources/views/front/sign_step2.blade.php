@@ -65,7 +65,7 @@
                     <label for="" class="mb-3">المسارات التي تهتم بها (مع الطالب والمنظمة)</label>
                     <div class="multiselect w-100">
 
-                        <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
+                        <label class="form-label" for="track_id"> المسارات المفضلة <span>*</span></label>
                         <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
                             <option value="">{{ __('select') }}</option>
                             @foreach($tracks as $track)
@@ -77,7 +77,7 @@
 
 
                     <div class="mb-3">
-                        <label class="form-label" for="about">{{ __('admin.instructors.about') }} <span>*</span></label>
+                        <label class="form-label" for="about">الدرجه العلمية <span>*</span></label>
                         <select class="select2 form-control" name="about" id="about" required>
                             <option value="">{{ __('select') }}</option>
                             <option value="0">{{ __('admin.instructors.student') }}</option>

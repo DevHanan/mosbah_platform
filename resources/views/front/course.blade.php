@@ -54,13 +54,9 @@
 
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
-                            <span class="text-white mx-4 fw-bold"> ({{ $course->SubscriptionCount}})  {{ $course->avgrating}}</span>
+                            <span class="text-white mx-4 fw-bold"> ({{ $course->SubscriptionCount}}) {{ $course->avgrating}}</span>
                             <div class="stars">
-                                <!-- <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
-                                <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
-                                <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
-                                <img src="{{ asset('public/front/img/Star.svg')}}" alt="">
-                                <img src="{{ asset('public/front/img/Star.svg')}}" alt=""> -->
+
 
                                 @if($course->avgrating )
                                 @for($i=0; $i<(int)$course->avgrating; $i++)
@@ -174,6 +170,7 @@
                                             <div class="d-flex justify-content-between flex-wrap mb-2">
                                                 <p> {{ $level->name }} </p>
                                                 <div class="d-flex flex-wrap">
+                                                    <p> {{ optional($level->instructor)->name  }} </p>
                                                     <div class="parts"> {{ $level->lectures()->count()}} محاضرات</div>
                                                     <div class="time mx-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $level->period }} {{ __($level->periodLabel) }} </div>
                                                 </div>

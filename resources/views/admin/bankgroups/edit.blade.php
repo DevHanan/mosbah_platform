@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            @include('admin.quizzes.create_quiz_form')
+                            <!-- @include('admin.quizzes.create_quiz_form') -->
 
                         </div>
                     </div>
@@ -37,14 +37,4 @@
 
 @endsection
 
-@push('scripts_bottom')
-    <script src="/assets/default/vendors/feather-icons/dist/feather.min.js"></script>
-    <script src="/assets/default/vendors/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="/assets/default/vendors/sortable/jquery-ui.min.js"></script>
 
-    <script>
-        var saveSuccessLang = '{{ trans('webinars.success_store') }}';
-    </script>
-
-    <script src="/assets/default/js/admin/quiz.min.js"></script>
-@endpush

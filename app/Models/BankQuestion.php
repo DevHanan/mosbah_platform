@@ -27,7 +27,7 @@ class BankQuestion extends Model
     public function getCustomTitleAttribute($value)
     {
 
-        return {!!  $thus->title !!};
+        return  strip_tags($this->title) ;
     }
 
     public function getQuestionFullPathAttribute($value)

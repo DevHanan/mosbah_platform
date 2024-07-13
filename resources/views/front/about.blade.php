@@ -3,116 +3,268 @@
 @section('content')
 @include('front.layouts.common.navbar')
 
-<section class="about">
-    <div class="hero_sec pb-5">
+<section class="about position-relative pt-5">
         <div class="container">
+            <h1 class="text-center fw-bold py-5 pb-3">من نحن</h1>
+            <div class="d-flex justify-content-center mb-4">
+                <p class="about-text text-center w-50" style="font-size: 18px;">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا .</p>
+            </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="img d-flex justify-content-center">
-                        <img src="{{ asset($aboutsetting->backgroundImageFullPath)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+                <div class="col-4">
+                    <img src="{{asset('public/front/img/aboutHeader2.png')}}" class="img-fluid h-100" data-aos="fade-left" alt="">
+                </div>
+                <div class="col-8">
+                    <img src="{{asset('public/front/img/aboutHeader1.png')}}" class="img-fluid h-100" data-aos="fade-right" alt="">
+                </div>
+            </div>
 
+
+            <div class="intro my-5">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div>
+                        <h2 class="fw-bold text-center position-relative">ماذا نقدم</h2>
+                    </div>
+                    <div class="w-50 intro-content">
+                        <p class="mx-5" style="line-height: 1.9;">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات؟لوريم ايبسوم دولار سيت أميت , </p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="info position-relative py-5">
-                        <img src="{{asset('/front/img/completed-bg.svg')}}" class="position-absolute w-100 h-100 img-fluid" alt="">
-                        <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $aboutsetting-> title}} </h4>
-                        <div class="content fw-bold text-white">
-                            {!! $aboutsetting->description !!}
+            </div>
+
+            <div class="statistics py-5">
+                <div class="row">
+                    
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><h2 class="secondary-color fw-bold" style="font-size: 45px;"> + </h2></span>
+                                <h2 class="fw-bold me-2 count" data-target="208" style="font-size: 45px;"> 0 </h2> 
+                            </div>
+                            <p class="fw-bold text-dark">مدرب حول العالم</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><h2 class="secondary-color fw-bold" style="font-size: 45px;"> + </h2></span>
+                                <h2 class="fw-bold me-2 count" data-target="100" style="font-size: 45px;"> 0 </h2> 
+                            </div>
+                            <p class="fw-bold text-dark">دورات</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><h2 class="secondary-color fw-bold" style="font-size: 45px;"> h </h2></span>
+                                <h2 class="fw-bold me-2 count" data-target="24" style="font-size: 45px;"> 0 </h2> 
+                            </div>
+                            <p class="fw-bold text-dark">فريق دعم محترف</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><h2 class="secondary-color fw-bold" style="font-size: 45px;"> k </h2></span>
+                                <h2 class="fw-bold me-2 count" data-target="100" style="font-size: 45px;"> 0 </h2> 
+                            </div>
+                            <p class="fw-bold text-dark">طالب حول العالم</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    @if($landing_setting->achievements == 1)
-    <div class="achievementSec my-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="img">
-                        <img src="{{asset('front/img/achievement.png')}}" class="img-fluid" alt="">
+
+            <div class="aim my-5">
+                <div class="row">
+                    <div class="col-md-7">
+                        <img src="{{asset('public/front/img/aim.png')}}" class="img-fluid"  data-aos="fade-left"alt="">
                     </div>
+                    <div class="col-md-5">
+                        <div class="d-flex flex-column justify-content-center h-100">
+                            <h2 class="fw-bold position-relative">مهمتنا</h2>
+                            <p class="mt-5" style="line-height: 1.9;">
+                                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب
+                            </p>
+                        </div>
+                    </div>                    
                 </div>
-                <div class="col-md-6">
-                    <div class="info">
-                        <h2 class="position-relative"> إنجازاتنا <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute" alt=""></h2>
-                        <h5 class="my-5 mb-5 ">خلال فترة قصيرة حققنا هذه الإنجازات، نحن بكم ولكم وفي خدمتكم على الدوام.</h5>
-                        <div class="row">
+                <div class="d-flex justify-content-center">
+                    <button class="btn fw-bold secondary-color mt-5 px-5 py-3">قيمنا</button>
+                </div>
+            </div>
 
-                            <div class="col-6">
-                                <div class="data mb-4 d-flex align-items-center">
-                                    <div class="img rounded p-3" style="background-color: #E9F8F3;"><img src="{{asset('/front/img/icons/GraduationCap.svg')}}" alt=""></div>
-                                    <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->course_number}}"> 0</h3>
-                                        <p class="fw-bold">دورات</p>
+            <div class="story">
+                <h2 class="fw-bold text-center py-5 pt-3">القصة والقيم الكامنة وراء شركتنا</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="p-4 mb-4 shadow-sm" style="background-color: #F9F9F9;border-radius: 24px;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="img d-flex justify-content-center align-items-center py-4 h-100" 
+                                    style="background-color: #FFB584;border-radius: 24px;">
+                                        <img src="{{asset('public/front/img/icons/story-team-work.png')}}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div class="data mb-4 d-flex align-items-center">
-                                    <div class="img rounded p-3" style="background-color: #FFFAF5;"><img src="{{asset('/front/img/icons/VideoCamera.svg')}}" alt=""></div>
-                                    <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{$aboutsetting->lecture_number}}">0</h3>
-                                        <p class="fw-bold">محاضرات</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div class="data mb-4 d-flex align-items-center">
-                                    <div class="img rounded p-3" style="background-color: #F0F7FF;"><img src="{{asset('/front/img/icons/UsersThree.svg')}}" alt=""></div>
-                                    <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->instructor_number}}">0</h3>
-                                        <p class="fw-bold">مدربين</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div class="data mb-4 d-flex align-items-center">
-                                    <div class="img rounded p-3" style="background-color: #FFEEF0;"><img src="{{asset('/front/img/icons/GraduationCap2.svg')}}" alt=""></div>
-                                    <div class="mx-3 text-center">
-                                        <h3 class="fw-bold count" data-target="{{ $aboutsetting->student_number}}"> 0</h3>
-                                        <p class="fw-bold">طلاب</p>
+                                <div class="col-9">
+                                    <div class="d-flex flex-column justify-content-center h-100">
+                                        <h4 class="fw-bold">العمل الجماعي</h4>
+                                        <p class="m-0">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="p-4 mb-4 shadow-sm" style="background-color: #F9F9F9;border-radius: 24px;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="img d-flex justify-content-center align-items-center py-4 h-100" 
+                                    style="background-color: #FFB584;border-radius: 24px;">
+                                        <img src="{{asset('public/front/img/icons/story2.png')}}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="d-flex flex-column justify-content-center h-100">
+                                        <h4 class="fw-bold">ابتداع</h4>
+                                        <p class="m-0">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="p-4 mb-4 shadow-sm" style="background-color: #F9F9F9;border-radius: 24px;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="img d-flex justify-content-center align-items-center py-4 h-100" 
+                                    style="background-color: #FFB584;border-radius: 24px;">
+                                        <img src="{{asset('public/front/img/icons/story3.png')}}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="d-flex flex-column justify-content-center h-100">
+                                        <h4 class="fw-bold">مسؤولية </h4>
+                                        <p class="m-0">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="p-4 mb-4 shadow-sm" style="background-color: #F9F9F9;border-radius: 24px;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="img d-flex justify-content-center align-items-center py-4 h-100" 
+                                    style="background-color: #FFB584;border-radius: 24px;">
+                                        <img src="{{asset('public/front/img/icons/story4.png')}}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="d-flex flex-column justify-content-center h-100">
+                                        <h4>التميز</h4>
+                                        <p class="m-0">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
-    </div>
-    @endif
-    @if($landing_setting->workteam == 1)
+       </div>
 
-    <div class="team trainers py-5">
+       <div class="trainers my-5">
         <div class="container">
-            <h2> تعرف على <span class="position-relative primary-color"> فريقنا <img src="{{asset('/front/img/text-line2.svg')}}" style="bottom: -12px;right: 0;" class="position-absolute" alt=""></span> </h2>
-            <h5 class="my-5 mb-5 "> فريق عمل يضم نخبة من المتميزين فى إدارة المحتوى التعليمى الالكتروني وتقديمه بصورة متكاملة ومتميزة.</h5>
+            <h2 class="section_title fw-bold">افضل <span class="primary-color"> مدربين لدينا</span></h2>
+            <p class="fw-bold mt-3">لدينا مدربين ذوي خبرات ومؤهلات علمية ومهارات تجعلهم اختيارك الأفضل لتبدأ رحلتك التعليمية .</p>
         </div>
+            
         <div class="card__container swiper mt-4">
             <div class="container">
 
                 <div class="card__content">
                     <div class="swiper-wrapper">
-                        @foreach($teams as $team)
-                        <article class="card__article swiper-slide shadow bg-white">
+                        <article class="card__article swiper-slide shadow">
                             <a href="#">
                                 <div class="card__image p-2">
-                                    <img src="{{ asset('public/'.$team->image)}}" alt="image" class="card__img img-fluid w-100">
-                                    <div class="card__shadow"></div>
+                                <img src="{{asset('public/front/img/team4.png')}}" alt="image" class="card__img img-fluid w-100">
+                                <div class="card__shadow"></div>
                                 </div>
                             </a>
-
+                
                             <div class="card__data p-3">
-                                <p class="card__description fw-bold text-center m-0 mb-2"> {{ $team->name }} </p>
-                                <p class="card__description text-center m-0"> {{ $team->job }} </p>
+                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
+                                <p class="card__description text-center m-0"> Photograpy Expart </p>
+                                <div class="social d-flex justify-content-center mt-4">
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                                </div>
                             </div>
                         </article>
-                        @endforeach
+
+                        <article class="card__article swiper-slide shadow">
+                            <a href="#">
+                                <div class="card__image p-2">
+                                <img src="{{asset('public/front/img/team1.png')}}" alt="image" class="card__img img-fluid w-100">
+                                <div class="card__shadow"></div>
+                                </div>
+                            </a>
+                
+                            <div class="card__data p-3">
+                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
+                                <p class="card__description text-center m-0"> Business Idea Expart </p>
+                                <div class="social d-flex justify-content-center mt-4">
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card__article swiper-slide shadow">
+                            <a href="#">
+                                <div class="card__image p-2">
+                                <img src="{{asset('public/front/img/team2.png')}}" alt="image" class="card__img img-fluid w-100">
+                                <div class="card__shadow"></div>
+                                </div>
+                            </a>
+                
+                            <div class="card__data p-3">
+                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
+                                <p class="card__description text-center m-0"> Social Media Expart </p>
+                                <div class="social d-flex justify-content-center mt-4">
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card__article swiper-slide shadow">
+                            <a href="#">
+                                <div class="card__image p-2">
+                                <img src="{{asset('public/front/img/team3.png')}}" alt="image" class="card__img img-fluid w-100">
+                                <div class="card__shadow"></div>
+                                </div>
+                            </a>
+                
+                            <div class="card__data p-3">
+                                <p class="card__description fw-bold text-center m-0 mb-2"> Jacob Jones </p>
+                                <p class="card__description text-center m-0"> UI-UX Design Expart </p>
+                                <div class="social d-flex justify-content-center mt-4">
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+                                    <a href="#" class="mx-1 d-flex justify-content-center align-items-center text-white text-decoration-none rounded-circle" style="width: 40px;height: 40px;"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -120,184 +272,66 @@
             <div class="swiper-button-next">
                 <i class="fa-solid fa-angle-right"></i>
             </div>
-
+            
             <div class="swiper-button-prev">
                 <i class="fa-solid fa-angle-left"></i>
             </div>
-
+    
             <div class="swiper-pagination"></div>
         </div>
     </div>
-    @endif
 
-    <div class="aim position-relative my-5">
-        <!-- <img src="{{asset('/front/img/aim-bg.svg')}}" class="position-absolute img-fluid" alt=""> -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="h-100 d-flex flex-column justify-content-center">
-                        <h2 class="position-relative"> {{ $aboutsetting->mission_title }}
-                            <img src="{{asset('/front/img/text-line2.svg')}}" class="position-absolute" alt="">
-                        </h2>
-                        <h5 class="my-5 mb-5 ">
-                            {!! $aboutsetting->mission_description !!}
-                        </h5>
-                        <div>
-                            <a href="{{url('signup')}}" class="btn rounded-pill secondary-bg text-white my-4">اشترك الآن مجانا وابدأ رحلتك التعليمية</a>
+        <div class="partners position-relative py-5">
+            <h2 class="text-center fw-bold"> شركاء نجاحنا </h2>
+
+            <div class="card__container swiper mt-4">
+                <div class="container">
+                    <div class="card__content">
+                        <div class="swiper-wrapper">
+                            <article class="card__article swiper-slide d-flex flex-column align-items-center p-3">
+                                <img src="{{asset('public/front/img/partners.png')}}" class="img-fluid p-2" alt="" data-toggle="tooltip" data-placement="top" title="Partner name">
+                                <!-- <div class="partner_name fw-bold mt-3">Partner name</div> -->
+                            </article>
+
+                            <article class="card__article swiper-slide d-flex flex-column align-items-center p-3">
+                                <img src="{{asset('public/front/img/partners.png')}}" class="img-fluid p-2" alt="" data-toggle="tooltip" data-placement="top" title="Partner name">
+                            </article>
+
+                            <article class="card__article swiper-slide d-flex flex-column align-items-center p-3">
+                                <img src="{{asset('public/front/img/partners.png')}}" class="img-fluid p-2" alt="" data-toggle="tooltip" data-placement="top" title="Partner name">
+                            </article>
+
+                            <article class="card__article swiper-slide d-flex flex-column align-items-center p-3">
+                                <img src="{{asset('public/front/img/partners.png')}}" class="img-fluid p-2" alt="" data-toggle="tooltip" data-placement="top" title="Partner name">
+                            </article>
+
+                            <article class="card__article swiper-slide d-flex flex-column align-items-center p-3">
+                                <img src="{{asset('public/front/img/partners.png')}}" class="img-fluid p-2" alt="" data-toggle="tooltip" data-placement="top" title="Partner name">
+                            </article>
                         </div>
-                    </div>
+                    </div>  
                 </div>
-                <div class="col-md-6">
-                    <div class="img"><img src="{{ asset( $aboutsetting->missionimageFullPath )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
+
+                <div class="swiper-button-next">
+                    <i class="fa-solid fa-angle-right"></i>
                 </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="messages py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 d-none d-md-block">
-                    <div class="img"><img src="{{asset('/front/img/messages.svg')}}" class="img-fluid" data-aos="fade-left" data-aos-duration="1000" alt=""></div>
+                
+                <div class="swiper-button-prev">
+                    <i class="fa-solid fa-angle-left"></i>
                 </div>
-                <div class="col-md-6">
-                    <div class="h-100">
-                        <h2 class="position-relative"> رسالتنا وأهدافنا <img src="{{asset('/front/img/text-line2.svg')}}" class="position-absolute" alt=""></h2>
-                        <div class="row mt-5">
-                            <div class="col-md-6">
-                                <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$aboutsetting->msg_image1)}}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$aboutsetting->msg_title1 }}</h5>
-                                    <p> {!! $aboutsetting->msg_desc1 !!}</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$aboutsetting->msg_image2) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$aboutsetting->msg_title2 }}</h5>
-                                    <p> {!! $aboutsetting->msg_desc2 !!}</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$aboutsetting->msg_image3) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$aboutsetting->msg_title3 }}</h5>
-                                    <p> {!! $aboutsetting->msg_desc3 !!}</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="data mb-5">
-                                    <img src="{{ asset('public/'.$aboutsetting->msg_image4) }}" class="img-fluid rounded mb-3 p-2" style="background-color: #E8FEFD;" alt="">
-                                    <h5> {{$aboutsetting->msg_title4 }}</h5>
-                                    <p> {!! $aboutsetting->msg_desc4 !!}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    @if($landing_setting->parteners == 1)
-
-    <div class="partners position-relative my-5">
-        <div class="container text-center mb-3">
-            <h2 class="position-relative"> شركاء نجاحنا <img src="{{asset('/front/img/text-line2.svg')}}" class="position-absolute" style="bottom: -19px;right: 50%;
-                    transform: translateX(10px);" alt=""></h2>
+        
+                <div class="swiper-pagination"></div>
+            </div>    
         </div>
 
-        <div class="card__container swiper mt-4">
-            <div class="container">
-                <div class="card__content">
-                    <div class="swiper-wrapper">
-                        @foreach($parteners as $partener)
-
-                        <article class="card__article swiper-slide d-flex flex-column align-items-center shadow p-3">
-                            <img style="height:130px;" src="{{ asset($partener->imageFullPath )}}" class="img-fluid" alt="">
-                            <div class="fw-bold mt-3">{{ $partener->name }}</div>
-                        </article>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-next">
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="swiper-button-prev">
-                <i class="fa-solid fa-angle-left"></i>
-            </div>
-
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-    @endif
-
-    @if($landing_setting->question_list == 1)
-    <div class="que mt-5 py-5 mb-3" style="background-color: #DBFFFE;">
-        <div class="container">
-            <h2 class="text-center mb-5">أسئلة متكررة؟</h2>
-            <div class="d-flex justify-content-between que_content">
-                <div class="w-100">
-                    @foreach($questions as $item)
-                    @if($loop->odd)
-                    <ul>
-                        <li>
-                            <p class="m-0">
-                                <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_right_{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_right1">
-                                    {!! $item->question !!}
-                                </a>
-                            </p>
-                            <div class="collapse" id="collapse_right_{{$item->id}}">
-                                <div class="card card-body bg-transparent border-0">
-                                    {!! $item->answer !!}
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    @endif
-                    @endforeach
-
-                </div>
-                <div class="w-100">
-                    @foreach($questions as $item)
-                    @if($loop->even)
-                    <ul>
-                        <li>
-                            <p class="m-0">
-                                <a class="collapseQue fw-bold text-decoration-none" data-bs-toggle="collapse" href="#collapse_left{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse_left1">
-                                    {!! $item->question !!}
-                                </a>
-                            </p>
-                            <div class="collapse" id="collapse_left{{$item->id}}">
-                                <div class="card card-body bg-transparent border-0">
-                                    {!! $item->answer !!}
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    @endif
-                    @endforeach
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-    @endif
-
-</section>
+    </section>
 @endsection
 
 @push('frontscript')
-<script>
-    $(document).ready(function() {
+<script src="{{asset('public/front/js/main.js')}}"></script>  
+    <script src="{{asset('public/front/js/main.js')}}"></script>  
+
+    <script>
         // counter
         const counters = document.querySelectorAll(".count");
         const speed = 700;
@@ -339,6 +373,9 @@
         };
         
         counters.forEach(startCounterIfVisible);
-    });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 @endpush

@@ -31,7 +31,7 @@
 
 
 /*=============== SWIPER JS ===============*/
-let popular_courses = new Swiper(".popular-courses .card__content", {
+let testimonials = new Swiper(".testimonials .card__content", {
   loop: true,
   spaceBetween: 30,
   grabCursor: true,
@@ -41,14 +41,14 @@ let popular_courses = new Swiper(".popular-courses .card__content", {
   },
 
   pagination: {
-    el: ".popular-courses .swiper-pagination",
+    el: ".testimonials .swiper-pagination",
     clickable: true,
     dynamicBullets: true,
   },
 
   navigation: {
-    nextEl: ".popular-courses .swiper-button-next",
-    prevEl: ".popular-courses .swiper-button-prev",
+    nextEl: ".testimonials .swiper-button-next",
+    prevEl: ".testimonials .swiper-button-prev",
   },
 
   breakpoints:{
@@ -56,11 +56,10 @@ let popular_courses = new Swiper(".popular-courses .card__content", {
       slidesPerView: 2,
     },
     968: {
-      slidesPerView: 4,
+      slidesPerView: 3,
     },
   },
 });
-
 
 /*=============== SWIPER JS ===============*/
 let trainers = new Swiper(".trainers .card__content", {
@@ -92,40 +91,6 @@ let trainers = new Swiper(".trainers .card__content", {
     },
   },
 });
-
-
-/*=============== SWIPER JS ===============*/
-let courses = new Swiper(".courses .card__content", {
-  loop: true,
-  spaceBetween: 30,
-  grabCursor: true,
-  autoplay: {
-    delay: 3000, // Adjust the delay as needed (in milliseconds)
-    disableOnInteraction: false, // Set to false to keep autoplaying even when user interacts with Swiper
-  },
-
-  pagination: {
-    el: ".courses .swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
-
-  navigation: {
-    nextEl: ".courses .swiper-button-next",
-    prevEl: ".courses .swiper-button-prev",
-  },
-
-  breakpoints:{
-    600: {
-      slidesPerView: 2,
-    },
-    968: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-
 
 /*=============== SWIPER JS ===============*/
 let students_notes = new Swiper(".students_notes .card__content", {
@@ -191,28 +156,64 @@ let partners = new Swiper(".partners .card__content", {
 
 
 /*=============== SWIPER JS ===============*/
-let questions = new Swiper(".questions .card__content", {
-  loop: false,
+let courses = new Swiper(".courses .card__content", {
+  loop: true,
   spaceBetween: 30,
   grabCursor: true,
+  autoplay: {
+    delay: 3000, // Adjust the delay as needed (in milliseconds)
+    disableOnInteraction: false, // Set to false to keep autoplaying even when user interacts with Swiper
+  },
 
   pagination: {
-    el: ".questions .swiper-pagination",
+    el: ".courses .swiper-pagination",
     clickable: true,
     dynamicBullets: true,
   },
 
   navigation: {
-    nextEl: ".questions .swiper-button-next",
-    prevEl: ".questions .swiper-button-prev",
+    nextEl: ".courses .swiper-button-next",
+    prevEl: ".courses .swiper-button-prev",
   },
 
   breakpoints:{
     600: {
-      slidesPerView: 1,
+      slidesPerView: 2,
     },
     968: {
-      slidesPerView: 1,
+      slidesPerView: 3,
+    },
+  },
+});
+
+
+/*=============== SWIPER JS ===============*/
+let popular_courses = new Swiper(".popular-courses .card__content", {
+  loop: true,
+  spaceBetween: 30,
+  grabCursor: true,
+  autoplay: {
+    delay: 3000, // Adjust the delay as needed (in milliseconds)
+    disableOnInteraction: false, // Set to false to keep autoplaying even when user interacts with Swiper
+  },
+
+  pagination: {
+    el: ".popular-courses .swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".popular-courses .swiper-button-next",
+    prevEl: ".popular-courses .swiper-button-prev",
+  },
+
+  breakpoints:{
+    600: {
+      slidesPerView: 2,
+    },
+    968: {
+      slidesPerView: 4,
     },
   },
 });
@@ -245,6 +246,33 @@ let nominated_courses = new Swiper(".nominated-courses .card__content", {
     },
     968: {
       slidesPerView: 4,
+    },
+  },
+});
+
+/*=============== SWIPER JS ===============*/
+let questions = new Swiper(".questions .card__content", {
+  loop: false,
+  spaceBetween: 30,
+  grabCursor: true,
+
+  pagination: {
+    el: ".questions .swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".questions .swiper-button-next",
+    prevEl: ".questions .swiper-button-prev",
+  },
+
+  breakpoints:{
+    600: {
+      slidesPerView: 1,
+    },
+    968: {
+      slidesPerView: 1,
     },
   },
 });

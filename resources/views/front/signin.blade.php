@@ -7,11 +7,12 @@
   {{ $title }} -
   @endif
   {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">    <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
+  <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}"> 
+  <link rel="stylesheet" href="{{ asset('public/front/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="{{asset('front/css/swiper-bundle.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/css/custom.css')}}">
-    <link rel="stylesheet" href="{{asset('front/css/media.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/front/css/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/front/css/custom.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/front/css/media.css')}}">
 </head>
 <body>
     <div class="register login">
@@ -19,13 +20,10 @@
             <div class="col-md-6 p-0 position-relative">
                 <div class="welcome d-flex flex-column align-items-center justify-content-center">
                     <div class="layout position-absolute"></div>
-                    <img src="{{asset('front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
-                    <a href="{{url('/')}}">
-                    <img src="{{asset($setting->logoFullPath)}}" style="height:120px;" class="logo img-fluid position-absolute" alt="">
-                   </a>
-                   
+                    <img src="{{ asset('public/front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
+                    <img src="{{ asset('public/front/img/logo.png')}}" class="logo img-fluid position-absolute" alt="">
                     <div class="data text-center text-white">
-                        <img src="{{asset($setting->loginImageFullPath)}}" class="img-fluid" alt="">
+                        <img src="{{ asset('public/front/img/male.svg')}}" class="img-fluid" alt="">
                         <h2>مرحبا بك  يا صديقي </h2>
                     </div>
                 </div>
@@ -33,10 +31,10 @@
             <div class="col-md-6">
                 <div class="intro container p-5">
                     <div class="text-center mb-5">
-                         ليس لديك حساب؟ <a href="{{url('signup')}}">قم بالتسجيل</a>
+                         ليس لديك حساب؟ <a href="{{ url('signup')}}">قم بالتسجيل</a>
                     </div>
                     <h1>تسجيل الدخول!</h1>
-                    <p class="mt-3 mb-5">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
+                    <p class="mt-3">لغرض التنظيم ، التفاصيل الخاصة بك مطلوبة.</p>
 
 
                     <section class="bg-white form rounded p-5">
@@ -45,20 +43,21 @@
                           <button class="phoneBtn btn w-100 rounded"> <i class="fa-solid fa-phone mx-2"></i> التليفون</button>
                         </div>
                 
-                        <form action="{{url('signin')}}" method="POST" autocomplete="off">
-                            @csrf
+                        <form action="" class="p-3">
                             <div class="email_feild">
                                 <label for="" class="mb-3">عنوان البريد الإلكتروني*</label>
-                                <input type="email" name="email" class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
+                                <input type="email" class="form-control mb-3 p-3" placeholder="أدخل عنوان البريد الإلكتروني">
                             </div>
 
                             <div class="phone_feild">
                                 <label for="" class="mb-3">التليفون*</label>
-                                <input type="text" name="phone" class="form-control mb-3 p-3" placeholder="أدخل رقم التليفون">
+                                <input type="text" class="form-control mb-3 p-3" placeholder="أدخل رقم التليفون">
                             </div>
 
-                            <label for="" class="mb-3">كلمة مرور*</label>
-                            <input type="password" name="password" class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                            <div class="password">
+                                <label for="" class="mb-3">كلمة مرور*</label>
+                                <input type="password" class="form-control mb-3 p-3" placeholder="أدخل كلمة المرور" >
+                            </div>
     
                             <div class="form-check d-flex">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -67,11 +66,10 @@
                                 </label>
                             </div>
     
-                            <button  type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل الدخول</button>
+                            <a href="../index.html" type="submit" class="btn secondary-bg fw-bold text-white w-100 my-3 py-3">تسجيل الدخول</a>
                         </form>
                         <p class="text-center">او</p>
-                        <button class="btn shadow-sm border fw-bold w-100 my-3 py-3">تسجيل الدخول عن طريق جوجل 
-                            <img src="{{asset('front/img/icons/google.png')}}" class="mx-3" alt=""></button>
+                        <button class="btn shadow-sm border fw-bold w-100 my-3 py-3">تسجيل الدخول عن طريق جوجل <img src="{{ asset('public/front/img/icons/google.png')}}" class="mx-3" alt=""></button>
                     
                 
                       </section>
@@ -101,6 +99,7 @@
             emailBtn.classList.remove('active');
             phone_feild.style.display = 'block';
             email_feild.style.display = 'none';
+            document.querySelector('.password').style.display = 'none';
           });
         });
     </script>

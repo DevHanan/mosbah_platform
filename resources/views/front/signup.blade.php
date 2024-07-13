@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  @if(isset($title))
-  {{ $title }} -
-  @endif
-  {{ $setting->title }}</title>
-  <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}"> 
-     <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
+    <title> @if(isset($title))
+        {{ $title }} -
+        @endif
+        {{ $setting->title }}
+    </title>
+    <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">
+    <link rel="stylesheet" href="{{ asset('public/front/css/bootstrap.min.css')}}"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="{{asset('front/css/swiper-bundle.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/css/custom.css')}}">
-    <link rel="stylesheet" href="{{asset('front/css/media.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/front/css/swiper-bundle.min.css')}}"> 
+    <link rel="stylesheet" href="{{ asset('public/front/css/custom.css')}}"> 
+    <link rel="stylesheet" href="{{ asset('public/front/css/media.css')}}"> 
 </head>
 <body>
     <div class="register">
@@ -20,12 +22,10 @@
             <div class="col-md-6 p-0 position-relative">
                 <div class="welcome d-flex flex-column align-items-center justify-content-center">
                     <div class="layout position-absolute"></div>
-                    <img src="{{asset('front/img/Group 327.svg')}}" class="position-absolute img-fluid h-100" alt="">
-                    <a href="{{url('/')}}">
-                    <img src="{{asset($setting->logoFullPath)}}"  style="height:120px;" class="logo img-fluid position-absolute" alt="">
-                    </a>
+                    <img src="{{ asset('public/front/img/Group 327.svg" class="position-absolute img-fluid h-100" alt="">
+                    <img src="{{ asset('public/front/img/logo.png" class="logo img-fluid position-absolute" alt="">
                     <div class="data text-center text-white">
-                        <img src="{{asset($setting->registerImageFullPath)}}" class="img-fluid" alt="">
+                        <img src="{{ asset('public/front/img/male.svg" class="img-fluid" alt="">
                         <h2>مرحبا بك  يا صديقي </h2>
                         <p class="text-white">فقط بضع نقرات ونبدأ</p>
                     </div>
@@ -34,12 +34,12 @@
             <div class="col-md-6">
                 <div class="intro container p-5">
                     <div class="text-center mb-5">
-                        هل لديك حساب بالفعل؟ <a href="{{url('signin')}}">تسجيل الدخول</a>
+                        هل لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
                     </div>
                     <h1>انضم إلينا!</h1>
                     <p class="mt-3 mb-5">لبدء هذه الرحلة، أخبرنا بنوع الحساب الذي ستفتحه.</p>
 
-                    <a href="{{url('signup/step1?type=instructor')}}" class="text-decoration-none">
+                    <a href="sign_step1.html" class="text-decoration-none">
                         <div class="info mb-5 d-flex justify-content-between align-items-center shadow-sm border p-4">
                             <div class="d-flex align-items-center">
                                 <div class="polygon d-flex justify-content-center align-items-center"><i class="fa-regular fa-user fs-lg"></i></div>
@@ -48,11 +48,11 @@
                                     <p>حساب المعلم لإدارة جميع أنشطتك.ولوحة القيادة</p>
                                 </div>
                             </div>
-                            <a href="{{url('signup/step1?type=instructor')}}" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
+                            <a href="sign_step1.html" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
                         </div>
                     </a>
 
-                    <a href="{{url('signup/step1?type=student')}}" class="text-decoration-none">
+                    <a href="sign_step1.html" class="text-decoration-none">
                         <div class="info mb-5 d-flex justify-content-between align-items-center shadow-sm border p-4">
                             <div class="d-flex align-items-center">
                                 <div class="polygon d-flex justify-content-center align-items-center"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -61,11 +61,11 @@
                                     <p>حساب شخصي لإدارة جميع أنشطتك.</p>
                                 </div>
                             </div>
-                            <a href="{{url('signup/step1?type=student')}}" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
+                            <a href="sign_step1.html" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
                         </div>
                     </a>
 
-                    <a href="{{url('signup/step1?type=org')}}" class="text-decoration-none">
+                    <a href="sign_step1.html" class="text-decoration-none">
                         <div class="info d-flex justify-content-between align-items-center shadow-sm border p-4">
                             <div class="d-flex align-items-center">
                                 <div class="polygon d-flex justify-content-center align-items-center"><i class="fa-solid fa-building-columns"></i></div>
@@ -74,7 +74,7 @@
                                     <p>حساب مؤسسة تضم مجموعة موظفين بغرض تدريبهم</p>
                                 </div>
                             </div>
-                            <a href="{{url('signup/step1?type=org')}}" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
+                            <a href="sign_step1.html" class="d-none"><i class="fa-solid fa-arrow-left-long secondary-color fa-lg"></i></a>
                         </div>
                     </a>
                 </div>
